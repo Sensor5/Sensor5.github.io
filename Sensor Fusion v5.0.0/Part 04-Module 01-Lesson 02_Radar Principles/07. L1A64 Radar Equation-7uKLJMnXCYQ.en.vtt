@@ -1,0 +1,31 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:04.500
+So far, we have learned enough to calculate the maximum range a radar can detect.
+
+00:00:04.500 --> 00:00:10.140
+Let's check that out. This equation here gives the maximum range of a radar sensor.
+
+00:00:10.140 --> 00:00:12.510
+It is depended on many factors.
+
+00:00:12.509 --> 00:00:15.615
+It is directly proportional to the transmit power,
+
+00:00:15.615 --> 00:00:17.699
+gain of the antennas,
+
+00:00:17.699 --> 00:00:19.964
+wavelength of the signal,
+
+00:00:19.964 --> 00:00:22.620
+and target radar cross section.
+
+00:00:22.620 --> 00:00:27.660
+The maximum range reduces if the minimum detected signal at the receiver increases.
+
+00:00:27.660 --> 00:00:33.100
+Now, I will leave it to you to calculate the max range in the next exercise.
+

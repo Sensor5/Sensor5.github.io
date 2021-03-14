@@ -1,0 +1,25 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:02.720 --> 00:00:06.195
+In general, a fast Fourier transform is used to
+
+00:00:06.195 --> 00:00:10.095
+convert a time-domain signal into frequency domain signal.
+
+00:00:10.095 --> 00:00:13.380
+We use so-called fast Fourier transform
+
+00:00:13.380 --> 00:00:17.774
+to get the frequency values out of the radar signals.
+
+00:00:17.774 --> 00:00:23.669
+Specifically, we actually get a frequency spectrum.
+
+00:00:23.670 --> 00:00:27.615
+We identify the peak and that peak is related
+
+00:00:27.614 --> 00:00:32.469
+to the reflected signals from other objects.
+

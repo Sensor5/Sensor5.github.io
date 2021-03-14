@@ -1,0 +1,64 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:04.245
+So now I assume you have a good understanding of radio waves and its properties.
+
+00:00:04.245 --> 00:00:05.820
+School physics, right?
+
+00:00:05.820 --> 00:00:09.885
+Okay. So next we look into the hardware implementation of the radar system.
+
+00:00:09.884 --> 00:00:11.849
+Since W or frequency modulated
+
+00:00:11.849 --> 00:00:17.114
+continuous wave radar is the most commonly used radar for automotive applications.
+
+00:00:17.114 --> 00:00:21.179
+Its ability to measure range and velocity simultaneously,
+
+00:00:21.179 --> 00:00:27.539
+it's low cost, and simple hardware implementation make it a first choice radar.
+
+00:00:27.539 --> 00:00:31.304
+Let's have a look what exactly is FMCW radar.
+
+00:00:31.304 --> 00:00:34.950
+Here's an important part, the saw-tooth signal.
+
+00:00:34.950 --> 00:00:37.804
+FMCW is a continuously transmitting signal
+
+00:00:37.804 --> 00:00:40.625
+in which the frequency changes linearly with time.
+
+00:00:40.625 --> 00:00:45.259
+Each time that you see in the plot is called FMCW chirp.
+
+00:00:45.259 --> 00:00:50.089
+These chirps are defined by their bandwidth and chirp time or sweep time.
+
+00:00:50.090 --> 00:00:52.910
+If we divide the bandwidth by chirp time,
+
+00:00:52.909 --> 00:00:55.359
+you get the slope of the linear signal.
+
+00:00:55.359 --> 00:00:58.755
+Red chirp is the transmitted signal,
+
+00:00:58.755 --> 00:01:00.850
+blue is the received signal,
+
+00:01:00.850 --> 00:01:04.445
+which is nothing but the time delayed version of the transmitted signal.
+
+00:01:04.444 --> 00:01:08.179
+Further in the course, you will learn how this small shift in the signal will
+
+00:01:08.180 --> 00:01:12.900
+determine the range and velocity of the target. So hold tight.
+

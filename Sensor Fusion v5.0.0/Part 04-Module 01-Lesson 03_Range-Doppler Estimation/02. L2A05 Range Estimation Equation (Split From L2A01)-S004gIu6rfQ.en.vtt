@@ -1,0 +1,115 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:04.349
+Okay. Time to do some calculations to estimate the range of the targets.
+
+00:00:04.349 --> 00:00:10.410
+In this image, the white car is an ego car which has radar mounted on its grill.
+
+00:00:10.410 --> 00:00:13.679
+The radar transmits the signal and receives
+
+00:00:13.679 --> 00:00:16.890
+it back after the reflection from the orange car.
+
+00:00:16.890 --> 00:00:20.910
+How does the radar calculate the range of the orange car? Let's see.
+
+00:00:20.910 --> 00:00:23.954
+We know the electromagnetic wave travels at the speed of light.
+
+00:00:23.954 --> 00:00:26.789
+So if we can determine the total trip time taken by
+
+00:00:26.789 --> 00:00:30.494
+the radar signal to hit the target and return back to the radar,
+
+00:00:30.495 --> 00:00:32.700
+then you can calculate the range.
+
+00:00:32.700 --> 00:00:36.395
+But the question is, how do we calculate the trip time?
+
+00:00:36.395 --> 00:00:39.725
+This is where FMCW comes to the rescue.
+
+00:00:39.725 --> 00:00:43.594
+FMCW radar, as learned in the earlier lesson,
+
+00:00:43.594 --> 00:00:46.324
+the frequency varies linearly with time.
+
+00:00:46.325 --> 00:00:50.120
+By design, we are aware of the slope of the signal.
+
+00:00:50.119 --> 00:00:53.719
+So if we can calculate the shift in the signal frequency,
+
+00:00:53.719 --> 00:00:57.829
+which is here you can see in the image as given by the beat frequency,
+
+00:00:57.829 --> 00:00:59.899
+then we can estimate the shift in time,
+
+00:00:59.899 --> 00:01:02.104
+which gives our trip time.
+
+00:01:02.104 --> 00:01:05.164
+Let's look at it from the system's perspective.
+
+00:01:05.165 --> 00:01:11.150
+The synthesizer generates FMCW chip for a given bandwidth and chip time.
+
+00:01:11.150 --> 00:01:15.320
+Let's say the signal gets transmitted at 77 gigahertz.
+
+00:01:15.319 --> 00:01:18.109
+It goes on, hits the target,
+
+00:01:18.109 --> 00:01:21.545
+and gets reflected back towards the receiver antenna.
+
+00:01:21.545 --> 00:01:24.805
+The frequency doesn't change during the process.
+
+00:01:24.805 --> 00:01:29.840
+The frequency here goes into a mixer where it gets
+
+00:01:29.840 --> 00:01:35.390
+subtracted from the mixer frequency and we get a beat signal.
+
+00:01:35.390 --> 00:01:38.379
+Point to note. If the target is stationary,
+
+00:01:38.379 --> 00:01:41.344
+there is no change in the transmitted and received frequency.
+
+00:01:41.344 --> 00:01:46.909
+The only shift happens at the synthesizer as it continues to ramp linearly with time.
+
+00:01:46.909 --> 00:01:51.679
+This is how the beat frequency signal appears for the different targets.
+
+00:01:51.680 --> 00:01:54.980
+Higher the beat frequency of the peak associated with the target,
+
+00:01:54.980 --> 00:01:57.170
+more is the distance.
+
+00:01:57.170 --> 00:01:59.090
+Also as you can see,
+
+00:01:59.090 --> 00:02:02.344
+the power of the signal is larger for the biggest sized targets.
+
+00:02:02.344 --> 00:02:05.965
+So we can see there is a pedestrian close to the radar,
+
+00:02:05.965 --> 00:02:08.780
+and then there's a truck close to it.
+
+00:02:08.780 --> 00:02:14.099
+But the power level of the truck is higher because of its larger cross-sectional area.
+

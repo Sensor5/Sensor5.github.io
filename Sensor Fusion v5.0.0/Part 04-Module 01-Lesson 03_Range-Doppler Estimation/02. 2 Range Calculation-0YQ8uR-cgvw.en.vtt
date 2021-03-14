@@ -1,0 +1,76 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:01.770
+Okay. So here's the solution.
+
+00:00:01.770 --> 00:00:04.410
+Here, we are trying to measure the range of the four targets,
+
+00:00:04.410 --> 00:00:06.495
+which has the following frequency shifts.
+
+00:00:06.495 --> 00:00:07.903
+We have zero megahertz,
+
+00:00:07.903 --> 00:00:11.654
+1.1 megahertz, 13 megahertz and 24 megahertz.
+
+00:00:11.654 --> 00:00:16.875
+We are also given that the maximum range a radar can detect is 300 meters,
+
+00:00:16.875 --> 00:00:20.684
+and the range resolution required is one meter.
+
+00:00:20.684 --> 00:00:25.304
+So using these values, we can determine the slope of the FMCW chirp.
+
+00:00:25.304 --> 00:00:27.314
+To determine the bandwidth,
+
+00:00:27.315 --> 00:00:30.375
+all we need to know is the range resolution.
+
+00:00:30.375 --> 00:00:33.825
+So once you plug in the range resolution value,
+
+00:00:33.825 --> 00:00:36.270
+we can determine the Bsweep.
+
+00:00:36.270 --> 00:00:42.075
+Similarly, as we also know that the maximum range the radar can detect is 300 meters,
+
+00:00:42.075 --> 00:00:45.320
+we can determine the time of each chirp,
+
+00:00:45.320 --> 00:00:51.244
+which is generally defined by multiplier of 5.5 years along with the total trip time.
+
+00:00:51.244 --> 00:00:55.849
+Once you plug in all these values along with the beat frequency,
+
+00:00:55.850 --> 00:00:59.734
+we can determine the range for every target.
+
+00:00:59.734 --> 00:01:07.569
+When running the code, here you get the range for each and every target.
+
+00:01:07.569 --> 00:01:10.309
+Since in the case of first target,
+
+00:01:10.310 --> 00:01:13.323
+the beat frequency was zero megahertz,
+
+00:01:13.323 --> 00:01:17.870
+we see that the target is almost right in front of the radar.
+
+00:01:17.870 --> 00:01:21.140
+The second target is at 12.1 meters away,
+
+00:01:21.140 --> 00:01:24.739
+whereas the third is at 143, and at last,
+
+00:01:24.739 --> 00:01:29.189
+the last target is 264 meters away from the car.
+

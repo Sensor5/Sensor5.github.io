@@ -1,0 +1,507 @@
+<!-- udacimak v1.4.4 -->
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <meta content="ie=edge" http-equiv="X-UA-Compatible"/>
+  <title>
+   The 2D FFT
+  </title>
+  <link href="../assets/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="../assets/css/plyr.css" rel="stylesheet"/>
+  <link href="../assets/css/katex.min.css" rel="stylesheet"/>
+  <link href="../assets/css/jquery.mCustomScrollbar.min.css" rel="stylesheet"/>
+  <link href="../assets/css/styles.css" rel="stylesheet"/>
+  <link href="../assets/img/udacimak.png" rel="shortcut icon" type="image/png">
+  </link>
+ </head>
+ <body>
+  <div class="wrapper">
+   <nav id="sidebar">
+    <div class="sidebar-header">
+     <h3>
+      Range-Doppler Estimation
+     </h3>
+    </div>
+    <ul class="sidebar-list list-unstyled CTAs">
+     <li>
+      <a class="article" href="../index.html">
+       Back to Home
+      </a>
+     </li>
+    </ul>
+    <ul class="sidebar-list list-unstyled components">
+     <li class="">
+      <a href="01. Range, Velocity, and Angle Resolution.html">
+       01. Range, Velocity, and Angle Resolution
+      </a>
+     </li>
+     <li class="">
+      <a href="02. Range Estimation.html">
+       02. Range Estimation
+      </a>
+     </li>
+     <li class="">
+      <a href="03. Doppler Estimation.html">
+       03. Doppler Estimation
+      </a>
+     </li>
+     <li class="">
+      <a href="04. Fast Fourier Transform (FFT).html">
+       04. Fast Fourier Transform (FFT)
+      </a>
+     </li>
+     <li class="">
+      <a href="05. The 2D FFT.html">
+       05. The 2D FFT
+      </a>
+     </li>
+     <li class="">
+      <a href="06. What Kind of Math Do Radar Engineers Use.html">
+       06. What Kind of Math Do Radar Engineers Use?
+      </a>
+     </li>
+    </ul>
+    <ul class="sidebar-list list-unstyled CTAs">
+     <li>
+      <a class="article" href="../index.html">
+       Back to Home
+      </a>
+     </li>
+    </ul>
+   </nav>
+   <div id="content">
+    <header class="container-fluild header">
+     <div class="container">
+      <div class="row">
+       <div class="col-12">
+        <div class="align-items-middle">
+         <button class="btn btn-toggle-sidebar" id="sidebarCollapse" type="button">
+          <div>
+          </div>
+          <div>
+          </div>
+          <div>
+          </div>
+         </button>
+         <h1 style="display: inline-block">
+          05. The 2D FFT
+         </h1>
+        </div>
+       </div>
+      </div>
+     </div>
+    </header>
+    <main class="container">
+     <div class="row">
+      <div class="col-12">
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h1 id="the-2d-fft">
+          The 2D FFT
+         </h1>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+         <p>
+          L2A45 2D FFT
+         </p>
+        </h3>
+        <video controls="">
+         <source src="05. L2A45 2D FFT-HHk1td_ZTXY.mp4" type="video/mp4"/>
+         <track default="true" kind="subtitles" label="en" src="05. L2A45 2D FFT-HHk1td_ZTXY.en.vtt" srclang="en"/>
+        </video>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+         <p>
+          2D FFT
+         </p>
+        </h3>
+        <div>
+         <p>
+          Once the range bins are determined by running range FFT across all the chirps, a second FFT is implemented along the second dimension to determine the doppler frequency shift. As discussed, the doppler is estimated by processing the rate of change of phase across multiple chirps. Hence, the doppler FFT is implemented after all the chirps in the segment are sent and range FFTs are run on them.
+         </p>
+         <p>
+          The output of the first FFT gives the beat frequency, amplitude, and phase for each target. This phase varies as we move from one chirp to another (one bin to another on each row)  due to the target’s small displacements. Once the second FFT is implemented it determines the rate of change of phase, which is nothing but the doppler frequency shift.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="After running 2nd FFT across the rows of FFT block we get the doppler FFT. The complete implementation is called 2D FFT. 
+
+After 2D FFT each bin in every column of  block represents increasing range value and each bin in the row corresponds to a velocity value. " class="img img-fluid" src="img/image23.png"/>
+          <figcaption class="figure-caption">
+           <p>
+            After running 2nd FFT across the rows of FFT block we get the doppler FFT. The complete implementation is called 2D FFT.
+           </p>
+           <p>
+            After 2D FFT each bin in every column of  block represents increasing range value and each bin in the row corresponds to a velocity value.
+           </p>
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <p>
+          The output of Range Doppler response represents an image with Range on one axis and Doppler on the other. This image is called as Range Doppler Map (RDM). These maps are often used as user interface to understand the perception of the targets.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="" class="img img-fluid" src="img/image11.png"/>
+          <figcaption class="figure-caption">
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+         <p>
+          2D FFT Output
+         </p>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="2D FFT output for single target. The x-axis here is the velocity and the y-axis is the range. " class="img img-fluid" src="img/image6.png"/>
+          <figcaption class="figure-caption">
+           <p>
+            2D FFT output for single target. The x-axis here is the velocity and the y-axis is the range.
+           </p>
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="Range Doppler Map
+
+
+source : rohde-schwarz" class="img img-fluid" src="img/image14.png"/>
+          <figcaption class="figure-caption">
+           <p>
+            Range Doppler Map
+           </p>
+           <p>
+            source : rohde-schwarz
+           </p>
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h2 id="2d-fft-exercise">
+          2D FFT Exercise
+         </h2>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h2 id="2d-fft-in-matlab">
+          2D FFT In MATLAB
+         </h2>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+         <p>
+          Steps to implement 2D FFT
+         </p>
+        </h3>
+        <div>
+         <p>
+          The following steps can be used to compute a 2D FFT in MATLAB:
+         </p>
+         <ol>
+          <li>
+           Take a 2D signal matrix
+          </li>
+          <li>
+           In the case of Radar signal processing. Convert the signal in MxN matrix, where M is the size of Range FFT samples and N is the size of Doppler FFT samples:
+          </li>
+         </ol>
+         <pre><code class="matlab language-matlab">signal  = reshape(signal, [M, N]);</code></pre>
+         <ol start="3">
+          <li>
+           Run the 2D FFT across both the dimensions.
+          </li>
+         </ol>
+         <pre><code class="matlab language-matlab">signal_fft = fft2(signal, M, N);</code></pre>
+         <p>
+          Note the following from the
+          <a href="https://www.mathworks.com/help/matlab/ref/fft2.html" rel="noopener noreferrer" target="_blank">
+           documentation
+          </a>
+          :
+         </p>
+         <blockquote>
+          <p>
+           <code>
+            Y = fft2(X)
+           </code>
+           returns the 2D FFT of a matrix using a fast Fourier transform algorithm, which is equivalent to computing
+           <code>
+            fft(fft(X).').'
+           </code>
+           . If
+           <code>
+            X
+           </code>
+           is a multidimensional array, then fft2 takes the 2-D transform of each dimension higher than 2. The output
+           <code>
+            Y
+           </code>
+           is the same size as
+           <code>
+            X
+           </code>
+           .
+           <code>
+            Y = fft2(X,M,N)
+           </code>
+           truncates
+           <code>
+            X
+           </code>
+           or pads
+           <code>
+            X
+           </code>
+           with trailing zeros to form an m-by-n matrix before computing the transform.
+           <code>
+            Y
+           </code>
+           is m-by-n. If
+           <code>
+            X
+           </code>
+           is a multidimensional array, then fft2 shapes the first two dimensions of
+           <code>
+            X
+           </code>
+           according to m and n.
+          </p>
+         </blockquote>
+         <ol start="4">
+          <li>
+           Shift zero-frequency terms to the center of the array
+          </li>
+         </ol>
+         <pre><code class="matlab language-matlab">signal_fft = fftshift(signal_fft);</code></pre>
+         <ol start="6">
+          <li>
+           Take the absolute value
+          </li>
+         </ol>
+         <pre><code class="matlab language-matlab">signal_fft = abs(signal_fft);</code></pre>
+         <ol start="7">
+          <li>
+           Here since it is a 2D output, it can be plotted as an image. Hence, we use the
+           <code>
+            imagesc
+           </code>
+           function
+          </li>
+         </ol>
+         <pre><code class="matlab language-matlab">imagesc(signal_fft);</code></pre>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h2 id="2d-fft-exercise">
+          2D FFT Exercise
+         </h2>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <p>
+          In the following exercise, you will practice the 2D FFT in MATLAB using some generated data. The data generated below will have the correct shape already, so you should just need to use steps 3-6 from above. You can use the following starter code:
+         </p>
+         <pre><code class="matlab language-matlab">% 2-D Transform
+% The 2-D Fourier transform is useful for processing 2-D signals and other 2-D data such as images.
+% Create and plot 2-D data with repeated blocks.
+
+P = peaks(20);
+X = repmat(P,[5 10]);
+imagesc(X)
+
+% TODO : Compute the 2-D Fourier transform of the data.  
+% Shift the zero-frequency component to the center of the output, and 
+% plot the resulting 100-by-200 matrix, which is the same size as X.</code></pre>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+         <p>
+          2D FFT Further Research
+         </p>
+        </h3>
+        <div>
+         <p>
+          <a href="https://www.mathworks.com/help/matlab/ref/fft2.html" rel="noopener noreferrer" target="_blank">
+           Solution
+          </a>
+          to above workspace
+         </p>
+         <h2 id="further-research">
+          Further Research
+         </h2>
+         <p>
+          For more information about the 2D FFT, see these
+          <a href="http://people.ciirc.cvut.cz/~hlavac/TeachPresEn/11ImageProc/12FourierTxEn.pdf" rel="noopener noreferrer" target="_blank">
+           notes
+          </a>
+          .
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+      </div>
+      <div class="col-12">
+       <p class="text-right">
+        <a class="btn btn-outline-primary mt-4" href="06. What Kind of Math Do Radar Engineers Use.html" role="button">
+         Next Concept
+        </a>
+       </p>
+      </div>
+     </div>
+    </main>
+    <footer class="footer">
+     <div class="container">
+      <div class="row">
+       <div class="col-12">
+        <p class="text-center">
+         udacity2.0 If you need the newest courses Plase add me wechat: udacity6
+        </p>
+       </div>
+      </div>
+     </div>
+    </footer>
+   </div>
+  </div>
+  <script src="../assets/js/jquery-3.3.1.min.js">
+  </script>
+  <script src="../assets/js/plyr.polyfilled.min.js">
+  </script>
+  <script src="../assets/js/bootstrap.min.js">
+  </script>
+  <script src="../assets/js/jquery.mCustomScrollbar.concat.min.js">
+  </script>
+  <script src="../assets/js/katex.min.js">
+  </script>
+  <script>
+   // Initialize Plyr video players
+    const players = Array.from(document.querySelectorAll('video')).map(p => new Plyr(p));
+
+    // render math equations
+    let elMath = document.getElementsByClassName('mathquill');
+    for (let i = 0, len = elMath.length; i < len; i += 1) {
+      const el = elMath[i];
+
+      katex.render(el.textContent, el, {
+        throwOnError: false
+      });
+    }
+
+    // this hack will make sure Bootstrap tabs work when using Handlebars
+    if ($('#question-tabs').length && $('#user-answer-tabs').length) {
+      $("#question-tabs a.nav-link").on('click', function () {
+        $("#question-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+      $("#user-answer-tabs a.nav-link").on('click', function () {
+        $("#user-answer-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    } else {
+      $("a.nav-link").on('click', function () {
+        $(".tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    }
+
+    // side bar events
+    $(document).ready(function () {
+      $("#sidebar").mCustomScrollbar({
+        theme: "minimal"
+      });
+
+      $('#sidebarCollapse').on('click', function () {
+        $('#sidebar, #content').toggleClass('active');
+        $('.collapse.in').toggleClass('in');
+        $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+      });
+
+      // scroll to first video on page loading
+      if ($('video').length) {
+        $('html,body').animate({ scrollTop: $('div.plyr').prev().offset().top});
+      }
+
+      // auto play first video: this may not work with chrome/safari due to autoplay policy
+      if (players && players.length > 0) {
+        players[0].play();
+      }
+
+      // scroll sidebar to current concept
+      const currentInSideBar = $( "ul.sidebar-list.components li a:contains('05. The 2D FFT')" )
+      currentInSideBar.css( "text-decoration", "underline" );
+      $("#sidebar").mCustomScrollbar('scrollTo', currentInSideBar);
+    });
+  </script>
+ </body>
+</html>

@@ -1,0 +1,109 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:01.290
+So far, we have learned
+
+00:00:01.290 --> 00:00:06.299
+about one-dimensional FFT and its application in calculating the range of the target.
+
+00:00:06.299 --> 00:00:08.070
+But using the same signal,
+
+00:00:08.070 --> 00:00:10.574
+how do we determine velocity of the target?
+
+00:00:10.574 --> 00:00:13.829
+This is where 2D FFT comes into the picture.
+
+00:00:13.830 --> 00:00:17.129
+Going back to where we left the range FFT,
+
+00:00:17.129 --> 00:00:19.500
+we calculated the range by implementing
+
+00:00:19.500 --> 00:00:23.370
+the first FFT across all the samples and columns for each.
+
+00:00:23.370 --> 00:00:27.089
+Now subsequently, another FFT is implemented.
+
+00:00:27.089 --> 00:00:30.809
+This time, it is along the rows of the first FFT results.
+
+00:00:30.809 --> 00:00:33.269
+This operation measures the shift in the phase across
+
+00:00:33.270 --> 00:00:37.005
+multiple charts which in return gives the Doppler frequency shift,
+
+00:00:37.005 --> 00:00:40.475
+hence resolving the velocity of each target.
+
+00:00:40.475 --> 00:00:43.539
+As you can see after implementing the first FFT,
+
+00:00:43.539 --> 00:00:47.674
+two targets are detected as they occupy the complete range pins.
+
+00:00:47.674 --> 00:00:50.209
+On running the second FFT operation,
+
+00:00:50.210 --> 00:00:54.230
+the targets are resolved in both range and Doppler.
+
+00:00:54.229 --> 00:00:57.274
+The beauty of the two-dimensional FFT is,
+
+00:00:57.274 --> 00:01:00.739
+it directly produces an image for radar's perception.
+
+00:01:00.740 --> 00:01:02.615
+As you can see in the image,
+
+00:01:02.615 --> 00:01:05.075
+the y-axis has a range of the target.
+
+00:01:05.075 --> 00:01:09.560
+The x-axis has the Doppler velocity with zero velocity in
+
+00:01:09.560 --> 00:01:11.405
+the center such that
+
+00:01:11.405 --> 00:01:15.515
+all the stationary targets are centered in the middle of the spectrum.
+
+00:01:15.515 --> 00:01:20.210
+The targets that appear on the negative Doppler are approaching
+
+00:01:20.209 --> 00:01:25.339
+targets and the ones on the positive Doppler are the receding targets.
+
+00:01:25.340 --> 00:01:30.005
+The color intensity here reflects the strength of the return signal.
+
+00:01:30.004 --> 00:01:32.554
+Higher the color intensity could mean
+
+00:01:32.555 --> 00:01:36.620
+closer target or a target with a bigger radar cross section.
+
+00:01:36.620 --> 00:01:40.670
+Check this out. This is a rotated version of the range Doppler map.
+
+00:01:40.670 --> 00:01:42.605
+We just saw in the previous image.
+
+00:01:42.605 --> 00:01:46.775
+This video was captured while demonstrating meta-phase long-range radar.
+
+00:01:46.775 --> 00:01:49.460
+Here, we are directly capturing a road
+
+00:01:49.459 --> 00:01:53.684
+seen by running a two-dimensional FFT on the radar's received signal.
+
+00:01:53.685 --> 00:01:58.710
+Isn't it mesmerizing to see instantaneous range and velocity measurements?
+

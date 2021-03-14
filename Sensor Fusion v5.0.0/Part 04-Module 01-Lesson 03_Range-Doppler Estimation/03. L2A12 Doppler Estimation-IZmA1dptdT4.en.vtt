@@ -1,0 +1,94 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:04.500
+Time to look at an age old phenomena called Doppler effect.
+
+00:00:04.500 --> 00:00:06.570
+Looks like a familiar sight.
+
+00:00:06.570 --> 00:00:09.780
+Some of you may have even got a speeding ticket.
+
+00:00:09.779 --> 00:00:12.584
+If so, then say thanks to the Doppler effect.
+
+00:00:12.585 --> 00:00:15.825
+What is Doppler effect? Let's take a look.
+
+00:00:15.824 --> 00:00:18.050
+The capability of the radar to estimate
+
+00:00:18.050 --> 00:00:22.385
+started velocity makes it a must-have sensor for self-driving cars.
+
+00:00:22.385 --> 00:00:24.980
+The target velocity estimation helps in
+
+00:00:24.980 --> 00:00:28.519
+better awareness of approaching and receding targets.
+
+00:00:28.519 --> 00:00:32.509
+The transmitted frequency shifts lower for the receding targets.
+
+00:00:32.509 --> 00:00:34.309
+As you can see, in the image,
+
+00:00:34.310 --> 00:00:38.660
+the wavelength increases whereas the frequency shifts higher for
+
+00:00:38.659 --> 00:00:43.849
+an approaching target and you can see the wavelengths are much smaller.
+
+00:00:43.850 --> 00:00:46.880
+If you can calculate the shift in this Doppler frequency,
+
+00:00:46.880 --> 00:00:51.950
+we can determine the velocity as well as the direction of the targets movement.
+
+00:00:51.950 --> 00:00:54.155
+Using the given equation,
+
+00:00:54.155 --> 00:00:57.605
+we can determine the relative velocity of the target.
+
+00:00:57.604 --> 00:00:59.869
+Going back to the same scenario,
+
+00:00:59.869 --> 00:01:03.829
+but now with an additional impact of Doppler frequency shift,
+
+00:01:03.829 --> 00:01:06.694
+which is given here by f plus fd.
+
+00:01:06.694 --> 00:01:09.294
+Here's an interesting part.
+
+00:01:09.295 --> 00:01:11.040
+There is a moving target,
+
+00:01:11.040 --> 00:01:15.243
+the Doppler frequency will add an additional shift in the beat frequency,
+
+00:01:15.243 --> 00:01:18.694
+which in the image which is given by this shift.
+
+00:01:18.694 --> 00:01:21.649
+The beat frequency which only corresponds to the range in the case of
+
+00:01:21.650 --> 00:01:25.325
+stationary target will now have the Doppler shift as well.
+
+00:01:25.325 --> 00:01:27.740
+Although in the case of automotive radar,
+
+00:01:27.739 --> 00:01:33.169
+the Doppler shift is very small in comparison to the shift in frequency due to the range,
+
+00:01:33.170 --> 00:01:36.590
+hence the Doppler velocity is calculated by measuring
+
+00:01:36.590 --> 00:01:41.070
+the rate of change of phase across the multiple chips.
+

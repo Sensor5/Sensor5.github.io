@@ -1,0 +1,568 @@
+<!-- udacimak v1.4.4 -->
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <meta content="ie=edge" http-equiv="X-UA-Compatible"/>
+  <title>
+   FMCW Hardware and Antenna
+  </title>
+  <link href="../assets/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="../assets/css/plyr.css" rel="stylesheet"/>
+  <link href="../assets/css/katex.min.css" rel="stylesheet"/>
+  <link href="../assets/css/jquery.mCustomScrollbar.min.css" rel="stylesheet"/>
+  <link href="../assets/css/styles.css" rel="stylesheet"/>
+  <link href="../assets/img/udacimak.png" rel="shortcut icon" type="image/png">
+  </link>
+ </head>
+ <body>
+  <div class="wrapper">
+   <nav id="sidebar">
+    <div class="sidebar-header">
+     <h3>
+      Radar Principles
+     </h3>
+    </div>
+    <ul class="sidebar-list list-unstyled CTAs">
+     <li>
+      <a class="article" href="../index.html">
+       Back to Home
+      </a>
+     </li>
+    </ul>
+    <ul class="sidebar-list list-unstyled components">
+     <li class="">
+      <a href="01. Why Use Radar.html">
+       01. Why Use Radar?
+      </a>
+     </li>
+     <li class="">
+      <a href="02. The Radar Sensor.html">
+       02. The Radar Sensor
+      </a>
+     </li>
+     <li class="">
+      <a href="03. Signal Properties.html">
+       03. Signal Properties
+      </a>
+     </li>
+     <li class="">
+      <a href="04. FMCW.html">
+       04. FMCW
+      </a>
+     </li>
+     <li class="">
+      <a href="05. FMCW Hardware and Antenna.html">
+       05. FMCW Hardware and Antenna
+      </a>
+     </li>
+     <li class="">
+      <a href="06. Radar Cross Section.html">
+       06. Radar Cross Section
+      </a>
+     </li>
+     <li class="">
+      <a href="07. Radar Range Equation.html">
+       07. Radar Range Equation
+      </a>
+     </li>
+     <li class="">
+      <a href="08. What Does a Sensor Fusion Engineer Need to Know.html">
+       08. What Does a Sensor Fusion Engineer Need to Know?
+      </a>
+     </li>
+    </ul>
+    <ul class="sidebar-list list-unstyled CTAs">
+     <li>
+      <a class="article" href="../index.html">
+       Back to Home
+      </a>
+     </li>
+    </ul>
+   </nav>
+   <div id="content">
+    <header class="container-fluild header">
+     <div class="container">
+      <div class="row">
+       <div class="col-12">
+        <div class="align-items-middle">
+         <button class="btn btn-toggle-sidebar" id="sidebarCollapse" type="button">
+          <div>
+          </div>
+          <div>
+          </div>
+          <div>
+          </div>
+         </button>
+         <h1 style="display: inline-block">
+          05. FMCW Hardware and Antenna
+         </h1>
+        </div>
+       </div>
+      </div>
+     </div>
+    </header>
+    <main class="container">
+     <div class="row">
+      <div class="col-12">
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h1 id="fmcw-hardware">
+          FMCW Hardware
+         </h1>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+         <p>
+          L1A40 Antenna
+         </p>
+        </h3>
+        <video controls="">
+         <source src="05. L1A40 Antenna-4aw8Uts9fqA.mp4" type="video/mp4"/>
+         <track default="true" kind="subtitles" label="en" src="05. L1A40 Antenna-4aw8Uts9fqA.en.vtt" srclang="en"/>
+        </video>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h2 id="fmcw-hardware-overview">
+          FMCW Hardware Overview
+         </h2>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="Hardware implementation of the FMCW Radar" class="img img-fluid" src="img/image11.png"/>
+          <figcaption class="figure-caption">
+           <p>
+            Hardware implementation of the FMCW Radar
+           </p>
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <p>
+          <strong>
+           Frequency Synthesizer
+          </strong>
+          : The
+          <em>
+           frequency synthesizer
+          </em>
+          is the component that generates the frequency to bring the chirp frequency all the way to 77GHz in case of automotive radar.
+         </p>
+         <p>
+          <strong>
+           Power Amp
+          </strong>
+          : The
+          <em>
+           power amp
+          </em>
+          amplifies the signal so the signal can reach long distance. Since the signal attenuates as it radiates, it needs higher power (amplitude) to reach targets at greater distances.
+         </p>
+         <p>
+          <strong>
+           Antenna
+          </strong>
+          : The
+          <em>
+           antenna
+          </em>
+          converts the electrical energy into electromagnetic waves which radiate through the air, hit the target, and get reflected back toward the radar receiver antenna. The Antenna also increases the strength of the signal by focusing the energy in the desired direction. Additionally, the antenna pattern determines the field of view for the radar.
+         </p>
+         <p>
+          <strong>
+           Mixer
+          </strong>
+          : In FMCW radar, the
+          <em>
+           mixer
+          </em>
+          multiplies the return signal with the sweeping signal generated by the frequency synthesizer. The operation works as frequency subtraction to give the frequency delta - also known as frequency shift or Intermediate frequency (IF). IF = Synthesizer Frequency - Return Signal Frequency.
+         </p>
+         <p>
+          <strong>
+           Processor
+          </strong>
+          : The
+          <em>
+           processor
+          </em>
+          is the processing unit where all the Digital Signal processing, Detection, Tracking, Clustering, and other algorithms take place. This unit could be a microcontroller or even an FPGA.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h2 id="antenna-details">
+          Antenna Details
+         </h2>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+         <p>
+          L1A40 Antenna
+         </p>
+        </h3>
+        <video controls="">
+         <source src="05. L1A40 Antenna-4aw8Uts9fqA.mp4" type="video/mp4"/>
+         <track default="true" kind="subtitles" label="en" src="05. L1A40 Antenna-4aw8Uts9fqA.en.vtt" srclang="en"/>
+        </video>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+         <p>
+          Antenna Property
+         </p>
+        </h3>
+        <div>
+         <p>
+          As defined in the FMCW Hardware definitions, the antenna is a transducer that converts the electrical energy into electromagnetic waves. In the case of radar, these waves travel through the air and hit the target. Depending on the surface type and shape of the target, the waves get partially reflected back in the direction of the radar. The receiver antenna at the radar amplifies the received signal further and sends it to the receiver chain for further processing.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h3 id="the-antenna-pattern">
+          The Antenna Pattern
+         </h3>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+         <p>
+          Radar Antenna Pattern
+         </p>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="Radar illumination on the road scenario
+
+source : sciencedirect.com" class="img img-fluid" src="img/image24.png"/>
+          <figcaption class="figure-caption">
+           <p>
+            Radar illumination on the road scenario
+           </p>
+           <p>
+            source : sciencedirect.com
+           </p>
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+         <p>
+          Antenna Pattern
+         </p>
+        </h3>
+        <div>
+         <p>
+          The
+          <em>
+           antenna pattern
+          </em>
+          is the geometric pattern of the strengths of the relative field emitted by the antenna.
+         </p>
+         <p>
+          The
+          <em>
+           beamwidth
+          </em>
+          of the antenna determines the field of view for the radar sensor. If the requirement for the radar is to just sense the targets in its own lane then the beamwidth needs to be small enough to cover the complete lane up to desired range. If the beamwidth is wider than the lane width, it will sense the targets in the other lanes as well.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="Antenna Pattern" class="img img-fluid" src="img/image2.png"/>
+          <figcaption class="figure-caption">
+           <p>
+            Antenna Pattern
+           </p>
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+         <p>
+          Antenna Sidelobes
+         </p>
+        </h3>
+        <div>
+         <p>
+          Antenna radiation not only comprises of the main beam but the sidelobes as well. Antenna
+          <em>
+           sidelobes
+          </em>
+          are critical because they can generate false alarms and pick interference from undesired direction. As seen in the pattern, the sidelobes of the antenna point in different directions and can sense targets that are not in the main beam. To avoid sidelobe detections it is critical to suppress the sidelobe levels to more than 30dB from the peak of the main beam.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h3 id="antenna-types">
+          Antenna Types
+         </h3>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+         <p>
+          Antenna Array
+         </p>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="Patch Array Antenna \[[source](https://www.fhr.fraunhofer.de/en/businessunits/traffic/antenna-development-for-the-automotive-sector.html)]" class="img img-fluid" src="img/image14.png"/>
+          <figcaption class="figure-caption">
+           <p>
+            Patch Array Antenna [
+            <a href="https://www.fhr.fraunhofer.de/en/businessunits/traffic/antenna-development-for-the-automotive-sector.html" rel="noopener noreferrer" target="_blank">
+             source
+            </a>
+            ]
+           </p>
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <p>
+          There are many types of antenna (dipole, patch, horn) that can be used at 77GHz, but the most commonly used antenna type in automotive radar is the patch antenna . The low cost, easy fabrication, and low profile of Patch Array Antennas makes them an ideal choice for automotive radar applications.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+         <p>
+          ND313 Andrei Intv 19 What Do Radar Antennae Do
+         </p>
+        </h3>
+        <video controls="">
+         <source src="05. ND313 Andrei Intv 19 What Do Radar Antennae Do-_O0lKGan9DE.mp4" type="video/mp4"/>
+         <track default="true" kind="subtitles" label="en" src="05. ND313 Andrei Intv 19 What Do Radar Antennae Do-_O0lKGan9DE.en.vtt" srclang="en"/>
+        </video>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h3 id="antenna-quiz">
+          Antenna Quiz
+         </h3>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <form>
+          <fieldset>
+           <legend>
+            <p>
+             Which of the following are true for a Radar Antenna?
+            </p>
+           </legend>
+          </fieldset>
+          <div>
+           <input id="a1556747784640" name="846433" type="checkbox" value="a1556747784640"/>
+           <label for="a1556747784640">
+            <p>
+             Stronger Side Lobes help to avoid interference.
+            </p>
+           </label>
+          </div>
+          <div>
+           <input id="a1556747822993" name="846433" type="checkbox" value="a1556747822993"/>
+           <label for="a1556747822993">
+            <p>
+             A stronger main beam (peak output power) is used for Long Range Radar (LRR).
+            </p>
+           </label>
+          </div>
+          <div>
+           <input id="a1556747838602" name="846433" type="checkbox" value="a1556747838602"/>
+           <label for="a1556747838602">
+            <p>
+             A narrow Beamwidth is used for covering fewer lanes.
+            </p>
+           </label>
+          </div>
+         </form>
+         <details>
+          <summary>
+           <strong>
+            SOLUTION:
+           </strong>
+          </summary>
+          <ul>
+           <li>
+            A stronger main beam (peak output power) is used for Long Range Radar (LRR).
+           </li>
+           <li>
+            A narrow Beamwidth is used for covering fewer lanes.
+           </li>
+          </ul>
+         </details>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+      </div>
+      <div class="col-12">
+       <p class="text-right">
+        <a class="btn btn-outline-primary mt-4" href="06. Radar Cross Section.html" role="button">
+         Next Concept
+        </a>
+       </p>
+      </div>
+     </div>
+    </main>
+    <footer class="footer">
+     <div class="container">
+      <div class="row">
+       <div class="col-12">
+        <p class="text-center">
+         udacity2.0 If you need the newest courses Plase add me wechat: udacity6
+        </p>
+       </div>
+      </div>
+     </div>
+    </footer>
+   </div>
+  </div>
+  <script src="../assets/js/jquery-3.3.1.min.js">
+  </script>
+  <script src="../assets/js/plyr.polyfilled.min.js">
+  </script>
+  <script src="../assets/js/bootstrap.min.js">
+  </script>
+  <script src="../assets/js/jquery.mCustomScrollbar.concat.min.js">
+  </script>
+  <script src="../assets/js/katex.min.js">
+  </script>
+  <script>
+   // Initialize Plyr video players
+    const players = Array.from(document.querySelectorAll('video')).map(p => new Plyr(p));
+
+    // render math equations
+    let elMath = document.getElementsByClassName('mathquill');
+    for (let i = 0, len = elMath.length; i < len; i += 1) {
+      const el = elMath[i];
+
+      katex.render(el.textContent, el, {
+        throwOnError: false
+      });
+    }
+
+    // this hack will make sure Bootstrap tabs work when using Handlebars
+    if ($('#question-tabs').length && $('#user-answer-tabs').length) {
+      $("#question-tabs a.nav-link").on('click', function () {
+        $("#question-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+      $("#user-answer-tabs a.nav-link").on('click', function () {
+        $("#user-answer-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    } else {
+      $("a.nav-link").on('click', function () {
+        $(".tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    }
+
+    // side bar events
+    $(document).ready(function () {
+      $("#sidebar").mCustomScrollbar({
+        theme: "minimal"
+      });
+
+      $('#sidebarCollapse').on('click', function () {
+        $('#sidebar, #content').toggleClass('active');
+        $('.collapse.in').toggleClass('in');
+        $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+      });
+
+      // scroll to first video on page loading
+      if ($('video').length) {
+        $('html,body').animate({ scrollTop: $('div.plyr').prev().offset().top});
+      }
+
+      // auto play first video: this may not work with chrome/safari due to autoplay policy
+      if (players && players.length > 0) {
+        players[0].play();
+      }
+
+      // scroll sidebar to current concept
+      const currentInSideBar = $( "ul.sidebar-list.components li a:contains('05. FMCW Hardware and Antenna')" )
+      currentInSideBar.css( "text-decoration", "underline" );
+      $("#sidebar").mCustomScrollbar('scrollTo', currentInSideBar);
+    });
+  </script>
+ </body>
+</html>

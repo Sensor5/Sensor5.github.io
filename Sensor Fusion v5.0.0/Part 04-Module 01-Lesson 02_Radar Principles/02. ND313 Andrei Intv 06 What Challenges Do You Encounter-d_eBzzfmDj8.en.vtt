@@ -1,0 +1,31 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:02.629 --> 00:00:07.799
+Some of the limitations of the radars is that they are not
+
+00:00:07.799 --> 00:00:12.509
+able to precisely provide the object shapes,
+
+00:00:12.509 --> 00:00:15.990
+and also we can say that the radars are
+
+00:00:15.990 --> 00:00:22.240
+not suitable for classification tasks as in the case of cameras.
+
+00:00:24.379 --> 00:00:33.570
+Well, the lidars are known by the fact that they can provide a more accurate position,
+
+00:00:33.570 --> 00:00:37.289
+information and shape information,
+
+00:00:37.289 --> 00:00:42.570
+while the radars are used to get the motion information,
+
+00:00:42.570 --> 00:00:48.365
+and by combining the measurements provided by both of these sensors,
+
+00:00:48.365 --> 00:00:55.300
+would lead to a more robust and more complete object representations.
+

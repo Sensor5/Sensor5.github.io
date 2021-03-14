@@ -1,0 +1,476 @@
+<!-- udacimak v1.4.4 -->
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <meta content="ie=edge" http-equiv="X-UA-Compatible"/>
+  <title>
+   Range Estimation
+  </title>
+  <link href="../assets/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="../assets/css/plyr.css" rel="stylesheet"/>
+  <link href="../assets/css/katex.min.css" rel="stylesheet"/>
+  <link href="../assets/css/jquery.mCustomScrollbar.min.css" rel="stylesheet"/>
+  <link href="../assets/css/styles.css" rel="stylesheet"/>
+  <link href="../assets/img/udacimak.png" rel="shortcut icon" type="image/png">
+  </link>
+ </head>
+ <body>
+  <div class="wrapper">
+   <nav id="sidebar">
+    <div class="sidebar-header">
+     <h3>
+      Range-Doppler Estimation
+     </h3>
+    </div>
+    <ul class="sidebar-list list-unstyled CTAs">
+     <li>
+      <a class="article" href="../index.html">
+       Back to Home
+      </a>
+     </li>
+    </ul>
+    <ul class="sidebar-list list-unstyled components">
+     <li class="">
+      <a href="01. Range, Velocity, and Angle Resolution.html">
+       01. Range, Velocity, and Angle Resolution
+      </a>
+     </li>
+     <li class="">
+      <a href="02. Range Estimation.html">
+       02. Range Estimation
+      </a>
+     </li>
+     <li class="">
+      <a href="03. Doppler Estimation.html">
+       03. Doppler Estimation
+      </a>
+     </li>
+     <li class="">
+      <a href="04. Fast Fourier Transform (FFT).html">
+       04. Fast Fourier Transform (FFT)
+      </a>
+     </li>
+     <li class="">
+      <a href="05. The 2D FFT.html">
+       05. The 2D FFT
+      </a>
+     </li>
+     <li class="">
+      <a href="06. What Kind of Math Do Radar Engineers Use.html">
+       06. What Kind of Math Do Radar Engineers Use?
+      </a>
+     </li>
+    </ul>
+    <ul class="sidebar-list list-unstyled CTAs">
+     <li>
+      <a class="article" href="../index.html">
+       Back to Home
+      </a>
+     </li>
+    </ul>
+   </nav>
+   <div id="content">
+    <header class="container-fluild header">
+     <div class="container">
+      <div class="row">
+       <div class="col-12">
+        <div class="align-items-middle">
+         <button class="btn btn-toggle-sidebar" id="sidebarCollapse" type="button">
+          <div>
+          </div>
+          <div>
+          </div>
+          <div>
+          </div>
+         </button>
+         <h1 style="display: inline-block">
+          02. Range Estimation
+         </h1>
+        </div>
+       </div>
+      </div>
+     </div>
+    </header>
+    <main class="container">
+     <div class="row">
+      <div class="col-12">
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h1 id="range-estimation">
+          Range Estimation
+         </h1>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+         <p>
+          L2A05 Range Estimation Equation (Split From L2A01)
+         </p>
+        </h3>
+        <video controls="">
+         <source src="02. L2A05 Range Estimation Equation (Split From L2A01)-S004gIu6rfQ.mp4" type="video/mp4"/>
+         <track default="true" kind="subtitles" label="en" src="02. L2A05 Range Estimation Equation (Split From L2A01)-S004gIu6rfQ.en.vtt" srclang="en"/>
+        </video>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h2 id="range-estimation-overview">
+          Range Estimation Overview
+         </h2>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+         <p>
+          Range Estimation
+         </p>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="Signal trip time for a radar signal." class="img img-fluid" src="img/image5.png"/>
+          <figcaption class="figure-caption">
+           <p>
+            Signal trip time for a radar signal.
+           </p>
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+         <p>
+          Range Estimation Equation
+         </p>
+        </h3>
+        <div>
+         <p>
+          Radar determines the range of the target by measuring the trip time of the electromagnetic signal it radiates. It is known that EM wave travels at a known speed (300,000,000 m/s), so to determine the range the radar needs to calculate the trip time. How?
+         </p>
+         <p>
+          Answer : By measuring the shift in the frequency.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h2 id="range-estimation-equation">
+          Range Estimation Equation
+         </h2>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+         <p>
+          Range Estimation using FMCW
+         </p>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="Range Estimation using FMCW
+
+source : Delft University of Technology" class="img img-fluid" src="img/image3.png"/>
+          <figcaption class="figure-caption">
+           <p>
+            Range Estimation using FMCW
+           </p>
+           <p>
+            source : Delft University of Technology
+           </p>
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+         <p>
+          Range Estimation using FMCW
+         </p>
+        </h3>
+        <div>
+         <p>
+          The FMCW waveform has the characteristic that the frequency varies linearly with time. If radar can determine the delta between the received frequency and hardware’s continuously ramping frequency then it can calculate the trip time and hence the range. We further divide Range estimate by 2, since the frequency delta corresponds to two way trip.
+         </p>
+         <p>
+          It is important to understand that if a target is stationary then a transmitted frequency and received frequency are the same. But, the ramping frequency within the hardware is continuously changing with time. So, when we take the delta (beat frequency) between the received and ramping frequency we get the trip time.
+         </p>
+         <div class="mathquill">
+          R = \frac{cT_sf_b}{2B_{sweep}}
+         </div>
+         <p>
+          Here,
+          <span class="mathquill ud-math">
+           f_b
+          </span>
+          is the beat frequency, which is measured by the radar by subtracting the received frequency from the hardware’s ramping frequency:
+         </p>
+         <div class="mathquill">
+          f_b = f_ {ramping} - f_{received}
+         </div>
+         <p>
+          As seen in the equation, the range calculation requires chirp time
+          <span class="mathquill ud-math">
+           T_s
+          </span>
+          and chirp Bandwidth
+          <span class="mathquill ud-math">
+           B_{sweep}
+          </span>
+          . Those values are determined as we define the configuration of the radar based on its range resolution and trip time for Radar’s maximum range.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h2 id="system-level-range-calculation">
+          System Level Range Calculation
+         </h2>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+         <p>
+          Range Calculation using FMCW - System Level
+         </p>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="Range Calculation - System Level
+
+source : electronicdesign.com" class="img img-fluid" src="img/image2.png"/>
+          <figcaption class="figure-caption">
+           <p>
+            Range Calculation - System Level
+           </p>
+           <p>
+            source : electronicdesign.com
+           </p>
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+         <p>
+          Range Calculation
+         </p>
+        </h3>
+        <div>
+         <p>
+          As seen in the image above, the Synthesizer generates FMCW chirp for a given
+          <span class="mathquill ud-math">
+           B_{sweep}
+          </span>
+          and
+          <span class="mathquill ud-math">
+           T_s
+          </span>
+          . Let’s say the signal gets transmitted at 77GHz and it returns to the radar after hitting the target in a certain time duration. The radar receiver captures the signal, processes (subtraction) and measures the frequency delta between received signal and linearly ramping signal. This delta in frequency is called as beat frequency and it is proportional to the trip time. So based on the equation above, the radar calculates the range.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h2 id="range-estimation-exercise">
+          Range Estimation Exercise
+         </h2>
+         <p>
+          Using the following MATLAB code sample, complete the TODOs to calculate the range in meters of four targets with respective measured beat frequencies [0 MHz, 1.1 MHz, 13 MHz, 24 MHz].
+         </p>
+         <p>
+          You can use the following parameter values:
+         </p>
+         <ul>
+          <li>
+           The radar maximum range = 300m
+          </li>
+          <li>
+           The range resolution = 1m
+          </li>
+          <li>
+           The speed of light c = 3*10^8
+          </li>
+         </ul>
+         <p>
+          Note : The sweep time can be computed based on the time needed for the signal to travel the maximum range. In general, for an FMCW radar system, the sweep time should be at least 5 to 6 times the round trip time. This example uses a factor of 5.5:
+         </p>
+         <p>
+          <span class="mathquill ud-math">
+           T_{chirp} =5.5\cdot 2 \cdot R_{max}/c
+          </span>
+          <br/>
+          ​
+         </p>
+         <p>
+          Print your answer using the
+          <code>
+           disp
+          </code>
+          function.
+         </p>
+         <pre><code class="matlab language-matlab">% TODO : Find the Bsweep of chirp for 1 m resolution
+
+
+% TODO : Calculate the chirp time based on the Radar's Max Range
+
+
+% TODO : define the frequency shifts 
+
+
+% Display the calculated range
+disp(calculated_range);</code></pre>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h2 id="solution">
+          Solution
+         </h2>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+         <p>
+          2 Range Calculation
+         </p>
+        </h3>
+        <video controls="">
+         <source src="02. 2 Range Calculation-0YQ8uR-cgvw.mp4" type="video/mp4"/>
+         <track default="true" kind="subtitles" label="en" src="02. 2 Range Calculation-0YQ8uR-cgvw.en.vtt" srclang="en"/>
+        </video>
+       </div>
+       <div class="divider">
+       </div>
+      </div>
+      <div class="col-12">
+       <p class="text-right">
+        <a class="btn btn-outline-primary mt-4" href="03. Doppler Estimation.html" role="button">
+         Next Concept
+        </a>
+       </p>
+      </div>
+     </div>
+    </main>
+    <footer class="footer">
+     <div class="container">
+      <div class="row">
+       <div class="col-12">
+        <p class="text-center">
+         udacity2.0 If you need the newest courses Plase add me wechat: udacity6
+        </p>
+       </div>
+      </div>
+     </div>
+    </footer>
+   </div>
+  </div>
+  <script src="../assets/js/jquery-3.3.1.min.js">
+  </script>
+  <script src="../assets/js/plyr.polyfilled.min.js">
+  </script>
+  <script src="../assets/js/bootstrap.min.js">
+  </script>
+  <script src="../assets/js/jquery.mCustomScrollbar.concat.min.js">
+  </script>
+  <script src="../assets/js/katex.min.js">
+  </script>
+  <script>
+   // Initialize Plyr video players
+    const players = Array.from(document.querySelectorAll('video')).map(p => new Plyr(p));
+
+    // render math equations
+    let elMath = document.getElementsByClassName('mathquill');
+    for (let i = 0, len = elMath.length; i < len; i += 1) {
+      const el = elMath[i];
+
+      katex.render(el.textContent, el, {
+        throwOnError: false
+      });
+    }
+
+    // this hack will make sure Bootstrap tabs work when using Handlebars
+    if ($('#question-tabs').length && $('#user-answer-tabs').length) {
+      $("#question-tabs a.nav-link").on('click', function () {
+        $("#question-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+      $("#user-answer-tabs a.nav-link").on('click', function () {
+        $("#user-answer-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    } else {
+      $("a.nav-link").on('click', function () {
+        $(".tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    }
+
+    // side bar events
+    $(document).ready(function () {
+      $("#sidebar").mCustomScrollbar({
+        theme: "minimal"
+      });
+
+      $('#sidebarCollapse').on('click', function () {
+        $('#sidebar, #content').toggleClass('active');
+        $('.collapse.in').toggleClass('in');
+        $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+      });
+
+      // scroll to first video on page loading
+      if ($('video').length) {
+        $('html,body').animate({ scrollTop: $('div.plyr').prev().offset().top});
+      }
+
+      // auto play first video: this may not work with chrome/safari due to autoplay policy
+      if (players && players.length > 0) {
+        players[0].play();
+      }
+
+      // scroll sidebar to current concept
+      const currentInSideBar = $( "ul.sidebar-list.components li a:contains('02. Range Estimation')" )
+      currentInSideBar.css( "text-decoration", "underline" );
+      $("#sidebar").mCustomScrollbar('scrollTo', currentInSideBar);
+    });
+  </script>
+ </body>
+</html>

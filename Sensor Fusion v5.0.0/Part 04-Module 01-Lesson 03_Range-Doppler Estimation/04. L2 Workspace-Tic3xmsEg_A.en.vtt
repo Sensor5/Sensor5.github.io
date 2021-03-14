@@ -1,0 +1,151 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:02.609
+Here, we use the Fourier transform to
+
+00:00:02.609 --> 00:00:06.074
+find the frequency component of a signal buried in noise.
+
+00:00:06.075 --> 00:00:08.144
+First we specify a signal,
+
+00:00:08.144 --> 00:00:10.949
+a sampling frequency of one kilohertz,
+
+00:00:10.949 --> 00:00:15.015
+and a signal duration of 1.5 seconds.
+
+00:00:15.015 --> 00:00:17.519
+Using the sampling frequency,
+
+00:00:17.519 --> 00:00:19.379
+we define the sampling period,
+
+00:00:19.379 --> 00:00:22.859
+and then put the time vector.
+
+00:00:22.859 --> 00:00:25.439
+Here, using the wave equation,
+
+00:00:25.440 --> 00:00:28.100
+we define two signals.
+
+00:00:28.100 --> 00:00:33.240
+One of our first signals has an amplitude of 0.7, as you can see here.
+
+00:00:33.770 --> 00:00:39.470
+Then, since the signal is supposed to be at 77 hertz
+
+00:00:39.469 --> 00:00:46.975
+given by the equation property of a into sine two pi f c t,
+
+00:00:46.975 --> 00:00:49.785
+I defined my fc here.
+
+00:00:49.784 --> 00:00:52.349
+Add another signal to it,
+
+00:00:52.350 --> 00:00:55.420
+which has an amplitude of two,
+
+00:00:56.210 --> 00:01:00.130
+and the frequency of 43 Hertz.
+
+00:01:00.130 --> 00:01:08.829
+Next thing we do is we add the noise to our signal using the randn function from MATLAB,
+
+00:01:08.829 --> 00:01:12.069
+add the noise to the signal.
+
+00:01:12.439 --> 00:01:14.844
+So now we have a signal,
+
+00:01:14.844 --> 00:01:17.844
+which is the summation of two different sine waves,
+
+00:01:17.844 --> 00:01:21.829
+and at the same time is buried under the noise.
+
+00:01:21.829 --> 00:01:24.980
+If you want to see a signal corrupted by the noise,
+
+00:01:24.980 --> 00:01:28.140
+let's put the break-point here and run the code.
+
+00:01:28.299 --> 00:01:33.129
+This is how a signal corrupted with the noise looks like.
+
+00:01:33.129 --> 00:01:36.629
+Remember, the noises used here is a random noise,
+
+00:01:36.629 --> 00:01:39.390
+so everyone will have a different profile.
+
+00:01:39.739 --> 00:01:43.819
+Now, moving forward, we apply the Fourier transform to
+
+00:01:43.819 --> 00:01:48.714
+the corrupted signal and try to bring the frequency components out.
+
+00:01:48.715 --> 00:01:51.210
+First, what we do is,
+
+00:01:51.209 --> 00:01:53.324
+you run the FFT on the signal.
+
+00:01:53.325 --> 00:01:55.820
+Then, we take the absolute value
+
+00:01:55.819 --> 00:01:59.424
+since we are only concerned about the amplitude of the signal,
+
+00:01:59.424 --> 00:02:02.448
+and yes, before we take the absolute value,
+
+00:02:02.448 --> 00:02:05.344
+make sure you normalize the signal strength.
+
+00:02:05.344 --> 00:02:11.284
+After that, this is where we want to reject the mirror image of the signal.
+
+00:02:11.284 --> 00:02:16.384
+The FFT process outputs the mirror image signals.
+
+00:02:16.384 --> 00:02:19.204
+But we are only interested in one-half.
+
+00:02:19.205 --> 00:02:25.344
+So, you just start from the first value and go all the way to half a signal,
+
+00:02:25.344 --> 00:02:28.955
+and use that as our output.
+
+00:02:28.955 --> 00:02:33.500
+You will learn more about this in one of the videos.
+
+00:02:33.500 --> 00:02:36.349
+This is where we do the plotting.
+
+00:02:36.349 --> 00:02:40.049
+So after the whole thing once I run the code,
+
+00:02:40.870 --> 00:02:43.640
+this is how the output looks like.
+
+00:02:43.639 --> 00:02:45.079
+So as you can see,
+
+00:02:45.080 --> 00:02:49.040
+there is a peak of a higher amplitude at 45 hertz,
+
+00:02:49.039 --> 00:02:52.489
+and then there's another at 77 hertz.
+
+00:02:52.490 --> 00:02:56.625
+The amplitude is not as what we gave to the signal,
+
+00:02:56.625 --> 00:02:59.289
+this is because of the noise.
+

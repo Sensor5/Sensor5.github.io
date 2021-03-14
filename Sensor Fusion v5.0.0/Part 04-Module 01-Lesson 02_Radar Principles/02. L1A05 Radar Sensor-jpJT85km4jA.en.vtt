@@ -1,0 +1,175 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:03.060
+Let us familiarize ourselves with the radar.
+
+00:00:03.060 --> 00:00:05.970
+Radars have been in use since 1930's,
+
+00:00:05.969 --> 00:00:09.419
+when they were primarily used by the military to detect enemy aircraft.
+
+00:00:09.419 --> 00:00:13.050
+Since then, radar technology has come a long way.
+
+00:00:13.050 --> 00:00:16.664
+Today radars are increasingly being used as automotive sensor for
+
+00:00:16.664 --> 00:00:20.429
+advanced driver systems and self-driving initiators.
+
+00:00:20.429 --> 00:00:24.870
+Advancements in the RF technology and digital signal processing have made it
+
+00:00:24.870 --> 00:00:29.730
+possible to design efficient radars at low cost and in miniature size.
+
+00:00:29.730 --> 00:00:34.664
+The radar's capability to determine the targets at long range with accurate velocity
+
+00:00:34.664 --> 00:00:39.810
+and spatial information makes it an important sensor for self-driving applications.
+
+00:00:39.810 --> 00:00:42.550
+Its capability to sense objects in
+
+00:00:42.549 --> 00:00:45.229
+dark and poor weather condition also helps it
+
+00:00:45.229 --> 00:00:48.500
+cover the shortcomings of lidar and camera sensors.
+
+00:00:48.500 --> 00:00:49.895
+Hey, check this out,
+
+00:00:49.895 --> 00:00:52.565
+"The 40-year-old challenge for automotive radars."
+
+00:00:52.564 --> 00:00:57.184
+Today, most of the cars are equipped with radar sensors for adaptive cruise control,
+
+00:00:57.185 --> 00:01:00.260
+too close warnings, and side car detections.
+
+00:01:00.259 --> 00:01:03.229
+But the future self-driving cars would be using more and more of
+
+00:01:03.229 --> 00:01:07.414
+these sensors to generate a complete awareness of the surroundings.
+
+00:01:07.415 --> 00:01:09.145
+As you can see in the image,
+
+00:01:09.144 --> 00:01:11.469
+for level 4 and 5 autonomy,
+
+00:01:11.469 --> 00:01:16.069
+a radar will not just detect but will also classify targets.
+
+00:01:16.069 --> 00:01:19.069
+Hence, generating high resolution imaging.
+
+00:01:19.069 --> 00:01:21.744
+Okay, so first things first.
+
+00:01:21.745 --> 00:01:23.520
+How does the radar work?
+
+00:01:23.519 --> 00:01:26.329
+A radar emits electromagnetic waves.
+
+00:01:26.329 --> 00:01:29.495
+These waves are reflected if they meet an obstacle.
+
+00:01:29.495 --> 00:01:34.195
+After reflection, when they are received again at their place of origin,
+
+00:01:34.194 --> 00:01:37.939
+that shows that there is an obstacle in the propagation direction.
+
+00:01:37.939 --> 00:01:43.174
+The frequency of electromagnetic energy use for radar is unaffected by darkness.
+
+00:01:43.174 --> 00:01:46.429
+It penetrates through flog and clouds.
+
+00:01:46.430 --> 00:01:50.390
+This permits radar system to determine the position of road targets,
+
+00:01:50.390 --> 00:01:55.924
+that are invisible to the naked eye because of distance, darkness, or weather.
+
+00:01:55.924 --> 00:02:00.215
+The same principle allows the cars of today to have adaptive cruise control.
+
+00:02:00.215 --> 00:02:05.930
+Using the radar, a car can autonomously maintain its distance as well as speed,
+
+00:02:05.930 --> 00:02:09.064
+and can apply brakes to avoid collisions.
+
+00:02:09.064 --> 00:02:11.944
+Okay, so here's an actual commercial radar,
+
+00:02:11.944 --> 00:02:14.314
+a long-range radar from Bosch.
+
+00:02:14.314 --> 00:02:16.039
+Do you see how tiny it is?
+
+00:02:16.039 --> 00:02:18.709
+The black covering on the top is the radium that
+
+00:02:18.710 --> 00:02:22.045
+makes the radar weather proof without impacting its performance.
+
+00:02:22.044 --> 00:02:27.054
+Then, we have the printed circuit board which houses the antenna and RF assemblies.
+
+00:02:27.055 --> 00:02:30.284
+Under that is a Digital Signal Processing Unit.
+
+00:02:30.284 --> 00:02:33.905
+Check this out, a radar chip-set. Yes, that's right.
+
+00:02:33.905 --> 00:02:36.395
+You can hold it between your fingertips.
+
+00:02:36.395 --> 00:02:39.655
+Getting to the hottest debate in the self-driving world.
+
+00:02:39.655 --> 00:02:41.680
+Lidar or radar?
+
+00:02:41.680 --> 00:02:45.094
+One can find many articles comparing lidar and radar.
+
+00:02:45.094 --> 00:02:48.604
+But really, these sensors are kind of complimentary to each other.
+
+00:02:48.604 --> 00:02:53.104
+It is true that lidar can generate a high resolution imaging and radar cannot,
+
+00:02:53.104 --> 00:02:56.829
+but radar gives you a highly accurate velocity estimation.
+
+00:02:56.830 --> 00:03:00.395
+Where lidar fails in bad weather conditions like rain or fog,
+
+00:03:00.395 --> 00:03:03.650
+radar due to its wavelength size is never hindered by the weather.
+
+00:03:03.650 --> 00:03:06.575
+A major concern with lidar is its cost.
+
+00:03:06.574 --> 00:03:10.339
+A lidar can cost a car manufacturer more than a couple of grands,
+
+00:03:10.340 --> 00:03:13.955
+while radar sets them back by a few $100 only.
+
+00:03:13.955 --> 00:03:18.060
+No more wondering why [inaudible] doesn't like lidar.
+

@@ -1,0 +1,546 @@
+<!-- udacimak v1.4.4 -->
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <meta content="ie=edge" http-equiv="X-UA-Compatible"/>
+  <title>
+   Signal Properties
+  </title>
+  <link href="../assets/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="../assets/css/plyr.css" rel="stylesheet"/>
+  <link href="../assets/css/katex.min.css" rel="stylesheet"/>
+  <link href="../assets/css/jquery.mCustomScrollbar.min.css" rel="stylesheet"/>
+  <link href="../assets/css/styles.css" rel="stylesheet"/>
+  <link href="../assets/img/udacimak.png" rel="shortcut icon" type="image/png">
+  </link>
+ </head>
+ <body>
+  <div class="wrapper">
+   <nav id="sidebar">
+    <div class="sidebar-header">
+     <h3>
+      Radar Principles
+     </h3>
+    </div>
+    <ul class="sidebar-list list-unstyled CTAs">
+     <li>
+      <a class="article" href="../index.html">
+       Back to Home
+      </a>
+     </li>
+    </ul>
+    <ul class="sidebar-list list-unstyled components">
+     <li class="">
+      <a href="01. Why Use Radar.html">
+       01. Why Use Radar?
+      </a>
+     </li>
+     <li class="">
+      <a href="02. The Radar Sensor.html">
+       02. The Radar Sensor
+      </a>
+     </li>
+     <li class="">
+      <a href="03. Signal Properties.html">
+       03. Signal Properties
+      </a>
+     </li>
+     <li class="">
+      <a href="04. FMCW.html">
+       04. FMCW
+      </a>
+     </li>
+     <li class="">
+      <a href="05. FMCW Hardware and Antenna.html">
+       05. FMCW Hardware and Antenna
+      </a>
+     </li>
+     <li class="">
+      <a href="06. Radar Cross Section.html">
+       06. Radar Cross Section
+      </a>
+     </li>
+     <li class="">
+      <a href="07. Radar Range Equation.html">
+       07. Radar Range Equation
+      </a>
+     </li>
+     <li class="">
+      <a href="08. What Does a Sensor Fusion Engineer Need to Know.html">
+       08. What Does a Sensor Fusion Engineer Need to Know?
+      </a>
+     </li>
+    </ul>
+    <ul class="sidebar-list list-unstyled CTAs">
+     <li>
+      <a class="article" href="../index.html">
+       Back to Home
+      </a>
+     </li>
+    </ul>
+   </nav>
+   <div id="content">
+    <header class="container-fluild header">
+     <div class="container">
+      <div class="row">
+       <div class="col-12">
+        <div class="align-items-middle">
+         <button class="btn btn-toggle-sidebar" id="sidebarCollapse" type="button">
+          <div>
+          </div>
+          <div>
+          </div>
+          <div>
+          </div>
+         </button>
+         <h1 style="display: inline-block">
+          03. Signal Properties
+         </h1>
+        </div>
+       </div>
+      </div>
+     </div>
+    </header>
+    <main class="container">
+     <div class="row">
+      <div class="col-12">
+       <div class="ud-atom">
+        <h3>
+         <p>
+          Header Text
+         </p>
+        </h3>
+        <div>
+         <h1 id="signal-properties">
+          Signal Properties
+         </h1>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <p>
+          In this concept, you will see a general overview of signal properties, including definitions of the wavelength of a signal and the general form for the equation of a signal.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h2 id="single-wave-parameters">
+          Single Wave Parameters
+         </h2>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+         <p>
+          Wavelength
+         </p>
+        </h3>
+        <div>
+         <p>
+          Wavelength (
+          <span class="mathquill ud-math">
+           \lambda
+          </span>
+          ) is the physical length from one point of a wave to the same point on the next wave, and it is calculated as
+         </p>
+         <div class="mathquill">
+          \lambda = \frac{\textrm{speed of light}}{\textrm{frequency}}
+         </div>
+         <p>
+          The higher the frequency the smaller the wavelength.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="Wavelength of a signal 
+
+\[source: [techplayon](http://www.techplayon.com/wavelength-frequency-amplitude-phase-defining-waves//)\] " class="img img-fluid" src="img/image.png"/>
+          <figcaption class="figure-caption">
+           <p>
+            Wavelength of a signal
+           </p>
+           <p>
+            [source:
+            <a href="http://www.techplayon.com/wavelength-frequency-amplitude-phase-defining-waves//" rel="noopener noreferrer" target="_blank">
+             techplayon
+            </a>
+            ]
+           </p>
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+         <p>
+          Frequency, Amplitude
+         </p>
+        </h3>
+        <div>
+         <p>
+          The
+          <em>
+           frequency
+          </em>
+          of a wave is the number of waves that pass by each second, and is measured in Hertz (Hz). The automotive radar generally operates at W band (76GHz - 81GHz). The signal at this frequency is referred to as millimeterWave since the wavelength is in mm.
+         </p>
+         <p>
+          The
+          <em>
+           Bandwidth
+          </em>
+          of a signal is the difference between the highest and the lowest frequency components in a continous band of frequencies.
+         </p>
+         <p>
+          The
+          <em>
+           Amplitude
+          </em>
+          is the strength of the signal. Often it corresponds to the power of the RF signal/electromagnetic field defined in dB/dBm. It is relevant while configuring the output power of the radar and sensing the received signal. Higher the amplitude of the Radar signal, more is the visibility of radar. Automotive Radar can operate at max of 55 dBm output power (316 W)
+         </p>
+         <p>
+          dB, dBm, mW, and W conversions can be found
+          <a href="https://www.rapidtables.com/electric/dBm.html" rel="noopener noreferrer" target="_blank">
+           here
+          </a>
+          .
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="Frequency of a signal \[[source](http://www.techplayon.com/wavelength-frequency-amplitude-phase-defining-waves/)\]" class="img img-fluid" src="img/image25.png"/>
+          <figcaption class="figure-caption">
+           <p>
+            Frequency of a signal [
+            <a href="http://www.techplayon.com/wavelength-frequency-amplitude-phase-defining-waves/" rel="noopener noreferrer" target="_blank">
+             source
+            </a>
+            ]
+           </p>
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="Amplitude of a signal \[[source](http://www.techplayon.com/wavelength-frequency-amplitude-phase-defining-waves/)\]" class="img img-fluid" src="img/image1.png"/>
+          <figcaption class="figure-caption">
+           <p>
+            Amplitude of a signal [
+            <a href="http://www.techplayon.com/wavelength-frequency-amplitude-phase-defining-waves/" rel="noopener noreferrer" target="_blank">
+             source
+            </a>
+            ]
+           </p>
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h2 id="phase-of-a-signal">
+          Phase of a Signal
+         </h2>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <p>
+          <em>
+           Phase
+          </em>
+          is a particular point in time on the cycle of a waveform, measured as an angle in degrees. A complete cycle is 360°.  The phase for each argument value, relative to the start of the cycle, is shown in the image below, in degrees from 0° to 360° and in radians from 0 to 2π.
+         </p>
+         <p>
+          The frequency can also be defined as the first derivative of the phase with respect to the time.
+         </p>
+         <div class="mathquill">
+          frequency = \frac{d\varphi}{dt}
+         </div>
+         <p>
+          where
+         </p>
+         <div class="mathquill">
+          \varphi = phase\,\,of\,\,the\,\,signal
+         </div>
+         <p>
+          This property will be used in measuring the doppler frequency shift for a moving target.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="Phase of sinusoidal waveform
+
+source : Wikipedia" class="img img-fluid" src="img/image.png"/>
+          <figcaption class="figure-caption">
+           <p>
+            Phase of sinusoidal waveform
+           </p>
+           <p>
+            source : Wikipedia
+           </p>
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+         <p>
+          Phase
+         </p>
+        </h3>
+        <div>
+         <p>
+          The difference between the phases of two periodic signals is called the
+          <em>
+           phase
+          </em>
+          <em>
+           difference
+          </em>
+          .
+          <br/>
+          At values of when the difference is zero, the two signals are said to be in phase, otherwise they are out of phase with each other.
+         </p>
+         <p>
+          The phase information processing is important as we go through doppler processing as well as Angle of Arrival techniques for radar.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+         <p>
+          Phase
+         </p>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="Phase of a signal" class="img img-fluid" src="img/image15.png"/>
+          <figcaption class="figure-caption">
+           <p>
+            Phase of a signal
+           </p>
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h2 id="general-equation-of-a-wave">
+          General Equation of a Wave
+         </h2>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+         <p>
+          RF signal equation
+         </p>
+        </h3>
+        <div>
+         <p>
+          A wave travelling in space is defined by the following equation:
+         </p>
+         <div class="mathquill">
+          y(t)  = A\cos(2\pi\cdot f_c \cdot t + \phi)
+         </div>
+         <p>
+          Below, the variables in the equation are defined:
+         </p>
+         <ul>
+          <li>
+           <span class="mathquill ud-math">
+            A
+           </span>
+           is the amplitude of the signal
+          </li>
+          <li>
+           <span class="mathquill ud-math">
+            f_c
+           </span>
+           is the signal frequency
+          </li>
+          <li>
+           <span class="mathquill ud-math">
+            \phi
+           </span>
+           is the phase of the signal
+          </li>
+         </ul>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h2 id="wavelength-exercise">
+          Wavelength Exercise
+         </h2>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h4>
+          Start Quiz:
+         </h4>
+         Unknown quiz type. Please contact the developer to make it compatible with this atom type!
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+      </div>
+      <div class="col-12">
+       <p class="text-right">
+        <a class="btn btn-outline-primary mt-4" href="04. FMCW.html" role="button">
+         Next Concept
+        </a>
+       </p>
+      </div>
+     </div>
+    </main>
+    <footer class="footer">
+     <div class="container">
+      <div class="row">
+       <div class="col-12">
+        <p class="text-center">
+         udacity2.0 If you need the newest courses Plase add me wechat: udacity6
+        </p>
+       </div>
+      </div>
+     </div>
+    </footer>
+   </div>
+  </div>
+  <script src="../assets/js/jquery-3.3.1.min.js">
+  </script>
+  <script src="../assets/js/plyr.polyfilled.min.js">
+  </script>
+  <script src="../assets/js/bootstrap.min.js">
+  </script>
+  <script src="../assets/js/jquery.mCustomScrollbar.concat.min.js">
+  </script>
+  <script src="../assets/js/katex.min.js">
+  </script>
+  <script>
+   // Initialize Plyr video players
+    const players = Array.from(document.querySelectorAll('video')).map(p => new Plyr(p));
+
+    // render math equations
+    let elMath = document.getElementsByClassName('mathquill');
+    for (let i = 0, len = elMath.length; i < len; i += 1) {
+      const el = elMath[i];
+
+      katex.render(el.textContent, el, {
+        throwOnError: false
+      });
+    }
+
+    // this hack will make sure Bootstrap tabs work when using Handlebars
+    if ($('#question-tabs').length && $('#user-answer-tabs').length) {
+      $("#question-tabs a.nav-link").on('click', function () {
+        $("#question-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+      $("#user-answer-tabs a.nav-link").on('click', function () {
+        $("#user-answer-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    } else {
+      $("a.nav-link").on('click', function () {
+        $(".tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    }
+
+    // side bar events
+    $(document).ready(function () {
+      $("#sidebar").mCustomScrollbar({
+        theme: "minimal"
+      });
+
+      $('#sidebarCollapse').on('click', function () {
+        $('#sidebar, #content').toggleClass('active');
+        $('.collapse.in').toggleClass('in');
+        $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+      });
+
+      // scroll to first video on page loading
+      if ($('video').length) {
+        $('html,body').animate({ scrollTop: $('div.plyr').prev().offset().top});
+      }
+
+      // auto play first video: this may not work with chrome/safari due to autoplay policy
+      if (players && players.length > 0) {
+        players[0].play();
+      }
+
+      // scroll sidebar to current concept
+      const currentInSideBar = $( "ul.sidebar-list.components li a:contains('03. Signal Properties')" )
+      currentInSideBar.css( "text-decoration", "underline" );
+      $("#sidebar").mCustomScrollbar('scrollTo', currentInSideBar);
+    });
+  </script>
+ </body>
+</html>

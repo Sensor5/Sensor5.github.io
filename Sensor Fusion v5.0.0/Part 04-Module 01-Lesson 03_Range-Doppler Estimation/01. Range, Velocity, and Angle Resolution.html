@@ -1,0 +1,332 @@
+<!-- udacimak v1.4.4 -->
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <meta content="ie=edge" http-equiv="X-UA-Compatible"/>
+  <title>
+   Range, Velocity, and Angle Resolution
+  </title>
+  <link href="../assets/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="../assets/css/plyr.css" rel="stylesheet"/>
+  <link href="../assets/css/katex.min.css" rel="stylesheet"/>
+  <link href="../assets/css/jquery.mCustomScrollbar.min.css" rel="stylesheet"/>
+  <link href="../assets/css/styles.css" rel="stylesheet"/>
+  <link href="../assets/img/udacimak.png" rel="shortcut icon" type="image/png">
+  </link>
+ </head>
+ <body>
+  <div class="wrapper">
+   <nav id="sidebar">
+    <div class="sidebar-header">
+     <h3>
+      Range-Doppler Estimation
+     </h3>
+    </div>
+    <ul class="sidebar-list list-unstyled CTAs">
+     <li>
+      <a class="article" href="../index.html">
+       Back to Home
+      </a>
+     </li>
+    </ul>
+    <ul class="sidebar-list list-unstyled components">
+     <li class="">
+      <a href="01. Range, Velocity, and Angle Resolution.html">
+       01. Range, Velocity, and Angle Resolution
+      </a>
+     </li>
+     <li class="">
+      <a href="02. Range Estimation.html">
+       02. Range Estimation
+      </a>
+     </li>
+     <li class="">
+      <a href="03. Doppler Estimation.html">
+       03. Doppler Estimation
+      </a>
+     </li>
+     <li class="">
+      <a href="04. Fast Fourier Transform (FFT).html">
+       04. Fast Fourier Transform (FFT)
+      </a>
+     </li>
+     <li class="">
+      <a href="05. The 2D FFT.html">
+       05. The 2D FFT
+      </a>
+     </li>
+     <li class="">
+      <a href="06. What Kind of Math Do Radar Engineers Use.html">
+       06. What Kind of Math Do Radar Engineers Use?
+      </a>
+     </li>
+    </ul>
+    <ul class="sidebar-list list-unstyled CTAs">
+     <li>
+      <a class="article" href="../index.html">
+       Back to Home
+      </a>
+     </li>
+    </ul>
+   </nav>
+   <div id="content">
+    <header class="container-fluild header">
+     <div class="container">
+      <div class="row">
+       <div class="col-12">
+        <div class="align-items-middle">
+         <button class="btn btn-toggle-sidebar" id="sidebarCollapse" type="button">
+          <div>
+          </div>
+          <div>
+          </div>
+          <div>
+          </div>
+         </button>
+         <h1 style="display: inline-block">
+          01. Range, Velocity, and Angle Resolution
+         </h1>
+        </div>
+       </div>
+      </div>
+     </div>
+    </header>
+    <main class="container">
+     <div class="row">
+      <div class="col-12">
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h1 id="range-velocity-and-angle-resolution">
+          Range, Velocity, and Angle Resolution
+         </h1>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+         <p>
+          Part1
+         </p>
+        </h3>
+        <video controls="">
+         <source src="01. Part1-zV8MENLn0M0.mp4" type="video/mp4"/>
+         <track default="true" kind="subtitles" label="en" src="01. Part1-zV8MENLn0M0.en.vtt" srclang="en"/>
+        </video>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <p>
+          In this lesson, you will learn about the basics of range and velocity estimation using doppler and Fourier transform techniques. Before you get started, let's have a look at three primary dimensions of measurement for radar resolution.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+         <p>
+          Range, Velocity and Angle Resolution
+         </p>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="Capability of a radar to resolve two targets based on differences in their distance, angle and velocity. " class="img img-fluid" src="img/image8.png"/>
+          <figcaption class="figure-caption">
+           <p>
+            Capability of a radar to resolve two targets based on differences in their distance, angle and velocity.
+           </p>
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+         <p>
+          Resolving Targets
+         </p>
+        </h3>
+        <div>
+         <p>
+          The capability of a radar to resolve targets is very critical for an accurate perception.
+         </p>
+         <p>
+          <strong>
+           Range Resolution
+          </strong>
+          : It is the capability of the radar to distinguish between two targets that are very close to each other in range. If a radar has range resolution of 4 meters then it cannot separate on range basis a pedestrian standing 1 m away from the car.
+         </p>
+         <p>
+          The range resolution is solely dependent on the bandwidth of the chirp
+          <span class="mathquill ud-math">
+           B_{sweep}
+          </span>
+          :
+         </p>
+         <div class="mathquill">
+          d_{res} = \frac{c}{2B_{sweep}}
+         </div>
+         <p>
+          <strong>
+           Velocity Resolution
+          </strong>
+          : If two targets have the same range they can still be resolved if they are traveling at different velocities. The velocity resolution is dependent on the number of chirps. As discussed for our case we selected to send 128 chirps. A higher number of chirps increases the velocity resolution, but it also takes longer to process the signal.
+         </p>
+         <p>
+          <strong>
+           Angle Resolution
+          </strong>
+          : Radar is capable of separating two targets spatially. If two targets are at similar range travelling at same velocities, then they can still be resolved based on their angle in radar coordinate system. Angle resolution depends on different parameters depending on the angle estimation technique used. We will cover this in more detail in the next lesson.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+         <p>
+          Range Resolution
+         </p>
+        </h3>
+        <div>
+         <form>
+          <fieldset>
+           <legend>
+            <p>
+             For a dense urban traffic scenario, what would be a helpful feature of FMCW radar?
+            </p>
+           </legend>
+          </fieldset>
+          <div>
+           <input id="rbk1" name="846480" type="radio" value="rbk1"/>
+           <label for="rbk1">
+            <p>
+             Higher Bandwidth of a chirp
+            </p>
+           </label>
+          </div>
+          <div>
+           <input id="rbk2" name="846480" type="radio" value="rbk2"/>
+           <label for="rbk2">
+            <p>
+             Lower Bandwidth of a chirp
+            </p>
+           </label>
+          </div>
+         </form>
+         <details>
+          <summary>
+           <strong>
+            SOLUTION:
+           </strong>
+          </summary>
+          Higher Bandwidth of a chirp
+         </details>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+      </div>
+      <div class="col-12">
+       <p class="text-right">
+        <a class="btn btn-outline-primary mt-4" href="02. Range Estimation.html" role="button">
+         Next Concept
+        </a>
+       </p>
+      </div>
+     </div>
+    </main>
+    <footer class="footer">
+     <div class="container">
+      <div class="row">
+       <div class="col-12">
+        <p class="text-center">
+         udacity2.0 If you need the newest courses Plase add me wechat: udacity6
+        </p>
+       </div>
+      </div>
+     </div>
+    </footer>
+   </div>
+  </div>
+  <script src="../assets/js/jquery-3.3.1.min.js">
+  </script>
+  <script src="../assets/js/plyr.polyfilled.min.js">
+  </script>
+  <script src="../assets/js/bootstrap.min.js">
+  </script>
+  <script src="../assets/js/jquery.mCustomScrollbar.concat.min.js">
+  </script>
+  <script src="../assets/js/katex.min.js">
+  </script>
+  <script>
+   // Initialize Plyr video players
+    const players = Array.from(document.querySelectorAll('video')).map(p => new Plyr(p));
+
+    // render math equations
+    let elMath = document.getElementsByClassName('mathquill');
+    for (let i = 0, len = elMath.length; i < len; i += 1) {
+      const el = elMath[i];
+
+      katex.render(el.textContent, el, {
+        throwOnError: false
+      });
+    }
+
+    // this hack will make sure Bootstrap tabs work when using Handlebars
+    if ($('#question-tabs').length && $('#user-answer-tabs').length) {
+      $("#question-tabs a.nav-link").on('click', function () {
+        $("#question-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+      $("#user-answer-tabs a.nav-link").on('click', function () {
+        $("#user-answer-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    } else {
+      $("a.nav-link").on('click', function () {
+        $(".tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    }
+
+    // side bar events
+    $(document).ready(function () {
+      $("#sidebar").mCustomScrollbar({
+        theme: "minimal"
+      });
+
+      $('#sidebarCollapse').on('click', function () {
+        $('#sidebar, #content').toggleClass('active');
+        $('.collapse.in').toggleClass('in');
+        $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+      });
+
+      // scroll to first video on page loading
+      if ($('video').length) {
+        $('html,body').animate({ scrollTop: $('div.plyr').prev().offset().top});
+      }
+
+      // auto play first video: this may not work with chrome/safari due to autoplay policy
+      if (players && players.length > 0) {
+        players[0].play();
+      }
+
+      // scroll sidebar to current concept
+      const currentInSideBar = $( "ul.sidebar-list.components li a:contains('01. Range, Velocity, and Angle Resolution')" )
+      currentInSideBar.css( "text-decoration", "underline" );
+      $("#sidebar").mCustomScrollbar('scrollTo', currentInSideBar);
+    });
+  </script>
+ </body>
+</html>

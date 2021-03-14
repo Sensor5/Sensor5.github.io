@@ -1,0 +1,585 @@
+<!-- udacimak v1.4.4 -->
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <meta content="ie=edge" http-equiv="X-UA-Compatible"/>
+  <title>
+   The Radar Sensor
+  </title>
+  <link href="../assets/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="../assets/css/plyr.css" rel="stylesheet"/>
+  <link href="../assets/css/katex.min.css" rel="stylesheet"/>
+  <link href="../assets/css/jquery.mCustomScrollbar.min.css" rel="stylesheet"/>
+  <link href="../assets/css/styles.css" rel="stylesheet"/>
+  <link href="../assets/img/udacimak.png" rel="shortcut icon" type="image/png">
+  </link>
+ </head>
+ <body>
+  <div class="wrapper">
+   <nav id="sidebar">
+    <div class="sidebar-header">
+     <h3>
+      Radar Principles
+     </h3>
+    </div>
+    <ul class="sidebar-list list-unstyled CTAs">
+     <li>
+      <a class="article" href="../index.html">
+       Back to Home
+      </a>
+     </li>
+    </ul>
+    <ul class="sidebar-list list-unstyled components">
+     <li class="">
+      <a href="01. Why Use Radar.html">
+       01. Why Use Radar?
+      </a>
+     </li>
+     <li class="">
+      <a href="02. The Radar Sensor.html">
+       02. The Radar Sensor
+      </a>
+     </li>
+     <li class="">
+      <a href="03. Signal Properties.html">
+       03. Signal Properties
+      </a>
+     </li>
+     <li class="">
+      <a href="04. FMCW.html">
+       04. FMCW
+      </a>
+     </li>
+     <li class="">
+      <a href="05. FMCW Hardware and Antenna.html">
+       05. FMCW Hardware and Antenna
+      </a>
+     </li>
+     <li class="">
+      <a href="06. Radar Cross Section.html">
+       06. Radar Cross Section
+      </a>
+     </li>
+     <li class="">
+      <a href="07. Radar Range Equation.html">
+       07. Radar Range Equation
+      </a>
+     </li>
+     <li class="">
+      <a href="08. What Does a Sensor Fusion Engineer Need to Know.html">
+       08. What Does a Sensor Fusion Engineer Need to Know?
+      </a>
+     </li>
+    </ul>
+    <ul class="sidebar-list list-unstyled CTAs">
+     <li>
+      <a class="article" href="../index.html">
+       Back to Home
+      </a>
+     </li>
+    </ul>
+   </nav>
+   <div id="content">
+    <header class="container-fluild header">
+     <div class="container">
+      <div class="row">
+       <div class="col-12">
+        <div class="align-items-middle">
+         <button class="btn btn-toggle-sidebar" id="sidebarCollapse" type="button">
+          <div>
+          </div>
+          <div>
+          </div>
+          <div>
+          </div>
+         </button>
+         <h1 style="display: inline-block">
+          02. The Radar Sensor
+         </h1>
+        </div>
+       </div>
+      </div>
+     </div>
+    </header>
+    <main class="container">
+     <div class="row">
+      <div class="col-12">
+       <div class="ud-atom">
+        <h3>
+         <p>
+          Header Text
+         </p>
+        </h3>
+        <div>
+         <h1 id="the-radar-sensor">
+          The Radar Sensor
+         </h1>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+         <p>
+          L1A05 Radar Sensor
+         </p>
+        </h3>
+        <video controls="">
+         <source src="02. L1A05 Radar Sensor-jpJT85km4jA.mp4" type="video/mp4"/>
+         <track default="true" kind="subtitles" label="en" src="02. L1A05 Radar Sensor-jpJT85km4jA.en.vtt" srclang="en"/>
+        </video>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h2 id="radar-history">
+          Radar History
+         </h2>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+         <p>
+          ND313 Andrei Intv 07 What Types Of Radar Do Self Driving
+         </p>
+        </h3>
+        <video controls="">
+         <source src="02. ND313 Andrei Intv 07 What Types Of Radar Do Self Driving-23ljUY31nBw.mp4" type="video/mp4"/>
+         <track default="true" kind="subtitles" label="en" src="02. ND313 Andrei Intv 07 What Types Of Radar Do Self Driving-23ljUY31nBw.en.vtt" srclang="en"/>
+        </video>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <p>
+          Radars have been in use since 1930s when they were primarily used by the military to detect aircraft, but since then the radar technology has come a long way and today they are increasingly being used as automotive radar sensor for advanced driver assistance systems (ADAS). The image below shows how radar sensors are used along with a full suite of other sensors in an autonomous vehicle:
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+         <p>
+          Automotive Radar
+         </p>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="Radar Sensor in Automotive space
+
+source : cdn.rohde-schwarz.com" class="img img-fluid" src="img/image21.png"/>
+          <figcaption class="figure-caption">
+           <p>
+            Radar Sensor in Automotive space
+           </p>
+           <p>
+            source : cdn.rohde-schwarz.com
+           </p>
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <p>
+          The advancements in the RF technologies and Digital Signal processing have made it possible to design efficient radars at low cost and in smaller sizes. The radar’s capability to determine the targets at long range with accurate velocity and spatial information make it an important sensor for self driving applications. Additionally, its capability to sense objects in dark and poor weather (rain, fog) conditions also help it cover the domains where LIDAR or camera may fail.
+         </p>
+         <h2 id="radar-operation">
+          Radar Operation
+         </h2>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+         <p>
+          ND313 Andrei Intv 13 How Does A Radar Detect Objects
+         </p>
+        </h3>
+        <video controls="">
+         <source src="02. ND313 Andrei Intv 13 How Does A Radar Detect Objects-9aHn6wjXiZM.mp4" type="video/mp4"/>
+         <track default="true" kind="subtitles" label="en" src="02. ND313 Andrei Intv 13 How Does A Radar Detect Objects-9aHn6wjXiZM.en.vtt" srclang="en"/>
+        </video>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <p>
+          Radar works using the transmission and detection of electromagnetic waves as seen in the following image:
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+         <p>
+          Radar Physics
+         </p>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="Radar Operation \[source: [electricalelibrary](http://www.electricalelibrary.com/en/2018/05/06/how-radar-works/)\] " class="img img-fluid" src="img/image16.png"/>
+          <figcaption class="figure-caption">
+           <p>
+            Radar Operation [source:
+            <a href="http://www.electricalelibrary.com/en/2018/05/06/how-radar-works/" rel="noopener noreferrer" target="_blank">
+             electricalelibrary
+            </a>
+            ]
+           </p>
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+         <p>
+          Radar Physics
+         </p>
+        </h3>
+        <div>
+         <p>
+          The electromagnetic waves are reflected if they meet an obstacle. If these reflected waves are received again at the place of their origin, then that means an obstacle is in the propagation direction.
+         </p>
+         <p>
+          The frequency of electromagnetic energy used for radar is unaffected by darkness and also penetrates fog and clouds. This permits radar systems to determine the position of road targets that are invisible to the naked eye because of distance, darkness, or weather.
+         </p>
+         <p>
+          Modern radar can extract widely more information from a target's echo signal than its range.
+         </p>
+         <h2 id="radar-construction">
+          Radar Construction
+         </h2>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+         <p>
+          Radar Schematic
+         </p>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="Bosch Automotive Radar" class="img img-fluid" src="img/image26.png"/>
+          <figcaption class="figure-caption">
+           <p>
+            Bosch Automotive Radar
+           </p>
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <p>
+          The automotive radars are small size sensors that can easily fit beneath the front grill or the bumper. As seen in the image above a radar module comprises of different parts.
+         </p>
+         <ul>
+          <li>
+           <p>
+            <strong>
+             Radar Dome or Radome
+            </strong>
+            : A
+            <em>
+             radome
+            </em>
+            is a structural, weatherproof enclosure that protects a radar antenna. The radome is constructed of material that minimally attenuates the electromagnetic signal transmitted or received by the antenna, effectively transparent to radio waves.
+           </p>
+          </li>
+          <li>
+           <p>
+            <strong>
+             Radar Printed Circuit Board
+            </strong>
+            : This is analog hardware that includes the radar transceiver and antenna needed for radio wave generation.
+           </p>
+          </li>
+          <li>
+           <p>
+            <strong>
+             Printed Circuit Board and Processing
+            </strong>
+            : This includes the Digital Signal Processing (DSP) unit.
+           </p>
+          </li>
+         </ul>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h2 id="radar-vs-lidar">
+          Radar vs Lidar
+         </h2>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+         <p>
+          Radar Vs LIDAR
+         </p>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="Comparison between RADAR and LIDAR \[source: [cleantechnica](https://cleantechnica.com/2016/07/29/tesla-google-disagree-lidar-right/)\]" class="img img-fluid" src="img/image27.png"/>
+          <figcaption class="figure-caption">
+           <p>
+            Comparison between RADAR and LIDAR [source:
+            <a href="https://cleantechnica.com/2016/07/29/tesla-google-disagree-lidar-right/" rel="noopener noreferrer" target="_blank">
+             cleantechnica
+            </a>
+            ]
+           </p>
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+         <p>
+          Lidar vs Radar
+         </p>
+        </h3>
+        <div>
+         <p>
+          One can find many of articles comparing the LIDAR and RADAR, but in practice, these sensors are complementary to each other.
+         </p>
+         <p>
+          LIDAR can generate high resolution imaging based on reflection of the laser light off from the targets. But LIDARs fail in bad weather conditions as the very small wavelength doesn’t allow to work well in fog or rain. Additionally, LIDAR is an expensive sensor with costs varying from  $35,000 to $100,000 as of 2019. Lidar is the preferred technology at Waymo.
+         </p>
+         <p>
+          Radar lacks the capability to generate a high resolution image, but it has highly accurate velocity estimation based on the doppler phenomenon, which we will cover in more detail later in this course.
+          <br/>
+          Also, radar wavelength allows it to sense the targets in bad weather conditions as well. Most important is the low manufacturing cost for a Radar. A radar unit can cost as low as a few hundred dollars, allowing a car manufacturer to deploy multiple Radar sensors for 360 degree perception. Tesla relies on Radar as its primary sensor and doesn’t include LIDAR in its sensor fusion system.
+         </p>
+         <p>
+          <a href="https://www.mathworks.com/company/user_stories/delphi-develops-radar-sensor-alignment-algorithm-for-automotive-active-safety-system.html" rel="noopener noreferrer" target="_blank">
+           Read how Delphi
+          </a>
+          used MATLAB and code generation to implement a radar safety system
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+         <p>
+          ND313 Andrei Intv 06 What Challenges Do You Encounter
+         </p>
+        </h3>
+        <video controls="">
+         <source src="02. ND313 Andrei Intv 06 What Challenges Do You Encounter-d_eBzzfmDj8.mp4" type="video/mp4"/>
+         <track default="true" kind="subtitles" label="en" src="02. ND313 Andrei Intv 06 What Challenges Do You Encounter-d_eBzzfmDj8.en.vtt" srclang="en"/>
+        </video>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h2 id="radar-quiz">
+          Radar Quiz
+         </h2>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+         <p>
+          LIDAR Vs Radar
+         </p>
+        </h3>
+        <div>
+         <form>
+          <fieldset>
+           <legend>
+            <p>
+             Pick the correct choice(s) from the options below.
+            </p>
+           </legend>
+          </fieldset>
+          <div>
+           <input id="rbk1" name="846364" type="checkbox" value="rbk1"/>
+           <label for="rbk1">
+            <p>
+             LIDAR is a more reliable sensor than a Radar while driving on a rainy day.
+            </p>
+           </label>
+          </div>
+          <div>
+           <input id="rbk2" name="846364" type="checkbox" value="rbk2"/>
+           <label for="rbk2">
+            <p>
+             For a low priced car, a car manufacturer would prefer to install Radars rather than LIDARs.
+            </p>
+           </label>
+          </div>
+          <div>
+           <input id="rbk3" name="846364" type="checkbox" value="rbk3"/>
+           <label for="rbk3">
+            <p>
+             Radar is a better sensor in estimating the time taken by an oncoming car to reach the ego vehicle
+            </p>
+           </label>
+          </div>
+          <div>
+           <input id="rbk4" name="846364" type="checkbox" value="rbk4"/>
+           <label for="rbk4">
+            <p>
+             Radar is a better sensor at outlining the objects
+            </p>
+           </label>
+          </div>
+         </form>
+         <details>
+          <summary>
+           <strong>
+            SOLUTION:
+           </strong>
+          </summary>
+          <ul>
+           <li>
+            For a low priced car, a car manufacturer would prefer to install Radars rather than LIDARs.
+           </li>
+           <li>
+            Radar is a better sensor in estimating the time taken by an oncoming car to reach the ego vehicle
+           </li>
+          </ul>
+         </details>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+      </div>
+      <div class="col-12">
+       <p class="text-right">
+        <a class="btn btn-outline-primary mt-4" href="03. Signal Properties.html" role="button">
+         Next Concept
+        </a>
+       </p>
+      </div>
+     </div>
+    </main>
+    <footer class="footer">
+     <div class="container">
+      <div class="row">
+       <div class="col-12">
+        <p class="text-center">
+         udacity2.0 If you need the newest courses Plase add me wechat: udacity6
+        </p>
+       </div>
+      </div>
+     </div>
+    </footer>
+   </div>
+  </div>
+  <script src="../assets/js/jquery-3.3.1.min.js">
+  </script>
+  <script src="../assets/js/plyr.polyfilled.min.js">
+  </script>
+  <script src="../assets/js/bootstrap.min.js">
+  </script>
+  <script src="../assets/js/jquery.mCustomScrollbar.concat.min.js">
+  </script>
+  <script src="../assets/js/katex.min.js">
+  </script>
+  <script>
+   // Initialize Plyr video players
+    const players = Array.from(document.querySelectorAll('video')).map(p => new Plyr(p));
+
+    // render math equations
+    let elMath = document.getElementsByClassName('mathquill');
+    for (let i = 0, len = elMath.length; i < len; i += 1) {
+      const el = elMath[i];
+
+      katex.render(el.textContent, el, {
+        throwOnError: false
+      });
+    }
+
+    // this hack will make sure Bootstrap tabs work when using Handlebars
+    if ($('#question-tabs').length && $('#user-answer-tabs').length) {
+      $("#question-tabs a.nav-link").on('click', function () {
+        $("#question-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+      $("#user-answer-tabs a.nav-link").on('click', function () {
+        $("#user-answer-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    } else {
+      $("a.nav-link").on('click', function () {
+        $(".tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    }
+
+    // side bar events
+    $(document).ready(function () {
+      $("#sidebar").mCustomScrollbar({
+        theme: "minimal"
+      });
+
+      $('#sidebarCollapse').on('click', function () {
+        $('#sidebar, #content').toggleClass('active');
+        $('.collapse.in').toggleClass('in');
+        $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+      });
+
+      // scroll to first video on page loading
+      if ($('video').length) {
+        $('html,body').animate({ scrollTop: $('div.plyr').prev().offset().top});
+      }
+
+      // auto play first video: this may not work with chrome/safari due to autoplay policy
+      if (players && players.length > 0) {
+        players[0].play();
+      }
+
+      // scroll sidebar to current concept
+      const currentInSideBar = $( "ul.sidebar-list.components li a:contains('02. The Radar Sensor')" )
+      currentInSideBar.css( "text-decoration", "underline" );
+      $("#sidebar").mCustomScrollbar('scrollTo', currentInSideBar);
+    });
+  </script>
+ </body>
+</html>

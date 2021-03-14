@@ -1,0 +1,490 @@
+<!-- udacimak v1.4.4 -->
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <meta content="ie=edge" http-equiv="X-UA-Compatible"/>
+  <title>
+   Radar Cross Section
+  </title>
+  <link href="../assets/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="../assets/css/plyr.css" rel="stylesheet"/>
+  <link href="../assets/css/katex.min.css" rel="stylesheet"/>
+  <link href="../assets/css/jquery.mCustomScrollbar.min.css" rel="stylesheet"/>
+  <link href="../assets/css/styles.css" rel="stylesheet"/>
+  <link href="../assets/img/udacimak.png" rel="shortcut icon" type="image/png">
+  </link>
+ </head>
+ <body>
+  <div class="wrapper">
+   <nav id="sidebar">
+    <div class="sidebar-header">
+     <h3>
+      Radar Principles
+     </h3>
+    </div>
+    <ul class="sidebar-list list-unstyled CTAs">
+     <li>
+      <a class="article" href="../index.html">
+       Back to Home
+      </a>
+     </li>
+    </ul>
+    <ul class="sidebar-list list-unstyled components">
+     <li class="">
+      <a href="01. Why Use Radar.html">
+       01. Why Use Radar?
+      </a>
+     </li>
+     <li class="">
+      <a href="02. The Radar Sensor.html">
+       02. The Radar Sensor
+      </a>
+     </li>
+     <li class="">
+      <a href="03. Signal Properties.html">
+       03. Signal Properties
+      </a>
+     </li>
+     <li class="">
+      <a href="04. FMCW.html">
+       04. FMCW
+      </a>
+     </li>
+     <li class="">
+      <a href="05. FMCW Hardware and Antenna.html">
+       05. FMCW Hardware and Antenna
+      </a>
+     </li>
+     <li class="">
+      <a href="06. Radar Cross Section.html">
+       06. Radar Cross Section
+      </a>
+     </li>
+     <li class="">
+      <a href="07. Radar Range Equation.html">
+       07. Radar Range Equation
+      </a>
+     </li>
+     <li class="">
+      <a href="08. What Does a Sensor Fusion Engineer Need to Know.html">
+       08. What Does a Sensor Fusion Engineer Need to Know?
+      </a>
+     </li>
+    </ul>
+    <ul class="sidebar-list list-unstyled CTAs">
+     <li>
+      <a class="article" href="../index.html">
+       Back to Home
+      </a>
+     </li>
+    </ul>
+   </nav>
+   <div id="content">
+    <header class="container-fluild header">
+     <div class="container">
+      <div class="row">
+       <div class="col-12">
+        <div class="align-items-middle">
+         <button class="btn btn-toggle-sidebar" id="sidebarCollapse" type="button">
+          <div>
+          </div>
+          <div>
+          </div>
+          <div>
+          </div>
+         </button>
+         <h1 style="display: inline-block">
+          06. Radar Cross Section
+         </h1>
+        </div>
+       </div>
+      </div>
+     </div>
+    </header>
+    <main class="container">
+     <div class="row">
+      <div class="col-12">
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h1 id="radar-cross-section">
+          Radar Cross Section
+         </h1>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+         <p>
+          L1A56 Radar Cross Section
+         </p>
+        </h3>
+        <video controls="">
+         <source src="06. L1A56 Radar Cross Section--0oYVm98eLA.mp4" type="video/mp4"/>
+         <track default="true" kind="subtitles" label="en" src="06. L1A56 Radar Cross Section--0oYVm98eLA.en.vtt" srclang="en"/>
+        </video>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h2 id="radar-cross-section-overview">
+          Radar Cross Section Overview
+         </h2>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <p>
+          The size and ability of a target to reflect radar energy is defined by a single term,
+          <span class="mathquill ud-math">
+           \sigma
+          </span>
+          , known as the radar cross-section, which has units of
+          <span class="mathquill ud-math">
+           m^2
+          </span>
+          . This unit shows that the radar cross section is an area. The target radar cross sectional area depends on:
+         </p>
+         <ul>
+          <li>
+           The target’s physical geometry and exterior features:
+           <ul>
+            <li>
+             Smooth edges or surface would scatter the waves in all directions, hence lower RCS. Whereas, sharp corners will focus the return signal back in the direction of the source leading to higher RCS. (Image below for different target geometries)
+            </li>
+           </ul>
+          </li>
+          <li>
+           The direction of the illuminating radar,
+          </li>
+          <li>
+           The radar transmitter’s frequency,
+          </li>
+          <li>
+           The material used in the cars, trucks, bicycles, and even in some cases, the clothing material for pedestrians.
+          </li>
+         </ul>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="RCS of the target vehicle
+
+source : https://arxiv.org/pdf/1607.02434.pdf" class="img img-fluid" src="img/image13.png"/>
+          <figcaption class="figure-caption">
+           <p>
+            RCS of the target vehicle
+           </p>
+           <p>
+            source :
+            <a href="https://arxiv.org/pdf/1607.02434.pdf" rel="noopener noreferrer" target="_blank">
+             https://arxiv.org/pdf/1607.02434.pdf
+            </a>
+           </p>
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <p>
+          If absolutely all of the incident radar energy on the target were reflected equally in all directions, then the radar cross section would be equal to the target's cross-sectional area as seen by the transmitter. In practice, some energy is absorbed and the reflected energy is not distributed equally in all directions. Therefore, the radar cross-section is quite difficult to estimate and is normally determined by measurement.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+         <p>
+          Returns from Different Target Geometries
+         </p>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="Returns from Different Target Geometries
+
+source : http://www.radartutorial.eu" class="img img-fluid" src="img/image7.png"/>
+          <figcaption class="figure-caption">
+           <p>
+            Returns from Different Target Geometries
+           </p>
+           <p>
+            source :
+            <a href="http://www.radartutorial.eu" rel="noopener noreferrer" target="_blank">
+             http://www.radartutorial.eu
+            </a>
+           </p>
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h2 id="rcs-units">
+          RCS Units
+         </h2>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <p>
+          This RCS can also be defined using a logarithmic value (dB), since it increases the return signal strength. The formula for converting from RCS to dB is given by:
+         </p>
+         <div class="mathquill">
+          RCS_{dB} = 10\log (RCS_{m^2})
+         </div>
+         <p>
+          The following table shows RCS values for different targets in both
+          <span class="mathquill ud-math">
+           m^2
+          </span>
+          and dB. You can use the formula above to see how the two columns of the table are related. For example, from the table below we can see that for an automobile:
+         </p>
+         <div class="mathquill">
+          RCS_{dB} = 10  \log (100) = 20
+         </div>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="RCS of different targets
+
+source : http://www.radartutorial.eu" class="img img-fluid" src="img/image12.png"/>
+          <figcaption class="figure-caption">
+           <p>
+            RCS of different targets
+           </p>
+           <p>
+            source :
+            <a href="http://www.radartutorial.eu" rel="noopener noreferrer" target="_blank">
+             http://www.radartutorial.eu
+            </a>
+           </p>
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h3 id="rcs-quiz">
+          RCS Quiz
+         </h3>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="Stealth Aircraft
+
+source : pinterest" class="img img-fluid" src="img/image4.png"/>
+          <figcaption class="figure-caption">
+           <p>
+            Stealth Aircraft
+           </p>
+           <p>
+            source : pinterest
+           </p>
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+         <p>
+          Stealth Planes
+         </p>
+        </h3>
+        <div>
+         <form>
+          <fieldset>
+           <legend>
+            <p>
+             What makes stealth aircraft go undetected by radars?
+            </p>
+           </legend>
+          </fieldset>
+          <div>
+           <input id="a1556758453224" name="846440" type="checkbox" value="a1556758453224"/>
+           <label for="a1556758453224">
+            <p>
+             The aircraft’s Smooth Surface
+            </p>
+           </label>
+          </div>
+          <div>
+           <input id="a1556758481555" name="846440" type="checkbox" value="a1556758481555"/>
+           <label for="a1556758481555">
+            <p>
+             The non-reflective paint
+            </p>
+           </label>
+          </div>
+          <div>
+           <input id="a1556758492955" name="846440" type="checkbox" value="a1556758492955"/>
+           <label for="a1556758492955">
+            <p>
+             The geometry of the Aircraft
+            </p>
+           </label>
+          </div>
+         </form>
+         <details>
+          <summary>
+           <strong>
+            SOLUTION:
+           </strong>
+          </summary>
+          <ul>
+           <li>
+            The aircraft’s Smooth Surface
+           </li>
+           <li>
+            The non-reflective paint
+           </li>
+           <li>
+            The geometry of the Aircraft
+           </li>
+          </ul>
+         </details>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+      </div>
+      <div class="col-12">
+       <p class="text-right">
+        <a class="btn btn-outline-primary mt-4" href="07. Radar Range Equation.html" role="button">
+         Next Concept
+        </a>
+       </p>
+      </div>
+     </div>
+    </main>
+    <footer class="footer">
+     <div class="container">
+      <div class="row">
+       <div class="col-12">
+        <p class="text-center">
+         udacity2.0 If you need the newest courses Plase add me wechat: udacity6
+        </p>
+       </div>
+      </div>
+     </div>
+    </footer>
+   </div>
+  </div>
+  <script src="../assets/js/jquery-3.3.1.min.js">
+  </script>
+  <script src="../assets/js/plyr.polyfilled.min.js">
+  </script>
+  <script src="../assets/js/bootstrap.min.js">
+  </script>
+  <script src="../assets/js/jquery.mCustomScrollbar.concat.min.js">
+  </script>
+  <script src="../assets/js/katex.min.js">
+  </script>
+  <script>
+   // Initialize Plyr video players
+    const players = Array.from(document.querySelectorAll('video')).map(p => new Plyr(p));
+
+    // render math equations
+    let elMath = document.getElementsByClassName('mathquill');
+    for (let i = 0, len = elMath.length; i < len; i += 1) {
+      const el = elMath[i];
+
+      katex.render(el.textContent, el, {
+        throwOnError: false
+      });
+    }
+
+    // this hack will make sure Bootstrap tabs work when using Handlebars
+    if ($('#question-tabs').length && $('#user-answer-tabs').length) {
+      $("#question-tabs a.nav-link").on('click', function () {
+        $("#question-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+      $("#user-answer-tabs a.nav-link").on('click', function () {
+        $("#user-answer-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    } else {
+      $("a.nav-link").on('click', function () {
+        $(".tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    }
+
+    // side bar events
+    $(document).ready(function () {
+      $("#sidebar").mCustomScrollbar({
+        theme: "minimal"
+      });
+
+      $('#sidebarCollapse').on('click', function () {
+        $('#sidebar, #content').toggleClass('active');
+        $('.collapse.in').toggleClass('in');
+        $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+      });
+
+      // scroll to first video on page loading
+      if ($('video').length) {
+        $('html,body').animate({ scrollTop: $('div.plyr').prev().offset().top});
+      }
+
+      // auto play first video: this may not work with chrome/safari due to autoplay policy
+      if (players && players.length > 0) {
+        players[0].play();
+      }
+
+      // scroll sidebar to current concept
+      const currentInSideBar = $( "ul.sidebar-list.components li a:contains('06. Radar Cross Section')" )
+      currentInSideBar.css( "text-decoration", "underline" );
+      $("#sidebar").mCustomScrollbar('scrollTo', currentInSideBar);
+    });
+  </script>
+ </body>
+</html>

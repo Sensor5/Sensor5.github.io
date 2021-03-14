@@ -1,0 +1,22 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:09.015
+The purpose of an antenna is to send and receive the radar signal.
+
+00:00:09.015 --> 00:00:11.400
+The frequency of our given time is recorded,
+
+00:00:11.400 --> 00:00:14.714
+and this is used to determine the distance and velocity.
+
+00:00:14.714 --> 00:00:20.295
+The antenna in general is composed of several patches.
+
+00:00:20.295 --> 00:00:25.170
+The difference in signal received between
+
+00:00:25.170 --> 00:00:30.880
+different patches is used to compute the reflected angle.
+

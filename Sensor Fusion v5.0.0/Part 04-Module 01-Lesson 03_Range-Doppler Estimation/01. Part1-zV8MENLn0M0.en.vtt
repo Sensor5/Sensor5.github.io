@@ -1,0 +1,22 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:02.084
+Welcome to Lesson 3.
+
+00:00:02.084 --> 00:00:06.104
+I hope by now we have a good understanding of the radar principles.
+
+00:00:06.105 --> 00:00:09.060
+In Lesson 3, we will learn how often CW radar
+
+00:00:09.060 --> 00:00:12.210
+calculates a range and Doppler velocity of the targets.
+
+00:00:12.210 --> 00:00:15.630
+Further, we will introduce the Fourier transform and learn
+
+00:00:15.630 --> 00:00:19.870
+its implementation to generate the Range/Doppler map.
+

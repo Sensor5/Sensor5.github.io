@@ -1,0 +1,55 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:02.720 --> 00:00:07.875
+Any radar engineer would be required to understand
+
+00:00:07.875 --> 00:00:12.629
+the linear algebra, trigonometry, statistics.
+
+00:00:12.630 --> 00:00:16.679
+So they would be able to deal with radar measurements,
+
+00:00:16.679 --> 00:00:19.140
+given for example in the polar coordinates.
+
+00:00:19.140 --> 00:00:24.030
+At least you have to know how to apply those sine and cosine.
+
+00:00:24.030 --> 00:00:26.850
+In the context of object tracking,
+
+00:00:26.850 --> 00:00:29.220
+we used the radar information.
+
+00:00:29.219 --> 00:00:32.729
+Probably you can apply an extended common filter.
+
+00:00:32.729 --> 00:00:38.609
+In the context of object tracking they might require to know how to apply
+
+00:00:38.609 --> 00:00:42.464
+the partial derivatives and those common filters
+
+00:00:42.465 --> 00:00:48.020
+because we use the measurements provided by the radar.
+
+00:00:48.020 --> 00:00:53.140
+Those measurements are described by non-linear measurement functions.
+
+00:00:53.140 --> 00:00:59.255
+For common filter, those non-linear measurement functions have to be linearized.
+
+00:00:59.255 --> 00:01:04.564
+So we have to apply those partial derivatives and obtain Jacobian's.
+
+00:01:04.564 --> 00:01:07.730
+On the radar side they have to know how to
+
+00:01:07.730 --> 00:01:11.960
+get the frequency values out of the radar signals,
+
+00:01:11.959 --> 00:01:16.139
+and this could be applied by using Fast Fourier transforms.
+

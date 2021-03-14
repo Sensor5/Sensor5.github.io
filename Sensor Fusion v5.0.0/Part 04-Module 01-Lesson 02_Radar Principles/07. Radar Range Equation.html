@@ -1,0 +1,598 @@
+<!-- udacimak v1.4.4 -->
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <meta content="ie=edge" http-equiv="X-UA-Compatible"/>
+  <title>
+   Radar Range Equation
+  </title>
+  <link href="../assets/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="../assets/css/plyr.css" rel="stylesheet"/>
+  <link href="../assets/css/katex.min.css" rel="stylesheet"/>
+  <link href="../assets/css/jquery.mCustomScrollbar.min.css" rel="stylesheet"/>
+  <link href="../assets/css/styles.css" rel="stylesheet"/>
+  <link href="../assets/img/udacimak.png" rel="shortcut icon" type="image/png">
+  </link>
+ </head>
+ <body>
+  <div class="wrapper">
+   <nav id="sidebar">
+    <div class="sidebar-header">
+     <h3>
+      Radar Principles
+     </h3>
+    </div>
+    <ul class="sidebar-list list-unstyled CTAs">
+     <li>
+      <a class="article" href="../index.html">
+       Back to Home
+      </a>
+     </li>
+    </ul>
+    <ul class="sidebar-list list-unstyled components">
+     <li class="">
+      <a href="01. Why Use Radar.html">
+       01. Why Use Radar?
+      </a>
+     </li>
+     <li class="">
+      <a href="02. The Radar Sensor.html">
+       02. The Radar Sensor
+      </a>
+     </li>
+     <li class="">
+      <a href="03. Signal Properties.html">
+       03. Signal Properties
+      </a>
+     </li>
+     <li class="">
+      <a href="04. FMCW.html">
+       04. FMCW
+      </a>
+     </li>
+     <li class="">
+      <a href="05. FMCW Hardware and Antenna.html">
+       05. FMCW Hardware and Antenna
+      </a>
+     </li>
+     <li class="">
+      <a href="06. Radar Cross Section.html">
+       06. Radar Cross Section
+      </a>
+     </li>
+     <li class="">
+      <a href="07. Radar Range Equation.html">
+       07. Radar Range Equation
+      </a>
+     </li>
+     <li class="">
+      <a href="08. What Does a Sensor Fusion Engineer Need to Know.html">
+       08. What Does a Sensor Fusion Engineer Need to Know?
+      </a>
+     </li>
+    </ul>
+    <ul class="sidebar-list list-unstyled CTAs">
+     <li>
+      <a class="article" href="../index.html">
+       Back to Home
+      </a>
+     </li>
+    </ul>
+   </nav>
+   <div id="content">
+    <header class="container-fluild header">
+     <div class="container">
+      <div class="row">
+       <div class="col-12">
+        <div class="align-items-middle">
+         <button class="btn btn-toggle-sidebar" id="sidebarCollapse" type="button">
+          <div>
+          </div>
+          <div>
+          </div>
+          <div>
+          </div>
+         </button>
+         <h1 style="display: inline-block">
+          07. Radar Range Equation
+         </h1>
+        </div>
+       </div>
+      </div>
+     </div>
+    </header>
+    <main class="container">
+     <div class="row">
+      <div class="col-12">
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h1 id="radar-range-equation">
+          Radar Range Equation
+         </h1>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+         <p>
+          L1A64 Radar Equation
+         </p>
+        </h3>
+        <video controls="">
+         <source src="07. L1A64 Radar Equation-7uKLJMnXCYQ.mp4" type="video/mp4"/>
+         <track default="true" kind="subtitles" label="en" src="07. L1A64 Radar Equation-7uKLJMnXCYQ.en.vtt" srclang="en"/>
+        </video>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h2 id="range-equation-overview">
+          Range Equation Overview
+         </h2>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+         <p>
+          Range Equation
+         </p>
+        </h3>
+        <div>
+         <p>
+          Using the Radar Range equation we can design the radar transmitter, receiver, and antenna to have the desired power, gain and noise performance to meet the range requirements.
+         </p>
+         <p>
+          A long range radar designed to cover 300m range and detect a target with smaller cross section would need higher transmit power and more antenna gain as compared to a short range radar designed to cover just 50m for similar target. A target with higher cross section can be detected at a longer range as compared to a target with smaller cross section.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+         <p>
+          Range Equation
+         </p>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="Radar Equation 
+
+source : http://www.radartutorial.eu" class="img img-fluid" src="img/image9.png"/>
+          <figcaption class="figure-caption">
+           <p>
+            Radar Equation
+           </p>
+           <p>
+            source :
+            <a href="http://www.radartutorial.eu" rel="noopener noreferrer" target="_blank">
+             http://www.radartutorial.eu
+            </a>
+           </p>
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <ul>
+          <li>
+           <span class="mathquill ud-math">
+            R
+           </span>
+           - Maximum Range a radar can detect targets.
+          </li>
+          <li>
+           <span class="mathquill ud-math">
+            P_s
+           </span>
+           - Transmitted Power from Radar (dBm)
+          </li>
+          <li>
+           <span class="mathquill ud-math">
+            G
+           </span>
+           -  Gain of the Transmit/Receive Antenna (dBi)
+          </li>
+          <li>
+           <span class="mathquill ud-math">
+            \lambda
+           </span>
+           -    Wavelength of the signal (
+           <span class="mathquill ud-math">
+            m
+           </span>
+           )
+          </li>
+          <li>
+           <span class="mathquill ud-math">
+            \sigma
+           </span>
+           - radar cross section (
+           <span class="mathquill ud-math">
+            m^2
+           </span>
+           )
+          </li>
+          <li>
+           <span class="mathquill ud-math">
+            P_E
+           </span>
+           - Minimum received power radar can detect.
+          </li>
+         </ul>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="The image above shows the variation in the signal strength level as it travels through transmitter, over the air and at the receiver" class="img img-fluid" src="img/image15.png"/>
+          <figcaption class="figure-caption">
+           <p>
+            The image above shows the variation in the signal strength level as it travels through transmitter, over the air and at the receiver
+           </p>
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <p>
+          The image above shows the variation in the signal strength level :
+         </p>
+         <ul>
+          <li>
+           The transmitter power
+          </li>
+          <li>
+           Power Amplifiers further increase the signal strength - Transmit chain gain
+          </li>
+          <li>
+           Signal is further amplified using an antenna
+          </li>
+          <li>
+           One Way Path Loss represents the loss in the signal strength as it travels towards the target
+          </li>
+          <li>
+           On getting reflected from the target the signal gets amplified based on the RCS of the target
+          </li>
+          <li>
+           After RCS gain the signal travel back towards the radar and has similar loss in strength as going forward
+          </li>
+          <li>
+           The receiver antenna amplifies the return signal before sending it to the processing unit
+          </li>
+         </ul>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h2 id="range-equation-quiz">
+          Range Equation Quiz
+         </h2>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+         <p>
+          Range Equation
+         </p>
+        </h3>
+        <div>
+         <form>
+          <fieldset>
+           <legend>
+            <p>
+             What all contributes to the successful detection of the pedestrian at far distance?
+            </p>
+           </legend>
+          </fieldset>
+          <div>
+           <input id="rbk1" name="844197" type="checkbox" value="rbk1"/>
+           <label for="rbk1">
+            <p>
+             Higher Antenna Gain
+            </p>
+           </label>
+          </div>
+          <div>
+           <input id="rbk2" name="844197" type="checkbox" value="rbk2"/>
+           <label for="rbk2">
+            <p>
+             Higher Minimum Detectable Signal of the Receiver
+            </p>
+           </label>
+          </div>
+          <div>
+           <input id="rbk3" name="844197" type="checkbox" value="rbk3"/>
+           <label for="rbk3">
+            <p>
+             Smaller Radar Cross Section (RCS) of the Pedestrian
+            </p>
+           </label>
+          </div>
+          <div>
+           <input id="rbk4" name="844197" type="checkbox" value="rbk4"/>
+           <label for="rbk4">
+            <p>
+             Higher Transmitter Power
+            </p>
+           </label>
+          </div>
+         </form>
+         <details>
+          <summary>
+           <strong>
+            SOLUTION:
+           </strong>
+          </summary>
+          <ul>
+           <li>
+            Higher Antenna Gain
+           </li>
+           <li>
+            Higher Transmitter Power
+           </li>
+          </ul>
+         </details>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h2 id="radar-detection">
+          Radar Detection
+         </h2>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+         <p>
+          SNR
+         </p>
+        </h3>
+        <div>
+         <p>
+          Below is an illustration showing the output of a radar's range detection. The peaks correspond to the strength of the return signal from targets and the frequency relates to the range. Relationship between frequency and range will be discussed in next lesson.
+         </p>
+         <p>
+          A radar cannot detect a signal that is below the noise level. The noise level is determined by the thermal noise generated by the receiver. To successfully detect a target, the return signal strength needs to be larger than the noise level. This is defined by a property called
+          <em>
+           signal to noise ratio
+          </em>
+          , or _SNR.
+         </p>
+         <p>
+          SNR is a quantitative measure of a signal strength as compared to the level of noise. If the SNR is too low it becomes difficult for a radar to distinguish the signal from noise. Hence, higher SNR is desirable for successful detection of the target. Generally, a 7-13 dB SNR ensures successful detection in a road scenario.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+         <p>
+          SNR
+         </p>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="Signal to Noise Ratio" class="img img-fluid" src="img/image10.png"/>
+          <figcaption class="figure-caption">
+           <p>
+            Signal to Noise Ratio
+           </p>
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <p>
+          The image above shows the logarithmic value of SNR =  power level (in dBm) - noise level (dBm). The plot shows the output of Range FFT (discussed in Lesson 2). In general, the higher the SNR value, the greater are the chances of successful Radar detection.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h2 id="matlab-exercise-maximum-range-calculation">
+          Matlab Exercise: Maximum Range Calculation
+         </h2>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <p>
+          The following MATLAB code provides some parameters which can be used in the range equation given above. Your task is to complete the TODOs in the following code:
+         </p>
+         <ol>
+          <li>
+           Use the speed of light
+           <span class="mathquill ud-math">
+            c
+           </span>
+           to compute the wavelength
+           <span class="mathquill ud-math">
+            \lambda
+           </span>
+           .
+          </li>
+          <li>
+           Use the results from part 1. along with the range equation to compute the radar range.
+          </li>
+          <li>
+           Print the range to screen using
+           <code>
+            disp(range)
+           </code>
+           .
+          </li>
+         </ol>
+         <h3 id="matlab-starter-code">
+          MATLAB Starter Code
+         </h3>
+         <pre><code class="Matlab language-Matlab">%Operating frequency (Hz)
+fc = 77.0e9;
+
+%Transmitted power (W)
+Pt = 3e-3;
+
+%Antenna Gain (linear)
+G =  10000;
+
+%Minimum Detectable Power
+Ps = 1e-10;
+
+%RCS of a car
+RCS = 100;
+
+%Speed of light
+c = 3*10^8;
+
+%TODO: Calculate the wavelength
+
+
+%TODO : Measure the Maximum Range a Radar can see. </code></pre>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+      </div>
+      <div class="col-12">
+       <p class="text-right">
+        <a class="btn btn-outline-primary mt-4" href="08. What Does a Sensor Fusion Engineer Need to Know.html" role="button">
+         Next Concept
+        </a>
+       </p>
+      </div>
+     </div>
+    </main>
+    <footer class="footer">
+     <div class="container">
+      <div class="row">
+       <div class="col-12">
+        <p class="text-center">
+         udacity2.0 If you need the newest courses Plase add me wechat: udacity6
+        </p>
+       </div>
+      </div>
+     </div>
+    </footer>
+   </div>
+  </div>
+  <script src="../assets/js/jquery-3.3.1.min.js">
+  </script>
+  <script src="../assets/js/plyr.polyfilled.min.js">
+  </script>
+  <script src="../assets/js/bootstrap.min.js">
+  </script>
+  <script src="../assets/js/jquery.mCustomScrollbar.concat.min.js">
+  </script>
+  <script src="../assets/js/katex.min.js">
+  </script>
+  <script>
+   // Initialize Plyr video players
+    const players = Array.from(document.querySelectorAll('video')).map(p => new Plyr(p));
+
+    // render math equations
+    let elMath = document.getElementsByClassName('mathquill');
+    for (let i = 0, len = elMath.length; i < len; i += 1) {
+      const el = elMath[i];
+
+      katex.render(el.textContent, el, {
+        throwOnError: false
+      });
+    }
+
+    // this hack will make sure Bootstrap tabs work when using Handlebars
+    if ($('#question-tabs').length && $('#user-answer-tabs').length) {
+      $("#question-tabs a.nav-link").on('click', function () {
+        $("#question-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+      $("#user-answer-tabs a.nav-link").on('click', function () {
+        $("#user-answer-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    } else {
+      $("a.nav-link").on('click', function () {
+        $(".tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    }
+
+    // side bar events
+    $(document).ready(function () {
+      $("#sidebar").mCustomScrollbar({
+        theme: "minimal"
+      });
+
+      $('#sidebarCollapse').on('click', function () {
+        $('#sidebar, #content').toggleClass('active');
+        $('.collapse.in').toggleClass('in');
+        $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+      });
+
+      // scroll to first video on page loading
+      if ($('video').length) {
+        $('html,body').animate({ scrollTop: $('div.plyr').prev().offset().top});
+      }
+
+      // auto play first video: this may not work with chrome/safari due to autoplay policy
+      if (players && players.length > 0) {
+        players[0].play();
+      }
+
+      // scroll sidebar to current concept
+      const currentInSideBar = $( "ul.sidebar-list.components li a:contains('07. Radar Range Equation')" )
+      currentInSideBar.css( "text-decoration", "underline" );
+      $("#sidebar").mCustomScrollbar('scrollTo', currentInSideBar);
+    });
+  </script>
+ </body>
+</html>

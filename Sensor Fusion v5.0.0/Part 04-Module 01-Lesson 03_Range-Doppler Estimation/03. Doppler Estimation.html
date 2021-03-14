@@ -1,0 +1,662 @@
+<!-- udacimak v1.4.4 -->
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <meta content="ie=edge" http-equiv="X-UA-Compatible"/>
+  <title>
+   Doppler Estimation
+  </title>
+  <link href="../assets/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="../assets/css/plyr.css" rel="stylesheet"/>
+  <link href="../assets/css/katex.min.css" rel="stylesheet"/>
+  <link href="../assets/css/jquery.mCustomScrollbar.min.css" rel="stylesheet"/>
+  <link href="../assets/css/styles.css" rel="stylesheet"/>
+  <link href="../assets/img/udacimak.png" rel="shortcut icon" type="image/png">
+  </link>
+ </head>
+ <body>
+  <div class="wrapper">
+   <nav id="sidebar">
+    <div class="sidebar-header">
+     <h3>
+      Range-Doppler Estimation
+     </h3>
+    </div>
+    <ul class="sidebar-list list-unstyled CTAs">
+     <li>
+      <a class="article" href="../index.html">
+       Back to Home
+      </a>
+     </li>
+    </ul>
+    <ul class="sidebar-list list-unstyled components">
+     <li class="">
+      <a href="01. Range, Velocity, and Angle Resolution.html">
+       01. Range, Velocity, and Angle Resolution
+      </a>
+     </li>
+     <li class="">
+      <a href="02. Range Estimation.html">
+       02. Range Estimation
+      </a>
+     </li>
+     <li class="">
+      <a href="03. Doppler Estimation.html">
+       03. Doppler Estimation
+      </a>
+     </li>
+     <li class="">
+      <a href="04. Fast Fourier Transform (FFT).html">
+       04. Fast Fourier Transform (FFT)
+      </a>
+     </li>
+     <li class="">
+      <a href="05. The 2D FFT.html">
+       05. The 2D FFT
+      </a>
+     </li>
+     <li class="">
+      <a href="06. What Kind of Math Do Radar Engineers Use.html">
+       06. What Kind of Math Do Radar Engineers Use?
+      </a>
+     </li>
+    </ul>
+    <ul class="sidebar-list list-unstyled CTAs">
+     <li>
+      <a class="article" href="../index.html">
+       Back to Home
+      </a>
+     </li>
+    </ul>
+   </nav>
+   <div id="content">
+    <header class="container-fluild header">
+     <div class="container">
+      <div class="row">
+       <div class="col-12">
+        <div class="align-items-middle">
+         <button class="btn btn-toggle-sidebar" id="sidebarCollapse" type="button">
+          <div>
+          </div>
+          <div>
+          </div>
+          <div>
+          </div>
+         </button>
+         <h1 style="display: inline-block">
+          03. Doppler Estimation
+         </h1>
+        </div>
+       </div>
+      </div>
+     </div>
+    </header>
+    <main class="container">
+     <div class="row">
+      <div class="col-12">
+       <div class="ud-atom">
+        <h3>
+         <p>
+          Header Text
+         </p>
+        </h3>
+        <div>
+         <h1 id="doppler-estimation">
+          Doppler Estimation
+         </h1>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+         <p>
+          L2A12 Doppler Estimation
+         </p>
+        </h3>
+        <video controls="">
+         <source src="03. L2A12 Doppler Estimation-IZmA1dptdT4.mp4" type="video/mp4"/>
+         <track default="true" kind="subtitles" label="en" src="03. L2A12 Doppler Estimation-IZmA1dptdT4.en.vtt" srclang="en"/>
+        </video>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h2 id="doppler-estimation-overview">
+          Doppler Estimation Overview
+         </h2>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="Doppler Speed Measurement" class="img img-fluid" src="img/image19.png"/>
+          <figcaption class="figure-caption">
+           <p>
+            Doppler Speed Measurement
+           </p>
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+         <p>
+          Doppler Estimation Theory
+         </p>
+        </h3>
+        <div>
+         <p>
+          The velocity estimation for radar is based on an age old phenomenon called the doppler effect. As per doppler theory an approaching target will shift an emitted and reflected frequency higher, whereas a receding target will shift the both frequencies to be lower than the transmitted frequency.
+         </p>
+         <p>
+          The same principle is used in the radar guns to catch the speed violators, or even in sports to measure the speed of a ball.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="" class="img img-fluid" src="img/image18.png"/>
+          <figcaption class="figure-caption">
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+         <p>
+          ND313 Andrei Intv 15 What Is The Doppler Effect
+         </p>
+        </h3>
+        <video controls="">
+         <source src="03. ND313 Andrei Intv 15 What Is The Doppler Effect-0Dn1WQOitO4.mp4" type="video/mp4"/>
+         <track default="true" kind="subtitles" label="en" src="03. ND313 Andrei Intv 15 What Is The Doppler Effect-0Dn1WQOitO4.en.vtt" srclang="en"/>
+        </video>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h2 id="fmcw-doppler-measurements">
+          FMCW Doppler Measurements
+         </h2>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+         <p>
+          FMCW Doppler Measurements
+         </p>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="FMCW Doppler Estimation
+
+source : Delft University of Technology" class="img img-fluid" src="img/image8.png"/>
+          <figcaption class="figure-caption">
+           <p>
+            FMCW Doppler Estimation
+           </p>
+           <p>
+            source : Delft University of Technology
+           </p>
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <p>
+          As discussed above, there will be a shift in the received signal frequency due to the doppler effect of the target’s velocity. The doppler shift is directly proportional to the velocity of the target as shown below.
+         </p>
+         <div class="mathquill">
+          f_D = \frac{2\nu_r}{\lambda}
+         </div>
+         <ul>
+          <li>
+           <span class="mathquill ud-math">
+            f_D
+           </span>
+           : shift in the transmitted frequency due to the doppler
+          </li>
+          <li>
+           <span class="mathquill ud-math">
+            \nu_r
+           </span>
+           : relative velocity of the target
+          </li>
+          <li>
+           <span class="mathquill ud-math">
+            \lambda
+           </span>
+           : wavelength of the signal
+          </li>
+         </ul>
+         <p>
+          By measuring the shift in the frequency due to doppler, radar can determine the velocity. The receding target will have a negative velocity due to the frequency dropping lower, whereas the approaching target will have positive velocity as the frequency shifts higher.
+         </p>
+         <p>
+          The beat frequency comprises of both frequency components:
+          <span class="mathquill ud-math">
+           f_r
+          </span>
+          (frequency delta due to range) and
+          <span class="mathquill ud-math">
+           f_d
+          </span>
+          (frequency shift due to velocity). Although, in the case of automotive radar the
+          <span class="mathquill ud-math">
+           f_d
+          </span>
+          is very small in comparison to the
+          <span class="mathquill ud-math">
+           f_r
+          </span>
+          . Hence, the doppler velocity is calculated by measuring the rate of change of phase across multiple chirps.
+         </p>
+         <p>
+          The following equation shows the relationship between the rate of change of the phase
+          <span class="mathquill ud-math">
+           \Phi
+          </span>
+          , and the frequency:
+         </p>
+         <div class="mathquill">
+          \frac{d\Phi}{dt} = frequency
+         </div>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h2 id="doppler-phase-shift">
+          DOPPLER PHASE SHIFT
+         </h2>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <p>
+          Keeping that in consideration, we calculate the doppler frequency by measuring the rate of change of phase. The phase change occurs due to small displacement of a moving target for every chirp duration. Since, each chirp duration is generally in microseconds, it results in small displacement in mm (millimeters). These small displacements for every chirp leads to change in phase. Using this rate of change of phase we can determine the doppler frequency.
+         </p>
+         <p>
+          Let's see how :
+         </p>
+         <p>
+          If the path between a target and the radar is changed by an amount Δx, the phase of the wave received by radar is shifted by
+          <br/>
+         </p>
+         <div class="mathquill">
+          \Delta \varphi = \frac{\Delta x}{\lambda}  \qquad (\lambda = 2\pi \,\, or \,\, 360 \degree)
+         </div>
+         <div class="mathquill">
+          \Delta \varphi = f*\frac{\Delta x}{c}  \qquad (\lambda = f/c)
+         </div>
+         <p>
+          <br/>
+          where λ and f are, respectively, the wavelength and frequency of the signal and c is the speed of propagation. The resulting change in observed frequency is
+         </p>
+         <div class="mathquill">
+          \Delta f = \frac{\Delta\varphi}{\Delta t}
+         </div>
+         <p>
+          <br/>
+          where Δt is the time taken for the observation of the phase change.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="" class="img img-fluid" src="img/image-1.png"/>
+          <figcaption class="figure-caption">
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h2 id="doppler-estimation-exercises">
+          Doppler Estimation Exercises
+         </h2>
+         <p>
+          Using the following MATLAB code sample, complete the TODOs to calculate thevelocity in m/s of four targets with following doppler frequency shifts: [3 KHz, 4.5 KHz, 11 KHz, -3 KHz].
+         </p>
+         <p>
+          You can use the following parameter values:
+         </p>
+         <ul>
+          <li>
+           The radar's operating frequency = 77 GHz
+          </li>
+          <li>
+           The speed of light c = 3*10^8
+          </li>
+         </ul>
+         <pre><code class="matlab language-matlab">% Doppler Velocity Calculation
+c = 3*10^8;         %speed of light
+frequency = 77e9;   %frequency in Hz
+
+% TODO : Calculate the wavelength
+
+
+% TODO : Define the doppler shifts in Hz using the information from above 
+
+
+% TODO : Calculate the velocity of the targets  fd = 2*vr/lambda
+
+
+
+% TODO: Display results</code></pre>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+         <p>
+          Doppler Velocity
+         </p>
+        </h3>
+        <div>
+         <form>
+          <fieldset>
+           <legend>
+            <p>
+             From the workspace above, estimate the location of the targets. If all the targets were at 200 m range ahead of the ego (radar) vehicle and the velocity of the ego vehicle is 5 m/s. Then in next 5 seconds which of the targets would be
+             <strong>
+              closest
+             </strong>
+             to the ego vehicle. Let’s give targets a tag [A B C D]
+            </p>
+           </legend>
+          </fieldset>
+          <div>
+           <input id="rbk1" name="846481" type="radio" value="rbk1"/>
+           <label for="rbk1">
+            <p>
+             Target A
+            </p>
+           </label>
+          </div>
+          <div>
+           <input id="rbk2" name="846481" type="radio" value="rbk2"/>
+           <label for="rbk2">
+            <p>
+             Target B
+            </p>
+           </label>
+          </div>
+          <div>
+           <input id="rbk3" name="846481" type="radio" value="rbk3"/>
+           <label for="rbk3">
+            <p>
+             Target C
+            </p>
+           </label>
+          </div>
+          <div>
+           <input id="rbk4" name="846481" type="radio" value="rbk4"/>
+           <label for="rbk4">
+            <p>
+             Target D
+            </p>
+           </label>
+          </div>
+         </form>
+         <details>
+          <summary>
+           <strong>
+            SOLUTION:
+           </strong>
+          </summary>
+          Target C
+         </details>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+         <p>
+          Doppler Velocity 2
+         </p>
+        </h3>
+        <div>
+         <form>
+          <fieldset>
+           <legend>
+            <p>
+             From the workspace above, estimate the location of the targets. If all the targets were at 200 m range ahead of the ego (radar) vehicle and the velocity of the ego vehicle is 5 m/s. Then in next 5 seconds which of the targets would be
+             <strong>
+              farthest
+             </strong>
+             from the ego vehicle. Let’s give targets a tag number [A B C D]
+            </p>
+           </legend>
+          </fieldset>
+          <div>
+           <input id="a1556905637508" name="846520" type="radio" value="a1556905637508"/>
+           <label for="a1556905637508">
+            <p>
+             Target A
+            </p>
+           </label>
+          </div>
+          <div>
+           <input id="a1556905660269" name="846520" type="radio" value="a1556905660269"/>
+           <label for="a1556905660269">
+            <p>
+             Target B
+            </p>
+           </label>
+          </div>
+          <div>
+           <input id="a1556905663948" name="846520" type="radio" value="a1556905663948"/>
+           <label for="a1556905663948">
+            <p>
+             Target C
+            </p>
+           </label>
+          </div>
+          <div>
+           <input id="a1556905671094" name="846520" type="radio" value="a1556905671094"/>
+           <label for="a1556905671094">
+            <p>
+             Target D
+            </p>
+           </label>
+          </div>
+         </form>
+         <details>
+          <summary>
+           <strong>
+            SOLUTION:
+           </strong>
+          </summary>
+          Target B
+         </details>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h2 id="solution">
+          Solution
+         </h2>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+         <p>
+          3 Doppler Velocity
+         </p>
+        </h3>
+        <video controls="">
+         <source src="03. 3 Doppler Velocity-bKEFgnWAzkM.mp4" type="video/mp4"/>
+         <track default="true" kind="subtitles" label="en" src="03. 3 Doppler Velocity-bKEFgnWAzkM.en.vtt" srclang="en"/>
+        </video>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+         <p>
+          Doppler Estimation Further Research
+         </p>
+        </h3>
+        <div>
+         <h2 id="doppler-estimation-further-research">
+          Doppler Estimation Further Research
+         </h2>
+         <p>
+          For additional resources related to doppler estimation, see these
+          <a href="http://www.phys.uconn.edu/~gibson/Notes/Section6_3/Sec6_3.htm" rel="noopener noreferrer" target="_blank">
+           lecture notes
+          </a>
+          .
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+      </div>
+      <div class="col-12">
+       <p class="text-right">
+        <a class="btn btn-outline-primary mt-4" href="04. Fast Fourier Transform (FFT).html" role="button">
+         Next Concept
+        </a>
+       </p>
+      </div>
+     </div>
+    </main>
+    <footer class="footer">
+     <div class="container">
+      <div class="row">
+       <div class="col-12">
+        <p class="text-center">
+         udacity2.0 If you need the newest courses Plase add me wechat: udacity6
+        </p>
+       </div>
+      </div>
+     </div>
+    </footer>
+   </div>
+  </div>
+  <script src="../assets/js/jquery-3.3.1.min.js">
+  </script>
+  <script src="../assets/js/plyr.polyfilled.min.js">
+  </script>
+  <script src="../assets/js/bootstrap.min.js">
+  </script>
+  <script src="../assets/js/jquery.mCustomScrollbar.concat.min.js">
+  </script>
+  <script src="../assets/js/katex.min.js">
+  </script>
+  <script>
+   // Initialize Plyr video players
+    const players = Array.from(document.querySelectorAll('video')).map(p => new Plyr(p));
+
+    // render math equations
+    let elMath = document.getElementsByClassName('mathquill');
+    for (let i = 0, len = elMath.length; i < len; i += 1) {
+      const el = elMath[i];
+
+      katex.render(el.textContent, el, {
+        throwOnError: false
+      });
+    }
+
+    // this hack will make sure Bootstrap tabs work when using Handlebars
+    if ($('#question-tabs').length && $('#user-answer-tabs').length) {
+      $("#question-tabs a.nav-link").on('click', function () {
+        $("#question-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+      $("#user-answer-tabs a.nav-link").on('click', function () {
+        $("#user-answer-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    } else {
+      $("a.nav-link").on('click', function () {
+        $(".tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    }
+
+    // side bar events
+    $(document).ready(function () {
+      $("#sidebar").mCustomScrollbar({
+        theme: "minimal"
+      });
+
+      $('#sidebarCollapse').on('click', function () {
+        $('#sidebar, #content').toggleClass('active');
+        $('.collapse.in').toggleClass('in');
+        $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+      });
+
+      // scroll to first video on page loading
+      if ($('video').length) {
+        $('html,body').animate({ scrollTop: $('div.plyr').prev().offset().top});
+      }
+
+      // auto play first video: this may not work with chrome/safari due to autoplay policy
+      if (players && players.length > 0) {
+        players[0].play();
+      }
+
+      // scroll sidebar to current concept
+      const currentInSideBar = $( "ul.sidebar-list.components li a:contains('03. Doppler Estimation')" )
+      currentInSideBar.css( "text-decoration", "underline" );
+      $("#sidebar").mCustomScrollbar('scrollTo', currentInSideBar);
+    });
+  </script>
+ </body>
+</html>

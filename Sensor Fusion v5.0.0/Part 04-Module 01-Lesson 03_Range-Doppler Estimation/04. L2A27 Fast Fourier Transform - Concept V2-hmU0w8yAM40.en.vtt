@@ -1,0 +1,109 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:01.875
+Time for some fun.
+
+00:00:01.875 --> 00:00:04.750
+It is time for digital signal processing.
+
+00:00:04.750 --> 00:00:10.224
+Here we will discuss how radar converts a signal from time domain to frequency domain,
+
+00:00:10.224 --> 00:00:12.744
+in order to generate range and diplomats.
+
+00:00:12.744 --> 00:00:14.449
+Sounds interesting?
+
+00:00:14.449 --> 00:00:17.085
+Fourier transform. No, no,
+
+00:00:17.085 --> 00:00:18.664
+don't start panicking yet.
+
+00:00:18.664 --> 00:00:20.109
+For the purpose of this course,
+
+00:00:20.109 --> 00:00:24.160
+we don't have to learn the mathematical implementation of FFT.
+
+00:00:24.160 --> 00:00:28.570
+All we need to do is understand how FFT helps in radar detections.
+
+00:00:28.570 --> 00:00:30.765
+What is Fourier transform?
+
+00:00:30.765 --> 00:00:33.340
+The Fourier transform is a tool that helps convert
+
+00:00:33.340 --> 00:00:36.040
+a time-domain signal into frequency domain,
+
+00:00:36.039 --> 00:00:39.670
+for a better analysis of its spectral content.
+
+00:00:39.670 --> 00:00:42.844
+Let's see how it works in the most basic way.
+
+00:00:42.844 --> 00:00:45.088
+So Jean Baptiste Fourier,
+
+00:00:45.088 --> 00:00:47.100
+proved the mathematical fact that,
+
+00:00:47.100 --> 00:00:53.454
+any periodic waveform can be expressed as the sum of an infinite set of sine waves.
+
+00:00:53.454 --> 00:00:55.478
+As the image shows,
+
+00:00:55.478 --> 00:00:59.740
+the signal in time domain has multiple sine waves associated with it.
+
+00:00:59.740 --> 00:01:01.600
+What FFT does is that,
+
+00:01:01.600 --> 00:01:07.359
+it takes the time domain signal and separates it into its different frequency components.
+
+00:01:07.359 --> 00:01:10.825
+This helps in understanding the spectral content of a signal,
+
+00:01:10.825 --> 00:01:14.829
+which is important for analyzing and processing the beat frequency.
+
+00:01:14.829 --> 00:01:18.774
+This is it, it wasn't too difficult, right?
+
+00:01:18.775 --> 00:01:23.910
+Let's take a look at first dimension FFT or the range of FFT.
+
+00:01:23.909 --> 00:01:25.454
+As we learned earlier,
+
+00:01:25.454 --> 00:01:28.504
+every single chirp is sampled multiple times.
+
+00:01:28.504 --> 00:01:31.969
+In order to get the spectral content of the beat frequency,
+
+00:01:31.969 --> 00:01:37.804
+we perform the FFT across all the data collected at every sample within each chirp.
+
+00:01:37.805 --> 00:01:42.485
+We repeat the process for all chirps to get a 2D matrix of size,
+
+00:01:42.484 --> 00:01:45.709
+number of samples, into number of chirps.
+
+00:01:45.709 --> 00:01:49.734
+All the columns in the matrix corresponds to the range bins.
+
+00:01:49.734 --> 00:01:55.474
+The yellow bins, depict the presence of targets hence giving the range for every target.
+
+00:01:55.474 --> 00:02:02.339
+Here in the image, we can see two targets located at two different locations.
+

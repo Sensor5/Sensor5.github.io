@@ -1,0 +1,103 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:02.279
+So far, we have learned how radar generates
+
+00:00:02.279 --> 00:00:05.849
+the signals and the factors that impact the signal propagation.
+
+00:00:05.849 --> 00:00:11.039
+Now we will look into how a target and properties impact the radar detection.
+
+00:00:11.039 --> 00:00:14.699
+Ever wondered what makes the stealth aircraft go undetected?
+
+00:00:14.699 --> 00:00:16.664
+The answer is RCS.
+
+00:00:16.664 --> 00:00:18.614
+But what is RCS?
+
+00:00:18.614 --> 00:00:21.119
+Radar Cross Section is defined as the size and
+
+00:00:21.120 --> 00:00:24.330
+ability of a target to reflect radar energy.
+
+00:00:24.329 --> 00:00:28.844
+It is measured in meter square and depends on the following criteria.
+
+00:00:28.844 --> 00:00:32.250
+Number 1, the direction of the illuminating radar.
+
+00:00:32.250 --> 00:00:35.895
+That is, the angle at which the radar beam hits the target.
+
+00:00:35.895 --> 00:00:40.470
+Different angle of elimination will have different returns signal strength.
+
+00:00:40.469 --> 00:00:43.365
+Number 2, radars transmitter frequency.
+
+00:00:43.365 --> 00:00:46.440
+Higher the frequency, smaller the wavelength of the signal,
+
+00:00:46.439 --> 00:00:49.125
+and more will be the RCS of the target.
+
+00:00:49.125 --> 00:00:53.284
+Number 3, material reuse in cars, trucks,
+
+00:00:53.284 --> 00:00:58.384
+bicycles, and some cases even the clothing material for pedestrians.
+
+00:00:58.384 --> 00:01:00.619
+Number 4, the most important,
+
+00:01:00.619 --> 00:01:03.875
+targets physical geometry and exterior features.
+
+00:01:03.875 --> 00:01:06.894
+Let's say if a target has smooth edges or surface,
+
+00:01:06.894 --> 00:01:09.364
+then it would scatter waves in all directions.
+
+00:01:09.364 --> 00:01:13.414
+Hence, only a part of the signal gets reflected back to the radar.
+
+00:01:13.415 --> 00:01:16.145
+This leads to a lower RCS.
+
+00:01:16.144 --> 00:01:19.399
+Sharp corners will focus the return signal back in
+
+00:01:19.400 --> 00:01:22.940
+the direction of the source leading to higher RCS.
+
+00:01:22.939 --> 00:01:27.349
+We can see this clearly depicted by the images of different target geometries.
+
+00:01:27.349 --> 00:01:32.334
+So as you can see, the sphere reflects the signal in all the directions.
+
+00:01:32.334 --> 00:01:38.119
+But here, a corner reflector focuses all the energy back to the radar.
+
+00:01:38.120 --> 00:01:42.800
+Here we have a table showing the RCS of different targets. Point to note.
+
+00:01:42.799 --> 00:01:46.884
+Higher the RCS, stronger return signal from the target.
+
+00:01:46.885 --> 00:01:49.685
+Hence, higher the probability of detection.
+
+00:01:49.685 --> 00:01:54.665
+So a small corner reflector because of its shape can be detected far in the range,
+
+00:01:54.665 --> 00:01:58.109
+whereas at truck may go undetected.
+

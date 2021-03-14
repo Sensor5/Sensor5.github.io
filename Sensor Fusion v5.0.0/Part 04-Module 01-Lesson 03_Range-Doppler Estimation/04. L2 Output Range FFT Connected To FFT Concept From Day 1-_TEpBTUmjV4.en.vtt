@@ -1,0 +1,19 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:02.370
+This is how the FFT output for each chirp looks
+
+00:00:02.370 --> 00:00:05.025
+like on an amplitude versus frequency plot.
+
+00:00:05.025 --> 00:00:08.460
+As you see, multiple return chirps are generated,
+
+00:00:08.460 --> 00:00:13.140
+and each of them generate their own frequency peak after their FFT operation.
+
+00:00:13.140 --> 00:00:18.339
+The different peaks here correspond to the targets at different distances.
+

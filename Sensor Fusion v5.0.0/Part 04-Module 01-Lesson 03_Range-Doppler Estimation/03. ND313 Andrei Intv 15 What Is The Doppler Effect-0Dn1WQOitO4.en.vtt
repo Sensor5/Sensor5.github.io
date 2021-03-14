@@ -1,0 +1,40 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:02.450 --> 00:00:09.585
+The Doppler effect is a change in frequency of a wave reflected off a moving target.
+
+00:00:09.585 --> 00:00:12.420
+Just to give you an example,
+
+00:00:12.419 --> 00:00:19.035
+suppose we have only one object in the scene and when the target is moving,
+
+00:00:19.035 --> 00:00:24.780
+then the received signal that is reflected back to the radar might arrive
+
+00:00:24.780 --> 00:00:32.710
+earlier than expected if the target is moving towards the radar.
+
+00:00:32.780 --> 00:00:36.630
+That is because the current wave is reflected from
+
+00:00:36.630 --> 00:00:40.395
+a position which is closer to the sensor.
+
+00:00:40.395 --> 00:00:45.270
+Similarly, the same signal might arrive with
+
+00:00:45.270 --> 00:00:48.515
+a delay If the target is moving
+
+00:00:48.515 --> 00:00:53.960
+away and that is also translated as having a higher or a lower frequency.
+
+00:00:53.960 --> 00:00:59.215
+This frequency difference is known as a Doppler effect.
+
+00:00:59.215 --> 00:01:04.920
+In our case, we use these Doppler effect to compute the velocity.
+

@@ -1,0 +1,16 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:02.660 --> 00:00:09.900
+A chirp is a radar signal whose frequency is increasing or decreasing in time.
+
+00:00:09.900 --> 00:00:15.615
+So the signal with increasing frequency are known as up-chirp,
+
+00:00:15.615 --> 00:00:19.230
+and the ones with decreasing frequency are known as down-chirp.
+
+00:00:19.230 --> 00:00:25.660
+Some of the radars use repeated chirp signals to compute both distance and velocity.
+
