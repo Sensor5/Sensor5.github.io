@@ -1,0 +1,580 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:01.919
+Now remember we already took the first step in
+
+00:00:01.919 --> 00:00:04.049
+engineering a Collision Detection System by using
+
+00:00:04.049 --> 00:00:06.240
+a motion model that will rephrase the problem from
+
+00:00:06.240 --> 00:00:09.179
+collision detection to computing the time to collision.
+
+00:00:09.179 --> 00:00:11.669
+Also, we have already completed the second step,
+
+00:00:11.669 --> 00:00:15.390
+which was to rephrase TTC computation to the problem of observing
+
+00:00:15.390 --> 00:00:19.679
+relative distances between keypoints in the camera image over time.
+
+00:00:19.679 --> 00:00:21.129
+Now with a LiDAR sensor,
+
+00:00:21.129 --> 00:00:25.769
+we only need to measure the distance to the vehicle in front of us to get a TTC estimate.
+
+00:00:25.769 --> 00:00:28.439
+Now in this video, I would like to develop an overview of
+
+00:00:28.440 --> 00:00:31.470
+the various steps we need to take from a coding perspective.
+
+00:00:31.469 --> 00:00:34.019
+Let's take a look at the different building blocks and
+
+00:00:34.020 --> 00:00:36.855
+also at the information flow between those blocks.
+
+00:00:36.854 --> 00:00:38.619
+Now the main idea which we have here,
+
+00:00:38.619 --> 00:00:41.030
+is to take key point matches which we find
+
+00:00:41.030 --> 00:00:43.759
+in the image and then from those keypoint matches,
+
+00:00:43.759 --> 00:00:46.909
+compute by the equations we observed in lesson two,
+
+00:00:46.909 --> 00:00:49.039
+compute the time to collision by looking at
+
+00:00:49.039 --> 00:00:52.714
+the relative distances between key points over time.
+
+00:00:52.715 --> 00:00:55.505
+On the right-hand side, you can see a block diagram which
+
+00:00:55.505 --> 00:00:58.160
+shows how we will proceed in this course.
+
+00:00:58.159 --> 00:00:59.449
+The first thing which we will do,
+
+00:00:59.450 --> 00:01:01.820
+is we will load the images from File.
+
+00:01:01.820 --> 00:01:06.034
+In real project, you would use the camera and take the live images as they come in,
+
+00:01:06.034 --> 00:01:11.390
+but we will load the images from File and we will put them into a ring buffer.
+
+00:01:11.390 --> 00:01:14.765
+Now this buffer gives us images at every point in time.
+
+00:01:14.765 --> 00:01:16.790
+Time is shown here with a small arrow,
+
+00:01:16.790 --> 00:01:18.890
+so we have several images and
+
+00:01:18.890 --> 00:01:22.820
+all those images are piped through the information pipeline, which you can see here.
+
+00:01:22.819 --> 00:01:27.619
+So the image flows from Load images into the first box,
+
+00:01:27.620 --> 00:01:30.070
+which is called Detect Image KeyPoints.
+
+00:01:30.069 --> 00:01:34.699
+Image key point detection can be performed by using various methods,
+
+00:01:34.700 --> 00:01:37.040
+which we will take a very close look at in this course,
+
+00:01:37.040 --> 00:01:42.020
+and the things which all methods return are a set of key points,
+
+00:01:42.019 --> 00:01:44.554
+and those key points are piped into the third block,
+
+00:01:44.555 --> 00:01:47.470
+which is called Extract KeyPoint Descriptors.
+
+00:01:47.469 --> 00:01:49.379
+Now this block here takes two inputs.
+
+00:01:49.379 --> 00:01:50.549
+The first is the keypoints,
+
+00:01:50.549 --> 00:01:53.119
+which we just talked about and the second is we are
+
+00:01:53.120 --> 00:01:55.880
+piping the images directly into this block here,
+
+00:01:55.879 --> 00:01:59.104
+so the idea is that around each key point location,
+
+00:01:59.105 --> 00:02:02.075
+a keypoint descriptor can be computed,
+
+00:02:02.075 --> 00:02:08.090
+which reflects the intensity structure or other properties around this keypoint and
+
+00:02:08.090 --> 00:02:10.129
+which is used to uniquely identify
+
+00:02:10.129 --> 00:02:14.104
+this keypoint in the image by using its local neighborhood.
+
+00:02:14.104 --> 00:02:16.544
+Now the output of this building block here is
+
+00:02:16.544 --> 00:02:19.280
+a set of descriptors and those descriptors are
+
+00:02:19.280 --> 00:02:24.813
+piped into the fourth building block which is called Match KeyPoint Descriptors,
+
+00:02:24.813 --> 00:02:26.719
+and this one again takes two inputs.
+
+00:02:26.719 --> 00:02:29.995
+It's the set of descriptors and it's also the set of keypoints,
+
+00:02:29.995 --> 00:02:31.884
+and based on those two inputs,
+
+00:02:31.884 --> 00:02:36.858
+the output here is a set of keypoint matches that is for two successive images,
+
+00:02:36.859 --> 00:02:39.890
+a number of key points which are found in one image and
+
+00:02:39.889 --> 00:02:43.239
+then the corresponding partners in the successive image,
+
+00:02:43.240 --> 00:02:48.485
+so that the set of keypoints can be used to compute the time to collision.
+
+00:02:48.485 --> 00:02:51.290
+Now the problem we are having here is that we need to isolate
+
+00:02:51.289 --> 00:02:54.919
+the keypoints which are located on the preceding vehicle.
+
+00:02:54.919 --> 00:02:57.799
+It doesn't bring any advantage to
+
+00:02:57.800 --> 00:03:02.870
+track keypoints which are on the road surface in a stable manner,
+
+00:03:02.870 --> 00:03:06.719
+because those key points will not give us the time to collision we seek.
+
+00:03:06.719 --> 00:03:11.569
+So we have to somehow isolate the keypoints which lie on the preceding vehicle,
+
+00:03:11.569 --> 00:03:17.209
+and exclude all other keypoints on the road surface and also on other static objects.
+
+00:03:17.210 --> 00:03:22.099
+Now with LiDAR, the building blocks are much much shorter.
+
+00:03:22.099 --> 00:03:24.034
+What you can see on the right-hand side is,
+
+00:03:24.034 --> 00:03:28.400
+we also load the LiDAR 3D point Cloud from file and what it gives us,
+
+00:03:28.400 --> 00:03:30.830
+the loading operation is a set of 3D points,
+
+00:03:30.830 --> 00:03:34.250
+one for each instant in time t. Now what we have to do,
+
+00:03:34.250 --> 00:03:37.759
+is we have to compute the distance to the preceding vehicle
+
+00:03:37.759 --> 00:03:41.489
+from this 3D point Cloud at those successive moments,
+
+00:03:41.490 --> 00:03:42.730
+and in order to do so,
+
+00:03:42.729 --> 00:03:45.169
+what we need to do is we need to crop,
+
+00:03:45.169 --> 00:03:47.239
+we need to isolate the 3D points on
+
+00:03:47.240 --> 00:03:51.740
+the preceding vehicle and we can very simply do this as we are doing this in the course.
+
+00:03:51.740 --> 00:03:54.290
+In one of the sections,
+
+00:03:54.289 --> 00:03:56.030
+we are simply saying okay.
+
+00:03:56.030 --> 00:03:58.800
+We don't take points from the road surface,
+
+00:03:58.800 --> 00:04:02.045
+that means all points below a certain height
+
+00:04:02.044 --> 00:04:05.689
+which is surely above the road surface will simply be discarded.
+
+00:04:05.689 --> 00:04:08.419
+Also, we will only be looking straight forward,
+
+00:04:08.419 --> 00:04:11.854
+that means left and right of our ego-lane,
+
+00:04:11.854 --> 00:04:13.864
+we simply discard all points.
+
+00:04:13.865 --> 00:04:15.120
+The problem with this is that,
+
+00:04:15.120 --> 00:04:19.509
+sometimes we have a curvature in the road and also,
+
+00:04:19.509 --> 00:04:22.370
+the preceding vehicle might not be exactly in front of us,
+
+00:04:22.370 --> 00:04:28.939
+and for all those exceptions to the very simplifying assumptions we make,
+
+00:04:28.939 --> 00:04:33.709
+we also need to isolate the 3D points which lie directly on the preceding vehicle.
+
+00:04:33.709 --> 00:04:35.419
+That means exclude the road surface,
+
+00:04:35.420 --> 00:04:41.689
+exclude static objects and cropping certainly will not be reliable enough for most cases,
+
+00:04:41.689 --> 00:04:45.904
+especially when this preceding vehicle is not directly in front of the sensor.
+
+00:04:45.904 --> 00:04:48.469
+So what to do? Let's proceed in the presentation and
+
+00:04:48.470 --> 00:04:51.020
+look at this very complex building block diagram here,
+
+00:04:51.019 --> 00:04:53.329
+which is the complete diagram,
+
+00:04:53.329 --> 00:04:57.919
+the complete program which we will be building in this lecture here.
+
+00:04:57.920 --> 00:05:01.220
+Now the solution which we will try to find is,
+
+00:05:01.220 --> 00:05:04.220
+we want to use camera based object classification to
+
+00:05:04.220 --> 00:05:07.430
+cluster LiDAR points and then compute a TTC estimate
+
+00:05:07.430 --> 00:05:14.209
+from 3D bounding boxes instead of using only camera image or only LiDAR points,
+
+00:05:14.209 --> 00:05:15.484
+and let's take a look.
+
+00:05:15.485 --> 00:05:18.139
+On the left-hand side, here you can see the structure from
+
+00:05:18.139 --> 00:05:20.779
+the second slide which loads the images,
+
+00:05:20.779 --> 00:05:22.099
+the texts image keypoints,
+
+00:05:22.100 --> 00:05:26.580
+extracts keypoint descriptors and also matches the keypoint descriptors.
+
+00:05:26.579 --> 00:05:29.189
+On the right-hand side, here you can see the LiDAR Point Cloud,
+
+00:05:29.189 --> 00:05:31.579
+the cropping of the LiDAR Point Cloud and the rest of
+
+00:05:31.579 --> 00:05:34.204
+the boxes is new and has to be explained.
+
+00:05:34.204 --> 00:05:38.509
+So what we want to do is once we have those initial cropping of LiDAR points,
+
+00:05:38.509 --> 00:05:43.039
+which will give us points on the preceding vehicle,
+
+00:05:43.040 --> 00:05:47.000
+but also maybe some points on the road surface and also some points in the left and
+
+00:05:47.000 --> 00:05:51.634
+right lane which don't belong to the immediately preceding vehicle.
+
+00:05:51.634 --> 00:05:52.819
+Now what we want to do,
+
+00:05:52.819 --> 00:05:55.355
+is we want to cluster those LiDAR points,
+
+00:05:55.355 --> 00:05:58.400
+the point cloud into objects and in order to do so,
+
+00:05:58.399 --> 00:06:03.079
+we need information on the objects around us and also on the type of objects around us.
+
+00:06:03.079 --> 00:06:07.339
+The information which we seek can be provided to us by the Camera,
+
+00:06:07.339 --> 00:06:10.579
+and that's what's meant by Detect and Classify Objects here.
+
+00:06:10.579 --> 00:06:13.490
+So imagine we have a set of vehicles in front of us
+
+00:06:13.490 --> 00:06:16.910
+and we have a neural network or deep learning approach,
+
+00:06:16.910 --> 00:06:23.780
+which is able to detect those objects and also to classify them into respective types.
+
+00:06:23.779 --> 00:06:27.875
+For example, pedestrians, cars, trucks etc.
+
+00:06:27.875 --> 00:06:30.889
+Now assume these classified objects are provided to
+
+00:06:30.889 --> 00:06:34.199
+us in terms of a 2D bounding box in the image,
+
+00:06:34.199 --> 00:06:36.399
+so around each object in the image,
+
+00:06:36.399 --> 00:06:39.139
+we have a bounding box which denotes
+
+00:06:39.139 --> 00:06:43.319
+exactly the position and the dimensions of the objects which we seek,
+
+00:06:43.319 --> 00:06:47.149
+and those bounding boxes are then piped in to this clustering block here,
+
+00:06:47.149 --> 00:06:51.169
+Cluster LiDAR Point Cloud and are used to
+
+00:06:51.170 --> 00:06:55.745
+extract all the LiDAR points which belong to these respective objects.
+
+00:06:55.745 --> 00:06:58.939
+Now after proceeding, after completing this building block here,
+
+00:06:58.939 --> 00:07:02.529
+we have a set of bounding boxes plus LiDAR points,
+
+00:07:02.529 --> 00:07:04.699
+and this is piped into this module here,
+
+00:07:04.699 --> 00:07:07.615
+which is called Track 3D Object Bounding Boxes.
+
+00:07:07.615 --> 00:07:10.170
+Now what we have as an input here,
+
+00:07:10.170 --> 00:07:12.050
+the bounding boxes plus LiDAR,
+
+00:07:12.050 --> 00:07:14.240
+that's exclusive to every frame.
+
+00:07:14.240 --> 00:07:16.430
+So if we have a set of let's say a 100 frames,
+
+00:07:16.430 --> 00:07:21.379
+every single frame has its own unique bounding boxes plus now clustered LiDAR points,
+
+00:07:21.379 --> 00:07:25.610
+but what we still need to do is we need to connect them in time and we need to say,
+
+00:07:25.610 --> 00:07:29.819
+okay in the frame 1, we have 15 bounding boxes plus LiDAR points.
+
+00:07:29.819 --> 00:07:32.750
+In frame 2, we have 12 bounding boxes plus LiDAR points.
+
+00:07:32.750 --> 00:07:37.220
+Somehow in order to measure their relative motion and also dimension change,
+
+00:07:37.220 --> 00:07:39.770
+we need to connect the bounding boxes,
+
+00:07:39.769 --> 00:07:42.094
+and this is done with the help of the camera.
+
+00:07:42.095 --> 00:07:44.760
+Now the matched keypoints and
+
+00:07:44.759 --> 00:07:47.659
+their respective descriptors are also piped into this module here,
+
+00:07:47.660 --> 00:07:51.500
+and the idea now is to take the bounding boxes plus LiDAR points,
+
+00:07:51.500 --> 00:07:55.790
+to take the image-based keypoint matches and to also,
+
+00:07:55.790 --> 00:08:01.550
+by using the classified objects and the respective bounding boxes around the object,
+
+00:08:01.550 --> 00:08:04.430
+connect the bounding boxes in space.
+
+00:08:04.430 --> 00:08:08.180
+That means we track now based on camera input and based on
+
+00:08:08.180 --> 00:08:13.000
+LiDAR input those objects in space and from those tracked video objects,
+
+00:08:13.000 --> 00:08:16.560
+we compute the time to collision for each object in front of us,
+
+00:08:16.560 --> 00:08:18.709
+and that's what's going to be realized in
+
+00:08:18.709 --> 00:08:21.589
+the course and that's also what gives you the course structure.
+
+00:08:21.589 --> 00:08:25.069
+So the course lessons which you are about to perform,
+
+00:08:25.069 --> 00:08:30.324
+are reflected by the information flow through these schematic on the right-hand side.
+
+00:08:30.324 --> 00:08:35.049
+Now the course structure is also seen again in this overview here.
+
+00:08:35.049 --> 00:08:38.754
+We have lesson 3, which is reflected by the yellow rectangle here.
+
+00:08:38.754 --> 00:08:41.784
+This is about keypoint detection and keypoint matching.
+
+00:08:41.784 --> 00:08:43.329
+Then we have the mid-term project,
+
+00:08:43.330 --> 00:08:46.600
+which is basically to develop the matching framework and also to
+
+00:08:46.600 --> 00:08:50.550
+test several state-of-the-art algorithms, for keypoint detection,
+
+00:08:50.549 --> 00:08:53.865
+for keypoint description and also for keypoint matching,
+
+00:08:53.865 --> 00:08:55.080
+and once you have done that,
+
+00:08:55.080 --> 00:08:57.810
+once you have completed lesson 3 and the mid-term project,
+
+00:08:57.809 --> 00:09:01.809
+we will move on to Lesson 4 which is reflected by this blue bounding box here,
+
+00:09:01.809 --> 00:09:03.164
+by the blue rectangle,
+
+00:09:03.164 --> 00:09:06.279
+and this is about LiDAR point processing on
+
+00:09:06.279 --> 00:09:10.689
+the right-hand side and also deep learning approaches for object detection.
+
+00:09:10.690 --> 00:09:12.565
+So those are lessons 3 and lessons 4,
+
+00:09:12.565 --> 00:09:14.900
+and the final project is about everything.
+
+00:09:14.899 --> 00:09:16.819
+It's about connecting lesson 3,
+
+00:09:16.820 --> 00:09:20.690
+connecting lesson 4 and putting everything
+
+00:09:20.690 --> 00:09:26.510
+into software framework that at the end outputs a refined time to collision estimate,
+
+00:09:26.509 --> 00:09:29.360
+so that the preceding vehicle is exactly tracked over
+
+00:09:29.360 --> 00:09:32.300
+time and provides a stable TTC estimate,
+
+00:09:32.299 --> 00:09:37.609
+which could be used in a commercial product to provide the time to collision and also
+
+00:09:37.610 --> 00:09:39.919
+to use it as an input to
+
+00:09:39.919 --> 00:09:44.129
+a warning system or to an automatic braking system for an autonomous vehicle.
+
+00:09:44.529 --> 00:09:47.750
+So that's the basic idea behind this course.
+
+00:09:47.750 --> 00:09:49.804
+You will be using both the camera and
+
+00:09:49.804 --> 00:09:52.370
+the LiDAR sensor to compute a time to collision estimate
+
+00:09:52.370 --> 00:09:54.409
+and then use a fusion approach to
+
+00:09:54.409 --> 00:09:57.214
+refine the results and make everything much more robust.
+
+00:09:57.215 --> 00:10:00.410
+Now the main part of this course with the highest information density,
+
+00:10:00.409 --> 00:10:02.279
+will definitely be lesson 3.
+
+00:10:02.279 --> 00:10:04.454
+Getting those keypoint matches is not easy,
+
+00:10:04.455 --> 00:10:06.045
+and you need to first understand, A,
+
+00:10:06.044 --> 00:10:08.054
+how to find keypoints, B,
+
+00:10:08.054 --> 00:10:10.669
+how to describe them in a unique way and also C,
+
+00:10:10.669 --> 00:10:12.889
+how to find them again in another image.
+
+00:10:12.889 --> 00:10:16.899
+Now let's move to lesson 3 straight away for a deep dive into computer vision.
+
+00:10:16.899 --> 00:10:20.079
+Have fun learning and see you again shortly.
+

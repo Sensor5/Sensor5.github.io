@@ -1,0 +1,157 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:02.819
+Now, in this section, we have taken a look at two motion models.
+
+00:00:02.819 --> 00:00:04.740
+The first one is the constant velocity model,
+
+00:00:04.740 --> 00:00:08.115
+which assumes that the velocity of the preceding vehicle does not change.
+
+00:00:08.115 --> 00:00:09.285
+As you can see here,
+
+00:00:09.285 --> 00:00:11.339
+this model does not fit very well to the real world,
+
+00:00:11.339 --> 00:00:12.960
+when it is about detecting collisions.
+
+00:00:12.960 --> 00:00:14.339
+Now when a vehicle breaks,
+
+00:00:14.339 --> 00:00:16.640
+its velocity decreases over time,
+
+00:00:16.640 --> 00:00:18.379
+and is therefore not constant.
+
+00:00:18.379 --> 00:00:20.559
+We have also seen the constant acceleration model,
+
+00:00:20.559 --> 00:00:23.059
+which allows for velocity change under the assumption,
+
+00:00:23.059 --> 00:00:25.339
+that acceleration is not constant.
+
+00:00:25.339 --> 00:00:27.925
+Now the question is, how much do both models differ?
+
+00:00:27.925 --> 00:00:29.875
+Let's take a look at the following scenario.
+
+00:00:29.875 --> 00:00:32.600
+As you can see here in this scenario we have yellow vehicle,
+
+00:00:32.600 --> 00:00:34.414
+which is following a green vehicle,
+
+00:00:34.414 --> 00:00:36.560
+and the other one is equipped with some kind of sensor.
+
+00:00:36.560 --> 00:00:37.700
+Let say a lighter sensor,
+
+00:00:37.700 --> 00:00:42.050
+and this sensor returns 3D measurements for example those red crosses here,
+
+00:00:42.049 --> 00:00:45.559
+that might be 3D points returned by the sensor of yellow vehicle.
+
+00:00:45.560 --> 00:00:49.390
+Now, what we do here is we look at the closest point which is measured,
+
+00:00:49.390 --> 00:00:52.730
+and this closest point gives us the distance DT which is
+
+00:00:52.729 --> 00:00:56.359
+valid for the time T. We have two models here.
+
+00:00:56.359 --> 00:00:58.250
+The first one is the constant velocity model,
+
+00:00:58.250 --> 00:01:02.570
+which is reflected by V0 and V0 is always 30 kilometers per hour.
+
+00:01:02.570 --> 00:01:05.409
+The second model we have is the constant acceleration model,
+
+00:01:05.409 --> 00:01:09.024
+and this of course has a varying speed but at a point in time T,
+
+00:01:09.025 --> 00:01:12.609
+this speed is also VT equals 30 kilometers per hour.
+
+00:01:12.609 --> 00:01:17.155
+That means it's the same initial speed as V0 for the constant velocity model.
+
+00:01:17.155 --> 00:01:20.370
+Now, when the green vehicle breaks,
+
+00:01:20.370 --> 00:01:21.570
+of course it decelerates,
+
+00:01:21.569 --> 00:01:23.234
+and the deceleration is constant,
+
+00:01:23.234 --> 00:01:24.734
+and as reflected by A0,
+
+00:01:24.734 --> 00:01:28.144
+and A0 is at five meters per square second.
+
+00:01:28.144 --> 00:01:29.659
+Now the question for you is,
+
+00:01:29.659 --> 00:01:34.204
+what's the time to collision until the green vehicle and the yellow vehicle collide,
+
+00:01:34.204 --> 00:01:36.890
+based on AV the constant velocity model,
+
+00:01:36.890 --> 00:01:40.030
+and B the constant acceleration model here?
+
+00:01:40.030 --> 00:01:44.269
+Compute those values using the equations you have seen in the section,
+
+00:01:44.269 --> 00:01:49.864
+and also compare the results and look at which model gives you which time to collision.
+
+00:01:49.864 --> 00:01:53.420
+Now please go ahead and compute the TTC and seconds for both motion models,
+
+00:01:53.420 --> 00:01:55.570
+by solving the motion equations you saw earlier.
+
+00:01:55.569 --> 00:01:57.889
+You should see a big difference between both models.
+
+00:01:57.890 --> 00:01:59.180
+In a commercial product,
+
+00:01:59.180 --> 00:02:01.700
+we would not choose the constant velocity model.
+
+00:02:01.700 --> 00:02:04.250
+Once you complete the exercise, you will know why.
+
+00:02:04.250 --> 00:02:05.719
+But in the context of this course,
+
+00:02:05.719 --> 00:02:07.679
+it makes sense to use constant velocity,
+
+00:02:07.680 --> 00:02:10.650
+just because we can focus more deeply on computer vision aspects,
+
+00:02:10.650 --> 00:02:14.435
+and said without making the code it involves in the math too complicated.
+
+00:02:14.435 --> 00:02:17.650
+So let's do the math, and run the numbers.
+

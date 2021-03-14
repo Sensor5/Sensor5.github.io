@@ -1,0 +1,73 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:04.275
+So welcome to this next section which is about computing the TTC with a mono camera.
+
+00:00:04.275 --> 00:00:07.125
+You now know that by taking two successive distance measurements,
+
+00:00:07.125 --> 00:00:09.269
+you can compute the TTC fairly easily.
+
+00:00:09.269 --> 00:00:11.399
+Now, the big problem with the camera is that it is
+
+00:00:11.400 --> 00:00:13.980
+really hard to measure metric distances with it.
+
+00:00:13.980 --> 00:00:17.190
+What you get from a camera is a 2D image and you can't really tell
+
+00:00:17.190 --> 00:00:21.585
+how large or far-away objects are without making some various simplifying assumptions.
+
+00:00:21.585 --> 00:00:24.750
+You could for example, say that all vehicles would have a width of say
+
+00:00:24.750 --> 00:00:28.365
+1.7 meters or that the road surface was always flat and level,
+
+00:00:28.364 --> 00:00:29.864
+and as you can easily imagine,
+
+00:00:29.864 --> 00:00:32.820
+those assumptions are almost never true in real life and therefore,
+
+00:00:32.820 --> 00:00:34.310
+will result in errors.
+
+00:00:34.310 --> 00:00:37.760
+Now, the good news is that we can measure TTC without measuring distance.
+
+00:00:37.759 --> 00:00:39.079
+As you will see in this section,
+
+00:00:39.079 --> 00:00:41.869
+we can use the pinhole camera model which you already know and
+
+00:00:41.869 --> 00:00:44.839
+some laws of projection to relate metric distances in the world,
+
+00:00:44.840 --> 00:00:47.260
+to relative distances on the image plane.
+
+00:00:47.259 --> 00:00:49.879
+Also, you will learn about bounding boxes which are
+
+00:00:49.880 --> 00:00:52.955
+based on deep learning and which can be used to refine our estimation.
+
+00:00:52.954 --> 00:00:56.089
+At the end of this section, I will show you a piece of code that is able to provide
+
+00:00:56.090 --> 00:01:00.740
+a TTC measurements based on a set of corresponding points in successive camera images,
+
+00:01:00.740 --> 00:01:04.594
+and we will see that the result does not defer that much from lighter-based measurements.
+
+00:01:04.594 --> 00:01:06.810
+So let's take a look.
+

@@ -1,0 +1,61 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:03.779
+In this section, you have familiarized yourself with how lidar measurements look,
+
+00:00:03.779 --> 00:00:06.044
+and how you can use them to compute the time to collision.
+
+00:00:06.044 --> 00:00:08.519
+Also, you have seen that erroneous points may
+
+00:00:08.519 --> 00:00:11.189
+lead to a severe miscalculations when not treated properly.
+
+00:00:11.189 --> 00:00:14.390
+To make sure you are familiar with the code,
+
+00:00:14.390 --> 00:00:16.070
+please complete the quiz below.
+
+00:00:16.070 --> 00:00:18.484
+The task here is to extend the function,
+
+00:00:18.484 --> 00:00:22.429
+compute TTC lidar in a way that not all points are considered.
+
+00:00:22.429 --> 00:00:26.225
+We want to focus only on the eagle lane in which our vehicle is currently located.
+
+00:00:26.225 --> 00:00:31.340
+So your task is to introduce a new variable called lane width and set it to four meters.
+
+00:00:31.339 --> 00:00:32.674
+Based on this variable,
+
+00:00:32.674 --> 00:00:34.949
+all points left and right should be removed,
+
+00:00:34.950 --> 00:00:37.775
+and not be used for computing the distance to the preceding vehicle.
+
+00:00:37.774 --> 00:00:39.533
+In a real-time and a real application,
+
+00:00:39.533 --> 00:00:42.229
+you could also use the current steering angle or the curvature of
+
+00:00:42.229 --> 00:00:45.349
+the lane markings on the road to filter out unwanted points.
+
+00:00:45.350 --> 00:00:46.984
+But in our small example here,
+
+00:00:46.984 --> 00:00:48.469
+it's about the basic principle,
+
+00:00:48.469 --> 00:00:50.969
+which is why we want to keep it simple.
+

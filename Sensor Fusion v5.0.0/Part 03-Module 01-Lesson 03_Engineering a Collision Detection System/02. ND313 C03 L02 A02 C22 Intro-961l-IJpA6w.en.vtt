@@ -1,0 +1,43 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:02.339
+So now that we know about motion models,
+
+00:00:02.339 --> 00:00:03.809
+and about the variables involved,
+
+00:00:03.810 --> 00:00:07.800
+let's take a look at how to compute the time to collision based on lidar measurements.
+
+00:00:07.799 --> 00:00:10.949
+Down below in this section, you will find the derivation of the time to collision
+
+00:00:10.949 --> 00:00:14.189
+based on two successive distance measurements to the preceding vehicle.
+
+00:00:14.189 --> 00:00:15.599
+In order to get this distance,
+
+00:00:15.599 --> 00:00:17.759
+we will look at a way to reduce the thousands of
+
+00:00:17.760 --> 00:00:20.490
+lidar points to those located on the preceding vehicle,
+
+00:00:20.489 --> 00:00:22.649
+maybe on the tailgate, maybe on the license plate.
+
+00:00:22.649 --> 00:00:25.169
+That means we need to remove the road surface and all those
+
+00:00:25.170 --> 00:00:27.570
+points who are not reliable enough.
+
+00:00:27.570 --> 00:00:30.839
+Once we did this, I will introduce you to a first piece of code that will return
+
+00:00:30.839 --> 00:00:35.530
+a TTC estimate in seconds based on two lidar point clouds.
+

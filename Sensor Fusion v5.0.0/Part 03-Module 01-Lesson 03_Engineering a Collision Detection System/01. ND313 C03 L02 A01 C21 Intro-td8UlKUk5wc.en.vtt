@@ -1,0 +1,94 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:01.710
+Hi, it's good to have you back on
+
+00:00:01.710 --> 00:00:04.609
+this next section on how to approach the collision detection problem.
+
+00:00:04.610 --> 00:00:08.310
+I told you in the first lesson that you will be developing a collision avoidance system,
+
+00:00:08.310 --> 00:00:11.234
+and this course and other big question is, where do we start?
+
+00:00:11.234 --> 00:00:13.379
+Now before we dive into code and algorithms,
+
+00:00:13.380 --> 00:00:15.300
+let's take a step back and look at the problem.
+
+00:00:15.300 --> 00:00:16.710
+I have something for you here.
+
+00:00:16.710 --> 00:00:19.140
+Imagine you have a police car and a Lamborghini,
+
+00:00:19.140 --> 00:00:22.289
+and the Lamborghini is driving away and the police car is chasing it.
+
+00:00:22.289 --> 00:00:24.960
+Now this one breaks, the Lamborghini brake slows down,
+
+00:00:24.960 --> 00:00:27.240
+and obviously the police car approaches quickly.
+
+00:00:27.239 --> 00:00:30.059
+What we want is a system that is able to warn us,
+
+00:00:30.059 --> 00:00:31.394
+and this means the police car,
+
+00:00:31.394 --> 00:00:34.424
+in time before a collision with the preceding vehicle occurs.
+
+00:00:34.424 --> 00:00:38.024
+Maybe you have heard that the human reaction time is approximately one second.
+
+00:00:38.024 --> 00:00:40.339
+So a good system should warn us way ahead of that,
+
+00:00:40.340 --> 00:00:43.370
+and this is why most available systems issue a warning
+
+00:00:43.369 --> 00:00:46.579
+or trigger the break about two seconds before a collision is imminent.
+
+00:00:46.579 --> 00:00:48.725
+So we have already done the first step here.
+
+00:00:48.725 --> 00:00:53.060
+We have transformed this problem of how to avoid collisions into a new problem,
+
+00:00:53.060 --> 00:00:56.719
+which is how to compute the time until the collision occurs.
+
+00:00:56.719 --> 00:00:58.504
+In order to solve this new problem,
+
+00:00:58.505 --> 00:01:00.200
+you need to take a look at a few things.
+
+00:01:00.200 --> 00:01:03.535
+First, familiarize yourself with the variables we need to measure.
+
+00:01:03.534 --> 00:01:04.759
+Then, take a look at
+
+00:01:04.760 --> 00:01:08.125
+the two different ocean models we could use to describe vehicle movement.
+
+00:01:08.125 --> 00:01:10.730
+Then thirdly, test your new knowledge in a quiz and
+
+00:01:10.730 --> 00:01:13.939
+self-emotion equations for the time to collision computation.
+
+00:01:13.939 --> 00:01:15.950
+Once you have done all that, you are ready to attack
+
+00:01:15.950 --> 00:01:19.180
+the problem with some code. Let's go for it.
+

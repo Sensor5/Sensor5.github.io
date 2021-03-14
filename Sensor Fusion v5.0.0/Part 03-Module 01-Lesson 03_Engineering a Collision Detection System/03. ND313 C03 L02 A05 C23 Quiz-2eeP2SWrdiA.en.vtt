@@ -1,0 +1,70 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:03.500
+So now you know what we need to compute a TTC estimate with a camera.
+
+00:00:03.500 --> 00:00:05.129
+It's basically a four-step process.
+
+00:00:05.129 --> 00:00:08.310
+First, a bounding box is needed around the preceding vehicle that enables
+
+00:00:08.310 --> 00:00:11.535
+us to focus properly on the relevant object in the image.
+
+00:00:11.535 --> 00:00:15.945
+Second, a set of key points is necessary for every image that arise from the camera.
+
+00:00:15.945 --> 00:00:18.030
+Third, we need to match key points between
+
+00:00:18.030 --> 00:00:20.475
+successive frames to establish correspondences.
+
+00:00:20.475 --> 00:00:24.330
+Then in the last step, we can take a look at relative distances to changes between
+
+00:00:24.329 --> 00:00:29.009
+correspondences within this bounding box and computer stable estimate of the TTC.
+
+00:00:29.010 --> 00:00:30.900
+The problem with the code we have so far is that
+
+00:00:30.899 --> 00:00:33.000
+the influence of outliers might be really large.
+
+00:00:33.000 --> 00:00:35.700
+Now, imagine an erroneous correspondence which is way
+
+00:00:35.700 --> 00:00:38.690
+off and distorts the mean distance ratio we are using so far.
+
+00:00:38.689 --> 00:00:41.089
+It would be much, much better to use the median
+
+00:00:41.090 --> 00:00:43.725
+instead to mitigate this influence. So that's your job now.
+
+00:00:43.725 --> 00:00:45.859
+If you don't know what the median is, go research it,
+
+00:00:45.859 --> 00:00:48.380
+and then come back and replace the mean distance ratio
+
+00:00:48.380 --> 00:00:50.975
+in the code with a median distance ratio.
+
+00:00:50.975 --> 00:00:53.630
+But don't forget to consider an even and an odd number of
+
+00:00:53.630 --> 00:00:57.200
+correspondences which need to be treated differently when computing the median.
+
+00:00:57.200 --> 00:00:59.480
+So see you in the next section which is about assembling
+
+00:00:59.479 --> 00:01:03.929
+the building blocks of our entire detection framework. See you there.
+
