@@ -1,0 +1,514 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:04.455
+Let's take a look at how we can solve this RANSAC algorithm now.
+
+00:00:04.455 --> 00:00:09.179
+So here, the first thing I'm going to do
+
+00:00:09.179 --> 00:00:14.820
+is I'm going to be running for max number of iterations.
+
+00:00:14.820 --> 00:00:18.884
+So here, I'm taking that max iterations argument,
+
+00:00:18.884 --> 00:00:24.660
+and while that is greater than zero I'm going be going through here and creating
+
+00:00:24.660 --> 00:00:28.079
+a line and then counting inliers and keeping track of
+
+00:00:28.079 --> 00:00:32.039
+which is the model with the best in inliers.
+
+00:00:32.039 --> 00:00:34.144
+Here I have this inlier result.
+
+00:00:34.145 --> 00:00:36.605
+So this is an unordered set,
+
+00:00:36.604 --> 00:00:40.189
+and this can actually hold your best inliers.
+
+00:00:40.189 --> 00:00:42.919
+So basically whatever it has
+
+00:00:42.920 --> 00:00:48.605
+the highest number of inliers that's what inliers result will hold.
+
+00:00:48.604 --> 00:00:52.664
+Now, let's go ahead and walk through the logic.
+
+00:00:52.664 --> 00:00:58.174
+The first thing that you want to do is randomly pick two points to create your line from.
+
+00:00:58.174 --> 00:01:00.979
+So here I'm going to create
+
+00:01:00.979 --> 00:01:05.344
+this new unordered set of inliers and it's going to be holding ints,
+
+00:01:05.344 --> 00:01:12.950
+and while inliers.size is less than two I'm going to be inserting a point,
+
+00:01:12.950 --> 00:01:14.390
+and I'm going to do that randomly.
+
+00:01:14.390 --> 00:01:18.965
+So here in C plus plus I'm calling this rand parentheses
+
+00:01:18.965 --> 00:01:24.085
+and I'm doing mod of cloud point.size.
+
+00:01:24.084 --> 00:01:27.619
+So what this is doing basically is rand could
+
+00:01:27.620 --> 00:01:31.550
+be some very large number and by doing this modulo I'm
+
+00:01:31.549 --> 00:01:35.269
+actually just going to be returning some value between
+
+00:01:35.269 --> 00:01:39.364
+zero and the points size from cloud.
+
+00:01:39.364 --> 00:01:42.739
+So that's the total number of points that cloud has,
+
+00:01:42.739 --> 00:01:46.339
+somewhere in between there and then I insert it into inliers.
+
+00:01:46.340 --> 00:01:50.665
+In sense that this is an unordered set,
+
+00:01:50.665 --> 00:01:56.525
+unordered set means it's a HashSet or that just doesn't matter for the ordering,
+
+00:01:56.525 --> 00:01:58.070
+we're just hashing into the index,
+
+00:01:58.069 --> 00:02:01.579
+but set is only going to contain unique elements.
+
+00:02:01.579 --> 00:02:06.349
+So let's say the thing that we want to avoid is picking the same index twice in a row.
+
+00:02:06.349 --> 00:02:10.754
+Let's say we picked index zero and then we randomly go and we pick index zero again.
+
+00:02:10.754 --> 00:02:13.460
+Well, that's not going to help us but using the set
+
+00:02:13.460 --> 00:02:16.534
+is one way where if we tried to insert zero a twice
+
+00:02:16.534 --> 00:02:18.770
+it just wouldn't insert it and it still remain
+
+00:02:18.770 --> 00:02:22.580
+the same size because the elements have to be unique.
+
+00:02:22.580 --> 00:02:25.610
+So then, if it picked that same one it would just
+
+00:02:25.610 --> 00:02:28.850
+keep going through until it was a unique element,
+
+00:02:28.849 --> 00:02:31.234
+and so then it's like okay now we're doing,
+
+00:02:31.235 --> 00:02:32.720
+we did index zero,
+
+00:02:32.719 --> 00:02:35.810
+now we randomly pick and we get index 50,
+
+00:02:35.810 --> 00:02:40.439
+and those are going to be inserted into inliers and those are just int.
+
+00:02:40.439 --> 00:02:42.409
+So inliers is holding the int.
+
+00:02:42.409 --> 00:02:47.060
+So the index of some point from cloud.
+
+00:02:47.060 --> 00:02:49.789
+So there is many ways that you can do that,
+
+00:02:49.789 --> 00:02:55.069
+this is just an example of one and there might even be some more efficient ways too.
+
+00:02:55.069 --> 00:03:00.379
+Now, we just want to be able to look at what the x1, y1, so that 0.1,
+
+00:03:00.379 --> 00:03:03.034
+and x2, y2, 0.2 values were,
+
+00:03:03.034 --> 00:03:05.704
+and inliers is actually holding that information.
+
+00:03:05.705 --> 00:03:11.195
+So we actually want to see what the first value is so we can do inliers.begin.
+
+00:03:11.194 --> 00:03:12.888
+So that's a pointer,
+
+00:03:12.889 --> 00:03:16.689
+and it's pointing at the very beginning of inliers.
+
+00:03:16.689 --> 00:03:20.180
+We can actually see what that value is by
+
+00:03:20.180 --> 00:03:25.790
+de-referencing that pointer and then seeing what the value is.
+
+00:03:25.789 --> 00:03:29.439
+So that's going to be the.x value for points,
+
+00:03:29.439 --> 00:03:34.139
+and it's going to be the.y for points for y1.
+
+00:03:34.139 --> 00:03:36.659
+So that's an index.
+
+00:03:36.659 --> 00:03:42.240
+This is representing some index and so we're indexing into cloud and grabbing that index,
+
+00:03:42.240 --> 00:03:45.075
+and we're grabbing its x value and we're grabbing its y value.
+
+00:03:45.074 --> 00:03:49.299
+So that's the first point that we found and insert it into inliers.
+
+00:03:49.300 --> 00:03:53.500
+Then if we want to get the second what we can do is that iterator,
+
+00:03:53.500 --> 00:03:58.389
+we can just go ahead and increment it by one and then do the same thing,
+
+00:03:58.389 --> 00:04:02.619
+dereference it to get that int value
+
+00:04:02.620 --> 00:04:07.705
+and then get that x component and the y component and that's going to be x2 and y2.
+
+00:04:07.705 --> 00:04:11.445
+So that's how we can get the x1, y1, x2,
+
+00:04:11.444 --> 00:04:15.344
+y2 values from inliers that we randomly sampled.
+
+00:04:15.344 --> 00:04:19.230
+Now, we just calculate what the a, b,
+
+00:04:19.230 --> 00:04:23.825
+c values are by using those equations in the slides.
+
+00:04:23.824 --> 00:04:28.884
+So those are all dependent on those x1, y1, x2,
+
+00:04:28.884 --> 00:04:36.409
+y2 variables, and now we're all set to go through and iterate through the remaining,
+
+00:04:36.410 --> 00:04:38.450
+so iterate through the points.
+
+00:04:38.449 --> 00:04:40.670
+So we're going to just do a for-loop here,
+
+00:04:40.670 --> 00:04:43.879
+and we have this index we start at zero and then we're going to
+
+00:04:43.879 --> 00:04:47.850
+go for the size of points in cloud,
+
+00:04:47.850 --> 00:04:51.590
+so cloud points.size, so iterate through all the points in
+
+00:04:51.589 --> 00:04:56.729
+our data and then just increment that each time.
+
+00:04:56.850 --> 00:05:02.670
+If that point isn't already a part of our line,
+
+00:05:02.670 --> 00:05:06.735
+it's not one of the two points that we already sampled and create a line from,
+
+00:05:06.735 --> 00:05:09.970
+we can do this so when we're doing count on
+
+00:05:09.970 --> 00:05:13.765
+our set we're just seeing how if it contains an element or not,
+
+00:05:13.764 --> 00:05:15.269
+if it's not zero,
+
+00:05:15.269 --> 00:05:18.324
+then it does contain the element and if it does
+
+00:05:18.324 --> 00:05:21.420
+we're not going to actually do anything with it,
+
+00:05:21.420 --> 00:05:24.730
+we're just going to continue because that's already part of our line.
+
+00:05:24.730 --> 00:05:28.180
+But if it's a point that's not part of our fitted line,
+
+00:05:28.180 --> 00:05:29.769
+one of the two points,
+
+00:05:29.769 --> 00:05:34.524
+then we're going to calculate the distance and see if it's within that threshold or not.
+
+00:05:34.524 --> 00:05:39.849
+So here, we're going to grab that point by indexing into our cloud.
+
+00:05:39.850 --> 00:05:42.230
+So cloud points index.
+
+00:05:42.230 --> 00:05:47.525
+All right here, and we get this pcl PointXYZ point.
+
+00:05:47.524 --> 00:05:51.164
+Then we can see what those x and y values are.
+
+00:05:51.165 --> 00:05:53.340
+Remember, z in this case is just always going to be
+
+00:05:53.339 --> 00:05:56.219
+zero since we're working with this 2D example.
+
+00:05:56.220 --> 00:06:01.770
+We can get this x3 and y3 by just getting the member x and the member y from point,
+
+00:06:01.769 --> 00:06:03.870
+and then we can calculate the distance.
+
+00:06:03.870 --> 00:06:06.220
+Because we're using floats here and we need to do
+
+00:06:06.220 --> 00:06:10.445
+an absolute value remember to do float abs,
+
+00:06:10.444 --> 00:06:13.605
+otherwise you could get some funky results.
+
+00:06:13.605 --> 00:06:18.795
+It could round and round to zero and it just won't be accurate,
+
+00:06:18.795 --> 00:06:22.000
+but with this fabs we can do the absolute value of the floats.
+
+00:06:22.000 --> 00:06:27.060
+Then this distance equation is just dependent on a, b,
+
+00:06:27.060 --> 00:06:33.410
+c, and that point that we're trying to figure out the distance for, so x3, y3.
+
+00:06:33.410 --> 00:06:35.105
+So it's just a function of that,
+
+00:06:35.105 --> 00:06:39.290
+and so we can calculate d and if d is less than or equal to
+
+00:06:39.290 --> 00:06:44.629
+the distance tolerance then we'll just add it to insert or the inliers,
+
+00:06:44.629 --> 00:06:46.730
+so we'll insert it onto there.
+
+00:06:46.730 --> 00:06:49.175
+So inliers is just our unordered set,
+
+00:06:49.175 --> 00:06:51.634
+and then we'll just insert that index.
+
+00:06:51.634 --> 00:06:54.995
+After we're done iterating through all the points,
+
+00:06:54.995 --> 00:06:56.870
+so this part here,
+
+00:06:56.870 --> 00:07:00.485
+we're basically going to look at the size of inliers,
+
+00:07:00.485 --> 00:07:07.220
+and if it's greater than the inlier result that's the very beginning result that we
+
+00:07:07.220 --> 00:07:14.240
+have for reference back up in this section here,
+
+00:07:14.240 --> 00:07:16.884
+it's going to start out as zero.
+
+00:07:16.884 --> 00:07:22.685
+If this new inliers is greater than that then inliers results becomes inliers.
+
+00:07:22.685 --> 00:07:25.040
+So that's all the ints,
+
+00:07:25.040 --> 00:07:31.000
+the indices that belong to that fitted model.
+
+00:07:31.000 --> 00:07:35.944
+Then we can just go ahead and return inlier result.
+
+00:07:35.944 --> 00:07:42.875
+So that is the solution of one way that we can do this RANSAC implementation,
+
+00:07:42.875 --> 00:07:46.185
+and then we can see what that looks like.
+
+00:07:46.185 --> 00:07:49.220
+We can change some of these hyper parameters here.
+
+00:07:49.220 --> 00:07:52.820
+We could try it with 10 maybe,
+
+00:07:52.819 --> 00:07:57.089
+and maybe we can do something like 1.0.
+
+00:07:57.259 --> 00:08:01.985
+Now, let's go ahead and try compiling that.
+
+00:08:01.985 --> 00:08:04.939
+So here we're inside RANSAC.
+
+00:08:04.939 --> 00:08:08.615
+We create this new build directory here.
+
+00:08:08.615 --> 00:08:10.475
+So I actually already did that.
+
+00:08:10.475 --> 00:08:13.120
+Let's go ahead and cd into build,
+
+00:08:13.120 --> 00:08:16.454
+and you'd call CMake.., the first setup,
+
+00:08:16.454 --> 00:08:19.500
+all the instructions for creating the executable.
+
+00:08:19.500 --> 00:08:20.689
+I did that as well,
+
+00:08:20.689 --> 00:08:24.004
+so I'm just going to go ahead and run make now,
+
+00:08:24.004 --> 00:08:28.079
+and then wait for that to compile.
+
+00:08:29.000 --> 00:08:34.495
+Okay, and it creates this executable that's called the quizRansac.
+
+00:08:34.495 --> 00:08:36.929
+So if I load that up,
+
+00:08:36.929 --> 00:08:40.779
+so in this case here's what I got and it's saying here is
+
+00:08:40.779 --> 00:08:44.860
+the best line with all the inlier showing up as green.
+
+00:08:44.860 --> 00:08:48.570
+Okay cool. What if I change some of those hyper-parameters?
+
+00:08:48.570 --> 00:08:51.815
+What if instead of doing 10 I just did one?
+
+00:08:51.815 --> 00:08:55.610
+So we expect for it to be a pretty poor model in this case
+
+00:08:55.610 --> 00:08:59.495
+because it only had one chance to try to find this model randomly.
+
+00:08:59.495 --> 00:09:02.164
+So look of the draw here.
+
+00:09:02.164 --> 00:09:07.584
+Let's just out of curiosity see what would happen if we just did one iteration.
+
+00:09:07.585 --> 00:09:10.960
+So these are good parameters to play around with
+
+00:09:10.960 --> 00:09:14.120
+and one thing to note that this max iteration is really
+
+00:09:14.120 --> 00:09:16.700
+dependent on the ratio of inliers that you have
+
+00:09:16.700 --> 00:09:20.165
+compared to the total number of points that you have because it's random.
+
+00:09:20.164 --> 00:09:25.759
+So we want our RANSAC algorithm had the best chance of finding this best model.
+
+00:09:25.759 --> 00:09:27.769
+Well, if you have a very high number of
+
+00:09:27.769 --> 00:09:30.139
+inliers compared to the number of points you have,
+
+00:09:30.139 --> 00:09:33.605
+let's say like 90 percent of your points are actually inliers,
+
+00:09:33.605 --> 00:09:37.370
+then randomly speaking it has a fairly good chance of finding
+
+00:09:37.370 --> 00:09:42.514
+this best model because it can use those inliers to fit the model right away.
+
+00:09:42.514 --> 00:09:45.470
+So you won't have to have as many iterations,
+
+00:09:45.470 --> 00:09:48.125
+but on the other hand if you had
+
+00:09:48.125 --> 00:09:51.799
+only two percent of your points were inliers and everything else was
+
+00:09:51.799 --> 00:09:53.929
+an outlier then you'd have
+
+00:09:53.929 --> 00:09:58.804
+a very low chance on this first pick to actually get that line.
+
+00:09:58.804 --> 00:10:05.120
+Here, it looks like we got quite lucky where we're getting it right there again.
+
+00:10:05.120 --> 00:10:08.289
+I don't know if this is a random seed or not.
+
+00:10:08.289 --> 00:10:11.679
+There we go, it's a little bit different.
+
+00:10:11.870 --> 00:10:15.919
+There we go. Now, this time it's not grabbing that line.
+
+00:10:15.919 --> 00:10:21.199
+So in just one pick we can see these different best models that it's generating,
+
+00:10:21.200 --> 00:10:24.080
+and we just keep doing then and see.
+
+00:10:24.080 --> 00:10:27.495
+But yeah, that's how that max number iterations affects it.
+
+00:10:27.495 --> 00:10:29.429
+The distance tolerance again,
+
+00:10:29.429 --> 00:10:32.059
+this is based on how much noise you have if
+
+00:10:32.059 --> 00:10:34.549
+you expect your model that have quite a bit of noise and
+
+00:10:34.549 --> 00:10:39.559
+you'd have the higher distance tolerance and factors like that, but cool.
+
+00:10:39.559 --> 00:10:45.239
+So that's how we can go ahead and implement RANSAC from scratch in C plus plus.
+

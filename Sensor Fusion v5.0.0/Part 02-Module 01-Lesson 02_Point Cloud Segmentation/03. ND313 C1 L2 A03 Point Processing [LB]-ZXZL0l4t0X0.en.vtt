@@ -1,0 +1,103 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:03.810
+First of all, we're going to be building our own point processor.
+
+00:00:03.810 --> 00:00:05.250
+In the previous lesson,
+
+00:00:05.250 --> 00:00:08.714
+we're looking at the code for the point processor.cpp.
+
+00:00:08.714 --> 00:00:13.934
+Now, we're actually going to instantiate that and start filling in some of its functions.
+
+00:00:13.935 --> 00:00:16.530
+So to do this exercise,
+
+00:00:16.530 --> 00:00:20.280
+basically, we're just going to start by creating a point processor.
+
+00:00:20.280 --> 00:00:22.304
+You might remember that we're working with
+
+00:00:22.304 --> 00:00:26.204
+environment.cpp and we're filling in some objects there.
+
+00:00:26.204 --> 00:00:28.904
+For example, we created a lidar last time,
+
+00:00:28.905 --> 00:00:31.065
+we're scanning with that lidar and we've
+
+00:00:31.065 --> 00:00:33.420
+created some point clouds and we're visualizing those.
+
+00:00:33.420 --> 00:00:35.414
+Now, we're actually going to create
+
+00:00:35.414 --> 00:00:37.740
+a point processor object right
+
+00:00:37.740 --> 00:00:41.175
+below where we were doing the previous work for creating a lidar.
+
+00:00:41.174 --> 00:00:44.309
+After we create that point processor,
+
+00:00:44.310 --> 00:00:47.000
+we'll then look at filling in some of its functions.
+
+00:00:47.000 --> 00:00:52.024
+The functions that the point processor has just to remind you is doing some filtering,
+
+00:00:52.024 --> 00:00:54.769
+segmentation that we're working on in this lesson,
+
+00:00:54.770 --> 00:01:00.010
+later on clustering, and it also has capabilities for loading and saving PCD files.
+
+00:01:00.009 --> 00:01:05.075
+The point processor also uses templates because we had different point cloud types.
+
+00:01:05.075 --> 00:01:08.200
+So in this simulation environment,
+
+00:01:08.200 --> 00:01:10.130
+we're working with point XYZ.
+
+00:01:10.129 --> 00:01:12.454
+So for this exercise,
+
+00:01:12.454 --> 00:01:14.329
+basically what I want you to do,
+
+00:01:14.329 --> 00:01:17.959
+is an environment.cpp, there's a to-do to create
+
+00:01:17.959 --> 00:01:23.179
+a point processor and you can instantiate it in two ways.
+
+00:01:23.180 --> 00:01:27.200
+You can instantiate it on the heap or on the stack,
+
+00:01:27.200 --> 00:01:29.359
+really up to you.
+
+00:01:29.359 --> 00:01:32.215
+If you look at point processor,
+
+00:01:32.215 --> 00:01:36.469
+process point clouds.cpp, you can see that it's a class.
+
+00:01:36.469 --> 00:01:41.465
+You can also look at different ways for instantiating it.
+
+00:01:41.465 --> 00:01:45.180
+So for this exercise here, basically,
+
+00:01:45.180 --> 00:01:51.660
+create a point processor and make sure that you can compile and run the simulator.
+

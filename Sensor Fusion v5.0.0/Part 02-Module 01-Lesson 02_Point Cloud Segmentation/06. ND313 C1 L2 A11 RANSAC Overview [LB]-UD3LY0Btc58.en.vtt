@@ -1,0 +1,127 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:05.309
+So RANSAC. RANSAC stands for Random Sample Consensus.
+
+00:00:05.309 --> 00:00:06.959
+As we were seeing before,
+
+00:00:06.960 --> 00:00:09.585
+there's different models that you can try to fit.
+
+00:00:09.585 --> 00:00:12.180
+We were just trying to fit a plane model.
+
+00:00:12.179 --> 00:00:15.839
+Here, we're going to look at this case of trying to fit a line.
+
+00:00:15.839 --> 00:00:18.329
+So here is the situation,
+
+00:00:18.329 --> 00:00:22.564
+we have this data and we know that there's a line in it.
+
+00:00:22.565 --> 00:00:24.925
+It's quite clear that there's a line right here.
+
+00:00:24.925 --> 00:00:28.280
+But the data also has a ton of outliers.
+
+00:00:28.280 --> 00:00:31.075
+So how do you figure out where that line is at?
+
+00:00:31.074 --> 00:00:33.979
+Well, if you're just trying to do something like linear regression,
+
+00:00:33.979 --> 00:00:36.529
+that would take the average of all the points and
+
+00:00:36.530 --> 00:00:39.664
+also take the average of the outliers which doesn't make sense.
+
+00:00:39.664 --> 00:00:42.320
+That's going to give you this very bad line that's
+
+00:00:42.320 --> 00:00:45.185
+not representative of this actual line that you have.
+
+00:00:45.185 --> 00:00:48.590
+So RANSAC is actually a method for finding
+
+00:00:48.590 --> 00:00:53.630
+this model when you have these outliers included in your data.
+
+00:00:53.630 --> 00:00:56.450
+How RANSAC works is,
+
+00:00:56.450 --> 00:00:58.975
+so we have this Random Sample Consensus,
+
+00:00:58.975 --> 00:01:03.710
+what it's doing here is it's randomly choosing a subset of our data.
+
+00:01:03.710 --> 00:01:10.969
+So these red points are randomly chosen and then it gets aligned to just that subset.
+
+00:01:10.969 --> 00:01:13.510
+Then so it's fitting that line,
+
+00:01:13.510 --> 00:01:15.660
+it's looking through all the points,
+
+00:01:15.659 --> 00:01:19.340
+and seeing how close those points are to the line.
+
+00:01:19.340 --> 00:01:23.325
+So that was that distance tolerance that we were looking at previously.
+
+00:01:23.325 --> 00:01:26.170
+If that distance is small enough,
+
+00:01:26.170 --> 00:01:27.739
+then it's actually included,
+
+00:01:27.739 --> 00:01:29.405
+it becomes an inlier.
+
+00:01:29.405 --> 00:01:35.480
+Then so we're doing this iteratively and we are counting how many inliers we
+
+00:01:35.480 --> 00:01:38.329
+have in the line from the iteration that
+
+00:01:38.329 --> 00:01:41.584
+has the highest number inlier becomes our best model.
+
+00:01:41.584 --> 00:01:43.699
+So here we're going through and then when
+
+00:01:43.700 --> 00:01:46.700
+that green line is all sudden coming right through here,
+
+00:01:46.700 --> 00:01:49.655
+it's picking up a ton of inliers,
+
+00:01:49.655 --> 00:01:54.049
+and it's going to be the best model in our case here.
+
+00:01:54.049 --> 00:01:57.364
+So RANSAC is an iterative method.
+
+00:01:57.364 --> 00:01:58.759
+So in each iteration,
+
+00:01:58.760 --> 00:02:01.295
+it randomly picks a subset of points.
+
+00:02:01.295 --> 00:02:03.394
+It fits a model to that,
+
+00:02:03.394 --> 00:02:05.594
+a randomly subset of points,
+
+00:02:05.594 --> 00:02:12.000
+and then the iteration with the most inliers to that model is the best one.
+

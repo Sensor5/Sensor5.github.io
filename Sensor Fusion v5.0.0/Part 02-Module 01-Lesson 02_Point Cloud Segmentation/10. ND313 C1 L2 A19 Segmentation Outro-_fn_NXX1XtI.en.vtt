@@ -1,0 +1,37 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:02.940
+Here, we've reached the end of segmentation.
+
+00:00:02.940 --> 00:00:04.484
+So I just want to say,
+
+00:00:04.485 --> 00:00:07.830
+nice job for making it through the segmentation section.
+
+00:00:07.830 --> 00:00:10.365
+You're now able to separate obstacles from the road.
+
+00:00:10.365 --> 00:00:12.690
+You learned how to use PCLs built-in functions
+
+00:00:12.689 --> 00:00:15.164
+for performing segmentation and extraction.
+
+00:00:15.164 --> 00:00:18.570
+Also, you implemented your own RANSAC function and used it for
+
+00:00:18.570 --> 00:00:22.425
+doing both line and plane model fitting in the data with outliers.
+
+00:00:22.425 --> 00:00:26.205
+Now you're able to separate obstacle points from points on the road.
+
+00:00:26.204 --> 00:00:29.879
+Let's see how you can further break up your obstacle cloud and
+
+00:00:29.879 --> 00:00:34.689
+identify individual cars using the Euclidean clustering algorithm.
+

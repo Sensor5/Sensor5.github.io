@@ -1,0 +1,416 @@
+<!-- udacimak v1.4.4 -->
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <meta content="ie=edge" http-equiv="X-UA-Compatible"/>
+  <title>
+   Separating Point Clouds
+  </title>
+  <link href="../assets/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="../assets/css/plyr.css" rel="stylesheet"/>
+  <link href="../assets/css/katex.min.css" rel="stylesheet"/>
+  <link href="../assets/css/jquery.mCustomScrollbar.min.css" rel="stylesheet"/>
+  <link href="../assets/css/styles.css" rel="stylesheet"/>
+  <link href="../assets/img/udacimak.png" rel="shortcut icon" type="image/png">
+  </link>
+ </head>
+ <body>
+  <div class="wrapper">
+   <nav id="sidebar">
+    <div class="sidebar-header">
+     <h3>
+      Point Cloud Segmentation
+     </h3>
+    </div>
+    <ul class="sidebar-list list-unstyled CTAs">
+     <li>
+      <a class="article" href="../index.html">
+       Back to Home
+      </a>
+     </li>
+    </ul>
+    <ul class="sidebar-list list-unstyled components">
+     <li class="">
+      <a href="01. Segmentation.html">
+       01. Segmentation
+      </a>
+     </li>
+     <li class="">
+      <a href="02. Michael on Detection and Segmentation.html">
+       02. Michael on Detection and Segmentation
+      </a>
+     </li>
+     <li class="">
+      <a href="03. Point Processing.html">
+       03. Point Processing
+      </a>
+     </li>
+     <li class="">
+      <a href="04. Segmenting the Plane with PCL.html">
+       04. Segmenting the Plane with PCL
+      </a>
+     </li>
+     <li class="">
+      <a href="05. Separating Point Clouds.html">
+       05. Separating Point Clouds
+      </a>
+     </li>
+     <li class="">
+      <a href="06. RANSAC.html">
+       06. RANSAC
+      </a>
+     </li>
+     <li class="">
+      <a href="07. Implementing RANSAC for Lines.html">
+       07. Implementing RANSAC for Lines
+      </a>
+     </li>
+     <li class="">
+      <a href="08. Extending RANSAC to Planes.html">
+       08. Extending RANSAC to Planes
+      </a>
+     </li>
+     <li class="">
+      <a href="09. Michael on Segmenting the Plane.html">
+       09. Michael on Segmenting the Plane
+      </a>
+     </li>
+     <li class="">
+      <a href="10. Outro.html">
+       10. Outro
+      </a>
+     </li>
+    </ul>
+    <ul class="sidebar-list list-unstyled CTAs">
+     <li>
+      <a class="article" href="../index.html">
+       Back to Home
+      </a>
+     </li>
+    </ul>
+   </nav>
+   <div id="content">
+    <header class="container-fluild header">
+     <div class="container">
+      <div class="row">
+       <div class="col-12">
+        <div class="align-items-middle">
+         <button class="btn btn-toggle-sidebar" id="sidebarCollapse" type="button">
+          <div>
+          </div>
+          <div>
+          </div>
+          <div>
+          </div>
+         </button>
+         <h1 style="display: inline-block">
+          05. Separating Point Clouds
+         </h1>
+        </div>
+       </div>
+      </div>
+     </div>
+    </header>
+    <main class="container">
+     <div class="row">
+      <div class="col-12">
+       <div class="ud-atom">
+        <h3>
+         <p>
+          Header Text
+         </p>
+        </h3>
+        <div>
+         <h1 id="separating-point-clouds">
+          Separating Point Clouds
+         </h1>
+         <p>
+          In the previous exercise, you got inliers which are indices for the fitted plane. Now you will be using these inliers to create the plane point cloud and obstacle point cloud.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+         <p>
+          ND313 C1 L2 A08 Separating Point Clouds Pt 1 [LB]
+         </p>
+        </h3>
+        <video controls="">
+         <source src="05. ND313 C1 L2 A08 Separating Point Clouds Pt 1 [LB]-K_JuSBXiM_4.mp4" type="video/mp4"/>
+         <track default="true" kind="subtitles" label="en" src="05. ND313 C1 L2 A08 Separating Point Clouds Pt 1 [LB]-K_JuSBXiM_4.en.vtt" srclang="en"/>
+        </video>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h2 id="instructions">
+          Instructions
+         </h2>
+         <p>
+          You can separate point clouds by calling the
+          <code>
+           SeparateClouds
+          </code>
+          function  from
+          <code>
+           processPointCloud
+          </code>
+          . You can use this function inside
+          <code>
+           SegmentPlane
+          </code>
+          with the calculated inliers and input cloud.
+         </p>
+         <p>
+          Inside the
+          <code>
+           SeparateClouds
+          </code>
+          function stub, create two new point cloud pointers, one for obstacles (non-plane points), and one for road (plane points). The inliers can be added to the plane cloud by looping over the inlier indices and pushing the corresponding inlier point into the plane cloud’s point vector.
+         </p>
+         <p>
+          To generate the obstacle cloud, one way to use PCL to do this is to use an
+          <code>
+           extract
+          </code>
+          object, which subtracts the plane cloud from the input cloud. Now you can return the
+          <code>
+           std::pair
+          </code>
+          with the newly created obstacle and plane clouds:
+         </p>
+         <pre><code class="cpp language-cpp">std::pair&lt;typename pcl::PointCloud&lt;PointT&gt;::Ptr, typename pcl::PointCloud&lt;PointT&gt;::Ptr&gt; segResult(obstCloud,planeCloud);</code></pre>
+         <p>
+          The pcl segmentation
+          <a href="http://pointclouds.org/documentation/tutorials/extract_indices.php#extract-indices" rel="noopener noreferrer" target="_blank">
+           tutorial
+          </a>
+          shows how to use an
+          <code>
+           extract
+          </code>
+          object in lines 67-70.
+         </p>
+         <p>
+          Back in environment.cpp you can then call pointProcessor function on the input cloud and render the two segmented point clouds in different colors.
+         </p>
+         <pre><code class="cpp language-cpp">std::pair&lt;pcl::PointCloud&lt;pcl::PointXYZ&gt;::Ptr, pcl::PointCloud&lt;pcl::PointXYZ&gt;::Ptr&gt; segmentCloud = pointProcessor-&gt;SegmentPlane(inputCloud, 100, 0.2);
+renderPointCloud(viewer,segmentCloud.first,"obstCloud",Color(1,0,0));
+renderPointCloud(viewer,segmentCloud.second,"planeCloud",Color(0,1,0));</code></pre>
+         <h3 id="notes">
+          Notes
+         </h3>
+         <p>
+          The above example is using 100 iterations, and a distance tolerance of 0.2 meters. You are highly encouraged to play around and experiment with these values! This point cloud is very simple and 100 iterations are way more than needed. You can also monitor how changing the iterations affects the time it takes for the segmentation function to process using the functions predefined timer log.
+          <br/>
+          Before rendering the two clouds you will want to remember to turn off rendering from the input cloud done in the previous lesson, otherwise the clouds will all overlap, and it will be hard to distinguish the segmented ones. The renderPointCloud function includes color options (Red,Green,Blue). By default the cloud is white if no color is specified. Here the obstacle cloud as is rendered as red, and the plane cloud as green.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+         <p>
+          Segment Simulation PCD
+         </p>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="Segment and separating point clouds: road points in green, and other obstacle points in red" class="img img-fluid" src="img/seg1.png"/>
+          <figcaption class="figure-caption">
+           <p>
+            Segment and separating point clouds: road points in green, and other obstacle points in red
+           </p>
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h2 id="separate-point-clouds">
+          Separate Point Clouds
+         </h2>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div class="jumbotron">
+         <h3>
+          Workspace
+         </h3>
+         <p class="lead">
+          This section contains either a workspace (it can be a
+          <a href="http://jupyter.org/" target="_blank">
+           Jupyter
+      Notebook
+          </a>
+          workspace or an online code editor work space, etc.) and it cannot be automatically downloaded to be
+    generated here. Please access the classroom with your account and manually download the workspace to your local
+    machine. Note that for some courses, Udacity upload the workspace files onto
+          <a href="https://github.com/udacity" target="_blank">
+           https://github.com/udacity
+          </a>
+          , so you may be able to download them there.
+         </p>
+         <h4>
+          Workspace Information:
+         </h4>
+         <ul>
+          <li>
+           <strong>
+            Default file path:
+           </strong>
+          </li>
+          <li>
+           <strong>
+            Workspace type:
+           </strong>
+           react
+          </li>
+          <li>
+           <strong>
+            Opened files (when workspace is loaded):
+           </strong>
+           n/a
+          </li>
+         </ul>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+         <p>
+          Solution
+         </p>
+        </h3>
+        <div>
+         <h2 id="solution">
+          Solution
+         </h2>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+         <p>
+          ND313 C1 L2 A10 Separating Point Clouds Solution
+         </p>
+        </h3>
+        <video controls="">
+         <source src="05. ND313 C1 L2 A10 Separating Point Clouds Solution-5aMtbD3criU.mp4" type="video/mp4"/>
+         <track default="true" kind="subtitles" label="en" src="05. ND313 C1 L2 A10 Separating Point Clouds Solution-5aMtbD3criU.en.vtt" srclang="en"/>
+        </video>
+       </div>
+       <div class="divider">
+       </div>
+      </div>
+      <div class="col-12">
+       <p class="text-right">
+        <a class="btn btn-outline-primary mt-4" href="06. RANSAC.html" role="button">
+         Next Concept
+        </a>
+       </p>
+      </div>
+     </div>
+    </main>
+    <footer class="footer">
+     <div class="container">
+      <div class="row">
+       <div class="col-12">
+        <p class="text-center">
+         udacity2.0 If you need the newest courses Plase add me wechat: udacity6
+        </p>
+       </div>
+      </div>
+     </div>
+    </footer>
+   </div>
+  </div>
+  <script src="../assets/js/jquery-3.3.1.min.js">
+  </script>
+  <script src="../assets/js/plyr.polyfilled.min.js">
+  </script>
+  <script src="../assets/js/bootstrap.min.js">
+  </script>
+  <script src="../assets/js/jquery.mCustomScrollbar.concat.min.js">
+  </script>
+  <script src="../assets/js/katex.min.js">
+  </script>
+  <script>
+   // Initialize Plyr video players
+    const players = Array.from(document.querySelectorAll('video')).map(p => new Plyr(p));
+
+    // render math equations
+    let elMath = document.getElementsByClassName('mathquill');
+    for (let i = 0, len = elMath.length; i < len; i += 1) {
+      const el = elMath[i];
+
+      katex.render(el.textContent, el, {
+        throwOnError: false
+      });
+    }
+
+    // this hack will make sure Bootstrap tabs work when using Handlebars
+    if ($('#question-tabs').length && $('#user-answer-tabs').length) {
+      $("#question-tabs a.nav-link").on('click', function () {
+        $("#question-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+      $("#user-answer-tabs a.nav-link").on('click', function () {
+        $("#user-answer-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    } else {
+      $("a.nav-link").on('click', function () {
+        $(".tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    }
+
+    // side bar events
+    $(document).ready(function () {
+      $("#sidebar").mCustomScrollbar({
+        theme: "minimal"
+      });
+
+      $('#sidebarCollapse').on('click', function () {
+        $('#sidebar, #content').toggleClass('active');
+        $('.collapse.in').toggleClass('in');
+        $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+      });
+
+      // scroll to first video on page loading
+      if ($('video').length) {
+        $('html,body').animate({ scrollTop: $('div.plyr').prev().offset().top});
+      }
+
+      // auto play first video: this may not work with chrome/safari due to autoplay policy
+      if (players && players.length > 0) {
+        players[0].play();
+      }
+
+      // scroll sidebar to current concept
+      const currentInSideBar = $( "ul.sidebar-list.components li a:contains('05. Separating Point Clouds')" )
+      currentInSideBar.css( "text-decoration", "underline" );
+      $("#sidebar").mCustomScrollbar('scrollTo', currentInSideBar);
+    });
+  </script>
+ </body>
+</html>

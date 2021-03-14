@@ -1,0 +1,124 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:06.059
+This next exercise, you'll actually be defining the second function,
+
+00:00:06.059 --> 00:00:08.459
+it's like a helper function for a segment plane,
+
+00:00:08.460 --> 00:00:10.380
+and it's separating Point Clouds.
+
+00:00:10.380 --> 00:00:13.650
+This is the results that we want to get from this.
+
+00:00:13.650 --> 00:00:17.039
+Here, we're looking at that Point Cloud data that we
+
+00:00:17.039 --> 00:00:20.594
+generated from the simulation environment in the previous lesson,
+
+00:00:20.594 --> 00:00:23.119
+but now, we're actually able to segment it.
+
+00:00:23.120 --> 00:00:27.385
+We are able to label the points that belong to the road,
+
+00:00:27.385 --> 00:00:29.130
+and then all other points,
+
+00:00:29.129 --> 00:00:31.559
+and road points are not going to be obstacles,
+
+00:00:31.559 --> 00:00:33.829
+so we can just throw them out when we're doing
+
+00:00:33.829 --> 00:00:36.754
+our point processing and looking for obstacles later on.
+
+00:00:36.755 --> 00:00:41.075
+These red points here actually are obstacles, and here,
+
+00:00:41.075 --> 00:00:46.085
+they represent the cars in our virtual highway environment.
+
+00:00:46.085 --> 00:00:50.268
+So this next part is going to allow us to get these results,
+
+00:00:50.268 --> 00:00:54.439
+and you'll be able to render this yourself in just a little bit here.
+
+00:00:54.439 --> 00:01:01.280
+Next, we're going to be filling in the separate Cloud function in the point processor.
+
+00:01:01.280 --> 00:01:04.140
+So in that function,
+
+00:01:04.140 --> 00:01:06.349
+we can go over to it here in a second,
+
+00:01:06.349 --> 00:01:09.294
+but we're going to be creating two new Point Clouds,
+
+00:01:09.295 --> 00:01:14.730
+and this is going to be the plane that the road Point Cloud,
+
+00:01:14.730 --> 00:01:18.090
+and then it's going to be the obstacle Point Cloud,
+
+00:01:18.090 --> 00:01:22.004
+and the road points are the same as the inliers,
+
+00:01:22.004 --> 00:01:26.765
+that's because the inliers represent all the indices of points that belong to the plane,
+
+00:01:26.765 --> 00:01:28.219
+that plane is the road,
+
+00:01:28.219 --> 00:01:31.939
+and we can look at the documentation again,
+
+00:01:31.939 --> 00:01:39.075
+and actually use this PCL extract to create the obstacle Point Cloud from the inliers.
+
+00:01:39.075 --> 00:01:42.799
+So that's an interesting way that utilizes PCL method.
+
+00:01:42.799 --> 00:01:44.780
+There's actually many ways that wouldn't go about this,
+
+00:01:44.780 --> 00:01:47.700
+we actually don't have to use this extract method all,
+
+00:01:47.700 --> 00:01:49.204
+it's totally up to you.
+
+00:01:49.204 --> 00:01:52.069
+One last thing is we'll be rendering the two Point Clouds.
+
+00:01:52.069 --> 00:01:56.409
+So back after you fill in the separate Point Clouds function,
+
+00:01:56.409 --> 00:01:59.503
+then you're ready to call that function,
+
+00:01:59.504 --> 00:02:01.320
+you're ready to call segment plane,
+
+00:02:01.319 --> 00:02:05.524
+it has everything it needs back in an environment.CPP,
+
+00:02:05.525 --> 00:02:08.164
+and you'll get your pair of Point Clouds,
+
+00:02:08.164 --> 00:02:11.509
+you'll get the obstacle Point Cloud and you will get the plane Point Cloud,
+
+00:02:11.509 --> 00:02:14.719
+and you can then render those in your PCL viewer,
+
+00:02:14.719 --> 00:02:17.759
+and get that image that we were just looking at.
+

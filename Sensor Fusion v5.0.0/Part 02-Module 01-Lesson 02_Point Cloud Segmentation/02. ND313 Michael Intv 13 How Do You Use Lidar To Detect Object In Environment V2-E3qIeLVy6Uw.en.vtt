@@ -1,0 +1,61 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:02.779 --> 00:00:10.529
+Engineers use LiDAR really how we mentioned it before
+
+00:00:10.529 --> 00:00:19.350
+by just recording the LiDAR signal driving around.
+
+00:00:19.350 --> 00:00:25.785
+We record all the data that comes back into the LiDAR.
+
+00:00:25.785 --> 00:00:29.620
+We create objects out of it or not,
+
+00:00:29.620 --> 00:00:32.570
+depending on the particular use case where
+
+00:00:32.570 --> 00:00:35.840
+we could do stuff directly with the point cloud.
+
+00:00:35.840 --> 00:00:42.060
+We can then use the objects to track those objects,
+
+00:00:42.060 --> 00:00:43.850
+make predictions, what they do.
+
+00:00:43.850 --> 00:00:47.225
+We can use it to classify objects.
+
+00:00:47.225 --> 00:00:57.390
+We have certain classes that the LiDAR using Neural Network can detect and distinguish.
+
+00:00:59.469 --> 00:01:02.439
+The segmentation is saying okay,
+
+00:01:02.439 --> 00:01:05.795
+this particular thing belongs to one object.
+
+00:01:05.795 --> 00:01:08.070
+This belongs to the ground plane,
+
+00:01:08.069 --> 00:01:11.599
+this belongs to a tree or so.
+
+00:01:11.599 --> 00:01:18.539
+So you associate certain points with objects and then say okay,
+
+00:01:18.540 --> 00:01:19.710
+this is one object,
+
+00:01:19.709 --> 00:01:22.214
+that set of points and this is another object,
+
+00:01:22.215 --> 00:01:24.695
+a set of objects or another object.
+
+00:01:24.694 --> 00:01:30.839
+This is how this basically works.
+

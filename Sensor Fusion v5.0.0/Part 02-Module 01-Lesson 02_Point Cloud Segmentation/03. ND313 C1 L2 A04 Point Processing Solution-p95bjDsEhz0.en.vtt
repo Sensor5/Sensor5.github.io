@@ -1,0 +1,58 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.620 --> 00:00:06.900
+So let's look at some ways that we can actually instantiate this point processor now.
+
+00:00:06.900 --> 00:00:09.554
+Going back to my code over here,
+
+00:00:09.554 --> 00:00:15.015
+one possible way is just to instantiate on the stack.
+
+00:00:15.015 --> 00:00:19.155
+So I could just actually do process point clouds.
+
+00:00:19.155 --> 00:00:22.675
+My template type here is going to be a PCL point XYZ,
+
+00:00:22.675 --> 00:00:25.964
+and then I can just call it a point processor.
+
+00:00:25.964 --> 00:00:29.054
+Another way is we could actually do it on the heap.
+
+00:00:29.054 --> 00:00:33.810
+So one solution then would be to still have that declaration,
+
+00:00:33.810 --> 00:00:35.890
+and now we're doing a pointer,
+
+00:00:35.890 --> 00:00:39.380
+and we're going to be using a new keyword here to
+
+00:00:39.380 --> 00:00:42.830
+do a point processor clouds PCL point XYZ,
+
+00:00:42.829 --> 00:00:45.725
+and then use these open parentheses to instantiate it.
+
+00:00:45.725 --> 00:00:49.179
+So you can do either way in this case.
+
+00:00:49.179 --> 00:00:52.634
+Then when I create this point processor,
+
+00:00:52.634 --> 00:00:56.429
+I just want to make sure that everything is able to build,
+
+00:01:00.729 --> 00:01:05.719
+and then make sure that that executable is able to be generated.
+
+00:01:05.719 --> 00:01:08.644
+Cool. So now that we have this point processor,
+
+00:01:08.644 --> 00:01:12.450
+let's look at ways that we can actually start putting it to use.
+

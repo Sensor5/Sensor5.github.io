@@ -1,0 +1,37 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.320 --> 00:00:03.494
+Welcome to the segmentation lesson.
+
+00:00:03.495 --> 00:00:06.870
+Here, we want to be able to locate obstacles in our scene.
+
+00:00:06.870 --> 00:00:10.634
+This also means that some objects in our scene are not obstacles.
+
+00:00:10.634 --> 00:00:13.169
+So what would be objects that appear in our PCD,
+
+00:00:13.169 --> 00:00:14.460
+but are not obstacles.
+
+00:00:14.460 --> 00:00:18.015
+For the most part, any free space on the road is not obstacle.
+
+00:00:18.015 --> 00:00:20.580
+If the road is flat, it's fairly straightforward to
+
+00:00:20.579 --> 00:00:23.219
+pick out road points from non-road points.
+
+00:00:23.219 --> 00:00:25.320
+To do this, we'll use a method called
+
+00:00:25.320 --> 00:00:28.754
+planar segmentation which uses the RANSAC algorithm.
+
+00:00:28.754 --> 00:00:31.660
+Let's check out how this all works.
+

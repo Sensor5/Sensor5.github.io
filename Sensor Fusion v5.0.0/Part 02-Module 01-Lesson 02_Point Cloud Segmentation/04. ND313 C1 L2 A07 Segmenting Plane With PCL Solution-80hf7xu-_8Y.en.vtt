@@ -1,0 +1,181 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:02.279
+So if we're looking at the solution,
+
+00:00:02.279 --> 00:00:07.154
+what I'm actually going to be doing is in this function segment plane.
+
+00:00:07.155 --> 00:00:13.245
+This is very similar to what was being done from the PCL documentation.
+
+00:00:13.244 --> 00:00:15.570
+So let's go ahead and look at this.
+
+00:00:15.570 --> 00:00:17.445
+I create this seg object.
+
+00:00:17.445 --> 00:00:21.285
+So this is a pcl SACSegmentation,
+
+00:00:21.285 --> 00:00:23.655
+and we're using point T here because
+
+00:00:23.655 --> 00:00:28.380
+our point processor is defining this template point T for us.
+
+00:00:28.379 --> 00:00:31.004
+That way you can pass in any type of point,
+
+00:00:31.004 --> 00:00:32.729
+whether it's point XYZ,
+
+00:00:32.729 --> 00:00:36.734
+point XYZI, point XYZRGB,
+
+00:00:36.734 --> 00:00:38.445
+and they'll still be able to handle it.
+
+00:00:38.445 --> 00:00:41.200
+Then I'm defining this inliers, and this is,
+
+00:00:41.200 --> 00:00:44.615
+again, this PCL type point indices.
+
+00:00:44.615 --> 00:00:47.570
+This is what we'll be using later to actually
+
+00:00:47.570 --> 00:00:51.340
+separate the pointCloud and break it up into pieces.
+
+00:00:51.340 --> 00:00:56.495
+We have coefficients, and this is actually defining the coefficients of our model.
+
+00:00:56.494 --> 00:01:03.439
+We look and we see that we're defining seg setModelType as a SACMODEL_PLANE.
+
+00:01:03.439 --> 00:01:07.370
+So these coefficients will actually be defining what this plane is,
+
+00:01:07.370 --> 00:01:13.915
+and you could use it if you want to actually render this plane in the PCL viewer.
+
+00:01:13.915 --> 00:01:16.365
+The other parameters are,
+
+00:01:16.364 --> 00:01:18.125
+we set optimized coefficients.
+
+00:01:18.125 --> 00:01:20.510
+It's true, we want to try to get this best model and this is
+
+00:01:20.510 --> 00:01:23.710
+actually optional that we can see from the documentation.
+
+00:01:23.709 --> 00:01:26.709
+We're using RANSAC, and this is key here.
+
+00:01:26.709 --> 00:01:30.959
+A RANSAC is like the secret sauce behind all this segmentation,
+
+00:01:30.959 --> 00:01:32.684
+this Random Sample Consensus,
+
+00:01:32.685 --> 00:01:35.150
+and later we'll actually be really diving in
+
+00:01:35.150 --> 00:01:38.000
+and seeing how the RANSAC works under the hood.
+
+00:01:38.000 --> 00:01:41.019
+Max iterations for the seg object.
+
+00:01:41.019 --> 00:01:44.509
+We set max iterations and set distance threshold.
+
+00:01:44.510 --> 00:01:47.060
+This is some key arguments,
+
+00:01:47.060 --> 00:01:49.040
+and it's actually arguments that are being passed
+
+00:01:49.040 --> 00:01:51.695
+directly into our function here for a segment plane.
+
+00:01:51.694 --> 00:01:54.944
+We have these max iterations in distance threshold.
+
+00:01:54.944 --> 00:01:57.574
+This is actually key to RANSAC itself.
+
+00:01:57.575 --> 00:02:01.730
+So we'll be talking a little bit about this in a bit.
+
+00:02:01.730 --> 00:02:07.924
+But after we go through and we set up all the hyperparameters for the seg object,
+
+00:02:07.924 --> 00:02:10.909
+we're ready to give it some key information.
+
+00:02:10.909 --> 00:02:13.189
+So we want it to do segmentation on
+
+00:02:13.189 --> 00:02:16.740
+our Cloud which we're passing in to the function itself,
+
+00:02:16.740 --> 00:02:18.480
+it's one of the key arguments.
+
+00:02:18.479 --> 00:02:22.614
+Then what we want to generate is these inliers and coefficients.
+
+00:02:22.615 --> 00:02:25.340
+We're not actually going to be using coefficients in this case,
+
+00:02:25.340 --> 00:02:26.460
+it's nice that we have it.
+
+00:02:26.460 --> 00:02:29.245
+You could use it to render the plane if you wanted,
+
+00:02:29.245 --> 00:02:32.480
+but what we're really interested in is these inliers,
+
+00:02:32.479 --> 00:02:37.524
+because we're going to use those to separate the pointCloud into two pieces.
+
+00:02:37.525 --> 00:02:39.590
+Then we look at this.
+
+00:02:39.590 --> 00:02:42.805
+So we're passing in inliers by reference here.
+
+00:02:42.805 --> 00:02:45.885
+So we created it up here, we pass it in,
+
+00:02:45.884 --> 00:02:49.799
+and this seg.segment is able to do all the processing on it.
+
+00:02:49.800 --> 00:02:52.325
+We're dereferencing it here because it's a pointer,
+
+00:02:52.324 --> 00:02:57.319
+and then inlier pointer is going to point to all this list of indices
+
+00:02:57.319 --> 00:03:03.009
+that belong to the plane that we found by doing RANSAC.
+
+00:03:03.009 --> 00:03:07.250
+If inliers indices.size is zero,
+
+00:03:07.250 --> 00:03:13.134
+that means we actually didn't find any model that can fit this data.
+
+00:03:13.134 --> 00:03:21.919
+So now, we're actually ready to move on and we have our inliers,
+
+00:03:21.919 --> 00:03:25.289
+and we're actually ready to start separating our Cloud.
+

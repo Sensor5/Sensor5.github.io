@@ -1,0 +1,43 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:02.895
+Inside the point processor class,
+
+00:00:02.895 --> 00:00:06.000
+there's actually a method for doing a segment plane.
+
+00:00:06.000 --> 00:00:09.120
+We'll be looking at this in filling it in.
+
+00:00:09.119 --> 00:00:13.489
+The things to take note here are that we're going to be using a template,
+
+00:00:13.490 --> 00:00:18.960
+so pointT to represent any type the point cloud here we're doing the point XYZ,
+
+00:00:18.960 --> 00:00:21.679
+and we're going to have some arguments that go along with this,
+
+00:00:21.679 --> 00:00:25.114
+and we have these max iterations in distance tolerance.
+
+00:00:25.114 --> 00:00:28.429
+So we'll be talking a little bit more about this and
+
+00:00:28.429 --> 00:00:31.850
+how it kind of affects the data that we're generating.
+
+00:00:31.850 --> 00:00:35.079
+But basically, we're going to be creating this list of inliers,
+
+00:00:35.079 --> 00:00:38.000
+and this is going to contain its elicit ints.
+
+00:00:38.000 --> 00:00:43.234
+It's all the indices from that point cloud that actually belong to this plane.
+
+00:00:43.234 --> 00:00:47.490
+So that's what we're going to be generating from this function.
+

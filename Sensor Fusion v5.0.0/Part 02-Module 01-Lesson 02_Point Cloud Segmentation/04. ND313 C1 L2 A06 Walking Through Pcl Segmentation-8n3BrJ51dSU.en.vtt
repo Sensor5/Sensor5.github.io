@@ -1,0 +1,157 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:03.134
+Okay. So let's go ahead and check out the classroom now,
+
+00:00:03.134 --> 00:00:06.330
+and check out the segmenting plane with PCL.
+
+00:00:06.330 --> 00:00:11.384
+Here, they'll have a lot of details for actually how the function works.
+
+00:00:11.384 --> 00:00:16.559
+So the arguments as using and also the return type that it will be outputting.
+
+00:00:16.559 --> 00:00:22.804
+What's really nice to check out here is some documentation from PCL website,
+
+00:00:22.804 --> 00:00:25.399
+which is looking at doing segmentation.
+
+00:00:25.399 --> 00:00:27.765
+Here we have this tabletop,
+
+00:00:27.765 --> 00:00:30.905
+and we're actually using segmentation to figure out
+
+00:00:30.905 --> 00:00:35.219
+planes that belong to the top of the table and the floor.
+
+00:00:35.560 --> 00:00:40.535
+So this code will actually be really relevant and helpful for doing
+
+00:00:40.534 --> 00:00:43.489
+this exercise here where we're actually
+
+00:00:43.490 --> 00:00:46.385
+defining some PCL functions to do our segmentation.
+
+00:00:46.384 --> 00:00:50.104
+In particular, if we check out 38 and 39,
+
+00:00:50.104 --> 00:00:53.194
+we can see that we're creating these inliers,
+
+00:00:53.195 --> 00:00:59.475
+and then later on we're actually generating these inliers over here.
+
+00:00:59.475 --> 00:01:02.689
+So the main thing that's doing this is a seg object here.
+
+00:01:02.689 --> 00:01:05.224
+So looking at line 41,
+
+00:01:05.224 --> 00:01:08.224
+this seg object is created and then basically,
+
+00:01:08.224 --> 00:01:09.989
+you just go through and you say, "Hey,
+
+00:01:09.989 --> 00:01:12.379
+I want to be looking for a plane model.
+
+00:01:12.379 --> 00:01:14.719
+I want to be doing RANSAC on it,
+
+00:01:14.719 --> 00:01:16.909
+Random Sample Consensus," and then you're
+
+00:01:16.909 --> 00:01:19.984
+setting your max iterations and distance threshold.
+
+00:01:19.984 --> 00:01:23.929
+That's going to actually set up your seg,
+
+00:01:23.930 --> 00:01:26.860
+and then you can give it an input Cloud.
+
+00:01:26.859 --> 00:01:31.864
+So that's the last PCD file that we generate when we're doing the lidar scan.
+
+00:01:31.864 --> 00:01:36.185
+Then we can actually pass it in the inliers.
+
+00:01:36.185 --> 00:01:38.493
+This will be passing as a reference,
+
+00:01:38.493 --> 00:01:44.730
+and that will now tell us a list of the indices from that point
+
+00:01:44.730 --> 00:01:47.609
+Cloud that belong to the plane and will
+
+00:01:47.609 --> 00:01:51.019
+later use this information to separate that point Cloud.
+
+00:01:51.019 --> 00:01:54.229
+We know all the indices that belonged to the plane.
+
+00:01:54.230 --> 00:01:57.510
+We can just go through that Cloud and then separate them out,
+
+00:01:57.510 --> 00:01:59.170
+creating two new point Clouds,
+
+00:01:59.170 --> 00:02:01.579
+the one that's the plane and the one that's going to
+
+00:02:01.579 --> 00:02:04.340
+be everything else which is our obstacles,
+
+00:02:04.340 --> 00:02:07.505
+the cars on the simulation highway environment.
+
+00:02:07.504 --> 00:02:12.139
+So this documentation in particular is going to be really helpful for doing
+
+00:02:12.139 --> 00:02:16.834
+this next exercise where you will be filling in this function.
+
+00:02:16.835 --> 00:02:25.515
+So in processPointClouds.cpp, check out this function for segment plane.
+
+00:02:25.514 --> 00:02:28.709
+So segment plane basically,
+
+00:02:28.710 --> 00:02:32.450
+you'll go through and you're going to do something very similar to
+
+00:02:32.449 --> 00:02:34.219
+that PCL documentation where you create
+
+00:02:34.219 --> 00:02:38.509
+this seg object and you fill it in with the appropriate parameters,
+
+00:02:38.509 --> 00:02:41.939
+and then it will be generating these inliers that later,
+
+00:02:41.939 --> 00:02:43.109
+in the next exercise,
+
+00:02:43.110 --> 00:02:45.650
+we'll be using to separate the point Cloud.
+
+00:02:45.650 --> 00:02:51.635
+What this function is going to return at the end is actually this STD pair,
+
+00:02:51.634 --> 00:02:56.280
+and here we're actually storing a pair of point Clouds.
+
+00:02:56.280 --> 00:02:59.419
+This will make it easy to access and
+
+00:02:59.419 --> 00:03:03.899
+render both these point Clouds later on in environment.cpp.
+
