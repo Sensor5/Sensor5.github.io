@@ -1,0 +1,52 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:01.740
+So now that you know how YOLO works,
+
+00:00:01.740 --> 00:00:03.649
+let's play around with some of its parameters.
+
+00:00:03.649 --> 00:00:06.299
+In this exercise, please complete the following tasks.
+
+00:00:06.299 --> 00:00:09.390
+The first is, find out which classes YOLO is able to detect
+
+00:00:09.390 --> 00:00:12.705
+and use some images of your own to see what the network makes of them.
+
+00:00:12.705 --> 00:00:15.750
+If you like, share some of your results with us, please.
+
+00:00:15.750 --> 00:00:18.460
+The second is, experiment with the size of the blob image,
+
+00:00:18.460 --> 00:00:21.750
+and try to find a decent trade-off between execution time on the one hand,
+
+00:00:21.750 --> 00:00:23.640
+and detection results on the other hand.
+
+00:00:23.640 --> 00:00:27.675
+Finally, third step, experiment with a thresholds on both confidence,
+
+00:00:27.675 --> 00:00:31.245
+and the non-maxima suppression to see how detection results change.
+
+00:00:31.245 --> 00:00:32.550
+Now, the overarching theme with
+
+00:00:32.549 --> 00:00:35.789
+all three exercises here is to develop a feel for how YOLO performs,
+
+00:00:35.789 --> 00:00:37.780
+and how it is affected by parameter settings.
+
+00:00:37.780 --> 00:00:39.840
+Once you are finished, feel free to proceed to
+
+00:00:39.840 --> 00:00:43.090
+the next section of this lesson. See you there shortly.
+

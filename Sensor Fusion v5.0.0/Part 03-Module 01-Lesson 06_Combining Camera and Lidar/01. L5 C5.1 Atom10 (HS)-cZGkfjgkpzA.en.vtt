@@ -1,0 +1,31 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:02.100
+You've really covered some ground on the section,
+
+00:00:02.100 --> 00:00:04.334
+starting with a top view perspectives for lidar,
+
+00:00:04.334 --> 00:00:05.969
+moving on to homogeneous coordinates,
+
+00:00:05.969 --> 00:00:08.714
+and calibration matrices, and projection equations.
+
+00:00:08.714 --> 00:00:12.449
+You have succeeded in visualizing and in filtering nano data.
+
+00:00:12.449 --> 00:00:14.849
+This will help us a lot very shortly when we combine
+
+00:00:14.849 --> 00:00:17.489
+2D camera key points with 3D lidar points.
+
+00:00:17.489 --> 00:00:21.239
+But first, let's take a look at the next section where we'll make use of deep learning
+
+00:00:21.239 --> 00:00:26.140
+to detect vehicles and some other things in camera images. See you there.
+

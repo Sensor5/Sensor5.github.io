@@ -1,0 +1,67 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:02.259
+Now, welcome to the last section in this lesson.
+
+00:00:02.259 --> 00:00:04.250
+Once you're done here, you will start with a final project,
+
+00:00:04.250 --> 00:00:05.370
+but before we get there,
+
+00:00:05.370 --> 00:00:07.410
+let's discuss a few more concepts you may need.
+
+00:00:07.410 --> 00:00:10.289
+Now, the first thing we focus on would be the task of grouping
+
+00:00:10.289 --> 00:00:13.729
+lidar points based on the regions of interests we get from the other framework,
+
+00:00:13.730 --> 00:00:16.080
+and then we'll briefly look at a way to
+
+00:00:16.079 --> 00:00:18.914
+avoid grouping lidar points which belong to different objects.
+
+00:00:18.914 --> 00:00:20.344
+Based on this initial grouping,
+
+00:00:20.344 --> 00:00:22.119
+we will assemble a set of 3D objects,
+
+00:00:22.120 --> 00:00:25.710
+and extract a set of properties such as distance to the closest point,
+
+00:00:25.710 --> 00:00:27.210
+the number of supporting lidar points,
+
+00:00:27.210 --> 00:00:29.265
+as well as the object width in meters.
+
+00:00:29.265 --> 00:00:30.615
+Once we're finished with that,
+
+00:00:30.614 --> 00:00:32.969
+we have a set of 3D objects for every time step,
+
+00:00:32.969 --> 00:00:35.549
+so that means for every tenth of a second.
+
+00:00:35.549 --> 00:00:38.029
+The final project, you will shortly be using
+
+00:00:38.030 --> 00:00:41.530
+key point matches between images to connect those 3D objects and time,
+
+00:00:41.530 --> 00:00:43.685
+and to compute the time to collision for them.
+
+00:00:43.685 --> 00:00:44.810
+So let's jump right in,
+
+00:00:44.810 --> 00:00:47.490
+and then move on to the final project.
+

@@ -1,0 +1,589 @@
+{
+  "data": {
+    "lesson": {
+      "id": 849097,
+      "key": "76adf90e-aa59-49b0-8f90-63e19050dccc",
+      "title": "Clustering and Tracking",
+      "semantic_type": "Lesson",
+      "is_public": true,
+      "version": "1.0.0",
+      "locale": "en-us",
+      "summary": "",
+      "lesson_type": "Classroom",
+      "display_workspace_project_only": false,
+      "resources": {
+        "files": [
+          {
+            "name": "Videos Zip File",
+            "uri": "https://zips.udacity-data.com/76adf90e-aa59-49b0-8f90-63e19050dccc/849097/1561073551496/Clustering+and+Tracking+Videos.zip"
+          },
+          {
+            "name": "Transcripts Zip File",
+            "uri": "https://zips.udacity-data.com/76adf90e-aa59-49b0-8f90-63e19050dccc/849097/1561073548853/Clustering+and+Tracking+Subtitles.zip"
+          },
+          {
+            "name": "Sensor_Fusion_with_Radar.m",
+            "uri": "https://video.udacity-data.com/topher/2019/May/5ce36f09_sensor-fusion-with-radar/sensor-fusion-with-radar.m"
+          }
+        ],
+        "google_plus_link": null,
+        "career_resource_center_link": null,
+        "coaching_appointments_link": null,
+        "office_hours_link": null,
+        "aws_provisioning_link": null
+      },
+      "project": null,
+      "lab": null,
+      "concepts": [
+        {
+          "id": 849749,
+          "key": "e64b8019-f46f-4c0d-acb3-c28ca0f7f4aa",
+          "title": "Clustering and Tracking",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "e64b8019-f46f-4c0d-acb3-c28ca0f7f4aa",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 849750,
+              "key": "658e9e10-c466-41fc-b1b2-fa268359aa4f",
+              "title": "L4 Intro",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "Angx4mQWcH4",
+                "china_cdn_id": "Angx4mQWcH4.mp4"
+              }
+            }
+          ]
+        },
+        {
+          "id": 849096,
+          "key": "7f656e20-1732-4055-81b0-83d3936c642e",
+          "title": "Clustering",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "7f656e20-1732-4055-81b0-83d3936c642e",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 849098,
+              "key": "36f1fa47-fc28-41ba-94ce-0e2faa09419b",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "# Clustering",
+              "instructor_notes": ""
+            },
+            {
+              "id": 849070,
+              "key": "bba597b7-8922-4226-bad5-bcf02f26e8df",
+              "title": "Graphic",
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/May/5ce36d9c_image7/image7.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/bba597b7-8922-4226-bad5-bcf02f26e8df",
+              "caption": "Clustering of a car and bicycle\n\nsource : https://ieeexplore.ieee.org/document/7226315",
+              "alt": "",
+              "width": 1478,
+              "height": 842,
+              "instructor_notes": null
+            },
+            {
+              "id": 849084,
+              "key": "f7174048-0319-47ca-b781-2509e565d78a",
+              "title": "Project Overview",
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "For enhanced perception in autonomous driving, there is a need to track multiple targets separately. The object tracking is computationally expensive and tracking multiple targets simultaneously requires lots of processing power and memory. \n\nDue to the advancements in radar technology and increasing sensing resolutions, a radar can generate detections from plentitude of scattering points on the target. If a tracker is assigned to every detection from the same target, then it can overburden the processing unit. Hence, it is important to cluster the detections from every target and assign a single track for each.\n\nThis is where the clustering algorithm becomes important for successful object tracking. ",
+              "instructor_notes": ""
+            },
+            {
+              "id": 849082,
+              "key": "3383ec8c-bfdd-4c37-97aa-ce9e90503ea4",
+              "title": "L4A21 Clustering - Concept V2",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": null,
+              "video": {
+                "youtube_id": "SDNwQyh5N3M",
+                "china_cdn_id": "SDNwQyh5N3M.mp4"
+              }
+            },
+            {
+              "id": 849073,
+              "key": "3ed14eeb-961d-4ae0-8023-f21513d33f10",
+              "title": "System Requirements",
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "Here we will discuss the basic clustering algorithm based on the euclidean distance. The algorithm here groups the detection points based on their proximity measured by the euclidean distance between those points.\n\nAll the detection points that are within the size of the target are considered as one cluster, merged into a centroid position. Each cluster is now assigned a new range and velocity, which is the mean of measured range and velocity of all the detection points that form the cluster.\n\nThis allows valid tracking for each target.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 849071,
+              "key": "5fa67532-eaf2-4148-b44b-c350e2470c6d",
+              "title": "Clustering",
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/May/5cdf113c_image2/image2.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/5fa67532-eaf2-4148-b44b-c350e2470c6d",
+              "caption": "",
+              "alt": "",
+              "width": 428,
+              "height": 591,
+              "instructor_notes": null
+            },
+            {
+              "id": 849080,
+              "key": "f199acf0-780c-4e2b-bbef-e883967497e7",
+              "title": "Clustering",
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "Above is an illustration of the clustering scenario. In the image the blue car is an ego vehicle (vehicle with sensor) and the detections are generated from the orange and yellow vehicles. Using clustering algorithm all the detections associated with the single target are merged into one point. This helps in the detection and assigning the tracks to a target.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 849110,
+              "key": "0b5fc16c-5963-460e-9055-993132cd7f1a",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## Matlab Implementation of Clustering",
+              "instructor_notes": ""
+            },
+            {
+              "id": 850433,
+              "key": "0171220b-2aee-4193-97bd-30816f6fa2b9",
+              "title": "L4A27 - Example",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "D3p78EEzjyU",
+                "china_cdn_id": "D3p78EEzjyU.mp4"
+              }
+            },
+            {
+              "id": 849081,
+              "key": "81903ff0-af6a-4efe-bc2b-7dc66c5be54c",
+              "title": "MATLAB implementation of Clustering Algorithm",
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/May/5cdf1177_image5/image5.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/81903ff0-af6a-4efe-bc2b-7dc66c5be54c",
+              "caption": "",
+              "alt": "",
+              "width": 775,
+              "height": 354,
+              "instructor_notes": null
+            },
+            {
+              "id": 849111,
+              "key": "8f719520-0256-413b-a292-d02544cd5d23",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/May/5cdf119f_image9/image9.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/8f719520-0256-413b-a292-d02544cd5d23",
+              "caption": "",
+              "alt": "",
+              "width": 757,
+              "height": 373,
+              "instructor_notes": null
+            },
+            {
+              "id": 849091,
+              "key": "1b797034-cf80-459a-8c48-c69f2a841f3a",
+              "title": "Signal Propagation and Moving Target Scenario",
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "The clustering implementation above uses the following steps:\n\n1. If the detections are from same sensor, then loop through every single detection point and measure the euclidean distance between all of them.\n2. Keep running the loop until the detection list is empty\n\nImplement the following within the while loop:\n\n3. Pick the first detection in the check list and check for its clustering neighbors.\n4. If the distance between the first pick and remaining detections is less than the vehicle size, then group those detections and their respective radar sensor measurements, including range and velocity.\n5. For the group, take the mean of the range and velocity measurements.\n\n  **Note:** the radar measurement vector has 6 values - where range and velocity for x and y coordinates reside at indices 1,2, 4, and 5: `[x, y, - , Vx, Vy, -]`\n\n\n6. Create a new Cluster ID. Then, assign all the group detections to the same ID.\n\n7. Further, assign cluster, the mean range and velocity.\n8. In the end, delete from the list the detections which have already been assigned to a cluster.\n9. Keep repeating the process until the detection list is empty.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 849745,
+              "key": "bae4011f-9197-4ecf-8611-206d4112ecd7",
+              "title": "",
+              "semantic_type": "MatchingQuizAtom",
+              "is_public": true,
+              "instructor_notes": null,
+              "user_state": {
+                "node_key": "bae4011f-9197-4ecf-8611-206d4112ecd7",
+                "completed_at": null,
+                "last_viewed_at": null,
+                "unstructured": null
+              },
+              "question": {
+                "complex_prompt": {
+                  "text": "Match the responses with the scenarios described below."
+                },
+                "concepts_label": "Grouping Distance vs. Target Length",
+                "answers_label": "Tracks vs. Target",
+                "concepts": [
+                  {
+                    "text": "Euclidean distance used for grouping the detection points is much smaller than the target’s length",
+                    "correct_answer": {
+                      "id": "a1558123255207",
+                      "text": "Multiple Tracks will be assigned to a single target"
+                    }
+                  },
+                  {
+                    "text": "Euclidean distance used for grouping the detection points is greater than the target’s length",
+                    "correct_answer": {
+                      "id": "a1558123291096",
+                      "text": "Single track will get assigned to two or more closely located targets"
+                    }
+                  }
+                ],
+                "answers": [
+                  {
+                    "id": "a1558123291096",
+                    "text": "Single track will get assigned to two or more closely located targets"
+                  },
+                  {
+                    "id": "a1558123255207",
+                    "text": "Multiple Tracks will be assigned to a single target"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "id": 849093,
+          "key": "a3234412-d743-45f9-b91a-0f2cc36914ae",
+          "title": "Kalman Tracking",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "a3234412-d743-45f9-b91a-0f2cc36914ae",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 850428,
+              "key": "d644b948-3878-44d6-b34b-3217c1d89ca0",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "# Kalman Tracking",
+              "instructor_notes": ""
+            },
+            {
+              "id": 850429,
+              "key": "ef9f17f7-534d-44be-952d-4bf8ef831082",
+              "title": "L4A34 Kalman Tracking FIX 2",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "lWadqGc2UdU",
+                "china_cdn_id": "lWadqGc2UdU.mp4"
+              }
+            },
+            {
+              "id": 849085,
+              "key": "fa849c8f-05cb-45dd-b7cc-b55541c37d3f",
+              "title": "Kalman Tracker",
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/June/5d082f49_kalman/kalman.jpg",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/fa849c8f-05cb-45dd-b7cc-b55541c37d3f",
+              "caption": "<span class=\"mathquill\">\\hat{x}_k</span>, the state of the vehicle at the <span class=\"mathquill\">k</span>th step.\n\n<span class=\"mathquill\">A</span>, the state-transition model\n\n<span class=\"mathquill\">P_k</span>,  the state covariance matrix - state estimation covariance error\n\n<span class=\"mathquill\">B</span>,  control matrix - external influence\n\n<span class=\"mathquill\">C</span>, the observation/measurement model\n\n<span class=\"mathquill\">Q</span>, the covariance of the process noise\n\n<span class=\"mathquill\">R</span>, the covariance of the observation noise",
+              "alt": "",
+              "width": 1280,
+              "height": 720,
+              "instructor_notes": null
+            },
+            {
+              "id": 849090,
+              "key": "4f75c5a0-0355-4c07-a154-dcd3fddd8ba0",
+              "title": "Implementation of 2D CFAR",
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "The purpose of the Kalman filter is to estimate the _state_ of a tracked vehicle. Here, \"state\" could include the position, velocity, acceleration or other properties of the vehicle being tracked. The Kalman filter uses measurements that are observed over time that contain noise or random variations and other inaccuracies, and produces values that tend to be closer to the true values of the measurements and their associated calculated values. It is the central algorithm to the majority of all modern radar tracking systems.\n\nHere, we will be keeping the Kalman Filter limited to a basic introduction. You will be covering Kalman filters in detail in the fourth course of this Nanodegree program.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 849078,
+              "key": "5ce02157-00f1-455d-995e-d85c419271b5",
+              "title": "Kalman Filter Implementation",
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "The Kalman filter process has two steps: prediction and update.\n\n1. **Prediction Step** \n\n Using the target vehicle's motion model, the next state of the target vehicle is predicted by using the current state. Since we know the current position and velocity of the target from the previous timestamp, we can predict the position of the target for next timestamp. \n\n  For example, using a constant velocity model, the new position of the target vehicle can be computed as:\n  <div class=\"mathquill\">\n  x_{new} = x_{prev} + v * t\n  </div>\n\n\n2. **Update Step** : \n\n  Here, the Kalman filter uses noisy measurement data from sensors, and combines the data with the prediction from the previous step to produce a best-possible estimate of the state.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 859039,
+              "key": "869eba09-6815-4ac3-9b7e-173e51a0d5a7",
+              "title": "ND313 Andrei Intv 25 Why Are Kalman Filters Useful For Working With Radar",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "lw-pjoyf6gk",
+                "china_cdn_id": "lw-pjoyf6gk.mp4"
+              }
+            },
+            {
+              "id": 850547,
+              "key": "74c4c6bc-2ddd-41b4-8738-993158a44784",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## Kalman Tracking and MATLAB\n\nThe trackingKF class creates a discrete-time linear Kalman filter used for tracking positions and velocities of objects which can be encountered in an automated driving scenario, such as automobiles, pedestrians, bicycles, and stationary structures or obstacles.\n\nYou can learn more about different parameters for the filter [here](https://www.mathworks.com/help/driving/ref/trackingkf-class.html), and you can learn more about the theory behind Kalman filters [here](https://www.mathworks.com/help/driving/ug/linear-kalman-filters.html).\n\n\n### Implementation in MATLAB\n\nThe following guidelines can be used to implement a basic Kalman filter for the next project.\n\n- You will define the Kalman filter using the `trackingKF` function. The function signature is as follows:\n```matlab\n       filter = trackingKF('MotionModel', model, 'State', state, 'MeasurementModel', measurementModel, 'StateCovariance', stateCovrariance, 'MeasurementNoise', measurementNoise)\n```\n  In this function signature, each property (e.g. `'MotionModel`) is followed by the value for that property (e.g. `model`).\n\n- For the `model` variable, you can pass the string `'2D Constant Velocity'`, which will provides the 2D constant velocity motion model.\n- For the 2D constant velocity model the state vector (x) can be defined as:\n```matlab\n[x;vx;y;vy]\n```\nHere, `x` and `y` are 2D position coordinates. The variables`vx` and `vy` provide the velocity in 2D.\n\n- A `RadarDetectionGenerator` function is used to generate detection points based on the returns after reflection. Every Radar detection generates a **detection measurement** and **measurement noise** matrix:\n`detection.Measurement` and `detection.MeasurementNoise`.The detection **measurement vector (z)** has the format `[x;y;vx;vy]`.\n\n  **Measurement Models**\n  \n  Measurements are what you observe about your system. Measurements depend on the state vector but are not always the same as the state vector.The measurement model assumes that the actual measurement at any time is related to the current state by\n```matlab\nz  = H*x\n```\nAs a result, for the case above the **measurement model** is `H = [1 0 0 0; 0 0 1 0; 0 1 0 0; 0 0 0 1]`\n\n  Using this measurement model, the state can derived from the measurements. \n```matlab\n x = H'*z\nstate = H'*detection.Measurement\n```\n  Further, using the generated measurement noise and measurement model define the state covariance matrix:\n```matlab\nstateCovariance =H'*detection.MeasurementNoise*H\n```",
+              "instructor_notes": ""
+            },
+            {
+              "id": 850239,
+              "key": "85b89485-cfd0-4242-a0dd-2f8a32558018",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## Further Research",
+              "instructor_notes": ""
+            },
+            {
+              "id": 849083,
+              "key": "c8d27124-c4b0-4776-855a-e28d5299bdf0",
+              "title": "Further Research",
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "For further explanation of Kalman Filters with MATLAB, you can refer to [this video series](https://www.youtube.com/watch?v=mwn8xhgNpFY&list=PLn8PRpmsu08pzi6EMiYnR-076Mh-q3tWr).\n\n",
+              "instructor_notes": ""
+            }
+          ]
+        },
+        {
+          "id": 849094,
+          "key": "0b993bfd-4429-49eb-bbf7-d1ac4c0d783d",
+          "title": "MATLAB Sensor Fusion Guided Walkthrough",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "0b993bfd-4429-49eb-bbf7-d1ac4c0d783d",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 850240,
+              "key": "8c74fd85-b52b-4322-80d4-aada483d849a",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "# MATLAB Sensor Fusion Guided Walkthrough",
+              "instructor_notes": ""
+            },
+            {
+              "id": 850377,
+              "key": "988c2235-d25a-4a9b-a960-2aeae0ec8dc7",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "The following steps will take you on a guided walkthrough of performing Kalman Filtering in a simulated environment using MATLAB. You can download the starter code file `Sensor_Fusion_with_Radar.m\n` for this walkthrough in the **Resources** section for this lesson. ",
+              "instructor_notes": ""
+            },
+            {
+              "id": 850432,
+              "key": "ad323a34-f6a5-4f49-920b-18dfe1888ddc",
+              "title": "L4A45 Kalman Tracking+ Walkthru",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "ngcuSwsOgE8",
+                "china_cdn_id": "ngcuSwsOgE8.mp4"
+              }
+            },
+            {
+              "id": 849079,
+              "key": "6e18b646-8639-4b30-af78-050df9e0b390",
+              "title": "Project Outline",
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/May/5ce319ca_image6/image6.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/6e18b646-8639-4b30-af78-050df9e0b390",
+              "caption": "Radar Sensor Fusion Mini-Project",
+              "alt": "",
+              "width": 1999,
+              "height": 1095,
+              "instructor_notes": null
+            },
+            {
+              "id": 849087,
+              "key": "11c68b67-6f78-4c00-9aae-86ff2cf92b67",
+              "title": "Project Introduction",
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "Sensor fusion and control algorithms for automated driving systems require rigorous testing. Vehicle-based testing is not only time consuming to set up, but also difficult to reproduce. Automated Driving System Toolbox provides functionality to define road networks, actors, vehicles, and traffic scenarios, as well as statistical models for simulating synthetic radar and camera sensor detection. This example shows how to generate a scenario, simulate sensor detections, and use sensor fusion to track simulated vehicles. The main benefit of using scenario generation and sensor simulation over sensor recording is the ability to create rare and potentially dangerous events and test the vehicle algorithms with them. This example covers the entire synthetic data workflow.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 849088,
+              "key": "e42626d7-60f7-402e-9c8f-ecdeaa5ed7a4",
+              "title": "Generate the Scenario",
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## Generate the Scenario\nScenario generation comprises generating a road network, defining vehicles that move on the roads, and moving the vehicles.In this example, you test the ability of the sensor fusion to track a vehicle that is passing on the left of the ego vehicle. The scenario simulates a highway setting, and additional vehicles are in front of and behind the ego vehicle. Find more on how to generate these scenarios here : [Automated Driving Toolbox](https://www.mathworks.com/videos/driving-scenario-designer-1529302116471.html)\n\n```matlab\n% Define an empty scenario\n\nscenario = drivingScenario;\nscenario.SampleTime = 0.01;\n\n% Add a stretch of 500 meters of typical highway road with two lanes. \n% The road is defined using a set of points, where each point defines the center of the \n% road in 3-D space, and a road width.\n\nroadCenters = [0 0; 50 0; 100 0; 250 20; 500 40];\nroadWidth = 7.2; % Two lanes, each 3.6 meters\nroad(scenario, roadCenters, roadWidth);\n\n% Create the ego vehicle and three cars around it: one that overtakes the ego vehicle \n% and passes it on the left, one that drives right in front of the ego vehicle and \n% one that drives right behind the ego vehicle. \n% All the cars follow the path defined by the road waypoints by using the path driving \n% policy. The passing car will start on the right lane, move to the left lane to pass, \n% and return to the right lane.\n\n% Create the ego vehicle that travels at 25 m/s along the road.\negoCar = vehicle(scenario, 'ClassID', 1);\npath(egoCar, roadCenters(2:end,:) - [0 1.8], 25); % On right lane\n\n\n% Add a car in front of the ego vehicle.\nleadCar = vehicle(scenario, 'ClassID', 1);\npath(leadCar, [70 0; roadCenters(3:end,:)] - [0 1.8], 25); % On right lane\n\n% Add a car that travels at 35 m/s along the road and passes the ego vehicle.\npassingCar = vehicle(scenario, 'ClassID', 1);\nwaypoints = [0 -1.8; 50 1.8; 100 1.8; 250 21.8; 400 32.2; 500 38.2];\npath(passingCar, waypoints, 35);\n\n% Add a car behind the ego vehicle\nchaseCar = vehicle(scenario, 'ClassID', 1);\npath(chaseCar, [25 0; roadCenters(2:end,:)] - [0 1.8], 25); % On right lane\n```",
+              "instructor_notes": ""
+            },
+            {
+              "id": 849076,
+              "key": "65122a38-943b-464b-a5a4-d50757ec4790",
+              "title": "Define Radar Sensor",
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## Define Radar \n\nIn this example, you simulate an ego vehicle that has 6 radar sensors covering the 360 degrees field of view. The sensors have some overlap and some coverage gap. The ego vehicle is equipped with a long-range radar sensor on both the front and the back of the vehicle. Each side of the vehicle has two short-range radar sensors, each covering 90 degrees. One sensor on each side covers from the middle of the vehicle to the back. The other sensor on each side covers from the middle of the vehicle forward. The figure in the next section shows the coverage.\n\n```matlab\nsensors = cell(6,1);\n\n% Front-facing long-range radar sensor at the center of the front bumper of the car.\nsensors{1} = radarDetectionGenerator('SensorIndex', 1, 'Height', 0.2, 'MaxRange', 174, ...\n 'SensorLocation', [egoCar.Wheelbase + egoCar.FrontOverhang, 0], 'FieldOfView', [20, 5]);\n```\n\nThe rest of the radar sensors are defined in the project code.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 849089,
+              "key": "574d18f4-7de8-4cdc-a103-1f84e1b69292",
+              "title": "Create a Tracker",
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## Create a multiObjectTracker\n\nCreate a `multiObjectTracker` to track the vehicles that are close to the ego vehicle. The tracker uses the\n`initSimDemoFilter` supporting function to initialize a constant velocity linear Kalman filter that works with position and velocity. Tracking is done in 2-D. Although the sensors return measurements in 3-D, the motion itself is confined to the horizontal plane, so there is no need to track the height.\n\n```matlab\ntracker = multiObjectTracker('FilterInitializationFcn', @initSimDemoFilter, ...\n 'AssignmentThreshold', 30, 'ConfirmationParameters', [4 5]);\n\npositionSelector = [1 0 0 0; 0 0 1 0]; % Position selector\nvelocitySelector = [0 1 0 0; 0 0 0 1]; % Velocity selector\n```\n\nMultiObjectTracker Function has several parameters that can be tuned for different driving scenarios. It controls the track creation and deletion One can learn more about these [here](https://www.mathworks.com/help/driving/ref/multiobjecttracker-system-object.html).\n\n\n\n\n",
+              "instructor_notes": ""
+            },
+            {
+              "id": 850248,
+              "key": "b168148b-3fec-4b76-8fbd-86f8c0bb2f10",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/May/5ce31efd_image4/image4.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/b168148b-3fec-4b76-8fbd-86f8c0bb2f10",
+              "caption": "",
+              "alt": "",
+              "width": 628,
+              "height": 336,
+              "instructor_notes": null
+            },
+            {
+              "id": 850247,
+              "key": "4588daa8-4f5c-4a9f-a823-10d19f01f90b",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/May/5ce31eec_image10/image10.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/4588daa8-4f5c-4a9f-a823-10d19f01f90b",
+              "caption": "",
+              "alt": "",
+              "width": 817,
+              "height": 419,
+              "instructor_notes": null
+            },
+            {
+              "id": 849086,
+              "key": "cd218b56-16ad-49e7-aee9-f26abef1b613",
+              "title": "Simulate the Scenario",
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## Simulate the Scenario\n\nThe following loop moves the vehicles, calls the sensor simulation, and performs the tracking. Note that the scenario generation and sensor simulation can have different time steps. Specifying different time steps for the scenario and the sensors enables you to decouple the scenario simulation from the sensor simulation. This is useful for modeling actor motion with high accuracy independently from the sensor’s measurement rate. \n\nAnother example is when the sensors have different update rates. Suppose one sensor provides updates every 20 milliseconds and another sensor provides updates every 50 milliseconds. You can specify the scenario with an update rate of 10 milliseconds and the sensors will provide their updates at the correct time. In this example, the scenario generation has a time step of 0.01 second, while the sensors detect every 0.1 second. \n\nThe sensors return a logical flag, `isValidTime`, that is true if the sensors generated detections. This flag is used to call the tracker only when there are detections. Another important note is that the sensors can simulate multiple detections per target, in particular when the targets are very close to the radar sensors. Because the tracker assumes a single detection per target from each sensor, you must cluster the detections before the tracker processes them. This is done by implementing clustering algorithm, the way we discussed above.\n\n```matlab\ntoSnap = true;\nwhile advance(scenario) && ishghandle(BEP.Parent)    \n    % Get the scenario time\n    time = scenario.SimulationTime;\n    \n    % Get the position of the other vehicle in ego vehicle coordinates\n    ta = targetPoses(egoCar);\n    \n    % Simulate the sensors\n    detections = {};\n    isValidTime = false(1,6);\n    for i = 1:6\n        [sensorDets,numValidDets,isValidTime(i)] = sensors{i}(ta, time);\n        if numValidDets\n            detections = [detections; sensorDets]; %#ok<AGROW>\n        end\n    end\n    \n    % Update the tracker if there are new detections\n    if any(isValidTime)\n        vehicleLength = sensors{1}.ActorProfiles.Length;\n        detectionClusters = clusterDetections(detections, vehicleLength);\n        confirmedTracks = updateTracks(tracker, detectionClusters, time);\n        \n        % Update bird's-eye plot\n        updateBEP(BEP, egoCar, detections, confirmedTracks, positionSelector, velocitySelector);\n    end\n    \n    % Snap a figure for the document when the car passes the ego vehicle\n    if ta(1).Position(1) > 0 && toSnap\n        toSnap = false;\n        snapnow\n    end\nend\n``` ",
+              "instructor_notes": ""
+            },
+            {
+              "id": 849077,
+              "key": "cf047d02-6ebf-4544-97ff-a8ee6a1c6b1c",
+              "title": "Kalman Filter",
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## Define the Kalman Filter\n\nDefine the Kalman Filter here to be used with `multiObjectTracker`. \n\nIn MATLAB a `trackingKF` function can be used to initiate Kalman Filter for any type of Motion Models. This includes the 1D,  2D or 3D constant velocity or even constant acceleration. You can read more about this [here](https://www.mathworks.com/help/driving/ref/trackingkf-class.html).\n\ninitSimDemoFilter\nThis function initializes a constant velocity filter based on a detection.\n\n```matlab\nfunction filter = initSimDemoFilter(detection)\n\n% Use a 2-D constant velocity model to initialize a trackingKF filter.\n% The state vector is [x;vx;y;vy]\n% The detection measurement vector is [x;y;vx;vy]\n% As a result, the measurement model is H = [1 0 0 0; 0 0 1 0; 0 1 0 0; 0 0 0 1]\n\nH = [1 0 0 0; 0 0 1 0; 0 1 0 0; 0 0 0 1];\nfilter = trackingKF('MotionModel', '2D Constant Velocity', ...\n 'State', H' * detection.Measurement, ...\n 'MeasurementModel', H, ...\n 'StateCovariance', H’ * detection.MeasurementNoise * H, ...\n 'MeasurementNoise', detection.MeasurementNoise);\nend\n```",
+              "instructor_notes": ""
+            },
+            {
+              "id": 849092,
+              "key": "38588464-2f34-481b-8067-fa4928144a48",
+              "title": "Clustering",
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## Cluster Detections\n\nThis function merges multiple detections suspected to be of the same vehicle to a single detection. The function looks for detections that are closer than the size of a vehicle. Detections that fit this criterion are  considered a cluster and are merged to a single detection at the centroid of the cluster. The measurement noises are modified to represent the possibility that each detection can be anywhere on the vehicle. Therefore, the noise should have the same size as the vehicle size. In addition, this function removes the third dimension of the measurement (the height) and reduces the measurement vector to `[x;y;vx;vy]`.\n\nWe already went through its implementation in the clustering concept of this lesson. ",
+              "instructor_notes": ""
+            },
+            {
+              "id": 849075,
+              "key": "398ea588-8553-416f-b7f6-c5cc6c17f29d",
+              "title": "Project",
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## Run Your Code\n\nNow, It’s time to run the code and see the output!\n\nIt is highly recommended to spend some time on this sensor fusion code. It’s a good place to start learning and implementing sensor fusion techniques. ",
+              "instructor_notes": ""
+            },
+            {
+              "id": 850424,
+              "key": "7d9c8e81-c340-40a1-87d8-aa6b1adf4578",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## Solution",
+              "instructor_notes": ""
+            },
+            {
+              "id": 850425,
+              "key": "db28231b-5759-450d-889c-3c0faea9bd3f",
+              "title": "Workspace Lesson 5",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "9SZuZcOoba8",
+                "china_cdn_id": "9SZuZcOoba8.mp4"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "_deprecated": [
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    }
+  ]
+}

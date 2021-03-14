@@ -1,0 +1,183 @@
+{
+  "data": {
+    "lesson": {
+      "id": 846549,
+      "key": "19ce2a5b-8fab-4ff2-8c80-bf6854840f11",
+      "title": "Introduction",
+      "semantic_type": "Lesson",
+      "is_public": true,
+      "version": "1.0.0",
+      "locale": "en-us",
+      "summary": null,
+      "lesson_type": "Classroom",
+      "display_workspace_project_only": false,
+      "resources": {
+        "files": [
+          {
+            "name": "Videos Zip File",
+            "uri": "https://zips.udacity-data.com/19ce2a5b-8fab-4ff2-8c80-bf6854840f11/846549/1561073513149/Introduction+Videos.zip"
+          },
+          {
+            "name": "Transcripts Zip File",
+            "uri": "https://zips.udacity-data.com/19ce2a5b-8fab-4ff2-8c80-bf6854840f11/846549/1561073510992/Introduction+Subtitles.zip"
+          }
+        ],
+        "google_plus_link": null,
+        "career_resource_center_link": null,
+        "coaching_appointments_link": null,
+        "office_hours_link": null,
+        "aws_provisioning_link": null
+      },
+      "project": null,
+      "lab": null,
+      "concepts": [
+        {
+          "id": 848303,
+          "key": "74d5a50f-8d14-4208-8bc2-6eb7382ba4e1",
+          "title": "Welcome!",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "74d5a50f-8d14-4208-8bc2-6eb7382ba4e1",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 848305,
+              "key": "ca5fddf3-64c7-4d7a-9230-a5e532421797",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "Welcome!",
+              "instructor_notes": ""
+            },
+            {
+              "id": 848308,
+              "key": "566ef4d3-8dd7-4236-baa6-f1e0fc99ce21",
+              "title": "L1A01 Welcome (Retake)",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "-OLpJvpsZtI",
+                "china_cdn_id": "-OLpJvpsZtI.mp4"
+              }
+            },
+            {
+              "id": 848307,
+              "key": "051ee86a-198a-4a02-bf9e-ac6dc539a6c2",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "In this course we will discuss in detail what it takes for a radar to generate a perception for a self driving car. Starting from scratch we will build up from the basic principles of radar. We will cover the signal propagation and target response generation. Then we will deep dive into Range Doppler generation needed to localize the target real time. \n\nWe will write the code in MATLAB to generate the Target scenario, FMCW waveform creation and later using processing techniques like FFT, CFAR we will create the Range Doppler Maps (RDM). For the second part of the project we will work on the MATLAB-based Driving Scenario Simulator to deploy multi object tracking and clustering and study the results.\n\nLet's get started!",
+              "instructor_notes": ""
+            }
+          ]
+        },
+        {
+          "id": 858996,
+          "key": "4eb479fd-476d-48cf-bcbb-49b0f58579bb",
+          "title": "Introduction to Andrei",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "4eb479fd-476d-48cf-bcbb-49b0f58579bb",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 858997,
+              "key": "f874f515-8799-476b-9fc5-cd52d6a1e848",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "# Introduction to Andrei\n\nThroughout the Radar course, you will perspectives about Radar from Andrei Vatavu. Andrei develops sensor fusion algorithms at [MBRDNA](https://mbrdna.com/). In the next video, Andrei will tell you a little bit about himself and his role at MBRDNA.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 859028,
+              "key": "9339549a-b337-4c69-ab54-09509dd141fe",
+              "title": "ND313 Andrei Intv 01 And 02 Who Are You And Role V2",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "B23RwFxHqbU",
+                "china_cdn_id": "B23RwFxHqbU.mp4"
+              }
+            }
+          ]
+        },
+        {
+          "id": 848306,
+          "key": "f402fe8d-54af-488f-9356-034ad431a45f",
+          "title": "MATLAB",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "f402fe8d-54af-488f-9356-034ad431a45f",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 848309,
+              "key": "244a06f0-bae6-4bba-9f72-d824a7a61f81",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "# MATLAB",
+              "instructor_notes": ""
+            },
+            {
+              "id": 848567,
+              "key": "6f5102ae-25ce-4643-a365-a7faf0a665d6",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/May/5cdcbfee_matlab-1/matlab-1.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/6f5102ae-25ce-4643-a365-a7faf0a665d6",
+              "caption": "",
+              "alt": "",
+              "width": 1212,
+              "height": 648,
+              "instructor_notes": null
+            },
+            {
+              "id": 848569,
+              "key": "e63041d5-ee56-4d22-aba2-54323ddf22e2",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "In this course, you will be using [MATLAB](https://www.mathworks.com/products/matlab.html) to complete all of the exercises and the projects locally on your computer. To get started, you can follow these steps:\n\n1. If you do not already have a MathWorks account, create one [here](https://www.mathworks.com/mwaccount/register). Be sure to verify your email (check your Junk/Spam folders) before moving on to step 2.\n2. Download the installer [here](https://www.mathworks.com/licensecenter/classroom/udacity_sf_radar/). This link also provides your MATLAB license to be used for the duration of the course.\n3. Run the installer – it will guide you through the steps for your OS.\n\nSome of the toolboxes included in the installation are not used in the course (e.g. Computer Vision and Image Processing toolboxes), but feel free to test them out if you like!",
+              "instructor_notes": ""
+            },
+            {
+              "id": 848576,
+              "key": "9f1a6874-908a-48f6-af4f-e6e18c0ad8a5",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## Using MATLAB\n\nIf you've never used MATLAB before, there is no need for concern - the language has an intuitive syntax, and you can try to pick up parts of the syntax as-needed while you go through the course. If you'd prefer to have a more formal introduction, there is a great series of tutorials provided by MathWorks, the creators of MATLAB. You can find the tutorials [here](https://www.mathworks.com/learn/tutorials/matlab-onramp.html).",
+              "instructor_notes": ""
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "_deprecated": [
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    }
+  ]
+}

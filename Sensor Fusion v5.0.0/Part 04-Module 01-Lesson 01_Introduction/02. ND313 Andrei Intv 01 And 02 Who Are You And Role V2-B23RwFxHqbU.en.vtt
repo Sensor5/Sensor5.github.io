@@ -1,0 +1,61 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:02.040
+I'm Andrei Vatavu.
+
+00:00:02.040 --> 00:00:06.645
+I'm a sensor fusion engineer and I'm a part of a team taking care of
+
+00:00:06.644 --> 00:00:12.329
+combining data provided by different sensors such as LIDAR,
+
+00:00:12.329 --> 00:00:15.554
+radars, cameras, and all of this
+
+00:00:15.554 --> 00:00:20.745
+to get a more consistent representation of the environment.
+
+00:00:20.745 --> 00:00:23.880
+Including static, dynamic objects,
+
+00:00:23.879 --> 00:00:28.619
+traffic lights, free-space and other traffic participants.
+
+00:00:28.620 --> 00:00:32.655
+This is a common project between Mercedes Benz and Porsche
+
+00:00:32.655 --> 00:00:36.914
+to build a self-driving car and of course,
+
+00:00:36.914 --> 00:00:39.280
+put it into production
+
+00:00:41.630 --> 00:00:47.330
+I've been doing various tasks including object tracking and object detection,
+
+00:00:47.329 --> 00:00:52.833
+however, if we talk about the radar sensor itself,
+
+00:00:52.834 --> 00:00:57.725
+there is a dedicated team that builds the radar from
+
+00:00:57.725 --> 00:01:03.859
+scratch and then we get measurements such as range,
+
+00:01:03.859 --> 00:01:09.260
+range rate, angle to apply our sensor fusion algorithms.
+
+00:01:09.260 --> 00:01:12.605
+Probably, it has to be mentioned that
+
+00:01:12.605 --> 00:01:19.115
+the received information from the radar interface is not prefiltered,
+
+00:01:19.114 --> 00:01:22.489
+but it's rather our sense of
+
+00:01:22.489 --> 00:01:30.640
+fusion task to do the object tracking by using this radar information.
+

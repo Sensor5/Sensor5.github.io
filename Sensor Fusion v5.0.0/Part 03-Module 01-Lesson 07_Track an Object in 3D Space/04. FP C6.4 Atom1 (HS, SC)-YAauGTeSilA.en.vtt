@@ -1,0 +1,151 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:02.009
+Now in this part of the final project,
+
+00:00:02.009 --> 00:00:04.139
+your task is to compute the time to collision for
+
+00:00:04.139 --> 00:00:06.674
+all matched three objects based on lidar measurements along.
+
+00:00:06.674 --> 00:00:08.070
+You might recall the second lesson of
+
+00:00:08.070 --> 00:00:10.330
+this course where we already discussed how to do this.
+
+00:00:10.330 --> 00:00:12.140
+When you look for the closest point in x,
+
+00:00:12.140 --> 00:00:14.730
+try to be robust against outliers which might be
+
+00:00:14.730 --> 00:00:18.120
+way too close and thus lead to 40 estimates of the TTC,
+
+00:00:18.120 --> 00:00:20.400
+and please return your time to collision to the main function
+
+00:00:20.399 --> 00:00:23.649
+at the end of a function computeTTCLidar.
+
+00:00:23.649 --> 00:00:28.424
+So this task, we want to compute the time to collision based on lidar measurements alone.
+
+00:00:28.425 --> 00:00:30.420
+This is done far below in the code.
+
+00:00:30.420 --> 00:00:32.100
+Let's navigate there quickly by looking for
+
+00:00:32.100 --> 00:00:35.939
+the respective function call which is named computeTTCLidar,
+
+00:00:35.939 --> 00:00:40.984
+and it's coming directly within this loop over all matched bounding box pairs.
+
+00:00:40.984 --> 00:00:43.714
+So we are assuming that you have already completed those steps,
+
+00:00:43.715 --> 00:00:45.725
+otherwise this will not work.
+
+00:00:45.725 --> 00:00:47.210
+When we get to this point,
+
+00:00:47.210 --> 00:00:52.204
+we already know that we have bounding boxes in the current frame and the premise frame,
+
+00:00:52.204 --> 00:00:57.219
+and we already have the LidarPoints having been associated to those bounding boxes,
+
+00:00:57.219 --> 00:00:58.798
+and only from those LidarPoints,
+
+00:00:58.798 --> 00:01:01.744
+we will be able to estimate the time to collision.
+
+00:01:01.744 --> 00:01:05.689
+Let's look at where this function is located, computeTTCLidar.
+
+00:01:05.689 --> 00:01:10.009
+It's also within the camFusion class and, well,
+
+00:01:10.010 --> 00:01:11.855
+it's class and the confusion file,
+
+00:01:11.855 --> 00:01:13.939
+and in the confusion student version,
+
+00:01:13.939 --> 00:01:15.259
+let's look into this file.
+
+00:01:15.260 --> 00:01:19.010
+You will find the function you have to implement right here.
+
+00:01:19.010 --> 00:01:24.260
+So basically, your job is to take this reference to LidarPoints in the previous frame,
+
+00:01:24.260 --> 00:01:26.780
+current frame, in the respective bounding box.
+
+00:01:26.780 --> 00:01:30.439
+Take the frame rate and return your estimate of the TTC.
+
+00:01:30.439 --> 00:01:31.899
+Now what you should consider here,
+
+00:01:31.900 --> 00:01:36.990
+in one of the lessons we talked about estimating TTC based on lidar measurements,
+
+00:01:36.989 --> 00:01:39.109
+but if you look at the points closely,
+
+00:01:39.109 --> 00:01:41.435
+and I can only urge you to look very
+
+00:01:41.435 --> 00:01:45.695
+carefully into the top view perspectives of the LidarPoints.
+
+00:01:45.694 --> 00:01:48.994
+Sometimes we have single points popping up
+
+00:01:48.995 --> 00:01:53.105
+right in the middle between ego vehicle and the preceding vehicle.
+
+00:01:53.105 --> 00:01:55.640
+It's not quite clear where those points come from,
+
+00:01:55.640 --> 00:01:57.245
+but they are definitely there.
+
+00:01:57.245 --> 00:02:02.420
+If you only would compute the closest distance to the first LidarPoint you encounter,
+
+00:02:02.420 --> 00:02:08.300
+such an erroneous measurement would lead to a faulty estimation of the time to collision,
+
+00:02:08.300 --> 00:02:11.210
+and you should try to be more robust here.
+
+00:02:11.210 --> 00:02:15.305
+Try to find a way to first, estimate the TTC,
+
+00:02:15.305 --> 00:02:18.920
+and then use only LidarPoints which are stable enough and
+
+00:02:18.919 --> 00:02:22.459
+reliable enough in terms of being a good point for
+
+00:02:22.460 --> 00:02:27.110
+estimating the TTC being a valid point and not be in some random pop-up point
+
+00:02:27.110 --> 00:02:28.460
+which simply shows up
+
+00:02:28.460 --> 00:02:33.120
+20 centimeters behind the target of the vehicle for no reason at all.
+

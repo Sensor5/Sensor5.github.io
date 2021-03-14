@@ -1,0 +1,49 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:02.690 --> 00:00:06.404
+I think it still makes a lot of sense to learn
+
+00:00:06.405 --> 00:00:09.929
+the classical computer vision algorithms like half transforms,
+
+00:00:09.929 --> 00:00:12.150
+color spaces, edge detection.
+
+00:00:12.150 --> 00:00:14.370
+Not everything has to be done with deep learning.
+
+00:00:14.369 --> 00:00:17.890
+You can also think about teaching basic math.
+
+00:00:17.890 --> 00:00:20.039
+Do you want to stop teaching linear algebra
+
+00:00:20.039 --> 00:00:22.469
+just because computers can do it for us today now?
+
+00:00:22.469 --> 00:00:28.199
+I don't think so. I think it's
+
+00:00:28.199 --> 00:00:32.625
+okay to pre-train neural networks with
+
+00:00:32.625 --> 00:00:37.424
+simulated data because you can just have a vast amount of data to pre-train,
+
+00:00:37.424 --> 00:00:41.089
+but it's really hard to simulate the characteristics and
+
+00:00:41.090 --> 00:00:45.260
+noise models precisely to the chip that you want to have in your target vehicle.
+
+00:00:45.259 --> 00:00:48.829
+So you will not get around by just training and simulation.
+
+00:00:48.829 --> 00:00:51.905
+You will have to add annotated real data on top,
+
+00:00:51.905 --> 00:00:56.340
+but for pre-training, I think right now it's already pretty usable.
+

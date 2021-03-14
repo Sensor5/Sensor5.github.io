@@ -1,0 +1,61 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:03.960
+Now one of the major advantages of the YOLO framework is its speed.
+
+00:00:03.960 --> 00:00:05.310
+In contrast to other methods,
+
+00:00:05.309 --> 00:00:07.830
+it only makes a single pass through the neural network,
+
+00:00:07.830 --> 00:00:10.050
+hence the name, You Only Look Once,
+
+00:00:10.050 --> 00:00:11.310
+or YOLO for short.
+
+00:00:11.310 --> 00:00:13.304
+When you compare YOLO to its peers,
+
+00:00:13.304 --> 00:00:15.029
+the results are quite decent actually.
+
+00:00:15.029 --> 00:00:18.839
+Also you can download a set of pre-trained weights directly from the developers,
+
+00:00:18.839 --> 00:00:21.179
+and use it right out of the box and it works.
+
+00:00:21.179 --> 00:00:23.835
+In this section, we will take a look at the workflow of YOLO.
+
+00:00:23.835 --> 00:00:26.820
+What you will learn is, you will learn how to initialize the parameters,
+
+00:00:26.820 --> 00:00:28.740
+prepare the model and the data structures,
+
+00:00:28.739 --> 00:00:31.199
+run the actual forward pass through the network,
+
+00:00:31.199 --> 00:00:34.200
+and finally do some post processing of the results.
+
+00:00:34.200 --> 00:00:36.000
+This will not be a deep dive here,
+
+00:00:36.000 --> 00:00:38.564
+we only want to use YOLO as a means to an end.
+
+00:00:38.564 --> 00:00:40.515
+We need bounding boxes around vehicles,
+
+00:00:40.515 --> 00:00:42.270
+and this is what we will get from the network.
+
+00:00:42.270 --> 00:00:45.070
+Now let's see how this actually works.
+

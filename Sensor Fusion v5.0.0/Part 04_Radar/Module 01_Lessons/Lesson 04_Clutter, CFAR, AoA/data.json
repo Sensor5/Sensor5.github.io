@@ -1,0 +1,794 @@
+{
+  "data": {
+    "lesson": {
+      "id": 848503,
+      "key": "ceac76ed-eb0e-4fb0-a7ce-0434f6e524cd",
+      "title": "Clutter, CFAR, AoA",
+      "semantic_type": "Lesson",
+      "is_public": true,
+      "version": "1.0.0",
+      "locale": "en-us",
+      "summary": "Discuss - Clutter formation and then its removal using CFAR technique. After that ",
+      "lesson_type": "Classroom",
+      "display_workspace_project_only": false,
+      "resources": {
+        "files": [
+          {
+            "name": "Videos Zip File",
+            "uri": "https://zips.udacity-data.com/ceac76ed-eb0e-4fb0-a7ce-0434f6e524cd/848503/1561073536151/Clutter%2C+CFAR%2C+AoA+Videos.zip"
+          },
+          {
+            "name": "Transcripts Zip File",
+            "uri": "https://zips.udacity-data.com/ceac76ed-eb0e-4fb0-a7ce-0434f6e524cd/848503/1561073532753/Clutter%2C+CFAR%2C+AoA+Subtitles.zip"
+          }
+        ],
+        "google_plus_link": null,
+        "career_resource_center_link": null,
+        "coaching_appointments_link": null,
+        "office_hours_link": null,
+        "aws_provisioning_link": null
+      },
+      "project": null,
+      "lab": null,
+      "concepts": [
+        {
+          "id": 848884,
+          "key": "5d30f4fd-ba99-4d3c-8594-e88a3a6c1937",
+          "title": "Clutter, CFAR, AoA",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "5d30f4fd-ba99-4d3c-8594-e88a3a6c1937",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 848888,
+              "key": "2e02b897-356c-420a-8828-565965e8c995",
+              "title": "L3 Intro V3 (Lesson 4)",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "D7ONpcCVLVE",
+                "china_cdn_id": "D7ONpcCVLVE.mp4"
+              }
+            }
+          ]
+        },
+        {
+          "id": 848497,
+          "key": "3e714386-23f5-4096-b2ad-fb11bbcfd039",
+          "title": "Clutter",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "3e714386-23f5-4096-b2ad-fb11bbcfd039",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 848481,
+              "key": "f78e48a3-ce23-4e27-991f-bb32bb536d1e",
+              "title": "Clutter Heading",
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "# Clutter",
+              "instructor_notes": ""
+            },
+            {
+              "id": 848465,
+              "key": "7d00587a-fbe6-4ae1-bd36-bc74ea259bf0",
+              "title": "L3A13 Clutter",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "99Fi7a1gQ_Y",
+                "china_cdn_id": "99Fi7a1gQ_Y.mp4"
+              }
+            },
+            {
+              "id": 848463,
+              "key": "d42481f6-4b18-49c0-96f5-fdef73a4b0b7",
+              "title": "Clutter",
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "Radar not only receive the reflected signals from the objects of interest, but also from the environment and unwanted objects. The backscatter from these unwanted sources is called as clutter. \n\nThese unwanted signals are generally produced by the reflections from the ground, sea, buildings, trees, rain, fog etc.  The magnitude of the clutter signal depends upon: \n- The nature of the surface - ground, water, snow (e.g deserts have low reflectivity, whereas the frozen snow has high reflectivity)\n- Smoothness of the surface\n- Grazing angle - Angle the radar beam makes with the surface\n- Radar Frequency",
+              "instructor_notes": ""
+            },
+            {
+              "id": 848482,
+              "key": "a22c06be-9801-4a30-a9ac-380e4324ce2b",
+              "title": "Clutter",
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/May/5cdc9b06_image4/image4.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/a22c06be-9801-4a30-a9ac-380e4324ce2b",
+              "caption": "Return Signal from multiple targets along with some from the clutter.\n\nsource : http://www.redalyc.org/jatsRepo/911/91149521004/index.html",
+              "alt": "",
+              "width": 895,
+              "height": 410,
+              "instructor_notes": null
+            },
+            {
+              "id": 859038,
+              "key": "13b08a68-2cc7-4228-bd01-dbaab404dc32",
+              "title": "ND313 Andrei Intv 21 What Is Clutter And How Do You Overcome It",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "upjmf4iSiH0",
+                "china_cdn_id": "upjmf4iSiH0.mp4"
+              }
+            },
+            {
+              "id": 848545,
+              "key": "4f57feb0-bbed-41fe-a196-4a9c5cc53a44",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## Clutter Thresholding",
+              "instructor_notes": ""
+            },
+            {
+              "id": 848466,
+              "key": "fae02e4d-8522-4c34-8116-901960e960bd",
+              "title": "Removing Clutter",
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "It is important to filter out clutter for successful detection of targets. This is critical in a driving scenario to avoid the car from suddenly braking in the absence of valid targets. This sudden braking happens when the radar detects reflections that are generated from the clutter.\n\nOne technique to remove clutter is to remove the signals having 0 doppler velocity. Since, the clutter in the driving scenario are often created by the stationary targets, the 0 doppler filtering can help get rid of them. \n\nThe downside of 0 doppler filtering is that the radar would not be able to detect the stationary targets in its path. This would lead to detection failures.\n\nAnother technique is to use _fixed clutter thresholding_. With fixed thresholding, signal below the threshold value is rejected. With this method, if the detection threshold is set too high, there will be very few false alarms, but it will also mask the valid targets. If the threshold is set too low, then it would lead to too many false alarms. In other words, the _false alarm rate_ would be too high. \n\nThe false alarm rate is the rate of erroneous radar detections by noise or other interfering signals. It is a measure of the presence of detected radar targets when there is no valid target present.\n\n",
+              "instructor_notes": ""
+            },
+            {
+              "id": 848544,
+              "key": "d904f5d6-8092-4868-aaf1-fe053540ac49",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/May/5cdcb55e_image9/image9.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/d904f5d6-8092-4868-aaf1-fe053540ac49",
+              "caption": "Fixed Threshold leading to False Alarms and missed detections of weak target",
+              "alt": "",
+              "width": 857,
+              "height": 506,
+              "instructor_notes": null
+            },
+            {
+              "id": 848549,
+              "key": "300243b7-7ea7-49e0-b523-547529f7f4f1",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## Dynamic Thresholding",
+              "instructor_notes": ""
+            },
+            {
+              "id": 848552,
+              "key": "386741a5-301e-4b69-a507-15f637fb320c",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "Another approach to clutter thresholding is to use  _dynamic thresholding_. Dynamic thresholding involves varying the threshold level to reduce the false alarm rate.\n\nIn the rest of this lesson, you will learn about a dynamic thresholding technique called CFAR (Constant False Alarm Rate). With this technique, the noise at every or group of range/doppler bins is monitored and the signal is compared to the local noise level. This comparison is used create a threshold which holds the false alarm rate constant. Let's have a look in the next concept!",
+              "instructor_notes": ""
+            },
+            {
+              "id": 848916,
+              "key": "7f0386dd-007e-45e8-8db9-3cc832a74a38",
+              "title": "Thresholding",
+              "semantic_type": "CheckboxQuizAtom",
+              "is_public": true,
+              "instructor_notes": null,
+              "user_state": {
+                "node_key": "7f0386dd-007e-45e8-8db9-3cc832a74a38",
+                "completed_at": null,
+                "last_viewed_at": null,
+                "unstructured": null
+              },
+              "question": {
+                "prompt": "If the detection threshold is set too high, then what could lead to?",
+                "answers": [
+                  {
+                    "id": "a1558037911974",
+                    "text": "Target detection failure",
+                    "is_correct": true
+                  },
+                  {
+                    "id": "a1558037939024",
+                    "text": "Road clutter becoming a valid target",
+                    "is_correct": false
+                  },
+                  {
+                    "id": "a1558037951396",
+                    "text": "Decrease in false alarms",
+                    "is_correct": true
+                  }
+                ]
+              }
+            },
+            {
+              "id": 848917,
+              "key": "2efdf718-b593-47f6-af53-efcde8879a60",
+              "title": "Clutter",
+              "semantic_type": "CheckboxQuizAtom",
+              "is_public": true,
+              "instructor_notes": null,
+              "user_state": {
+                "node_key": "2efdf718-b593-47f6-af53-efcde8879a60",
+                "completed_at": null,
+                "last_viewed_at": null,
+                "unstructured": null
+              },
+              "question": {
+                "prompt": "Which of the following do you think should be classified as a clutter in automotive scenario?",
+                "answers": [
+                  {
+                    "id": "a1558038006751",
+                    "text": "Iron tunnel",
+                    "is_correct": true
+                  },
+                  {
+                    "id": "a1558038030190",
+                    "text": "Bicyclist",
+                    "is_correct": false
+                  },
+                  {
+                    "id": "a1558038035779",
+                    "text": "Road surface",
+                    "is_correct": true
+                  },
+                  {
+                    "id": "a1558038045057",
+                    "text": "Pedestrian",
+                    "is_correct": false
+                  },
+                  {
+                    "id": "a1558038050745",
+                    "text": "Truck",
+                    "is_correct": false
+                  }
+                ]
+              }
+            },
+            {
+              "id": 848918,
+              "key": "44d70315-c4ce-40ab-b44c-99d9ed0bc9f4",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## Further Research\n\nSee the resources [here](http://www.radartutorial.eu/11.coherent/co04.en.html\n) and [here](https://journals.sagepub.com/doi/pdf/10.1177/1550147717729793\n) for further information about clutter.",
+              "instructor_notes": ""
+            }
+          ]
+        },
+        {
+          "id": 848501,
+          "key": "33847fdb-3e88-4852-a446-b1c6270a3c10",
+          "title": "CFAR",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "33847fdb-3e88-4852-a446-b1c6270a3c10",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 848475,
+              "key": "c8155c73-0527-4d67-b97f-b7987aab8872",
+              "title": "CFAR 1D Heading",
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "# CFAR",
+              "instructor_notes": ""
+            },
+            {
+              "id": 848494,
+              "key": "114a4136-2b17-4f78-a975-dcaf128289a3",
+              "title": "L3A31 CFAR 1D",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "6BS6fhEsy1M",
+                "china_cdn_id": "6BS6fhEsy1M.mp4"
+              }
+            },
+            {
+              "id": 848485,
+              "key": "683c7d2e-a3ba-403d-bbc8-13ebb0709da5",
+              "title": "CFAR",
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/May/5cdcb90e_image2/image2.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/683c7d2e-a3ba-403d-bbc8-13ebb0709da5",
+              "caption": "CA-CFAR and OS-CFAR\n\n\nsource :http://www.radartutorial.eu",
+              "alt": "",
+              "width": 558,
+              "height": 460,
+              "instructor_notes": null
+            },
+            {
+              "id": 848477,
+              "key": "d6a1d2a1-e033-4b35-9324-4022261afc43",
+              "title": "CFAR",
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "The false alarm issue can be resolved by implementing the constant false alarm rate. CFAR varies the detection threshold based on the vehicle surroundings. The CFAR technique estimates the level of interference in radar range and doppler cells “Training Cells” on either or both the side of the “Cell Under Test”. The estimate is then used to decide if the target is in the Cell Under Test (CUT).\n\nThe process loops across all the range cells and decides the presence of target based on the noise estimate.The basis of the process is that when noise is present, the cells around the cell of interest will contain a good estimate of the noise, i.e. it assumes that the noise or interference is spatially or temporarily homogeneous. Theoretically it will produce a constant false alarm rate, which is independent of the noise or clutter level\n\nThere are multiple categories of CFAR:\n- Cell Averaging CFAR (CA-CFAR)\n- Ordered Statistics CFAR (OS CFAR)\n- Maximum Minimum Statistic (MAMIS CFAR)\n- And, multiple variants of CA-CFAR. \n\nHere, we will be covering the basic CA-CFAR. \n",
+              "instructor_notes": ""
+            }
+          ]
+        },
+        {
+          "id": 848500,
+          "key": "4cc44303-4b7e-45d5-9287-79f155ad9c26",
+          "title": "CA-CFAR",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "4cc44303-4b7e-45d5-9287-79f155ad9c26",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 848464,
+              "key": "54beb9b5-6676-4b29-b684-b3e4751ca562",
+              "title": "CA-CFAR",
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "# CA-CFAR",
+              "instructor_notes": ""
+            },
+            {
+              "id": 848492,
+              "key": "f31262f4-4c8b-4fcd-8312-35dab4f6f2fb",
+              "title": "L3A79 CA-CFAR",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "ptZR6fYqWW4",
+                "china_cdn_id": "ptZR6fYqWW4.mp4"
+              }
+            },
+            {
+              "id": 848468,
+              "key": "83358132-f8b5-49a7-9396-4c339fb912b0",
+              "title": "CA-CFAR",
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/May/5cddca2d_image5/image5.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/83358132-f8b5-49a7-9396-4c339fb912b0",
+              "caption": "CA-CFAR\nTraining Cells : 3\nGuard Cell : 1",
+              "alt": "",
+              "width": 1374,
+              "height": 854,
+              "instructor_notes": null
+            },
+            {
+              "id": 848471,
+              "key": "12fa494d-85c9-425b-a9a6-1abaa40fc3b9",
+              "title": "CA-CFAR",
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "CA-CFAR is the most commonly used CFAR detection technique. As seen in the previous lesson, the FFT blocks are generated on implementing range and doppler FFTs across the number of chirps. The CFAR process includes the sliding of a window across the cells in FFT blocks. Each window consists of the following cells.\n\n**Cell Under Test** : The cell that is tested to detect the presence of the target by comparing the signal level against the noise estimate (threshold).\n\n**Training Cells** : The level of noise is measured over the Training Cells. The Training Cells can be divided into two regions, the cells lagging the CUT, called lagging Training Cells and the cells leading the CUT, called Leading Training Cells. The noise is estimated by averaging the noise under the training cells. In some cases either leading or lagging cell average is taken, while in the other the leading and lagging cell average is combined and the higher of two is considered for noise level estimate.  \n\nThe number of training cells should be decided based on the environment. If a dense traffic scenario then the fewer training cells should be used, as closely spaced targets can impact the noise estimate. \n\n**Guard Cells** : The cells just next to CUT are assigned as Guard Cells. The purpose of the Guard Cells is to avoid the target signal from leaking into the training cells that could adversely affect the noise estimate. \nThe number of guard cells should be decided based on the leakage of the target signal out of the cell under test. If target reflections are strong they often get into surrounding bins. \n\n**Threshold Factor (Offset)** : Use an offset value to scale the noise threshold. If the signal strength is defined in logarithmic form then add this offset value to the average noise estimate, else multiply it. \n",
+              "instructor_notes": ""
+            },
+            {
+              "id": 848488,
+              "key": "560c7b44-80b4-4c86-86c1-de36e98fe047",
+              "title": "CFAR 1D Graphic",
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/May/5cddca80_image7/image7.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/560c7b44-80b4-4c86-86c1-de36e98fe047",
+              "caption": "",
+              "alt": "",
+              "width": 530,
+              "height": 401,
+              "instructor_notes": null
+            },
+            {
+              "id": 848919,
+              "key": "0df86ccc-bfef-4c76-ac86-8e05bdd36f90",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## 1D CFAR Exercise",
+              "instructor_notes": ""
+            },
+            {
+              "id": 848920,
+              "key": "3188d74e-f4dd-4627-9da4-3957c37c61ed",
+              "title": "L3A44 CFAR 1D And Big Picture",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "h_YPnZ8D5uE",
+                "china_cdn_id": "h_YPnZ8D5uE.mp4"
+              }
+            },
+            {
+              "id": 848493,
+              "key": "06831943-9c7b-429b-a2ba-73b663f458c9",
+              "title": "CFAR 1D Implementation",
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "The following steps here can be used to implement CFAR in the next MATLAB exercise. You can use the code template below to get started as well.\n\n**T** : Number of Training Cells\n\n**G** : Number of Guard Cells\n\n**N** : Total number of Cells\n\n\n1. Define the number of training cells and guard cells\n2. Start sliding the window one cell at a time across the complete FFT 1D array. Total window size should be: 2(T+G)+CUT\n3.  For each step, sum the signal (noise) within all the leading or lagging training cells\n4.  Average the sum to determine the noise threshold\n5.  Using an appropriate offset value scale the threshold\n6. Now, measure the signal in the CUT, which is T+G+1 from the window starting point\n7. Compare the signal measured in 5 against the threshold measured in 4\n8. If the level of signal measured in CUT is smaller than the threshold measured, then assign                             0 value to the signal within CUT. \n      ",
+              "instructor_notes": ""
+            },
+            {
+              "id": 848489,
+              "key": "5454b5f9-d3eb-4c6e-b885-c4d4600951c6",
+              "title": "CFAR 1D Further Research",
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "```matlab\n% Implement 1D CFAR using lagging cells on the given noise and target scenario.\n\n% Close and delete all currently open figures\nclose all;\n\n% Data_points\nNs = 1000;\n\n% Generate random noise\ns=randn(Ns,1);\n\n%Targets location. Assigning bin 100, 200, 300 and 700 as Targets with the amplitudes of 8, 9, 4, 11.\ns([100 ,200, 300, 700])=[8 9 4 11];\n\n%plot the output\nplot(s);\n\n% TODO: Apply CFAR to detect the targets by filtering the noise.\n\n% 1. Define the following:\n% 1a. Training Cells\n% 1b. Guard Cells \n\n% Offset : Adding room above noise threshold for desired SNR \noffset=3;\n\n% Vector to hold threshold values \nthreshold_cfar = [];\n\n%Vector to hold final signal after thresholding\nsignal_cfar = [];\n\n% 2. Slide window across the signal length\nfor i = 1:(Ns-(G+T))     \n    \n    % 2. - 5. Determine the noise threshold by measuring it within the training cells\n        \n    % 6. Measuring the signal within the CUT\n\n    % 8. Filter the signal above the threshold\n\n    signal_cfar = [signal_cfar, {signal}];\nend\n\n\n\n\n% plot the filtered signal\nplot (cell2mat(signal_cfar),'g--');\n  \n% plot original sig, threshold and filtered signal within the same figure.\nfigure,plot(s);\nhold on,plot(cell2mat(circshift(threshold_cfar,G)),'r--','LineWidth',2)\nhold on, plot (cell2mat(circshift(signal_cfar,(T+G))),'g--','LineWidth',4);\nlegend('Signal','CFAR Threshold','detection')\n```",
+              "instructor_notes": ""
+            },
+            {
+              "id": 848921,
+              "key": "95e73b14-3ccb-4466-93b0-bc438bb1c809",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## Solution\n\n",
+              "instructor_notes": ""
+            },
+            {
+              "id": 848922,
+              "key": "612be6b6-1a7f-4621-96cd-8c7793ddd9e6",
+              "title": "Workspace Lesson 3",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "K2W4eMuWwgk",
+                "china_cdn_id": "K2W4eMuWwgk.mp4"
+              }
+            },
+            {
+              "id": 850544,
+              "key": "b0bdd7e4-3b5a-4666-89d4-eb70651324d9",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## Further Research\n\nFor further research, see the articles [here](http://www.radartutorial.eu/01.basics/False%20Alarm%20Rate.en.html) and [here](https://arxiv.org/pdf/1709.09786.pdf).\n",
+              "instructor_notes": ""
+            }
+          ]
+        },
+        {
+          "id": 848502,
+          "key": "2552350a-2fec-4ed7-94a0-0d7a9724afe0",
+          "title": "CFAR 2D",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "2552350a-2fec-4ed7-94a0-0d7a9724afe0",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 848487,
+              "key": "990aca2e-0b35-4de0-8e36-2a8f83a504d2",
+              "title": "CFAR 2D Heading",
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "The 2D CFAR is similar to 1D CFAR, but is implemented in both dimensions of the range doppler block. The 2D CA-CFAR implementation involves the training cells occupying the cells surrounding the cell under test with a guard grid in between to prevent the impact of a target signal on the noise estimate.\n",
+              "instructor_notes": ""
+            },
+            {
+              "id": 848473,
+              "key": "1793f019-f366-48fb-bf86-8c4e8b7f97cb",
+              "title": "L3A49 CFAR 2D",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "XelOh4zX3bQ",
+                "china_cdn_id": "XelOh4zX3bQ.mp4"
+              }
+            },
+            {
+              "id": 848491,
+              "key": "21e96181-7642-45fd-9ea9-8266fd6bf70d",
+              "title": "CFAR 2D Graphic",
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/May/5cdefe16_image8/image8.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/21e96181-7642-45fd-9ea9-8266fd6bf70d",
+              "caption": "2D CFAR \n\nsource : electronicproducts.com",
+              "alt": "",
+              "width": 1870,
+              "height": 1258,
+              "instructor_notes": null
+            },
+            {
+              "id": 848926,
+              "key": "b6da93ac-9dcf-4545-bc74-30381b5084a2",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## 2D CFAR Steps",
+              "instructor_notes": ""
+            },
+            {
+              "id": 848479,
+              "key": "f22a5049-ae9c-40be-954d-ed8589792da9",
+              "title": "2D CFAR Implementation",
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "You won't need to implement a 2D-CFAR yet, but you will implement a 2D CFAR on the range doppler output for your final project! The following steps can be used to implement 2D-CFAR in MATLAB: \n1. Determine the number of Training cells for each dimension Tr and Td. Similarly, pick the number of guard cells Gr and Gd. \n2.  Slide the Cell Under Test (CUT) across the complete cell matrix\n3.  Select the grid that includes the training, guard and test cells. Grid Size = (2Tr+2Gr+1)(2Td+2Gd+1).\n4.  The total number of cells in the guard region and cell under test. (2Gr+1)(2Gd+1).\n5.  This gives the Training Cells  : (2Tr+2Gr+1)(2Td+2Gd+1) - (2Gr+1)(2Gd+1)\n6.  Measure and average the noise across all the training cells. This gives the threshold\n7.   Add the offset (if in signal strength in dB) to the threshold to keep the false alarm to the minimum. \n8.  Determine the signal level at the Cell Under Test. \n9.  If the CUT signal level is greater than the Threshold,  assign a value of 1, else equate it to zero. \n10.  Since the cell under test are not located at the edges, due to the training cells occupying the edges, we suppress the edges to zero. Any cell value that is neither 1 nor a 0, assign it a zero.    ",
+              "instructor_notes": ""
+            },
+            {
+              "id": 848928,
+              "key": "0c4f13e8-b7ec-4025-b054-e286d6eb214a",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## 2D CFAR Quiz",
+              "instructor_notes": ""
+            },
+            {
+              "id": 848929,
+              "key": "c5b51671-97af-4260-8484-3e4694fd1a13",
+              "title": "",
+              "semantic_type": "ValidatedQuizAtom",
+              "is_public": true,
+              "instructor_notes": null,
+              "user_state": {
+                "node_key": "c5b51671-97af-4260-8484-3e4694fd1a13",
+                "completed_at": null,
+                "last_viewed_at": null,
+                "unstructured": null
+              },
+              "question": {
+                "prompt": "Determine the total number of training cells for 2D CFAR process given the following:\n\n- Size of training band in range dimension = 8\n- Size of guard band in range dimension = 4\n\n- Size of training band in doppler dimension = 4\n- Size of guard band in the doppler dimension = 2",
+                "matchers": [
+                  {
+                    "expression": "\\b280\\b"
+                  }
+                ]
+              }
+            },
+            {
+              "id": 848927,
+              "key": "b5d624a3-7195-4f44-b8a7-0b3037f639cf",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## Further Research\nYou can find out more about this [here](http://www.radartutorial.eu/01.basics/False%20Alarm%20Rate.en.html\n) and [here](https://arxiv.org/pdf/1709.09786.pdf).\n\n\n",
+              "instructor_notes": ""
+            }
+          ]
+        },
+        {
+          "id": 848498,
+          "key": "c35d4582-bd60-4742-be32-9030250c7bf7",
+          "title": "Angle of Arrival Introduction",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "c35d4582-bd60-4742-be32-9030250c7bf7",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 848935,
+              "key": "5178fe09-188d-45ea-8f06-24ff9aaf9059",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "# Angle of Arrival Introduction",
+              "instructor_notes": ""
+            },
+            {
+              "id": 848474,
+              "key": "262abfb1-9a32-4ec3-a8dc-bf0847bbdb3e",
+              "title": "Phased Array Antenna",
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/May/5cddeabc_image6/image6.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/262abfb1-9a32-4ec3-a8dc-bf0847bbdb3e",
+              "caption": "Metawave’s Beam Steering Radar",
+              "alt": "",
+              "width": 1203,
+              "height": 672,
+              "instructor_notes": null
+            },
+            {
+              "id": 848486,
+              "key": "27c77982-7980-4b0b-a7ae-13e9c075ef92",
+              "title": "Phase Array Introduction Heading",
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "A  _phased array antenna_ is an antenna array that steers the beam electronically in the desired direction. The array steers the beam if each antenna element in an array is excited by the signal with certain phase values. This phenomenon is referred to as beam scanning. \n\n",
+              "instructor_notes": ""
+            },
+            {
+              "id": 848495,
+              "key": "202c20c7-c9ca-45ff-8371-fc8a16b9dc17",
+              "title": "Beam Scanning Radar",
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/May/5cddeb1e_image8/image8.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/202c20c7-c9ca-45ff-8371-fc8a16b9dc17",
+              "caption": "Beam Steering Design. Here the <span class=\"mathquill\">\\Phi </span> represents the phase shifters. Phase shifters are the electronic components that changes the phase to make the beam steer in a desired direction.\n\nsource : analog.com",
+              "alt": "",
+              "width": 958,
+              "height": 910,
+              "instructor_notes": null
+            },
+            {
+              "id": 848480,
+              "key": "a51fe05a-b769-4c41-b4c7-bd1ef474d9ce",
+              "title": "Beam Steering Radar",
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "For antenna beam to steer in a desired direction, the phase shifters are programmed to have constant phase increments. If an antenna comprises of six radiating elements and the phase delta required to steer a beam in a given direction is 15 degrees, then the following would be the phase value on each element [0,15,30,45,60,75] degrees. The increment phase shift along with the spacing between antenna elements (d) determines the steering angle of an antenna using the following equation \n\n<div class=\"mathquill\">\n\\Phi = 360\\cdot d \\cdot\\sin(theta)/λ\n</div>\n\n- <span class=\"mathquill\">\\Phi= </span> incremental phase shift\n- <span class=\"mathquill\">d =</span> spacing between antenna elements\n- <span class=\"mathquill\">\\theta=</span> steering direction from the normal of the antenna surface\n- <span class=\"mathquill\">\\lambda=</span> wavelength of the signal\n\nAs the radar scan the surroundings by steering the beam at the programmed angles, it can sense the angle of the return signal. This helps Radar create a spatial perception of the environment. ",
+              "instructor_notes": ""
+            },
+            {
+              "id": 848483,
+              "key": "1fa56e0b-7326-4dab-8360-a1920205605f",
+              "title": "Phase Array Graphic",
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/May/5cddec43_image3/image3.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/1fa56e0b-7326-4dab-8360-a1920205605f",
+              "caption": "Radar Module for Automotive Applications from D3 Engineering",
+              "alt": "",
+              "width": 376,
+              "height": 384,
+              "instructor_notes": null
+            },
+            {
+              "id": 849055,
+              "key": "d14d2f8a-112c-4c18-aaa7-a751d46d6d5d",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## Angle of Arrival",
+              "instructor_notes": ""
+            },
+            {
+              "id": 849056,
+              "key": "74893ccf-7010-43d6-ac53-a3afa1528600",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/May/5cdeff7f_image11/image11.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/74893ccf-7010-43d6-ac53-a3afa1528600",
+              "caption": "Road scenario for beam steering radar",
+              "alt": "",
+              "width": 1603,
+              "height": 1498,
+              "instructor_notes": null
+            },
+            {
+              "id": 849058,
+              "key": "a00da727-6d24-4c7b-8705-762f03ca3976",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "As the radar scans the surroundings by steering the beam at the programmed angles, it measures the SNR of reflected signals from targets located at different angles spatially. This helps in creating an angle of arrival vs SNR grid for radar’s spatial perception. ",
+              "instructor_notes": ""
+            },
+            {
+              "id": 849061,
+              "key": "64b6b349-9966-4657-a03f-03b40077738c",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/May/5cdf002c_image3/image3.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/64b6b349-9966-4657-a03f-03b40077738c",
+              "caption": "",
+              "alt": "",
+              "width": 1270,
+              "height": 703,
+              "instructor_notes": null
+            },
+            {
+              "id": 849065,
+              "key": "c32d7f76-f872-46d1-b61a-30dad1bbe39e",
+              "title": "",
+              "semantic_type": "QuizAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "user_state": {
+                "node_key": "c32d7f76-f872-46d1-b61a-30dad1bbe39e",
+                "completed_at": null,
+                "last_viewed_at": null,
+                "unstructured": null
+              },
+              "instruction": null,
+              "question": {
+                "title": "Steering Angle",
+                "prompt": "Determine the steering angle of an antenna beam in degrees for the given phase increment:\n\nFrequency of operation = 77 GHz\nSpeed of light = 3*10^8 m/s\nPhase increment = 45 degrees\nAntenna element spacing = wavelength/2",
+                "semantic_type": "CodeGradedQuestion",
+                "evaluation_id": "5966712969494528"
+              },
+              "answer": null
+            },
+            {
+              "id": 848936,
+              "key": "c9eaa127-9b2f-4bff-b87c-8d8381ef7057",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## Further Research\n\nFor more information about phased array antennas see [here](http://www.radartutorial.eu/06.antennas/Phased%20Array%20Antenna.en.html).",
+              "instructor_notes": ""
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "_deprecated": [
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    }
+  ]
+}

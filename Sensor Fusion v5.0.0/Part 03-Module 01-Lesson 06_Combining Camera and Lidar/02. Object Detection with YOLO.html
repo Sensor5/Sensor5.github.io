@@ -1,0 +1,731 @@
+<!-- udacimak v1.4.4 -->
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <meta content="ie=edge" http-equiv="X-UA-Compatible"/>
+  <title>
+   Object Detection with YOLO
+  </title>
+  <link href="../assets/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="../assets/css/plyr.css" rel="stylesheet"/>
+  <link href="../assets/css/katex.min.css" rel="stylesheet"/>
+  <link href="../assets/css/jquery.mCustomScrollbar.min.css" rel="stylesheet"/>
+  <link href="../assets/css/styles.css" rel="stylesheet"/>
+  <link href="../assets/img/udacimak.png" rel="shortcut icon" type="image/png">
+  </link>
+ </head>
+ <body>
+  <div class="wrapper">
+   <nav id="sidebar">
+    <div class="sidebar-header">
+     <h3>
+      Combining Camera and Lidar
+     </h3>
+    </div>
+    <ul class="sidebar-list list-unstyled CTAs">
+     <li>
+      <a class="article" href="../index.html">
+       Back to Home
+      </a>
+     </li>
+    </ul>
+    <ul class="sidebar-list list-unstyled components">
+     <li class="">
+      <a href="01. Lidar-to-Camera Point Projection.html">
+       01. Lidar-to-Camera Point Projection
+      </a>
+     </li>
+     <li class="">
+      <a href="02. Object Detection with YOLO.html">
+       02. Object Detection with YOLO
+      </a>
+     </li>
+     <li class="">
+      <a href="03. Standard CV vs Deep Learning.html">
+       03. Standard CV vs Deep Learning
+      </a>
+     </li>
+     <li class="">
+      <a href="04. Creating 3D-Objects.html">
+       04. Creating 3D-Objects
+      </a>
+     </li>
+    </ul>
+    <ul class="sidebar-list list-unstyled CTAs">
+     <li>
+      <a class="article" href="../index.html">
+       Back to Home
+      </a>
+     </li>
+    </ul>
+   </nav>
+   <div id="content">
+    <header class="container-fluild header">
+     <div class="container">
+      <div class="row">
+       <div class="col-12">
+        <div class="align-items-middle">
+         <button class="btn btn-toggle-sidebar" id="sidebarCollapse" type="button">
+          <div>
+          </div>
+          <div>
+          </div>
+          <div>
+          </div>
+         </button>
+         <h1 style="display: inline-block">
+          02. Object Detection with YOLO
+         </h1>
+        </div>
+       </div>
+      </div>
+     </div>
+    </header>
+    <main class="container">
+     <div class="row">
+      <div class="col-12">
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h1 id="object-detection-with-yolo">
+          Object Detection with YOLO
+         </h1>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+         <p>
+          L5 C5.2 Atom1 (HS)
+         </p>
+        </h3>
+        <video controls="">
+         <source src="02. L5 C5.2 Atom1 (HS)-ZpyEq_U4pRY.mp4" type="video/mp4"/>
+         <track default="true" kind="subtitles" label="en" src="02. L5 C5.2 Atom1 (HS)-ZpyEq_U4pRY.en.vtt" srclang="en"/>
+        </video>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h2 id="why-object-detection">
+          Why Object Detection?
+         </h2>
+         <p>
+          As mentioned in the introductory video, we need a way to detect vehicles in our images so that we can isolate matched keypoints as well as projected Lidar points and associate them to a specific object. Let us take a look at the program flow schematic we already discussed in the lesson on engineering a collision detection system.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="" class="img img-fluid" src="img/draggedimage.png"/>
+          <figcaption class="figure-caption">
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <p>
+          Based on what you learned in the previous lesson, you are now able to detect and match keypoints using a variety of detectors and descriptors. In order to compute the time-to-collision for a specific vehicle however, we need to isolate the keypoints on that vehicle so that TTC estimation is not distorted due to the inclusion of matches on e.g. the road surface, stationary objects or other vehicles in the scene. One way to achieve this is to automatically identify the vehicles in the scene using object detection. The output of such an algorithm would (ideally) be a set of 2D bounding boxes around all objects in the scene. Based on these bounding boxes, we could then easily associate keypoint matches to objects and achieve a stable TTC estimate.
+         </p>
+         <p>
+          For the Lidar measurements, the same rationale can be applied. As you have learned in the previous course on Lidar, you already know that 3D points can be successfully clustered into individual objects, e.g. by using algorithms from the Point Cloud Library (PCL), which can be seen as an equivalent to the OpenCV library for 3D applications. In this section, let us look at yet another approach to group Lidar points into objects. Based on what you learned in the previous section, you now know how to project Lidar points onto the image plane. Given a set of bounding boxes from object detection, we could thus easily associate a 3D Lidar point to a specific object in a scene by simply checking wether it is enclosed by a bounding box when projected into the camera.
+         </p>
+         <p>
+          We will look in detail at both of the described approaches later in this section but for now, let us look at a way to detect objects in camera images - which is a prerequisite for grouping keypoint matches as well as Lidar points. in the schematic shown above, the content of the current lesson is highlighted by a blue rectangle and in this section we will be focussing on 'detecting &amp; classifying objects‘.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h2 id="introduction-into-yolo">
+          Introduction into YOLO
+         </h2>
+         <p>
+          The aim of this section is to enable you to quickly leverage a powerful and state-of-the-art tool for object detection. It is not the purpose to perform a theoretical deep-dive into the inner workings of such algorithms, but rather you should be enabled to integrate object detection into the code framework of this course quickly and seamlessly. The following image shows the an example output of the code we will be developing in this section.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="" class="img img-fluid" src="img/draggedimage-1.png"/>
+          <figcaption class="figure-caption">
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <p>
+          In the past, methods for object detection were often based on histograms of oriented gradients (HOG) and support vector machines (SVM). Until the advent of deep-learning, the HOG/SVM approach was long considered the state-of-the-art approach to detection. While the results of HOG/SVM are still acceptable for a large variety of problems, its use on platforms with limited processing speed is limited. As with SIFT, one of the major issues is the methods reliance on the intensity gradient - which is a costly operation.
+         </p>
+         <p>
+          Another approach to object detection is the use of deep-learning frameworks such as TensorFlow or Caffe. However, the learning curve for both is very steep and would warrant an entire course on its own. An easy-to-use alternative that works right out of the box and is also based on similar underlying concepts is YOLO, a very fast detection framework that is shipped with the OpenCV library. Developed by Joseph Redmon, Santosh Divvala, Ross Girshick, and Ali Farhadi at Cornell University, YOLO uses a different approach than most other methods: Here, a single neural network is applied to the full image. This network divides the image into regions and predicts bounding boxes and probabilities for each region. These bounding boxes are weighted by the predicted probabilities. The following figure illustrates the principle:
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="\[adapted from this [source](https://github.com/pjreddie/darknet/wiki/YOLO:-Real-Time-Object-Detection)\]" class="img img-fluid" src="img/yolo-workflow.jpg"/>
+          <figcaption class="figure-caption">
+           <p>
+            [adapted from this
+            <a href="https://github.com/pjreddie/darknet/wiki/YOLO:-Real-Time-Object-Detection" rel="noopener noreferrer" target="_blank">
+             source
+            </a>
+            ]
+           </p>
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <p>
+          Other than classifier-based systems such as HOG/SVM, YOLO looks at the whole image so its predictions are informed by global context in the image. It also makes predictions with a single network pass unlike systems like R-CNN which require thousands of passes for a single image. This makes it extremely fast while at the same time generating similar results as other state-of-the-art methods such as the Single Shot MultiBox Detector (SSD).
+         </p>
+         <p>
+          The makers of YOLO have also made available a set of pre-trained weights that enable the current version YOLOv3 to recognize 80 different objects in images and videos based on COCO (
+          <a href="http://cocodataset.org/#home" rel="noopener noreferrer" target="_blank">
+           http://cocodataset.org/#home
+          </a>
+          ) , which is a is large-scale object detection, segmentation, and captioning dataset. In the context of this course this means, that we can use YOLOv3 as an out-of-the-box classifier which is able to detect vehicles (and many other obstacles) with reasonable accuracy.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h2 id="the-yolov3-workflow">
+          The YOLOv3 Workflow
+         </h2>
+         <p>
+          In this section, we will take a look at the different steps involved to execute YOLO on the course image set. The parameters used below are mainly the ones suggested by the authors. In the following, a short overview of the main algorithmic steps is given:
+         </p>
+         <ul>
+          <li>
+           First, the image is divided into a 13x13 grid of cells. Based on the size of the input image, the size of these cells in pixels varies. In the code below, a size of 416 x 416 pixels was used, leading to a cell size of 32 x 32 pixels.
+          </li>
+          <li>
+           As seen in the schematic above, each cell is then used for predicting a set of bounding boxes. For each bounding box, the network also predicts the confidence that the bounding box encloses a particular object as well as the probability of the object belonging to a particular class (taken from the COCO dataset).
+          </li>
+          <li>
+           Lastly, a non-maximum suppression is used to eliminate bounding boxes with a low confidence level as well as redundant bounding boxes enclosing the same object.
+          </li>
+         </ul>
+         <p>
+          In the following, the main workflow as well as the respective code is presented.
+         </p>
+         <p>
+          <em>
+           Step 1: Initialize the Parameters
+          </em>
+         </p>
+         <p>
+          Every bounding box predicted by YOLOv3 is associated with a confidence score. The parameter 'confThreshold' is used to remove all bounding boxes with a lower score value.
+         </p>
+         <p>
+          Then, a non-maximum suppression is applied to the remaining bounding boxes. The NMS procedure is controlled by the parameter ‚nmsThreshold‘.
+         </p>
+         <p>
+          The size of the input image is controlled by the parameters ‚inpWidth‘ and ‚inpHeight‘, which is set to 416 as proposed by the YOLO authors. Other values could e.g. be 320 (faster) or 608 (more accurate).
+         </p>
+         <p>
+          <em>
+           Step 2: Prepare the Model
+          </em>
+         </p>
+         <p>
+          The file 'yolov3.weights' contains the pre-trained network’s weights and has been made available by the authors of YOLO
+          <a href="https://pjreddie.com/media/files/yolov3.weights" rel="noopener noreferrer" target="_blank">
+           here
+          </a>
+          .
+         </p>
+         <p>
+          The file 'yolov3.cfg' containing the network configuration is available
+          <a href="https://github.com/pjreddie/darknet/blob/master/cfg/yolov3.cfg" rel="noopener noreferrer" target="_blank">
+           here
+          </a>
+          and the coco.names file which contains the 80 different class names used in the COCO dataset can be downloaded
+          <a href="https://github.com/pjreddie/darknet/blob/master/data/coco.names" rel="noopener noreferrer" target="_blank">
+           here
+          </a>
+          .
+         </p>
+         <p>
+          The following code shows how to load the model weights as well as the associated model configuration:
+         </p>
+         <pre><code class="cpp language-cpp">    // load image from file
+    cv::Mat img = cv::imread("./images/img1.png");
+
+    // load class names from file
+    string yoloBasePath = "./dat/yolo/";
+    string yoloClassesFile = yoloBasePath + "coco.names";
+    string yoloModelConfiguration = yoloBasePath + "yolov3.cfg";
+    string yoloModelWeights = yoloBasePath + "yolov3.weights"; 
+
+    vector&lt;string&gt; classes;
+    ifstream ifs(yoloClassesFile.c_str());
+    string line;
+    while (getline(ifs, line)) classes.push_back(line);
+
+    // load neural network
+    cv::dnn::Net net = cv::dnn::readNetFromDarknet(yoloModelConfiguration, yoloModelWeights);
+    net.setPreferableBackend(cv::dnn::DNN_BACKEND_OPENCV);
+    net.setPreferableTarget(cv::dnn::DNN_TARGET_CPU);</code></pre>
+         <p>
+          After loading the network, the DNN backend is set to DNN_BACKEND_OPENCV. If OpenCV is built with Intel’s Inference Engine, DNN_BACKEND_INFERENCE_ENGINE should be used instead. The target is set to CPU in the code, as opposed to using DNN_TARGET_OPENCL, which would be the method of choice if a (Intel) GPU was available.
+         </p>
+         <p>
+          <em>
+           Step 3: Generate 4D Blob from Input Image
+          </em>
+         </p>
+         <p>
+          As data flows through the network, YOLO stores, communicates, and manipulates the information as "blobs": the blob is the standard array and unified memory interface for many frameworks, including Caffe. A blob is a wrapper over the actual data being processed and passed along and also provides synchronization capability between the CPU and the GPU. Mathematically, a blob is an N-dimensional array stored in a C-contiguous fashion. The conventional blob dimensions for batches of image data are number N x channel C x height H x width W. In this nomenclature, N is the batch size of the data. Batch processing achieves better throughput for communication and device processing. For a training batch of 256 images, N would be 256. The parameter C represents the feature dimension, e.g. for RGB images C = 3. In OpenCV, blobs are stored as 4-dimensional cv::Mat array with NCHW dimensions order. More details on blobs can be found here:
+          <a href="http://caffe.berkeleyvision.org/tutorial/net_layer_blob.html" rel="noopener noreferrer" target="_blank">
+           http://caffe.berkeleyvision.org/tutorial/net_layer_blob.html
+          </a>
+         </p>
+         <p>
+          The following example illustrates the memory structure of a blob with N=2, C=16 channels and height H=5 / width W=4.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="\[[source](https://intel.github.io/mkl-dnn/understanding_memory_formats.html)\]" class="img img-fluid" src="img/software.png"/>
+          <figcaption class="figure-caption">
+           <p>
+            [
+            <a href="https://intel.github.io/mkl-dnn/understanding_memory_formats.html" rel="noopener noreferrer" target="_blank">
+             source
+            </a>
+            ]
+           </p>
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <p>
+          In a blob data structure, a value at position (n, c, h, w) can be accessed (if needed) using the following formula: b (n, c, h, w) = ((n * C + c) * H + h) * W + w.
+         </p>
+         <p>
+          The code below shows how an image loaded from the file is passed through the blobFromImage function to be converted into an input block for the neural network. The pixel values are scaled with a scaling factor of 1/255 to a target range of 0 to 1. It also adjusts the size of the image to the specified size of (416, 416, 416) without cropping.
+         </p>
+         <pre><code class="cpp language-cpp">    // generate 4D blob from input image
+    cv::Mat blob;
+    double scalefactor = 1/255.0;
+    cv::Size size = cv::Size(416, 416);
+    cv::Scalar mean = cv::Scalar(0,0,0);
+    bool swapRB = false;
+    bool crop = false;
+    cv::dnn::blobFromImage(img, blob, scalefactor, size, mean, swapRB, crop);</code></pre>
+         <p>
+          Later in the code, the output blob will be passed as input to the network. Then, a forward pass will be executed to obtain a list of predicted bounding boxes as output from the network. These boxes go through a post-processing step to filter out those with low confidence values. Let’s look at those steps in more detail.
+         </p>
+         <p>
+          <em>
+           Step 4: Run Forward Pass Through the Network
+          </em>
+         </p>
+         <p>
+          As the next step, we have to pass the blob we just created to the network as its input. Then, we run the forward-function of OpenCV to perform a single forward-pass through the network. In order to do that, we need to identify the last layer of the network and provide the associated internal names to the function. This can be done by using the OpenCV function 'getUnconnectedOutLayers', which gives the names of all unconnected output layers, which are in fact the last layers of the network. The following code shows how this can be achieved:
+         </p>
+         <pre><code class="cpp language-cpp">    // Get names of output layers
+    vector&lt;cv::String&gt; names;
+    vector&lt;int&gt; outLayers = net.getUnconnectedOutLayers(); // get indices of output layers, i.e. layers with unconnected outputs
+    vector&lt;cv::String&gt; layersNames = net.getLayerNames(); // get names of all layers in the network
+
+    names.resize(outLayers.size());
+    for (size_t i = 0; i &lt; outLayers.size(); ++i) // Get the names of the output layers in names
+    {
+        names[i] = layersNames[outLayers[i] - 1];
+    }
+
+    // invoke forward propagation through network
+    vector&lt;cv::Mat&gt; netOutput;
+    net.setInput(blob);
+    net.forward(netOutput, names);</code></pre>
+         <p>
+          The result of the forward pass and thus the output of the network is a vector of size C (the number of blob classes) with the first four elements in each class representing the center in x, the center in y as well as the width and height of the associated bounding box. The fifth element represents the trust or confidence that the respective bounding box actually encloses an object. The remaining elements of the matrix are the confidence associated with each of the classes contained in the coco.cfg file. Further on in the code, each box is assigned to the class corresponding to the highest confidence.
+         </p>
+         <p>
+          The following code shows how to scan through the network results and assemble the bounding boxes with a sufficiently high confidence score into a vector. The function
+          <code>
+           cv::minMaxLoc
+          </code>
+          finds the minimum and maximum element values and their positions with extremums searched across the whole array.
+         </p>
+         <pre><code class="cpp language-cpp">    // Scan through all bounding boxes and keep only the ones with high confidence
+    float confThreshold = 0.20;
+    vector&lt;int&gt; classIds;
+    vector&lt;float&gt; confidences;
+    vector&lt;cv::Rect&gt; boxes;
+    for (size_t i = 0; i &lt; netOutput.size(); ++i)
+    {
+        float* data = (float*)netOutput[i].data;
+        for (int j = 0; j &lt; netOutput[i].rows; ++j, data += netOutput[i].cols)
+        {
+            cv::Mat scores = netOutput[i].row(j).colRange(5, netOutput[i].cols);
+            cv::Point classId;
+            double confidence;
+
+            // Get the value and location of the maximum score
+            cv::minMaxLoc(scores, 0, &amp;confidence, 0, &amp;classId);
+            if (confidence &gt; confThreshold)
+            {
+                cv::Rect box; int cx, cy;
+                cx = (int)(data[0] * img.cols);
+                cy = (int)(data[1] * img.rows);
+                box.width = (int)(data[2] * img.cols);
+                box.height = (int)(data[3] * img.rows);
+                box.x = cx - box.width/2; // left
+                box.y = cy - box.height/2; // top
+
+                boxes.push_back(box);
+                classIds.push_back(classId.x);
+                confidences.push_back((float)confidence);
+            }
+        }
+    }</code></pre>
+         <p>
+          Applying the YOLOv3 algorithm to our highway image provides the following result:
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="" class="img img-fluid" src="img/draggedimage-6.png"/>
+          <figcaption class="figure-caption">
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <p>
+          As can be seen, the car in the left lane is covered by two bounding boxes of similar size. To avoid the occurrence of redundant boxes, the last step performs a non-maximum suppression which aims at keeping only the bounding box with the highest confidence score.
+         </p>
+         <p>
+          <em>
+           Step 5: Post-Processing of Network Output
+          </em>
+         </p>
+         <p>
+          The OpenCV library offers a ready-made function for the suppression of overlapping bounding boxes. This function is called NMSBoxes and it can be used as illustrated by the following short code sample:
+         </p>
+         <pre><code class="cpp language-cpp">    // perform non-maxima suppression
+    float nmsThreshold = 0.4;  // Non-maximum suppression threshold
+    vector&lt;int&gt; indices;
+    cv::dnn::NMSBoxes(boxes, confidences, confThreshold, nmsThreshold, indices);</code></pre>
+         <p>
+          After applying non-maximum suppression, redundant bounding boxes will have been successfully removed. The following figure shows the results, where green indicates preserved bounding boxes while red bounding boxes have been removed during NMS.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="" class="img img-fluid" src="img/draggedimage-8.png"/>
+          <figcaption class="figure-caption">
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h2 id="exercise">
+          Exercise
+         </h2>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+         <p>
+          L5 C5.2 Atom4 (HS)
+         </p>
+        </h3>
+        <video controls="">
+         <source src="02. L5 C5.2 Atom4 (HS)-AvGh3pFQKJQ.mp4" type="video/mp4"/>
+         <track default="true" kind="subtitles" label="en" src="02. L5 C5.2 Atom4 (HS)-AvGh3pFQKJQ.en.vtt" srclang="en"/>
+        </video>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <p>
+          In this exercise, please conduct the following experiments with the code given below:
+         </p>
+         <ol>
+          <li>
+           Look at the coco.cfg file and find out which object classes the YOLO network is able to detect. Then, find some interesting images containing some of those objects and load them into the framework. Share some of the results with us if you like.
+          </li>
+          <li>
+           Experiment with the size of the blob image and use some other settings instead of 416 x 416. Measure the execution time for varying sizes of the blob image.
+          </li>
+          <li>
+           Experiment with the confidence threshold and the NMS threshold. How do the detection results change for different settings of both variables?
+          </li>
+         </ol>
+         <p>
+          Note that we are now using a proprietary structure called 'BoundingBoxes' to store the results of the object detection step. In the course of this lesson, further information will be added to this structure, such as Lidar points or image keypoints associated with the respective object.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div class="jumbotron">
+         <h3>
+          Workspace
+         </h3>
+         <p class="lead">
+          This section contains either a workspace (it can be a
+          <a href="http://jupyter.org/" target="_blank">
+           Jupyter
+      Notebook
+          </a>
+          workspace or an online code editor work space, etc.) and it cannot be automatically downloaded to be
+    generated here. Please access the classroom with your account and manually download the workspace to your local
+    machine. Note that for some courses, Udacity upload the workspace files onto
+          <a href="https://github.com/udacity" target="_blank">
+           https://github.com/udacity
+          </a>
+          , so you may be able to download them there.
+         </p>
+         <h4>
+          Workspace Information:
+         </h4>
+         <ul>
+          <li>
+           <strong>
+            Default file path:
+           </strong>
+          </li>
+          <li>
+           <strong>
+            Workspace type:
+           </strong>
+           react
+          </li>
+          <li>
+           <strong>
+            Opened files (when workspace is loaded):
+           </strong>
+           n/a
+          </li>
+          <li>
+           <strong>
+            userCode:
+           </strong>
+           <br/>
+           <code>
+            <p>
+             export CXX=g++-7
+             <br>
+              export CXXFLAGS=-std=c++17
+             </br>
+            </p>
+           </code>
+          </li>
+         </ul>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h2 id="outro">
+          Outro
+         </h2>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+         <p>
+          L5 C5.2 Atom5 (HS)
+         </p>
+        </h3>
+        <video controls="">
+         <source src="02. L5 C5.2 Atom5 (HS)-jh75oLxSfo0.mp4" type="video/mp4"/>
+         <track default="true" kind="subtitles" label="en" src="02. L5 C5.2 Atom5 (HS)-jh75oLxSfo0.en.vtt" srclang="en"/>
+        </video>
+       </div>
+       <div class="divider">
+       </div>
+      </div>
+      <div class="col-12">
+       <p class="text-right">
+        <a class="btn btn-outline-primary mt-4" href="03. Standard CV vs Deep Learning.html" role="button">
+         Next Concept
+        </a>
+       </p>
+      </div>
+     </div>
+    </main>
+    <footer class="footer">
+     <div class="container">
+      <div class="row">
+       <div class="col-12">
+        <p class="text-center">
+         udacity2.0 If you need the newest courses Plase add me wechat: udacity6
+        </p>
+       </div>
+      </div>
+     </div>
+    </footer>
+   </div>
+  </div>
+  <script src="../assets/js/jquery-3.3.1.min.js">
+  </script>
+  <script src="../assets/js/plyr.polyfilled.min.js">
+  </script>
+  <script src="../assets/js/bootstrap.min.js">
+  </script>
+  <script src="../assets/js/jquery.mCustomScrollbar.concat.min.js">
+  </script>
+  <script src="../assets/js/katex.min.js">
+  </script>
+  <script>
+   // Initialize Plyr video players
+    const players = Array.from(document.querySelectorAll('video')).map(p => new Plyr(p));
+
+    // render math equations
+    let elMath = document.getElementsByClassName('mathquill');
+    for (let i = 0, len = elMath.length; i < len; i += 1) {
+      const el = elMath[i];
+
+      katex.render(el.textContent, el, {
+        throwOnError: false
+      });
+    }
+
+    // this hack will make sure Bootstrap tabs work when using Handlebars
+    if ($('#question-tabs').length && $('#user-answer-tabs').length) {
+      $("#question-tabs a.nav-link").on('click', function () {
+        $("#question-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+      $("#user-answer-tabs a.nav-link").on('click', function () {
+        $("#user-answer-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    } else {
+      $("a.nav-link").on('click', function () {
+        $(".tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    }
+
+    // side bar events
+    $(document).ready(function () {
+      $("#sidebar").mCustomScrollbar({
+        theme: "minimal"
+      });
+
+      $('#sidebarCollapse').on('click', function () {
+        $('#sidebar, #content').toggleClass('active');
+        $('.collapse.in').toggleClass('in');
+        $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+      });
+
+      // scroll to first video on page loading
+      if ($('video').length) {
+        $('html,body').animate({ scrollTop: $('div.plyr').prev().offset().top});
+      }
+
+      // auto play first video: this may not work with chrome/safari due to autoplay policy
+      if (players && players.length > 0) {
+        players[0].play();
+      }
+
+      // scroll sidebar to current concept
+      const currentInSideBar = $( "ul.sidebar-list.components li a:contains('02. Object Detection with YOLO')" )
+      currentInSideBar.css( "text-decoration", "underline" );
+      $("#sidebar").mCustomScrollbar('scrollTo', currentInSideBar);
+    });
+  </script>
+ </body>
+</html>

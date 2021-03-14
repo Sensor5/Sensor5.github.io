@@ -1,0 +1,1061 @@
+{
+  "data": {
+    "lesson": {
+      "id": 843871,
+      "key": "f48cb6e7-1bf7-4ffb-81fa-48ad13531ff8",
+      "title": "Range-Doppler Estimation",
+      "semantic_type": "Lesson",
+      "is_public": true,
+      "version": "1.0.0",
+      "locale": "en-us",
+      "summary": "Estimate the range and velocity of the target using the FMCW radar",
+      "lesson_type": "Classroom",
+      "display_workspace_project_only": false,
+      "resources": {
+        "files": [
+          {
+            "name": "Videos Zip File",
+            "uri": "https://zips.udacity-data.com/f48cb6e7-1bf7-4ffb-81fa-48ad13531ff8/843871/1561073523729/Range-Doppler+Estimation+Videos.zip"
+          },
+          {
+            "name": "Transcripts Zip File",
+            "uri": "https://zips.udacity-data.com/f48cb6e7-1bf7-4ffb-81fa-48ad13531ff8/843871/1561073518366/Range-Doppler+Estimation+Subtitles.zip"
+          }
+        ],
+        "google_plus_link": null,
+        "career_resource_center_link": null,
+        "coaching_appointments_link": null,
+        "office_hours_link": null,
+        "aws_provisioning_link": null
+      },
+      "project": null,
+      "lab": null,
+      "concepts": [
+        {
+          "id": 846500,
+          "key": "a76ea229-c9a2-4bf7-900f-d4c07e753184",
+          "title": "Range, Velocity, and Angle Resolution",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "a76ea229-c9a2-4bf7-900f-d4c07e753184",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 846502,
+              "key": "d708f521-bc92-47a7-b139-d48c310ed698",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "# Range, Velocity, and Angle Resolution",
+              "instructor_notes": ""
+            },
+            {
+              "id": 848880,
+              "key": "e676807c-aad1-4f29-ae43-c8f2ecea7e55",
+              "title": "Part1",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "zV8MENLn0M0",
+                "china_cdn_id": "zV8MENLn0M0.mp4"
+              }
+            },
+            {
+              "id": 848318,
+              "key": "97624091-e98b-4653-aa00-b4a307db81b5",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "In this lesson, you will learn about the basics of range and velocity estimation using doppler and Fourier transform techniques. Before you get started, let's have a look at three primary dimensions of measurement for radar resolution.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 846488,
+              "key": "0e37d4fe-b66b-4aac-8694-08c803787c1a",
+              "title": "Range, Velocity and Angle Resolution",
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/May/5ccb8aeb_image8/image8.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/0e37d4fe-b66b-4aac-8694-08c803787c1a",
+              "caption": "Capability of a radar to resolve two targets based on differences in their distance, angle and velocity. ",
+              "alt": "",
+              "width": 1191,
+              "height": 541,
+              "instructor_notes": null
+            },
+            {
+              "id": 846482,
+              "key": "c046e9c0-7aca-43f2-897e-c5adaf0aa540",
+              "title": "Resolving Targets",
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "The capability of a radar to resolve targets is very critical for an accurate perception. \n\n**Range Resolution**: It is the capability of the radar to distinguish between two targets that are very close to each other in range. If a radar has range resolution of 4 meters then it cannot separate on range basis a pedestrian standing 1 m away from the car. \n\nThe range resolution is solely dependent on the bandwidth of the chirp <span class=\"mathquill\">B_{sweep}</span>: \n\n<div class=\"mathquill\">\nd_{res} = \\frac{c}{2B_{sweep}}\n</div>\n\n**Velocity Resolution**: If two targets have the same range they can still be resolved if they are traveling at different velocities. The velocity resolution is dependent on the number of chirps. As discussed for our case we selected to send 128 chirps. A higher number of chirps increases the velocity resolution, but it also takes longer to process the signal. \n\n**Angle Resolution**: Radar is capable of separating two targets spatially. If two targets are at similar range travelling at same velocities, then they can still be resolved based on their angle in radar coordinate system. Angle resolution depends on different parameters depending on the angle estimation technique used. We will cover this in more detail in the next lesson.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 846480,
+              "key": "f8674159-e649-404f-b137-9589e48e784e",
+              "title": "Range Resolution",
+              "semantic_type": "RadioQuizAtom",
+              "is_public": true,
+              "instructor_notes": null,
+              "user_state": {
+                "node_key": "f8674159-e649-404f-b137-9589e48e784e",
+                "completed_at": null,
+                "last_viewed_at": null,
+                "unstructured": null
+              },
+              "question": {
+                "prompt": "For a dense urban traffic scenario, what would be a helpful feature of FMCW radar?",
+                "answers": [
+                  {
+                    "id": "rbk1",
+                    "text": "Higher Bandwidth of a chirp",
+                    "is_correct": true
+                  },
+                  {
+                    "id": "rbk2",
+                    "text": "Lower Bandwidth of a chirp",
+                    "is_correct": false
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "id": 843868,
+          "key": "deb02bd8-0da3-4781-91e4-2d89f3031da3",
+          "title": "Range Estimation",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "deb02bd8-0da3-4781-91e4-2d89f3031da3",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 846501,
+              "key": "f94e1840-702b-4ce8-892e-d381585381ab",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "# Range Estimation",
+              "instructor_notes": ""
+            },
+            {
+              "id": 843843,
+              "key": "0134e2e2-0101-4b87-9a7b-692ccd43aea0",
+              "title": "L2A05 Range Estimation Equation (Split From L2A01)",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "S004gIu6rfQ",
+                "china_cdn_id": "S004gIu6rfQ.mp4"
+              }
+            },
+            {
+              "id": 846503,
+              "key": "a1d3ca67-a8f9-4acc-ab66-7cf0ef9132f5",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## Range Estimation Overview",
+              "instructor_notes": ""
+            },
+            {
+              "id": 843809,
+              "key": "3d58d997-6736-4dc7-83fa-545a13ddd644",
+              "title": "Range Estimation",
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/May/5ccb8bdc_image5/image5.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/3d58d997-6736-4dc7-83fa-545a13ddd644",
+              "caption": "Signal trip time for a radar signal.",
+              "alt": "signal trip time = 2*Range/c, where c is the speed of light.",
+              "width": 1999,
+              "height": 816,
+              "instructor_notes": null
+            },
+            {
+              "id": 843839,
+              "key": "450a1afd-1a82-43fc-9fd9-940064e0790b",
+              "title": "Range Estimation Equation",
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "Radar determines the range of the target by measuring the trip time of the electromagnetic signal it radiates. It is known that EM wave travels at a known speed (300,000,000 m/s), so to determine the range the radar needs to calculate the trip time. How?\n\nAnswer : By measuring the shift in the frequency.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 846504,
+              "key": "333c73ba-d4db-462c-af51-ce899dc7a294",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## Range Estimation Equation",
+              "instructor_notes": ""
+            },
+            {
+              "id": 843810,
+              "key": "3e870d01-1892-4f45-af36-227d7c209173",
+              "title": "Range Estimation using FMCW",
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/May/5ccb8c73_image3/image3.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/3e870d01-1892-4f45-af36-227d7c209173",
+              "caption": "Range Estimation using FMCW\n\nsource : Delft University of Technology",
+              "alt": "",
+              "width": 1038,
+              "height": 460,
+              "instructor_notes": null
+            },
+            {
+              "id": 843850,
+              "key": "24c68507-9abd-428b-b1ee-0ca81a8950b5",
+              "title": "Range Estimation using FMCW",
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "The FMCW waveform has the characteristic that the frequency varies linearly with time. If radar can determine the delta between the received frequency and hardware’s continuously ramping frequency then it can calculate the trip time and hence the range. We further divide Range estimate by 2, since the frequency delta corresponds to two way trip. \n\nIt is important to understand that if a target is stationary then a transmitted frequency and received frequency are the same. But, the ramping frequency within the hardware is continuously changing with time. So, when we take the delta (beat frequency) between the received and ramping frequency we get the trip time. \n<div class=\"mathquill\">\nR = \\frac{cT_sf_b}{2B_{sweep}}\n</div>\n\n\nHere, <span class=\"mathquill\">f_b</span> is the beat frequency, which is measured by the radar by subtracting the received frequency from the hardware’s ramping frequency:  \n<div class=\"mathquill\">\nf_b = f_ {ramping} - f_{received}\n</div>\n\nAs seen in the equation, the range calculation requires chirp time <span class=\"mathquill\">T_s</span> and chirp Bandwidth <span class=\"mathquill\">B_{sweep}</span>. Those values are determined as we define the configuration of the radar based on its range resolution and trip time for Radar’s maximum range.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 846505,
+              "key": "91183815-dc13-4b4b-81ce-469e803d7502",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## System Level Range Calculation",
+              "instructor_notes": ""
+            },
+            {
+              "id": 843861,
+              "key": "e42af74d-c0e4-49aa-b094-2b1d4c5ebdf5",
+              "title": "Range Calculation using FMCW - System Level",
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/May/5ccb8f65_image2/image2.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/e42af74d-c0e4-49aa-b094-2b1d4c5ebdf5",
+              "caption": "Range Calculation - System Level\n\nsource : electronicdesign.com",
+              "alt": "",
+              "width": 1999,
+              "height": 1075,
+              "instructor_notes": null
+            },
+            {
+              "id": 846494,
+              "key": "831e030a-3a47-4bf2-adcc-545541fa873c",
+              "title": "Range Calculation",
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "As seen in the image above, the Synthesizer generates FMCW chirp for a given <span class=\"mathquill\">B_{sweep}</span> and <span class=\"mathquill\">T_s</span>. Let’s say the signal gets transmitted at 77GHz and it returns to the radar after hitting the target in a certain time duration. The radar receiver captures the signal, processes (subtraction) and measures the frequency delta between received signal and linearly ramping signal. This delta in frequency is called as beat frequency and it is proportional to the trip time. So based on the equation above, the radar calculates the range. ",
+              "instructor_notes": ""
+            },
+            {
+              "id": 846506,
+              "key": "76d7f4d6-6b87-43c9-a478-4fb6dcdab6e7",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## Range Estimation Exercise\n\nUsing the following MATLAB code sample, complete the TODOs to calculate the range in meters of four targets with respective measured beat frequencies [0 MHz, 1.1 MHz, 13 MHz, 24 MHz]. \n\nYou can use the following parameter values:\n\n- The radar maximum range = 300m\n- The range resolution = 1m\n- The speed of light c = 3*10^8\n\nNote : The sweep time can be computed based on the time needed for the signal to travel the maximum range. In general, for an FMCW radar system, the sweep time should be at least 5 to 6 times the round trip time. This example uses a factor of 5.5:\n\n  <span class=\"mathquill\">T_{chirp} =5.5\\cdot 2 \\cdot R_{max}/c</span>\n​\t\n \nPrint your answer using the `disp` function.\n\n```matlab\n% TODO : Find the Bsweep of chirp for 1 m resolution\n\n\n% TODO : Calculate the chirp time based on the Radar's Max Range\n\n\n% TODO : define the frequency shifts \n\n\n% Display the calculated range\ndisp(calculated_range);\n\n```",
+              "instructor_notes": ""
+            },
+            {
+              "id": 846507,
+              "key": "c51f216e-6a05-4414-a4ec-10e045024640",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## Solution",
+              "instructor_notes": ""
+            },
+            {
+              "id": 846508,
+              "key": "dd38397a-b997-4c13-aef1-226ff7027d01",
+              "title": "2 Range Calculation",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "0YQ8uR-cgvw",
+                "china_cdn_id": "0YQ8uR-cgvw.mp4"
+              }
+            }
+          ]
+        },
+        {
+          "id": 843865,
+          "key": "07e7b5a8-16ad-4b45-a04c-b98c9fa7a12d",
+          "title": "Doppler Estimation",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "07e7b5a8-16ad-4b45-a04c-b98c9fa7a12d",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 843833,
+              "key": "b58aa8e6-aa48-423a-8cf8-83ee3661f13f",
+              "title": "Header Text",
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "# Doppler Estimation",
+              "instructor_notes": ""
+            },
+            {
+              "id": 843846,
+              "key": "e5ed3b84-7da6-4df3-a018-440cfcaf82de",
+              "title": "L2A12 Doppler Estimation",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "IZmA1dptdT4",
+                "china_cdn_id": "IZmA1dptdT4.mp4"
+              }
+            },
+            {
+              "id": 846510,
+              "key": "04c6be0e-0f36-4d5e-b46b-527837d99089",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## Doppler Estimation Overview",
+              "instructor_notes": ""
+            },
+            {
+              "id": 846509,
+              "key": "0b8eed32-e688-452d-b78c-adcaa4dfb404",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/May/5ccb93d0_image19/image19.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/0b8eed32-e688-452d-b78c-adcaa4dfb404",
+              "caption": "Doppler Speed Measurement",
+              "alt": "",
+              "width": 1037,
+              "height": 476,
+              "instructor_notes": null
+            },
+            {
+              "id": 843819,
+              "key": "f017b85c-9947-45a9-a27e-b3c4024b8c44",
+              "title": "Doppler Estimation Theory",
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "The velocity estimation for radar is based on an age old phenomenon called the doppler effect. As per doppler theory an approaching target will shift an emitted and reflected frequency higher, whereas a receding target will shift the both frequencies to be lower than the transmitted frequency. \n\nThe same principle is used in the radar guns to catch the speed violators, or even in sports to measure the speed of a ball.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 846512,
+              "key": "6f046692-1ee9-4b83-974b-6b3e8f785ffc",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/May/5ccb9465_image18/image18.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/6f046692-1ee9-4b83-974b-6b3e8f785ffc",
+              "caption": "",
+              "alt": "",
+              "width": 500,
+              "height": 651,
+              "instructor_notes": null
+            },
+            {
+              "id": 859034,
+              "key": "603765b1-5415-44f4-beab-dcd2886a7029",
+              "title": "ND313 Andrei Intv 15 What Is The Doppler Effect",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "0Dn1WQOitO4",
+                "china_cdn_id": "0Dn1WQOitO4.mp4"
+              }
+            },
+            {
+              "id": 846513,
+              "key": "a32fdf84-d212-4d71-9b46-df3d1ef84f71",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## FMCW Doppler Measurements",
+              "instructor_notes": ""
+            },
+            {
+              "id": 843811,
+              "key": "baf3622f-7e55-4152-9a7c-1b31f628d28e",
+              "title": "FMCW Doppler Measurements",
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/May/5ce479fc_image8/image8.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/baf3622f-7e55-4152-9a7c-1b31f628d28e",
+              "caption": "FMCW Doppler Estimation\n\nsource : Delft University of Technology",
+              "alt": "Delft University of Technology",
+              "width": 1829,
+              "height": 860,
+              "instructor_notes": null
+            },
+            {
+              "id": 843827,
+              "key": "928f9dfb-eacc-41e6-bd4b-1680996a824e",
+              "title": "",
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "As discussed above, there will be a shift in the received signal frequency due to the doppler effect of the target’s velocity. The doppler shift is directly proportional to the velocity of the target as shown below.\n<div class=\"mathquill\">\nf_D = \\frac{2\\nu_r}{\\lambda}\n</div>\n\n- <span class=\"mathquill\">f_D</span>: shift in the transmitted frequency due to the doppler\n- <span class=\"mathquill\">\\nu_r</span>  : relative velocity of the target\n- <span class=\"mathquill\">\\lambda</span> : wavelength of the signal\n\nBy measuring the shift in the frequency due to doppler, radar can determine the velocity. The receding target will have a negative velocity due to the frequency dropping lower, whereas the approaching target will have positive velocity as the frequency shifts higher.\n\nThe beat frequency comprises of both frequency components: <span class=\"mathquill\">f_r</span> (frequency delta due to range) and <span class=\"mathquill\">f_d</span> (frequency shift due to velocity). Although, in the case of automotive radar the <span class=\"mathquill\">f_d</span>  is very small in comparison to the <span class=\"mathquill\">f_r</span>. Hence, the doppler velocity is calculated by measuring the rate of change of phase across multiple chirps.\n\nThe following equation shows the relationship between the rate of change of the phase <span class=\"mathquill\">\\Phi</span>, and the frequency:\n\n<div class=\"mathquill\">\n\\frac{d\\Phi}{dt} = frequency\n</div>\n\n",
+              "instructor_notes": ""
+            },
+            {
+              "id": 850315,
+              "key": "335f2ac0-9be5-4539-ac63-610ccbfadc3e",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## DOPPLER PHASE SHIFT",
+              "instructor_notes": ""
+            },
+            {
+              "id": 850412,
+              "key": "96abfaef-180d-4760-8405-f90dbd28f8a9",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "Keeping that in consideration, we calculate the doppler frequency by measuring the rate of change of phase. The phase change occurs due to small displacement of a moving target for every chirp duration. Since, each chirp duration is generally in microseconds, it results in small displacement in mm (millimeters). These small displacements for every chirp leads to change in phase. Using this rate of change of phase we can determine the doppler frequency.\n\nLet's see how :\n\nIf the path between a target and the radar is changed by an amount Δx, the phase of the wave received by radar is shifted by\n <div class=\"mathquill\">\n\\Delta \\varphi = \\frac{\\Delta x}{\\lambda}  \\qquad (\\lambda = 2\\pi \\,\\, or \\,\\, 360 \\degree)\n</div>\n <div class=\"mathquill\">\n\\Delta \\varphi = f*\\frac{\\Delta x}{c}  \\qquad (\\lambda = f/c)\n</div> \nwhere λ and f are, respectively, the wavelength and frequency of the signal and c is the speed of propagation. The resulting change in observed frequency is\n<div class=\"mathquill\">\n\\Delta f = \\frac{\\Delta\\varphi}{\\Delta t}\n</div>  \nwhere Δt is the time taken for the observation of the phase change. \n\n",
+              "instructor_notes": ""
+            },
+            {
+              "id": 846519,
+              "key": "6554c429-5a76-4899-bb6c-8daa997974f0",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/May/5ce39880_image-1/image-1.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/6554c429-5a76-4899-bb6c-8daa997974f0",
+              "caption": "",
+              "alt": "",
+              "width": 901,
+              "height": 610,
+              "instructor_notes": null
+            },
+            {
+              "id": 846521,
+              "key": "b7c6e3d0-e795-4844-9cb4-27eb1d7ba4b0",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## Doppler Estimation Exercises\n\nUsing the following MATLAB code sample, complete the TODOs to calculate thevelocity in m/s of four targets with following doppler frequency shifts: [3 KHz, 4.5 KHz, 11 KHz, -3 KHz]. \n\nYou can use the following parameter values:\n\n- The radar's operating frequency = 77 GHz\n- The speed of light c = 3*10^8\n\n```matlab\n% Doppler Velocity Calculation\nc = 3*10^8;         %speed of light\nfrequency = 77e9;   %frequency in Hz\n\n% TODO : Calculate the wavelength\n\n\n% TODO : Define the doppler shifts in Hz using the information from above \n\n\n% TODO : Calculate the velocity of the targets  fd = 2*vr/lambda\n\n\n\n% TODO: Display results\n\n\n```",
+              "instructor_notes": ""
+            },
+            {
+              "id": 846481,
+              "key": "06934482-eb6e-4e0e-8a74-0bc897e589f2",
+              "title": "Doppler Velocity",
+              "semantic_type": "RadioQuizAtom",
+              "is_public": true,
+              "instructor_notes": null,
+              "user_state": {
+                "node_key": "06934482-eb6e-4e0e-8a74-0bc897e589f2",
+                "completed_at": null,
+                "last_viewed_at": null,
+                "unstructured": null
+              },
+              "question": {
+                "prompt": "From the workspace above, estimate the location of the targets. If all the targets were at 200 m range ahead of the ego (radar) vehicle and the velocity of the ego vehicle is 5 m/s. Then in next 5 seconds which of the targets would be **closest** to the ego vehicle. Let’s give targets a tag [A B C D]",
+                "answers": [
+                  {
+                    "id": "rbk1",
+                    "text": "Target A",
+                    "is_correct": false
+                  },
+                  {
+                    "id": "rbk2",
+                    "text": "Target B",
+                    "is_correct": false
+                  },
+                  {
+                    "id": "rbk3",
+                    "text": "Target C",
+                    "is_correct": true
+                  },
+                  {
+                    "id": "rbk4",
+                    "text": "Target D",
+                    "is_correct": false
+                  }
+                ]
+              }
+            },
+            {
+              "id": 846520,
+              "key": "3e7e7b47-e84b-4d5a-9367-cd7ac9be32fc",
+              "title": "Doppler Velocity 2",
+              "semantic_type": "RadioQuizAtom",
+              "is_public": true,
+              "instructor_notes": null,
+              "user_state": {
+                "node_key": "3e7e7b47-e84b-4d5a-9367-cd7ac9be32fc",
+                "completed_at": null,
+                "last_viewed_at": null,
+                "unstructured": null
+              },
+              "question": {
+                "prompt": "From the workspace above, estimate the location of the targets. If all the targets were at 200 m range ahead of the ego (radar) vehicle and the velocity of the ego vehicle is 5 m/s. Then in next 5 seconds which of the targets would be **farthest** from the ego vehicle. Let’s give targets a tag number [A B C D]",
+                "answers": [
+                  {
+                    "id": "a1556905637508",
+                    "text": "Target A",
+                    "is_correct": false
+                  },
+                  {
+                    "id": "a1556905660269",
+                    "text": "Target B",
+                    "is_correct": true
+                  },
+                  {
+                    "id": "a1556905663948",
+                    "text": "Target C",
+                    "is_correct": false
+                  },
+                  {
+                    "id": "a1556905671094",
+                    "text": "Target D",
+                    "is_correct": false
+                  }
+                ]
+              }
+            },
+            {
+              "id": 846522,
+              "key": "6c8209fc-6f36-4aba-a442-89e2dd1dcf01",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## Solution",
+              "instructor_notes": ""
+            },
+            {
+              "id": 846523,
+              "key": "c038b31e-8bff-4120-8d09-e2ffda1e1dd9",
+              "title": "3 Doppler Velocity",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "bKEFgnWAzkM",
+                "china_cdn_id": "bKEFgnWAzkM.mp4"
+              }
+            },
+            {
+              "id": 843829,
+              "key": "0679fbcc-2488-460d-bf69-08586ce02662",
+              "title": "Doppler Estimation Further Research",
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## Doppler Estimation Further Research\n\nFor additional resources related to doppler estimation, see these [lecture notes](http://www.phys.uconn.edu/~gibson/Notes/Section6_3/Sec6_3.htm).",
+              "instructor_notes": ""
+            }
+          ]
+        },
+        {
+          "id": 843866,
+          "key": "42ca6a51-af66-4e63-86b3-7081492ce566",
+          "title": "Fast Fourier Transform (FFT)",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "42ca6a51-af66-4e63-86b3-7081492ce566",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 846528,
+              "key": "83c0393e-af46-453d-be9e-f5c68cae4625",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "# Fast Fourier Transform (FFT)",
+              "instructor_notes": ""
+            },
+            {
+              "id": 843830,
+              "key": "bfb5bd1b-8e8e-43af-bb80-e917c22f0a1f",
+              "title": "L2A27 Fast Fourier Transform - Concept V2",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "hmU0w8yAM40",
+                "china_cdn_id": "hmU0w8yAM40.mp4"
+              }
+            },
+            {
+              "id": 846534,
+              "key": "1f135784-9180-47e9-9482-b356958474ef",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## FFT Overview",
+              "instructor_notes": ""
+            },
+            {
+              "id": 859035,
+              "key": "47b8ca5f-117a-418d-811c-b58897b227f3",
+              "title": "ND313 Andrei Intv 16 What Is A Fast Fourier Transform",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "aPd52NPB9gc",
+                "china_cdn_id": "aPd52NPB9gc.mp4"
+              }
+            },
+            {
+              "id": 846527,
+              "key": "ce51f798-330d-4dbb-92bf-f3ca63d2f518",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "So far we discussed the theory of range and doppler estimation along with the equations to calculate them. But, for a radar to efficiently process these measurements digitally, the signal needs to be converted from analog to digital domain and further from time domain to frequency domain. \n\nADC (Analog Digital Converter) converts the analog signal into digital. But, post ADC the Fast Fourier Transform is used to convert the signal from time domain to frequency domain. Conversion to frequency domain is important to do the spectral analysis of the signal and determine the shifts in frequency due to range and doppler. \n",
+              "instructor_notes": ""
+            },
+            {
+              "id": 843817,
+              "key": "817de5de-3fdd-4793-9403-cb4a1c2a3c5f",
+              "title": "Fast Fourier Transform",
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/May/5cccc069_image22/image22.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/817de5de-3fdd-4793-9403-cb4a1c2a3c5f",
+              "caption": "Time Domain to Frequency Domain Conversion using FFT. \n\nsource : mriquestions.com",
+              "alt": "",
+              "width": 350,
+              "height": 213,
+              "instructor_notes": null
+            },
+            {
+              "id": 846529,
+              "key": "62a08cfe-991b-42c6-8212-0bde71ebe663",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "The traveling signal is in time domain. Time domain signal comprises of multiple frequency components as shown in the image above. In order to separate out all frequency components the FFT technique is used.\n\nFor the purpose of this course we don’t have to get into mathematical details of FFT. But, it is important to understand the use of FFT in radar’s digital signal processing. It gives the frequency response of the return signal with each peak in frequency spectrum representing the detected target’s chararcterstics. \n\nLearn more on FFT implementation [here](https://www.youtube.com/watch?v=t_NMmqTRPIY&feature=youtu.be).",
+              "instructor_notes": ""
+            },
+            {
+              "id": 846535,
+              "key": "3208ef24-97cd-4b26-810f-eb251bf6afef",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## FFT and FMCW",
+              "instructor_notes": ""
+            },
+            {
+              "id": 848415,
+              "key": "03f03be1-729e-45ca-be80-9c53a1e9674c",
+              "title": "L2 Output Range FFT Connected To FFT Concept From Day 1",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "_TEpBTUmjV4",
+                "china_cdn_id": "_TEpBTUmjV4.mp4"
+              }
+            },
+            {
+              "id": 846530,
+              "key": "39fd2a32-e6a1-468f-893d-50dc5ea6c239",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/May/5cccc13f_image16/image16.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/39fd2a32-e6a1-468f-893d-50dc5ea6c239",
+              "caption": "Fast Fourier Transform\n\nsource : Texas Instruments",
+              "alt": "",
+              "width": 874,
+              "height": 555,
+              "instructor_notes": null
+            },
+            {
+              "id": 843835,
+              "key": "53225f4a-13a7-4f43-a751-5f656510f90c",
+              "title": "Range FFTs",
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "As seen in the image below, the Range FFTs are run for every sample on each chirp. Since each chirp is sampled N times, it will generate a range FFT block of N * (Number of chirps). These FFT blocks are also called FFT bins.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 846531,
+              "key": "49aa81b1-e73a-449e-8d61-5589bb0a4ef7",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/May/5cccc2b8_image1/image1.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/49aa81b1-e73a-449e-8d61-5589bb0a4ef7",
+              "caption": "Range FFT \n\nsource : Delft University of Technology",
+              "alt": "",
+              "width": 493,
+              "height": 383,
+              "instructor_notes": null
+            },
+            {
+              "id": 846532,
+              "key": "19f65843-d3b7-4ec3-9b5e-cf3169fcce72",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "Each chirp is sampled N times, and for each sample it produces a range bin. The process is repeated for every single chirp. Hence creating a FFT block of N*(Number of chirps). \n\nEach bin in every column of  block represents increasing range value, so that the end of last bin represents the maximum range of a radar. \n",
+              "instructor_notes": ""
+            },
+            {
+              "id": 843813,
+              "key": "7c6a36c5-b295-4bde-9423-5ffe9af0b6e6",
+              "title": "Graphic",
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/May/5cccc643_image11/image11.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/7c6a36c5-b295-4bde-9423-5ffe9af0b6e6",
+              "caption": "Output of Range FFT in MATLAB. \nX-axis = Beat Frequency,\nY-axis = Signal power in dBm",
+              "alt": "",
+              "width": 736,
+              "height": 391,
+              "instructor_notes": null
+            },
+            {
+              "id": 846485,
+              "key": "c2dd6bde-53bc-4596-99a0-4c1e96643722",
+              "title": "Output of Range FFT",
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "Above is the output of the 1st stage FFT (i.e Range FFT). The three peaks in the frequency domain corresponds to the beat frequencies of three different cars located at 150, 240 and 300 m range from the ego vehicle.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 846533,
+              "key": "4414954e-1c1a-4a12-ae4f-4b9d42595238",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## Fast Fourier Transform Exercise",
+              "instructor_notes": ""
+            },
+            {
+              "id": 846491,
+              "key": "944a90bb-735f-4aa0-9094-3acf84ef477c",
+              "title": "Steps to Implement Range FFT",
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "In the following exercise, you will use a Fourier transform to find the frequency components of a signal buried in noise. Specify the parameters of a signal with a sampling frequency of 1 kHz and a signal duration of 1.5 seconds.\n\nTo implement the 1st stage FFT, you can use the following steps:\n\n1. Define a signal. In this case (amplitude = A, frequency = f)\n```\nsignal = A*cos(2*pi*f*t)\n```\n2.  Run the fft for the signal using MATLAB fft function for dimension of samples N.    \n```\nsignal_fft = fft(signal,N);\n```\n3.  The output of FFT processing of a signal is a complex number (a+jb). Since, we just care about the                        magnitude we take the absolute value (sqrt(a^2+b^2)) of the complex number.\n```\nsignal_fft = abs(signal_fft);\n```\n4.  FFT output generates a mirror image of the signal. But we are only interested in the positive half of signal length L, since it is the replica of negative half and has all the information we need. \n```          \nsignal_fft  = signal_fft(1:L/2-1)       \n```\n5.  Plot this output against frequency.\n\nYou can use the following MATLAB starter code:\n```matlab\nFs = 1000;            % Sampling frequency                    \nT = 1/Fs;             % Sampling period       \nL = 1500;             % Length of signal\nt = (0:L-1)*T;        % Time vector\n\n% TODO: Form a signal containing a 77 Hz sinusoid of amplitude 0.7 and a 43Hz sinusoid of amplitude 2.\nS = ?\n\n% Corrupt the signal with noise \nX = S + 2*randn(size(t));\n\n% Plot the noisy signal in the time domain. It is difficult to identify the frequency components by looking at the signal X(t). \nplot(1000*t(1:50) ,X(1:50))\ntitle('Signal Corrupted with Zero-Mean Random Noise')\nxlabel('t (milliseconds)')\nylabel('X(t)')\n\n% TODO : Compute the Fourier transform of the signal. \n\n% TODO : Compute the two-sided spectrum P2. Then compute the single-sided spectrum P1 based on P2 and the even-valued signal length L.\n\n\n% Plotting\nf = Fs*(0:(L/2))/L;\nplot(f,P1) \ntitle('Single-Sided Amplitude Spectrum of X(t)')\nxlabel('f (Hz)')\nylabel('|P1(f)|')\n\n\n```",
+              "instructor_notes": ""
+            },
+            {
+              "id": 846537,
+              "key": "d4d1915d-d548-476a-924c-1cb0e9a96746",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "##  Solution",
+              "instructor_notes": ""
+            },
+            {
+              "id": 846538,
+              "key": "a876f3be-13a6-4ae3-a6e7-026db5390724",
+              "title": "L2 Workspace",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "Tic3xmsEg_A",
+                "china_cdn_id": "Tic3xmsEg_A.mp4"
+              }
+            },
+            {
+              "id": 846536,
+              "key": "ea4aa755-d38b-4e97-8c7b-2cc92a19211d",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## Doppler Estimation Further Research\n\nFor additional resources related to FFT, see these [lecture notes](www.phys.nsu.ru/cherk/fft.pdf).",
+              "instructor_notes": ""
+            }
+          ]
+        },
+        {
+          "id": 843867,
+          "key": "72479361-51ae-477a-9144-be432709a531",
+          "title": "The 2D FFT",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "72479361-51ae-477a-9144-be432709a531",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 846539,
+              "key": "70b34c81-4f20-4270-872c-01d240182124",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "# The 2D FFT",
+              "instructor_notes": ""
+            },
+            {
+              "id": 843832,
+              "key": "dab89f36-4333-4701-befa-6f89b86254c8",
+              "title": "L2A45 2D FFT",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "HHk1td_ZTXY",
+                "china_cdn_id": "HHk1td_ZTXY.mp4"
+              }
+            },
+            {
+              "id": 843834,
+              "key": "c167498c-edce-4004-bfcb-a7fa685b1819",
+              "title": "2D FFT",
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "Once the range bins are determined by running range FFT across all the chirps, a second FFT is implemented along the second dimension to determine the doppler frequency shift. As discussed, the doppler is estimated by processing the rate of change of phase across multiple chirps. Hence, the doppler FFT is implemented after all the chirps in the segment are sent and range FFTs are run on them.\n\nThe output of the first FFT gives the beat frequency, amplitude, and phase for each target. This phase varies as we move from one chirp to another (one bin to another on each row)  due to the target’s small displacements. Once the second FFT is implemented it determines the rate of change of phase, which is nothing but the doppler frequency shift.\n",
+              "instructor_notes": ""
+            },
+            {
+              "id": 848395,
+              "key": "1f1b44a7-e121-4d82-9025-854d0febd4c9",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/May/5cdc5db2_image23/image23.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/1f1b44a7-e121-4d82-9025-854d0febd4c9",
+              "caption": "After running 2nd FFT across the rows of FFT block we get the doppler FFT. The complete implementation is called 2D FFT. \n\nAfter 2D FFT each bin in every column of  block represents increasing range value and each bin in the row corresponds to a velocity value. ",
+              "alt": "",
+              "width": 1892,
+              "height": 1095,
+              "instructor_notes": null
+            },
+            {
+              "id": 848397,
+              "key": "5d3d109b-b78b-48dc-97e1-31478fdd0a31",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "The output of Range Doppler response represents an image with Range on one axis and Doppler on the other. This image is called as Range Doppler Map (RDM). These maps are often used as user interface to understand the perception of the targets. ",
+              "instructor_notes": ""
+            },
+            {
+              "id": 848914,
+              "key": "e769c500-2fc3-4a34-8f12-7396dcd87b2c",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/May/5cddc14d_image11/image11.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/e769c500-2fc3-4a34-8f12-7396dcd87b2c",
+              "caption": "",
+              "alt": "",
+              "width": 1999,
+              "height": 1086,
+              "instructor_notes": null
+            },
+            {
+              "id": 843837,
+              "key": "c093df23-733e-4adc-bf9d-728743addbf7",
+              "title": "2D FFT Output",
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/May/5cdc5ded_image6/image6.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/c093df23-733e-4adc-bf9d-728743addbf7",
+              "caption": "2D FFT output for single target. The x-axis here is the velocity and the y-axis is the range. ",
+              "alt": "",
+              "width": 740,
+              "height": 392,
+              "instructor_notes": null
+            },
+            {
+              "id": 848398,
+              "key": "d8662d5a-2435-45f3-85b2-a397ec077b61",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/May/5cdc5e26_image14/image14.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/d8662d5a-2435-45f3-85b2-a397ec077b61",
+              "caption": "Range Doppler Map\n\n\nsource : rohde-schwarz",
+              "alt": "",
+              "width": 1013,
+              "height": 514,
+              "instructor_notes": null
+            },
+            {
+              "id": 848400,
+              "key": "32bca949-8f5c-4ec2-affb-a3bc1471facb",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## 2D FFT Exercise",
+              "instructor_notes": ""
+            },
+            {
+              "id": 848890,
+              "key": "1e791af1-b3ee-4279-b493-d666d46136d7",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## 2D FFT In MATLAB",
+              "instructor_notes": ""
+            },
+            {
+              "id": 843848,
+              "key": "787ce577-cde0-43fb-b554-6ff1299e6002",
+              "title": "Steps to implement 2D FFT",
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "The following steps can be used to compute a 2D FFT in MATLAB:\n\n1. Take a 2D signal matrix \n2.  In the case of Radar signal processing. Convert the signal in MxN matrix, where M is the size of Range FFT samples and N is the size of Doppler FFT samples:\n```matlab\nsignal  = reshape(signal, [M, N]);\n```\n3.  Run the 2D FFT across both the dimensions.\n```matlab\nsignal_fft = fft2(signal, M, N);\n```\nNote the following from the [documentation](https://www.mathworks.com/help/matlab/ref/fft2.html):\n\n > `Y = fft2(X)` returns the 2D FFT of a matrix using a fast Fourier transform algorithm, which is equivalent to computing `fft(fft(X).').'`. If `X` is a multidimensional array, then fft2 takes the 2-D transform of each dimension higher than 2. The output `Y` is the same size as `X`. `Y = fft2(X,M,N)`  truncates `X` or pads `X` with trailing zeros to form an m-by-n matrix before computing the transform. `Y` is m-by-n. If `X` is a multidimensional array, then fft2 shapes the first two dimensions of `X` according to m and n.\n\n4. Shift zero-frequency terms to the center of the array\n```matlab\nsignal_fft = fftshift(signal_fft);\n```\n6. Take the absolute value\n```matlab\nsignal_fft = abs(signal_fft);\n```\n7. Here since it is a 2D output, it can be plotted as an image. Hence, we use the `imagesc` function\n```matlab\nimagesc(signal_fft);\n```",
+              "instructor_notes": ""
+            },
+            {
+              "id": 848889,
+              "key": "82083184-f217-4421-aa68-06d806cbaab6",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## 2D FFT Exercise",
+              "instructor_notes": ""
+            },
+            {
+              "id": 848900,
+              "key": "e1447eb8-3158-4cfa-926e-d617e0f8c773",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "In the following exercise, you will practice the 2D FFT in MATLAB using some generated data. The data generated below will have the correct shape already, so you should just need to use steps 3-6 from above. You can use the following starter code:\n```matlab\n% 2-D Transform\n% The 2-D Fourier transform is useful for processing 2-D signals and other 2-D data such as images.\n% Create and plot 2-D data with repeated blocks.\n\nP = peaks(20);\nX = repmat(P,[5 10]);\nimagesc(X)\n\n% TODO : Compute the 2-D Fourier transform of the data.  \n% Shift the zero-frequency component to the center of the output, and \n% plot the resulting 100-by-200 matrix, which is the same size as X.\n```\n",
+              "instructor_notes": ""
+            },
+            {
+              "id": 843823,
+              "key": "4ba118af-f51a-4a74-8cd6-5a45edc9677b",
+              "title": "2D FFT Further Research",
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "[Solution](https://www.mathworks.com/help/matlab/ref/fft2.html) to above workspace\n\n## Further Research\n\nFor more information about the 2D FFT, see these [notes](http://people.ciirc.cvut.cz/~hlavac/TeachPresEn/11ImageProc/12FourierTxEn.pdf).",
+              "instructor_notes": ""
+            }
+          ]
+        },
+        {
+          "id": 859036,
+          "key": "c58d17ce-dd96-4aa3-a247-57a2fdec12eb",
+          "title": "What Kind of Math Do Radar Engineers Use?",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "c58d17ce-dd96-4aa3-a247-57a2fdec12eb",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 859037,
+              "key": "03026db8-42cf-46eb-994e-3b6c86085743",
+              "title": "ND313 Andrei Intv 17 What Kind Of Math Should Radar Engineers Know",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "ofBWbJ3UrWo",
+                "china_cdn_id": "ofBWbJ3UrWo.mp4"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "_deprecated": [
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    }
+  ]
+}

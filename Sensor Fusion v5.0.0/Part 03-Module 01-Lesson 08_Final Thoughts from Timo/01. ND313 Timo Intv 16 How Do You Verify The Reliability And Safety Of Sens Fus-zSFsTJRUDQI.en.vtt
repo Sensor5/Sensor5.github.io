@@ -1,0 +1,85 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:02.690 --> 00:00:06.824
+So the validation and verification of
+
+00:00:06.825 --> 00:00:11.699
+sensor fusion system or an autonomous vehicle as a whole is really challenging.
+
+00:00:11.699 --> 00:00:14.719
+The entire industry is still trying to figure this out.
+
+00:00:14.720 --> 00:00:18.120
+But there are certain standards that we want to apply.
+
+00:00:18.120 --> 00:00:20.429
+The straightforward thing is that, of course,
+
+00:00:20.429 --> 00:00:21.929
+we drive millions of miles,
+
+00:00:21.929 --> 00:00:23.609
+collect data, annotate it.
+
+00:00:23.609 --> 00:00:25.050
+We go to test REX,
+
+00:00:25.050 --> 00:00:27.509
+stage specific corner cases,
+
+00:00:27.509 --> 00:00:30.045
+basically see what the vehicle is doing,
+
+00:00:30.045 --> 00:00:33.195
+and adjust our algorithms to handle the case as well.
+
+00:00:33.195 --> 00:00:37.890
+But then also, we need to actually develop according to standards,
+
+00:00:37.890 --> 00:00:42.539
+industry standards which means there have to be processes in place.
+
+00:00:42.539 --> 00:00:47.350
+They are basically, coding rules in place and for everything that can go wrong,
+
+00:00:47.350 --> 00:00:51.179
+we have to have a safety measure and backup plan, basically.
+
+00:00:53.590 --> 00:00:57.800
+So the sensor fusion module really interacts with the rest of
+
+00:00:57.799 --> 00:01:02.359
+the robotic stack in terms of it's right at the core.
+
+00:01:02.359 --> 00:01:04.334
+So you have upstream,
+
+00:01:04.334 --> 00:01:06.099
+your perception modules, and downstream,
+
+00:01:06.099 --> 00:01:11.344
+you're planning modules and you have to be the component that brings everything together.
+
+00:01:11.344 --> 00:01:15.965
+So you need to understand a lot about perception and how perception algorithms work.
+
+00:01:15.965 --> 00:01:17.689
+But you also have to understand
+
+00:01:17.689 --> 00:01:21.724
+the downstream application of what is planning want to do with the data,
+
+00:01:21.724 --> 00:01:24.349
+how do we want to predict objects into the future.
+
+00:01:24.349 --> 00:01:28.129
+All of this basically, has to be brought together in the right way and
+
+00:01:28.129 --> 00:01:33.349
+it really depends on before and after the upstream and downstream,
+
+00:01:33.349 --> 00:01:36.750
+how you best structure your sensor fusion algorithm.
+

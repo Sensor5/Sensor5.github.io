@@ -1,0 +1,159 @@
+{
+  "id": 2548,
+  "project_id": 595,
+  "upload_types": [
+    "repo",
+    "zip"
+  ],
+  "file_filter_regex": "\\A(?!(((.*/)?(__MACOSX|\\.git|node_modules|bower_components|jspm_packages|\\.idea|build|.ipynb_checkpoints|\\.Trash-0|logs)(\\Z|/))))((.*\\.(m|txt|md|markdown|pdf|docx)\\Z)|((.*/)?(README|Readme|readme)\\Z))",
+  "nomination_eligible": false,
+  "stand_out": "",
+  "hide_criteria": false,
+  "created_at": "2019-04-08T21:53:59.023Z",
+  "updated_at": "2019-06-20T17:35:28.848Z",
+  "hashtag": "",
+  "max_upload_size_mb": 500,
+  "estimated_sla": null,
+  "project_assistant_enabled": false,
+  "checkmate_enabled": false,
+  "checkmate_metadata": null,
+  "available_for_cert_project": false,
+  "classroom_node_id": 842254,
+  "classroom_project_key": "f7f13a97-19f6-449b-a019-8dff1b00d2a5",
+  "language": "en-us",
+  "ndkeys": [
+    "nd313",
+    "nd313-beta",
+    "nd313-cn",
+    "nd313-ent"
+  ],
+  "coursekeys": [],
+  "sections": [
+    {
+      "id": 5551,
+      "name": "FMCW Waveform Design",
+      "created_at": "2019-05-21T02:18:24.384Z",
+      "updated_at": "2019-05-21T02:18:40.525Z",
+      "deleted_at": null,
+      "position": 0,
+      "rubric_id": 2548,
+      "rubric_items": [
+        {
+          "id": 15952,
+          "section_id": 5551,
+          "passed_description": "For given system requirements the calculated slope should be around 2e13",
+          "exceeded_description": "",
+          "created_at": "2019-05-21T02:18:40.693Z",
+          "updated_at": "2019-06-07T18:53:38.031Z",
+          "deleted_at": null,
+          "optional": false,
+          "position": 0,
+          "criteria": "Using the given system requirements, design\r\na FMCW waveform. Find its Bandwidth (B), chirp time (Tchirp) and slope of the chirp.",
+          "exceedable": false
+        }
+      ]
+    },
+    {
+      "id": 5552,
+      "name": "Simulation Loop",
+      "created_at": "2019-05-21T02:19:43.645Z",
+      "updated_at": "2019-05-21T02:19:57.702Z",
+      "deleted_at": null,
+      "position": 1,
+      "rubric_id": 2548,
+      "rubric_items": [
+        {
+          "id": 15953,
+          "section_id": 5552,
+          "passed_description": "A beat signal should be generated such that once range FFT implemented, it gives the correct range i.e the initial position of target assigned with an error margin of +/- 10 meters.",
+          "exceeded_description": "",
+          "created_at": "2019-05-21T02:19:57.873Z",
+          "updated_at": "2019-06-07T18:53:38.035Z",
+          "deleted_at": null,
+          "optional": false,
+          "position": 0,
+          "criteria": "Simulate Target movement and calculate the beat or mixed signal for every timestamp.",
+          "exceedable": false
+        }
+      ]
+    },
+    {
+      "id": 5553,
+      "name": "Range FFT (1st FFT)",
+      "created_at": "2019-05-21T02:22:09.688Z",
+      "updated_at": "2019-05-21T02:22:20.335Z",
+      "deleted_at": null,
+      "position": 2,
+      "rubric_id": 2548,
+      "rubric_items": [
+        {
+          "id": 15954,
+          "section_id": 5553,
+          "passed_description": "A correct implementation should generate a peak at the correct range, i.e the \r\ninitial position of target assigned with an error margin of +/- 10 meters.",
+          "exceeded_description": "",
+          "created_at": "2019-05-21T02:22:20.498Z",
+          "updated_at": "2019-06-07T18:53:38.039Z",
+          "deleted_at": null,
+          "optional": false,
+          "position": 0,
+          "criteria": "Implement the Range FFT on the Beat or Mixed Signal and plot the result.",
+          "exceedable": false
+        }
+      ]
+    },
+    {
+      "id": 5554,
+      "name": "2D CFAR",
+      "created_at": "2019-05-21T02:23:37.194Z",
+      "updated_at": "2019-05-21T02:23:51.804Z",
+      "deleted_at": null,
+      "position": 3,
+      "rubric_id": 2548,
+      "rubric_items": [
+        {
+          "id": 15955,
+          "section_id": 5554,
+          "passed_description": "The 2D CFAR processing should be able to suppress the noise and separate \r\nthe target signal. The output should match the image shared in walkthrough.",
+          "exceeded_description": "",
+          "created_at": "2019-05-21T02:23:51.942Z",
+          "updated_at": "2019-06-07T18:53:38.043Z",
+          "deleted_at": null,
+          "optional": false,
+          "position": 0,
+          "criteria": "Implement the 2D CFAR process on the output of 2D FFT operation, i.e the Range Doppler Map.",
+          "exceedable": false
+        },
+        {
+          "id": 15956,
+          "section_id": 5554,
+          "passed_description": "In a README file, write brief explanations for the following:  \r\n- Implementation steps for the 2D CFAR process. \r\n- Selection of Training, Guard cells and offset.\r\n- Steps taken to suppress the non-thresholded cells at the edges.\r\n",
+          "exceeded_description": "",
+          "created_at": "2019-05-21T02:24:59.127Z",
+          "updated_at": "2019-06-07T18:53:38.046Z",
+          "deleted_at": null,
+          "optional": false,
+          "position": 1,
+          "criteria": "Create a CFAR README File",
+          "exceedable": false
+        }
+      ]
+    }
+  ],
+  "project": {
+    "id": 595,
+    "name": "Radar Target Generation and Detection",
+    "nanodegree_key": "nd313",
+    "is_cert_project": false,
+    "audit_project_id": null,
+    "hashtag": null,
+    "audit_rubric_id": null,
+    "entitlement_required": false,
+    "is_career": false,
+    "recruitment_family_id": 9,
+    "created_at": "2019-03-26T17:25:52.576Z",
+    "updated_at": "2020-06-01T05:15:53.769Z",
+    "price": "7.0",
+    "ungradeable_price": "3.0",
+    "audit_price": null
+  }
+}

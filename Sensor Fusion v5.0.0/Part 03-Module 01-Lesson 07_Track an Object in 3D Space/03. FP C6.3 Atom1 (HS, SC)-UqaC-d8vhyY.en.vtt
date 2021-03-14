@@ -1,0 +1,190 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:03.060
+Welcome to your first task and the final project.
+
+00:00:03.060 --> 00:00:05.125
+Let's take a look at step 8 in the program schematic,
+
+00:00:05.125 --> 00:00:08.085
+in which 3D objects will be matched over time.
+
+00:00:08.085 --> 00:00:11.730
+Let's move to step number 8 where the 3D bounding boxes are matched.
+
+00:00:11.730 --> 00:00:15.000
+To do this quickly, let's search for the respective functioning,
+
+00:00:15.000 --> 00:00:16.829
+which is called match bounding boxes,
+
+00:00:16.829 --> 00:00:18.469
+and as you can see here,
+
+00:00:18.469 --> 00:00:20.529
+we're right in step number 8,
+
+00:00:20.530 --> 00:00:23.220
+which is coming after the matching of keypoint descriptors,
+
+00:00:23.219 --> 00:00:27.210
+and your first task here is to match the list of 3D objects,
+
+00:00:27.210 --> 00:00:30.539
+which you are given as a vector of bounding boxes between the current,
+
+00:00:30.539 --> 00:00:32.060
+and the previous stream.
+
+00:00:32.060 --> 00:00:35.300
+The implementation is going to happen in the function match bounding boxes,
+
+00:00:35.299 --> 00:00:36.604
+but before we move there,
+
+00:00:36.604 --> 00:00:38.329
+let's take a look at the input.
+
+00:00:38.329 --> 00:00:43.368
+Now, the input is going to be a pointer to the previous data buffer,
+
+00:00:43.368 --> 00:00:45.755
+a pointer to the current data buffer,
+
+00:00:45.755 --> 00:00:50.679
+and this map structure which is called BB best matches,
+
+00:00:50.679 --> 00:00:54.979
+that's basically the result structure which you should return.
+
+00:00:54.979 --> 00:00:56.750
+The match bounding boxes itself,
+
+00:00:56.750 --> 00:01:00.799
+is contained within the cam fusion student file.
+
+00:01:00.799 --> 00:01:04.769
+So everything which you have to create on the final project,
+
+00:01:04.769 --> 00:01:06.989
+is basically within this,
+
+00:01:06.989 --> 00:01:09.004
+or has to be done within this file here.
+
+00:01:09.004 --> 00:01:10.359
+Let's look at the header first.
+
+00:01:10.359 --> 00:01:14.409
+So the header of camFusion.hpp contains functions
+
+00:01:14.409 --> 00:01:18.715
+such as clusterLidarWithROI, clusterKeypointMatchesWithROI,
+
+00:01:18.715 --> 00:01:20.200
+that's one of the next tasks,
+
+00:01:20.200 --> 00:01:22.155
+which you have to implement, and right now,
+
+00:01:22.155 --> 00:01:24.689
+we want to focus on the matching of bonding boxes,
+
+00:01:24.689 --> 00:01:28.280
+but also you can take a look at show3DObjects of this system.
+
+00:01:28.280 --> 00:01:30.859
+So we already have some code in here,
+
+00:01:30.859 --> 00:01:34.760
+and let's look into the CPP version of the code to look at how it works.
+
+00:01:34.760 --> 00:01:37.250
+So basically, what we have here, let's start from the top.
+
+00:01:37.250 --> 00:01:39.170
+We have clusterLidarWithROI.
+
+00:01:39.170 --> 00:01:43.435
+Let's close this down, we have show3DObjects,
+
+00:01:43.435 --> 00:01:45.260
+and those functions here,
+
+00:01:45.260 --> 00:01:50.090
+those four are the ones which you need to implement over the course of the final project,
+
+00:01:50.090 --> 00:01:53.120
+and right now, we are concerned with match bounding boxes.
+
+00:01:53.120 --> 00:01:56.270
+So the solution to matching bounding boxes over
+
+00:01:56.269 --> 00:02:00.744
+time should please be implemented at this position here.
+
+00:02:00.745 --> 00:02:04.189
+So it's your job now to write the code for match bounding boxes.
+
+00:02:04.189 --> 00:02:06.259
+Let me give you a few tips you might want to follow.
+
+00:02:06.260 --> 00:02:09.530
+Now, the basic idea is to use the keypoint matches between the previous,
+
+00:02:09.530 --> 00:02:10.625
+and the current image.
+
+00:02:10.625 --> 00:02:13.115
+So you might want to make an outer loop of those.
+
+00:02:13.115 --> 00:02:16.950
+Then you should try to find out by which bounding boxes key points are enclosed,
+
+00:02:16.949 --> 00:02:18.949
+both on the previous, and in the current frame.
+
+00:02:18.949 --> 00:02:22.549
+Those will be your potential match candidates whose box IDs you could store in,
+
+00:02:22.550 --> 00:02:23.844
+let's say, a multimap.
+
+00:02:23.844 --> 00:02:26.694
+Once you have completed the loop of our key point matches,
+
+00:02:26.694 --> 00:02:29.639
+you could try to find all the match candidates in the multimap,
+
+00:02:29.639 --> 00:02:33.334
+which share the same bounding box ID in the previous frame, and just count them.
+
+00:02:33.335 --> 00:02:35.180
+In the end, you could associate the bounding boxes
+
+00:02:35.180 --> 00:02:37.069
+with the highest number of occurrences,
+
+00:02:37.069 --> 00:02:39.185
+but of course, it's up to you how you solve this problem.
+
+00:02:39.185 --> 00:02:40.580
+At the end of match bounding boxes,
+
+00:02:40.580 --> 00:02:42.665
+you must return your results to the main function,
+
+00:02:42.664 --> 00:02:45.079
+by storing the box IDs of all matched pairs,
+
+00:02:45.080 --> 00:02:47.060
+in the map called PB best matches.
+
+00:02:47.060 --> 00:02:48.979
+I wish you all the best for this exercise,
+
+00:02:48.979 --> 00:02:52.619
+which is among the more challenging ones in the final project.
+

@@ -1,0 +1,507 @@
+<!-- udacimak v1.4.4 -->
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <meta content="ie=edge" http-equiv="X-UA-Compatible"/>
+  <title>
+   Creating 3D-Objects
+  </title>
+  <link href="../assets/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="../assets/css/plyr.css" rel="stylesheet"/>
+  <link href="../assets/css/katex.min.css" rel="stylesheet"/>
+  <link href="../assets/css/jquery.mCustomScrollbar.min.css" rel="stylesheet"/>
+  <link href="../assets/css/styles.css" rel="stylesheet"/>
+  <link href="../assets/img/udacimak.png" rel="shortcut icon" type="image/png">
+  </link>
+ </head>
+ <body>
+  <div class="wrapper">
+   <nav id="sidebar">
+    <div class="sidebar-header">
+     <h3>
+      Combining Camera and Lidar
+     </h3>
+    </div>
+    <ul class="sidebar-list list-unstyled CTAs">
+     <li>
+      <a class="article" href="../index.html">
+       Back to Home
+      </a>
+     </li>
+    </ul>
+    <ul class="sidebar-list list-unstyled components">
+     <li class="">
+      <a href="01. Lidar-to-Camera Point Projection.html">
+       01. Lidar-to-Camera Point Projection
+      </a>
+     </li>
+     <li class="">
+      <a href="02. Object Detection with YOLO.html">
+       02. Object Detection with YOLO
+      </a>
+     </li>
+     <li class="">
+      <a href="03. Standard CV vs Deep Learning.html">
+       03. Standard CV vs Deep Learning
+      </a>
+     </li>
+     <li class="">
+      <a href="04. Creating 3D-Objects.html">
+       04. Creating 3D-Objects
+      </a>
+     </li>
+    </ul>
+    <ul class="sidebar-list list-unstyled CTAs">
+     <li>
+      <a class="article" href="../index.html">
+       Back to Home
+      </a>
+     </li>
+    </ul>
+   </nav>
+   <div id="content">
+    <header class="container-fluild header">
+     <div class="container">
+      <div class="row">
+       <div class="col-12">
+        <div class="align-items-middle">
+         <button class="btn btn-toggle-sidebar" id="sidebarCollapse" type="button">
+          <div>
+          </div>
+          <div>
+          </div>
+          <div>
+          </div>
+         </button>
+         <h1 style="display: inline-block">
+          04. Creating 3D-Objects
+         </h1>
+        </div>
+       </div>
+      </div>
+     </div>
+    </header>
+    <main class="container">
+     <div class="row">
+      <div class="col-12">
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h1 id="creating-3d-objects">
+          Creating 3D-Objects
+         </h1>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+         <p>
+          L5 C5.3 Atom1 (HS)
+         </p>
+        </h3>
+        <video controls="">
+         <source src="04. L5 C5.3 Atom1 (HS)-FcXzpiuDogk.mp4" type="video/mp4"/>
+         <track default="true" kind="subtitles" label="en" src="04. L5 C5.3 Atom1 (HS)-FcXzpiuDogk.en.vtt" srclang="en"/>
+        </video>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h2 id="grouping-lidar-points-using-a-region-of-interest">
+          Grouping Lidar Points Using a Region of Interest
+         </h2>
+         <p>
+          The goal of this section is to group Lidar points that belong to the same physical object in the scene. To do this, we will make use of the camera-based object detection method we investigated in the last section. By using the YOLOv3 framework, we can extract a set of objects from a camera image that are represented by an enclosing rectangle (a "region of interest" or ROI) as well as a class label that identifies the type of object, e.g. a vehicle.
+         </p>
+         <p>
+          In the following, we will make use of the ROI to associate 3D Lidar points in space with 2D objects in the camera image. As can be seen in the following image, the idea is to project all Lidar points onto the image plane using calibration data and camera view geometry. By cycling through all Lidar points contained in the current data buffer in an outer loop and through all ROI in an inner loop, a test can be performed to check whether a Lidar point belongs to a specific bounding box.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="" class="img img-fluid" src="img/draggedimage.png"/>
+          <figcaption class="figure-caption">
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <p>
+          If a Lidar point has been found to be within a ROI, it is added to the BoundingBox data structure we have seen in the previous section on object detection with YOLO. The BoundingBox structure introduced there now contains the following elements:
+         </p>
+         <pre><code class="cpp language-cpp">struct BoundingBox { // bounding box around a classified object (contains both 2D and 3D data)
+
+    int boxID; // unique identifier for this bounding box
+    int trackID; // unique identifier for the track to which this bounding box belongs
+
+    cv::Rect roi; // 2D region-of-interest in image coordinates
+    int classID; // ID based on class file provided to YOLO framework
+    double confidence; // classification trust
+
+    std::vector&lt;LidarPoint&gt; lidarPoints; // Lidar 3D points which project into 2D image roi
+    std::vector&lt;cv::KeyPoint&gt; keypoints; // keypoints enclosed by 2D roi
+    std::vector&lt;cv::DMatch&gt; kptMatches; // keypoint matches enclosed by 2D roi
+};</code></pre>
+         <p>
+          During object detection, the members "boxID", "roi", "classID" and "confidence" have been filled with data. During Lidar point grouping in this section, the member "lidarPoints" is filled with all points within the boundaries of the respective ROI rectangle. In terms of the image shown above, this means that all colored Lidar points which have been projected into the camera image are associated with the green rectangle which encloses them. Lidar points not enclosed by a rectangle are ignored.
+         </p>
+         <p>
+          In some cases, object detection returns ROI that are too large and thus overlap into parts of the scene that are not a part of the enclosed object (e.g. a neighboring vehicle or the road surface). It is therefore advisable to adjust the size of the ROI slightly so that the number of Lidar points which are not physically located on the object is reduced. The following code shows how this can be achieved without much effort.
+         </p>
+         <pre><code class="cpp language-cpp">vector&lt;vector&lt;BoundingBox&gt;::iterator&gt; enclosingBoxes; // pointers to all bounding boxes which enclose the current Lidar point
+for (vector&lt;BoundingBox&gt;::iterator it2 = boundingBoxes.begin(); it2 != boundingBoxes.end(); ++it2)
+{
+    // shrink current bounding box slightly to avoid having too many outlier points around the edges
+    cv::Rect smallerBox;
+    smallerBox.x = (*it2).roi.x + shrinkFactor * (*it2).roi.width / 2.0;
+    smallerBox.y = (*it2).roi.y + shrinkFactor * (*it2).roi.height / 2.0;
+    smallerBox.width = (*it2).roi.width * (1 - shrinkFactor);
+    smallerBox.height = (*it2).roi.height * (1 - shrinkFactor);</code></pre>
+         <p>
+          By providing a factor "shrinkFactor" which denotes the amount of resizing in [% ], a smaller box is created from the original bounding box. Further down in the code (see final project student code for details), a check is performed for each keypoint wether it belongs to the smaller bounding box. The figure below shows two different settings for "shrinkFactor". It can be seen that for second figure, the projected Lidar points are concentrated on the central area of the preceding vehicle whereas Lidar points close to the edges are ignored.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="" class="img img-fluid" src="img/sf-25-.png"/>
+          <figcaption class="figure-caption">
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <p>
+          In practice, a moderate setting of 5-10% should be used to avoid discarding too much data. In some cases, when the bounding boxes returned by object detection are severely oversized, this process of boundary frame shrinkage can be an important tool to improve the quality of the associated Lidar point group.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h2 id="exercise-avoiding-grouping-errors">
+          Exercise: Avoiding Grouping Errors
+         </h2>
+         <p>
+          Another potential problem in addition to oversized regions of interest is their strictly rectangular shape, which rarely fits the physical outline of the enclosed objects. As can be seen in the figure at the very top of this section, the two vehicles in the left lane exhibit a significant overlap in their regions of interest.
+         </p>
+         <p>
+          During point cloud association, Lidar points located on one vehicle might inadvertently be associated to another other vehicle. In the example illustrated in the figure below, a set of Lidar points in the upper right corner of the green ROI that actually belong to the red truck are associated with the blue vehicle. In the top view perspective on the left, this error becomes clearly visible.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="" class="img img-fluid" src="img/ebene.png"/>
+          <figcaption class="figure-caption">
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <p>
+          In the following code example you will find the algorithm that is responsible for this incorrect behavior.
+         </p>
+         <p>
+          Your task now is to make changes to this code in such a way that Lidar points enclosed within multiple bounding boxes are excluded from further processing. Visualize your result to ensure that everything works correctly before you proceed to the next section.
+         </p>
+         <p>
+          You can find the code in the workspace below in
+          <code>
+           cluster_with_roi.cpp
+          </code>
+          , and after making, you can run the code using the executable
+          <code>
+           cluster_with_roi
+          </code>
+          .
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div class="jumbotron">
+         <h3>
+          Workspace
+         </h3>
+         <p class="lead">
+          This section contains either a workspace (it can be a
+          <a href="http://jupyter.org/" target="_blank">
+           Jupyter
+      Notebook
+          </a>
+          workspace or an online code editor work space, etc.) and it cannot be automatically downloaded to be
+    generated here. Please access the classroom with your account and manually download the workspace to your local
+    machine. Note that for some courses, Udacity upload the workspace files onto
+          <a href="https://github.com/udacity" target="_blank">
+           https://github.com/udacity
+          </a>
+          , so you may be able to download them there.
+         </p>
+         <h4>
+          Workspace Information:
+         </h4>
+         <ul>
+          <li>
+           <strong>
+            Default file path:
+           </strong>
+          </li>
+          <li>
+           <strong>
+            Workspace type:
+           </strong>
+           react
+          </li>
+          <li>
+           <strong>
+            Opened files (when workspace is loaded):
+           </strong>
+           n/a
+          </li>
+          <li>
+           <strong>
+            userCode:
+           </strong>
+           <br/>
+           <code>
+            <p>
+             export CXX=g++-7
+             <br>
+              export CXXFLAGS=-std=c++17
+             </br>
+            </p>
+           </code>
+          </li>
+         </ul>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+         <p>
+          L5 C5.3 Atom3 (HS, SC)
+         </p>
+        </h3>
+        <video controls="">
+         <source src="04. L5 C5.3 Atom3 (HS, SC)-kX5W8Gud7So.mp4" type="video/mp4"/>
+         <track default="true" kind="subtitles" label="en" src="04. L5 C5.3 Atom3 (HS, SC)-kX5W8Gud7So.en.vtt" srclang="en"/>
+        </video>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h2 id="creating-3d-objects">
+          Creating 3D Objects
+         </h2>
+         <p>
+          At this stage, we have successfully linked 2D camera data with 3D Lidar points. For (almost) every object in the image, there is now a set of Lidar points belonging to this object which we can easily access in the code.
+         </p>
+         <p>
+          The aim of this section is to augment our top-view image by displaying information about all bounding boxes (i.e. our 3D objects). In the code sample below, the following properties are extracted from each 3D object :
+         </p>
+         <ol>
+          <li>
+           distance to closest point in x-direction
+          </li>
+          <li>
+           object width and height
+          </li>
+          <li>
+           number of supporting Lidar points
+          </li>
+         </ol>
+         <p>
+          Let us take a look at the code to see how this is achieved.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+         <p>
+          L5 C5.3 Atom4 (HS, SC)
+         </p>
+        </h3>
+        <video controls="">
+         <source src="04. L5 C5.3 Atom4 (HS, SC)-ID_zxQ37V3s.mp4" type="video/mp4"/>
+         <track default="true" kind="subtitles" label="en" src="04. L5 C5.3 Atom4 (HS, SC)-ID_zxQ37V3s.en.vtt" srclang="en"/>
+        </video>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <p>
+          As you can see in the resulting top-view image below, Lidar points have been grouped together into several distinct 3D objects.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="" class="img img-fluid" src="img/draggedimage-4.png"/>
+          <figcaption class="figure-caption">
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <p>
+          So by combining Lidar and camera information, an augmented view on the objects in the observed scene can be obtained. However, a computation of the time-to-collision is not yet possible as there is currently no link in time between 3D objects. It will be your task in the upcoming final project to implement this link and to finally compute TTC measurements based on both Lidar and camera.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+      </div>
+      <div class="col-12">
+       <p class="text-right">
+       </p>
+      </div>
+     </div>
+    </main>
+    <footer class="footer">
+     <div class="container">
+      <div class="row">
+       <div class="col-12">
+        <p class="text-center">
+         udacity2.0 If you need the newest courses Plase add me wechat: udacity6
+        </p>
+       </div>
+      </div>
+     </div>
+    </footer>
+   </div>
+  </div>
+  <script src="../assets/js/jquery-3.3.1.min.js">
+  </script>
+  <script src="../assets/js/plyr.polyfilled.min.js">
+  </script>
+  <script src="../assets/js/bootstrap.min.js">
+  </script>
+  <script src="../assets/js/jquery.mCustomScrollbar.concat.min.js">
+  </script>
+  <script src="../assets/js/katex.min.js">
+  </script>
+  <script>
+   // Initialize Plyr video players
+    const players = Array.from(document.querySelectorAll('video')).map(p => new Plyr(p));
+
+    // render math equations
+    let elMath = document.getElementsByClassName('mathquill');
+    for (let i = 0, len = elMath.length; i < len; i += 1) {
+      const el = elMath[i];
+
+      katex.render(el.textContent, el, {
+        throwOnError: false
+      });
+    }
+
+    // this hack will make sure Bootstrap tabs work when using Handlebars
+    if ($('#question-tabs').length && $('#user-answer-tabs').length) {
+      $("#question-tabs a.nav-link").on('click', function () {
+        $("#question-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+      $("#user-answer-tabs a.nav-link").on('click', function () {
+        $("#user-answer-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    } else {
+      $("a.nav-link").on('click', function () {
+        $(".tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    }
+
+    // side bar events
+    $(document).ready(function () {
+      $("#sidebar").mCustomScrollbar({
+        theme: "minimal"
+      });
+
+      $('#sidebarCollapse').on('click', function () {
+        $('#sidebar, #content').toggleClass('active');
+        $('.collapse.in').toggleClass('in');
+        $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+      });
+
+      // scroll to first video on page loading
+      if ($('video').length) {
+        $('html,body').animate({ scrollTop: $('div.plyr').prev().offset().top});
+      }
+
+      // auto play first video: this may not work with chrome/safari due to autoplay policy
+      if (players && players.length > 0) {
+        players[0].play();
+      }
+
+      // scroll sidebar to current concept
+      const currentInSideBar = $( "ul.sidebar-list.components li a:contains('04. Creating 3D-Objects')" )
+      currentInSideBar.css( "text-decoration", "underline" );
+      $("#sidebar").mCustomScrollbar('scrollTo', currentInSideBar);
+    });
+  </script>
+ </body>
+</html>

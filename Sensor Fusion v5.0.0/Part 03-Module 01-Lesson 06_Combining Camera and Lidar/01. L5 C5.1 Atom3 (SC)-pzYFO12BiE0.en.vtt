@@ -1,0 +1,601 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:02.100
+So let's take a look at my approach to these tasks,
+
+00:00:02.100 --> 00:00:03.839
+and don't worry if your code is different from mine.
+
+00:00:03.839 --> 00:00:06.014
+As long as it works, everything's fine.
+
+00:00:06.014 --> 00:00:09.539
+If you ask 100 programmers to write a piece of code to solve the same problem,
+
+00:00:09.539 --> 00:00:11.849
+what you will get is 105 different solution.
+
+00:00:11.849 --> 00:00:14.730
+This actually shows that coding really is something super creative.
+
+00:00:14.730 --> 00:00:17.535
+Now, let's take a look at my solution to the problem.
+
+00:00:17.535 --> 00:00:19.800
+So let's take a look at how this is done here.
+
+00:00:19.800 --> 00:00:24.030
+So the first what we do is we create a vector consisting of latter points.
+
+00:00:24.030 --> 00:00:26.520
+We read the latter points from a file.
+
+00:00:26.519 --> 00:00:29.309
+So that's a point Cloud which I have stored in
+
+00:00:29.309 --> 00:00:32.399
+the special formatting and the stuff file especially for this example.
+
+00:00:32.399 --> 00:00:36.750
+Then we create two size vectors using an open CV data structure.
+
+00:00:36.750 --> 00:00:39.875
+The first is called worldSize and the second is called imageSize.
+
+00:00:39.875 --> 00:00:43.460
+In worldSize, we encode the desired width and height of
+
+00:00:43.460 --> 00:00:47.075
+the sense of field which we want to create as a top view image in meters.
+
+00:00:47.075 --> 00:00:50.090
+So it's going to be 10 meters in width and 20 meters in length.
+
+00:00:50.090 --> 00:00:55.550
+The second is we want to create an image which is representing the world in pixels,
+
+00:00:55.549 --> 00:00:58.939
+and basically what it says is we want the 10 meters from
+
+00:00:58.939 --> 00:01:02.599
+the worldSize coordinate system to be mapped onto the 1,000 pixels in width,
+
+00:01:02.600 --> 00:01:04.909
+and the 20 meters in driving direction,
+
+00:01:04.909 --> 00:01:09.140
+we want to map to 2,000 pixels in height of the resulting image size.
+
+00:01:09.140 --> 00:01:11.760
+So that's the size of the actual top view image,
+
+00:01:11.760 --> 00:01:16.700
+which can also be seen here in the next line where the city mock data structures created,
+
+00:01:16.700 --> 00:01:19.525
+the variable is called top view image.
+
+00:01:19.525 --> 00:01:21.375
+It takes the image size.
+
+00:01:21.375 --> 00:01:23.849
+It takes eight bit values in three channels,
+
+00:01:23.849 --> 00:01:27.259
+that's per the denoted by the C3 at the end here,
+
+00:01:27.260 --> 00:01:29.960
+and the image is going to be black by default.
+
+00:01:29.959 --> 00:01:33.619
+So 255 and all channels would be white, this is black.
+
+00:01:33.620 --> 00:01:37.204
+What we do then here starting a line 571,
+
+00:01:37.204 --> 00:01:40.594
+we loop over all the Lidar points we loaded from the file,
+
+00:01:40.594 --> 00:01:47.510
+and the respective points to per iteration points to a single Lidar point,
+
+00:01:47.510 --> 00:01:49.040
+which we then process here in the following.
+
+00:01:49.040 --> 00:01:53.630
+So the first which happens once we start iterating over the Lidar point Cloud is,
+
+00:01:53.629 --> 00:01:56.209
+we retrieve the X-coordinate,
+
+00:01:56.209 --> 00:02:00.919
+which is the coordinate in driving direction facing away from the sensor,
+
+00:02:00.920 --> 00:02:02.930
+second is the Y-coordinate.
+
+00:02:02.930 --> 00:02:08.599
+It's the world position in meters with Y axis pointing left.
+
+00:02:08.599 --> 00:02:12.769
+What we do here is the actual conversion between the two coordinate systems.
+
+00:02:12.770 --> 00:02:17.810
+So xw and yw is in meters and metric coordinates in the sensor
+
+00:02:17.810 --> 00:02:20.599
+coordinate system and x and y here
+
+00:02:20.599 --> 00:02:23.719
+is in the actual image in the top view coordinate system.
+
+00:02:23.719 --> 00:02:25.009
+So what you can see here,
+
+00:02:25.009 --> 00:02:29.539
+the transformation equations is they take the respective word
+
+00:02:29.539 --> 00:02:32.239
+coordinates then they are scaled by the ratio
+
+00:02:32.240 --> 00:02:35.060
+of image size height versus weld size height.
+
+00:02:35.060 --> 00:02:38.930
+So we look at the ratio between those two structures above here.
+
+00:02:38.930 --> 00:02:42.349
+So we divide image size 1,000 by 10.
+
+00:02:42.349 --> 00:02:44.810
+So we exactly know what the mapping ratio
+
+00:02:44.810 --> 00:02:47.840
+between those two reference frames is going to be,
+
+00:02:47.840 --> 00:02:51.564
+and we add the height of the image size.
+
+00:02:51.564 --> 00:02:53.810
+The same is done for 4X.
+
+00:02:53.810 --> 00:02:57.034
+Once you have completed this basically what you get is,
+
+00:02:57.034 --> 00:03:00.049
+you have a mapping between the pixels and the top few imaged
+
+00:03:00.050 --> 00:03:03.515
+and the respective position and the metric position in the sensor coordinate system.
+
+00:03:03.514 --> 00:03:06.604
+Now what we do here in this area,
+
+00:03:06.604 --> 00:03:11.569
+we first retrieve the Z in word coordinates,
+
+00:03:11.569 --> 00:03:14.239
+which is basically the height above road surface.
+
+00:03:14.240 --> 00:03:18.969
+So 0.0 would be on the height of the actual Lidar sensor,
+
+00:03:18.969 --> 00:03:21.645
+and the Z-axis is facing upwards,
+
+00:03:21.645 --> 00:03:26.510
+so downwards we get negative coordinates and the road surface is at about
+
+00:03:26.509 --> 00:03:32.120
+one meter 55 something like this facing downwards from the sensors.
+
+00:03:32.120 --> 00:03:37.289
+So when we create a variable min Z as it is done here,
+
+00:03:37.289 --> 00:03:40.259
+and assign it the value minus 1.4 meters,
+
+00:03:40.259 --> 00:03:44.299
+what we do is we basically tell the system to not consider
+
+00:03:44.300 --> 00:03:48.560
+any points which are below this minimum Z threshold.
+
+00:03:48.560 --> 00:03:51.319
+So all the points which are above the threshold,
+
+00:03:51.319 --> 00:03:54.875
+which are above the road surface are considered for display,
+
+00:03:54.875 --> 00:03:56.419
+the rest is simply ignored.
+
+00:03:56.419 --> 00:03:58.129
+What's done here and this area here,
+
+00:03:58.129 --> 00:04:00.439
+so all the points which are sufficiently
+
+00:04:00.439 --> 00:04:02.840
+high above the road surface and also you might want to
+
+00:04:02.840 --> 00:04:05.030
+play around with this value here to see
+
+00:04:05.030 --> 00:04:07.719
+what the resulting top of your image looks like when you,
+
+00:04:07.719 --> 00:04:11.280
+for example, just the two one meter 60, or one meter 30,
+
+00:04:11.280 --> 00:04:16.160
+or even one meter, just take a look at what the respective image looks like.
+
+00:04:16.160 --> 00:04:18.845
+It's quite interesting because when you change this value
+
+00:04:18.845 --> 00:04:22.260
+and for example imagine a car with a certain width,
+
+00:04:22.259 --> 00:04:26.060
+and you have basically a point Cloud representing
+
+00:04:26.060 --> 00:04:30.569
+this car and it narrows down while you get to the roof,
+
+00:04:30.569 --> 00:04:32.990
+because the widest perimeter of the car
+
+00:04:32.990 --> 00:04:35.689
+is approximately on the height of the tail lights,
+
+00:04:35.689 --> 00:04:37.969
+and if you adjust the scan width or the height,
+
+00:04:37.970 --> 00:04:40.580
+the Z variable to a setting for example,
+
+00:04:40.579 --> 00:04:43.514
+let's say minus 0.80 centimeters,
+
+00:04:43.514 --> 00:04:48.034
+what you will see in the resulting top of your image is that the car which you
+
+00:04:48.035 --> 00:04:53.800
+scan actually gets narrower because you move upwards in the respective Z threshold.
+
+00:04:53.800 --> 00:04:57.220
+So in this area here what you do is,
+
+00:04:57.220 --> 00:05:01.640
+you assign a color value to every Lidar points.
+
+00:05:01.639 --> 00:05:07.339
+So the first thing we do is we retrieve the X-value in driving direction.
+
+00:05:07.339 --> 00:05:08.869
+That's our scaling value.
+
+00:05:08.870 --> 00:05:13.040
+What we want to do is we want to color code the distance from the center so that
+
+00:05:13.040 --> 00:05:17.620
+close points appear in red and far away points appear in green,
+
+00:05:17.620 --> 00:05:20.360
+and that's why when we jumped on to
+
+00:05:20.360 --> 00:05:24.650
+this line here where we draw the actual circle into the top of your image,
+
+00:05:24.649 --> 00:05:28.489
+we provided with the coordinates in the pixel framework.
+
+00:05:28.490 --> 00:05:33.425
+We say, okay one Lidar point should have a radius of five pixels,
+
+00:05:33.425 --> 00:05:36.365
+and then that's why I've jumped into this line here.
+
+00:05:36.365 --> 00:05:39.305
+Then we assign it a color value which consists
+
+00:05:39.305 --> 00:05:42.740
+of a zero in the first channel and which is the blue channel.
+
+00:05:42.740 --> 00:05:45.620
+Then we have the green channel here and the red channel here,
+
+00:05:45.620 --> 00:05:49.819
+and those values they are controlled by the ratio between
+
+00:05:49.819 --> 00:05:56.990
+the respective X value of the Lidar point versus a maximum value here.
+
+00:05:56.990 --> 00:06:02.324
+The maximum value which we get here is world size point height.
+
+00:06:02.324 --> 00:06:07.474
+The world size point height variable has been set up here it's 20 meters.
+
+00:06:07.475 --> 00:06:09.960
+That's the maximum distance which the top of
+
+00:06:09.959 --> 00:06:14.629
+your image allows for in terms of displaying Lidar points are far away.
+
+00:06:14.629 --> 00:06:18.814
+So 20 meters is going to be bright green and zero meters is going to be bright red,
+
+00:06:18.814 --> 00:06:21.500
+and that's the scaling value which we use here.
+
+00:06:21.500 --> 00:06:23.975
+So maximum denotes 20 meters.
+
+00:06:23.975 --> 00:06:26.689
+Now the red channel should be a 255 when
+
+00:06:26.689 --> 00:06:29.569
+we have a distance of zero meters away from the sensor,
+
+00:06:29.569 --> 00:06:31.790
+and actually that computation is done here.
+
+00:06:31.790 --> 00:06:34.580
+So we take the actual X-value,
+
+00:06:34.579 --> 00:06:37.719
+subtract from it the maximum value,
+
+00:06:37.720 --> 00:06:40.160
+and then scale it by the maximum value.
+
+00:06:40.160 --> 00:06:41.660
+Now let's make a short example.
+
+00:06:41.660 --> 00:06:45.260
+Let's assume we have a point directly in front of the sensor,
+
+00:06:45.259 --> 00:06:46.670
+which is going to be zero meters.
+
+00:06:46.670 --> 00:06:49.430
+So we have zero minus maxVal,
+
+00:06:49.430 --> 00:06:52.340
+we then compute the absolute value so the sign gets lost.
+
+00:06:52.339 --> 00:06:57.544
+So basically what we have here is we divide maximum value by maximum value, which is one,
+
+00:06:57.545 --> 00:07:01.730
+which leads to this product here to be 255,
+
+00:07:01.730 --> 00:07:05.030
+which assigns 255 to the red channel.
+
+00:07:05.029 --> 00:07:08.989
+The same is done for the green channel with the only difference that we do not
+
+00:07:08.990 --> 00:07:13.259
+take the absolute value of this difference here,
+
+00:07:13.259 --> 00:07:18.959
+but instead we take the absolute value of the difference but subtract it from one.
+
+00:07:18.959 --> 00:07:24.409
+So we invert the green channel to be exactly the opposite of the red channel.
+
+00:07:24.410 --> 00:07:25.970
+So let's make the same example here.
+
+00:07:25.970 --> 00:07:29.330
+So value zero meters directly in front of the sensor,
+
+00:07:29.329 --> 00:07:30.919
+we subtract from it max value,
+
+00:07:30.920 --> 00:07:32.030
+which is 20 meters,
+
+00:07:32.029 --> 00:07:33.879
+that gives us a one here,
+
+00:07:33.879 --> 00:07:37.219
+and now we have one minus one, which is zero.
+
+00:07:37.220 --> 00:07:40.550
+So at position zero meters away from the sensor,
+
+00:07:40.550 --> 00:07:42.740
+the green channel is at zero.
+
+00:07:42.740 --> 00:07:45.710
+If we move away to let's say 20 meters,
+
+00:07:45.709 --> 00:07:49.009
+we have 20 meters minus 20 meters, which is zero.
+
+00:07:49.009 --> 00:07:51.274
+So we have one minus zero, which is one.
+
+00:07:51.274 --> 00:07:53.120
+So at 20 meters distance,
+
+00:07:53.120 --> 00:07:55.490
+the green channel is going to be 255,
+
+00:07:55.490 --> 00:07:59.050
+and the red channel if you run the same numbers here is going to be zero.
+
+00:07:59.050 --> 00:08:01.370
+So the circle which is being displayed is
+
+00:08:01.370 --> 00:08:04.110
+color-coded in terms of the distance away from the sensor,
+
+00:08:04.110 --> 00:08:07.730
+and we do this by shifting the color bands and scaling them with regards to
+
+00:08:07.730 --> 00:08:12.115
+the actual distance of the sensor point away from the sensor.
+
+00:08:12.115 --> 00:08:15.725
+That's happening in this loop for all Lidar points.
+
+00:08:15.725 --> 00:08:20.870
+The next thing which happens here is we plot the distance markers onto the top view area.
+
+00:08:20.870 --> 00:08:25.100
+It makes sense to have a rough feel for how far away certain objects are.
+
+00:08:25.100 --> 00:08:27.420
+Also when you look at the image sequences,
+
+00:08:27.420 --> 00:08:28.850
+which we are using in this course,
+
+00:08:28.850 --> 00:08:31.550
+you will see that it's helpful to have a
+
+00:08:31.550 --> 00:08:35.389
+few for how far away objects in the top view image are.
+
+00:08:35.389 --> 00:08:37.715
+In order to make this easier,
+
+00:08:37.715 --> 00:08:40.970
+we simply plot distance markers with line spacing of two meters.
+
+00:08:40.970 --> 00:08:45.889
+So what we want to achieve is we want to have a horizontal line
+
+00:08:45.889 --> 00:08:48.590
+every two meters on
+
+00:08:48.590 --> 00:08:52.115
+the entire top of your image so that we can easily see where objects are.
+
+00:08:52.115 --> 00:08:55.620
+So we can do this by running over this loop here,
+
+00:08:55.620 --> 00:08:58.384
+which basically says we compute the number of markers
+
+00:08:58.384 --> 00:09:01.519
+scaled in terms of the current height of the top few image.
+
+00:09:01.519 --> 00:09:05.329
+So top view image currently is 20 meters in height.
+
+00:09:05.330 --> 00:09:06.889
+We divide this by the line spacing,
+
+00:09:06.889 --> 00:09:11.299
+which is two meters which gives us 10 markers which we put into the image.
+
+00:09:11.299 --> 00:09:15.679
+We now loop over those 10 markers here and every two meters we simply
+
+00:09:15.679 --> 00:09:20.629
+paint a blue line which runs horizontally across the top of your image.
+
+00:09:20.629 --> 00:09:22.789
+Then the last thing which remains to be done is to
+
+00:09:22.789 --> 00:09:25.144
+simply display the actual top view image.
+
+00:09:25.144 --> 00:09:28.225
+Let's run this code to see how it looks.
+
+00:09:28.225 --> 00:09:33.409
+What you can see here is a very nice rendering of the scene in front of us.
+
+00:09:33.409 --> 00:09:36.240
+So close points are color-coded bright red
+
+00:09:36.240 --> 00:09:39.654
+and while we move away from the sensor into driving direction,
+
+00:09:39.654 --> 00:09:41.129
+that's the 20 meter mark,
+
+00:09:41.129 --> 00:09:43.970
+we can see that the latter points at the far end of
+
+00:09:43.970 --> 00:09:47.930
+this 20 meter mark are painted bright green just as we wanted it to be.
+
+00:09:47.929 --> 00:09:54.904
+In the middle, we have a certain mixture gradual transition between red and green.
+
+00:09:54.904 --> 00:09:57.399
+Now that the line marker is a two meter mark,
+
+00:09:57.399 --> 00:09:59.995
+four meter mark, six meter mark, eight meter mark,
+
+00:09:59.995 --> 00:10:03.320
+and the vehicle directly in front of the sensor this one here,
+
+00:10:03.320 --> 00:10:06.110
+is at a little less than eight meters away.
+
+00:10:06.110 --> 00:10:08.480
+We will be using this vehicle here very,
+
+00:10:08.480 --> 00:10:10.730
+very thoroughly in terms of computing time
+
+00:10:10.730 --> 00:10:13.305
+to collisional in a later section of this course,
+
+00:10:13.304 --> 00:10:18.514
+and you should recall that this is roughly eight meters away from the sensor.
+
+00:10:18.514 --> 00:10:20.524
+When this vehicle breaks,
+
+00:10:20.524 --> 00:10:23.509
+this edge here is moving closer to the sensor,
+
+00:10:23.509 --> 00:10:27.309
+which enables us to compute an estimate of the time to collision.
+
+00:10:27.309 --> 00:10:30.799
+So that's the code for rendering a top of your image.
+
+00:10:30.799 --> 00:10:34.115
+So as you just saw, I'm Generating the top of your image is pretty easy.
+
+00:10:34.115 --> 00:10:37.159
+The only thing we have to think a little is the conversion between world
+
+00:10:37.159 --> 00:10:40.929
+coordinates in one side and top view coordinates on the other side, but that's about it.
+
+00:10:40.929 --> 00:10:43.289
+Now we are able to visualize Lidar data,
+
+00:10:43.289 --> 00:10:46.579
+and also use color to show an additional layer of information.
+
+00:10:46.580 --> 00:10:50.150
+If you feel like it why not replace the distant coloring which we use now with
+
+00:10:50.149 --> 00:10:54.274
+a reflectivity coloring to see which objects reflect the laser well and which don't.
+
+00:10:54.274 --> 00:10:56.120
+But now let's move on to the next section where we
+
+00:10:56.120 --> 00:10:58.070
+want to start working on a way to project
+
+00:10:58.070 --> 00:11:03.960
+Lidar points onto the image point so we can visualize them directly in the camera image.
+

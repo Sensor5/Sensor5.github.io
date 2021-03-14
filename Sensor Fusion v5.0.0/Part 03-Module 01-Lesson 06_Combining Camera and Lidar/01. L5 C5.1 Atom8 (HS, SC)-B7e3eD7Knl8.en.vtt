@@ -1,0 +1,544 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:02.310
+Now, in this exercise, you will apply your knowledge on
+
+00:00:02.310 --> 00:00:05.759
+production matrices to display Lidar points within the camera image.
+
+00:00:05.759 --> 00:00:08.625
+This is a super important step because visualizing data
+
+00:00:08.625 --> 00:00:12.074
+is key to success when developing applications for autonomous vehicles.
+
+00:00:12.074 --> 00:00:16.169
+You need to see what the vehicle sees to really understand how some problems are caused,
+
+00:00:16.169 --> 00:00:19.155
+and also come up with creative solutions to solve those problems.
+
+00:00:19.155 --> 00:00:21.525
+Visualizing Lidar in this way is actually very
+
+00:00:21.524 --> 00:00:23.924
+rewarding because you get such nice-looking results.
+
+00:00:23.925 --> 00:00:26.745
+So this exercise basically consists of three steps.
+
+00:00:26.745 --> 00:00:30.525
+The first is, convert Lidar points into homogeneous coordinates.
+
+00:00:30.524 --> 00:00:33.269
+The second is, map all points onto the image plane,
+
+00:00:33.270 --> 00:00:34.650
+and the third step is,
+
+00:00:34.649 --> 00:00:37.394
+move back to the euclidean coordinate system with x and y
+
+00:00:37.395 --> 00:00:40.575
+to get the position where your Lidar point hits the image plane.
+
+00:00:40.575 --> 00:00:43.100
+The output image should be really colorful and as you will see,
+
+00:00:43.100 --> 00:00:45.240
+that's not what it's supposed to look like.
+
+00:00:45.240 --> 00:00:47.179
+But let's not get ahead of ourselves and complete
+
+00:00:47.179 --> 00:00:50.810
+those three steps first before you see what I'm referring to.
+
+00:00:50.810 --> 00:00:54.410
+So now let's take a look how Lidar point projection into the camera works.
+
+00:00:54.409 --> 00:00:59.059
+So the first thing we do here in this line is we simply read an image from file.
+
+00:00:59.060 --> 00:01:05.049
+It's the image where the vehicle in front of us is driving along in the highway scenario.
+
+00:01:05.049 --> 00:01:07.560
+Then we load the Lidar points from file.
+
+00:01:07.560 --> 00:01:11.115
+It's the Lidar point Cloud which we load here.
+
+00:01:11.114 --> 00:01:15.739
+Basically, that's the original data also made available by the kitty data set,
+
+00:01:15.739 --> 00:01:19.549
+but I have packaged it into this.format here to make it easier
+
+00:01:19.549 --> 00:01:23.539
+for you and more convenient to simply load those Lidar points and get on with it.
+
+00:01:23.540 --> 00:01:26.090
+But in the final version of the project,
+
+00:01:26.090 --> 00:01:28.280
+the final project at the end of this course,
+
+00:01:28.280 --> 00:01:32.299
+you will see a loading routine which basically is able to load the original data.
+
+00:01:32.299 --> 00:01:35.944
+This one has been customized to fit this small exercise.
+
+00:01:35.944 --> 00:01:37.459
+Now the next thing which happens here,
+
+00:01:37.459 --> 00:01:41.059
+is we create the calibration matrices which we need in
+
+00:01:41.060 --> 00:01:44.900
+order to protect the actual point in space onto the image plane.
+
+00:01:44.900 --> 00:01:47.730
+Now this to be granted looks really scary,
+
+00:01:47.730 --> 00:01:50.234
+but what's happening here is,
+
+00:01:50.234 --> 00:01:55.450
+we create three matrices which you already know from the lesson here.
+
+00:01:55.450 --> 00:01:59.859
+The first is a prediction metrics
+
+00:01:59.859 --> 00:02:04.439
+which basically is the intrinsic camera calibration matrix,
+
+00:02:04.439 --> 00:02:08.689
+then we have the rotation matrix which is needed to make images co-planar.
+
+00:02:08.689 --> 00:02:11.870
+That's required because we actually have a stereo setup.
+
+00:02:11.870 --> 00:02:14.745
+We have a left camera and the right camera, but in our course,
+
+00:02:14.745 --> 00:02:18.219
+we are only using one camera from those two.
+
+00:02:18.219 --> 00:02:22.939
+We have to follow the exact calibration instructions which are made available
+
+00:02:22.939 --> 00:02:27.669
+to us by the kitty researchers who have made available that database.
+
+00:02:27.669 --> 00:02:31.369
+Even though we have not talked about relating left and right camera,
+
+00:02:31.370 --> 00:02:35.750
+we only talked about rectifying or relating camera and Lidar sensor,
+
+00:02:35.750 --> 00:02:39.199
+they need to do this in order for that transformation to work correctly.
+
+00:02:39.199 --> 00:02:41.889
+So that's why we are using this additional matrix here.
+
+00:02:41.889 --> 00:02:45.500
+Basically, what happens we discussed this in this lesson,
+
+00:02:45.500 --> 00:02:48.680
+basically it aligns both image planes
+
+00:02:48.680 --> 00:02:51.409
+in a way that one line in the left camera corresponds to
+
+00:02:51.409 --> 00:02:57.155
+exactly one line in the other camera without this line going diagonally across the image.
+
+00:02:57.155 --> 00:02:58.865
+If you want to dig deeper a little bit,
+
+00:02:58.865 --> 00:03:01.430
+you might want to look into epipolar geometry,
+
+00:03:01.430 --> 00:03:04.069
+which is the word which gives you access
+
+00:03:04.069 --> 00:03:08.019
+to this body of knowledge behind a stereo camera calibration.
+
+00:03:08.020 --> 00:03:09.640
+But we're not going deeply into this,
+
+00:03:09.639 --> 00:03:10.659
+we only have to use it.
+
+00:03:10.659 --> 00:03:13.340
+So once we have to find those matrices here,
+
+00:03:13.340 --> 00:03:15.814
+we want to fill them with information.
+
+00:03:15.814 --> 00:03:18.020
+What I have done here is basically,
+
+00:03:18.020 --> 00:03:22.685
+I have taken only those lines from the calibration files made available by kitty,
+
+00:03:22.685 --> 00:03:25.340
+and simply put them into the matrices.
+
+00:03:25.340 --> 00:03:28.175
+So for example, the upper-left
+
+00:03:28.175 --> 00:03:33.605
+component 00 in the intrinsic camera calibration matrix which is this one here,
+
+00:03:33.604 --> 00:03:37.399
+I am setting it to a value which I have
+
+00:03:37.400 --> 00:03:41.450
+taken from the calibration file which ships along with each data set here.
+
+00:03:41.449 --> 00:03:43.489
+If you want to run another data set when you
+
+00:03:43.490 --> 00:03:45.875
+are downloading other data from the kitty website,
+
+00:03:45.875 --> 00:03:49.504
+you have to always look up the respective calibration file
+
+00:03:49.504 --> 00:03:53.299
+and put the values in here which you get from the test file.
+
+00:03:53.300 --> 00:03:54.950
+That's a bit cumbersome I know,
+
+00:03:54.949 --> 00:03:57.079
+but you could also think about maybe writing
+
+00:03:57.080 --> 00:04:00.590
+a small loading routine which simply pulls this data from the text file,
+
+00:04:00.590 --> 00:04:02.645
+which I have not done for this course.
+
+00:04:02.645 --> 00:04:05.030
+So I have entered the data here manually.
+
+00:04:05.030 --> 00:04:07.789
+So that's a lengthy code, but what it does,
+
+00:04:07.789 --> 00:04:10.579
+it assembles all the data from the calibration files into
+
+00:04:10.580 --> 00:04:14.005
+a convenient OpenCV matrix data structure which we can use in the file.
+
+00:04:14.004 --> 00:04:20.029
+So let's move on to the actual step of projecting the Lidar points.
+
+00:04:20.029 --> 00:04:25.339
+So again, we create a visualization image which you already are familiar with.
+
+00:04:25.339 --> 00:04:30.274
+What's new here is we also are creating an overlay image which enables us to
+
+00:04:30.274 --> 00:04:33.560
+superimpose the actual projected Lidar points
+
+00:04:33.560 --> 00:04:36.350
+over the original image content in a translucent manner.
+
+00:04:36.350 --> 00:04:41.870
+So we are making it transparent so that we can still see the original data,
+
+00:04:41.870 --> 00:04:46.925
+the original image, and the Lidar points are going to be a translucent overlay.
+
+00:04:46.925 --> 00:04:50.680
+That's why we are additionally cloning this image here.
+
+00:04:50.680 --> 00:04:53.900
+Then again, we have a for loop which runs over
+
+00:04:53.899 --> 00:04:57.814
+all the Lidar points which we just loaded from file.
+
+00:04:57.814 --> 00:05:03.004
+Actually, the first step which I talked about which you have to conduct here,
+
+00:05:03.004 --> 00:05:04.879
+we have to convert the X, Y,
+
+00:05:04.879 --> 00:05:07.550
+Z coordinates to homogeneous coordinates.
+
+00:05:07.550 --> 00:05:11.960
+So the point capital X is actually a point of homogeneous coordinates.
+
+00:05:11.959 --> 00:05:14.464
+The only thing actually which you have to do here is,
+
+00:05:14.464 --> 00:05:19.949
+you simply assign all of the first three components, the x, y,
+
+00:05:19.949 --> 00:05:23.084
+and z wall coordinates of the Lidar point,
+
+00:05:23.084 --> 00:05:26.044
+and then you add a fourth component here which is this one here,
+
+00:05:26.045 --> 00:05:28.410
+and you simply set it to one.
+
+00:05:28.410 --> 00:05:30.960
+So after doing this very simple operation,
+
+00:05:30.959 --> 00:05:35.810
+what you get is a point x in homogeneous coordinates.
+
+00:05:35.810 --> 00:05:39.589
+The next thing which we do here is we perform the actual projection,
+
+00:05:39.589 --> 00:05:44.989
+and this line has been taken from the kitty info Read Me file,
+
+00:05:44.990 --> 00:05:50.120
+which you can also look through once you download one of the original data-sets.
+
+00:05:50.120 --> 00:05:53.939
+In this text file, they tell you exactly how to perform the calibration.
+
+00:05:53.939 --> 00:05:56.600
+We already know how this works because we have learned
+
+00:05:56.600 --> 00:05:59.795
+a lot about calibration in this lesson here.
+
+00:05:59.795 --> 00:06:06.225
+So in order to get a projected point capital Y which lies on the image plane,
+
+00:06:06.225 --> 00:06:09.140
+you take a point in 3D space,
+
+00:06:09.139 --> 00:06:12.139
+X which is already in homogeneous coordinates,
+
+00:06:12.139 --> 00:06:15.379
+then you apply the extrinsic calibration to it.
+
+00:06:15.379 --> 00:06:17.644
+So we have a rotation, we have a translation,
+
+00:06:17.644 --> 00:06:20.810
+then we rectify the two images left camera,
+
+00:06:20.810 --> 00:06:24.170
+right hand camera which we are not using in terms of stereo processing,
+
+00:06:24.170 --> 00:06:26.720
+but we have to apply this transformation in order
+
+00:06:26.720 --> 00:06:29.960
+to align the image correctly to the Lidar sensor,
+
+00:06:29.959 --> 00:06:35.329
+and then we perform the intrinsic camera calibration which looks at lens distortion
+
+00:06:35.329 --> 00:06:41.449
+and also about looking at the respective focal length of this very camera.
+
+00:06:41.449 --> 00:06:43.759
+The whole transformation which we can simply
+
+00:06:43.759 --> 00:06:48.949
+concatenate because we are using homogeneous coordinates. That's the beauty of it.
+
+00:06:48.949 --> 00:06:51.543
+We simply make a point homogeneous,
+
+00:06:51.543 --> 00:06:54.919
+and then we can apply this very easy one line transformation,
+
+00:06:54.920 --> 00:06:58.580
+which already gives us the point on the image plane.
+
+00:06:58.579 --> 00:07:01.189
+However, this point is also in homogeneous coordinates.
+
+00:07:01.189 --> 00:07:02.959
+In order to get pixel coordinates,
+
+00:07:02.959 --> 00:07:04.279
+what we have to do here,
+
+00:07:04.279 --> 00:07:10.599
+is in order to get the x-component in pixels,
+
+00:07:10.600 --> 00:07:13.220
+we have to divide the first component from
+
+00:07:13.220 --> 00:07:16.970
+this transformed vector by the last components.
+
+00:07:16.970 --> 00:07:22.820
+So we have to basically scale it down to get back into the euclidean coordinate system.
+
+00:07:22.819 --> 00:07:26.000
+In order to do so, we divide it by the third component,
+
+00:07:26.000 --> 00:07:27.980
+by the homogeneous component if you want.
+
+00:07:27.980 --> 00:07:31.009
+So once we have completed those two lines here,
+
+00:07:31.009 --> 00:07:37.519
+we have the pixel coordinates on the image plane of a point of a lineup point in space.
+
+00:07:37.519 --> 00:07:42.199
+The next thing we do is something that you already know from one of the last exercises.
+
+00:07:42.199 --> 00:07:46.319
+We are color-coding all the Image Content by assigning
+
+00:07:46.319 --> 00:07:51.245
+it a color in the spectrum between green and red.
+
+00:07:51.245 --> 00:07:53.310
+Green would be far away,
+
+00:07:53.310 --> 00:07:56.509
+20 meters away and red would be directly in front of the sensor,
+
+00:07:56.509 --> 00:07:59.959
+and we already discussed how those two lines here work,
+
+00:07:59.959 --> 00:08:02.759
+how they color-code the respective points.
+
+00:08:02.759 --> 00:08:06.824
+Then we simply paint the Lidar point in pixels onto the overlay image,
+
+00:08:06.824 --> 00:08:08.420
+and what's happens here is,
+
+00:08:08.420 --> 00:08:12.275
+we decide how opaque the translucent over the image will be.
+
+00:08:12.274 --> 00:08:15.034
+Currently, it's at 60 percent transparency.
+
+00:08:15.035 --> 00:08:17.330
+We add this overlay image to
+
+00:08:17.329 --> 00:08:21.349
+the visualization image and then we simply display the visualization images.
+
+00:08:21.350 --> 00:08:24.790
+So let's look at how this works.
+
+00:08:24.790 --> 00:08:28.490
+What you can see here is our original image.
+
+00:08:28.490 --> 00:08:31.220
+It's the traffic scene of the highway driving scenario.
+
+00:08:31.220 --> 00:08:32.779
+This is the preceding vehicle,
+
+00:08:32.779 --> 00:08:35.044
+and this color-coded overlay here is
+
+00:08:35.044 --> 00:08:39.375
+all the Lidar points we took from the Lidar point Cloud.
+
+00:08:39.375 --> 00:08:47.750
+Now as you can see, very close points here on the road surface almost have reddish tint,
+
+00:08:47.750 --> 00:08:50.225
+and the farther away we move from the sensor,
+
+00:08:50.225 --> 00:08:52.580
+the color-coding changes to green.
+
+00:08:52.580 --> 00:08:54.259
+If you look at this vehicle here,
+
+00:08:54.259 --> 00:08:56.730
+what's interesting about it is that well basically,
+
+00:08:56.730 --> 00:08:58.500
+it's a vertical object.
+
+00:08:58.500 --> 00:09:01.519
+So all the color values here should be roughly identical,
+
+00:09:01.519 --> 00:09:03.439
+which is also what we see here,
+
+00:09:03.440 --> 00:09:06.035
+it's an orange color tailgate.
+
+00:09:06.034 --> 00:09:11.509
+At the top, we have those green values and also some red values here.
+
+00:09:11.509 --> 00:09:14.600
+So these are erroneous Lidar points.
+
+00:09:14.600 --> 00:09:16.129
+They give you false distances.
+
+00:09:16.129 --> 00:09:19.384
+So even though Lidar is a very capable sensor
+
+00:09:19.384 --> 00:09:23.328
+of performing highly correct and precise measurements,
+
+00:09:23.328 --> 00:09:28.699
+still some points simply are reflected in a wrong manner and give you false coordinates.
+
+00:09:28.700 --> 00:09:32.415
+So you have to tread very carefully when looking at Lidar point Cloud,
+
+00:09:32.414 --> 00:09:35.299
+you still have lots of outliers in this point Cloud,
+
+00:09:35.299 --> 00:09:40.909
+which in this case to be seen very easily when you observe this proceeding vehicle.
+
+00:09:40.909 --> 00:09:43.519
+Now what's not so good is that the entire sky and
+
+00:09:43.519 --> 00:09:46.549
+everything beyond the 20 meter mark is bright red.
+
+00:09:46.549 --> 00:09:49.069
+So there's something not working correctly,
+
+00:09:49.070 --> 00:09:54.245
+and it's one of the next exercises to look at what's happening here and to find ways to
+
+00:09:54.245 --> 00:09:56.810
+solve this problem once and for all so that we get
+
+00:09:56.809 --> 00:09:59.779
+a clear image of all the obstacles on the scene,
+
+00:09:59.779 --> 00:10:01.639
+color-code it correctly without
+
+00:10:01.639 --> 00:10:05.164
+the road surface and without the sky being in wrong color.
+
+00:10:05.164 --> 00:10:07.054
+But let's not get ahead of ourselves,
+
+00:10:07.054 --> 00:10:10.169
+let's wait and see how this can be resolved.
+

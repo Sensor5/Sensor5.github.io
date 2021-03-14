@@ -1,0 +1,52 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:03.720
+Now, the last task of the final project is about conducting tests and
+
+00:00:03.720 --> 00:00:07.605
+about finding the best parameter settings in all the different stages of the algorithm.
+
+00:00:07.605 --> 00:00:09.975
+I would like you to do the following; the first is,
+
+00:00:09.974 --> 00:00:12.300
+look for several examples where you have the impression that
+
+00:00:12.300 --> 00:00:14.760
+the lidar-based TTC estimate is way off.
+
+00:00:14.759 --> 00:00:16.019
+Once you have found those,
+
+00:00:16.019 --> 00:00:18.359
+describe the observations and also provide
+
+00:00:18.359 --> 00:00:20.984
+a sound argumentation why you think this happened.
+
+00:00:20.984 --> 00:00:24.169
+The second is, run several combinations of detectors and descriptors,
+
+00:00:24.170 --> 00:00:26.775
+and look at the differences in TTC estimation.
+
+00:00:26.774 --> 00:00:28.320
+Find out which methods perform best,
+
+00:00:28.320 --> 00:00:32.820
+and also include several examples where camera-based TTC estimation is way off.
+
+00:00:32.820 --> 00:00:35.159
+As with lidar, describe the observations again,
+
+00:00:35.159 --> 00:00:37.844
+and also look into potential reasons for this.
+
+00:00:37.844 --> 00:00:39.929
+This is the last task and the final project.
+
+00:00:39.929 --> 00:00:44.310
+We are super excited to receiving your submission as soon as possible.
+

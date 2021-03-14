@@ -1,0 +1,37 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:02.714
+Hi, this is Abdullah Zedi.
+
+00:00:02.714 --> 00:00:06.960
+I'm the Principal Radar Design Engineer, at Metawave Corporation.
+
+00:00:06.960 --> 00:00:12.240
+I'm excited to be here at Udacity as your instructor for Radar Sensor Fusion Program.
+
+00:00:12.240 --> 00:00:16.155
+In this course, we will be talking about how radar makes it easy,
+
+00:00:16.155 --> 00:00:19.560
+to determine range and velocity of the targets, hence,
+
+00:00:19.559 --> 00:00:23.879
+making it an essential sensor for any level of self-driving.
+
+00:00:23.879 --> 00:00:27.869
+Further, we will be covering the physics behind its operation,
+
+00:00:27.870 --> 00:00:31.575
+which will include; RF and digital signal processing.
+
+00:00:31.574 --> 00:00:35.549
+Towards the end, we will explore the tracking and clustering algorithms,
+
+00:00:35.549 --> 00:00:37.048
+that give radar detection,
+
+00:00:37.048 --> 00:00:42.240
+more sense in terms of different driving scenario. Let's begin.
+

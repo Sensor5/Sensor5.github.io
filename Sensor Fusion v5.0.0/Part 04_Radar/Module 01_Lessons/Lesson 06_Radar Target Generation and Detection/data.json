@@ -1,0 +1,375 @@
+{
+  "data": {
+    "lesson": {
+      "id": 842253,
+      "key": "c65e6b8a-1bcf-4b13-a451-d2d6ac2a4f98",
+      "title": "Radar Target Generation and Detection",
+      "semantic_type": "Lesson",
+      "is_public": true,
+      "version": "1.0.0",
+      "locale": "en-us",
+      "summary": null,
+      "lesson_type": "Classroom",
+      "display_workspace_project_only": false,
+      "resources": {
+        "files": [
+          {
+            "name": "Videos Zip File",
+            "uri": "https://zips.udacity-data.com/c65e6b8a-1bcf-4b13-a451-d2d6ac2a4f98/842253/1558650786636/Radar+Target+Generation+and+Detection+Videos.zip"
+          },
+          {
+            "name": "Transcripts Zip File",
+            "uri": "https://zips.udacity-data.com/c65e6b8a-1bcf-4b13-a451-d2d6ac2a4f98/842253/1558650783800/Radar+Target+Generation+and+Detection+Subtitles.zip"
+          },
+          {
+            "name": "Radar_Target_Generation_and_Detection.m",
+            "uri": "https://video.udacity-data.com/topher/2019/May/5ce35e11_radar-target-generation-and-detection/radar-target-generation-and-detection.m"
+          }
+        ],
+        "google_plus_link": null,
+        "career_resource_center_link": null,
+        "coaching_appointments_link": null,
+        "office_hours_link": null,
+        "aws_provisioning_link": null
+      },
+      "project": {
+        "key": "f7f13a97-19f6-449b-a019-8dff1b00d2a5",
+        "version": "1.0.0",
+        "locale": "en-us",
+        "duration": 20160,
+        "semantic_type": "Project",
+        "title": "Radar Target Generation and Detection",
+        "description": "To complete this project, you can download the `Radar_Target_Generation_and_Detection.m` starter file from the **Supporting Materials** section below. \n- Follow the steps in the previous concepts to complete your code.\n- Write a README outlining the following:\n  - Implementation steps for the 2D CFAR process. \n  - Selection of Training, Guard cells and offset.\n  - Steps taken to suppress the non-thresholded cells at the edges.\n- Check the [project rubric](https://review.udacity.com/#!/rubrics/2548/view) to ensure that all criteria are met.\n\nWhen you are finished, you can zip your code and README and submit, or submit using a Github repo.\n\n\n## Matlab Download\n\nTo complete the project, you will need to download MATLAB on your computer, if you haven't already. To get started, you can follow these steps:\n\n1. If you do not already have a MathWorks account, create one [here](https://www.mathworks.com/mwaccount/register). Be sure to verify your email (check your Junk/Spam folders) before moving on to step 2.\n2. Download the installer [here](https://www.mathworks.com/licensecenter/classroom/udacity_sf_radar/).\n3. Run the installer – it will guide you through the steps for your OS.",
+        "is_public": true,
+        "summary": null,
+        "forum_path": "",
+        "rubric_id": "2548",
+        "terminal_project_id": null,
+        "resources": {
+          "files": [
+            {
+              "name": "Radar_Target_Generation_and_Detection.m",
+              "uri": "https://video.udacity-data.com/topher/2019/May/5ce36479_radar-target-generation-and-detection/radar-target-generation-and-detection.m"
+            }
+          ],
+          "google_plus_link": null,
+          "career_resource_center_link": null,
+          "coaching_appointments_link": null,
+          "office_hours_link": null,
+          "aws_provisioning_link": null
+        },
+        "image": {
+          "url": "https://s3.amazonaws.com/video.udacity-data.com/topher/2019/June/5cfabf14_radar-hero/radar-hero.jpg",
+          "width": 1200,
+          "height": 900
+        }
+      },
+      "lab": null,
+      "concepts": [
+        {
+          "id": 850295,
+          "key": "8997122c-174d-4b8b-b672-7ee3d47bb7ff",
+          "title": "Project Overview",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "8997122c-174d-4b8b-b672-7ee3d47bb7ff",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 850299,
+              "key": "003048ea-272c-40e5-b944-8df7d39512a7",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "# Project Overview",
+              "instructor_notes": ""
+            },
+            {
+              "id": 850340,
+              "key": "b4eccdac-f766-44f3-9ff7-39b03f22aa95",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "The following video will provide an overview of the project. You can find the project starter code in the `Radar_Target_Generation_and_Detection.m` file in the **Resources** section of the classroom. Additionally, the project rubric can be found [here](https://review.udacity.com/#!/rubrics/2548/view).",
+              "instructor_notes": ""
+            },
+            {
+              "id": 850324,
+              "key": "60e5e6c4-a47d-4b98-8bee-2ad74d05ea2a",
+              "title": "Final Project Walkthrough",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "DIVmHps0G8M",
+                "china_cdn_id": "DIVmHps0G8M.mp4"
+              }
+            },
+            {
+              "id": 850300,
+              "key": "720a28a3-954b-4773-83c8-d0ae5e0ed568",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/May/5ce34f61_image11/image11.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/720a28a3-954b-4773-83c8-d0ae5e0ed568",
+              "caption": "",
+              "alt": "",
+              "width": 1359,
+              "height": 772,
+              "instructor_notes": null
+            },
+            {
+              "id": 850303,
+              "key": "2fd5b211-b69f-406e-8930-a8cff1f0afb4",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "- Configure the FMCW waveform based on the system requirements. \n- Define the range and velocity of target and simulate its displacement.\n- For the same simulation loop process the transmit and receive signal to determine the beat signal\n- Perform Range FFT on the received signal to determine the Range\n- Towards the end, perform the CFAR processing on the output of 2nd FFT to display the target.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 850304,
+              "key": "60c4ee57-4cf5-4500-a9f6-978d5f68742c",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## Radar System Requirements",
+              "instructor_notes": ""
+            },
+            {
+              "id": 850305,
+              "key": "3be40839-bde0-4af0-be17-1e4e0ed968b0",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/May/5ce350d0_image14/image14.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/3be40839-bde0-4af0-be17-1e4e0ed968b0",
+              "caption": "",
+              "alt": "",
+              "width": 829,
+              "height": 226,
+              "instructor_notes": null
+            },
+            {
+              "id": 850308,
+              "key": "802db133-0dc3-4ae3-b00b-70031cb8325d",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "System Requirements defines the design of a Radar. The sensor fusion design for different driving scenarios requires different system configurations from a Radar. In this project, you will designing a Radar based on the given system requirements (above).\n\nMax Range and Range Resolution will be considered here for waveform design.\n\n- The sweep bandwidth can be determined according to the range resolution and the sweep slope is calculated using both sweep bandwidth and sweep time.\n\n  <span class=\"mathquill\">Bandwidth (B_{sweep}) = speed \\,\\, of\\,\\, light/(2*rangeResolution)</span>\n\n\n- The sweep time can be computed based on the time needed for the signal to travel the unambiguous maximum range. In general, for an FMCW radar system, the sweep time should be at least 5 to 6 times the round trip time. This example uses a factor of 5.5.\n\n  <span class=\"mathquill\">T_{chirp} =5.5\\cdot 2 \\cdot R_{max}/c</span>\n\n  Giving the slope of the chirp signal\n\n  <span class=\"mathquill\">Slope = Bandwidth/T_{chirp}</span>",
+              "instructor_notes": ""
+            },
+            {
+              "id": 850310,
+              "key": "37fd015f-95e5-467c-87b0-2e163bb1ff31",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## Initial Range and velocity of the Target\nYou will provide the initial range and velocity of the target. Range cannot exceed the max value of 200m and velocity can be any value in the range of -70 to + 70 m/s.\n",
+              "instructor_notes": ""
+            }
+          ]
+        },
+        {
+          "id": 850296,
+          "key": "d1f5fdad-feb7-478a-b0d6-3931dc9d633a",
+          "title": "Target Generation and Detection",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "d1f5fdad-feb7-478a-b0d6-3931dc9d633a",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 850311,
+              "key": "7ce730f9-1f09-44a1-afee-846e913f0d42",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "# Target Generation and Detection",
+              "instructor_notes": ""
+            },
+            {
+              "id": 850312,
+              "key": "ba45d510-00ae-4c42-bcab-f019ad276a83",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/May/5ce37355_image/image.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/ba45d510-00ae-4c42-bcab-f019ad276a83",
+              "caption": "Signal Propagation",
+              "alt": "",
+              "width": 1366,
+              "height": 794,
+              "instructor_notes": null
+            },
+            {
+              "id": 850314,
+              "key": "7ea662d9-62d7-476a-833c-aa57abada06d",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "Next, you will be simulating the signal propagation and moving target scenario. \n\nTheory : \n\nIn terms of wave equation, FMCW transmit and received signals are defined using these wave equations, where  <span class=\"mathquill\">α = Slope \\,\\, of \\,\\,  the \\,\\, signal</span>. The Transmit Signal is given by:  \n\n<span class=\"mathquill\"> Tx= \\cos(2\\pi(f_ct + \\frac{\\alpha t^2}{2}))</span>\n\nThe received signal is nothing but the time delayed version of the Transmit Signal. In digital signal processing the time delayed version is defined by <span class=\"mathquill\"> (t -\\tau)</span>, where <span class=\"mathquill\">\\tau</span> represents the delay time, which in radar processing is the trip time for the signal. \n\nReplacing <span class=\"mathquill\">t</span> with <span class=\"mathquill\">(t -\\tau)</span> gives the Receive Signal:  \n\n<span class=\"mathquill\">Rx = \\cos(2\\pi(f_c(t-\\tau) + \\frac{α(t-\\tau)^2}{2}))</span>\n\nOn mixing these two signals, we get the beat signal, which holds the values for both range as well as doppler. By implementing the 2D FFT on this beat signal, we can extract both Range and Doppler information\n\nThe beat signal can be calculated by multiplying the Transmit signal with Receive signal. This process in turn works as frequency subtraction. It is implemented by element by element multiplication of transmit and receive signal matrices. \n\n[Mixed or Beat Signal](https://www.mathworks.com/help/fixedpoint/ref/times.html) = (Tx.*Rx)\n\nThe above operation gives: \n\n<span class=\"mathquill\">Tx.*Rx = \\cos(2\\pi(\\frac{2\\alpha R}{c}t + \\frac{2f_cvn}{c}t)) </span>\n",
+              "instructor_notes": ""
+            }
+          ]
+        },
+        {
+          "id": 850297,
+          "key": "86d3783c-7c3c-465e-ad67-4a646d9af262",
+          "title": "FFT Operation",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "86d3783c-7c3c-465e-ad67-4a646d9af262",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 850316,
+              "key": "8a226b59-6386-4992-bd9a-08e5294efa3f",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "# FFT Operation\n\n- Implement the 1D FFT on the Mixed Signal \n- Reshape the vector into Nr*Nd array. \n- Run the FFT on the beat signal along the range bins dimension (Nr) \n- Normalize the FFT output. \n- Take the absolute value of that output.\n- Keep one half of the signal\n- Plot the output\n- There should be a peak at the initial position of the target\n",
+              "instructor_notes": ""
+            },
+            {
+              "id": 850317,
+              "key": "1468616f-7791-428e-9c63-3588f66fa072",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/May/5ce35b96_image10/image10.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/1468616f-7791-428e-9c63-3588f66fa072",
+              "caption": "The 1st FFT output for the target located at 110 meters",
+              "alt": "",
+              "width": 560,
+              "height": 504,
+              "instructor_notes": null
+            },
+            {
+              "id": 850318,
+              "key": "aaef7855-f781-4a2d-8b52-f5ba47628e1f",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "The 2nd FFT is already implemented in the code. It will generate a Range Doppler Map as seen in the image below and it will be given by variable ‘RDM’. Next task is to implement the CFAR on this Range Doppler Map.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 850319,
+              "key": "9e3c015c-f0c4-4ced-b72c-8801f110f657",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/May/5ce35bc5_image12/image12.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/9e3c015c-f0c4-4ced-b72c-8801f110f657",
+              "caption": "2D FFT output - Range Doppler Map",
+              "alt": "",
+              "width": 1652,
+              "height": 859,
+              "instructor_notes": null
+            }
+          ]
+        },
+        {
+          "id": 850298,
+          "key": "e1271dc2-7ffb-4e5e-9082-d259a824e00c",
+          "title": "2D CFAR",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "e1271dc2-7ffb-4e5e-9082-d259a824e00c",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 850320,
+              "key": "b9e98124-abe9-4ade-809b-e516bc8b1b10",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "# 2D CFAR",
+              "instructor_notes": ""
+            },
+            {
+              "id": 850321,
+              "key": "d1e27b2f-6b4b-45d5-9adb-1e438a7d5f39",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "- Determine the number of Training cells for each dimension. Similarly, pick the number of guard cells.\n- Slide the cell under test across the complete matrix. Make sure the CUT has margin for Training and Guard cells from the edges.\n- For every iteration sum the signal level within all the training cells. To sum convert the value from logarithmic to linear using db2pow function. \n- Average the summed values for all of the training cells used. After averaging convert it back to logarithmic using pow2db.\n- Further add the offset to it to determine the threshold. \n- Next, compare the signal under CUT against this threshold. \n- If the CUT level > threshold assign it a value of 1, else equate it to 0.\n\n\nThe process above will generate a thresholded block, which is smaller than the Range Doppler Map as the CUTs cannot be located at the edges of the matrix due to the presence of Target and Guard cells. Hence, those cells will not be thresholded. \n\n- To keep the map size same as it was before CFAR, equate all the non-thresholded cells to 0. \n",
+              "instructor_notes": ""
+            },
+            {
+              "id": 850322,
+              "key": "59921eb4-c25a-4dc6-9ed0-20ca783bed8b",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/May/5ce35c3a_image13/image13.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/59921eb4-c25a-4dc6-9ed0-20ca783bed8b",
+              "caption": "The output of the 2D CFAR process",
+              "alt": "",
+              "width": 1607,
+              "height": 872,
+              "instructor_notes": null
+            },
+            {
+              "id": 850323,
+              "key": "1d8f208e-fd8a-4495-b934-b224005e3e9c",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "Once you have completed this, you are done. Congratulations on doing a great job on this final project!",
+              "instructor_notes": ""
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "_deprecated": [
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    }
+  ]
+}

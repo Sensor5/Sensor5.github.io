@@ -1,0 +1,301 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:02.669
+Now, the goal of your next task is to compute
+
+00:00:02.669 --> 00:00:04.724
+the time-to-collision from camera images alone.
+
+00:00:04.724 --> 00:00:06.285
+As you will find at the project code,
+
+00:00:06.285 --> 00:00:08.519
+this task consists of two major steps.
+
+00:00:08.519 --> 00:00:12.644
+First, you need to find all keypoint matches that belong to each 3D object.
+
+00:00:12.644 --> 00:00:14.279
+You can do this by simply checking whether
+
+00:00:14.279 --> 00:00:17.939
+the corresponding keypoints are within the region of interest in the camera image,
+
+00:00:17.940 --> 00:00:20.850
+and all matches which satisfy this condition could be added to a vector.
+
+00:00:20.850 --> 00:00:23.670
+But the problem you will find is that there will be outliers
+
+00:00:23.670 --> 00:00:26.775
+among your matches which you have to cope with, and to eliminate those,
+
+00:00:26.774 --> 00:00:30.239
+I recommend that you compute the lowest mean of all the Euclidean distances
+
+00:00:30.239 --> 00:00:34.170
+between keypoint matches and then remove those that are too far away from the mean.
+
+00:00:34.170 --> 00:00:37.700
+The second step once you have all the keypoint matches within the bounding boxes,
+
+00:00:37.700 --> 00:00:40.400
+then is to compute the actual TTC estimate,
+
+00:00:40.399 --> 00:00:42.475
+which you already know how to do from lesson two.
+
+00:00:42.475 --> 00:00:47.060
+As with Lidar, the concept is pretty similar to what we have already seen before.
+
+00:00:47.060 --> 00:00:49.039
+So you might want to revisit the respective section,
+
+00:00:49.039 --> 00:00:52.405
+and use the code sample there as a starting point for this task here.
+
+00:00:52.405 --> 00:00:54.605
+Once you have your estimate of the time-to-collision,
+
+00:00:54.604 --> 00:00:59.914
+please also return it to the main function at the end of the method compute TTC camera.
+
+00:00:59.914 --> 00:01:01.929
+So this next exercise,
+
+00:01:01.929 --> 00:01:05.769
+after we have successfully computed the time to collision based on latter measurements,
+
+00:01:05.769 --> 00:01:09.349
+we now want to do the same thing with the camera-based measurements.
+
+00:01:09.349 --> 00:01:11.269
+In order to get to the right place very quickly,
+
+00:01:11.269 --> 00:01:13.670
+let's again use the find function here.
+
+00:01:13.670 --> 00:01:14.750
+Compute TTC.
+
+00:01:14.750 --> 00:01:16.099
+It's now not Lidar,
+
+00:01:16.099 --> 00:01:18.674
+but it's going to be camera.
+
+00:01:18.674 --> 00:01:20.629
+So this actually consists,
+
+00:01:20.629 --> 00:01:22.939
+as I said before in the walkthrough video,
+
+00:01:22.939 --> 00:01:24.739
+this consists of two steps.
+
+00:01:24.739 --> 00:01:27.049
+Task FP.3 and Task FP.4.
+
+00:01:27.049 --> 00:01:29.509
+The first thing I would want you to do is to
+
+00:01:29.510 --> 00:01:33.740
+implement cluster keypoint matches with R-O-I.
+
+00:01:33.739 --> 00:01:35.878
+After this has been done successfully,
+
+00:01:35.879 --> 00:01:39.410
+then you can concentrate on compute TTC camera.
+
+00:01:39.409 --> 00:01:43.369
+Both methods are also within the camFusion_Student code.
+
+00:01:43.370 --> 00:01:46.100
+Let us briefly go there and find the right place.
+
+00:01:46.099 --> 00:01:51.250
+So cluster keypoint matches with R-O-I takes as an input a bounding box,
+
+00:01:51.250 --> 00:01:54.019
+then a vector of keypoints in the previous frame,
+
+00:01:54.019 --> 00:01:56.810
+and a vector of keypoints in the current frame,
+
+00:01:56.810 --> 00:02:00.245
+as well as a set of keypoint matches.
+
+00:02:00.245 --> 00:02:02.810
+So the idea here is to cluster
+
+00:02:02.810 --> 00:02:06.620
+all the keypoint matches which are within this bounding box.
+
+00:02:06.620 --> 00:02:08.569
+So what we provide to this function,
+
+00:02:08.569 --> 00:02:10.449
+which will give us an input is,
+
+00:02:10.449 --> 00:02:13.879
+this very bounding box here and as we are doing this in a loop,
+
+00:02:13.879 --> 00:02:18.400
+where we are looping over all the bounding boxes in the final project camera main code,
+
+00:02:18.400 --> 00:02:19.580
+we call this function.
+
+00:02:19.580 --> 00:02:20.930
+If we have five bounding boxes,
+
+00:02:20.930 --> 00:02:22.474
+we would call this function five times.
+
+00:02:22.474 --> 00:02:26.254
+Every time, we would pass along another bounding box.
+
+00:02:26.254 --> 00:02:30.185
+Based on the bounding box which we pass here respectively,
+
+00:02:30.185 --> 00:02:35.060
+one after the other, we look in the entire keypoint Cloud whether we have a fit or not.
+
+00:02:35.060 --> 00:02:37.039
+So we are going to associate the
+
+00:02:37.039 --> 00:02:42.185
+keypoint matches with this respective bounding box in this step here.
+
+00:02:42.185 --> 00:02:47.015
+So there is no result vector or result structure which is returned here but instead,
+
+00:02:47.014 --> 00:02:50.029
+we will augment the bounding box with our findings.
+
+00:02:50.030 --> 00:02:52.129
+Let's take a look at the data structures,
+
+00:02:52.129 --> 00:02:56.210
+which are in storage here in this dataStructures.h file.
+
+00:02:56.210 --> 00:02:59.629
+The bounding box, which you can see here, has various elements.
+
+00:02:59.629 --> 00:03:03.259
+We have the box ID, we have the region of interest,
+
+00:03:03.259 --> 00:03:04.489
+we have the class ID,
+
+00:03:04.490 --> 00:03:08.680
+where we store which kind of vehicle the bounding box is associated with,
+
+00:03:08.680 --> 00:03:11.849
+vehicle, truck, motorcycle, other things.
+
+00:03:11.849 --> 00:03:15.844
+We also have confidence measure from the YOLO-based object detection step,
+
+00:03:15.844 --> 00:03:18.979
+and then we have a vector containing Lidar points,
+
+00:03:18.979 --> 00:03:21.618
+and we also have a vector containing keypoints,
+
+00:03:21.618 --> 00:03:23.990
+and these are the ones I'd like you to fill in
+
+00:03:23.990 --> 00:03:26.540
+this function especially, the keypoint matches.
+
+00:03:26.539 --> 00:03:31.189
+So keypoint matches are basically the keypoints enclosed by
+
+00:03:31.189 --> 00:03:36.634
+this bounding box and their respective match partners in the previous frame.
+
+00:03:36.634 --> 00:03:41.149
+So this is the results structure which should be filled in by calling this wave function.
+
+00:03:41.150 --> 00:03:43.879
+Well, let's move back to final project camera.
+
+00:03:43.879 --> 00:03:47.060
+So after executing this function here,
+
+00:03:47.060 --> 00:03:50.629
+the current bounding box is augmented with a set of
+
+00:03:50.629 --> 00:03:54.784
+keypoint matches that is enclosed by the respective rectangle,
+
+00:03:54.784 --> 00:03:57.199
+which is associated with a current vehicle.
+
+00:03:57.199 --> 00:04:02.250
+Then we can pass on this information to the function compute TTC camera.
+
+00:04:02.250 --> 00:04:04.740
+Let's move back to camFusion_Student.cpp.
+
+00:04:04.740 --> 00:04:07.875
+Compute TTC camera, checks as an input.
+
+00:04:07.875 --> 00:04:09.569
+The keypoints and the previous frame,
+
+00:04:09.569 --> 00:04:11.204
+the keypoints in the current frame.
+
+00:04:11.205 --> 00:04:15.950
+The keypoint matches which you've just identified to belong to the current bounding box.
+
+00:04:15.949 --> 00:04:19.250
+Also, frame rate, an optional visualization image,
+
+00:04:19.250 --> 00:04:22.069
+as well as the time-to-collision result variable
+
+00:04:22.069 --> 00:04:25.464
+which you need to fill with your estimate of the TTC.
+
+00:04:25.464 --> 00:04:28.364
+Also, when computing the camera-based TTC,
+
+00:04:28.365 --> 00:04:36.900
+please try not to take all the keypoint correspondences but try to be more robust,
+
+00:04:36.899 --> 00:04:38.714
+because there will be erroneous matches,
+
+00:04:38.714 --> 00:04:42.229
+and as with Lidar-based TTC computation when I told you
+
+00:04:42.230 --> 00:04:46.129
+not to take the closest keypoint but instead to look for criteria which
+
+00:04:46.129 --> 00:04:49.250
+enable you to gauge whether a certain keypoint is actually
+
+00:04:49.250 --> 00:04:53.660
+a valid measurement or some erroneous point which just popped up out of nowhere,
+
+00:04:53.660 --> 00:04:57.165
+we have the same thing happening with camera-based correspondences.
+
+00:04:57.165 --> 00:05:01.835
+So please, do not use all the keypoint matches to compute your estimate of the TTC,
+
+00:05:01.834 --> 00:05:07.819
+but instead try to be reasonable about it and try to find a smart filter which enables
+
+00:05:07.819 --> 00:05:10.550
+you to keep only those matches which fits
+
+00:05:10.550 --> 00:05:15.150
+well to the majority of the matches within a bounding box.
+

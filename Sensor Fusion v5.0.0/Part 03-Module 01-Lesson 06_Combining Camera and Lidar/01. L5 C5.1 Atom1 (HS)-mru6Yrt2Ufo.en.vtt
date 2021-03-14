@@ -1,0 +1,73 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:03.839
+Now, welcome to this lesson, which is the last one before the final project.
+
+00:00:03.839 --> 00:00:06.960
+Now that you have successfully completed the first three lessons in the course,
+
+00:00:06.960 --> 00:00:08.474
+as well as the midterm project,
+
+00:00:08.474 --> 00:00:10.679
+you now know how keypoint matching works and how it
+
+00:00:10.679 --> 00:00:12.839
+can be used to compute the time to collision.
+
+00:00:12.839 --> 00:00:15.390
+In this lesson, we will focus on two major aspects.
+
+00:00:15.390 --> 00:00:18.179
+The first one is you will learn how to combine camera and
+
+00:00:18.179 --> 00:00:21.399
+light up by projecting 3D points onto the image plane,
+
+00:00:21.399 --> 00:00:25.529
+then you will average deep learning to detect vehicles in the camera image which is
+
+00:00:25.530 --> 00:00:29.700
+a mandatory prerequisite for clustering the latter point Cloud into separate objects.
+
+00:00:29.699 --> 00:00:31.004
+Then the final project,
+
+00:00:31.004 --> 00:00:33.899
+you will need those skills to code the last part of this course,
+
+00:00:33.899 --> 00:00:37.339
+which is the actual tracking of 3D objects through space.
+
+00:00:37.340 --> 00:00:40.730
+In this section, we will start with displaying and cropping Lidar points in
+
+00:00:40.729 --> 00:00:44.779
+a top view perspective and then look at how to project 3D points onto the image plane.
+
+00:00:44.780 --> 00:00:46.609
+What you will need is a fair amount of math to
+
+00:00:46.609 --> 00:00:49.085
+understand all the aspects of the transformation equations.
+
+00:00:49.085 --> 00:00:53.725
+So you might want to refresh on linear algebra especially matrix-vector operations.
+
+00:00:53.725 --> 00:00:55.200
+Once you have completed this section,
+
+00:00:55.200 --> 00:00:57.890
+you can visualize Lidar points within the camera image,
+
+00:00:57.890 --> 00:01:01.954
+which is a powerful tool when it comes to understanding and performing sensor fusion.
+
+00:01:01.954 --> 00:01:04.129
+So let's start right away into this last lesson.
+
+00:01:04.129 --> 00:01:06.659
+See you soon, down below.
+

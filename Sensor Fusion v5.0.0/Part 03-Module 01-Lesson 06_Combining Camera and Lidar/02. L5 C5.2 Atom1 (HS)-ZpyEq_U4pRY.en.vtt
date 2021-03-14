@@ -1,0 +1,52 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:01.439
+Now, this section, we will use
+
+00:00:01.439 --> 00:00:04.339
+a deep learning approach to detect vehicles in camera images,
+
+00:00:04.339 --> 00:00:05.900
+and the context of a code framework,
+
+00:00:05.900 --> 00:00:07.290
+this is a really important step.
+
+00:00:07.290 --> 00:00:09.929
+For now, we have matched key points all over the image and we have
+
+00:00:09.929 --> 00:00:13.320
+lidar points covering the entire scene in front of the sensor.
+
+00:00:13.320 --> 00:00:16.699
+We now know how to remove some of the data we do not need by filtering,
+
+00:00:16.699 --> 00:00:19.689
+but this will not be sufficient to identify individual vehicles,
+
+00:00:19.690 --> 00:00:22.770
+and compute the TTC which is the ultimate goal in this course.
+
+00:00:22.769 --> 00:00:26.079
+To get there, we need to group both key points and lidar points,
+
+00:00:26.079 --> 00:00:28.619
+and associate them to the vehicles present in the scene.
+
+00:00:28.620 --> 00:00:30.450
+Now, by using object detection,
+
+00:00:30.449 --> 00:00:34.200
+we get a set of rectangles or bounding boxes around all vehicles in the scene,
+
+00:00:34.200 --> 00:00:37.260
+and with these, we can unite camera and lidar.
+
+00:00:37.259 --> 00:00:39.059
+Let's take a look at the program flow schematic
+
+00:00:39.060 --> 00:00:42.070
+to see where we are, and where we need to go.
+

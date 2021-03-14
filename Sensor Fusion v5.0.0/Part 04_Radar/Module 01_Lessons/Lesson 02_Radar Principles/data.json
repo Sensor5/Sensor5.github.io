@@ -1,0 +1,1413 @@
+{
+  "data": {
+    "lesson": {
+      "id": 843807,
+      "key": "7fb8e8ec-0246-4e1e-9d12-e3cdf11391b7",
+      "title": "Radar Principles ",
+      "semantic_type": "Lesson",
+      "is_public": true,
+      "version": "1.0.0",
+      "locale": "en-us",
+      "summary": "Review Radar functionality, FMCW waveform, Radar Hardware, Schematic and the Radar Equation",
+      "lesson_type": "Classroom",
+      "display_workspace_project_only": false,
+      "resources": {
+        "files": [
+          {
+            "name": "Videos Zip File",
+            "uri": "https://zips.udacity-data.com/7fb8e8ec-0246-4e1e-9d12-e3cdf11391b7/843807/1561073497513/Radar+Principles++Videos.zip"
+          },
+          {
+            "name": "Transcripts Zip File",
+            "uri": "https://zips.udacity-data.com/7fb8e8ec-0246-4e1e-9d12-e3cdf11391b7/843807/1561073493487/Radar+Principles++Subtitles.zip"
+          }
+        ],
+        "google_plus_link": null,
+        "career_resource_center_link": null,
+        "coaching_appointments_link": null,
+        "office_hours_link": null,
+        "aws_provisioning_link": null
+      },
+      "project": null,
+      "lab": null,
+      "concepts": [
+        {
+          "id": 858998,
+          "key": "82031ce1-be64-4a82-ae2f-fa236f7343eb",
+          "title": "Why Use Radar?",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "82031ce1-be64-4a82-ae2f-fa236f7343eb",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 858999,
+              "key": "44db5c06-014a-41dc-8c8c-0d7bd7489639",
+              "title": "ND313 Andrei Intv 05 Why Do Self Driving Cars Specifically Use Radar",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "bHSdfsTz-ts",
+                "china_cdn_id": "bHSdfsTz-ts.mp4"
+              }
+            }
+          ]
+        },
+        {
+          "id": 843649,
+          "key": "38df3cda-6708-40e8-b9e0-347d02339007",
+          "title": "The Radar Sensor",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "38df3cda-6708-40e8-b9e0-347d02339007",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 843601,
+              "key": "8a2ecf63-b089-4722-bce4-0bc7a842ea63",
+              "title": "Header Text",
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "# The Radar Sensor",
+              "instructor_notes": ""
+            },
+            {
+              "id": 843595,
+              "key": "0ee222f1-c627-4fdd-acaf-29ca78d5e0a4",
+              "title": "L1A05 Radar Sensor",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "jpJT85km4jA",
+                "china_cdn_id": "jpJT85km4jA.mp4"
+              }
+            },
+            {
+              "id": 859056,
+              "key": "a37cf832-c1a8-4ed0-ae04-6ca089ead382",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## Radar History",
+              "instructor_notes": ""
+            },
+            {
+              "id": 859057,
+              "key": "07bcd7ec-3bf1-4d3e-8772-ed68ff25cf0a",
+              "title": "ND313 Andrei Intv 07 What Types Of Radar Do Self Driving",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "23ljUY31nBw",
+                "china_cdn_id": "23ljUY31nBw.mp4"
+              }
+            },
+            {
+              "id": 846374,
+              "key": "8af342fa-ce80-4499-bb83-6606b9b17fd3",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "Radars have been in use since 1930s when they were primarily used by the military to detect aircraft, but since then the radar technology has come a long way and today they are increasingly being used as automotive radar sensor for advanced driver assistance systems (ADAS). The image below shows how radar sensors are used along with a full suite of other sensors in an autonomous vehicle:",
+              "instructor_notes": ""
+            },
+            {
+              "id": 843617,
+              "key": "2cf7d300-53b2-4178-9995-085d7fb03c8a",
+              "title": "Automotive Radar",
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/April/5cc8c6d7_image21/image21.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/2cf7d300-53b2-4178-9995-085d7fb03c8a",
+              "caption": "Radar Sensor in Automotive space\n\nsource : cdn.rohde-schwarz.com",
+              "alt": "",
+              "width": 641,
+              "height": 361,
+              "instructor_notes": null
+            },
+            {
+              "id": 846368,
+              "key": "7db86174-ba31-402d-a769-76b45d2c96e9",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "The advancements in the RF technologies and Digital Signal processing have made it possible to design efficient radars at low cost and in smaller sizes. The radar’s capability to determine the targets at long range with accurate velocity and spatial information make it an important sensor for self driving applications. Additionally, its capability to sense objects in dark and poor weather (rain, fog) conditions also help it cover the domains where LIDAR or camera may fail.\n\n## Radar Operation",
+              "instructor_notes": ""
+            },
+            {
+              "id": 859026,
+              "key": "847635ab-a94c-4f2e-9827-3b9d1eae1559",
+              "title": "ND313 Andrei Intv 13 How Does A Radar Detect Objects",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "9aHn6wjXiZM",
+                "china_cdn_id": "9aHn6wjXiZM.mp4"
+              }
+            },
+            {
+              "id": 859025,
+              "key": "93784112-f476-40fe-a876-d9c9f478bbbb",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "Radar works using the transmission and detection of electromagnetic waves as seen in the following image:",
+              "instructor_notes": ""
+            },
+            {
+              "id": 843614,
+              "key": "0d37dbc6-f179-452d-8855-583276003b23",
+              "title": "Radar Physics",
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/April/5cc8cae9_image16/image16.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/0d37dbc6-f179-452d-8855-583276003b23",
+              "caption": "Radar Operation \\[source: [electricalelibrary](http://www.electricalelibrary.com/en/2018/05/06/how-radar-works/)\\] ",
+              "alt": "Radar reflecting from target.",
+              "width": 1423,
+              "height": 849,
+              "instructor_notes": null
+            },
+            {
+              "id": 843594,
+              "key": "21c9cff9-af57-4c85-b4ff-11201a1ada7e",
+              "title": "Radar Physics",
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "The electromagnetic waves are reflected if they meet an obstacle. If these reflected waves are received again at the place of their origin, then that means an obstacle is in the propagation direction.\n\nThe frequency of electromagnetic energy used for radar is unaffected by darkness and also penetrates fog and clouds. This permits radar systems to determine the position of road targets that are invisible to the naked eye because of distance, darkness, or weather.\n\nModern radar can extract widely more information from a target's echo signal than its range. \n\n## Radar Construction",
+              "instructor_notes": ""
+            },
+            {
+              "id": 843604,
+              "key": "e4dc13d7-0fde-4a91-9c4f-d7a7043faedb",
+              "title": "Radar Schematic",
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/April/5cc8cb17_image26/image26.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/e4dc13d7-0fde-4a91-9c4f-d7a7043faedb",
+              "caption": "Bosch Automotive Radar",
+              "alt": "Bosch Automotive Radar",
+              "width": 500,
+              "height": 1195,
+              "instructor_notes": null
+            },
+            {
+              "id": 846369,
+              "key": "b8f3ce1b-f7c8-4363-946e-2bea4b4ad4ff",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "The automotive radars are small size sensors that can easily fit beneath the front grill or the bumper. As seen in the image above a radar module comprises of different parts. \n\n- **Radar Dome or Radome**: A _radome_ is a structural, weatherproof enclosure that protects a radar antenna. The radome is constructed of material that minimally attenuates the electromagnetic signal transmitted or received by the antenna, effectively transparent to radio waves.\n\n- **Radar Printed Circuit Board**: This is analog hardware that includes the radar transceiver and antenna needed for radio wave generation.  \n\n- **Printed Circuit Board and Processing**: This includes the Digital Signal Processing (DSP) unit. \n",
+              "instructor_notes": ""
+            },
+            {
+              "id": 846380,
+              "key": "46900bd4-105e-44b0-a125-b8926fa8ded3",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## Radar vs Lidar",
+              "instructor_notes": ""
+            },
+            {
+              "id": 843598,
+              "key": "c967f4aa-09ab-473b-8519-61a82e540e7d",
+              "title": "Radar Vs LIDAR",
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/April/5cc8e09f_image27/image27.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/c967f4aa-09ab-473b-8519-61a82e540e7d",
+              "caption": "Comparison between RADAR and LIDAR \\[source: [cleantechnica](https://cleantechnica.com/2016/07/29/tesla-google-disagree-lidar-right/)\\]",
+              "alt": "Comparison between RADAR and LIDAR",
+              "width": 1999,
+              "height": 933,
+              "instructor_notes": null
+            },
+            {
+              "id": 846366,
+              "key": "c499dd1e-af80-4c52-9297-e921b22aa31a",
+              "title": "Lidar vs Radar",
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "One can find many of articles comparing the LIDAR and RADAR, but in practice, these sensors are complementary to each other. \n\nLIDAR can generate high resolution imaging based on reflection of the laser light off from the targets. But LIDARs fail in bad weather conditions as the very small wavelength doesn’t allow to work well in fog or rain. Additionally, LIDAR is an expensive sensor with costs varying from  $35,000 to $100,000 as of 2019. Lidar is the preferred technology at Waymo. \n\nRadar lacks the capability to generate a high resolution image, but it has highly accurate velocity estimation based on the doppler phenomenon, which we will cover in more detail later in this course. \nAlso, radar wavelength allows it to sense the targets in bad weather conditions as well. Most important is the low manufacturing cost for a Radar. A radar unit can cost as low as a few hundred dollars, allowing a car manufacturer to deploy multiple Radar sensors for 360 degree perception. Tesla relies on Radar as its primary sensor and doesn’t include LIDAR in its sensor fusion system. \n\n[Read how Delphi](https://www.mathworks.com/company/user_stories/delphi-develops-radar-sensor-alignment-algorithm-for-automotive-active-safety-system.html)   used MATLAB and code generation to implement a radar safety system",
+              "instructor_notes": ""
+            },
+            {
+              "id": 859027,
+              "key": "4f9b3fb5-6dc0-4a93-be8c-b21bda01019b",
+              "title": "ND313 Andrei Intv 06 What Challenges Do You Encounter",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "d_eBzzfmDj8",
+                "china_cdn_id": "d_eBzzfmDj8.mp4"
+              }
+            },
+            {
+              "id": 846382,
+              "key": "cc79e829-eb5b-40e5-983b-3056e2c14a72",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## Radar Quiz",
+              "instructor_notes": ""
+            },
+            {
+              "id": 846364,
+              "key": "e8493b36-c472-4045-aff2-42804c58795b",
+              "title": "LIDAR Vs Radar",
+              "semantic_type": "CheckboxQuizAtom",
+              "is_public": true,
+              "instructor_notes": null,
+              "user_state": {
+                "node_key": "e8493b36-c472-4045-aff2-42804c58795b",
+                "completed_at": null,
+                "last_viewed_at": null,
+                "unstructured": null
+              },
+              "question": {
+                "prompt": "Pick the correct choice(s) from the options below.",
+                "answers": [
+                  {
+                    "id": "rbk1",
+                    "text": "LIDAR is a more reliable sensor than a Radar while driving on a rainy day.",
+                    "is_correct": false
+                  },
+                  {
+                    "id": "rbk2",
+                    "text": "For a low priced car, a car manufacturer would prefer to install Radars rather than LIDARs.",
+                    "is_correct": true
+                  },
+                  {
+                    "id": "rbk3",
+                    "text": "Radar is a better sensor in estimating the time taken by an oncoming car to reach the ego vehicle",
+                    "is_correct": true
+                  },
+                  {
+                    "id": "rbk4",
+                    "text": "Radar is a better sensor at outlining the objects",
+                    "is_correct": false
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "id": 843651,
+          "key": "4af87947-67d4-4b6d-9176-87413df06c1b",
+          "title": "Signal Properties",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "4af87947-67d4-4b6d-9176-87413df06c1b",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 843597,
+              "key": "be87820c-feaf-4558-b9d3-7fabb6bc19e1",
+              "title": "Header Text",
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "# Signal Properties",
+              "instructor_notes": ""
+            },
+            {
+              "id": 848310,
+              "key": "bae5891a-06e7-41f7-be05-b16d1c131fa5",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "In this concept, you will see a general overview of signal properties, including definitions of the wavelength of a signal and the general form for the equation of a signal. ",
+              "instructor_notes": ""
+            },
+            {
+              "id": 846383,
+              "key": "3ead7b18-fcf6-47b2-b548-0de48667597b",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## Single Wave Parameters",
+              "instructor_notes": ""
+            },
+            {
+              "id": 843615,
+              "key": "d3b84a85-1020-46fc-a4ab-e6f4c9b9af45",
+              "title": "Wavelength",
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "Wavelength (<span class=\"mathquill\">\\lambda</span>) is the physical length from one point of a wave to the same point on the next wave, and it is calculated as \n\n<div class=\"mathquill\">\n\\lambda = \\frac{\\textrm{speed of light}}{\\textrm{frequency}}\n</div> \n\nThe higher the frequency the smaller the wavelength. \n\n",
+              "instructor_notes": ""
+            },
+            {
+              "id": 843616,
+              "key": "369bea18-d49c-4c53-8ff9-70e90f6c7773",
+              "title": "",
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/May/5cc9dc6e_image/image.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/369bea18-d49c-4c53-8ff9-70e90f6c7773",
+              "caption": "Wavelength of a signal \n\n\\[source: [techplayon](http://www.techplayon.com/wavelength-frequency-amplitude-phase-defining-waves//)\\] ",
+              "alt": "High and low frequency wavelength",
+              "width": 825,
+              "height": 366,
+              "instructor_notes": null
+            },
+            {
+              "id": 843593,
+              "key": "06f94515-cb18-4201-b259-a3a2e0979d9e",
+              "title": "Frequency, Amplitude",
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "The _frequency_ of a wave is the number of waves that pass by each second, and is measured in Hertz (Hz). The automotive radar generally operates at W band (76GHz - 81GHz). The signal at this frequency is referred to as millimeterWave since the wavelength is in mm.\n\nThe _Bandwidth_ of a signal is the difference between the highest and the lowest frequency components in a continous band of frequencies. \n\nThe _Amplitude_ is the strength of the signal. Often it corresponds to the power of the RF signal/electromagnetic field defined in dB/dBm. It is relevant while configuring the output power of the radar and sensing the received signal. Higher the amplitude of the Radar signal, more is the visibility of radar. Automotive Radar can operate at max of 55 dBm output power (316 W)\n\ndB, dBm, mW, and W conversions can be found [here](https://www.rapidtables.com/electric/dBm.html).",
+              "instructor_notes": ""
+            },
+            {
+              "id": 843602,
+              "key": "ec0ac6b7-87e7-4f29-9410-a98c1705e374",
+              "title": "",
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/May/5cc8e6ce_image25/image25.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/ec0ac6b7-87e7-4f29-9410-a98c1705e374",
+              "caption": "Frequency of a signal \\[[source](http://www.techplayon.com/wavelength-frequency-amplitude-phase-defining-waves/)\\]",
+              "alt": "Signal frequency",
+              "width": 452,
+              "height": 270,
+              "instructor_notes": null
+            },
+            {
+              "id": 846379,
+              "key": "8375e1d3-127d-45aa-abce-e03029b7fe9a",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/May/5cc8e79c_image1/image1.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/8375e1d3-127d-45aa-abce-e03029b7fe9a",
+              "caption": "Amplitude of a signal \\[[source](http://www.techplayon.com/wavelength-frequency-amplitude-phase-defining-waves/)\\]",
+              "alt": "Signal amplitude",
+              "width": 1092,
+              "height": 487,
+              "instructor_notes": null
+            },
+            {
+              "id": 846384,
+              "key": "c78a07cd-bafc-4bac-b33f-c4fa9bed1f80",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## Phase of a Signal",
+              "instructor_notes": ""
+            },
+            {
+              "id": 850558,
+              "key": "6015d3a7-a37d-4498-a83d-e9f5755dda33",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "_Phase_ is a particular point in time on the cycle of a waveform, measured as an angle in degrees. A complete cycle is 360°.  The phase for each argument value, relative to the start of the cycle, is shown in the image below, in degrees from 0° to 360° and in radians from 0 to 2π. \n\nThe frequency can also be defined as the first derivative of the phase with respect to the time.\n<div class=\"mathquill\">\nfrequency = \\frac{d\\varphi}{dt}\n</div>\nwhere\n<div class=\"mathquill\">\n\\varphi = phase\\,\\,of\\,\\,the\\,\\,signal\n</div>\n\nThis property will be used in measuring the doppler frequency shift for a moving target. \n",
+              "instructor_notes": ""
+            },
+            {
+              "id": 850810,
+              "key": "296acf16-0443-4569-b8eb-f8a8fcd62127",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/May/5ce71dee_image/image.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/296acf16-0443-4569-b8eb-f8a8fcd62127",
+              "caption": "Phase of sinusoidal waveform\n\nsource : Wikipedia",
+              "alt": "",
+              "width": 400,
+              "height": 661,
+              "instructor_notes": null
+            },
+            {
+              "id": 843632,
+              "key": "202fb5bc-a5f1-41f5-9db6-529a2dc481c4",
+              "title": "Phase",
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "The difference between the phases of two periodic signals is called the _phase_ _difference_.\nAt values of when the difference is zero, the two signals are said to be in phase, otherwise they are out of phase with each other.\n\n\nThe phase information processing is important as we go through doppler processing as well as Angle of Arrival techniques for radar. ",
+              "instructor_notes": ""
+            },
+            {
+              "id": 843608,
+              "key": "8dbe140c-f4b2-4d37-bc97-ee5e8decab8b",
+              "title": "Phase",
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/May/5cc8e804_image15/image15.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/8dbe140c-f4b2-4d37-bc97-ee5e8decab8b",
+              "caption": "Phase of a signal",
+              "alt": "",
+              "width": 600,
+              "height": 716,
+              "instructor_notes": null
+            },
+            {
+              "id": 846385,
+              "key": "5db91da7-9d6c-4a44-97e5-54777d2db0da",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## General Equation of a Wave",
+              "instructor_notes": ""
+            },
+            {
+              "id": 843599,
+              "key": "a0b6aff5-1d3e-458c-a7c8-d06b0ce00ff0",
+              "title": "RF signal equation",
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "\n\nA wave travelling in space is defined by the following equation:\n<div class=\"mathquill\">\ny(t)  = A\\cos(2\\pi\\cdot f_c \\cdot t + \\phi) \n</div>\nBelow, the variables in the equation are defined:\n- <span class=\"mathquill\">A</span> is the amplitude of the signal\n- <span class=\"mathquill\">f_c</span> is the signal frequency\n- <span class=\"mathquill\">\\phi</span> is the phase of the signal\n\n ",
+              "instructor_notes": ""
+            },
+            {
+              "id": 846386,
+              "key": "d86bf739-376f-49b1-9d5f-de00f702e6fb",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## Wavelength Exercise",
+              "instructor_notes": ""
+            },
+            {
+              "id": 846387,
+              "key": "d733155f-9117-439a-b147-bd43f9b0a597",
+              "title": "",
+              "semantic_type": "QuizAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "user_state": {
+                "node_key": "d733155f-9117-439a-b147-bd43f9b0a597",
+                "completed_at": null,
+                "last_viewed_at": null,
+                "unstructured": null
+              },
+              "instruction": null,
+              "question": {
+                "title": "Wavelength Calculation",
+                "prompt": "Calculate the wavelength (λ) in mm for the signal traveling at 77 GHz frequency. Write your solution as a decimal number without units.",
+                "semantic_type": "CodeGradedQuestion",
+                "evaluation_id": "5373831741308928"
+              },
+              "answer": null
+            }
+          ]
+        },
+        {
+          "id": 843654,
+          "key": "9ca63838-9e9f-4028-832a-e1597ac033a5",
+          "title": "FMCW",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "9ca63838-9e9f-4028-832a-e1597ac033a5",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 843606,
+              "key": "fd4eaf1e-11c9-4822-b0aa-b632c140c48f",
+              "title": "Header Text",
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "# FMCW",
+              "instructor_notes": ""
+            },
+            {
+              "id": 843603,
+              "key": "f8cbb97b-3375-4588-801a-ed93339b8041",
+              "title": "L1A25 FMCW",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "yzaJiswdgMQ",
+                "china_cdn_id": "yzaJiswdgMQ.mp4"
+              }
+            },
+            {
+              "id": 843612,
+              "key": "1da58924-8fee-4b35-99b5-3490dce66eee",
+              "title": "Features of FMCW",
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "FMCW radar (Frequency-Modulated Continuous Wave radar) is a special type of radar sensor which radiates continuous transmission power. FMCW radar’s ability to measure very small ranges to the target as well as its ability to measure simultaneously the target range and its relative velocity makes it the first choice type of radar for automotive applications. ",
+              "instructor_notes": ""
+            },
+            {
+              "id": 846427,
+              "key": "e33aae56-b553-40f0-bfa3-352ced678be4",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## FMCW Chirps",
+              "instructor_notes": ""
+            },
+            {
+              "id": 859029,
+              "key": "c4a7c682-22d6-404e-94a5-27262c3cf4a8",
+              "title": "ND313 Andrei Intv 14 What Is A Chirp",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "Sn4aohlulf4",
+                "china_cdn_id": "Sn4aohlulf4.mp4"
+              }
+            },
+            {
+              "id": 843630,
+              "key": "034c018b-5635-47dd-b6cf-c1cacd5820a6",
+              "title": "FMCW waveform",
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/May/5cca0719_image5/image5.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/034c018b-5635-47dd-b6cf-c1cacd5820a6",
+              "caption": "FMCW waveform\n\nsource : emagtech",
+              "alt": "",
+              "width": 865,
+              "height": 352,
+              "instructor_notes": null
+            },
+            {
+              "id": 843607,
+              "key": "62396167-d76f-4dc1-8292-ff15f5b7bd4a",
+              "title": "Chirp Sequence",
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "A _Frequency Modulated Continous Wave_ (FMCW) is a signal in which the frequency increases/decreases with time. They are also referred to as upramps and downramps. The two most common waveform pattern used for FMCW radars are sawtooth and triangular. The sawtooth waveform generally uses just the upramps, whereas the triangular waveform uses both upramps and downramps. \n\nEach chirp is defined by its slope. The slope is given by its chirp frequency bandwidth <span class=\"mathquill\">B</span> or <span class=\"mathquill\">B_{sweep}</span> (y-axis) and its chirp time <span class=\"mathquill\">T_s</span> (x-axis). Hence, \n<div class=\"mathquill\">\nSlope = \\frac{B}  {T_s}\n</div>\n\nThe range resolution requirement decides the <span class=\"mathquill\">B</span>, whereas the maximum velocity capability of a radar is determined by the chirp time <span class=\"mathquill\">T_s</span>. We will discuss this in more detail in later sections.\n\n",
+              "instructor_notes": ""
+            },
+            {
+              "id": 846425,
+              "key": "0eb0dbda-0e21-42b9-918a-13e1de34b9f3",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "One _chirp sequence_ or _segment_ comprises of multiple chirps. Each chirp is sampled multiple times to give multiple range measurements and radar transmits in order to measure doppler velocity accurately. \n\nIn the course project you will sample each chirp 1024 times and send 128 of these chirps to estimate the range and doppler velocity. So, the segment in this case would comprise of 128 chirps. \n",
+              "instructor_notes": ""
+            },
+            {
+              "id": 846436,
+              "key": "61fdf40b-a5c0-48cc-a76d-191f66124fe0",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## Chirp Exercise",
+              "instructor_notes": ""
+            },
+            {
+              "id": 846426,
+              "key": "147c6852-1bf5-459c-8344-a06cec2d126d",
+              "title": "",
+              "semantic_type": "QuizAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "user_state": {
+                "node_key": "147c6852-1bf5-459c-8344-a06cec2d126d",
+                "completed_at": null,
+                "last_viewed_at": null,
+                "unstructured": null
+              },
+              "instruction": null,
+              "question": {
+                "title": "Chirp Slope",
+                "prompt": "Determine the slope of the sweeps with frequency from 77GHz to 77.113 GHz in time duration of 18 microseconds. You should compute your answer with units MHz/μs, but the answer should be entered as a decimal number. ",
+                "semantic_type": "CodeGradedQuestion",
+                "evaluation_id": "5992273443946496"
+              },
+              "answer": null
+            },
+            {
+              "id": 846424,
+              "key": "fe2f37fc-5658-4221-a751-8a130061f6d0",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## Additional Resources",
+              "instructor_notes": ""
+            },
+            {
+              "id": 843610,
+              "key": "6307dfd7-6595-4ed0-81f7-faf941342364",
+              "title": "Further Research",
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "Additional information can be found on radartutorial.eu [here](http://www.radartutorial.eu/02.basics/Frequency%20Modulated%20Continuous%20Wave%20Radar.en.html).",
+              "instructor_notes": ""
+            }
+          ]
+        },
+        {
+          "id": 843652,
+          "key": "5ecc4f80-5ba0-4bb4-9351-0557fd03e279",
+          "title": "FMCW Hardware and Antenna",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "5ecc4f80-5ba0-4bb4-9351-0557fd03e279",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 848317,
+              "key": "df2ffd8b-b41c-4fbd-abb9-879d0de872eb",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "# FMCW Hardware",
+              "instructor_notes": ""
+            },
+            {
+              "id": 848316,
+              "key": "55c3cb85-af27-4c0a-8142-4e7730807876",
+              "title": "L1A40 Antenna",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "4aw8Uts9fqA",
+                "china_cdn_id": "4aw8Uts9fqA.mp4"
+              }
+            },
+            {
+              "id": 848311,
+              "key": "fb18583b-65ee-4de4-875a-77a60ce7c843",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## FMCW Hardware Overview",
+              "instructor_notes": ""
+            },
+            {
+              "id": 848314,
+              "key": "89b57528-e908-468d-9eef-fcef304bd677",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/May/5cdb6b2a_image11/image11.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/89b57528-e908-468d-9eef-fcef304bd677",
+              "caption": "Hardware implementation of the FMCW Radar",
+              "alt": "",
+              "width": 1999,
+              "height": 961,
+              "instructor_notes": null
+            },
+            {
+              "id": 848315,
+              "key": "b2ba06c7-45b1-4bc7-9c9b-6e96ece533cf",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "**Frequency Synthesizer**: The _frequency synthesizer_ is the component that generates the frequency to bring the chirp frequency all the way to 77GHz in case of automotive radar.\n\n**Power Amp**: The _power amp_ amplifies the signal so the signal can reach long distance. Since the signal attenuates as it radiates, it needs higher power (amplitude) to reach targets at greater distances. \n\n**Antenna**: The _antenna_ converts the electrical energy into electromagnetic waves which radiate through the air, hit the target, and get reflected back toward the radar receiver antenna. The Antenna also increases the strength of the signal by focusing the energy in the desired direction. Additionally, the antenna pattern determines the field of view for the radar.\n\n**Mixer**: In FMCW radar, the _mixer_ multiplies the return signal with the sweeping signal generated by the frequency synthesizer. The operation works as frequency subtraction to give the frequency delta - also known as frequency shift or Intermediate frequency (IF). IF = Synthesizer Frequency - Return Signal Frequency.\n\n**Processor**: The _processor_ is the processing unit where all the Digital Signal processing, Detection, Tracking, Clustering, and other algorithms take place. This unit could be a microcontroller or even an FPGA.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 846428,
+              "key": "70efee96-9c4b-4729-83c6-35908c1f7fc9",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## Antenna Details",
+              "instructor_notes": ""
+            },
+            {
+              "id": 843643,
+              "key": "4ffbcaef-ade7-4ca7-bebf-1cf2c4aecb60",
+              "title": "L1A40 Antenna",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "4aw8Uts9fqA",
+                "china_cdn_id": "4aw8Uts9fqA.mp4"
+              }
+            },
+            {
+              "id": 843633,
+              "key": "260a211e-8709-4b67-bfd8-7fa1dafacf19",
+              "title": "Antenna Property",
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "As defined in the FMCW Hardware definitions, the antenna is a transducer that converts the electrical energy into electromagnetic waves. In the case of radar, these waves travel through the air and hit the target. Depending on the surface type and shape of the target, the waves get partially reflected back in the direction of the radar. The receiver antenna at the radar amplifies the received signal further and sends it to the receiver chain for further processing. ",
+              "instructor_notes": ""
+            },
+            {
+              "id": 846429,
+              "key": "1bbc1423-96fe-4896-9e96-173cb4f2f810",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "### The Antenna Pattern",
+              "instructor_notes": ""
+            },
+            {
+              "id": 843623,
+              "key": "ffeec4ec-fb0a-4eb3-90a1-a6567a9b3247",
+              "title": "Radar Antenna Pattern",
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/May/5cca1316_image24/image24.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/ffeec4ec-fb0a-4eb3-90a1-a6567a9b3247",
+              "caption": "Radar illumination on the road scenario\n\nsource : sciencedirect.com",
+              "alt": "",
+              "width": 535,
+              "height": 200,
+              "instructor_notes": null
+            },
+            {
+              "id": 843644,
+              "key": "d3159544-126f-4af0-9865-f4bef4a991dc",
+              "title": "Antenna Pattern",
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "The _antenna pattern_ is the geometric pattern of the strengths of the relative field emitted by the antenna.\n\nThe _beamwidth_ of the antenna determines the field of view for the radar sensor. If the requirement for the radar is to just sense the targets in its own lane then the beamwidth needs to be small enough to cover the complete lane up to desired range. If the beamwidth is wider than the lane width, it will sense the targets in the other lanes as well. ",
+              "instructor_notes": ""
+            },
+            {
+              "id": 843613,
+              "key": "3fd1e50e-df95-42fa-93e5-f68bd5b3937d",
+              "title": "",
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/May/5cca151f_image2/image2.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/3fd1e50e-df95-42fa-93e5-f68bd5b3937d",
+              "caption": "Antenna Pattern",
+              "alt": "",
+              "width": 1833,
+              "height": 863,
+              "instructor_notes": null
+            },
+            {
+              "id": 843631,
+              "key": "2df2ec8c-018f-44df-9d4b-c9dbbfa1e3fb",
+              "title": "Antenna Sidelobes",
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "Antenna radiation not only comprises of the main beam but the sidelobes as well. Antenna _sidelobes_ are critical because they can generate false alarms and pick interference from undesired direction. As seen in the pattern, the sidelobes of the antenna point in different directions and can sense targets that are not in the main beam. To avoid sidelobe detections it is critical to suppress the sidelobe levels to more than 30dB from the peak of the main beam. ",
+              "instructor_notes": ""
+            },
+            {
+              "id": 846431,
+              "key": "395f1043-4391-431f-a2ee-146a0d8e325a",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "### Antenna Types",
+              "instructor_notes": ""
+            },
+            {
+              "id": 843622,
+              "key": "99e9f13d-3993-42e4-b2db-8fd29ee89e21",
+              "title": "Antenna Array",
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/May/5cca15e1_image14/image14.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/99e9f13d-3993-42e4-b2db-8fd29ee89e21",
+              "caption": "Patch Array Antenna \\[[source](https://www.fhr.fraunhofer.de/en/businessunits/traffic/antenna-development-for-the-automotive-sector.html)]",
+              "alt": "https://www.fhr.fraunhofer.de/en/businessunits/traffic/antenna-development-for-the-automotive-sector.html",
+              "width": 279,
+              "height": 198,
+              "instructor_notes": null
+            },
+            {
+              "id": 846430,
+              "key": "0a7f7869-6eb3-4166-a85d-2435ab501bd4",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "There are many types of antenna (dipole, patch, horn) that can be used at 77GHz, but the most commonly used antenna type in automotive radar is the patch antenna . The low cost, easy fabrication, and low profile of Patch Array Antennas makes them an ideal choice for automotive radar applications.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 859033,
+              "key": "44916f9a-8f05-49c4-8c34-8f49d1c4d783",
+              "title": "ND313 Andrei Intv 19 What Do Radar Antennae Do",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "_O0lKGan9DE",
+                "china_cdn_id": "_O0lKGan9DE.mp4"
+              }
+            },
+            {
+              "id": 846432,
+              "key": "42624d6c-4529-4679-9f8f-66710221762c",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "### Antenna Quiz",
+              "instructor_notes": ""
+            },
+            {
+              "id": 846433,
+              "key": "34346b1e-ff88-4f9b-9e36-a6ae7370a78b",
+              "title": "",
+              "semantic_type": "CheckboxQuizAtom",
+              "is_public": true,
+              "instructor_notes": null,
+              "user_state": {
+                "node_key": "34346b1e-ff88-4f9b-9e36-a6ae7370a78b",
+                "completed_at": null,
+                "last_viewed_at": null,
+                "unstructured": null
+              },
+              "question": {
+                "prompt": "Which of the following are true for a Radar Antenna?",
+                "answers": [
+                  {
+                    "id": "a1556747784640",
+                    "text": "Stronger Side Lobes help to avoid interference.",
+                    "is_correct": false
+                  },
+                  {
+                    "id": "a1556747822993",
+                    "text": "A stronger main beam (peak output power) is used for Long Range Radar (LRR).",
+                    "is_correct": true
+                  },
+                  {
+                    "id": "a1556747838602",
+                    "text": "A narrow Beamwidth is used for covering fewer lanes.",
+                    "is_correct": true
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "id": 843653,
+          "key": "4d8b1499-97c9-43af-9bd0-6bd9e4a942fc",
+          "title": "Radar Cross Section",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "4d8b1499-97c9-43af-9bd0-6bd9e4a942fc",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 846434,
+              "key": "dfcf73c9-efbc-456d-b0ea-de87e00002a8",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "# Radar Cross Section",
+              "instructor_notes": ""
+            },
+            {
+              "id": 843642,
+              "key": "251eb1a3-f5df-4322-8276-92ef3cfb9000",
+              "title": "L1A56 Radar Cross Section",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "-0oYVm98eLA",
+                "china_cdn_id": "-0oYVm98eLA.mp4"
+              }
+            },
+            {
+              "id": 846438,
+              "key": "a3ab17aa-175f-48b2-ac0f-2bfba34faab0",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## Radar Cross Section Overview",
+              "instructor_notes": ""
+            },
+            {
+              "id": 843621,
+              "key": "d2ac1e43-4c8c-496f-bc49-71db9e153526",
+              "title": "",
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "The size and ability of a target to reflect radar energy is defined by a single term, <span class=\"mathquill\"> \\sigma </span>, known as the radar cross-section, which has units of  <span class=\"mathquill\">m^2</span>. This unit shows that the radar cross section is an area. The target radar cross sectional area depends on:\n\n- The target’s physical geometry and exterior features:\n  - Smooth edges or surface would scatter the waves in all directions, hence lower RCS. Whereas, sharp corners will focus the return signal back in the direction of the source leading to higher RCS. (Image below for different target geometries)\n- The direction of the illuminating radar,\n- The radar transmitter’s frequency,\n- The material used in the cars, trucks, bicycles, and even in some cases, the clothing material for pedestrians.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 843646,
+              "key": "aea0498c-4a14-4049-baca-ab905ba1fc53",
+              "title": "",
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/May/5cca3268_image13/image13.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/aea0498c-4a14-4049-baca-ab905ba1fc53",
+              "caption": "RCS of the target vehicle\n\nsource : https://arxiv.org/pdf/1607.02434.pdf",
+              "alt": "",
+              "width": 1082,
+              "height": 653,
+              "instructor_notes": null
+            },
+            {
+              "id": 843620,
+              "key": "69c06cca-73e0-4cc1-8cf1-70fcbb260fd6",
+              "title": "",
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "If absolutely all of the incident radar energy on the target were reflected equally in all directions, then the radar cross section would be equal to the target's cross-sectional area as seen by the transmitter. In practice, some energy is absorbed and the reflected energy is not distributed equally in all directions. Therefore, the radar cross-section is quite difficult to estimate and is normally determined by measurement.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 846367,
+              "key": "d617dfb2-9e0c-439d-afd7-92d8ed5d0563",
+              "title": "Returns from Different Target Geometries",
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/May/5cca32ce_image7/image7.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/d617dfb2-9e0c-439d-afd7-92d8ed5d0563",
+              "caption": "Returns from Different Target Geometries\n\nsource : http://www.radartutorial.eu",
+              "alt": "",
+              "width": 325,
+              "height": 75,
+              "instructor_notes": null
+            },
+            {
+              "id": 846439,
+              "key": "80989b24-7eea-49e6-92e5-c808a44350e6",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## RCS Units",
+              "instructor_notes": ""
+            },
+            {
+              "id": 846437,
+              "key": "2a1490b3-5f36-47a0-80c5-354201a05957",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "\nThis RCS can also be defined using a logarithmic value (dB), since it increases the return signal strength. The formula for converting from RCS to dB is given by:\n\n<div class=\"mathquill\">\nRCS_{dB} = 10\\log (RCS_{m^2})\n</div>\n\nThe following table shows RCS values for different targets in both <span class=\"mathquill\">m^2</span> and dB. You can use the formula above to see how the two columns of the table are related. For example, from the table below we can see that for an automobile:\n\n<div class=\"mathquill\">\nRCS_{dB} = 10  \\log (100) = 20\n</div>",
+              "instructor_notes": ""
+            },
+            {
+              "id": 843627,
+              "key": "125007ba-ee85-4be8-b995-ae73daa917f5",
+              "title": "",
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/May/5cca3289_image12/image12.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/125007ba-ee85-4be8-b995-ae73daa917f5",
+              "caption": "RCS of different targets\n\nsource : http://www.radartutorial.eu",
+              "alt": "",
+              "width": 208,
+              "height": 236,
+              "instructor_notes": null
+            },
+            {
+              "id": 846435,
+              "key": "d09221dc-a701-4c9c-b966-cd62343952ec",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "### RCS Quiz",
+              "instructor_notes": ""
+            },
+            {
+              "id": 846441,
+              "key": "7119d8a6-6c24-4b0f-a822-f271c74df577",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/May/5cca4009_image4/image4.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/7119d8a6-6c24-4b0f-a822-f271c74df577",
+              "caption": "Stealth Aircraft\n\nsource : pinterest",
+              "alt": "",
+              "width": 705,
+              "height": 505,
+              "instructor_notes": null
+            },
+            {
+              "id": 846440,
+              "key": "fe84d687-a334-4ac1-ae61-f8a04f796426",
+              "title": "Stealth Planes",
+              "semantic_type": "CheckboxQuizAtom",
+              "is_public": true,
+              "instructor_notes": null,
+              "user_state": {
+                "node_key": "fe84d687-a334-4ac1-ae61-f8a04f796426",
+                "completed_at": null,
+                "last_viewed_at": null,
+                "unstructured": null
+              },
+              "question": {
+                "prompt": "What makes stealth aircraft go undetected by radars?",
+                "answers": [
+                  {
+                    "id": "a1556758453224",
+                    "text": "The aircraft’s Smooth Surface",
+                    "is_correct": true
+                  },
+                  {
+                    "id": "a1556758481555",
+                    "text": "The non-reflective paint",
+                    "is_correct": true
+                  },
+                  {
+                    "id": "a1556758492955",
+                    "text": "The geometry of the Aircraft",
+                    "is_correct": true
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "id": 843650,
+          "key": "c5919bac-18d8-44a6-8aba-4d0296b5f415",
+          "title": "Radar Range Equation",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "c5919bac-18d8-44a6-8aba-4d0296b5f415",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 846444,
+              "key": "9e126725-9faa-422b-a50a-953821fb36c9",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "# Radar Range Equation",
+              "instructor_notes": ""
+            },
+            {
+              "id": 843638,
+              "key": "82bef9b6-0a58-4404-80e9-fbaa566cfb94",
+              "title": "L1A64 Radar Equation",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "7uKLJMnXCYQ",
+                "china_cdn_id": "7uKLJMnXCYQ.mp4"
+              }
+            },
+            {
+              "id": 846442,
+              "key": "65041882-300f-4c9b-9056-55e269ec0626",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## Range Equation Overview",
+              "instructor_notes": ""
+            },
+            {
+              "id": 843629,
+              "key": "c2e494b2-e30c-4812-a36c-7bb0b3e14b0c",
+              "title": "Range Equation",
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "Using the Radar Range equation we can design the radar transmitter, receiver, and antenna to have the desired power, gain and noise performance to meet the range requirements. \n\nA long range radar designed to cover 300m range and detect a target with smaller cross section would need higher transmit power and more antenna gain as compared to a short range radar designed to cover just 50m for similar target. A target with higher cross section can be detected at a longer range as compared to a target with smaller cross section. ",
+              "instructor_notes": ""
+            },
+            {
+              "id": 843635,
+              "key": "3c2434c2-6a93-4e5a-9098-d325a624de39",
+              "title": "Range Equation",
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/May/5cca416a_image9/image9.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/3c2434c2-6a93-4e5a-9098-d325a624de39",
+              "caption": "Radar Equation \n\nsource : http://www.radartutorial.eu",
+              "alt": "",
+              "width": 295,
+              "height": 110,
+              "instructor_notes": null
+            },
+            {
+              "id": 846443,
+              "key": "ed8a5180-edc2-4022-87e7-93994a39cd0e",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "- <span class=\"mathquill\">R</span> - Maximum Range a radar can detect targets.\n- <span class=\"mathquill\">P_s</span> - Transmitted Power from Radar (dBm)\n- <span class=\"mathquill\">G</span> -  Gain of the Transmit/Receive Antenna (dBi)\n- <span class=\"mathquill\">\\lambda</span> -    Wavelength of the signal (<span class=\"mathquill\">m</span>)\n- <span class=\"mathquill\">\\sigma</span> - radar cross section (<span class=\"mathquill\">m^2</span>)\n- <span class=\"mathquill\">P_E</span> - Minimum received power radar can detect.\n",
+              "instructor_notes": ""
+            },
+            {
+              "id": 846449,
+              "key": "d05c1f0e-9b0d-4abd-a56e-89849713f121",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/May/5cca4baa_image15/image15.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/d05c1f0e-9b0d-4abd-a56e-89849713f121",
+              "caption": "The image above shows the variation in the signal strength level as it travels through transmitter, over the air and at the receiver",
+              "alt": "",
+              "width": 700,
+              "height": 1110,
+              "instructor_notes": null
+            },
+            {
+              "id": 846478,
+              "key": "fd9893cb-5f2c-4aad-8ce5-44a807921497",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "The image above shows the variation in the signal strength level : \n- The transmitter power\n- Power Amplifiers further increase the signal strength - Transmit chain gain\n- Signal is further amplified using an antenna\n- One Way Path Loss represents the loss in the signal strength as it travels towards the target\n- On getting reflected from the target the signal gets amplified based on the RCS of the target\n- After RCS gain the signal travel back towards the radar and has similar loss in strength as going forward\n- The receiver antenna amplifies the return signal before sending it to the processing unit\n",
+              "instructor_notes": ""
+            },
+            {
+              "id": 846446,
+              "key": "990a9892-1b72-4a07-86a0-14dc78834928",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## Range Equation Quiz",
+              "instructor_notes": ""
+            },
+            {
+              "id": 844197,
+              "key": "58393050-a742-48fd-83c6-c17fcb00ce17",
+              "title": "Range Equation",
+              "semantic_type": "CheckboxQuizAtom",
+              "is_public": true,
+              "instructor_notes": null,
+              "user_state": {
+                "node_key": "58393050-a742-48fd-83c6-c17fcb00ce17",
+                "completed_at": null,
+                "last_viewed_at": null,
+                "unstructured": null
+              },
+              "question": {
+                "prompt": "What all contributes to the successful detection of the pedestrian at far distance?",
+                "answers": [
+                  {
+                    "id": "rbk1",
+                    "text": "Higher Antenna Gain",
+                    "is_correct": true
+                  },
+                  {
+                    "id": "rbk2",
+                    "text": "Higher Minimum Detectable Signal of the Receiver",
+                    "is_correct": false
+                  },
+                  {
+                    "id": "rbk3",
+                    "text": "Smaller Radar Cross Section (RCS) of the Pedestrian",
+                    "is_correct": false
+                  },
+                  {
+                    "id": "rbk4",
+                    "text": "Higher Transmitter Power",
+                    "is_correct": true
+                  }
+                ]
+              }
+            },
+            {
+              "id": 846447,
+              "key": "d6846cf5-0fa1-45c5-8ce7-72f7c72414f6",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## Radar Detection",
+              "instructor_notes": ""
+            },
+            {
+              "id": 843640,
+              "key": "43b4c512-ce70-4b91-a2c6-443ad188f538",
+              "title": "SNR",
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "Below is an illustration showing the output of a radar's range detection. The peaks correspond to the strength of the return signal from targets and the frequency relates to the range. Relationship between frequency and range will be discussed in next lesson. \n\nA radar cannot detect a signal that is below the noise level. The noise level is determined by the thermal noise generated by the receiver. To successfully detect a target, the return signal strength needs to be larger than the noise level. This is defined by a property called _signal to noise ratio_, or _SNR.\n\nSNR is a quantitative measure of a signal strength as compared to the level of noise. If the SNR is too low it becomes difficult for a radar to distinguish the signal from noise. Hence, higher SNR is desirable for successful detection of the target. Generally, a 7-13 dB SNR ensures successful detection in a road scenario.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 843639,
+              "key": "f9b80e9f-a119-4dba-991c-2e7006abfc4b",
+              "title": "SNR",
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/May/5cca4667_image10/image10.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/f9b80e9f-a119-4dba-991c-2e7006abfc4b",
+              "caption": "Signal to Noise Ratio",
+              "alt": "",
+              "width": 598,
+              "height": 346,
+              "instructor_notes": null
+            },
+            {
+              "id": 846474,
+              "key": "7427c267-8a85-4fcc-82da-565be6f7dc9a",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "The image above shows the logarithmic value of SNR =  power level (in dBm) - noise level (dBm). The plot shows the output of Range FFT (discussed in Lesson 2). In general, the higher the SNR value, the greater are the chances of successful Radar detection.\n",
+              "instructor_notes": ""
+            },
+            {
+              "id": 846448,
+              "key": "54b5396c-1080-45ea-812e-5e09e17e284d",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## Matlab Exercise: Maximum Range Calculation",
+              "instructor_notes": ""
+            },
+            {
+              "id": 846475,
+              "key": "f132263a-c67b-4872-ad79-87c10ffe160c",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "The following MATLAB code provides some parameters which can be used in the range equation given above. Your task is to complete the TODOs in the following code:\n\n1. Use the speed of light <span class=\"mathquill\">c</span> to compute the wavelength <span class=\"mathquill\">\\lambda</span>.\n2. Use the results from part 1. along with the range equation to compute the radar range.\n3. Print the range to screen using `disp(range)`.\n\n\n### MATLAB Starter Code\n```Matlab\n%Operating frequency (Hz)\nfc = 77.0e9;\n\n%Transmitted power (W)\nPt = 3e-3;\n\n%Antenna Gain (linear)\nG =  10000;\n\n%Minimum Detectable Power\nPs = 1e-10;\n\n%RCS of a car\nRCS = 100;\n\n%Speed of light\nc = 3*10^8;\n\n%TODO: Calculate the wavelength\n\n\n%TODO : Measure the Maximum Range a Radar can see. \n\n```",
+              "instructor_notes": ""
+            }
+          ]
+        },
+        {
+          "id": 859041,
+          "key": "aafca927-cc3d-4e47-bce6-34d422a3af90",
+          "title": "What Does a Sensor Fusion Engineer Need to Know?",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "aafca927-cc3d-4e47-bce6-34d422a3af90",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 859043,
+              "key": "77e58626-525e-4c7e-a04a-0751209238bd",
+              "title": "ND313 Andrei Intv 24 What Does A Sensor Fusion Engineer Need To Know About Radar",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "ZciVNtGHQEU",
+                "china_cdn_id": "ZciVNtGHQEU.mp4"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "_deprecated": [
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    }
+  ]
+}

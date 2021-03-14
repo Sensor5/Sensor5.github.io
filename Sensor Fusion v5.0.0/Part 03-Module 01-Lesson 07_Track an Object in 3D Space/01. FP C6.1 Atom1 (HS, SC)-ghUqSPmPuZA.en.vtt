@@ -1,0 +1,271 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:03.049
+Now, welcome to the final project of the camera costs.
+
+00:00:03.049 --> 00:00:04.469
+By completing all the lessons,
+
+00:00:04.469 --> 00:00:07.099
+you now have a solid understanding of key point detectors,
+
+00:00:07.099 --> 00:00:10.814
+of descriptors, and methods to mention between successive images.
+
+00:00:10.814 --> 00:00:15.209
+Also you know how to detect objects in an image using the Yellow Deep Learning Framework.
+
+00:00:15.210 --> 00:00:17.760
+Finally, you know how to associate regions in
+
+00:00:17.760 --> 00:00:20.520
+the camera image with lattice points in free-space.
+
+00:00:20.519 --> 00:00:23.910
+Let's take a look at our program schematic to see what we already have accomplished,
+
+00:00:23.910 --> 00:00:25.785
+and what's still missing.
+
+00:00:25.785 --> 00:00:29.785
+So let's take a look at the structure of the coding framework.
+
+00:00:29.785 --> 00:00:34.579
+What we already have accomplished in the first part of this course
+
+00:00:34.579 --> 00:00:40.099
+is we have accomplished writing code about key point detection and key point matching.
+
+00:00:40.100 --> 00:00:43.219
+That's the yellow rectangle on the right side here,
+
+00:00:43.219 --> 00:00:45.274
+which displays the program flow.
+
+00:00:45.274 --> 00:00:48.649
+The first thing which happens is we load images and for ring buffer,
+
+00:00:48.649 --> 00:00:53.570
+and then we distribute those images to various places throughout the coding framework.
+
+00:00:53.570 --> 00:00:56.000
+The first is detect image key points,
+
+00:00:56.000 --> 00:00:58.159
+then we extract key-point descriptors,
+
+00:00:58.159 --> 00:01:02.299
+and then we match those key point descriptors which gives us matches,
+
+00:01:02.299 --> 00:01:04.879
+but over time between neighboring images.
+
+00:01:04.879 --> 00:01:08.359
+But over the entire image are not clustered to object
+
+00:01:08.359 --> 00:01:12.319
+as we would like it to have at the end in order to compute the TTC.
+
+00:01:12.319 --> 00:01:18.589
+So key point matches exist in every image and they are not bound to any objects.
+
+00:01:18.590 --> 00:01:22.850
+The second thing we did in the second part of this course is we looked
+
+00:01:22.849 --> 00:01:27.454
+at detection and classification of objects using the other framework,
+
+00:01:27.454 --> 00:01:30.409
+which gives us a set of bounding boxes.
+
+00:01:30.409 --> 00:01:32.584
+Well, at least it gives us a set of rectangles which
+
+00:01:32.584 --> 00:01:35.119
+regions of interest in 2D coordinates,
+
+00:01:35.120 --> 00:01:41.310
+but we do create our data structure bounding boxes after classifying those objects,
+
+00:01:41.310 --> 00:01:46.070
+and we assign the regions of interest as the first members of those bounding boxes.
+
+00:01:46.069 --> 00:01:50.629
+Then we augment those bounding boxes by associating to them
+
+00:01:50.629 --> 00:01:53.030
+the respective Lidar points from
+
+00:01:53.030 --> 00:01:55.730
+the entire data point Cloud which were also loaded from file,
+
+00:01:55.730 --> 00:01:57.230
+and this startup path here.
+
+00:01:57.230 --> 00:02:00.170
+By the end of step number 4,
+
+00:02:00.170 --> 00:02:03.799
+we have a cluster of bounding boxes augmented with
+
+00:02:03.799 --> 00:02:08.259
+Lidar points which now contains both information about location of objects,
+
+00:02:08.259 --> 00:02:10.664
+vehicles in this case, in the image,
+
+00:02:10.664 --> 00:02:13.069
+as well as the respective 3D Lidar points.
+
+00:02:13.069 --> 00:02:15.754
+That's basically what we have working so far.
+
+00:02:15.754 --> 00:02:18.949
+So the midterm project was the point where
+
+00:02:18.949 --> 00:02:22.399
+you already learned about using different key point detectors,
+
+00:02:22.400 --> 00:02:23.750
+using key point descriptors,
+
+00:02:23.750 --> 00:02:26.759
+and also looking at different matching methods.
+
+00:02:26.759 --> 00:02:28.789
+We're going to take this one step further.
+
+00:02:28.789 --> 00:02:32.030
+Now, we are going to complete what's missing in the entire framework,
+
+00:02:32.030 --> 00:02:36.050
+which is the tracking of 3D object bounding boxes over time.
+
+00:02:36.050 --> 00:02:40.460
+So we need to associate bounding boxes between neighboring frames by
+
+00:02:40.460 --> 00:02:45.159
+looking at the key point correspondences within those bounding boxes.
+
+00:02:45.159 --> 00:02:47.810
+That's one of the first tasks you will need to
+
+00:02:47.810 --> 00:02:51.900
+complete in this project track 3D objects over time.
+
+00:02:51.900 --> 00:02:53.980
+Once you have succeeded in doing so,
+
+00:02:53.979 --> 00:02:56.239
+what you will then do is you will compute the time to
+
+00:02:56.240 --> 00:03:00.260
+collision for the object right in front of the sensor in the ego line.
+
+00:03:00.259 --> 00:03:02.659
+So we're going to focus a little bit only on the ego line,
+
+00:03:02.659 --> 00:03:04.689
+not left, not right line, but only ego line.
+
+00:03:04.689 --> 00:03:08.219
+We're going to compute both the camera base time to collision,
+
+00:03:08.219 --> 00:03:11.044
+as well as the Lidar based time to collision.
+
+00:03:11.044 --> 00:03:13.280
+That's the final goal of this project.
+
+00:03:13.280 --> 00:03:15.185
+So take this piece of code here,
+
+00:03:15.185 --> 00:03:17.929
+take this piece of code there, plug it altogether,
+
+00:03:17.929 --> 00:03:20.439
+and that's the basis for the final project,
+
+00:03:20.439 --> 00:03:23.180
+which we will look at very shortly and the Student version of a code.
+
+00:03:23.180 --> 00:03:27.230
+Your job is to implement those missing pieces here so that we can get
+
+00:03:27.229 --> 00:03:31.564
+to the end with stable estimates of time to collision both from the camera,
+
+00:03:31.564 --> 00:03:34.270
+as well as from the Lidar sensor.
+
+00:03:34.270 --> 00:03:35.960
+Now, in this final project,
+
+00:03:35.960 --> 00:03:37.820
+you will implement the missing parts of the schematic.
+
+00:03:37.819 --> 00:03:40.474
+In the following days, you will complete four major tasks.
+
+00:03:40.474 --> 00:03:42.604
+First, you will develop a way to match
+
+00:03:42.604 --> 00:03:45.919
+3D objects over time by using key point correspondences.
+
+00:03:45.919 --> 00:03:50.119
+Second, you will compute the time to collision based on Lidar measurements alone.
+
+00:03:50.120 --> 00:03:53.480
+Third, you will then proceed to do the same thing using the camera,
+
+00:03:53.479 --> 00:03:56.599
+but which requires you to associate key-point matches to regions of
+
+00:03:56.599 --> 00:04:00.069
+interest and then to compute time to collision based on those matches.
+
+00:04:00.069 --> 00:04:03.000
+Lastly, you will conduct various tests for the framework.
+
+00:04:03.000 --> 00:04:05.270
+Your goal is to identify the most suitable
+
+00:04:05.270 --> 00:04:08.210
+detect descriptor combination for time to collision estimation and
+
+00:04:08.210 --> 00:04:10.490
+also to search for problems that can lead to
+
+00:04:10.490 --> 00:04:14.205
+40 measurements by the camera over the Lidar sensor.
+
+00:04:14.205 --> 00:04:15.840
+The last course of this auto degree,
+
+00:04:15.840 --> 00:04:17.504
+you will learn about the Kalman Filter,
+
+00:04:17.504 --> 00:04:20.944
+which is a great way to combine the two independent time to collision measurements,
+
+00:04:20.944 --> 00:04:22.189
+into an improved version,
+
+00:04:22.189 --> 00:04:25.519
+which is much more reliable than a single sensor alone can be.
+
+00:04:25.519 --> 00:04:27.079
+But before we think about such things,
+
+00:04:27.079 --> 00:04:29.779
+let us focus on your final project and the camera costs for now.
+
+00:04:29.779 --> 00:04:31.369
+I wish you all the best for it.
+
+00:04:31.370 --> 00:04:35.430
+We're all looking forward to receiving your solutions very soon.
+
