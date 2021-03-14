@@ -1,0 +1,506 @@
+<!-- udacimak v1.4.4 -->
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <meta content="ie=edge" http-equiv="X-UA-Compatible"/>
+  <title>
+   Stream PCD
+  </title>
+  <link href="../assets/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="../assets/css/plyr.css" rel="stylesheet"/>
+  <link href="../assets/css/katex.min.css" rel="stylesheet"/>
+  <link href="../assets/css/jquery.mCustomScrollbar.min.css" rel="stylesheet"/>
+  <link href="../assets/css/styles.css" rel="stylesheet"/>
+  <link href="../assets/img/udacimak.png" rel="shortcut icon" type="image/png">
+  </link>
+ </head>
+ <body>
+  <div class="wrapper">
+   <nav id="sidebar">
+    <div class="sidebar-header">
+     <h3>
+      Working with Real PCD
+     </h3>
+    </div>
+    <ul class="sidebar-list list-unstyled CTAs">
+     <li>
+      <a class="article" href="../index.html">
+       Back to Home
+      </a>
+     </li>
+    </ul>
+    <ul class="sidebar-list list-unstyled components">
+     <li class="">
+      <a href="01. Load Real PCD.html">
+       01. Load Real PCD
+      </a>
+     </li>
+     <li class="">
+      <a href="02. Load PCD.html">
+       02. Load PCD
+      </a>
+     </li>
+     <li class="">
+      <a href="03. Challenges with Real World Lidar.html">
+       03. Challenges with Real World Lidar
+      </a>
+     </li>
+     <li class="">
+      <a href="04. Downsampling.html">
+       04. Downsampling
+      </a>
+     </li>
+     <li class="">
+      <a href="05. Filtering with PCL.html">
+       05. Filtering with PCL
+      </a>
+     </li>
+     <li class="">
+      <a href="06. Steps For Obstacle Detection.html">
+       06. Steps For Obstacle Detection
+      </a>
+     </li>
+     <li class="">
+      <a href="07. Stream PCD.html">
+       07. Stream PCD
+      </a>
+     </li>
+     <li class="">
+      <a href="08. Lidar Obstacle Detection Project.html">
+       08. Lidar Obstacle Detection Project
+      </a>
+     </li>
+     <li class="">
+      <a href="09. Tracking and Challenge Problem.html">
+       09. Tracking and Challenge Problem
+      </a>
+     </li>
+     <li class="">
+      <a href="10. Outro.html">
+       10. Outro
+      </a>
+     </li>
+    </ul>
+    <ul class="sidebar-list list-unstyled CTAs">
+     <li>
+      <a class="article" href="../index.html">
+       Back to Home
+      </a>
+     </li>
+    </ul>
+   </nav>
+   <div id="content">
+    <header class="container-fluild header">
+     <div class="container">
+      <div class="row">
+       <div class="col-12">
+        <div class="align-items-middle">
+         <button class="btn btn-toggle-sidebar" id="sidebarCollapse" type="button">
+          <div>
+          </div>
+          <div>
+          </div>
+          <div>
+          </div>
+         </button>
+         <h1 style="display: inline-block">
+          07. Stream PCD
+         </h1>
+        </div>
+       </div>
+      </div>
+     </div>
+    </header>
+    <main class="container">
+     <div class="row">
+      <div class="col-12">
+       <div class="ud-atom">
+        <h3>
+         <p>
+          Header Text
+         </p>
+        </h3>
+        <div>
+         <h1 id="stream-pcd">
+          Stream PCD
+         </h1>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+         <p>
+          Streamed PCD
+         </p>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="Playing back the pcd files." class="img img-fluid" src="img/pcdstream.gif"/>
+          <figcaption class="figure-caption">
+           <p>
+            Playing back the pcd files.
+           </p>
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+         <p>
+          Stream PCD with PCL
+         </p>
+        </h3>
+        <div>
+         <p>
+          In the previous concept you were able to process obstacle detections on a single pcd file, now you are going to be using that same processing pipeline on multiple pcd files. To do this you can slightly modify the previous used
+          <code>
+           cityBlock
+          </code>
+          function from
+          <code>
+           environment.cpp
+          </code>
+          to support some additional arguments. Now, you will be passing in the point processor to the
+          <code>
+           cityBlock
+          </code>
+          function, this is because you don't want to have to recreate this object at every frame. Also the point cloud input will vary from frame to frame, so input point cloud will now become an input argument for
+          <code>
+           cityBlock
+          </code>
+          . The
+          <code>
+           cityBlock
+          </code>
+          function header should now look like this, and you no longer create the point processor or load a point cloud from inside the function.
+         </p>
+         <h2 id="cityblock-new-function-signature">
+          cityBlock new Function Signature
+         </h2>
+         <pre><code class="cpp language-cpp">void cityBlock(pcl::visualization::PCLVisualizer::Ptr&amp; viewer, ProcessPointClouds&lt;pcl::PointXYZI&gt;* pointProcessorI, const pcl::PointCloud&lt;pcl::PointXYZI&gt;::Ptr&amp; inputCloud)</code></pre>
+         <p>
+          Notice that in the function header you can optionally make
+          <code>
+           inputCloud
+          </code>
+          a constant reference by doing
+          <code>
+           const
+          </code>
+          and
+          <code>
+           &amp;
+          </code>
+          at the end of the variable definition. You don't have to do this but you are not actually changing the
+          <code>
+           inputCloud
+          </code>
+          at all, just using it as an input for your point processor function. The benefit of using a constant reference is better memory efficiency, since you don't have to write to that variable's memory, just read from it, so it's a slight performance increase. If you do make this a const reference though, make sure not to modify it, or else you will get a compile error.
+         </p>
+         <h2 id="code-inside-main">
+          Code inside main
+         </h2>
+         <p>
+          So now instead of creating your point processor, and loading pcl files from inside
+          <code>
+           cityBlock
+          </code>
+          you will do this inside the
+          <code>
+           main
+          </code>
+          function in
+          <code>
+           environment.cpp
+          </code>
+          right after where the pcl viewer camera position is set up.
+         </p>
+         <pre><code class="cpp language-cpp">ProcessPointClouds&lt;pcl::PointXYZI&gt;* pointProcessorI = new ProcessPointClouds&lt;pcl::PointXYZI&gt;();
+std::vector&lt;boost::filesystem::path&gt; stream = pointProcessorI-&gt;streamPcd("../src/sensors/data/pcd/data_1");
+auto streamIterator = stream.begin();
+pcl::PointCloud&lt;pcl::PointXYZI&gt;::Ptr inputCloudI;</code></pre>
+         <p>
+          In the code above, you are making use of a new method from point processor called,
+          <code>
+           streamPcd
+          </code>
+          . You tell
+          <code>
+           streamPcd
+          </code>
+          a folder directory that contains all the sequentially ordered pcd files you want to process, and it returns a chronologically ordered vector of all those file names, called
+          <code>
+           stream
+          </code>
+          . You can then go through the
+          <code>
+           stream
+          </code>
+          vector in a couple of ways, one option is to use an iterator. At the end of the above code block, a variable for the input point cloud is also set up.
+         </p>
+         <h2 id="pcl-viewer-update-loop">
+          PCL Viewer Update Loop
+         </h2>
+         <p>
+          The final thing to look at is the  pcl viewer run cycle which is down at the bottom of
+          <code>
+           envrionment.cpp
+          </code>
+          . while the pcl viewer hasn't stopped, you want to process a new frame, do obstacle detection on it, and then view the results. Let's see how to set up this pcl viewer run cycle method below.
+         </p>
+         <pre><code class="cpp language-cpp">while (!viewer-&gt;wasStopped ())
+{
+
+  // Clear viewer
+  viewer-&gt;removeAllPointClouds();
+  viewer-&gt;removeAllShapes();
+
+  // Load pcd and run obstacle detection process
+  inputCloudI = pointProcessorI-&gt;loadPcd((*streamIterator).string());
+  cityBlock(viewer, pointProcessorI, inputCloudI);
+
+  streamIterator++;
+  if(streamIterator == stream.end())
+    streamIterator = stream.begin();
+
+  viewer-&gt;spinOnce ();
+}</code></pre>
+         <p>
+          The first thing the above method does is clear any previous rendered point clouds or shapes. Next it loads up your point cloud using your point processor and stream iterator. Then it calls your
+          <code>
+           cityBlock
+          </code>
+          function, and updates the iterator. If the iterator hits the end of the vector it simply sets it back to the beginning and that's it. The
+          <code>
+           viewer-&gt;spinOnce()
+          </code>
+          call controls the frame rate, by default it waits 1 time step, which would make it run as fast as possible. Depending on how timing efficient your obstacle detection functions were set up the faster the viewer's frame rate will be. If you want to check out the input pcd data at the fastest rate then run the code above and only run a single
+          <code>
+           renderPointCloud
+          </code>
+          on the input cloud inside
+          <code>
+           cityBlock
+          </code>
+          . Let's check out the results of the streaming pcd viewer below.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+         <p>
+          Streamed Obstacle Detection
+         </p>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="" class="img img-fluid" src="img/pcdstreamdetection.gif"/>
+          <figcaption class="figure-caption">
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+         <p>
+          Instructions
+         </p>
+        </h3>
+        <div>
+         <h2 id="instructions">
+          Instructions
+         </h2>
+         <ul>
+          <li>
+           Modify
+           <code>
+            environment.cpp
+           </code>
+           with the above changes
+          </li>
+          <li>
+           Call
+           <code>
+            cityBlock
+           </code>
+           to perform obstacle detection on each frame
+          </li>
+         </ul>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div class="jumbotron">
+         <h3>
+          Workspace
+         </h3>
+         <p class="lead">
+          This section contains either a workspace (it can be a
+          <a href="http://jupyter.org/" target="_blank">
+           Jupyter
+      Notebook
+          </a>
+          workspace or an online code editor work space, etc.) and it cannot be automatically downloaded to be
+    generated here. Please access the classroom with your account and manually download the workspace to your local
+    machine. Note that for some courses, Udacity upload the workspace files onto
+          <a href="https://github.com/udacity" target="_blank">
+           https://github.com/udacity
+          </a>
+          , so you may be able to download them there.
+         </p>
+         <h4>
+          Workspace Information:
+         </h4>
+         <ul>
+          <li>
+           <strong>
+            Default file path:
+           </strong>
+          </li>
+          <li>
+           <strong>
+            Workspace type:
+           </strong>
+           react
+          </li>
+          <li>
+           <strong>
+            Opened files (when workspace is loaded):
+           </strong>
+           n/a
+          </li>
+         </ul>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h2 id="solution">
+          Solution
+         </h2>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+         <p>
+          ND313 C1 L4 A20 Stream PCD - Solution
+         </p>
+        </h3>
+        <video controls="">
+         <source src="07. ND313 C1 L4 A20 Stream PCD - Solution-gycfszhCttY.mp4" type="video/mp4"/>
+         <track default="true" kind="subtitles" label="en" src="07. ND313 C1 L4 A20 Stream PCD - Solution-gycfszhCttY.en.vtt" srclang="en"/>
+        </video>
+       </div>
+       <div class="divider">
+       </div>
+      </div>
+      <div class="col-12">
+       <p class="text-right">
+        <a class="btn btn-outline-primary mt-4" href="08. Lidar Obstacle Detection Project.html" role="button">
+         Next Concept
+        </a>
+       </p>
+      </div>
+     </div>
+    </main>
+    <footer class="footer">
+     <div class="container">
+      <div class="row">
+       <div class="col-12">
+        <p class="text-center">
+         udacity2.0 If you need the newest courses Plase add me wechat: udacity6
+        </p>
+       </div>
+      </div>
+     </div>
+    </footer>
+   </div>
+  </div>
+  <script src="../assets/js/jquery-3.3.1.min.js">
+  </script>
+  <script src="../assets/js/plyr.polyfilled.min.js">
+  </script>
+  <script src="../assets/js/bootstrap.min.js">
+  </script>
+  <script src="../assets/js/jquery.mCustomScrollbar.concat.min.js">
+  </script>
+  <script src="../assets/js/katex.min.js">
+  </script>
+  <script>
+   // Initialize Plyr video players
+    const players = Array.from(document.querySelectorAll('video')).map(p => new Plyr(p));
+
+    // render math equations
+    let elMath = document.getElementsByClassName('mathquill');
+    for (let i = 0, len = elMath.length; i < len; i += 1) {
+      const el = elMath[i];
+
+      katex.render(el.textContent, el, {
+        throwOnError: false
+      });
+    }
+
+    // this hack will make sure Bootstrap tabs work when using Handlebars
+    if ($('#question-tabs').length && $('#user-answer-tabs').length) {
+      $("#question-tabs a.nav-link").on('click', function () {
+        $("#question-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+      $("#user-answer-tabs a.nav-link").on('click', function () {
+        $("#user-answer-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    } else {
+      $("a.nav-link").on('click', function () {
+        $(".tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    }
+
+    // side bar events
+    $(document).ready(function () {
+      $("#sidebar").mCustomScrollbar({
+        theme: "minimal"
+      });
+
+      $('#sidebarCollapse').on('click', function () {
+        $('#sidebar, #content').toggleClass('active');
+        $('.collapse.in').toggleClass('in');
+        $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+      });
+
+      // scroll to first video on page loading
+      if ($('video').length) {
+        $('html,body').animate({ scrollTop: $('div.plyr').prev().offset().top});
+      }
+
+      // auto play first video: this may not work with chrome/safari due to autoplay policy
+      if (players && players.length > 0) {
+        players[0].play();
+      }
+
+      // scroll sidebar to current concept
+      const currentInSideBar = $( "ul.sidebar-list.components li a:contains('07. Stream PCD')" )
+      currentInSideBar.css( "text-decoration", "underline" );
+      $("#sidebar").mCustomScrollbar('scrollTo', currentInSideBar);
+    });
+  </script>
+ </body>
+</html>

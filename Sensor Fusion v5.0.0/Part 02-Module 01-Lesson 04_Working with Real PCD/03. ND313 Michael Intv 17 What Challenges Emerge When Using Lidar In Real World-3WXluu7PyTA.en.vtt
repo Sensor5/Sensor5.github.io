@@ -1,0 +1,70 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:02.720 --> 00:00:09.734
+Some of the challenges that emerge using lidar in the real-world,
+
+00:00:09.734 --> 00:00:13.559
+come from environmental conditions.
+
+00:00:13.560 --> 00:00:18.960
+So lidar does not do well in heavy rain,
+
+00:00:18.960 --> 00:00:24.615
+in whiteouts, in brownouts,
+
+00:00:24.614 --> 00:00:30.195
+where dirt is, whether you have lots of dirt in the air like in Southern California,
+
+00:00:30.195 --> 00:00:32.789
+you find sand storms.
+
+00:00:32.789 --> 00:00:36.644
+Anything that reflects and scatters lidar,
+
+00:00:36.645 --> 00:00:41.910
+the laser beams in the air limits the use of the lidar.
+
+00:00:41.909 --> 00:00:48.254
+You also create sometimes ghost objects based on reflections.
+
+00:00:48.255 --> 00:00:51.395
+If you have a highly reflecting surface,
+
+00:00:51.395 --> 00:00:56.010
+the lidar beam reflects off the surface, hits the vehicle,
+
+00:00:56.009 --> 00:00:58.449
+gets reflected back surface,
+
+00:00:58.450 --> 00:01:00.920
+and back to the lidar,
+
+00:01:00.920 --> 00:01:02.600
+you create a ghost objects,
+
+00:01:02.600 --> 00:01:04.594
+or objects where there is no one;
+
+00:01:04.594 --> 00:01:06.724
+there is no object really.
+
+00:01:06.724 --> 00:01:12.829
+You get lidar returns, for example,
+
+00:01:12.829 --> 00:01:18.890
+from a spray, we saw ones on the test track.
+
+00:01:18.890 --> 00:01:21.379
+It suddenly start raining really hard,
+
+00:01:21.379 --> 00:01:26.149
+and then we had all weird objects,
+
+00:01:26.149 --> 00:01:31.954
+and that was just the water that was spraying up from the tires from other cars.
+
+00:01:31.954 --> 00:01:37.239
+So that's the difficulty that you face.
+

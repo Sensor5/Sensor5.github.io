@@ -1,0 +1,241 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:01.919
+Let's go ahead and check out the code in
+
+00:00:01.919 --> 00:00:05.355
+the classroom for loading up this point cloud data.
+
+00:00:05.355 --> 00:00:09.060
+So back here, I was looking over
+
+00:00:09.060 --> 00:00:13.605
+the classroom concept that was showing me how to do this city block function,
+
+00:00:13.605 --> 00:00:16.425
+which is happening in environment.cpp,
+
+00:00:16.425 --> 00:00:19.560
+and I can go to my my work space now.
+
+00:00:19.559 --> 00:00:22.529
+And so inside environment.cpp,
+
+00:00:22.530 --> 00:00:25.920
+so I'm just creating a city block and the argument that's using
+
+00:00:25.920 --> 00:00:29.340
+it's exact same as simple highway which is our viewer.
+
+00:00:29.339 --> 00:00:32.280
+So that's key for doing the visualization.
+
+00:00:32.280 --> 00:00:34.890
+We want to be rendering this onto the viewer,
+
+00:00:34.890 --> 00:00:36.079
+and then inside here,
+
+00:00:36.079 --> 00:00:41.074
+I'm just creating this point processor which is using XYZI type of point Clouds.
+
+00:00:41.075 --> 00:00:44.540
+And then I'm just going to go ahead and I'm going to load up that PCD
+
+00:00:44.539 --> 00:00:48.424
+by using the point processor load PCD function.
+
+00:00:48.424 --> 00:00:55.054
+So I'm just going to be loading up that initial real PCD file with the 10 zeros dot PCD.
+
+00:00:55.054 --> 00:00:57.679
+And then, I'm just going to go ahead and render
+
+00:00:57.679 --> 00:01:01.075
+that to the viewer by using renderPointCloud.
+
+00:01:01.075 --> 00:01:03.570
+The last thing I kind of want to do here.
+
+00:01:03.570 --> 00:01:06.450
+So I set up this city block function,
+
+00:01:06.450 --> 00:01:08.990
+but I actually need to make sure to call it in Main.
+
+00:01:08.989 --> 00:01:13.280
+So everything here is happening in this main function,
+
+00:01:13.280 --> 00:01:15.219
+and then so down here,
+
+00:01:15.219 --> 00:01:17.325
+before what Main was doing,
+
+00:01:17.325 --> 00:01:20.659
+it was calling the simple highway function with the viewer.
+
+00:01:20.659 --> 00:01:24.140
+Now, instead I'm going to be calling city block with the viewer.
+
+00:01:24.140 --> 00:01:27.579
+So I think all that should be good.
+
+00:01:27.579 --> 00:01:30.265
+So I'm going to make sure that's saved,
+
+00:01:30.265 --> 00:01:33.109
+and then I can go to my Terminator.
+
+00:01:33.109 --> 00:01:37.579
+And we'll just go ahead and minimize that.
+
+00:01:37.579 --> 00:01:40.140
+Go to the Terminator.
+
+00:01:40.269 --> 00:01:52.534
+Go into home, cd into build,
+
+00:01:52.534 --> 00:01:59.239
+run a make, compile that and,
+
+00:01:59.239 --> 00:02:05.129
+then see what this PCD file looks like when I loaded up in the viewer.
+
+00:02:09.740 --> 00:02:13.879
+Okay. Almost there, awesome.
+
+00:02:13.879 --> 00:02:17.465
+Let's go ahead and run that executable now.
+
+00:02:17.465 --> 00:02:21.620
+And so here's my PCD that I just loaded up.
+
+00:02:21.620 --> 00:02:23.400
+And how many points is that?
+
+00:02:23.400 --> 00:02:27.064
+It loaded up around a 120 thousand points.
+
+00:02:27.064 --> 00:02:29.789
+So we're looking at around a 120 thousand points here,
+
+00:02:29.789 --> 00:02:32.375
+and each point has a different intensity.
+
+00:02:32.375 --> 00:02:35.735
+So and that intensity is represented by a different color.
+
+00:02:35.735 --> 00:02:38.540
+So in the renderPointClouds function by
+
+00:02:38.539 --> 00:02:42.454
+default when you're using a point XYZI point cloud,
+
+00:02:42.455 --> 00:02:46.969
+it's going to be using that intensity value to do the coloring.
+
+00:02:46.969 --> 00:02:50.359
+You could overwrite that and you could actually provide a color
+
+00:02:50.360 --> 00:02:54.170
+so you can just make the entire point cloud just green, red,
+
+00:02:54.169 --> 00:02:56.780
+blue as well, if you fill in that option,
+
+00:02:56.780 --> 00:02:59.599
+but by default it's going to be using this intensity for
+
+00:02:59.599 --> 00:03:03.060
+doing the coloring options, and cool.
+
+00:03:03.060 --> 00:03:04.685
+So this kind of orbit around here.
+
+00:03:04.685 --> 00:03:06.710
+This is what you'll be working with on
+
+00:03:06.710 --> 00:03:10.010
+this final project for the lighter obstacle detection,
+
+00:03:10.009 --> 00:03:12.724
+is kind of city block here.
+
+00:03:12.724 --> 00:03:15.259
+This big black spot is where the car is.
+
+00:03:15.259 --> 00:03:17.149
+This is where the ego car is at.
+
+00:03:17.150 --> 00:03:20.069
+The lidar is sitting up on those roof here.
+
+00:03:20.069 --> 00:03:25.419
+We are putting this coordinate system right here as our label,
+
+00:03:25.419 --> 00:03:29.254
+where we have the red axis is our x,
+
+00:03:29.254 --> 00:03:32.560
+the green is the y, and the blue is the z.
+
+00:03:32.560 --> 00:03:37.564
+And even our lidar is picking up some points from the roof that you can see,
+
+00:03:37.564 --> 00:03:39.229
+just these little red points here.
+
+00:03:39.229 --> 00:03:40.429
+So that's actually from the roof.
+
+00:03:40.430 --> 00:03:43.700
+We'll talk about ways of filtering that out here in a little bit.
+
+00:03:43.699 --> 00:03:46.069
+But here, we're driving down the street and
+
+00:03:46.069 --> 00:03:48.739
+the major things we want to watch out for are these cars.
+
+00:03:48.740 --> 00:03:51.200
+So we have these various parked cars.
+
+00:03:51.199 --> 00:03:52.819
+We can't really tell that they're parked right now,
+
+00:03:52.819 --> 00:03:55.114
+but once things start moving we can see,
+
+00:03:55.115 --> 00:03:57.425
+and this guy is in his truck over here,
+
+00:03:57.425 --> 00:03:58.894
+and he's going to be driving,
+
+00:03:58.894 --> 00:04:02.450
+and he's going to be passing us on the left of our car.
+
+00:04:02.449 --> 00:04:05.839
+And we even have this pole right here.
+
+00:04:05.840 --> 00:04:08.420
+So kind of moving around there's this pole,
+
+00:04:08.419 --> 00:04:11.119
+looks like a traffic sign or something.
+
+00:04:11.120 --> 00:04:15.110
+So we'll see if we can catch that in our obstacle detection,
+
+00:04:15.110 --> 00:04:17.585
+but yeah, there'll be these cars and this truck,
+
+00:04:17.584 --> 00:04:22.194
+and those would be the major things that we want our lidar obstacle detection to notice,
+
+00:04:22.194 --> 00:04:26.050
+and then track for us later on.
+

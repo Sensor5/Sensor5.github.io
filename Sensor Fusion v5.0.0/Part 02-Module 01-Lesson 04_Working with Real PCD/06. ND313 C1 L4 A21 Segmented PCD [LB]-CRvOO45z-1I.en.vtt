@@ -1,0 +1,70 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:02.640
+Let's do the steps for obstacle detection now.
+
+00:00:02.640 --> 00:00:03.885
+So we did filtering.
+
+00:00:03.884 --> 00:00:09.375
+Now, you can actually use all the functions that you were creating in previous lessons.
+
+00:00:09.375 --> 00:00:13.879
+So the next step is to segment the data and then here,
+
+00:00:13.880 --> 00:00:16.560
+that shows the results when you do the segmentation.
+
+00:00:16.559 --> 00:00:19.289
+So it's going to segment it and then all these green points
+
+00:00:19.289 --> 00:00:22.064
+are the drivable area, the flat space,
+
+00:00:22.064 --> 00:00:26.370
+the road and then all of these red points or other points that are not
+
+00:00:26.370 --> 00:00:30.839
+belonging to that flat area and that's going to be obstacles that we're interested in.
+
+00:00:30.839 --> 00:00:34.710
+So that's picking out our truck and our parked cars and our pole.
+
+00:00:34.710 --> 00:00:37.664
+Also showing this purple box region.
+
+00:00:37.664 --> 00:00:44.750
+So that's actually, what I did is I figured out what kind of size box,
+
+00:00:44.750 --> 00:00:45.799
+the minimum size box.
+
+00:00:45.799 --> 00:00:48.529
+I needed to figure out points that
+
+00:00:48.530 --> 00:00:52.145
+contain all the points from the roof of the car that I wanted to filter out.
+
+00:00:52.145 --> 00:00:53.780
+Then once I got that box size,
+
+00:00:53.780 --> 00:00:55.715
+I'm just rendering it here in purple.
+
+00:00:55.715 --> 00:00:59.990
+I was passing into that filter Cloud function and using
+
+00:00:59.990 --> 00:01:05.629
+that combination of the crop box and they extract object to remove those points.
+
+00:01:05.629 --> 00:01:08.824
+So that's showing how you could visually do that.
+
+00:01:08.825 --> 00:01:11.870
+Visually use the render box function to help you
+
+00:01:11.870 --> 00:01:17.910
+remove points such as points from hitting the roof of your ego car.
+

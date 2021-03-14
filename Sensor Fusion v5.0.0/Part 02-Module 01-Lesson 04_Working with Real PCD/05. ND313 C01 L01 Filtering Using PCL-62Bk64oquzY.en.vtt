@@ -1,0 +1,205 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:02.759
+All right. So let's go ahead and look at how we can fill in
+
+00:00:02.759 --> 00:00:07.019
+this FilterCloud function in the ProcessPointClouds.CPP.
+
+00:00:07.019 --> 00:00:10.140
+So we're going to take in a couple of different parameters.
+
+00:00:10.140 --> 00:00:12.255
+We have this Cloud that we're interested in,
+
+00:00:12.255 --> 00:00:13.964
+and we have this filterRes,
+
+00:00:13.964 --> 00:00:17.460
+that's defining the grid cell size of our VoxelGrid.
+
+00:00:17.460 --> 00:00:20.234
+Then we have these vectors over here,
+
+00:00:20.234 --> 00:00:23.070
+and that's going to define the region in space.
+
+00:00:23.070 --> 00:00:26.835
+So we have the minPoints xyz and maxPoints xyz.
+
+00:00:26.835 --> 00:00:28.574
+So let's go ahead.
+
+00:00:28.574 --> 00:00:32.879
+The first thing we're going to do is create this VoxelGrid, so pcl VoxelGrid.
+
+00:00:32.880 --> 00:00:34.770
+Then we're going to give it the Cloud,
+
+00:00:34.770 --> 00:00:37.710
+and define that cell size from filterRes,
+
+00:00:37.710 --> 00:00:41.420
+and then the results will just be saved in this cloudFiltered,
+
+00:00:41.420 --> 00:00:42.679
+that's being created right here.
+
+00:00:42.679 --> 00:00:45.189
+So it's this new PointCloud.
+
+00:00:45.189 --> 00:00:48.464
+So that's how you can do the VoxelGrid down sampling.
+
+00:00:48.465 --> 00:00:54.770
+I'll just make sure that there's only a single point for every cell in that VoxelGrid.
+
+00:00:54.770 --> 00:00:57.950
+Then the next thing is looking at this cloudRegion.
+
+00:00:57.950 --> 00:01:01.895
+So this new PointCloud, cloudRegion is created,
+
+00:01:01.895 --> 00:01:07.010
+then you just go ahead and you can use this pcl CropBox to do this.
+
+00:01:07.010 --> 00:01:11.955
+You set the region for true because you're dealing with points inside that CropBox.
+
+00:01:11.954 --> 00:01:15.844
+Then you're going to go ahead and do setMin and setMax,
+
+00:01:15.844 --> 00:01:24.170
+that's just from the arguments of the min and max points from the function declaration.
+
+00:01:24.170 --> 00:01:27.290
+You go ahead and you set the InputCloud
+
+00:01:27.290 --> 00:01:30.155
+to cloudFiltered that we just did the VoxelGrid filtering on,
+
+00:01:30.155 --> 00:01:34.070
+and then you can save the results in this cloudRegion.
+
+00:01:34.069 --> 00:01:37.669
+So now, that's just going to go ahead and crop.
+
+00:01:37.670 --> 00:01:42.385
+We're only going to be left with points inside that boxRegion.
+
+00:01:42.385 --> 00:01:45.454
+Now, what if you wanted to do the opposite of this?
+
+00:01:45.454 --> 00:01:47.944
+So you have this box,
+
+00:01:47.944 --> 00:01:50.809
+but instead of just having points inside this box,
+
+00:01:50.810 --> 00:01:52.775
+you want to remove that.
+
+00:01:52.775 --> 00:01:55.734
+So this optional thing we can do here,
+
+00:01:55.734 --> 00:01:58.159
+instead of filtering is go ahead and remove
+
+00:01:58.159 --> 00:02:01.429
+these roofPoints because these roofPoints are just going to be static.
+
+00:02:01.430 --> 00:02:05.255
+They are not really going to tell us anything about the perception of their environment.
+
+00:02:05.254 --> 00:02:06.560
+It just happens to be where
+
+00:02:06.560 --> 00:02:11.509
+the laser rays from the light are hitting the roof of our ego car.
+
+00:02:11.509 --> 00:02:13.789
+So you can use a CropBox.
+
+00:02:13.789 --> 00:02:19.209
+It is again, if you want to remove these roofPoints and then you set a min and maxRegion.
+
+00:02:19.210 --> 00:02:24.110
+The render box function calling that in an environment that's
+
+00:02:24.110 --> 00:02:26.780
+CPP can be a great way to figure out what
+
+00:02:26.780 --> 00:02:29.659
+that box looks like that contains these roofPoints.
+
+00:02:29.659 --> 00:02:37.074
+So that was used here to get this roofBox that's being set up here,
+
+00:02:37.074 --> 00:02:42.754
+and then you go ahead and you can give it this cloudRegion that was just processed.
+
+00:02:42.754 --> 00:02:46.430
+The results of these are these indices.
+
+00:02:46.430 --> 00:02:48.219
+So that's as a vector of ints.
+
+00:02:48.219 --> 00:02:50.659
+These are just going to be the indices of
+
+00:02:50.659 --> 00:02:54.754
+these points inside cloudRegion that fit inside this box.
+
+00:02:54.754 --> 00:02:58.444
+Then you can iterate through those indices here.
+
+00:02:58.444 --> 00:03:04.394
+This pcl PointIndices object is created, it's called inliers.
+
+00:03:04.395 --> 00:03:09.860
+It's just going through these indices and pushing it back into inliers,
+
+00:03:09.860 --> 00:03:11.725
+and this is a push back point.
+
+00:03:11.724 --> 00:03:15.439
+Then you're doing something very similar to what was being done in
+
+00:03:15.439 --> 00:03:20.314
+the separate PointClouds function back in segmentation.
+
+00:03:20.314 --> 00:03:23.794
+So creating this pcl extract indices,
+
+00:03:23.794 --> 00:03:28.014
+set the input cloud to cloud region, give it inliers.
+
+00:03:28.014 --> 00:03:31.369
+These are the indices of roofPoints, set negative.
+
+00:03:31.370 --> 00:03:33.469
+So we're going to be removing these points.
+
+00:03:33.469 --> 00:03:36.784
+Then the results will be stored in this cloudRegion.
+
+00:03:36.784 --> 00:03:39.245
+What that's going to do is in cloudRegion,
+
+00:03:39.245 --> 00:03:42.409
+it's going to extract these indices from inliers.
+
+00:03:42.409 --> 00:03:44.659
+So it's going to remove these roofPoints.
+
+00:03:44.659 --> 00:03:49.204
+So now, we went through and did VoxelGrid filtering region filtering,
+
+00:03:49.205 --> 00:03:53.375
+and we even add in this extra roofPoint filtering as well.
+
+00:03:53.375 --> 00:03:56.580
+Then just go ahead and return cloudRegion.
+

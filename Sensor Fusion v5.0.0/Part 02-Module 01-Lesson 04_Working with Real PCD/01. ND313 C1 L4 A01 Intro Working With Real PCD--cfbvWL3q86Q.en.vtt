@@ -1,0 +1,31 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:02.325
+Hey everyone, and welcome to this lesson
+
+00:00:02.325 --> 00:00:05.070
+where we'll be working with real point Cloud Data.
+
+00:00:05.070 --> 00:00:06.690
+In the previous lessons,
+
+00:00:06.690 --> 00:00:10.005
+you learned how to segment and cluster simple simulate point clouds.
+
+00:00:10.005 --> 00:00:11.610
+Now you'll learn how to apply
+
+00:00:11.609 --> 00:00:15.449
+these same skills to actual Point Cloud Data from a self-driving car.
+
+00:00:15.449 --> 00:00:18.480
+You'll also learn how to do additional filtering techniques,
+
+00:00:18.480 --> 00:00:23.835
+and create a pipeline to perform obstacle detection across multiple streaming PCD files.
+
+00:00:23.835 --> 00:00:29.530
+So let's get started by loading up some actual Point Cloud Data from a self-driving car.
+

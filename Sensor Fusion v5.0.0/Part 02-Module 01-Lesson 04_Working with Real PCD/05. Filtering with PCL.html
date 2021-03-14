@@ -1,0 +1,466 @@
+<!-- udacimak v1.4.4 -->
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <meta content="ie=edge" http-equiv="X-UA-Compatible"/>
+  <title>
+   Filtering with PCL
+  </title>
+  <link href="../assets/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="../assets/css/plyr.css" rel="stylesheet"/>
+  <link href="../assets/css/katex.min.css" rel="stylesheet"/>
+  <link href="../assets/css/jquery.mCustomScrollbar.min.css" rel="stylesheet"/>
+  <link href="../assets/css/styles.css" rel="stylesheet"/>
+  <link href="../assets/img/udacimak.png" rel="shortcut icon" type="image/png">
+  </link>
+ </head>
+ <body>
+  <div class="wrapper">
+   <nav id="sidebar">
+    <div class="sidebar-header">
+     <h3>
+      Working with Real PCD
+     </h3>
+    </div>
+    <ul class="sidebar-list list-unstyled CTAs">
+     <li>
+      <a class="article" href="../index.html">
+       Back to Home
+      </a>
+     </li>
+    </ul>
+    <ul class="sidebar-list list-unstyled components">
+     <li class="">
+      <a href="01. Load Real PCD.html">
+       01. Load Real PCD
+      </a>
+     </li>
+     <li class="">
+      <a href="02. Load PCD.html">
+       02. Load PCD
+      </a>
+     </li>
+     <li class="">
+      <a href="03. Challenges with Real World Lidar.html">
+       03. Challenges with Real World Lidar
+      </a>
+     </li>
+     <li class="">
+      <a href="04. Downsampling.html">
+       04. Downsampling
+      </a>
+     </li>
+     <li class="">
+      <a href="05. Filtering with PCL.html">
+       05. Filtering with PCL
+      </a>
+     </li>
+     <li class="">
+      <a href="06. Steps For Obstacle Detection.html">
+       06. Steps For Obstacle Detection
+      </a>
+     </li>
+     <li class="">
+      <a href="07. Stream PCD.html">
+       07. Stream PCD
+      </a>
+     </li>
+     <li class="">
+      <a href="08. Lidar Obstacle Detection Project.html">
+       08. Lidar Obstacle Detection Project
+      </a>
+     </li>
+     <li class="">
+      <a href="09. Tracking and Challenge Problem.html">
+       09. Tracking and Challenge Problem
+      </a>
+     </li>
+     <li class="">
+      <a href="10. Outro.html">
+       10. Outro
+      </a>
+     </li>
+    </ul>
+    <ul class="sidebar-list list-unstyled CTAs">
+     <li>
+      <a class="article" href="../index.html">
+       Back to Home
+      </a>
+     </li>
+    </ul>
+   </nav>
+   <div id="content">
+    <header class="container-fluild header">
+     <div class="container">
+      <div class="row">
+       <div class="col-12">
+        <div class="align-items-middle">
+         <button class="btn btn-toggle-sidebar" id="sidebarCollapse" type="button">
+          <div>
+          </div>
+          <div>
+          </div>
+          <div>
+          </div>
+         </button>
+         <h1 style="display: inline-block">
+          05. Filtering with PCL
+         </h1>
+        </div>
+       </div>
+      </div>
+     </div>
+    </header>
+    <main class="container">
+     <div class="row">
+      <div class="col-12">
+       <div class="ud-atom">
+        <h3>
+         <p>
+          Header Text
+         </p>
+        </h3>
+        <div>
+         <h1 id="filtering-with-pcl">
+          Filtering with PCL
+         </h1>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+         <p>
+          ND313 C1 L4 A07 Filtering With PCL
+         </p>
+        </h3>
+        <video controls="">
+         <source src="05. ND313 C1 L4 A07 Filtering With PCL-yLG_OKDW9Fs.mp4" type="video/mp4"/>
+         <track default="true" kind="subtitles" label="en" src="05. ND313 C1 L4 A07 Filtering With PCL-yLG_OKDW9Fs.en.vtt" srclang="en"/>
+        </video>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <p>
+          The first thing you might notice when looking at the previous loaded point cloud is it’s quite high resolution and spans a pretty far distance. You want your processor pipeline to be able to digest point cloud as quickly as possible, so you will want to filter the cloud down. Here are the two methods that will be used to do this.
+         </p>
+         <h2 id="voxel-grid">
+          Voxel Grid
+         </h2>
+         <p>
+          Voxel grid filtering will create a cubic grid and will filter the cloud by only leaving a single point per voxel cube, so the larger the cube length the lower the resolution of the point cloud.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+         <p>
+          ND313 Michael Intv 22 What Is A Voxel
+         </p>
+        </h3>
+        <video controls="">
+         <source src="05. ND313 Michael Intv 22 What Is A Voxel-NxdZAcDhfVQ.mp4" type="video/mp4"/>
+         <track default="true" kind="subtitles" label="en" src="05. ND313 Michael Intv 22 What Is A Voxel-NxdZAcDhfVQ.en.vtt" srclang="en"/>
+        </video>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h2 id="region-of-interest">
+          Region of Interest
+         </h2>
+         <p>
+          A boxed region is defined and any points outside that box are removed.
+         </p>
+         <p>
+          To apply these methods you will fill in the point process function
+          <code>
+           FilterCloud
+          </code>
+          . The arguments to this function will be your input cloud, voxel grid size, and min/max points representing your region of interest. The function will return the downsampled cloud with only points that were inside the region specified. To get started check out the documentation from PCL for
+          <a href="http://pointclouds.org/documentation/tutorials/voxel_grid.php" rel="noopener noreferrer" target="_blank">
+           voxel grid filtering
+          </a>
+          and
+          <a href="http://docs.pointclouds.org/trunk/classpcl_1_1_crop_box.html" rel="noopener noreferrer" target="_blank">
+           region of interest
+          </a>
+          .
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+         <p>
+          ND313 C1 L4 A08 Filtering With PCL Pt 2
+         </p>
+        </h3>
+        <video controls="">
+         <source src="05. ND313 C1 L4 A08 Filtering With PCL Pt 2-FRIm7Ya8Xy8.mp4" type="video/mp4"/>
+         <track default="true" kind="subtitles" label="en" src="05. ND313 C1 L4 A08 Filtering With PCL Pt 2-FRIm7Ya8Xy8.en.vtt" srclang="en"/>
+        </video>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h2 id="results">
+          Results
+         </h2>
+         <p>
+          To apply the filtering function, back in
+          <code>
+           cityBlock
+          </code>
+          call the pointProcessor
+          <code>
+           FilterCloud
+          </code>
+          function with the loaded pcd.
+         </p>
+         <pre><code class="cpp language-cpp">// Experiment with the ? values and find what works best
+filterCloud = pointProcessorI-&gt;FilterCloud(inputCloud, ? , Eigen::Vector4f (?, ?, ?, 1), Eigen::Vector4f ( ?, ?, ?, 1));
+renderPointCloud(viewer,filterCloud,"filterCloud");</code></pre>
+         <p>
+          In the filter cloud image below you can now see that the point resolution is much lower than the original, and it cropped everything inside the box points that were specified. It’s important to experiment and play around with the filter input hyper parameters. voxel size should be large enough to help speed up the processing but not so large that object definition is completely lost. For picking a good region, try having a good amount of space in front of the car so it could react quickly in time to any obstacles moving towards it. Also for the sides try to cover at least the width of the road. What’s most important is obstacles that we want to detect are inside the region. Also setting camera angles in
+          <code>
+           environment.cpp
+          </code>
+          can help pick a good region of interests. This way you can easily set the  camera to have a top down overview or a side overview. One last thing is it would be beneficial to remove points that are hitting the roof of the ego car. You can use a pcl CropBox to find the roof point indices and then feed those indices to a pcl ExtractIndices object to remove them (similar to what your segmentation algorithm used to extract points). The
+          <code>
+           renderBox
+          </code>
+          function can be really helpful as well for figuring out how big boxes will look in the scene.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+         <p>
+          Filtered PCD
+         </p>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="Region and voxel grid filtering." class="img img-fluid" src="img/filtered.png"/>
+          <figcaption class="figure-caption">
+           <p>
+            Region and voxel grid filtering.
+           </p>
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h2 id="instructions">
+          Instructions
+         </h2>
+         <ul>
+          <li>
+           Fill in the
+           <code>
+            FilterCloud
+           </code>
+           function in
+           <code>
+            pointProcessor
+           </code>
+          </li>
+          <li>
+           Call
+           <code>
+            FilterCloud
+           </code>
+           from
+           <code>
+            cityBlock
+           </code>
+           and experiment with hyperparameters
+          </li>
+          <li>
+           (Optional) Remove ego car roof points
+          </li>
+          <li>
+           Observe the results
+          </li>
+         </ul>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div class="jumbotron">
+         <h3>
+          Workspace
+         </h3>
+         <p class="lead">
+          This section contains either a workspace (it can be a
+          <a href="http://jupyter.org/" target="_blank">
+           Jupyter
+      Notebook
+          </a>
+          workspace or an online code editor work space, etc.) and it cannot be automatically downloaded to be
+    generated here. Please access the classroom with your account and manually download the workspace to your local
+    machine. Note that for some courses, Udacity upload the workspace files onto
+          <a href="https://github.com/udacity" target="_blank">
+           https://github.com/udacity
+          </a>
+          , so you may be able to download them there.
+         </p>
+         <h4>
+          Workspace Information:
+         </h4>
+         <ul>
+          <li>
+           <strong>
+            Default file path:
+           </strong>
+          </li>
+          <li>
+           <strong>
+            Workspace type:
+           </strong>
+           react
+          </li>
+          <li>
+           <strong>
+            Opened files (when workspace is loaded):
+           </strong>
+           n/a
+          </li>
+         </ul>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+         <p>
+          ND313 C01 L01 Filtering Using PCL
+         </p>
+        </h3>
+        <video controls="">
+         <source src="05. ND313 C01 L01 Filtering Using PCL-62Bk64oquzY.mp4" type="video/mp4"/>
+         <track default="true" kind="subtitles" label="en" src="05. ND313 C01 L01 Filtering Using PCL-62Bk64oquzY.en.vtt" srclang="en"/>
+        </video>
+       </div>
+       <div class="divider">
+       </div>
+      </div>
+      <div class="col-12">
+       <p class="text-right">
+        <a class="btn btn-outline-primary mt-4" href="06. Steps For Obstacle Detection.html" role="button">
+         Next Concept
+        </a>
+       </p>
+      </div>
+     </div>
+    </main>
+    <footer class="footer">
+     <div class="container">
+      <div class="row">
+       <div class="col-12">
+        <p class="text-center">
+         udacity2.0 If you need the newest courses Plase add me wechat: udacity6
+        </p>
+       </div>
+      </div>
+     </div>
+    </footer>
+   </div>
+  </div>
+  <script src="../assets/js/jquery-3.3.1.min.js">
+  </script>
+  <script src="../assets/js/plyr.polyfilled.min.js">
+  </script>
+  <script src="../assets/js/bootstrap.min.js">
+  </script>
+  <script src="../assets/js/jquery.mCustomScrollbar.concat.min.js">
+  </script>
+  <script src="../assets/js/katex.min.js">
+  </script>
+  <script>
+   // Initialize Plyr video players
+    const players = Array.from(document.querySelectorAll('video')).map(p => new Plyr(p));
+
+    // render math equations
+    let elMath = document.getElementsByClassName('mathquill');
+    for (let i = 0, len = elMath.length; i < len; i += 1) {
+      const el = elMath[i];
+
+      katex.render(el.textContent, el, {
+        throwOnError: false
+      });
+    }
+
+    // this hack will make sure Bootstrap tabs work when using Handlebars
+    if ($('#question-tabs').length && $('#user-answer-tabs').length) {
+      $("#question-tabs a.nav-link").on('click', function () {
+        $("#question-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+      $("#user-answer-tabs a.nav-link").on('click', function () {
+        $("#user-answer-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    } else {
+      $("a.nav-link").on('click', function () {
+        $(".tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    }
+
+    // side bar events
+    $(document).ready(function () {
+      $("#sidebar").mCustomScrollbar({
+        theme: "minimal"
+      });
+
+      $('#sidebarCollapse').on('click', function () {
+        $('#sidebar, #content').toggleClass('active');
+        $('.collapse.in').toggleClass('in');
+        $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+      });
+
+      // scroll to first video on page loading
+      if ($('video').length) {
+        $('html,body').animate({ scrollTop: $('div.plyr').prev().offset().top});
+      }
+
+      // auto play first video: this may not work with chrome/safari due to autoplay policy
+      if (players && players.length > 0) {
+        players[0].play();
+      }
+
+      // scroll sidebar to current concept
+      const currentInSideBar = $( "ul.sidebar-list.components li a:contains('05. Filtering with PCL')" )
+      currentInSideBar.css( "text-decoration", "underline" );
+      $("#sidebar").mCustomScrollbar('scrollTo', currentInSideBar);
+    });
+  </script>
+ </body>
+</html>

@@ -1,0 +1,232 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:05.004
+So if we go back to the classroom now and we go in filtering with PCL,
+
+00:00:05.004 --> 00:00:09.179
+we can find some documentation on using a voxel grid filter.
+
+00:00:09.179 --> 00:00:12.869
+It's actually pretty straightforward to do this.
+
+00:00:12.869 --> 00:00:16.559
+I think it looks like there's only four lines of code here,
+
+00:00:16.559 --> 00:00:19.574
+where we're basically doing this PCL voxel grid.
+
+00:00:19.574 --> 00:00:22.710
+We name it something, we tell it what kind of point cloud we're working with.
+
+00:00:22.710 --> 00:00:27.330
+Well, back and point processor this would be that point t template,
+
+00:00:27.329 --> 00:00:29.879
+and we'd give it our input cloud.
+
+00:00:29.879 --> 00:00:34.960
+So that'll be one of the arguments inside this filter function and point processor.
+
+00:00:34.960 --> 00:00:36.890
+Then, we set this leaf size.
+
+00:00:36.890 --> 00:00:39.590
+So this is the cell that we're working with.
+
+00:00:39.590 --> 00:00:42.620
+We're defining it as a cube.
+
+00:00:42.619 --> 00:00:45.304
+So all three of these will be the same,
+
+00:00:45.304 --> 00:00:48.814
+same length, width, and height for this cube.
+
+00:00:48.814 --> 00:00:53.589
+This is also one of the arguments that's given in that filter function.
+
+00:00:53.590 --> 00:00:56.705
+Then, we go ahead and apply the filtering on it.
+
+00:00:56.704 --> 00:01:00.960
+So we go ahead and call that function.
+
+00:01:00.960 --> 00:01:03.929
+We go ahead and we're creating this brand new point cloud.
+
+00:01:03.929 --> 00:01:05.745
+Let's say it's called filter cloud.
+
+00:01:05.745 --> 00:01:08.570
+Then, all the results are going to be stored in that cloud.
+
+00:01:08.569 --> 00:01:09.924
+So if that cloud was a point,
+
+00:01:09.924 --> 00:01:13.084
+we do reference it, and we set all that data inside there.
+
+00:01:13.084 --> 00:01:16.729
+So cool, that's how we can use that voxel grid filter.
+
+00:01:16.730 --> 00:01:20.355
+Then, so how about doing that region based?
+
+00:01:20.355 --> 00:01:23.165
+So for doing the region based,
+
+00:01:23.165 --> 00:01:29.310
+there's actually some good documentation for this PCL object called crop box,
+
+00:01:29.310 --> 00:01:31.439
+and how this crop box works is,
+
+00:01:31.439 --> 00:01:32.609
+you can initialize it.
+
+00:01:32.609 --> 00:01:34.304
+So PCL crop box,
+
+00:01:34.305 --> 00:01:35.910
+give it that point cloud type.
+
+00:01:35.909 --> 00:01:39.474
+There'll be point t and name it something region of interest.
+
+00:01:39.474 --> 00:01:43.099
+Then, you can actually give it some input cloud.
+
+00:01:43.099 --> 00:01:48.434
+So in that case, it's the filter cloud after you've put it through the voxel grid filter.
+
+00:01:48.435 --> 00:01:50.510
+Then, you set some parameters.
+
+00:01:50.510 --> 00:01:53.120
+So you're setting a min and setting a max.
+
+00:01:53.120 --> 00:01:56.450
+This is just defining the box region.
+
+00:01:56.450 --> 00:01:59.030
+So think about it as some min points.
+
+00:01:59.030 --> 00:02:00.439
+So X, Y, Z min point,
+
+00:02:00.439 --> 00:02:03.929
+and then some max X, Y, Z point.
+
+00:02:03.930 --> 00:02:06.785
+That will tell you the region of interests that you're working with.
+
+00:02:06.784 --> 00:02:09.634
+This is actually defined as an Eigen::Vector4f.
+
+00:02:09.634 --> 00:02:12.109
+So we actually look back in our code,
+
+00:02:12.110 --> 00:02:15.630
+and we check out the point processor,
+
+00:02:15.979 --> 00:02:19.215
+we go into filter cloud.
+
+00:02:19.215 --> 00:02:22.129
+You'll notice that that's actually one of the arguments that we're working with.
+
+00:02:22.129 --> 00:02:25.789
+This Eigen::Vector4f min point and max point.
+
+00:02:25.789 --> 00:02:28.549
+So the first three of those values are X, Y, Z.
+
+00:02:28.550 --> 00:02:34.145
+Then for that fourth value just leave that marked as 1.0.
+
+00:02:34.145 --> 00:02:37.765
+So that's how you'd actually use that vector4f.
+
+00:02:37.764 --> 00:02:42.034
+Going back into this documentation for the crop box.
+
+00:02:42.034 --> 00:02:43.909
+So you set the min, you set the max,
+
+00:02:43.909 --> 00:02:46.729
+you set your input cloud,
+
+00:02:46.729 --> 00:02:50.689
+and then you go ahead and you perform the filtering on it.
+
+00:02:50.689 --> 00:02:56.699
+So you call the filter function on it and then you can do the crop box transformation,
+
+00:02:56.699 --> 00:03:00.889
+and then basically anything outside that box will be removed.
+
+00:03:00.889 --> 00:03:05.969
+You can have this new point cloud that contains only points inside that box.
+
+00:03:05.969 --> 00:03:09.509
+So here is showing what
+
+00:03:09.509 --> 00:03:14.399
+the results would look like after you've filled in the function called filter cloud.
+
+00:03:14.530 --> 00:03:17.629
+You have these mystery parameters and these
+
+00:03:17.629 --> 00:03:19.835
+will be things that we'll be experimenting with.
+
+00:03:19.835 --> 00:03:23.060
+So these question marks here are actually just some X,
+
+00:03:23.060 --> 00:03:24.875
+Y, Z for defining the box.
+
+00:03:24.875 --> 00:03:27.930
+Then here we have our grid size.
+
+00:03:28.060 --> 00:03:32.610
+Then one last thing that kind of talk about is,
+
+00:03:32.610 --> 00:03:37.095
+we also have this optional thing
+
+00:03:37.094 --> 00:03:39.080
+of trying to get rid of these points on
+
+00:03:39.080 --> 00:03:42.680
+the roof and we'll probably talk about that in the solution.
+
+00:03:42.680 --> 00:03:47.310
+But for right now, just see if you can go ahead and apply that voxel grid first of all,
+
+00:03:47.310 --> 00:03:52.849
+and then see if you can also get that region based cropping working as well.
+
+00:03:52.849 --> 00:03:54.979
+So using that PCL crop box.
+
+00:03:54.979 --> 00:03:58.899
+So that's going to be inside the process point clouds function here,
+
+00:03:58.900 --> 00:04:01.740
+and it's defining this filter cloud.
+
+00:04:01.740 --> 00:04:04.870
+Then once you have that filter cloud function filled in,
+
+00:04:04.870 --> 00:04:07.090
+you can go ahead and call it in main,
+
+00:04:07.090 --> 00:04:11.090
+and see if you can down sample your point cloud,
+
+00:04:11.090 --> 00:04:14.009
+so it has fewer points.
+

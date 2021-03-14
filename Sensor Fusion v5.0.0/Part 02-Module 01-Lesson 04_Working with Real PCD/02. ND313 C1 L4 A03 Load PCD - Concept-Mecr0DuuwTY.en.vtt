@@ -1,0 +1,253 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:02.745
+Let's go ahead and get started.
+
+00:00:02.745 --> 00:00:05.400
+The first thing that we're going to do is,
+
+00:00:05.400 --> 00:00:07.830
+we're going to load some real pointCloud data.
+
+00:00:07.830 --> 00:00:11.525
+So let's check out what this looks like.
+
+00:00:11.525 --> 00:00:14.850
+Right now, I'm just going to go into the classroom and
+
+00:00:14.849 --> 00:00:17.579
+go in to see what instructions are in there but
+
+00:00:17.579 --> 00:00:23.309
+this is the actual PCD that we're loading up and in order to do this,
+
+00:00:23.309 --> 00:00:26.974
+let's go ahead and we're going to create a brand new function.
+
+00:00:26.975 --> 00:00:30.255
+So this is going to be in an environment.cpp,
+
+00:00:30.254 --> 00:00:37.475
+and this new function is going to be basically the same format as simpleHighway.
+
+00:00:37.475 --> 00:00:40.100
+But now instead of using simpleHighway and using
+
+00:00:40.100 --> 00:00:43.605
+this virtual simulated highway environment,
+
+00:00:43.604 --> 00:00:46.519
+we're going to have this new function that we're going to call,
+
+00:00:46.520 --> 00:00:52.010
+and basically it's going to be doing three things for us here.
+
+00:00:52.009 --> 00:00:56.344
+We're going to be creating a new pointProcessor inside this function,
+
+00:00:56.344 --> 00:01:00.810
+and instead of using pcl pointXYZ,
+
+00:01:00.810 --> 00:01:03.825
+we're going to be using pcl pointXYZI.
+
+00:01:03.825 --> 00:01:07.950
+So now, we're dealing with pointClouds with intensity values,
+
+00:01:07.950 --> 00:01:11.380
+and we're using those templates inside the pointProcessors.
+
+00:01:11.379 --> 00:01:13.519
+So now, we can actually go ahead and use
+
+00:01:13.519 --> 00:01:16.894
+that same exact initialization for a pointProcessor,
+
+00:01:16.894 --> 00:01:21.109
+and now all we have to do is fill in that template argument placement.
+
+00:01:21.109 --> 00:01:22.219
+So if we look in the classroom,
+
+00:01:22.219 --> 00:01:24.010
+all we have to do is say, "Hey,
+
+00:01:24.010 --> 00:01:27.240
+now instead of using pcl pointXYZ,
+
+00:01:27.239 --> 00:01:28.979
+I have this extra I component,
+
+00:01:28.980 --> 00:01:31.534
+so now I'm dealing with intensity pointClouds."
+
+00:01:31.534 --> 00:01:34.400
+In this function, I mean there's a couple of
+
+00:01:34.400 --> 00:01:36.844
+different ways that we can set up this pointProcessor,
+
+00:01:36.844 --> 00:01:40.640
+in the classroom it's showing it being initialized with the new keyword,
+
+00:01:40.640 --> 00:01:42.739
+so it's going to be a pointer.
+
+00:01:42.739 --> 00:01:45.170
+So that's if you want to initialize it on the heap.
+
+00:01:45.170 --> 00:01:47.704
+You can also initialize it on the stack.
+
+00:01:47.704 --> 00:01:49.323
+Instead of being a pointer,
+
+00:01:49.323 --> 00:01:54.649
+then you can just go ahead and do pointProcessor and set the name.
+
+00:01:54.650 --> 00:01:57.510
+So you can just do pointProcessor and then semicolon,
+
+00:01:57.510 --> 00:01:58.910
+instead of using a new keyword.
+
+00:01:58.909 --> 00:02:03.319
+That's what we've kind of been using as an example throughout the previous lessons,
+
+00:02:03.319 --> 00:02:05.334
+so your choice on that one.
+
+00:02:05.334 --> 00:02:10.525
+Then once you create this pointProcessor in this cityBlock,
+
+00:02:10.525 --> 00:02:13.159
+you're going to actually load up a pointCloud.
+
+00:02:13.159 --> 00:02:17.974
+So here we're loading up this pointXYZI pointCloud,
+
+00:02:17.974 --> 00:02:22.715
+and we're going to use a pointProcessor's load PCD function now.
+
+00:02:22.715 --> 00:02:32.875
+All the data for this real PCD is located in source sensors data PCD,
+
+00:02:32.875 --> 00:02:35.145
+and then there's data 1.
+
+00:02:35.145 --> 00:02:39.770
+In data 1, we have this PCD file, and let's look at it.
+
+00:02:39.770 --> 00:02:42.570
+We have 1, 2, 3,
+
+00:02:42.569 --> 00:02:44.805
+4, 5, 6, 7,
+
+00:02:44.805 --> 00:02:46.500
+8, 9, 10 zeros.
+
+00:02:46.500 --> 00:02:51.770
+So it has this format where it has 10 digits and there's like 10 zeros,
+
+00:02:51.770 --> 00:02:54.725
+and then nine zeros followed by 1,2,3.
+
+00:02:54.724 --> 00:02:58.084
+So that's just kind of the format that we're using for this PCD,
+
+00:02:58.084 --> 00:03:02.000
+and those numbers are actually showing it in chronological order.
+
+00:03:02.000 --> 00:03:05.819
+So the string of 10 zeros will be the first one,
+
+00:03:05.819 --> 00:03:08.625
+then we have these zeros and a one, that will be the second,
+
+00:03:08.625 --> 00:03:12.574
+and we'll be using that later to actually stream back PCD data.
+
+00:03:12.574 --> 00:03:16.849
+So basically, you're just going to be loading
+
+00:03:16.849 --> 00:03:21.239
+up this single PCD in this new cityBlock function,
+
+00:03:21.240 --> 00:03:25.010
+and then you can go ahead and render that pointCloud
+
+00:03:25.009 --> 00:03:29.060
+using the familiar render pointCloud functions that we've been working with,
+
+00:03:29.060 --> 00:03:32.569
+and go ahead and give it that pointCloud
+
+00:03:32.569 --> 00:03:36.034
+that you want to render to the viewer and then name it something.
+
+00:03:36.034 --> 00:03:37.789
+So in this case,
+
+00:03:37.789 --> 00:03:39.469
+we're just naming it inputCloud.
+
+00:03:39.469 --> 00:03:45.960
+So basically, we're going to go through this first exercise here,
+
+00:03:45.960 --> 00:03:50.480
+where we're going to actually just load up some PCD and show it in the viewer,
+
+00:03:50.479 --> 00:03:54.319
+and then we'll be looking at some other processing techniques for that.
+
+00:03:54.319 --> 00:03:56.424
+So for this first exercise,
+
+00:03:56.425 --> 00:03:59.310
+just go ahead and load up this PCD,
+
+00:03:59.310 --> 00:04:02.284
+this is what the results should look like in the viewer,
+
+00:04:02.284 --> 00:04:03.979
+and what you're going to do is,
+
+00:04:03.979 --> 00:04:06.215
+you're going to create this new cityBlock function.
+
+00:04:06.215 --> 00:04:08.569
+It's very similar to simpleHighway,,
+
+00:04:08.569 --> 00:04:11.429
+it's copied all the code from simpleHighway,
+
+00:04:11.429 --> 00:04:13.680
+and then use that cityBlock.
+
+00:04:13.680 --> 00:04:17.290
+But after you create this cityBlock function,
+
+00:04:17.290 --> 00:04:22.200
+then just create that new point processor that's working with pointXYZI,
+
+00:04:22.199 --> 00:04:26.844
+and go ahead and do a render, so renderPointCloud.
+
+00:04:26.845 --> 00:04:29.510
+That's going to render that loaded up
+
+00:04:29.509 --> 00:04:33.170
+PCD pointCloud with the real self-driving card data.
+
+00:04:33.170 --> 00:04:35.569
+So that'll be the first exercise, I think.
+
+00:04:35.569 --> 00:04:40.670
+Yeah, go ahead and try creating that new cityBlock function and load up that PCD,
+
+00:04:40.670 --> 00:04:43.259
+and see what it looks like.
+

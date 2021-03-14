@@ -1,0 +1,52 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:01.905
+This sets it up for the project.
+
+00:00:01.905 --> 00:00:06.135
+This is the project here where you're working for data one.
+
+00:00:06.134 --> 00:00:08.939
+Basically you're just trying to get results like this,
+
+00:00:08.939 --> 00:00:14.084
+where you can get bounding boxes around these parked cars and this truck passing you.
+
+00:00:14.085 --> 00:00:18.210
+Then for the segmentation and clustering functions,
+
+00:00:18.210 --> 00:00:20.550
+what you're actually going to be using is
+
+00:00:20.550 --> 00:00:24.890
+the code that we were talking about in the previous lessons,
+
+00:00:24.890 --> 00:00:28.065
+so you'll be implementing these from scratch.
+
+00:00:28.065 --> 00:00:31.679
+In those lessons we're telling you how to do that and
+
+00:00:31.679 --> 00:00:36.420
+basically you remember you're actually implementing RANSAC from scratch,
+
+00:00:36.420 --> 00:00:38.760
+and that's how you're able to do the segmentation.
+
+00:00:38.759 --> 00:00:42.219
+Then you're also implementing your own k-d tree,
+
+00:00:42.219 --> 00:00:44.339
+and then implementing including clustering,
+
+00:00:44.340 --> 00:00:49.609
+so you can use that code to process this and do the clustering yourself.
+
+00:00:49.609 --> 00:00:52.909
+That's what the final project will entail.
+
+00:00:52.909 --> 00:00:59.049
+Then, yes, it's trying to get results that look like this and capture the scene.
+

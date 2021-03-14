@@ -1,0 +1,283 @@
+<!-- udacimak v1.4.4 -->
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <meta content="ie=edge" http-equiv="X-UA-Compatible"/>
+  <title>
+   Tracking and Challenge Problem
+  </title>
+  <link href="../assets/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="../assets/css/plyr.css" rel="stylesheet"/>
+  <link href="../assets/css/katex.min.css" rel="stylesheet"/>
+  <link href="../assets/css/jquery.mCustomScrollbar.min.css" rel="stylesheet"/>
+  <link href="../assets/css/styles.css" rel="stylesheet"/>
+  <link href="../assets/img/udacimak.png" rel="shortcut icon" type="image/png">
+  </link>
+ </head>
+ <body>
+  <div class="wrapper">
+   <nav id="sidebar">
+    <div class="sidebar-header">
+     <h3>
+      Working with Real PCD
+     </h3>
+    </div>
+    <ul class="sidebar-list list-unstyled CTAs">
+     <li>
+      <a class="article" href="../index.html">
+       Back to Home
+      </a>
+     </li>
+    </ul>
+    <ul class="sidebar-list list-unstyled components">
+     <li class="">
+      <a href="01. Load Real PCD.html">
+       01. Load Real PCD
+      </a>
+     </li>
+     <li class="">
+      <a href="02. Load PCD.html">
+       02. Load PCD
+      </a>
+     </li>
+     <li class="">
+      <a href="03. Challenges with Real World Lidar.html">
+       03. Challenges with Real World Lidar
+      </a>
+     </li>
+     <li class="">
+      <a href="04. Downsampling.html">
+       04. Downsampling
+      </a>
+     </li>
+     <li class="">
+      <a href="05. Filtering with PCL.html">
+       05. Filtering with PCL
+      </a>
+     </li>
+     <li class="">
+      <a href="06. Steps For Obstacle Detection.html">
+       06. Steps For Obstacle Detection
+      </a>
+     </li>
+     <li class="">
+      <a href="07. Stream PCD.html">
+       07. Stream PCD
+      </a>
+     </li>
+     <li class="">
+      <a href="08. Lidar Obstacle Detection Project.html">
+       08. Lidar Obstacle Detection Project
+      </a>
+     </li>
+     <li class="">
+      <a href="09. Tracking and Challenge Problem.html">
+       09. Tracking and Challenge Problem
+      </a>
+     </li>
+     <li class="">
+      <a href="10. Outro.html">
+       10. Outro
+      </a>
+     </li>
+    </ul>
+    <ul class="sidebar-list list-unstyled CTAs">
+     <li>
+      <a class="article" href="../index.html">
+       Back to Home
+      </a>
+     </li>
+    </ul>
+   </nav>
+   <div id="content">
+    <header class="container-fluild header">
+     <div class="container">
+      <div class="row">
+       <div class="col-12">
+        <div class="align-items-middle">
+         <button class="btn btn-toggle-sidebar" id="sidebarCollapse" type="button">
+          <div>
+          </div>
+          <div>
+          </div>
+          <div>
+          </div>
+         </button>
+         <h1 style="display: inline-block">
+          09. Tracking and Challenge Problem
+         </h1>
+        </div>
+       </div>
+      </div>
+     </div>
+    </header>
+    <main class="container">
+     <div class="row">
+      <div class="col-12">
+       <div class="ud-atom">
+        <h3>
+         <p>
+          Header Text
+         </p>
+        </h3>
+        <div>
+         <h2 id="tracking-discussion">
+          Tracking Discussion
+         </h2>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+         <p>
+          Discussion on Tracking
+         </p>
+        </h3>
+        <div>
+         <p>
+          You have made it through the entire lidar obstacle detection process. You are able to stream back multiple pcd files and perform filtering, segmentation, clustering, and bounding box detection. Now that you are able to detect obstacles in single frames, you can make your pipeline even more robust by tracking detections over the history of frames. You can create associations between detections in frames and use that to track objects.
+         </p>
+         <p>
+          One way to create associations between two different frames is by how close in proximity two detections are to each other and how similar they look. There are also a lot more filtering procedures that you can explore, such as looking at detection that are seen in consecutive frames before they are considered. You could also filter based on bounding boxes, their volume and shapes. By deploying tracking methods and associations you could try to dynamically build the shapes of obstacles. Examples of this might be, maybe you see the backside of a long truck, the lidar only first sees the back of the truck. Then later you drive past the truck. letting the lidar see the trucks side. There are many ways to keep exploring and making the detection process more robust.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+         <p>
+          Challenge set
+         </p>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="Challenge problem: Track a bicyclist riding in front of the car." class="img img-fluid" src="img/challengeset.gif"/>
+          <figcaption class="figure-caption">
+           <p>
+            Challenge problem: Track a bicyclist riding in front of the car.
+           </p>
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+         <p>
+          Challenge PCD Set
+         </p>
+        </h3>
+        <div>
+         <h2 id="challenge-problem">
+          Challenge Problem
+         </h2>
+         <p>
+          If you are up for an additional challenge check out
+          <code>
+           src/sensors/data/pcd/data_2
+          </code>
+          to see how well you can detect/track a bicyclist riding in front of the car, along with detecting/tracking the other surrounding obstacles in the scene.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+      </div>
+      <div class="col-12">
+       <p class="text-right">
+        <a class="btn btn-outline-primary mt-4" href="10. Outro.html" role="button">
+         Next Concept
+        </a>
+       </p>
+      </div>
+     </div>
+    </main>
+    <footer class="footer">
+     <div class="container">
+      <div class="row">
+       <div class="col-12">
+        <p class="text-center">
+         udacity2.0 If you need the newest courses Plase add me wechat: udacity6
+        </p>
+       </div>
+      </div>
+     </div>
+    </footer>
+   </div>
+  </div>
+  <script src="../assets/js/jquery-3.3.1.min.js">
+  </script>
+  <script src="../assets/js/plyr.polyfilled.min.js">
+  </script>
+  <script src="../assets/js/bootstrap.min.js">
+  </script>
+  <script src="../assets/js/jquery.mCustomScrollbar.concat.min.js">
+  </script>
+  <script src="../assets/js/katex.min.js">
+  </script>
+  <script>
+   // Initialize Plyr video players
+    const players = Array.from(document.querySelectorAll('video')).map(p => new Plyr(p));
+
+    // render math equations
+    let elMath = document.getElementsByClassName('mathquill');
+    for (let i = 0, len = elMath.length; i < len; i += 1) {
+      const el = elMath[i];
+
+      katex.render(el.textContent, el, {
+        throwOnError: false
+      });
+    }
+
+    // this hack will make sure Bootstrap tabs work when using Handlebars
+    if ($('#question-tabs').length && $('#user-answer-tabs').length) {
+      $("#question-tabs a.nav-link").on('click', function () {
+        $("#question-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+      $("#user-answer-tabs a.nav-link").on('click', function () {
+        $("#user-answer-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    } else {
+      $("a.nav-link").on('click', function () {
+        $(".tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    }
+
+    // side bar events
+    $(document).ready(function () {
+      $("#sidebar").mCustomScrollbar({
+        theme: "minimal"
+      });
+
+      $('#sidebarCollapse').on('click', function () {
+        $('#sidebar, #content').toggleClass('active');
+        $('.collapse.in').toggleClass('in');
+        $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+      });
+
+      // scroll to first video on page loading
+      if ($('video').length) {
+        $('html,body').animate({ scrollTop: $('div.plyr').prev().offset().top});
+      }
+
+      // auto play first video: this may not work with chrome/safari due to autoplay policy
+      if (players && players.length > 0) {
+        players[0].play();
+      }
+
+      // scroll sidebar to current concept
+      const currentInSideBar = $( "ul.sidebar-list.components li a:contains('09. Tracking and Challenge Problem')" )
+      currentInSideBar.css( "text-decoration", "underline" );
+      $("#sidebar").mCustomScrollbar('scrollTo', currentInSideBar);
+    });
+  </script>
+ </body>
+</html>

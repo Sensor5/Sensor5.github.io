@@ -1,0 +1,58 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:05.565
+So let's go ahead and move on to the next step, and that's clustering.
+
+00:00:05.565 --> 00:00:13.440
+So now we want to be able to cluster these obstacles into different- basically,
+
+00:00:13.439 --> 00:00:18.199
+we want to figure out all the unique vehicles on the road so we can track them over time,
+
+00:00:18.199 --> 00:00:21.239
+predict how they're going to be moving,
+
+00:00:21.239 --> 00:00:25.679
+feed that to the sensor fusion pipeline with the radar information,
+
+00:00:25.679 --> 00:00:30.660
+and be able to have some estimation for how those objects are moving in our space.
+
+00:00:30.660 --> 00:00:34.409
+So here are the results of clustering;
+
+00:00:34.409 --> 00:00:37.484
+this alternating between three colors,
+
+00:00:37.484 --> 00:00:40.875
+with these red, yellow, and blue.
+
+00:00:40.875 --> 00:00:44.270
+So next, you're just going to go ahead and call
+
+00:00:44.270 --> 00:00:49.070
+that clustering function to go ahead and try out some different parameters.
+
+00:00:49.070 --> 00:00:55.030
+You might remember, what are the parameters for doing our clustering here.
+
+00:00:55.030 --> 00:01:00.560
+Well, that big one was the distance tolerance that we're working with.
+
+00:01:00.560 --> 00:01:06.829
+Then also, we have these additional ones for setting a min and max size clusters.
+
+00:01:06.829 --> 00:01:10.700
+So maybe we can make some use of out of that here where we're seeing some points.
+
+00:01:10.700 --> 00:01:12.594
+It's scattered off in the edge.
+
+00:01:12.594 --> 00:01:17.539
+Maybe we can use some of those hyper parameters with min size to clean those up,
+
+00:01:17.540 --> 00:01:22.380
+or maybe there's something we can do with that distance tolerance as well.
+

@@ -1,0 +1,172 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:02.759
+We loaded up this real PCD.
+
+00:00:02.759 --> 00:00:04.410
+Now, we're going to be filtering.
+
+00:00:04.410 --> 00:00:06.900
+We're going to be doing these filtering techniques using
+
+00:00:06.900 --> 00:00:09.915
+the PCL libraries felt and functions.
+
+00:00:09.914 --> 00:00:16.964
+This is the idea is we have this massive point Cloud data with 120,000 points,
+
+00:00:16.964 --> 00:00:18.269
+we're going to be filtering it down,
+
+00:00:18.269 --> 00:00:20.204
+we're going to downsample it.
+
+00:00:20.204 --> 00:00:23.820
+We don't need that high of resolution if we don't have to,
+
+00:00:23.820 --> 00:00:27.899
+because the fewer points that we have, the faster processing.
+
+00:00:27.899 --> 00:00:30.059
+If we have a lot more points,
+
+00:00:30.059 --> 00:00:31.640
+it's going to take longer the process,
+
+00:00:31.640 --> 00:00:34.950
+and also there's going to be a certain region that we're interested in.
+
+00:00:34.950 --> 00:00:39.739
+I don't really care if we can see at the very edge of our scene,
+
+00:00:39.738 --> 00:00:42.739
+but what's really important is the road environment.
+
+00:00:42.740 --> 00:00:48.530
+So the width of the road and maybe say 30 meters out from the front of
+
+00:00:48.530 --> 00:00:51.439
+the car and maybe even behind the car is not as important as
+
+00:00:51.439 --> 00:00:54.710
+the front maybe 10 years or so behind your car.
+
+00:00:54.710 --> 00:00:57.530
+But we'll be looking at this box region.
+
+00:00:57.530 --> 00:01:04.394
+What's important is that box region contains things that are in the proximity of the car,
+
+00:01:04.394 --> 00:01:08.269
+and those are things that we want to be able to label as obstacles,
+
+00:01:08.269 --> 00:01:10.250
+and we don't want to have any collisions with.
+
+00:01:10.250 --> 00:01:12.700
+So in this next exercise,
+
+00:01:12.700 --> 00:01:16.564
+we're going to be filling in this filtering function.
+
+00:01:16.564 --> 00:01:18.349
+How are we doing the filtering?
+
+00:01:18.349 --> 00:01:21.274
+We're actually going to use something called a VoxelGrid filter.
+
+00:01:21.275 --> 00:01:24.978
+So we want to reduce the number of points in our Cloud,
+
+00:01:24.978 --> 00:01:27.334
+so we can process faster.
+
+00:01:27.334 --> 00:01:32.299
+A VoxelGrid is basically this cubic grid that,
+
+00:01:32.299 --> 00:01:36.319
+so we have these 3D grid and each cell is going
+
+00:01:36.319 --> 00:01:40.459
+to filter to the Cloud so that we only have a single point per cell.
+
+00:01:40.459 --> 00:01:43.459
+What does that mean? So that means that the bigger
+
+00:01:43.459 --> 00:01:47.419
+our grid size or bigger our cell size in our grid,
+
+00:01:47.420 --> 00:01:49.439
+the fewer points we're going to end up with,
+
+00:01:49.439 --> 00:01:52.069
+because every cell can only have one point.
+
+00:01:52.069 --> 00:01:56.659
+So it's specifying a resolution for our point Cloud.
+
+00:01:56.659 --> 00:01:58.759
+Let's say if we have this VoxelGrid and we have
+
+00:01:58.760 --> 00:02:02.270
+this cell that was one meter by one meter by one meter,
+
+00:02:02.269 --> 00:02:05.879
+this cube, then we have this resolution,
+
+00:02:05.879 --> 00:02:08.629
+so every one meter, we have a point.
+
+00:02:08.629 --> 00:02:12.250
+Well, that's going to be pretty poor resolution point Cloud,
+
+00:02:12.250 --> 00:02:13.990
+but you could actually go and say,
+
+00:02:13.990 --> 00:02:20.165
+well, maybe it's 100 centimeters instead or something like that.
+
+00:02:20.164 --> 00:02:23.479
+So that's how this VoxelGrid filter is going to work.
+
+00:02:23.479 --> 00:02:29.250
+Then another thing that we're going to be utilizing is this a boxed region of interest.
+
+00:02:29.250 --> 00:02:32.719
+We're going to be using some PCL built-in functions for doing this,
+
+00:02:32.719 --> 00:02:38.090
+but the idea is that we just care about this box region that maybe contains the road,
+
+00:02:38.090 --> 00:02:40.099
+maybe some pieces of the sidewalk,
+
+00:02:40.099 --> 00:02:43.939
+and it has some area to it,
+
+00:02:43.939 --> 00:02:46.625
+and we only care about points within that area,
+
+00:02:46.625 --> 00:02:50.300
+because our LIDAR can pick up things as far as
+
+00:02:50.300 --> 00:02:53.855
+120 meters out from the very edge of our scene and
+
+00:02:53.854 --> 00:02:57.349
+not all of that's going to be completely irrelevant for doing
+
+00:02:57.349 --> 00:03:01.789
+the immediate detection of obstacles right in our proximity.
+
+00:03:01.789 --> 00:03:07.699
+So the filter function is actually contained in point processor,
+
+00:03:07.699 --> 00:03:13.314
+and then you can go ahead and call the filter function from inside environment.cpp.
+
+00:03:13.314 --> 00:03:18.629
+Let's go ahead and look over some documentation before doing the filtering.
+
