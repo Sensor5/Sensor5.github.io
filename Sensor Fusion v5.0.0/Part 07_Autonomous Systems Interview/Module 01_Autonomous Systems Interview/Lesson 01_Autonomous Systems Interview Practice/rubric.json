@@ -1,0 +1,178 @@
+{
+  "id": 2285,
+  "project_id": 525,
+  "upload_types": [
+    "repo",
+    "zip"
+  ],
+  "file_filter_regex": "\\A(?!(((.*/)?(__MACOSX|\\.git|node_modules|bower_components|jspm_packages|\\.idea|build|.ipynb_checkpoints|\\.Trash-0|logs)(\\Z|/))))((.*\\.(css|docx|gradle|htm|html|java|js|markdown|md|pdf|py|rmd|rst|sql|swift|txt|xml|yaml|yml)\\Z)|((.*/)?(README|Readme|readme|Makefile)\\Z))",
+  "nomination_eligible": false,
+  "stand_out": "Make sure that any drawings, diagrams or examples you include are legible! Just as you would want an interviewer watching you write on a whiteboard to be able to follow you each step of the way both verbally and visually, you want to make sure your reviewer can read your material. \n\nAny code examples you include do not need to run entirely on their own (you can refer to helper functions and such as long as what they do is explained clearly), but make sure to avoid syntax errors, undeclared variables, etc. You still want clean code!",
+  "hide_criteria": false,
+  "created_at": "2018-08-30T20:26:40.975Z",
+  "updated_at": "2020-04-05T18:37:33.132Z",
+  "hashtag": "",
+  "max_upload_size_mb": 500,
+  "estimated_sla": null,
+  "project_assistant_enabled": false,
+  "checkmate_enabled": false,
+  "checkmate_metadata": null,
+  "available_for_cert_project": false,
+  "classroom_node_id": 704318,
+  "classroom_project_key": "feee7390-c9aa-400b-9829-4a93322008ff",
+  "language": "en-us",
+  "ndkeys": [
+    "nd013",
+    "nd209",
+    "nd787",
+    "nd209-cn",
+    "nd313",
+    "nd013beta"
+  ],
+  "coursekeys": [
+    "ud259"
+  ],
+  "sections": [
+    {
+      "id": 4791,
+      "name": "Role Selection",
+      "created_at": "2018-08-30T20:28:58.366Z",
+      "updated_at": "2018-08-30T20:29:27.534Z",
+      "deleted_at": null,
+      "position": 0,
+      "rubric_id": 2285,
+      "rubric_items": [
+        {
+          "id": 13893,
+          "section_id": 4791,
+          "passed_description": "The submission clearly notes whether the Perception, Deep Learning, Motion Planning, Mapping/Localization or Control Engineer has been selected as a role for interview practice. ",
+          "exceeded_description": null,
+          "created_at": "2018-08-30T20:29:27.758Z",
+          "updated_at": "2018-08-30T20:35:41.699Z",
+          "deleted_at": null,
+          "optional": false,
+          "position": 0,
+          "criteria": "A single Autonomous Systems Engineer role has been selected. ",
+          "exceedable": false
+        }
+      ]
+    },
+    {
+      "id": 4792,
+      "name": "Question Selection",
+      "created_at": "2018-08-30T20:32:00.682Z",
+      "updated_at": "2018-08-30T20:32:12.670Z",
+      "deleted_at": null,
+      "position": 1,
+      "rubric_id": 2285,
+      "rubric_items": [
+        {
+          "id": 13895,
+          "section_id": 4792,
+          "passed_description": "Three questions from the selected role have been included and answered.",
+          "exceeded_description": null,
+          "created_at": "2018-08-30T20:33:54.021Z",
+          "updated_at": "2018-09-07T16:26:33.287Z",
+          "deleted_at": null,
+          "optional": false,
+          "position": 0,
+          "criteria": "Three questions from the selected role",
+          "exceedable": false
+        },
+        {
+          "id": 13896,
+          "section_id": 4792,
+          "passed_description": "At least one of the questions selected for answering is a coding question.",
+          "exceeded_description": null,
+          "created_at": "2018-08-30T20:35:41.846Z",
+          "updated_at": "2018-09-07T16:26:33.296Z",
+          "deleted_at": null,
+          "optional": false,
+          "position": 1,
+          "criteria": "Coding question",
+          "exceedable": false
+        },
+        {
+          "id": 13894,
+          "section_id": 4792,
+          "passed_description": "The required question regarding a recent project the candidate has worked on has been included and answered.",
+          "exceeded_description": null,
+          "created_at": "2018-08-30T20:32:12.786Z",
+          "updated_at": "2018-09-07T16:26:33.302Z",
+          "deleted_at": null,
+          "optional": false,
+          "position": 2,
+          "criteria": "Your Own Recent Project",
+          "exceedable": false
+        }
+      ]
+    },
+    {
+      "id": 4793,
+      "name": "Candidate Responses",
+      "created_at": "2018-08-30T20:37:01.274Z",
+      "updated_at": "2018-08-30T20:37:13.276Z",
+      "deleted_at": null,
+      "position": 2,
+      "rubric_id": 2285,
+      "rubric_items": [
+        {
+          "id": 13897,
+          "section_id": 4793,
+          "passed_description": "The candidate satisfactorily explains their answer to each selected question, including any relevant diagrams, examples or code.\n\nThe response is technically detailed enough to demonstrate understanding of the topic.",
+          "exceeded_description": null,
+          "created_at": "2018-08-30T20:37:13.381Z",
+          "updated_at": "2018-09-07T16:25:06.999Z",
+          "deleted_at": null,
+          "optional": false,
+          "position": 0,
+          "criteria": "Satisfactory technical answers",
+          "exceedable": false
+        },
+        {
+          "id": 14010,
+          "section_id": 4793,
+          "passed_description": "Any code-based responses are in C++, except for if related to using a deep learning library.",
+          "exceeded_description": null,
+          "created_at": "2018-09-07T15:56:12.394Z",
+          "updated_at": "2018-09-07T16:25:07.008Z",
+          "deleted_at": null,
+          "optional": false,
+          "position": 1,
+          "criteria": "Code responses in C++",
+          "exceedable": false
+        },
+        {
+          "id": 13898,
+          "section_id": 4793,
+          "passed_description": "The candidate has considered at least one potential follow-up question from each originally selected question, and demonstrates sufficient knowledge regarding the additional question.",
+          "exceeded_description": null,
+          "created_at": "2018-08-30T20:41:55.979Z",
+          "updated_at": "2018-09-07T16:25:07.015Z",
+          "deleted_at": null,
+          "optional": false,
+          "position": 2,
+          "criteria": "Follow-Up Questions",
+          "exceedable": false
+        }
+      ]
+    }
+  ],
+  "project": {
+    "id": 525,
+    "name": "Autonomous Systems Interview Practice Project",
+    "nanodegree_key": "career",
+    "is_cert_project": false,
+    "audit_project_id": null,
+    "hashtag": null,
+    "audit_rubric_id": 1144,
+    "entitlement_required": false,
+    "is_career": false,
+    "recruitment_family_id": 6,
+    "created_at": "2018-09-05T01:05:12.279Z",
+    "updated_at": "2020-05-30T12:03:29.392Z",
+    "price": "9.5",
+    "ungradeable_price": "3.0",
+    "audit_price": "0.0"
+  }
+}

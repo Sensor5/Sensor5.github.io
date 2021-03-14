@@ -1,0 +1,1883 @@
+{
+  "data": {
+    "lesson": {
+      "id": 693192,
+      "key": "16d404e8-4cb4-4180-996b-50b29f7e3bbd",
+      "title": "Autonomous Systems Interview Practice",
+      "semantic_type": "Lesson",
+      "is_public": true,
+      "version": "1.0.0",
+      "locale": "en-us",
+      "summary": "Start off with some tips on interviewing for an autonomous systems role, then watch how candidates approach their interview questions. Finish off by practicing some questions of your own!",
+      "lesson_type": "Classroom",
+      "display_workspace_project_only": false,
+      "resources": {
+        "files": [
+          {
+            "name": "Videos Zip File",
+            "uri": "https://zips.udacity-data.com/16d404e8-4cb4-4180-996b-50b29f7e3bbd/693192/1545042615700/Autonomous+Systems+Interview+Practice+Videos.zip"
+          },
+          {
+            "name": "Transcripts Zip File",
+            "uri": "https://zips.udacity-data.com/16d404e8-4cb4-4180-996b-50b29f7e3bbd/693192/1545042610668/Autonomous+Systems+Interview+Practice+Subtitles.zip"
+          }
+        ],
+        "google_plus_link": null,
+        "career_resource_center_link": null,
+        "coaching_appointments_link": null,
+        "office_hours_link": null,
+        "aws_provisioning_link": null
+      },
+      "project": {
+        "key": "feee7390-c9aa-400b-9829-4a93322008ff",
+        "version": "1.0.0",
+        "locale": "en-us",
+        "duration": 0,
+        "semantic_type": "Project",
+        "title": "Autonomous Systems Interview Practice Project",
+        "description": "Once you have completed your project, use the [Project Rubric](https://review.udacity.com/#!/rubrics/2285/view) to review the project. If you have covered all of the points in the rubric, then you are ready to submit! If you see room for improvement in any category in which you do not meet specifications, keep working!",
+        "is_public": true,
+        "summary": null,
+        "forum_path": "",
+        "rubric_id": "2285",
+        "terminal_project_id": null,
+        "resources": null,
+        "image": {
+          "url": "https://s3.amazonaws.com/video.udacity-data.com/topher/2018/November/5beb4f47_autonomous-header1200x900/autonomous-header1200x900.png",
+          "width": 1200,
+          "height": 900
+        }
+      },
+      "lab": null,
+      "concepts": [
+        {
+          "id": 693193,
+          "key": "acd59300-d439-4bad-a42c-061f382213a8",
+          "title": "Welcome to the Course!",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "acd59300-d439-4bad-a42c-061f382213a8",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 713931,
+              "key": "cc6cf961-c228-432c-842e-92fdb1fe379a",
+              "title": "Welcome to the Course",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "GaCLcs60EP4",
+                "china_cdn_id": "GaCLcs60EP4.mp4"
+              }
+            }
+          ]
+        },
+        {
+          "id": 693197,
+          "key": "f4ae9f88-4d46-469f-b5dd-8078224bdec0",
+          "title": "Job Titles",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "f4ae9f88-4d46-469f-b5dd-8078224bdec0",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 713932,
+              "key": "c089c45a-74ef-4065-b777-9da310e89365",
+              "title": "Job Titles",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "nOiG177fxMc",
+                "china_cdn_id": "nOiG177fxMc.mp4"
+              }
+            }
+          ]
+        },
+        {
+          "id": 693198,
+          "key": "711c1c3a-ddec-4a3a-a7aa-34be804c5c1b",
+          "title": "Your Part",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "711c1c3a-ddec-4a3a-a7aa-34be804c5c1b",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 713933,
+              "key": "49e6b36d-3e82-409d-a5ba-6830cfa2bbec",
+              "title": "Your Part",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "nIJweu9oVV4",
+                "china_cdn_id": "nIJweu9oVV4.mp4"
+              }
+            }
+          ]
+        },
+        {
+          "id": 693199,
+          "key": "b6f70c94-4b70-42d1-ab1c-666159e16e93",
+          "title": "One Piece of the Puzzle",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "b6f70c94-4b70-42d1-ab1c-666159e16e93",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 713934,
+              "key": "15c0fe61-5e6e-433c-affc-7ed203d1106d",
+              "title": "One Piece Of The Puzzle",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "OJCCNhsuAAY",
+                "china_cdn_id": "OJCCNhsuAAY.mp4"
+              }
+            },
+            {
+              "id": 693233,
+              "key": "d27583fd-efe6-41fa-8458-8398ca7a540a",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "Our *Technical Interview in C++* course is coming soon!\n<br>\n<br>",
+              "instructor_notes": ""
+            }
+          ]
+        },
+        {
+          "id": 693200,
+          "key": "61441527-0154-4ad3-adaa-bdfe7fe522d0",
+          "title": "Job Descriptions",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "61441527-0154-4ad3-adaa-bdfe7fe522d0",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 713935,
+              "key": "8ed545b6-f96b-4b1a-a560-60e043306add",
+              "title": "Job Descriptions",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "Some of you may take notice of this specific job posting also noting a Master's or Ph.D. under Experience & Skills - if you don't have one, it's important to note they also mention \"proven accomplishments otherwise\"! While companies know a Ph.D. proves you have research abilities, for instance, your portfolio can prove you have this experience and related skills as well.\n<br>\n<br>",
+              "video": {
+                "youtube_id": "mMlV_tludkw",
+                "china_cdn_id": "mMlV_tludkw.mp4"
+              }
+            }
+          ]
+        },
+        {
+          "id": 693201,
+          "key": "79334995-669a-4ba3-b510-55f195d2c8e6",
+          "title": "Research the Company",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "79334995-669a-4ba3-b510-55f195d2c8e6",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 713936,
+              "key": "e3d9e71e-2c1e-4bae-ad9f-2d379c5ca0b4",
+              "title": "Research The Company",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "rej_9D0J0-o",
+                "china_cdn_id": "rej_9D0J0-o.mp4"
+              }
+            }
+          ]
+        },
+        {
+          "id": 693202,
+          "key": "a8f57efe-acd8-4029-8cd8-a5f8e17ec415",
+          "title": "Let's Get Started",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "a8f57efe-acd8-4029-8cd8-a5f8e17ec415",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 713937,
+              "key": "4ab3f96f-b543-4604-ae6e-f6688f480d4f",
+              "title": "Let's Get Started",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "yoXAm1ix6q8",
+                "china_cdn_id": "yoXAm1ix6q8.mp4"
+              }
+            }
+          ]
+        },
+        {
+          "id": 693203,
+          "key": "1801e992-85f4-470f-bc5a-24f5f63c08ad",
+          "title": "Perception Engineer",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "1801e992-85f4-470f-bc5a-24f5f63c08ad",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 771180,
+              "key": "c10e6bd5-8152-42c9-b86b-1cbabc1a9203",
+              "title": "Perception Engineer Interview",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "jvJBciGU5o0",
+                "china_cdn_id": "jvJBciGU5o0.mp4"
+              }
+            }
+          ]
+        },
+        {
+          "id": 693204,
+          "key": "20edef40-80ce-48e6-a7c6-80f96817b4e5",
+          "title": "Perception Engineer Reflection",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "20edef40-80ce-48e6-a7c6-80f96817b4e5",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 693250,
+              "key": "9a1f2999-e8d9-4c0a-a54d-df9e6955ab02",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## Analyzing Technical Answers - **Perception Engineer** Interview\n\nIt's time to play the role of the interviewer.\n\nTry to \"think like the employer.\" Make sure to compare your analysis with our analysis at the end!",
+              "instructor_notes": ""
+            },
+            {
+              "id": 730351,
+              "key": "6c2b92ec-7212-4287-a403-ef1213cb5b07",
+              "title": "Perception Interview Number Rating",
+              "semantic_type": "ValidatedQuizAtom",
+              "is_public": true,
+              "instructor_notes": null,
+              "user_state": {
+                "node_key": "6c2b92ec-7212-4287-a403-ef1213cb5b07",
+                "completed_at": null,
+                "last_viewed_at": null,
+                "unstructured": null
+              },
+              "question": {
+                "prompt": "How would you rate the candidate's response, on a scale of 1-5 (5 being the highest)?",
+                "matchers": [
+                  {
+                    "expression": "5"
+                  },
+                  {
+                    "expression": "4"
+                  },
+                  {
+                    "expression": "3"
+                  },
+                  {
+                    "expression": "Five"
+                  },
+                  {
+                    "expression": "Four"
+                  },
+                  {
+                    "expression": "Three"
+                  },
+                  {
+                    "expression": "2"
+                  },
+                  {
+                    "expression": "1"
+                  },
+                  {
+                    "expression": "Two"
+                  },
+                  {
+                    "expression": "One"
+                  }
+                ]
+              }
+            },
+            {
+              "id": 693252,
+              "key": "1bd0156e-50f0-4c92-b3af-9fba917a64f9",
+              "title": "Perception Engineer Interview Problem Solving",
+              "semantic_type": "RadioQuizAtom",
+              "is_public": true,
+              "instructor_notes": null,
+              "user_state": {
+                "node_key": "1bd0156e-50f0-4c92-b3af-9fba917a64f9",
+                "completed_at": null,
+                "last_viewed_at": null,
+                "unstructured": null
+              },
+              "question": {
+                "prompt": "Do you feel confident that the candidate did/could solve this problem?",
+                "answers": [
+                  {
+                    "id": "a1534370608966",
+                    "text": "Yes",
+                    "is_correct": true
+                  },
+                  {
+                    "id": "a1534370706583",
+                    "text": "No",
+                    "is_correct": false
+                  }
+                ]
+              }
+            },
+            {
+              "id": 693257,
+              "key": "2cfad470-81fa-4c5b-9137-57d3ab4cb0ab",
+              "title": "Overall Perception Engineer Interview Reflection",
+              "semantic_type": "ReflectAtom",
+              "is_public": true,
+              "instructor_notes": null,
+              "user_state": {
+                "node_key": "2cfad470-81fa-4c5b-9137-57d3ab4cb0ab",
+                "completed_at": null,
+                "last_viewed_at": null,
+                "unstructured": null
+              },
+              "question": {
+                "title": null,
+                "semantic_type": "TextQuestion",
+                "evaluation_id": null,
+                "text": "Write any additional feedback you recorded, as well as why or how you arrived at your above responses."
+              },
+              "answer": {
+                "text": "Great job analyzing the Perception Engineer candidate's responses! Below, see the interviewer's own thoughts about the candidate's response.",
+                "video": null
+              }
+            },
+            {
+              "id": 771182,
+              "key": "0a511eae-f05d-4ffd-ab75-6227e37b3347",
+              "title": "Perception Reflection",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "nFFYWQxUo_U",
+                "china_cdn_id": "nFFYWQxUo_U.mp4"
+              }
+            }
+          ]
+        },
+        {
+          "id": 693206,
+          "key": "1b16830a-8a7e-4122-8eb3-ff1bb1c4341e",
+          "title": "Deep Learning Engineer",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "1b16830a-8a7e-4122-8eb3-ff1bb1c4341e",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 771183,
+              "key": "dd3ad89f-980b-49e8-a201-8f8c6e0d7e4c",
+              "title": "Deep Learning Engineer Interview",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "EcIwpFM-UYQ",
+                "china_cdn_id": "EcIwpFM-UYQ.mp4"
+              }
+            }
+          ]
+        },
+        {
+          "id": 693207,
+          "key": "2ec129d5-5e82-4228-81c0-3a0101d4a998",
+          "title": "Deep Learning Engineer Reflection",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "2ec129d5-5e82-4228-81c0-3a0101d4a998",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 693261,
+              "key": "c50f3515-cab9-4df0-a9d6-45341f92aa23",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## Analyzing Technical Answers - **Deep Learning Engineer** Interview\n\nIt's time to play the role of the interviewer.\n\nTry to \"think like the employer.\" Make sure to compare your analysis with our analysis at the end!",
+              "instructor_notes": ""
+            },
+            {
+              "id": 730353,
+              "key": "7b989164-8cca-434c-8b20-0d608c36f387",
+              "title": "Deep Learning Engineer Interview Rating",
+              "semantic_type": "ValidatedQuizAtom",
+              "is_public": true,
+              "instructor_notes": null,
+              "user_state": {
+                "node_key": "7b989164-8cca-434c-8b20-0d608c36f387",
+                "completed_at": null,
+                "last_viewed_at": null,
+                "unstructured": null
+              },
+              "question": {
+                "prompt": "How would you rate the candidate's response, on a scale of 1-5 (5 being the highest)?",
+                "matchers": [
+                  {
+                    "expression": "5"
+                  },
+                  {
+                    "expression": "4"
+                  },
+                  {
+                    "expression": "3"
+                  },
+                  {
+                    "expression": "Five"
+                  },
+                  {
+                    "expression": "Four"
+                  },
+                  {
+                    "expression": "Three"
+                  },
+                  {
+                    "expression": "2"
+                  },
+                  {
+                    "expression": "1"
+                  },
+                  {
+                    "expression": "Two"
+                  },
+                  {
+                    "expression": "One"
+                  }
+                ]
+              }
+            },
+            {
+              "id": 693263,
+              "key": "e017727c-69ea-4e92-a6e0-a92c985534c2",
+              "title": "Deep Learning Engineer Interview Problem Solving",
+              "semantic_type": "RadioQuizAtom",
+              "is_public": true,
+              "instructor_notes": null,
+              "user_state": {
+                "node_key": "e017727c-69ea-4e92-a6e0-a92c985534c2",
+                "completed_at": null,
+                "last_viewed_at": null,
+                "unstructured": null
+              },
+              "question": {
+                "prompt": "Do you feel confident that the candidate did/could solve this problem?",
+                "answers": [
+                  {
+                    "id": "a1534371997062",
+                    "text": "Yes",
+                    "is_correct": true
+                  },
+                  {
+                    "id": "a1534372012874",
+                    "text": "No",
+                    "is_correct": false
+                  }
+                ]
+              }
+            },
+            {
+              "id": 693264,
+              "key": "30a9cf44-5459-45d3-8952-6ccf11191e87",
+              "title": "Overall Deep Learning Engineer Interview Reflection",
+              "semantic_type": "ReflectAtom",
+              "is_public": true,
+              "instructor_notes": null,
+              "user_state": {
+                "node_key": "30a9cf44-5459-45d3-8952-6ccf11191e87",
+                "completed_at": null,
+                "last_viewed_at": null,
+                "unstructured": null
+              },
+              "question": {
+                "title": null,
+                "semantic_type": "TextQuestion",
+                "evaluation_id": null,
+                "text": "Write any additional feedback you recorded, as well as why or how you arrived at your above responses."
+              },
+              "answer": {
+                "text": "Great job analyzing the Deep Learning Engineer candidate's responses! Below, see the interviewer’s own thoughts about the candidate’s response.",
+                "video": null
+              }
+            },
+            {
+              "id": 771184,
+              "key": "cc768ef7-79c7-481c-b9b0-a98a250c6da4",
+              "title": "Deep Learning Reflection",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "ASYxOkucZxI",
+                "china_cdn_id": "ASYxOkucZxI.mp4"
+              }
+            }
+          ]
+        },
+        {
+          "id": 693208,
+          "key": "9d889d94-ee5a-4f85-8e9d-c1384fd25480",
+          "title": "Motion Planning Engineer",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "9d889d94-ee5a-4f85-8e9d-c1384fd25480",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 771185,
+              "key": "c6b18fcd-52bc-4f5a-bdd6-72318023f4e1",
+              "title": "Motion Planning Engineer Interview",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "BAD3ijRnZ0U",
+                "china_cdn_id": "BAD3ijRnZ0U.mp4"
+              }
+            }
+          ]
+        },
+        {
+          "id": 693209,
+          "key": "221a48ad-006b-4211-8c96-65c249390aa6",
+          "title": "Motion Planning Engineer Reflection",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "221a48ad-006b-4211-8c96-65c249390aa6",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 693266,
+              "key": "200b23e4-4ef5-4c3f-9943-cae882013d87",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## Analyzing Technical Answers - **Motion Planning Engineer** Interview\n\nIt's time to play the role of the interviewer.\n\nTry to \"think like the employer.\" Make sure to compare your analysis with our analysis at the end!",
+              "instructor_notes": ""
+            },
+            {
+              "id": 730355,
+              "key": "d53117c8-9f17-491e-8a91-ee92c49cdf05",
+              "title": "Motion Planning Engineer Interview Rating",
+              "semantic_type": "ValidatedQuizAtom",
+              "is_public": true,
+              "instructor_notes": null,
+              "user_state": {
+                "node_key": "d53117c8-9f17-491e-8a91-ee92c49cdf05",
+                "completed_at": null,
+                "last_viewed_at": null,
+                "unstructured": null
+              },
+              "question": {
+                "prompt": "How would you rate the candidate's response, on a scale of 1-5 (5 being the highest)?",
+                "matchers": [
+                  {
+                    "expression": "5"
+                  },
+                  {
+                    "expression": "4"
+                  },
+                  {
+                    "expression": "Five"
+                  },
+                  {
+                    "expression": "Four"
+                  },
+                  {
+                    "expression": "3"
+                  },
+                  {
+                    "expression": "2"
+                  },
+                  {
+                    "expression": "1"
+                  },
+                  {
+                    "expression": "Three"
+                  },
+                  {
+                    "expression": "Two"
+                  },
+                  {
+                    "expression": "One"
+                  }
+                ]
+              }
+            },
+            {
+              "id": 693271,
+              "key": "88e295fa-17e6-4a21-8fc0-94bc87aaea3d",
+              "title": "Motion Planning Engineer Interview Problem Solving",
+              "semantic_type": "RadioQuizAtom",
+              "is_public": true,
+              "instructor_notes": null,
+              "user_state": {
+                "node_key": "88e295fa-17e6-4a21-8fc0-94bc87aaea3d",
+                "completed_at": null,
+                "last_viewed_at": null,
+                "unstructured": null
+              },
+              "question": {
+                "prompt": "Do you feel confident that the candidate did/could solve this problem?",
+                "answers": [
+                  {
+                    "id": "a1534372906805",
+                    "text": "Yes",
+                    "is_correct": true
+                  },
+                  {
+                    "id": "a1534372926938",
+                    "text": "No",
+                    "is_correct": false
+                  }
+                ]
+              }
+            },
+            {
+              "id": 693272,
+              "key": "9dbec070-f63d-441e-a8a8-0298e1a152be",
+              "title": "Overall Motion Planning Engineer Interview Reflection",
+              "semantic_type": "ReflectAtom",
+              "is_public": true,
+              "instructor_notes": null,
+              "user_state": {
+                "node_key": "9dbec070-f63d-441e-a8a8-0298e1a152be",
+                "completed_at": null,
+                "last_viewed_at": null,
+                "unstructured": null
+              },
+              "question": {
+                "title": null,
+                "semantic_type": "TextQuestion",
+                "evaluation_id": null,
+                "text": "Write any additional feedback you recorded, as well as why or how you arrived at your above responses."
+              },
+              "answer": {
+                "text": "Great job analyzing the Motion Planning Engineer candidate's responses! Below, see the interviewer’s own thoughts about the candidate’s response.",
+                "video": null
+              }
+            },
+            {
+              "id": 771186,
+              "key": "a4eb95c0-82f4-4bc2-825a-ab7a6075aa6d",
+              "title": "Motion Planning Engineer Reflection",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "nAc40tJP8p0",
+                "china_cdn_id": "nAc40tJP8p0.mp4"
+              }
+            }
+          ]
+        },
+        {
+          "id": 693210,
+          "key": "e21ff13c-a113-4e65-862e-781f36de896d",
+          "title": "Mapping/Localization Engineer",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "e21ff13c-a113-4e65-862e-781f36de896d",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 771187,
+              "key": "f8390363-90c5-4b6e-8490-e4b79b74126c",
+              "title": "Mapping and Localization Engineer Interview",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "rdVJZg4NJtc",
+                "china_cdn_id": "rdVJZg4NJtc.mp4"
+              }
+            }
+          ]
+        },
+        {
+          "id": 693211,
+          "key": "e90bb4e3-c1ec-4629-aeea-29619f0620f0",
+          "title": "Mapping/Localization Engineer Reflection",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "e90bb4e3-c1ec-4629-aeea-29619f0620f0",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 693267,
+              "key": "7f3f07e1-3def-4a35-9aef-808992b36893",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## Analyzing Technical Answers - **Mapping/Localization Engineer** Interview\n\nIt's time to play the role of the interviewer.\n\nTry to \"think like the employer.\" Make sure to compare your analysis with our analysis at the end!",
+              "instructor_notes": ""
+            },
+            {
+              "id": 730358,
+              "key": "9f465ef2-7568-4950-9b32-aa1069fe2286",
+              "title": "Mapping/Localization Engineer Interview Rating",
+              "semantic_type": "ValidatedQuizAtom",
+              "is_public": true,
+              "instructor_notes": null,
+              "user_state": {
+                "node_key": "9f465ef2-7568-4950-9b32-aa1069fe2286",
+                "completed_at": null,
+                "last_viewed_at": null,
+                "unstructured": null
+              },
+              "question": {
+                "prompt": "How would you rate the candidate's response, on a scale of 1-5 (5 being the highest)?",
+                "matchers": [
+                  {
+                    "expression": "5"
+                  },
+                  {
+                    "expression": "4"
+                  },
+                  {
+                    "expression": "3"
+                  },
+                  {
+                    "expression": "Five"
+                  },
+                  {
+                    "expression": "Four"
+                  },
+                  {
+                    "expression": "Three"
+                  },
+                  {
+                    "expression": "2"
+                  },
+                  {
+                    "expression": "1"
+                  },
+                  {
+                    "expression": "Two"
+                  },
+                  {
+                    "expression": "One"
+                  }
+                ]
+              }
+            },
+            {
+              "id": 693275,
+              "key": "bfb5a3ef-70e4-42cf-bab3-048c5987fd0f",
+              "title": "Mapping/Localization Engineer Interview Problem Solving",
+              "semantic_type": "RadioQuizAtom",
+              "is_public": true,
+              "instructor_notes": null,
+              "user_state": {
+                "node_key": "bfb5a3ef-70e4-42cf-bab3-048c5987fd0f",
+                "completed_at": null,
+                "last_viewed_at": null,
+                "unstructured": null
+              },
+              "question": {
+                "prompt": "Do you feel confident that the candidate did/could solve this problem?",
+                "answers": [
+                  {
+                    "id": "a1534373667040",
+                    "text": "Yes",
+                    "is_correct": true
+                  },
+                  {
+                    "id": "a1534373686999",
+                    "text": "No",
+                    "is_correct": false
+                  }
+                ]
+              }
+            },
+            {
+              "id": 693276,
+              "key": "fcbef7b1-8596-4534-a4a4-356007f6e73c",
+              "title": "Overall Mapping/Localization Engineer Interview Reflection",
+              "semantic_type": "ReflectAtom",
+              "is_public": true,
+              "instructor_notes": null,
+              "user_state": {
+                "node_key": "fcbef7b1-8596-4534-a4a4-356007f6e73c",
+                "completed_at": null,
+                "last_viewed_at": null,
+                "unstructured": null
+              },
+              "question": {
+                "title": null,
+                "semantic_type": "TextQuestion",
+                "evaluation_id": null,
+                "text": "Write any additional feedback you recorded, as well as why or how you arrived at your above responses."
+              },
+              "answer": {
+                "text": "Great job analyzing the Mapping/Localization Engineer candidate's responses! Below, see the interviewer’s own thoughts about the candidate’s response.",
+                "video": null
+              }
+            },
+            {
+              "id": 771189,
+              "key": "b52bad32-742c-4da2-a5ea-be465ce66daa",
+              "title": "Mapping and Localization Reflection",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "XURfouUc_9Y",
+                "china_cdn_id": "XURfouUc_9Y.mp4"
+              }
+            }
+          ]
+        },
+        {
+          "id": 693212,
+          "key": "15ea4989-651c-4696-aefa-894eb0c4419e",
+          "title": "Control Engineer",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "15ea4989-651c-4696-aefa-894eb0c4419e",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 771191,
+              "key": "23a61b96-49ce-4bea-a8d4-17852410ce57",
+              "title": "Control Engineer Interview",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "6Wi9HBIXcpg",
+                "china_cdn_id": "6Wi9HBIXcpg.mp4"
+              }
+            }
+          ]
+        },
+        {
+          "id": 693213,
+          "key": "15b747cf-6b57-4832-933b-32c118773f6d",
+          "title": "Control Engineer Reflection",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "15b747cf-6b57-4832-933b-32c118773f6d",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 693268,
+              "key": "1bb61560-71f2-481f-9640-95ca0379de11",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## Analyzing Technical Answers - **Control Engineer** Interview\n\nIt's time to play the role of the interviewer.\n\nTry to \"think like the employer.\" Make sure to compare your analysis with our analysis at the end!",
+              "instructor_notes": ""
+            },
+            {
+              "id": 730359,
+              "key": "3f2ce65e-799a-4385-923c-850195181c30",
+              "title": "Control Engineer Interview Rating",
+              "semantic_type": "ValidatedQuizAtom",
+              "is_public": true,
+              "instructor_notes": null,
+              "user_state": {
+                "node_key": "3f2ce65e-799a-4385-923c-850195181c30",
+                "completed_at": null,
+                "last_viewed_at": null,
+                "unstructured": null
+              },
+              "question": {
+                "prompt": "How would you rate the candidate's response, on a scale of 1-5 (5 being the highest)?",
+                "matchers": [
+                  {
+                    "expression": "5"
+                  },
+                  {
+                    "expression": "4"
+                  },
+                  {
+                    "expression": "3"
+                  },
+                  {
+                    "expression": "Five"
+                  },
+                  {
+                    "expression": "Four"
+                  },
+                  {
+                    "expression": "Three"
+                  },
+                  {
+                    "expression": "2"
+                  },
+                  {
+                    "expression": "1"
+                  },
+                  {
+                    "expression": "Two"
+                  },
+                  {
+                    "expression": "One"
+                  }
+                ]
+              }
+            },
+            {
+              "id": 693285,
+              "key": "07e17bbc-6696-4a15-8d5b-ef16d11f8b29",
+              "title": "Control Engineer Interview Problem Solving",
+              "semantic_type": "RadioQuizAtom",
+              "is_public": true,
+              "instructor_notes": null,
+              "user_state": {
+                "node_key": "07e17bbc-6696-4a15-8d5b-ef16d11f8b29",
+                "completed_at": null,
+                "last_viewed_at": null,
+                "unstructured": null
+              },
+              "question": {
+                "prompt": "Do you feel confident that the candidate did/could solve this problem?",
+                "answers": [
+                  {
+                    "id": "a1534374432841",
+                    "text": "Yes",
+                    "is_correct": true
+                  },
+                  {
+                    "id": "a1534374449750",
+                    "text": "No",
+                    "is_correct": false
+                  }
+                ]
+              }
+            },
+            {
+              "id": 693289,
+              "key": "a30a801f-bf1d-4501-9987-08916c4c1669",
+              "title": "Overall Control Engineer Interview Reflection",
+              "semantic_type": "ReflectAtom",
+              "is_public": true,
+              "instructor_notes": null,
+              "user_state": {
+                "node_key": "a30a801f-bf1d-4501-9987-08916c4c1669",
+                "completed_at": null,
+                "last_viewed_at": null,
+                "unstructured": null
+              },
+              "question": {
+                "title": null,
+                "semantic_type": "TextQuestion",
+                "evaluation_id": null,
+                "text": "Write any additional feedback you recorded, as well as why or how you arrived at your above responses."
+              },
+              "answer": {
+                "text": "Great job analyzing the Control Engineer candidate's responses! Below, see the interviewer’s own thoughts about the candidate’s response.",
+                "video": null
+              }
+            },
+            {
+              "id": 771192,
+              "key": "e52caad0-aaff-4358-b1bf-4e6dadb25013",
+              "title": "Control Reflection",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "I noted in the reflection that Haoyang used semi-colons, although in the previous video they actually were not present. Make sure if coding in C++ to include them!",
+              "video": {
+                "youtube_id": "D5ugiJVUSsw",
+                "china_cdn_id": "D5ugiJVUSsw.mp4"
+              }
+            }
+          ]
+        },
+        {
+          "id": 693214,
+          "key": "aeb13c1c-e573-4db1-94f4-3afc57c3bc2f",
+          "title": "My Own Project",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "aeb13c1c-e573-4db1-94f4-3afc57c3bc2f",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 771193,
+              "key": "1144f6bc-4e49-4f97-8078-edb91a0e9a65",
+              "title": "My Project",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "bGw6DLQohCE",
+                "china_cdn_id": "bGw6DLQohCE.mp4"
+              }
+            }
+          ]
+        },
+        {
+          "id": 693215,
+          "key": "a4d2c07f-7f2b-4577-8430-7dbe17e16b63",
+          "title": "My Own Project Reflection",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "a4d2c07f-7f2b-4577-8430-7dbe17e16b63",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 693269,
+              "key": "9572008a-cf65-4b54-85ac-3cac9e2cde7d",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## Analyzing Technical Answers - **My Own Project**\n\nIt's time to play the role of the interviewer.\n\nTry to \"think like the employer.\" Make sure to compare your analysis with our analysis at the end!",
+              "instructor_notes": ""
+            },
+            {
+              "id": 730363,
+              "key": "1736a98e-39ae-4078-a340-9f48eb820b49",
+              "title": "My Own Project Interview Rating",
+              "semantic_type": "ValidatedQuizAtom",
+              "is_public": true,
+              "instructor_notes": null,
+              "user_state": {
+                "node_key": "1736a98e-39ae-4078-a340-9f48eb820b49",
+                "completed_at": null,
+                "last_viewed_at": null,
+                "unstructured": null
+              },
+              "question": {
+                "prompt": "How would you rate the candidate's response, on a scale of 1-5 (5 being the highest)?",
+                "matchers": [
+                  {
+                    "expression": "5"
+                  },
+                  {
+                    "expression": "4"
+                  },
+                  {
+                    "expression": "3"
+                  },
+                  {
+                    "expression": "Five"
+                  },
+                  {
+                    "expression": "Four"
+                  },
+                  {
+                    "expression": "Three"
+                  },
+                  {
+                    "expression": "2"
+                  },
+                  {
+                    "expression": "1"
+                  },
+                  {
+                    "expression": "Two"
+                  },
+                  {
+                    "expression": "One"
+                  }
+                ]
+              }
+            },
+            {
+              "id": 693294,
+              "key": "1e8820a6-a81d-4709-973e-e9748a1d0683",
+              "title": "My Own Project Interview Problem Solving",
+              "semantic_type": "RadioQuizAtom",
+              "is_public": true,
+              "instructor_notes": null,
+              "user_state": {
+                "node_key": "1e8820a6-a81d-4709-973e-e9748a1d0683",
+                "completed_at": null,
+                "last_viewed_at": null,
+                "unstructured": null
+              },
+              "question": {
+                "prompt": "Do you feel confident that the candidate competently detailed their project, the problems they encountered, and how they solved them?",
+                "answers": [
+                  {
+                    "id": "a1534374805785",
+                    "text": "Yes",
+                    "is_correct": true
+                  },
+                  {
+                    "id": "a1534374866236",
+                    "text": "No",
+                    "is_correct": false
+                  }
+                ]
+              }
+            },
+            {
+              "id": 693295,
+              "key": "28a14a54-691a-48e9-ba83-37843990d1b4",
+              "title": "Overall \"My Own Project\" Interview Reflection",
+              "semantic_type": "ReflectAtom",
+              "is_public": true,
+              "instructor_notes": null,
+              "user_state": {
+                "node_key": "28a14a54-691a-48e9-ba83-37843990d1b4",
+                "completed_at": null,
+                "last_viewed_at": null,
+                "unstructured": null
+              },
+              "question": {
+                "title": null,
+                "semantic_type": "TextQuestion",
+                "evaluation_id": null,
+                "text": "Write any additional feedback you recorded, as well as why or how you arrived at your above responses."
+              },
+              "answer": {
+                "text": "Great job analyzing the candidate's response about their own personal project! Below, see the interviewer’s own thoughts about the candidate’s response.",
+                "video": null
+              }
+            },
+            {
+              "id": 771195,
+              "key": "a7f228a4-8955-4547-92a6-469161a92f94",
+              "title": "My Project Reflection",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "ZZKRKbyX2pY",
+                "china_cdn_id": "ZZKRKbyX2pY.mp4"
+              }
+            }
+          ]
+        },
+        {
+          "id": 693220,
+          "key": "8ee142df-b6ae-4af9-8240-70fa3105bf82",
+          "title": "Additional Resources to Consider",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "8ee142df-b6ae-4af9-8240-70fa3105bf82",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 713938,
+              "key": "d32cb722-2faa-4f60-8317-d56f5b7fb74a",
+              "title": "Additional Resources",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "kb6lgWQVvAU",
+                "china_cdn_id": "kb6lgWQVvAU.mp4"
+              }
+            },
+            {
+              "id": 713940,
+              "key": "ae4301af-b800-422a-82bf-934cdb84051b",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "# Additional Interview Preparation Resources",
+              "instructor_notes": ""
+            },
+            {
+              "id": 693298,
+              "key": "805f57c0-b26c-4812-a491-ef8f3d7fcaa4",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "- Udacity Career Services\n  - [Udacity Career Resource Center](https://career-resource-center.udacity.com/)\n  - [Udacity Career Portal](https://classroom.udacity.com/career) - customized for you!\n  - Technical Interview in C++ (*Coming Soon!*)\n  - [Data Structures and Algorithms in Python](https://www.udacity.com/course/data-structures-and-algorithms-in-python--ud513)\n\n- Books\n  - [Cracking the Coding Interview](https://www.amazon.com/Cracking-Coding-Interview-Programming-Questions/dp/0984782850/ref=dp_ob_image_bk?dpID=51l5XzLln%252BL&preST=_SY291_BO1,204,203,200_QL40_&dpSrc=detail)\n  - [Elements of Programming Interviews](https://www.amazon.com/Elements-Programming-Interviews-Adnan-Aziz/dp/1479274836/ref=zg_bsnr_2576_5)\n\n- Online Practice Platforms\n  - [LeetCode](https://leetcode.com)\n  - [HackerRank](https://www.hackerrank.com)\n  - [Coderust](http://www.coderust.com)\n  - [Interview Cake](https://www.interviewcake.com)\n  - [Codewars](http://www.codewars.com)",
+              "instructor_notes": ""
+            }
+          ]
+        },
+        {
+          "id": 693221,
+          "key": "78696f6d-1d54-45c8-abd2-0f049c1dab12",
+          "title": "Final Thoughts",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "78696f6d-1d54-45c8-abd2-0f049c1dab12",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 713939,
+              "key": "89c9350c-3e98-4a0a-81bc-a90657f8e12a",
+              "title": "Final Thoughts",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "occ46iYHJ4I",
+                "china_cdn_id": "occ46iYHJ4I.mp4"
+              }
+            }
+          ]
+        },
+        {
+          "id": 693222,
+          "key": "b5142216-1987-4acb-9545-c5945d95cc81",
+          "title": "Project Instructions",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "b5142216-1987-4acb-9545-c5945d95cc81",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 708433,
+              "key": "ce58af85-d62f-48ec-9195-22e1ee71098d",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "# Project Instructions",
+              "instructor_notes": ""
+            },
+            {
+              "id": 708431,
+              "key": "983680b4-d6a9-4388-92dd-b63b05e6ea89",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2018/August/5b89a894_autonomous-systems/autonomous-systems.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/983680b4-d6a9-4388-92dd-b63b05e6ea89",
+              "caption": "",
+              "alt": "Now it's your turn!",
+              "width": 248,
+              "height": 248,
+              "instructor_notes": null
+            },
+            {
+              "id": 708417,
+              "key": "92c1e2eb-fcef-407d-81a5-5d6f001030f4",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "### Role Selection\nIt's time for you to practice your interviewing skills! Over the next several pages, you'll see that we have specific roles in Autonomous Systems, just like the videos you watched before:\n\n- Perceptions/Sensors\n- Deep Learning\n- Motion Planning\n- Mapping/Localization\n- Control\n\nFirst, you need to select a single role that you are interested in. While you are welcome to read through and practice any of the questions under the other pages, for the project, you are going to focus on just one area. We've also included a *General* page that has some additional questions you can practice, but aren't part of the project itself.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 708423,
+              "key": "4ff77bba-501a-4e0a-bf33-8dc7d4731c28",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "### Question Selection for Your Role\n\nOnce you've decided on a role, you can click on that role's page for a list of related questions. While we'll repeat these requirements again for simplicity on each page, for your selected role, you'll need to:\n\n- Answer the **required** question related to a recent project you've worked on, similar to the *My Own Project* video you watched earlier\n- Select and answer **three** questions specifically related to your role from the page\n- At least one of the three role-specific questions **must be** a coding-based question marked with **[Code]**.\n- You are welcome to include code or any desired drawings and diagrams to further detail your answers for other questions as well, although it is not required. We *do encourage* you to do this for all your answers though, as that would likely be what your interviewer desires from you!",
+              "instructor_notes": ""
+            },
+            {
+              "id": 708426,
+              "key": "ad2c5a72-1faf-45da-aa4b-5a2c813220b7",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "### Question Follow-ups\n\nYou may have noticed throughout the interview videos before that the interviewers have follow-up questions to extend their original questions, or to clarify something the candidate discussed. In order to pass the project, you should also clearly denote at least one potential relevant follow-up question for each question above, and also provide a sufficient answer for it.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 708428,
+              "key": "857ce71e-f776-45d7-87ed-91db3d128758",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "### What to Submit\n\nYou may submit your interview questions as .pdf, text editor file, etc.\n\nFor code questions, we suggest submitting the code portion as `.cpp` files so that your reviewer can easily view them in their favorite IDE, and referring to any specific lines in your written response as necessary.\n\nYou may submit the files as either a `.zip` file (suggested) or by uploading to a Github repository and submitting from there.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 693303,
+              "key": "ddd52e2f-586f-4293-a0bd-cb2c4d9d306a",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## Evaluation\n\nOnce you have completed your project, use the [**Project Rubric**](https://review.udacity.com/#!/rubrics/2285/view) to review the project. If you have covered all of the points in the rubric, then you are ready to submit! If you see room for improvement in **any** category in which you do not meet specifications, keep working! \n\nYour project will be evaluated by a Udacity reviewer according to the same [**Project Rubric**](https://review.udacity.com/#!/rubrics/2285/view). Your project must \"meet specifications\" in each category in order for your submission to pass.\n",
+              "instructor_notes": ""
+            }
+          ]
+        },
+        {
+          "id": 704282,
+          "key": "8bb966bb-cdee-4275-9a8e-646661779847",
+          "title": "Perception/Sensor Questions",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "8bb966bb-cdee-4275-9a8e-646661779847",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 704285,
+              "key": "b803a26a-3969-43f6-8522-2825defea169",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "# **Perception/Sensor Engineer**\n*Autonomous Systems Interview Practice project*\n\nSo, you're interested in a role as a Perception/Sensor Engineer? Great choice! Below, you will find one general question, as well as a list of Perception/Sensor Engineer-specific questions. To complete the project, you'll need to complete the general question along with three questions from the role-specific list, with at least one of them needing to be marked as requiring code with **[Code]**. While it isn't required to use code in the other two, we highly encourage you to either code, diagram or draw any relevant information for your answers in the other questions as well.\n\nMake sure not to just select questions in areas you are most comfortable with! You likely won't get so lucky in a real interview situation.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 704646,
+              "key": "7d6ff573-03f9-46e0-ba76-70bbbe2d4457",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2018/August/5b89a8b9_autonomous-header/autonomous-header.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/7d6ff573-03f9-46e0-ba76-70bbbe2d4457",
+              "caption": "",
+              "alt": "",
+              "width": 794,
+              "height": 145,
+              "instructor_notes": null
+            },
+            {
+              "id": 704648,
+              "key": "460791d3-cda5-4939-91bb-8726ea058428",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## Required question\n\nExplain a recent project you've worked on. Why did you choose this project? What difficulties did you run into this project that you did not expect, and how did you solve them?",
+              "instructor_notes": ""
+            },
+            {
+              "id": 704283,
+              "key": "1da03f4a-7b60-4f11-b291-6e57078e3b6a",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## Perception/Sensor Engineer questions\n\n*Pick three of these questions, including at least one marked **[Code]***.\n- Explain your lane detection algorithm. How can it be improved? How does it account for curves and hills? How could you integrate machine learning techniques into the algorithm?\n- What are some of the advantages & disadvantages of cameras, lidar and radar? What combination of these (and other sensors) would you use to ensure appropriate and accurate perception of the environment?\n- How do features from algorithms like SIFT, SURF and HOG differ? Explain how these algorithms work, and how you would use them within a perception pipeline.\n- Explain the technique behind Hough Transforms. Where would this type of feature extraction be useful?\n- **[Code]** What is the RANSAC algorithm? Code the steps that this algorithm takes to help deal with outliers in data. How can we use this algorithm for computer vision?\n- Describe the overall process of how a basic Kalman Filter works. Where might a basic Kalman Filter be less than sufficient? How can you improve the basic algorithm to improve performance in such a situation?\n- How does an Extended Kalman Filter differ from a regular Kalman Filter? Provide an example of where an EKF would be necessary or an improvement, and detail why it would be needed in that situation.\n- What is the difference between an Extended Kalman Filter and an Unscented Kalman Filter? In what situations would there be larger differences between the two approaches? \n- **[Code]** Explain the steps behind how an Extended Kalman Filter is implemented.\n- Have you worked with point clouds and/or the Point Cloud Library (PCL) before? If you’ve used PCL before, which modules of PCL did you use, and what application did you use it toward?\n- **[Code]** Describe how a particle filter works, where it is useful, and how it performs against similar algorithms. Code an example of how you update the weights of the particles between steps.\n- Your perception subsystem has noticed an object in the path of your robot, but it has failed to determine what the object is. How would your perception subsystem further handle this situation?\n- **[Code]** What approach would you take if the various sensors you are using have different refresh rates?\n- **[Code]** 3D point clouds are sometimes processed into \"voxels\" as one step into object detection. 1) What is a voxel, 2) What is the process behind converting point cloud data into voxels (code this), and 3) Why would we want to perform this step with our point cloud data?",
+              "instructor_notes": ""
+            },
+            {
+              "id": 704342,
+              "key": "34a3460e-ec91-4257-9f4b-7d4c7d5de8fc",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "**Relevant Nanodegree Projects**\n\nIf you put these on your resume, make sure you know your code and the topic in-depth before the interview!\n\n- *Self-Driving Car Engineer* - Finding Lane Lines, Advanced Lane Finding, Vehicle Detection and Tracking, Extended Kalman Filters, Unscented Kalman Filters, along with perception-based deep learning projects\n- *Flying Car Engineer* - Estimation\n- *Robotics Software Engineer* - 3D Perception, along with perception-based deep learning projects\n\nFor bonus points (both in getting the interview and for use in your interview), use the skills you learned in the above projects toward a novel solution to another problem in this area!",
+              "instructor_notes": ""
+            },
+            {
+              "id": 704286,
+              "key": "9ef48c9c-b612-48b4-a5c2-bf989a8ceb05",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## What about...?\n\nHave some ideas for additional questions or roles we should include in the course? Let us know with the *Send Feedback* button in the top right of your classroom!",
+              "instructor_notes": ""
+            }
+          ]
+        },
+        {
+          "id": 704287,
+          "key": "7ff562a6-167e-47d9-bdc7-559799bc1528",
+          "title": "Deep Learning Questions",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "7ff562a6-167e-47d9-bdc7-559799bc1528",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 704289,
+              "key": "66e415a1-3937-4196-9fb8-d45d71869eb7",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "# **Deep Learning Engineer**\n*Autonomous Systems Interview Practice project*\n\nSo, you're interested in a role as a Deep Learning Engineer? Great choice! Below, you will find one general question, as well as a list of Perception/Sensor Engineer-specific questions. To complete the project, you'll need to complete the general question along with three questions from the role-specific list, with at least one of them needing to be marked as requiring code with **[Code]**. While it isn't required to use code in the other two, we highly encourage you to either code, diagram or draw any relevant information for your answers in the other questions as well.\n\nMake sure not to just select questions in areas you are most comfortable with! You likely won't get so lucky in a real interview situation.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 704645,
+              "key": "06dd1e7e-ad1e-45d7-a9a6-ba56847b3f01",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2018/August/5b89a8b9_autonomous-header/autonomous-header.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/06dd1e7e-ad1e-45d7-a9a6-ba56847b3f01",
+              "caption": "",
+              "alt": "",
+              "width": 794,
+              "height": 145,
+              "instructor_notes": null
+            },
+            {
+              "id": 704649,
+              "key": "a0622866-6132-4a57-871b-18582cf82f02",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## Required question\n\nExplain a recent project you've worked on. Why did you choose this project? What difficulties did you run into this project that you did not expect, and how did you solve them?",
+              "instructor_notes": ""
+            },
+            {
+              "id": 704288,
+              "key": "bf551d93-a166-4fe6-9628-b449bee16e5d",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## Deep Learning Engineer questions\n\n*Pick three of these questions, including at least one marked **[Code]***.\n- Given different train/test accuracy curves, describe what is going on and how to address it (overfitting, learning rate too high, etc.)\n- What is the difference between object classification and detection? How do any related architectures often differ to accomplish these tasks?\n- How do you deal with severely unbalanced data? In what situations might this occur?\n- How do you reduce overfitting in a neural network? What is regularization, and how does it impact overfitting?\n- Say you have collected camera data from a mobile robot in which you would like to denote various objects of multiple classes with bounding boxes. How would you go about annotating these objects in your dataset? How would your answer change if instead of bounding boxes, you used semantic segmentation? What about instance segmentation?\n- Say you have collected 3D data from a mobile robot in which you would like to denote various objects of multiple classes with bounding boxes. How would you go about annotating these objects in your dataset?\n- Given a dataset of images or 3D data over time, what do you need to consider in creating training and validation data? How would you create your test set to test a related trained network? \n- Explain the concepts behind Deep Reinforcement Learning, and how you would implement such a technique toward Motion Planning. How would you determine the reward functions to use? Would your implementation generalize well towards new, previously unseen environments?\n- Have you deployed any models you have trained and tested into any production systems, or otherwise used on hardware outside of the same computer you trained the network on, such as an embedded system? What additional steps did you take to implement the model, and what type of testing did you perform to ensure appropriate performance?\n- **[Code]** Explain a recent deep learning research paper you read and how it improved upon existing methods. What were its strengths and weaknesses? Code a mock-up of the network used in this paper in your desired deep learning library.\n- **[Code]** Explain the ResNet neural network architecture. What were some of the key insights of this architecture compared to previous approaches, and why do they result in improvements in performance? Code an example of how to use residual layers in your desired deep learning library.\n- **[Code]** Explain the GoogLeNet/Inception neural network architecture. What were some of the key insights of this architecture compared to previous approaches, and why do they result in improvements in performance? Code an example of how to use inception layers in your desired deep learning library.\n- **[Code]** Explain the MobileNet neural network architecture. What were some of the key insights of this architecture compared to previous approaches, and why do they result in improvements in speed performance? Code an example of how to implement MobileNet in your desired deep learning library, and compare it to layers in other neural networks, noting why inference speed is improved.\n- Describe behavioral cloning. How would you go about gathering quality data for this?\n- What is dropout, and what is it used for? Let’s say we have a dropout layer with 50% drop probability. How would you scale the inputs/outputs between train and inference time? What if the drop probability is 75%?\n- Explain why a convolutional neural network typically performs better on image-related tasks that a fully-connected network.\n- **[Code]** Why do vanilla convolutional neural networks (just convolutions followed by pooling layers, out into fully-connected layers) often struggle in determining where in an image an object resides, and how have more recent methods improved in this area?\n- Explain how backpropagation works.\n- **[Code]** Given a dataset of your choosing, code a neural network in a deep learning library of your choice to train a model to do some type of inference over the data. Include any pre-processing steps. Explain why you chose the type of inference you did, as well as what you could apply your trained model to do.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 704343,
+              "key": "9e0124c1-7623-4696-a1be-6605cda663fb",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "**Relevant Nanodegree Projects**\n\nIf you put these on your resume, make sure you know your code and the topic in-depth before the interview!\n\n- *Self-Driving Car Engineer* - Traffic Sign Classification, Behavioral Cloning and Semantic Segmentation, along with any deep learning-based approaches you may have used on other computer vision projects\n- *Robotics Software Engineer* - Follow Me, Pick and Place with Deep Learning\n\nFor bonus points (both in getting the interview and for use in your interview), use the skills you learned in the above projects toward a novel solution to another problem in this area!",
+              "instructor_notes": ""
+            },
+            {
+              "id": 704290,
+              "key": "4ef790e3-19fb-4214-872f-271ffbc9ee16",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## What about...?\n\nHave some ideas for additional questions or roles we should include in the course? Let us know with the *Send Feedback* button in the top right of your classroom!",
+              "instructor_notes": ""
+            }
+          ]
+        },
+        {
+          "id": 704291,
+          "key": "d6595086-fa2c-4aa1-8988-def3e7a3b0bc",
+          "title": "Motion Planning Questions",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "d6595086-fa2c-4aa1-8988-def3e7a3b0bc",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 704293,
+              "key": "c6384e93-2fc6-4cec-bade-b7f15896b1f7",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "# **Motion Planning Engineer**\n*Autonomous Systems Interview Practice project*\n\nSo, you're interested in a role as a Motion Planning Engineer? Great choice! Below, you will find one general question, as well as a list of Perception/Sensor Engineer-specific questions. To complete the project, you'll need to complete the general question along with three questions from the role-specific list, with at least one of them needing to be marked as requiring code with **[Code]**. While it isn't required to use code in the other two, we highly encourage you to either code, diagram or draw any relevant information for your answers in the other questions as well.\n\nMake sure not to just select questions in areas you are most comfortable with! You likely won't get so lucky in a real interview situation.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 704644,
+              "key": "64819ff9-3ba0-46fe-9197-9783cb0a9936",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2018/August/5b89a8b9_autonomous-header/autonomous-header.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/64819ff9-3ba0-46fe-9197-9783cb0a9936",
+              "caption": "",
+              "alt": "",
+              "width": 794,
+              "height": 145,
+              "instructor_notes": null
+            },
+            {
+              "id": 704650,
+              "key": "76669b0b-1834-4f9a-8e9a-ce90dbf22077",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## Required question\n\nExplain a recent project you've worked on. Why did you choose this project? What difficulties did you run into this project that you did not expect, and how did you solve them?",
+              "instructor_notes": ""
+            },
+            {
+              "id": 704292,
+              "key": "fb5b4977-ffed-4227-a125-537ce8bebcc6",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## Motion Planning Engineer questions\n\n*Pick three of these questions, including at least one marked **[Code]***.\n- **[Code]** 1) Explain the A* search algorithm. 2) What is one way to improve upon this algorithm for usage in real-world scenarios?\n- You have a robot on a map with some obstacles on the map. The goal is in the corner of the map. How do you navigate the robot from its current position to the goal?\n- Explain some of the different techniques used for global planning (such as at a city map level) vs. micro planning (such as planning on how to go from the entrance of a parking lot to a desired space). Show how you could implement techniques from these levels into one end-to-end algorithm to guide a mobile robot from one distant location to another.\n- Explain the concepts behind Deep Reinforcement Learning, and how you would implement such a technique toward Motion Planning. How would you determine the reward functions to use? Would your implementation generalize well towards new, previously unseen environments?\n- How do you would generate a desired trajectory over a fixed time horizon for a robot traveling at high speed? Consider what information you would need in order to determine a reasonable trajectory, as well as any additional constraints you may need to consider.\n- **[Code]** Assume you have data of various robot trajectories around your own, in which you would like to build a model to predict the other robots’ behaviors, making sure that your own expensive robot is not damaged by collisions. Your robot does not have the benefit of GPU acceleration. Choose a classification technique in order to learn to predict behaviors, and explain your choice. Then, code an example of how you would build, train and implement this model.\n- What is the difference between a data-based approach versus a model-based approach for behavior prediction? Explain the advantages and disadvantages of each, as well as you could implement the separate techniques.\n- How can Partially observable Markov decision processes (POMDPs) be utilized in Motion Planning? How does the number of belief states in POMDPs relate to the state space of your robot, and how can that impact the performance or usability of this method in real-world applications?\n- **[Code]** Explain the concepts behind a rapidly-exploring random tree (RRT), and implement an example in code.\n- Explain how lattice planning can be used to discretize and simplify the paths through search space. Construct an example of a simple search space to show how this method works.\n- Given a vehicle driving on a highway with other cars around it as well as potential stop lights and pedestrian crossings, and assuming perfect information from sensor data, construct a behavior tree/finite state machine for the vehicle's motion.\n- **[Code]** 1) Explain the D\\* search algorithm (also known as Dynamic A\\*). 2) What is one way to improve upon this algorithm for usage in real-world scenarios?",
+              "instructor_notes": ""
+            },
+            {
+              "id": 704344,
+              "key": "a67cdc7a-d722-4086-a1bc-9ea886b076a9",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "**Relevant Nanodegree Projects**\n\nIf you put these on your resume, make sure you know your code and the topic in-depth before the interview!\n\n- *Self-Driving Car Engineer* - Path Planning / Highway Driving\n- *Flying Car Engineer* - 3D Motion Planning\n- *Robotics Software Engineer* - Home Service Robot\n\nFor bonus points (both in getting the interview and for use in your interview), use the skills you learned in the above projects toward a novel solution to another problem in this area!",
+              "instructor_notes": ""
+            },
+            {
+              "id": 704294,
+              "key": "4b8691bf-24d0-444f-ae99-76948e56e93a",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## What about...?\n\nHave some ideas for additional questions or roles we should include in the course? Let us know with the *Send Feedback* button in the top right of your classroom!",
+              "instructor_notes": ""
+            }
+          ]
+        },
+        {
+          "id": 704295,
+          "key": "065ccecb-42ab-43d5-87c5-7956544b024a",
+          "title": "Mapping/Localization Questions",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "065ccecb-42ab-43d5-87c5-7956544b024a",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 704297,
+              "key": "5b90be66-a84f-40c1-aa03-f6fbd33918f8",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "# **Mapping/Localization Engineer**\n*Autonomous Systems Interview Practice project*\n\nSo, you're interested in a role as a Mapping/Localization Engineer? Great choice! Below, you will find one general question, as well as a list of Perception/Sensor Engineer-specific questions. To complete the project, you'll need to complete the general question along with three questions from the role-specific list, with at least one of them needing to be marked as requiring code with **[Code]**. While it isn't required to use code in the other two, we highly encourage you to either code, diagram or draw any relevant information for your answers in the other questions as well.\n\nMake sure not to just select questions in areas you are most comfortable with! You likely won't get so lucky in a real interview situation.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 704643,
+              "key": "a8fbcebf-9b23-4c16-8ab1-cfa7cf35c237",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2018/August/5b89a8b9_autonomous-header/autonomous-header.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/a8fbcebf-9b23-4c16-8ab1-cfa7cf35c237",
+              "caption": "",
+              "alt": "",
+              "width": 794,
+              "height": 145,
+              "instructor_notes": null
+            },
+            {
+              "id": 704651,
+              "key": "c50bed47-b536-43af-9e27-b3f368a3f901",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## Required question\n\nExplain a recent project you've worked on. Why did you choose this project? What difficulties did you run into this project that you did not expect, and how did you solve them?",
+              "instructor_notes": ""
+            },
+            {
+              "id": 704296,
+              "key": "ffd6061d-3e86-48ad-8f07-4de0e80d639a",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## Mapping/Localization Engineer questions\n\n*Pick three of these questions, including at least one marked **[Code]***.\n- How does Simultaneous Localization and Mapping (SLAM) differ from other localization approaches? What are the benefits and detriments of this over other approaches?\n- **[Code]** Describe how a particle filter works, where it is useful, and how it performs against similar algorithms. Code an example of how you update the weights of the particles between steps.\n- Describe the differences between dense mapping vs. sparse mapping. In what situations would you prefer the use of one over the other?\n- **[Code]** Sparse mapping involves the use of “landmarks” in your map to assist with determining where your robot is in the environment. Given a set of detections and a map of landmarks (you may create a test set of these, which should not exactly match up), code a method to estimate where your robot is. \n- Image-based localization concerns utilizing only camera images in order to determine location in an environment. Explain a method to implement such a system, as well as what the strengths and weaknesses of such an approach are.\n- **[Code]** Why would you utilize an inertial measurement unit (IMU) in conjunction with GPS in localizing a moving robot? Implement a basic system that uses these together for accurate localization.\n- **[Code]** How does GNSS+RTK (real-time kinematic) allow for higher accuracy than standard GPS systems? Implement a basic system that shows how this technique works.\n- **[Code]** You have a robot in an environment with certain known landmarks, but its current position is unknown. Code a method to detect its new location over time when the robot has perfect movement and noisy sensor data. What would you need to change in this function if the robot's motion is also noisy?",
+              "instructor_notes": ""
+            },
+            {
+              "id": 704345,
+              "key": "e69846ac-051c-4b13-8b7d-086e06aac641",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "**Relevant Nanodegree Projects**\n\nIf you put these on your resume, make sure you know your code and the topic in-depth before the interview!\n\n- *Self-Driving Car Engineer* - Kidnapped Vehicle\n- *Flying Car Engineer* - Estimation\n- *Robotics Software Engineer* - Where Am I?, Map My World Robot\n\nFor bonus points (both in getting the interview and for use in your interview), use the skills you learned in the above projects toward a novel solution to another problem in this area!",
+              "instructor_notes": ""
+            },
+            {
+              "id": 704308,
+              "key": "abb91c56-0d5f-4c2d-896b-308b2a1e9f9f",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## What about...?\n\nHave some ideas for additional questions or roles we should include in the course? Let us know with the *Send Feedback* button in the top right of your classroom!",
+              "instructor_notes": ""
+            }
+          ]
+        },
+        {
+          "id": 704298,
+          "key": "b88e0d95-841f-4d21-9a12-218233acaaaa",
+          "title": "Control Questions",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "b88e0d95-841f-4d21-9a12-218233acaaaa",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 704300,
+              "key": "296e57b9-bacf-4bca-9212-6d65ea2f4e27",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "# **Control Engineer**\n*Autonomous Systems Interview Practice project*\n\nSo, you're interested in a role as a Control Engineer? Great choice! Below, you will find one general question, as well as a list of Perception/Sensor Engineer-specific questions. To complete the project, you'll need to complete the general question along with three questions from the role-specific list, with at least one of them needing to be marked as requiring code with **[Code]**. While it isn't required to use code in the other two, we highly encourage you to either code, diagram or draw any relevant information for your answers in the other questions as well.\n\nMake sure not to just select questions in areas you are most comfortable with! You likely won't get so lucky in a real interview situation.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 704642,
+              "key": "5e907da7-bb30-419c-b8e3-6868318a69ae",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2018/August/5b89a8b9_autonomous-header/autonomous-header.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/5e907da7-bb30-419c-b8e3-6868318a69ae",
+              "caption": "",
+              "alt": "",
+              "width": 794,
+              "height": 145,
+              "instructor_notes": null
+            },
+            {
+              "id": 704652,
+              "key": "52ebc07e-4c2d-4fde-ac08-704d206a56a8",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## Required question\n\nExplain a recent project you've worked on. Why did you choose this project? What difficulties did you run into this project that you did not expect, and how did you solve them?",
+              "instructor_notes": ""
+            },
+            {
+              "id": 704299,
+              "key": "441bae03-fdf5-447a-b68a-9c6da5f10c24",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## Control Engineer questions\n\n*Pick three of these questions, including at least one marked **[Code]***.\n- What are some of the typical variables of motion that kinematic models often simplify or ignore in their calculations? In what situations might these models therefore fail, and how can you improve upon these types of models?\n- An important consideration in control is the latency in between the calculation of a control movement and the actuation of said control movement. Given a 100ms delay, how would you account for this your controller?\n- What is the bicycle model in kinematics? Make a diagram of it. How does this compare to the movement of a four-wheeled vehicle like a car, and why is it often sufficient in many cases to approximate the movement of a more complex vehicle?\n- Describe how you could implement the Ackerman steering model for a four-wheeled robot, including describing the model itself. How does this compare to a steering model in which two of the wheels are turned at the same angle with respect to an axle? Is this model an approximation of ideal steering conditions? \n- What is the differential drive model, and why is it particularly popular for robotics applications? How does this differ from a modern car?\n- What are the primary differences between kinematic and dynamic models of control? In what situations are these types of models most similar, and when do they diverge? Include in your answer any necessary diagrams that may help to illustrate your point.\n- Hans B. Pacejka produced tire models colloquially referred to as the “magic formula” for tire models. Explain the basis of his models, as well as how you would implement one of these in a robotics system. What forces must be considered in utilizing one of his tire models?\n- Explain the concepts of slip angles and slip ratios with regards to tires. How would you account for these within a control model? In what situations would accounting for these be unimportant?\n- **[Code]** How does a linear-quadratic regulator (LQR) differ from PID control? Does it require a given time horizon, and does it require continuous or discrete timesteps? Code an instance of a LQR given your own selection of time horizon and discrete/continuous, assuming you otherwise already have any necessary inputs.\n- Suppose you built a line following robot. You created a line on the ground, put the robot on the line, but the robot oscillates back and forth rapidly once it is on the line. How would you fix this?\n- Explain how model predictive control can be used to optimize control actuations over a given time horizon. What additional information can MPC take into account that PID control typically does not? How do you determine the constraints involved with MPC?\n- **[Code]** In PID Control, if a robot is in between two waypoints of a desired trajectory, how is the cross track error determined? Code a method to calculate this. What information does this require from any other subsystems outside of the control system, and how would you account for any potential noise in that data (or alternatively, do you need to)?",
+              "instructor_notes": ""
+            },
+            {
+              "id": 704346,
+              "key": "46c57af2-3c1d-4268-b6be-84d6c35148d8",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "**Relevant Nanodegree Projects**\n\nIf you put these on your resume, make sure you know your code and the topic in-depth before the interview!\n\n- *Self-Driving Car Engineer* - PID Control, Model Predictive Control (MPC)\n- *Flying Car Engineer* - Building A Controller, Fixed-Wing Control\n- *Robotics Software Engineer* - Robotic Arm: Pick and Place\n\nFor bonus points (both in getting the interview and for use in your interview), use the skills you learned in the above projects toward a novel solution to another problem in this area!",
+              "instructor_notes": ""
+            },
+            {
+              "id": 704310,
+              "key": "a5015aa8-0ddf-4a3c-92b8-2e95412656de",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## What about...?\n\nHave some ideas for additional questions or roles we should include in the course? Let us know with the *Send Feedback* button in the top right of your classroom!",
+              "instructor_notes": ""
+            }
+          ]
+        },
+        {
+          "id": 693223,
+          "key": "e9d1a579-8768-417b-95cf-ef5b56f9060c",
+          "title": "General Questions",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "e9d1a579-8768-417b-95cf-ef5b56f9060c",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 693304,
+              "key": "056d30e3-4e93-4056-b31b-39ddb3685737",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "# **Other General Questions**\n*Autonomous Systems Interview Practice project*\n\nWhile the below questions are not included under the specific roles for the project, you might consider doing some additional research or thinking about these areas depending on the role or company you are interviewing for. \n\nThese are not eligible to be used as a question and answer to be included in your project, but might give you some ideas of areas to talk about in your interview if you have experience with them.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 704640,
+              "key": "4b277895-aa6a-4a4c-bdfd-4773d4f12b73",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2018/August/5b89a8b9_autonomous-header/autonomous-header.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/4b277895-aa6a-4a4c-bdfd-4773d4f12b73",
+              "caption": "",
+              "alt": "",
+              "width": 794,
+              "height": 145,
+              "instructor_notes": null
+            },
+            {
+              "id": 693310,
+              "key": "a90e0395-effd-4d0d-988d-808991d75864",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## General questions\n\n- What is the importance of simulation in the testing of autonomous systems? What additional items do you need to consider in order to leverage this type of testing (or training) to real-world environments? \n- How would you ensure all necessary information is logged for debugging purposes of your autonomous system?\n- What tests or architectures do you need to implement to ensure that the integration of a module you have added to a system cannot cause a complete failure of the system if it alone fails? \n- What is the difference between an embedded system and a real-time system? \n- What is a real-time operating system and how does it differ from an operating system like Windows? Why are they often necessary for use in robotics applications, such as self-driving cars?\n- What experience do you have with any open source self-driving car platforms, such as Autoware or Apollo? If you’ve helped contribute, explain what you contributed and how you appropriately documented any pull requests or commits. If you’ve utilized them as part of a project, explain how you integrated these platforms with your work.\n- What experience do you have with any open source robotics platforms, such as ROS or Gazebo? If you’ve helped contribute, explain what you contributed and how you appropriately documented any pull requests or commits. If you’ve utilized them as part of a project, explain how you integrated these platforms with your work.\n- What are the Society of Automotive Engineers (SAE) levels of automation? Pick three vehicles available commercially or in testing and place at least one of their systems into a level, and explain why it falls into that level.\n",
+              "instructor_notes": ""
+            },
+            {
+              "id": 693311,
+              "key": "f33197f3-4d2b-4074-8443-c06e7b50ee90",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## What about...?\n\nHave some ideas for additional questions or roles we should include in the course? Let us know with the *Send Feedback* button in the top right of your classroom!",
+              "instructor_notes": ""
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "_deprecated": [
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    }
+  ]
+}

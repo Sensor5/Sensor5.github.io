@@ -1,0 +1,119 @@
+WEBVTT
+Kind: captions
+Language: pt-BR
+
+00:00:00.301 --> 00:00:02.360
+Olá, estou de volta com o Art
+
+00:00:03.071 --> 00:00:05.661
+e agora quero
+falar sobre commits
+
+00:00:05.702 --> 00:00:07.120
+e mensagens de commit.
+
+00:00:07.223 --> 00:00:09.480
+Commits são uma
+das principais razões
+
+00:00:09.543 --> 00:00:11.857
+de usarmos o Git
+como um sistema de controle de versão,
+
+00:00:11.961 --> 00:00:13.731
+porque você pode fazer
+essas alterações incrementais
+
+00:00:13.830 --> 00:00:16.614
+e ver o que mudou
+toda vez que faz um commit,
+
+00:00:16.812 --> 00:00:20.077
+e uma parte muito importante disso
+é a mensagem de commit.
+
+00:00:20.293 --> 00:00:24.176
+Portanto, por que a formatação
+da mensagem de commit é tão importante?
+
+00:00:24.673 --> 00:00:27.697
+Acho que mensagens de commit
+bem-formatadas...
+
+00:00:28.745 --> 00:00:30.952
+Acho que a razão mais importante
+é obter o culpado...
+
+00:00:30.977 --> 00:00:34.090
+Porque
+ao percorrer
+
+00:00:34.145 --> 00:00:35.750
+o código de outras pessoas
+ou seu próprio código
+
+00:00:35.775 --> 00:00:37.562
+para descobrir o que está errado,
+
+00:00:37.587 --> 00:00:39.187
+principalmente quando
+você está procurando um bug.
+
+00:00:39.244 --> 00:00:40.470
+Mas alguém só quer saber
+
+00:00:40.497 --> 00:00:42.099
+porque uma linha de código
+está da maneira como está.
+
+00:00:42.193 --> 00:00:44.404
+A primeira coisa que você faz
+é procurar o culpado.
+
+00:00:44.429 --> 00:00:45.443
+Ferramenta impressionante.
+
+00:00:45.476 --> 00:00:47.763
+E ela vai mostrar o responsável pelo commit,
+mas também a mensagem de commit.
+
+00:00:47.940 --> 00:00:50.449
+E se a mensagem
+for apenas algo como material adicionado,
+
+00:00:50.576 --> 00:00:52.032
+que não oferece contexto
+
+00:00:52.057 --> 00:00:55.589
+de porque o código mudou,
+porque está lá em primeiro lugar.
+
+00:00:55.783 --> 00:00:57.879
+Isso é superimportante.
+
+00:00:58.020 --> 00:01:01.330
+É superimportante porque você
+mantém o código funcionando.
+
+00:01:01.378 --> 00:01:03.576
+É superimportante para as pessoas
+que vêm depois de você
+
+00:01:03.601 --> 00:01:04.727
+e mantêm seu código.
+
+00:01:04.863 --> 00:01:09.831
+Portanto, é engraçado... Definitivamente
+quando eu examino candidatos
+
+00:01:09.892 --> 00:01:13.103
+e exploro seus GitHubs,
+eu verifico se eles se comunicam bem
+
+00:01:13.167 --> 00:01:16.730
+e se são minuciosos
+em suas mensagens de commit.
+
+00:01:16.818 --> 00:01:18.189
+É realmente importante.
+

@@ -1,0 +1,207 @@
+WEBVTT
+Kind: captions
+Language: pt-BR
+
+00:00:00.270 --> 00:00:01.670
+Olá, estamos de volta.
+
+00:00:01.670 --> 00:00:06.840
+Venho me perguntando, como você sabe
+se alguém é um bom colaborador.
+
+00:00:06.840 --> 00:00:09.940
+Porque esses candidatos
+quando conseguem o trabalho,
+
+00:00:09.940 --> 00:00:14.510
+eles têm que trabalhar com outras
+pessoas na base de código compartilhado.
+
+00:00:14.510 --> 00:00:16.900
+Então, como você sabe
+a partir de um perfil do GitHub
+
+00:00:16.900 --> 00:00:19.000
+se alguém vai ser
+um bom colaborador?
+
+00:00:19.292 --> 00:00:23.838
+Uma coisa que eu faço para avaliar as pessoas
+no sentido se eles vão
+
+00:00:23.838 --> 00:00:25.500
+trabalhar bem em equipe ou quão bem eles trabalham em nossa equipe, é fazendo uma
+
+00:00:25.500 --> 00:00:27.584
+ramificação
+a partir do perfil do GitHub,
+
+00:00:28.000 --> 00:00:31.900
+começando com as questões
+sobre o repositório em que eles participaram e
+
+00:00:31.900 --> 00:00:34.300
+vendo como eles participaram
+nesses threads
+
+00:00:34.300 --> 00:00:37.000
+e se fizeram comentários
+em solicitações de votações e coisas do gênero,
+
+00:00:37.000 --> 00:00:39.100
+assim obtendo uma noção
+de como eles interagem com outros engenheiros do
+
+00:00:39.100 --> 00:00:40.600
+repositório.
+
+00:00:40.600 --> 00:00:43.300
+Particularmente, uma coisa que
+eu acho realmente interessante é
+
+00:00:43.300 --> 00:00:47.400
+se eles foram paciente com
+as pessoas novas na comunidade.
+
+00:00:47.400 --> 00:00:50.900
+Em seguida, a partir daí, vamos dizer
+que você ramifica e procura
+
+00:00:50.900 --> 00:00:54.100
+se há um canal de Internet Relay Chat
+no qual, talvez, pode ter algo
+
+00:00:54.100 --> 00:00:58.076
+relacionado com um repositório
+e, olha os registros para ver se eles são
+
+00:00:58.076 --> 00:01:02.361
+pessoas colaboradoras,
+bondosas e pacientes.
+
+00:01:02.361 --> 00:01:06.928
+É um sinal tão importante, porque no final
+das contas,
+
+00:01:06.928 --> 00:01:09.500
+você realmente quer contratar pessoas
+que vão funcionar bem
+
+00:01:09.500 --> 00:01:12.000
+e que se ajustem a sua equipe.
+
+00:01:12.000 --> 00:01:13.973
+Eu passo muito tempo fazendo isso,
+uma espécie de exploração para
+
+00:01:13.973 --> 00:01:16.840
+ver como eles interagem
+com outros engenheiros publicamente.
+
+00:01:17.680 --> 00:01:21.000
+Então, quando você está falando sobre
+a interação com outros engenheiros
+
+00:01:21.000 --> 00:01:24.095
+publicamente, você quer dizer
+em projetos de código aberto, certo?
+
+00:01:24.095 --> 00:01:26.000
+Eu, por experiência própria,
+
+00:01:26.000 --> 00:01:29.000
+sei que é muito difícil começar
+a trabalhar nesta grande biblioteca,
+
+00:01:29.000 --> 00:01:32.100
+todas essas outras pessoas realmente
+inteligentes trabalhando com elas.
+
+00:01:32.100 --> 00:01:34.500
+Como você começaria,
+
+00:01:34.500 --> 00:01:38.160
+ou qual é o seu conselho
+para um iniciante, um novo programador,
+
+00:01:38.250 --> 00:01:40.770
+para realmente começar a contribuir
+para estes projetos de código aberto?
+
+00:01:40.776 --> 00:01:42.740
+É uma ótima observação, Matt.
+
+00:01:42.740 --> 00:01:47.700
+É realmente assustador, mesmo para mim.
+Uma coisa que eu faço e recomendo
+
+00:01:47.700 --> 00:01:51.740
+para as pessoas para quebrar o
+gelo em um
+
+00:01:51.740 --> 00:01:53.000
+novo projeto é que
+
+00:01:53.000 --> 00:01:57.000
+procure alguma documentação,
+até mesmo um arquivo ReadMe.
+
+00:01:57.000 --> 00:02:00.690
+Uma coisa que eu amo fazer é realmente
+ler o arquivo ReadMe,
+
+00:02:00.690 --> 00:02:02.560
+clonar o projeto, tentar compilá-lo
+e executá-lo,
+
+00:02:02.560 --> 00:02:05.000
+seguindo as etapas no arquivo ReadMe.
+
+00:02:05.000 --> 00:02:07.904
+E depois tentar esclarecê-lo com base no
+tipo de problemas que tenho,
+
+00:02:07.904 --> 00:02:10.190
+talvez ele só precise ser atualizado
+um pouco.
+
+00:02:10.190 --> 00:02:12.950
+Envie uma solicitação de votação com algumas
+alterações para o ReadMe.
+
+00:02:12.950 --> 00:02:14.255
+Elas geralmente são sempre aceitas.
+
+00:02:14.255 --> 00:02:16.500
+Essa é uma ótima forma
+para quebrar o gelo.
+
+00:02:16.500 --> 00:02:18.750
+Quero dizer, você começa corrigindo erros para
+depois começar
+
+00:02:18.750 --> 00:02:20.500
+a contribuir com
+recursos.
+
+00:02:20.500 --> 00:02:23.500
+Mas só para entrar nessa comunidade
+e superar as dificuldades iniciais de se
+
+00:02:23.500 --> 00:02:25.480
+sentir intimidado.
+Há tanto código e ficamos sem
+
+00:02:25.550 --> 00:02:26.780
+saber por onde começar.
+
+00:02:26.780 --> 00:02:28.500
+Eu acho que contribuir para
+alguma documentação
+
+00:02:28.500 --> 00:02:29.500
+é uma ótima forma de começar.
+
+00:02:29.500 --> 00:02:30.170
+Legal.
+
