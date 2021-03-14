@@ -1,0 +1,97 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:01.740
+Now, welcome to the Midterm Project.
+
+00:00:01.740 --> 00:00:03.060
+In the previous lessons, you have learned
+
+00:00:03.060 --> 00:00:05.265
+a great deal about key points, about descriptors,
+
+00:00:05.264 --> 00:00:06.779
+and about matching, and now,
+
+00:00:06.780 --> 00:00:09.464
+is the time to test your knowledge and apply it in practice.
+
+00:00:09.464 --> 00:00:13.009
+Now, the idea of a camera course is to build a collision detection system.
+
+00:00:13.009 --> 00:00:15.344
+That's the overall goal for the final project.
+
+00:00:15.345 --> 00:00:16.740
+As a preparation for this,
+
+00:00:16.739 --> 00:00:19.079
+you will now build the feature tracking part and test
+
+00:00:19.079 --> 00:00:22.904
+various detected descriptor combinations to see which one performs best.
+
+00:00:22.905 --> 00:00:25.560
+Now, the mid-term project consists of four parts.
+
+00:00:25.559 --> 00:00:27.854
+First, you will focus on loading images,
+
+00:00:27.855 --> 00:00:29.100
+setting up data structures,
+
+00:00:29.100 --> 00:00:32.295
+and putting everything into a ring buffer to optimize the memory load.
+
+00:00:32.295 --> 00:00:34.109
+Then secondly, you will integrate
+
+00:00:34.109 --> 00:00:37.310
+several key point detectors such as Harris, fast, BRISK,
+
+00:00:37.310 --> 00:00:39.980
+and also SIFT and compare them to each other with
+
+00:00:39.979 --> 00:00:42.864
+regard to the number of key points and with regard to speed.
+
+00:00:42.865 --> 00:00:46.484
+Then thirdly, in the next part you will focus on descriptor, extraction,
+
+00:00:46.484 --> 00:00:48.549
+and matching using Brute-Force and
+
+00:00:48.549 --> 00:00:51.339
+also the FLANN approach we discussed in the previous lesson.
+
+00:00:51.340 --> 00:00:54.225
+The last part, once the coding framework is complete,
+
+00:00:54.225 --> 00:00:56.840
+you will test the various algorithms, the different combinations,
+
+00:00:56.840 --> 00:00:59.750
+and compare them with regard to some performance measures.
+
+00:00:59.750 --> 00:01:02.600
+Once you have finished, the key point meshing part will be set up
+
+00:01:02.600 --> 00:01:05.435
+for the final project and we can proceed to the next lesson.
+
+00:01:05.435 --> 00:01:08.990
+This one will be about integrating lighter points into camera images
+
+00:01:08.989 --> 00:01:12.530
+and also on object detection in camera images using deep learning.
+
+00:01:12.530 --> 00:01:14.060
+But for now, I wish you all the best for
+
+00:01:14.060 --> 00:01:16.090
+the project which will be quite challenging for sure.
+
+00:01:16.090 --> 00:01:21.210
+But also fun when everything clicks into place and the first results start showing up.
+

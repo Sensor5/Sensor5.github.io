@@ -1,0 +1,310 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:02.759
+Now, this exercise actually consists of various parts.
+
+00:00:02.759 --> 00:00:04.949
+Let's move down to the first task.
+
+00:00:04.950 --> 00:00:06.990
+Let's shortly stop here.
+
+00:00:06.990 --> 00:00:08.310
+Now in the last exercise,
+
+00:00:08.310 --> 00:00:10.964
+you concentrated on image key points.
+
+00:00:10.964 --> 00:00:14.085
+By now, you should have a large variety of detectors available,
+
+00:00:14.085 --> 00:00:15.885
+those which are listed here.
+
+00:00:15.884 --> 00:00:17.489
+Once you have those key points,
+
+00:00:17.489 --> 00:00:20.324
+what I would like you to do first in this exercise is
+
+00:00:20.324 --> 00:00:24.359
+limit the key points to immediately preceding vehicle.
+
+00:00:24.359 --> 00:00:25.769
+The problem is that,
+
+00:00:25.769 --> 00:00:28.539
+if you are looking at all the key points in the entire image,
+
+00:00:28.539 --> 00:00:32.789
+you will lose the focus on the details which are of relevance to us.
+
+00:00:32.789 --> 00:00:37.500
+As we are focusing on building a collision avoidance system in the MidTermProject,
+
+00:00:37.500 --> 00:00:41.390
+we are not interested in key points located on the road surface,
+
+00:00:41.390 --> 00:00:43.369
+or on a tree, or an overhead bridge.
+
+00:00:43.369 --> 00:00:44.839
+It's simply not of interest to us.
+
+00:00:44.840 --> 00:00:48.140
+We want to evaluate the detectors and descriptors based
+
+00:00:48.140 --> 00:00:51.710
+on their ability to detect key points on vehicles,
+
+00:00:51.710 --> 00:00:56.090
+and this is why we will be focusing only on the immediately preceding vehicle.
+
+00:00:56.090 --> 00:00:57.935
+By using this rectangle here,
+
+00:00:57.935 --> 00:00:59.960
+which I have predefined for you,
+
+00:00:59.960 --> 00:01:03.274
+we are roughly focusing on the preceding vehicle.
+
+00:01:03.274 --> 00:01:04.549
+It's not a perfect boundary,
+
+00:01:04.549 --> 00:01:09.439
+but it's basically a space in which the vehicle moves when progressing from
+
+00:01:09.439 --> 00:01:14.609
+image zero to image nine in the small sequence we're observing in the MidTerm project.
+
+00:01:14.609 --> 00:01:17.209
+Now, here's the place to implement this code.
+
+00:01:17.209 --> 00:01:18.619
+Once you have completed those,
+
+00:01:18.620 --> 00:01:22.750
+let's move on to the next part which is located here.
+
+00:01:22.750 --> 00:01:26.504
+It's extract key point descriptors,
+
+00:01:26.504 --> 00:01:31.554
+and here is the space in which the assignment should be performed.
+
+00:01:31.555 --> 00:01:35.300
+So we already have a descriptor called risk,
+
+00:01:35.299 --> 00:01:36.739
+which is already implemented,
+
+00:01:36.739 --> 00:01:40.609
+and your job now is to add other descriptors which are brief,
+
+00:01:40.609 --> 00:01:42.724
+orb, freak, akaze, and sift.
+
+00:01:42.724 --> 00:01:45.379
+This is done in the descKeypoints functioning.
+
+00:01:45.379 --> 00:01:49.824
+Your descKeypoints is located in matching2D_Student.cpp.
+
+00:01:49.825 --> 00:01:51.859
+Let's take a look here.
+
+00:01:51.859 --> 00:01:53.435
+Let's scroll down below.
+
+00:01:53.435 --> 00:01:56.390
+Here we are, descKeypoints is here,
+
+00:01:56.390 --> 00:02:01.730
+and what you already see is that by supplying the descriptor type string,
+
+00:02:01.730 --> 00:02:05.090
+we have a branching structure here which looks at the string,
+
+00:02:05.090 --> 00:02:07.295
+looks if it's equal to brisk.
+
+00:02:07.295 --> 00:02:09.485
+If that is the case,
+
+00:02:09.485 --> 00:02:14.480
+we are preparing the extractor structure by use by
+
+00:02:14.479 --> 00:02:20.119
+OpenCV to pre-loaded with parameters suited for the brisk descriptor.
+
+00:02:20.120 --> 00:02:21.560
+Now, this structure here,
+
+00:02:21.560 --> 00:02:25.719
+it's a pointer to a generic descriptor extractors structure here,
+
+00:02:25.719 --> 00:02:27.319
+it's a template pointer.
+
+00:02:27.319 --> 00:02:29.239
+This is quite useful for us,
+
+00:02:29.240 --> 00:02:33.245
+as we do not have to change this data structure here.
+
+00:02:33.245 --> 00:02:37.655
+When you are adding the other descriptors here in this part of the code,
+
+00:02:37.655 --> 00:02:43.699
+we can simply call the respective data structures for the other descriptors,
+
+00:02:43.699 --> 00:02:46.699
+and leave this one alone to be called upon
+
+00:02:46.699 --> 00:02:49.879
+later when we come to the compute part of everything.
+
+00:02:49.879 --> 00:02:51.310
+So that's the second task.
+
+00:02:51.310 --> 00:02:56.930
+The second exercise in this part here, implement those descriptors.
+
+00:02:56.930 --> 00:03:02.765
+Now the next thing, let's move back to the MidTermProject file here, the main file.
+
+00:03:02.764 --> 00:03:04.769
+Once you have computed the key points,
+
+00:03:04.770 --> 00:03:07.340
+we are progressing to this section here,
+
+00:03:07.340 --> 00:03:11.705
+which is only entered once we have a data buffer of size two or larger.
+
+00:03:11.705 --> 00:03:13.505
+Once we are in here,
+
+00:03:13.504 --> 00:03:15.609
+we are performing the actual matching.
+
+00:03:15.610 --> 00:03:18.360
+Matching can be configured by using brute-force matching,
+
+00:03:18.360 --> 00:03:19.995
+by using FLANN-based matching.
+
+00:03:19.995 --> 00:03:24.200
+You have to tell the system whether you have a binary descriptor or a descriptor based
+
+00:03:24.199 --> 00:03:28.969
+on histogram of oriented gradients and thus, a floating-point descriptor.
+
+00:03:28.969 --> 00:03:31.400
+You can also choose the selector type,
+
+00:03:31.400 --> 00:03:34.534
+which is nearest neighbors versus k-nearest neighbors,
+
+00:03:34.534 --> 00:03:36.889
+and your tasks 5 and 6.
+
+00:03:36.889 --> 00:03:40.844
+The first one is to add FLANN-based matching in this file here,
+
+00:03:40.844 --> 00:03:46.250
+and once you have completed that at k-nearest neighbor match selection,
+
+00:03:46.250 --> 00:03:48.169
+and once this is finished,
+
+00:03:48.169 --> 00:03:54.394
+implement the descriptor distance ratio filtering with a threshold set to 0.8.
+
+00:03:54.395 --> 00:03:58.880
+Let's jump into matching2D_students.cpp to see what you are supposed to do.
+
+00:03:58.879 --> 00:04:00.780
+So here in matching2D_student.cpp,
+
+00:04:00.780 --> 00:04:02.804
+we have the function mesh descriptors,
+
+00:04:02.804 --> 00:04:06.770
+which already has brute-force matching implemented using the hamming norm,
+
+00:04:06.770 --> 00:04:10.445
+and by applying this command here,
+
+00:04:10.444 --> 00:04:14.930
+you are doing the same thing as with the detected earlier on.
+
+00:04:14.930 --> 00:04:20.600
+We have a generic pointer structure to a descriptor metro type in the OpenCV and here,
+
+00:04:20.600 --> 00:04:22.129
+you are simply calling on
+
+00:04:22.129 --> 00:04:24.800
+the brute-force matching method which
+
+00:04:24.800 --> 00:04:28.170
+then prepares this structure to meet brute-force matching.
+
+00:04:28.170 --> 00:04:31.699
+Here's the first task in this exercise at
+
+00:04:31.699 --> 00:04:35.750
+FLANN-based matching with a similar call as you have seen it here.
+
+00:04:35.750 --> 00:04:38.600
+Look carefully in the implementation of FLANN,
+
+00:04:38.600 --> 00:04:41.480
+and also look up some examples on the Internet because there's
+
+00:04:41.480 --> 00:04:45.910
+one specialty with FLANN-based matching when it comes to binary descriptors.
+
+00:04:45.910 --> 00:04:49.910
+You have to make one special thing in the current implementation of OpenCV,
+
+00:04:49.910 --> 00:04:53.975
+which is at the time of recording 4.0.1.
+
+00:04:53.975 --> 00:05:00.115
+Take care of the data type you are inputting into the FLANN-based matching function.
+
+00:05:00.115 --> 00:05:01.889
+Once this is done correctly,
+
+00:05:01.889 --> 00:05:07.219
+we are progressing to the second part which is selecting nearest neighbor matching,
+
+00:05:07.220 --> 00:05:08.960
+which is already implemented.
+
+00:05:08.959 --> 00:05:13.549
+Your job is now to add k-nearest neighbor matching with K set to two,
+
+00:05:13.550 --> 00:05:15.770
+so that for each keypoint in one frame,
+
+00:05:15.769 --> 00:05:18.745
+you get the two best matches in the second keyframe.
+
+00:05:18.745 --> 00:05:26.040
+Once this is done, what you have to do in the remaining part of this function here,
+
+00:05:26.040 --> 00:05:32.629
+implement the descriptor distance ratio test which compares those two best matches,
+
+00:05:32.629 --> 00:05:37.594
+and only select those which have a threshold which is higher than 0.8.
+
+00:05:37.595 --> 00:05:43.920
+So that's about it, what you are supposed to do in this task of the MidTermProject.
+

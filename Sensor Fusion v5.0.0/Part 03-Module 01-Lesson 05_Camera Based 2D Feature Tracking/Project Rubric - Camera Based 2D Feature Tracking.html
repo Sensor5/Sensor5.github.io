@@ -1,0 +1,424 @@
+<!-- udacimak v1.4.4 -->
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <meta content="ie=edge" http-equiv="X-UA-Compatible"/>
+  <title>
+   Camera Based 2D Feature Tracking
+  </title>
+  <link href="../assets/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="../assets/css/plyr.css" rel="stylesheet"/>
+  <link href="../assets/css/katex.min.css" rel="stylesheet"/>
+  <link href="../assets/css/jquery.mCustomScrollbar.min.css" rel="stylesheet"/>
+  <link href="../assets/css/styles.css" rel="stylesheet"/>
+  <link href="../assets/img/udacimak.png" rel="shortcut icon" type="image/png">
+  </link>
+ </head>
+ <body>
+  <div class="wrapper">
+   <nav id="sidebar">
+    <div class="sidebar-header">
+     <h3>
+      Camera Based 2D Feature Tracking
+     </h3>
+    </div>
+    <ul class="sidebar-list list-unstyled CTAs">
+     <li>
+      <a class="article" href="../index.html">
+       Back to Home
+      </a>
+     </li>
+    </ul>
+    <ul class="sidebar-list list-unstyled components">
+     <li class="">
+      <a href="01. Mid-Term Project Introduction.html">
+       01. Mid-Term Project Introduction
+      </a>
+     </li>
+     <li class="">
+      <a href="02. The Data Buffer.html">
+       02. The Data Buffer
+      </a>
+     </li>
+     <li class="">
+      <a href="03. Keypoint Detection.html">
+       03. Keypoint Detection
+      </a>
+     </li>
+     <li class="">
+      <a href="04. Descriptor Extraction &amp; Matching.html">
+       04. Descriptor Extraction &amp; Matching
+      </a>
+     </li>
+     <li class="">
+      <a href="05. Performance Evaluation.html">
+       05. Performance Evaluation
+      </a>
+     </li>
+     <li class="">
+      <a href="06. Mid-Term Project Workspace and Submission.html">
+       06. Mid-Term Project Workspace and Submission
+      </a>
+     </li>
+     <li class="">
+      <a href="Project Description - Camera Based 2D Feature Tracking.html">
+       Project Description - Camera Based 2D Feature Tracking
+      </a>
+     </li>
+     <li class="">
+      <a href="Project Rubric - Camera Based 2D Feature Tracking.html">
+       Project Rubric - Camera Based 2D Feature Tracking
+      </a>
+     </li>
+    </ul>
+    <ul class="sidebar-list list-unstyled CTAs">
+     <li>
+      <a class="article" href="../index.html">
+       Back to Home
+      </a>
+     </li>
+    </ul>
+   </nav>
+   <div id="content">
+    <header class="container-fluild header">
+     <div class="container">
+      <div class="row">
+       <div class="col-12">
+        <div class="align-items-middle">
+         <button class="btn btn-toggle-sidebar" id="sidebarCollapse" type="button">
+          <div>
+          </div>
+          <div>
+          </div>
+          <div>
+          </div>
+         </button>
+         <h1 style="display: inline-block">
+          Camera Based 2D Feature Tracking
+         </h1>
+        </div>
+       </div>
+      </div>
+     </div>
+    </header>
+    <main class="container">
+     <div class="row">
+      <div class="col-12">
+       <div>
+        <h2>
+         <p>
+          Mid-Term Report
+         </p>
+        </h2>
+        <table class="table table-bordered table-hover">
+         <thead>
+          <tr class="thead-dark">
+           <th>
+            Criteria
+           </th>
+           <th>
+            Meet Specification
+           </th>
+          </tr>
+         </thead>
+         <tbody>
+          <tr scope="row">
+           <td>
+            <p>
+             MP.0 Mid-Term Report
+            </p>
+           </td>
+           <td>
+            <p>
+             Provide a Writeup / README that includes all the rubric points and how you addressed each one. You can submit your writeup as markdown or pdf.
+            </p>
+           </td>
+          </tr>
+         </tbody>
+        </table>
+       </div>
+       <div>
+        <h2>
+         <p>
+          Data Buffer
+         </p>
+        </h2>
+        <table class="table table-bordered table-hover">
+         <thead>
+          <tr class="thead-dark">
+           <th>
+            Criteria
+           </th>
+           <th>
+            Meet Specification
+           </th>
+          </tr>
+         </thead>
+         <tbody>
+          <tr scope="row">
+           <td>
+            <p>
+             MP.1 Data Buffer Optimization
+            </p>
+           </td>
+           <td>
+            <p>
+             Implement a vector for dataBuffer objects whose size does not exceed a limit (e.g. 2 elements). This can be achieved by pushing in new elements on one end and removing elements on the other end.
+            </p>
+           </td>
+          </tr>
+         </tbody>
+        </table>
+       </div>
+       <div>
+        <h2>
+         <p>
+          Keypoints
+         </p>
+        </h2>
+        <table class="table table-bordered table-hover">
+         <thead>
+          <tr class="thead-dark">
+           <th>
+            Criteria
+           </th>
+           <th>
+            Meet Specification
+           </th>
+          </tr>
+         </thead>
+         <tbody>
+          <tr scope="row">
+           <td>
+            <p>
+             MP.2 Keypoint Detection
+            </p>
+           </td>
+           <td>
+            <p>
+             Implement detectors HARRIS, FAST, BRISK, ORB, AKAZE, and SIFT and make them selectable by setting a string accordingly.
+            </p>
+           </td>
+          </tr>
+          <tr scope="row">
+           <td>
+            <p>
+             MP.3 Keypoint Removal
+            </p>
+           </td>
+           <td>
+            <p>
+             Remove all keypoints outside of a pre-defined rectangle and only use the keypoints within the rectangle for further processing.
+            </p>
+           </td>
+          </tr>
+         </tbody>
+        </table>
+       </div>
+       <div>
+        <h2>
+         <p>
+          Descriptors
+         </p>
+        </h2>
+        <table class="table table-bordered table-hover">
+         <thead>
+          <tr class="thead-dark">
+           <th>
+            Criteria
+           </th>
+           <th>
+            Meet Specification
+           </th>
+          </tr>
+         </thead>
+         <tbody>
+          <tr scope="row">
+           <td>
+            <p>
+             MP.4 Keypoint Descriptors
+            </p>
+           </td>
+           <td>
+            <p>
+             Implement descriptors BRIEF, ORB, FREAK, AKAZE and SIFT and make them selectable by setting a string accordingly.
+            </p>
+           </td>
+          </tr>
+          <tr scope="row">
+           <td>
+            <p>
+             MP.5 Descriptor Matching
+            </p>
+           </td>
+           <td>
+            <p>
+             Implement FLANN matching as well as k-nearest neighbor selection. Both methods must be selectable using the respective strings in the main function.
+            </p>
+           </td>
+          </tr>
+          <tr scope="row">
+           <td>
+            <p>
+             MP.6 Descriptor Distance Ratio
+            </p>
+           </td>
+           <td>
+            <p>
+             Use the K-Nearest-Neighbor matching to implement the descriptor distance ratio test, which looks at the ratio of best vs. second-best match to decide whether to keep an associated pair of keypoints.
+            </p>
+           </td>
+          </tr>
+         </tbody>
+        </table>
+       </div>
+       <div>
+        <h2>
+         <p>
+          Performance
+         </p>
+        </h2>
+        <table class="table table-bordered table-hover">
+         <thead>
+          <tr class="thead-dark">
+           <th>
+            Criteria
+           </th>
+           <th>
+            Meet Specification
+           </th>
+          </tr>
+         </thead>
+         <tbody>
+          <tr scope="row">
+           <td>
+            <p>
+             MP.7 Performance Evaluation 1
+            </p>
+           </td>
+           <td>
+            <p>
+             Count the number of keypoints on the preceding vehicle for all 10 images and take note of the distribution of their neighborhood size. Do this for all the detectors you have implemented.
+            </p>
+           </td>
+          </tr>
+          <tr scope="row">
+           <td>
+            <p>
+             MP.8 Performance Evaluation 2
+            </p>
+           </td>
+           <td>
+            <p>
+             Count the number of matched keypoints for all 10 images using all possible combinations of detectors and descriptors. In the matching step, the BF approach is used with the descriptor distance ratio set to 0.8.
+            </p>
+           </td>
+          </tr>
+          <tr scope="row">
+           <td>
+            <p>
+             MP.9 Performance Evaluation 3
+            </p>
+           </td>
+           <td>
+            <p>
+             Log the time it takes for keypoint detection and descriptor extraction. The results must be entered into a spreadsheet and based on this data, the TOP3 detector / descriptor combinations must be recommended as the best choice for our purpose of detecting keypoints on vehicles.
+            </p>
+           </td>
+          </tr>
+         </tbody>
+        </table>
+       </div>
+      </div>
+      <div class="col-12">
+       <p class="text-right">
+       </p>
+      </div>
+     </div>
+    </main>
+    <footer class="footer">
+     <div class="container">
+      <div class="row">
+       <div class="col-12">
+        <p class="text-center">
+         udacity2.0 If you need the newest courses Plase add me wechat: udacity6
+        </p>
+       </div>
+      </div>
+     </div>
+    </footer>
+   </div>
+  </div>
+  <script src="../assets/js/jquery-3.3.1.min.js">
+  </script>
+  <script src="../assets/js/plyr.polyfilled.min.js">
+  </script>
+  <script src="../assets/js/bootstrap.min.js">
+  </script>
+  <script src="../assets/js/jquery.mCustomScrollbar.concat.min.js">
+  </script>
+  <script src="../assets/js/katex.min.js">
+  </script>
+  <script>
+   // Initialize Plyr video players
+    const players = Array.from(document.querySelectorAll('video')).map(p => new Plyr(p));
+
+    // render math equations
+    let elMath = document.getElementsByClassName('mathquill');
+    for (let i = 0, len = elMath.length; i < len; i += 1) {
+      const el = elMath[i];
+
+      katex.render(el.textContent, el, {
+        throwOnError: false
+      });
+    }
+
+    // this hack will make sure Bootstrap tabs work when using Handlebars
+    if ($('#question-tabs').length && $('#user-answer-tabs').length) {
+      $("#question-tabs a.nav-link").on('click', function () {
+        $("#question-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+      $("#user-answer-tabs a.nav-link").on('click', function () {
+        $("#user-answer-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    } else {
+      $("a.nav-link").on('click', function () {
+        $(".tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    }
+
+    // side bar events
+    $(document).ready(function () {
+      $("#sidebar").mCustomScrollbar({
+        theme: "minimal"
+      });
+
+      $('#sidebarCollapse').on('click', function () {
+        $('#sidebar, #content').toggleClass('active');
+        $('.collapse.in').toggleClass('in');
+        $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+      });
+
+      // scroll to first video on page loading
+      if ($('video').length) {
+        $('html,body').animate({ scrollTop: $('div.plyr').prev().offset().top});
+      }
+
+      // auto play first video: this may not work with chrome/safari due to autoplay policy
+      if (players && players.length > 0) {
+        players[0].play();
+      }
+
+      // scroll sidebar to current concept
+      const currentInSideBar = $( "ul.sidebar-list.components li a:contains('Camera Based 2D Feature Tracking')" )
+      currentInSideBar.css( "text-decoration", "underline" );
+      $("#sidebar").mCustomScrollbar('scrollTo', currentInSideBar);
+    });
+  </script>
+ </body>
+</html>

@@ -1,0 +1,76 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:03.509
+Now on this part you will be focusing on Descriptor Extraction and on Matching.
+
+00:00:03.509 --> 00:00:05.580
+We have a variety of key-point types already,
+
+00:00:05.580 --> 00:00:09.765
+and the next step is to extract descriptors from their local key point neighborhood.
+
+00:00:09.765 --> 00:00:11.040
+In the current implementation,
+
+00:00:11.039 --> 00:00:13.589
+we already have the Brisk Descriptor up and running,
+
+00:00:13.589 --> 00:00:16.140
+and as before your task here will be to integrate
+
+00:00:16.140 --> 00:00:20.609
+several other descriptors and make them selectable using the string descriptor type.
+
+00:00:20.609 --> 00:00:25.320
+The methods I want you to integrate are brief or freak AK's and Sift,
+
+00:00:25.320 --> 00:00:27.734
+and they're all available in the OpenCV again.
+
+00:00:27.734 --> 00:00:29.004
+Once you are done with that,
+
+00:00:29.004 --> 00:00:31.539
+we will focus on the matching part in the next phase.
+
+00:00:31.539 --> 00:00:33.560
+The current implementation uses Brute force
+
+00:00:33.560 --> 00:00:36.035
+matching combined with Nearest Neighbor selection.
+
+00:00:36.034 --> 00:00:39.139
+I want you to add Flung as an alternative to Brute force,
+
+00:00:39.140 --> 00:00:41.435
+as well as the K-nearest Neighbor approach.
+
+00:00:41.435 --> 00:00:42.740
+Based on this approach,
+
+00:00:42.740 --> 00:00:45.725
+you will then also implement the descriptive distance ratio test
+
+00:00:45.725 --> 00:00:49.010
+as a filtering method to remove bad Key-point matches.
+
+00:00:49.009 --> 00:00:50.824
+So basically we have four tasks here.
+
+00:00:50.825 --> 00:00:54.840
+First implement descriptors, second integrate flung,
+
+00:00:54.840 --> 00:00:56.810
+third use K-nearest neighbors,
+
+00:00:56.810 --> 00:01:00.215
+and fourth test matches using descriptor distance ratio.
+
+00:01:00.215 --> 00:01:01.460
+But before you start,
+
+00:01:01.460 --> 00:01:04.560
+let's take a quick look at the existing code.
+

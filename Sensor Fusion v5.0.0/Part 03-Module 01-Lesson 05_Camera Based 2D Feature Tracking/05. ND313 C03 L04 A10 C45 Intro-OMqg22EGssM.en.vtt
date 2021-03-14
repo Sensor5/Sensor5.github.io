@@ -1,0 +1,175 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:03.240
+So you now have your code in a state that allows you to choose three components.
+
+00:00:03.240 --> 00:00:04.620
+The first is the detector,
+
+00:00:04.620 --> 00:00:07.140
+then the descriptor and finally the matcher.
+
+00:00:07.139 --> 00:00:08.849
+In this part of the mid-term project,
+
+00:00:08.849 --> 00:00:12.074
+I want you to compare the different methods from a performance perspective.
+
+00:00:12.074 --> 00:00:16.350
+Now the idea here is to document both speed and number of mesh key points for
+
+00:00:16.350 --> 00:00:19.304
+all detector descriptor combinations with a focus
+
+00:00:19.304 --> 00:00:22.725
+on the preceding vehicle over a sequence of 10 images.
+
+00:00:22.725 --> 00:00:26.429
+What it is interesting to look at the distribution of key points in the entire image,
+
+00:00:26.429 --> 00:00:29.809
+please only focus on the vehicle directly in front of a camera,
+
+00:00:29.809 --> 00:00:31.609
+and discard all other key points.
+
+00:00:31.609 --> 00:00:35.189
+You might want to consider using an open CB rack structure for this purpose,
+
+00:00:35.189 --> 00:00:37.159
+and use it's contained method which is quite
+
+00:00:37.159 --> 00:00:40.054
+effective in removing key points outside of the rectangle.
+
+00:00:40.054 --> 00:00:43.070
+There are three tasks I would like you to complete in this exercise.
+
+00:00:43.070 --> 00:00:47.689
+The first is, count the number of key points on the preceding vehicle for all 10 images,
+
+00:00:47.689 --> 00:00:51.429
+and take note of the distribution of their respective neighborhood sizes.
+
+00:00:51.429 --> 00:00:53.810
+Do this for all the detectors you've implemented.
+
+00:00:53.810 --> 00:00:57.170
+Second, count the number of matched key points for all images
+
+00:00:57.170 --> 00:01:00.980
+using all possible combinations of detectors and descriptors.
+
+00:01:00.979 --> 00:01:02.059
+In the matching step,
+
+00:01:02.060 --> 00:01:04.129
+please make use of the brute force approach
+
+00:01:04.129 --> 00:01:07.024
+with the descriptor distance ratio is set to 0.8.
+
+00:01:07.025 --> 00:01:10.580
+Third, last when you compute all those matches please also
+
+00:01:10.579 --> 00:01:14.359
+lock the time it takes for key point detection am descriptor extraction.
+
+00:01:14.359 --> 00:01:17.599
+Once you're done, make a spreadsheet where you list your results and suggests
+
+00:01:17.599 --> 00:01:20.629
+the top three detector descriptor combinations as
+
+00:01:20.629 --> 00:01:24.094
+the best choice for our purpose of detecting the preceding vehicles.
+
+00:01:24.094 --> 00:01:26.870
+Also please justify your recommendation
+
+00:01:26.870 --> 00:01:29.570
+based on your observations and also on the data you collected.
+
+00:01:29.569 --> 00:01:33.659
+One final note, we will not concentrate on the accuracy of the key points.
+
+00:01:33.659 --> 00:01:38.479
+We will also not concentrate on the receiver operating characteristic of this course.
+
+00:01:38.480 --> 00:01:41.165
+The reason for this is that this would simply involve
+
+00:01:41.165 --> 00:01:45.050
+many more steps in which we need to lay the theoretical foundations such as
+
+00:01:45.049 --> 00:01:47.944
+estimating homography on a set of images where we observe
+
+00:01:47.944 --> 00:01:51.754
+planar surfaces which can then be used to compute a ground-truth.
+
+00:01:51.754 --> 00:01:53.569
+Once you are done making spreadsheets where you list
+
+00:01:53.569 --> 00:01:55.399
+your results and it's also suggest to us
+
+00:01:55.400 --> 00:01:58.250
+the top three detector descriptor combinations as
+
+00:01:58.250 --> 00:02:01.939
+the best choice for our purpose of detecting key points on vehicles.
+
+00:02:01.939 --> 00:02:04.939
+Also please justify your recommendation based on what
+
+00:02:04.939 --> 00:02:08.270
+you observed and also based on the data you collected.
+
+00:02:08.270 --> 00:02:10.040
+Now one final note here, we will not
+
+00:02:10.039 --> 00:02:12.169
+concentrate on the accuracy of the key points that we
+
+00:02:12.169 --> 00:02:15.809
+will not use the receiver operating characteristic in this course.
+
+00:02:15.810 --> 00:02:17.750
+The problem is that this will involve
+
+00:02:17.750 --> 00:02:21.050
+several more steps into code and also would require me
+
+00:02:21.050 --> 00:02:23.000
+to present to you
+
+00:02:23.000 --> 00:02:25.280
+several more theoretical foundations such as
+
+00:02:25.280 --> 00:02:28.069
+estimating homography is from planner points surfaces.
+
+00:02:28.069 --> 00:02:30.560
+Also we have a body of knowledge on the Internet where you
+
+00:02:30.560 --> 00:02:32.960
+can use to look up information on detector accuracy,
+
+00:02:32.960 --> 00:02:35.405
+on repeatability and all kinds of measures.
+
+00:02:35.405 --> 00:02:37.460
+So for brevity in this course we limit
+
+00:02:37.460 --> 00:02:39.849
+ourselves to the three steps which I just talked about.
+
+00:02:39.849 --> 00:02:41.405
+Now let's start with a comparison.
+
+00:02:41.405 --> 00:02:45.390
+This will take some time to complete so go for it right away.
+
