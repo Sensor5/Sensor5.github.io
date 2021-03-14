@@ -1,0 +1,64 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:02.690 --> 00:00:09.990
+Bounding boxes are relatively easy way of dealing with
+
+00:00:09.990 --> 00:00:17.670
+objects because then you just associate the points to a bounding box or now if you say,
+
+00:00:17.670 --> 00:00:19.650
+okay, this object is in the bounding box,
+
+00:00:19.649 --> 00:00:21.094
+okay, this is now pedestrian,
+
+00:00:21.094 --> 00:00:23.789
+this point is not on the bounding box,
+
+00:00:23.789 --> 00:00:25.035
+this is something else.
+
+00:00:25.035 --> 00:00:28.094
+It is a relatively easy way of dealing with it.
+
+00:00:28.094 --> 00:00:33.500
+The issue though is that you are making model assumptions about
+
+00:00:33.500 --> 00:00:39.515
+the size of the bounding box that you assign to let say a car,
+
+00:00:39.515 --> 00:00:41.450
+or to a pedestrian,
+
+00:00:41.450 --> 00:00:46.790
+and if this violates the assumptions of the bounding box,
+
+00:00:46.789 --> 00:00:51.629
+then things tend to look somehow strange.
+
+00:00:53.439 --> 00:01:00.859
+Well, you could track everything or you could track sort of out bounding polygon.
+
+00:01:00.859 --> 00:01:02.479
+We're doing that too,
+
+00:01:02.479 --> 00:01:06.200
+where we can really follow the polygons,
+
+00:01:06.200 --> 00:01:10.350
+which is a much more precise thing.
+
+00:01:10.349 --> 00:01:15.719
+You could actually track voxels,
+
+00:01:15.719 --> 00:01:23.629
+you could go with the individual points,
+
+00:01:23.629 --> 00:01:26.344
+but that's way too computationally intensive,
+
+00:01:26.344 --> 00:01:28.769
+that's something you do not want to do.
+

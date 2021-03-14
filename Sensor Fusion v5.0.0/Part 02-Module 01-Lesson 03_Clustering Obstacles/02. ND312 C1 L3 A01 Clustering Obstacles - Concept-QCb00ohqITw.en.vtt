@@ -1,0 +1,46 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:02.580
+Welcome to the clustering lesson.
+
+00:00:02.580 --> 00:00:04.800
+You have a way to segment points and
+
+00:00:04.799 --> 00:00:07.830
+recognize which ones represent obstacles for your car.
+
+00:00:07.830 --> 00:00:11.039
+It would be great to break up and group obstacle points
+
+00:00:11.039 --> 00:00:14.264
+to identify which points belong to different cars.
+
+00:00:14.265 --> 00:00:19.289
+One way to do that grouping in clustered point data is called the Euclidean clustering.
+
+00:00:19.289 --> 00:00:23.419
+The idea is you associate groups of points by how close they are.
+
+00:00:23.420 --> 00:00:28.250
+You'll also look at building your own KD tree to make finding nearest neighbors search
+
+00:00:28.250 --> 00:00:31.009
+quick inefficient to get started let's talk
+
+00:00:31.010 --> 00:00:34.745
+about how you can implement Euclidean clustering.
+
+00:00:34.744 --> 00:00:37.265
+All right. So here's the overview for clustering.
+
+00:00:37.265 --> 00:00:41.005
+We're going to group points by how close they are to each other,
+
+00:00:41.005 --> 00:00:44.945
+we're going to be using this data structure called a KD tree and it's
+
+00:00:44.945 --> 00:00:49.439
+really going to help us a speedup the closest neighbor search.
+

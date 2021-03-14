@@ -1,0 +1,370 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:03.240
+So here the first thing I'm going to do is fill in
+
+00:00:03.240 --> 00:00:06.810
+the clustering function from the point Cloud process.
+
+00:00:06.809 --> 00:00:09.689
+So process point clouds.CPP.
+
+00:00:09.689 --> 00:00:15.429
+Here I'm going to use that documentation that basically fill in the function.
+
+00:00:16.760 --> 00:00:20.910
+So just like what the documentation was doing,
+
+00:00:20.910 --> 00:00:23.490
+I'm going to create this PCL search
+
+00:00:23.489 --> 00:00:28.359
+KdTree and it's going to use just this template pointT.
+
+00:00:30.469 --> 00:00:33.695
+Now I'm going to actually feed in the cloud.
+
+00:00:33.695 --> 00:00:36.259
+This was the argument into the clustering function
+
+00:00:36.259 --> 00:00:40.364
+into this KdTree which is called tree here.
+
+00:00:40.365 --> 00:00:43.190
+Then I'm going to go ahead and create
+
+00:00:43.189 --> 00:00:47.854
+the cluster indices just like the documentation was doing in this EC object.
+
+00:00:47.854 --> 00:00:51.259
+For setting the cluster tolerance,
+
+00:00:51.259 --> 00:00:53.164
+I'm going to actually use
+
+00:00:53.164 --> 00:00:57.844
+this cluster tolerance that was defined in the argument header up here.
+
+00:00:57.844 --> 00:01:00.079
+So I had clustered tolerance,
+
+00:01:00.079 --> 00:01:03.170
+I had min size and I had max size,
+
+00:01:03.170 --> 00:01:07.290
+all that is going to be fed into the hyper-parameters for this EC object,
+
+00:01:07.290 --> 00:01:10.220
+and I'm also going to tell it to use that tree.
+
+00:01:10.219 --> 00:01:13.640
+Then I'm going to set it with the cloud and then I'm going to
+
+00:01:13.640 --> 00:01:17.719
+generate my cluster indices by calling the extract method.
+
+00:01:17.719 --> 00:01:20.870
+Now I'm all set to actually go through
+
+00:01:20.870 --> 00:01:23.480
+those cluster indices and create
+
+00:01:23.480 --> 00:01:27.305
+some point clouds in each point cloud's going to be a different cluster.
+
+00:01:27.305 --> 00:01:29.115
+So in order to do this,
+
+00:01:29.114 --> 00:01:30.729
+I have this for loop here,
+
+00:01:30.730 --> 00:01:34.070
+and then I'm going to iterate through cluster indices and
+
+00:01:34.069 --> 00:01:38.014
+the type for each of those is as PCL point indices.
+
+00:01:38.015 --> 00:01:41.305
+So it's just a vector of these PCL point indices,
+
+00:01:41.305 --> 00:01:45.995
+and then I'm going to go ahead and I'm going to create a new cloud cluster.
+
+00:01:45.995 --> 00:01:50.180
+So here, I'm using that PCL point cloud pointT pointer.
+
+00:01:50.180 --> 00:01:55.280
+So I'm using this type name here like we were talking about in that first lesson,
+
+00:01:55.280 --> 00:01:59.644
+we want to tell the compiler that this is a type when using this template,
+
+00:01:59.644 --> 00:02:06.439
+and I'm just using this new PCL point cloud pointT to create that point cloud.
+
+00:02:06.439 --> 00:02:14.289
+Now I can actually iterate through the indices from get indices.indices,
+
+00:02:14.289 --> 00:02:17.419
+and I can take each of those in I can push it back into
+
+00:02:17.419 --> 00:02:24.179
+this obstacle cluster that I just created or this cloud cluster.
+
+00:02:24.180 --> 00:02:26.875
+So I'm just going to go ahead and grab its member points,
+
+00:02:26.875 --> 00:02:28.620
+and then do a push back on it,
+
+00:02:28.620 --> 00:02:32.090
+and it's actually just going to be an index from cloud.
+
+00:02:32.090 --> 00:02:34.569
+So I'm going to grab its points member,
+
+00:02:34.569 --> 00:02:39.604
+and then for that index that's actually going to go into my obstacle cloud.
+
+00:02:39.604 --> 00:02:43.954
+Then I'm just going to go ahead and set up the width and height for this obstacle cloud,
+
+00:02:43.955 --> 00:02:47.045
+and I'm going to push it back into my clusters,
+
+00:02:47.044 --> 00:02:49.894
+so that my clusters is my vector of point clouds,
+
+00:02:49.895 --> 00:02:55.925
+and then add everything I need to go ahead and just return clusters.
+
+00:02:55.925 --> 00:02:59.660
+So then I can go back to environment.CPP and I can call
+
+00:02:59.659 --> 00:03:03.004
+that cluster function and then I
+
+00:03:03.004 --> 00:03:07.039
+have everything I need to start rendering things to that PCL Viewer.
+
+00:03:07.039 --> 00:03:08.989
+So let's check that out,
+
+00:03:08.990 --> 00:03:15.375
+let's go ahead and call our point processor clustering function,
+
+00:03:15.375 --> 00:03:17.990
+and here's what I'm going to be using as input.
+
+00:03:17.990 --> 00:03:20.105
+So this was that segment cloud.
+
+00:03:20.104 --> 00:03:22.280
+So in the previous lesson I went ahead and
+
+00:03:22.280 --> 00:03:25.159
+segmented that cloud and there's two parts to it.
+
+00:03:25.159 --> 00:03:27.710
+There's the first part which is obstacles and there is
+
+00:03:27.710 --> 00:03:30.620
+that second part which is the road points.
+
+00:03:30.620 --> 00:03:32.509
+I'm going to grab that first part.
+
+00:03:32.509 --> 00:03:36.384
+So I'm going to do segment cloud.first that first member.
+
+00:03:36.384 --> 00:03:39.185
+Then here's some hyper parameters I'm going to be using.
+
+00:03:39.185 --> 00:03:42.710
+So here this totally depends on the data that you're
+
+00:03:42.710 --> 00:03:46.570
+using but I'm going to be using 1.0 for the distance tolerance,
+
+00:03:46.569 --> 00:03:50.219
+so these points have to be within that one distance unit,
+
+00:03:50.219 --> 00:03:51.685
+and I'm going to say,
+
+00:03:51.685 --> 00:03:55.069
+hey has to have at least three points to be considered a cluster,
+
+00:03:55.069 --> 00:03:57.620
+and then we're not dealing with very large clusters here,
+
+00:03:57.620 --> 00:04:02.164
+so let's just say like 30 is our max number points to define a cluster.
+
+00:04:02.164 --> 00:04:05.870
+Then I'm going to do exactly what the classroom was
+
+00:04:05.870 --> 00:04:10.009
+saying and I'm going to iterate through my vector of point clouds,
+
+00:04:10.009 --> 00:04:12.514
+and so I'm going to grab that point cloud,
+
+00:04:12.514 --> 00:04:14.799
+and I'll just call it cluster here,
+
+00:04:14.800 --> 00:04:16.980
+and so it's a PCL point cloud,
+
+00:04:16.980 --> 00:04:20.475
+and it's a PCL point XYZ for the type,
+
+00:04:20.475 --> 00:04:22.490
+and that's called clustering.
+
+00:04:22.490 --> 00:04:26.629
+That's from that cloud clusters that I got from calling the clustering function,
+
+00:04:26.629 --> 00:04:31.579
+and then I'm going to go ahead and reduce render point cloud.
+
+00:04:32.959 --> 00:04:38.319
+We'll do that one a little bit later and so I'm going to call render point cloud,
+
+00:04:38.319 --> 00:04:41.930
+and I'm just going go ahead and feed it back cluster point cloud,
+
+00:04:41.930 --> 00:04:44.845
+give it that unique name and then give it a color,
+
+00:04:44.845 --> 00:04:47.055
+and that color is from that color list.
+
+00:04:47.055 --> 00:04:50.855
+I'm going to use this cluster ID to iterate through that
+
+00:04:50.855 --> 00:04:55.759
+in-control a unique name and then also index to the different colors.
+
+00:04:55.759 --> 00:04:59.413
+Actually right here I'm using red,
+
+00:04:59.413 --> 00:05:02.329
+I'm doing one one here so I'm going to do yellow,
+
+00:05:02.329 --> 00:05:05.269
+and then I'm going to do B,
+
+00:05:05.269 --> 00:05:07.039
+so a blue value right here.
+
+00:05:07.040 --> 00:05:10.310
+So let's go ahead and save that,
+
+00:05:10.310 --> 00:05:11.750
+and see what that looks like.
+
+00:05:11.750 --> 00:05:15.269
+So let's go ahead and make sure it's saved for both of those,
+
+00:05:17.620 --> 00:05:22.985
+and then come back down here to our terminator.
+
+00:05:22.985 --> 00:05:25.775
+Let's go ahead and compile that.
+
+00:05:25.774 --> 00:05:29.758
+We're going to compile our executable for environment,
+
+00:05:31.430 --> 00:05:35.704
+and see if we can look at those different clusters.
+
+00:05:35.704 --> 00:05:39.300
+So let's see what's going on right here.
+
+00:05:40.579 --> 00:05:44.069
+So in 63 we got an error, cannot convert,
+
+00:05:44.069 --> 00:05:49.074
+so it's looking like an S actually got included here.
+
+00:05:49.074 --> 00:05:54.860
+I don't know that might have just happened right now when I was trying to do a save.
+
+00:05:56.029 --> 00:06:00.039
+Let's go ahead and recompile,
+
+00:06:00.980 --> 00:06:04.150
+and then N time was not declared.
+
+00:06:04.149 --> 00:06:06.924
+So let's go ahead and look at that that might have just been,
+
+00:06:06.925 --> 00:06:10.370
+probably this S got over here too, okay.
+
+00:06:13.610 --> 00:06:23.860
+Let's see if S is cause any more havoc, no, okay.
+
+00:06:24.829 --> 00:06:29.279
+Compiling the process point clouds.CPP right now,
+
+00:06:29.279 --> 00:06:33.659
+okay, linking the executable and we're good.
+
+00:06:33.660 --> 00:06:36.930
+Let's see what this looks like all right, cool,
+
+00:06:36.930 --> 00:06:43.750
+and right now we're leaving on the plane cloud rendering that we're doing before.
+
+00:06:43.750 --> 00:06:47.290
+We could turn that off but right here we can see the different clusters.
+
+00:06:47.290 --> 00:06:51.640
+So here is this red group so that's one cluster that's one car.
+
+00:06:51.639 --> 00:06:54.039
+We also have another cluster over here in blue,
+
+00:06:54.040 --> 00:06:56.200
+that's another one of the cars,
+
+00:06:56.199 --> 00:07:01.159
+and then we have this yellow section over here,
+
+00:07:01.160 --> 00:07:07.060
+and it looks like we're even picking up this kind of fourth section right here.
+
+00:07:07.060 --> 00:07:09.410
+So if we play around
+
+00:07:09.410 --> 00:07:13.670
+that distance tolerance then we can get that group together but it's looking like it's
+
+00:07:13.670 --> 00:07:16.709
+seeing just a slight side of the car
+
+00:07:16.709 --> 00:07:21.079
+right here and it was saying that that's a separate cluster as well.
+
+00:07:21.079 --> 00:07:26.344
+So those are all things that you can play around with in your hyper-parameters.
+
+00:07:26.345 --> 00:07:32.240
+Also if I want to look at this without the green plane, I could turn that off.
+
+00:07:32.240 --> 00:07:35.785
+So going back and environment.CPP,
+
+00:07:35.785 --> 00:07:39.075
+I was doing some different things here,
+
+00:07:39.074 --> 00:07:42.954
+and you could also just like turn that off if you want to
+
+00:07:42.954 --> 00:07:47.430
+go and just render the clusters by themselves.
+

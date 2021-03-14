@@ -1,0 +1,298 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:04.629
+All right. Now let's check out the solution for doing Euclidean clustering.
+
+00:00:04.629 --> 00:00:05.974
+So, in my code,
+
+00:00:05.974 --> 00:00:12.244
+back in cluster.cpp, I'm going to scroll up here,
+
+00:00:12.244 --> 00:00:14.894
+and this is what I'm going to do.
+
+00:00:14.894 --> 00:00:19.439
+So, I have my vector or vector ints, that's my clusters,
+
+00:00:19.440 --> 00:00:24.030
+and the key here is to really keep track of which points have been processed or not.
+
+00:00:24.030 --> 00:00:27.810
+So the way I'm going to do this is I'm going to create a vector of
+
+00:00:27.809 --> 00:00:33.839
+booleans and it's going to be exactly the same size as my point size.
+
+00:00:33.840 --> 00:00:37.905
+So my points is all the data I have for my 2D set.
+
+00:00:37.905 --> 00:00:39.990
+So there's 11 points in total,
+
+00:00:39.990 --> 00:00:44.734
+and so it's going to be 11 booleans that are all going to start as false.
+
+00:00:44.734 --> 00:00:46.914
+None of the points have been looked at yet.
+
+00:00:46.914 --> 00:00:51.769
+Now, I'm going to iterate through those points, those 11 points,
+
+00:00:51.770 --> 00:00:56.960
+and I'm just doing that here with this while loop, the points.size,
+
+00:00:56.960 --> 00:01:03.090
+and then if that point has been processed already basically,
+
+00:01:03.090 --> 00:01:04.605
+I'm just going to go ahead and increment,
+
+00:01:04.605 --> 00:01:08.260
+move on to the next point and continue.
+
+00:01:08.510 --> 00:01:12.010
+If not, if that point hasn't been processed,
+
+00:01:12.010 --> 00:01:14.510
+well that pseudocode was telling me I should create
+
+00:01:14.510 --> 00:01:18.830
+a brand new cluster and that cluster is represented by this vector of ints.
+
+00:01:18.829 --> 00:01:21.364
+Then, I'm going to use this cluster helper.
+
+00:01:21.364 --> 00:01:23.059
+So we're in that pseudocode,
+
+00:01:23.060 --> 00:01:25.280
+we're just calling this function proximity,
+
+00:01:25.280 --> 00:01:27.545
+here I'm calling it cluster helper.
+
+00:01:27.545 --> 00:01:29.930
+What I'm going to give it is,
+
+00:01:29.930 --> 00:01:32.200
+I have that point id.
+
+00:01:32.200 --> 00:01:34.439
+It needs to know about the points,
+
+00:01:34.438 --> 00:01:38.074
+it has this cluster that's being passed in as reference.
+
+00:01:38.075 --> 00:01:42.905
+So, in that pseudocode we had this eye this cluster.
+
+00:01:42.905 --> 00:01:46.670
+Also needs to know about which points have been processed or not.
+
+00:01:46.670 --> 00:01:49.790
+It needs to know about our k-d tree that we're passing into
+
+00:01:49.790 --> 00:01:54.140
+Euclidean clustering because that's what's doing the nearby neighbor search.
+
+00:01:54.140 --> 00:01:55.820
+It's calling that search function.
+
+00:01:55.819 --> 00:01:58.879
+We need to know about the distance tolerance to accept.
+
+00:01:58.879 --> 00:02:00.289
+So this is going to run,
+
+00:02:00.290 --> 00:02:02.150
+and then when it gets exhausted,
+
+00:02:02.150 --> 00:02:04.765
+it's going to leave us with this cluster,
+
+00:02:04.765 --> 00:02:07.685
+this belt cluster that we can just push back into clusters.
+
+00:02:07.685 --> 00:02:09.080
+We move onto the next point,
+
+00:02:09.080 --> 00:02:11.380
+and then when we're done iterating through all the points,
+
+00:02:11.379 --> 00:02:12.745
+we just return clusters.
+
+00:02:12.745 --> 00:02:16.150
+So, let's see how that cluster helper works now.
+
+00:02:16.150 --> 00:02:20.025
+So that's going to be running recursively, it's calling itself,
+
+00:02:20.025 --> 00:02:27.439
+and first thing that we do is we go ahead and we mark that point as being processed.
+
+00:02:27.439 --> 00:02:30.164
+So we grab that indice and we say,
+
+00:02:30.164 --> 00:02:33.489
+"Hey that indice in processed is now been processed,
+
+00:02:33.490 --> 00:02:38.165
+it's true", and we go ahead and we push that point back into clusters.
+
+00:02:38.164 --> 00:02:41.259
+So, we're solely building upper cluster here.
+
+00:02:41.259 --> 00:02:46.419
+Now, we're going to see which points are near by to this indice.
+
+00:02:46.419 --> 00:02:49.030
+So, our tree's going to help us out with this,
+
+00:02:49.030 --> 00:02:53.659
+we call tree search and we do it for points indice,
+
+00:02:53.659 --> 00:02:56.935
+and we're doing this with that distance tolerance.
+
+00:02:56.935 --> 00:02:59.229
+So here, with that indice,
+
+00:02:59.229 --> 00:03:04.000
+we are just referencing it from our dataset of 11 points.
+
+00:03:04.000 --> 00:03:05.949
+We grab that point and just say, "Hey,
+
+00:03:05.949 --> 00:03:09.009
+what's nearby within this distance tolerance," and that's going to
+
+00:03:09.009 --> 00:03:12.189
+give us a list of indices that are nearby,
+
+00:03:12.189 --> 00:03:15.340
+and then we iterate through those nearby indices,
+
+00:03:15.340 --> 00:03:18.270
+so we grab those int ID's.
+
+00:03:18.270 --> 00:03:23.520
+If that point, that id hasn't been processed yet,
+
+00:03:23.520 --> 00:03:25.909
+then we just include it into cluster helper.
+
+00:03:25.909 --> 00:03:28.219
+So we pass in that ID and
+
+00:03:28.219 --> 00:03:31.490
+then all the information that it needs to go forward along with that cluster,
+
+00:03:31.490 --> 00:03:36.590
+and what that's going to do is slowly climb around and build out our cluster.
+
+00:03:36.590 --> 00:03:38.450
+So like spiderweb around,
+
+00:03:38.449 --> 00:03:40.129
+and take all these points,
+
+00:03:40.129 --> 00:03:42.064
+and then build it into this cluster,
+
+00:03:42.064 --> 00:03:44.734
+and then we're going to have this list of
+
+00:03:44.735 --> 00:03:48.905
+clusters after we're done with Euclidean cluster.
+
+00:03:48.905 --> 00:03:51.425
+So let's go ahead and see what that looks like.
+
+00:03:51.425 --> 00:03:53.359
+We can go ahead and compile,
+
+00:03:53.359 --> 00:03:56.120
+we're calling that Euclidean cluster function now,
+
+00:03:56.120 --> 00:04:00.900
+and if we come over here and we run make,
+
+00:04:01.909 --> 00:04:06.020
+I think there might actually be one last thing to do down here.
+
+00:04:06.020 --> 00:04:08.645
+Let's go ahead and just check it.
+
+00:04:08.645 --> 00:04:13.939
+Euclidean clusters is being called and is doing points tree 3.0, okay.
+
+00:04:13.939 --> 00:04:18.810
+Nice. So, this should be everything that we need to get our cluster groups.
+
+00:04:18.810 --> 00:04:21.245
+So here it found one cluster here.
+
+00:04:21.245 --> 00:04:24.709
+So yeah, clustering found three and took zero milliseconds,
+
+00:04:24.709 --> 00:04:26.584
+so is very fast.
+
+00:04:26.584 --> 00:04:28.354
+Try to stress it out more,
+
+00:04:28.355 --> 00:04:31.365
+throw a million points into this k-d tree,
+
+00:04:31.365 --> 00:04:33.384
+make it find clusters.
+
+00:04:33.384 --> 00:04:37.490
+Yeah. This'll be great when we're working with the real point cloud data,
+
+00:04:37.490 --> 00:04:39.019
+it will come in handy.
+
+00:04:39.019 --> 00:04:41.719
+So here we have our red cluster,
+
+00:04:41.720 --> 00:04:42.830
+we have our green cluster,
+
+00:04:42.829 --> 00:04:43.939
+and we have our blue cluster,
+
+00:04:43.939 --> 00:04:46.610
+and all these points are within a distance of 3.0,
+
+00:04:46.610 --> 00:04:48.970
+so they are associated to each other.
+
+00:04:48.970 --> 00:04:52.159
+Awesome. So we just finished implementing
+
+00:04:52.158 --> 00:04:57.305
+the Euclidean cluster algorithm from scratch that PCL was using earlier.
+
+00:04:57.305 --> 00:05:00.259
+Now, you have everything you need in order to build
+
+00:05:00.259 --> 00:05:04.045
+this Euclidean cluster function and replace the PCL one.
+
+00:05:04.045 --> 00:05:05.960
+We've been working with 2D data,
+
+00:05:05.959 --> 00:05:09.379
+but it's not too far of a stretch to go from 2D to 3D.
+
+00:05:09.379 --> 00:05:14.615
+All you have to do is include that extra dimension and some slight changes to the code,
+
+00:05:14.615 --> 00:05:20.439
+and then you can have a 3D k-d tree, a 3D tree.
+

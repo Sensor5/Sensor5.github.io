@@ -1,0 +1,40 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:01.725
+Congratulations.
+
+00:00:01.725 --> 00:00:04.019
+You've now been able to find bounding boxes
+
+00:00:04.019 --> 00:00:06.869
+that each coincide with the different cars on the highway.
+
+00:00:06.870 --> 00:00:11.294
+You did this by using a Lidar to create a high resolution point Clouds,
+
+00:00:11.294 --> 00:00:15.974
+and then segmented that point Cloud into two parts; road and obstacles.
+
+00:00:15.974 --> 00:00:18.390
+Finally, you use Euclidean clustering to
+
+00:00:18.390 --> 00:00:21.539
+breakup the Obstacle Point Cloud into separate entities.
+
+00:00:21.539 --> 00:00:26.174
+In this case, the different cars on the road and then put bounding boxes around them.
+
+00:00:26.175 --> 00:00:28.559
+You have graduated from the highway simulator,
+
+00:00:28.559 --> 00:00:32.355
+and you're now ready to tackle Real Point Cloud Data from self driving cars.
+
+00:00:32.354 --> 00:00:33.884
+Check out the next lesson,
+
+00:00:33.884 --> 00:00:36.579
+working with Real Point Cloud Data.
+

@@ -1,0 +1,259 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:01.770
+We're talking about inserting points,
+
+00:00:01.770 --> 00:00:04.379
+but let's do this in C++ now.
+
+00:00:04.379 --> 00:00:08.039
+So there is actually a quiz and exercise set up for this and it's in
+
+00:00:08.039 --> 00:00:13.489
+the directory source quiz cluster and there's two files, there's cluster.cpp,
+
+00:00:13.490 --> 00:00:14.849
+and that'll be the main file,
+
+00:00:14.849 --> 00:00:18.809
+and there's also this kdtree.h,
+
+00:00:18.809 --> 00:00:23.890
+and that's what you'll be working on for creating this kdtree.
+
+00:00:24.140 --> 00:00:29.219
+So let's go ahead and check out the code for that,
+
+00:00:29.219 --> 00:00:35.609
+and here we're just talking about some methods for actually completing this function.
+
+00:00:35.609 --> 00:00:37.710
+We'll come back to it in a little bit.
+
+00:00:37.710 --> 00:00:40.799
+But let's go ahead and check out the code.
+
+00:00:40.799 --> 00:00:46.564
+So let's go ahead and navigate over to the quiz directory inside cluster,
+
+00:00:46.564 --> 00:00:51.379
+and let's check out this cluster.cpp and see what that's all about.
+
+00:00:51.380 --> 00:00:56.540
+So in this function we are including kdtree.h.
+
+00:00:56.539 --> 00:01:01.115
+So that's what's going to be helping us look at this 2D data,
+
+00:01:01.115 --> 00:01:02.810
+the 2D data that we're using is actually
+
+00:01:02.810 --> 00:01:06.695
+just the exact same 2D data that we were looking at earlier in the slides.
+
+00:01:06.694 --> 00:01:09.984
+So we have some methods for creating that data,
+
+00:01:09.984 --> 00:01:13.819
+and we have some methods for rendering our 2D tree.
+
+00:01:13.819 --> 00:01:17.719
+Also that was we looked at some of those visualizations in the slide as well.
+
+00:01:17.719 --> 00:01:22.310
+This is actually the function that's being used to do those visualizations.
+
+00:01:22.310 --> 00:01:28.129
+That'll help me out nicely for just seeing how the tree is being created,
+
+00:01:28.129 --> 00:01:34.854
+and let's go ahead and check out what's being called down here.
+
+00:01:34.855 --> 00:01:38.710
+We are creating this kdtree and then we're inserting our points,
+
+00:01:38.709 --> 00:01:42.049
+those are the same points that were looking at earlier for our 2D data,
+
+00:01:42.049 --> 00:01:45.084
+and then we're calling this rendered 2D tree,
+
+00:01:45.084 --> 00:01:47.899
+and then we can visually see what it looks like,
+
+00:01:47.900 --> 00:01:50.645
+and what it should look like is that from the slides where
+
+00:01:50.644 --> 00:01:55.344
+all those points are evenly or are splitting across different regions.
+
+00:01:55.344 --> 00:02:00.620
+So when you first boot this up and compile and run it you'll see the 2D data,
+
+00:02:00.620 --> 00:02:02.900
+and you'll know that your insert function is working once
+
+00:02:02.900 --> 00:02:05.285
+it's actually able to split those different regions.
+
+00:02:05.284 --> 00:02:07.989
+So let's check out kdtree now.
+
+00:02:07.989 --> 00:02:11.009
+So look at kdtree.h.
+
+00:02:11.009 --> 00:02:17.269
+So it's a struct and it'll have some different methods and one of them is called insert.
+
+00:02:17.270 --> 00:02:20.990
+So what this is going to take in is it's going to take in a brand new point.
+
+00:02:20.990 --> 00:02:22.740
+Here we're working with 2D data,
+
+00:02:22.740 --> 00:02:25.340
+and we're representing this point,
+
+00:02:25.340 --> 00:02:29.375
+this xy point, as this a vector of floats.
+
+00:02:29.375 --> 00:02:32.860
+So the first element of the vector is going to be your x component,
+
+00:02:32.860 --> 00:02:35.930
+and then the second element's going to be your y component,
+
+00:02:35.930 --> 00:02:37.730
+and it's going to have some ID.
+
+00:02:37.729 --> 00:02:41.899
+Just think about this as some unique identifier for the point.
+
+00:02:41.900 --> 00:02:45.860
+So it's just the index that it references in your point Cloud.
+
+00:02:45.860 --> 00:02:49.130
+So we have 11 points total for our 2D data.
+
+00:02:49.129 --> 00:02:53.509
+So the IDs will go from 0-10 for each of those.
+
+00:02:53.509 --> 00:02:58.009
+So you'll fill in this insert function which is going to modify
+
+00:02:58.009 --> 00:03:03.840
+this k-d tree which just has this route and this node is also a struct.
+
+00:03:03.840 --> 00:03:07.849
+So a node just has this left child then has a right child,
+
+00:03:07.849 --> 00:03:10.549
+it's a binary node,
+
+00:03:10.550 --> 00:03:13.825
+and it has an ID and it has this point,
+
+00:03:13.824 --> 00:03:18.799
+and it has this function for creating a brand new node as well
+
+00:03:18.800 --> 00:03:23.240
+where you can give it this this brand new point in a brand new id.
+
+00:03:23.240 --> 00:03:28.189
+So you'll fill in this insert function for modifying that tree
+
+00:03:28.189 --> 00:03:30.949
+and just some hints for getting started try
+
+00:03:30.949 --> 00:03:34.009
+this doing this for a one-point to start out with.
+
+00:03:34.009 --> 00:03:36.199
+We were looking at our slides,
+
+00:03:36.199 --> 00:03:39.439
+and we had that one slide
+
+00:03:39.439 --> 00:03:42.745
+where we're showing what it looks like after doing a single insert.
+
+00:03:42.745 --> 00:03:45.344
+See if you can get that going,
+
+00:03:45.344 --> 00:03:49.365
+just try inserting a single point and see if you can get this vertical line
+
+00:03:49.365 --> 00:03:53.245
+split here and that render tree function will tell you,
+
+00:03:53.245 --> 00:03:56.020
+it'll give you this result when you run it.
+
+00:03:56.020 --> 00:04:00.995
+Then if you can get that working so that's just assigning the root basically.
+
+00:04:00.995 --> 00:04:05.275
+Next, so this this insert function is really going to be recursive,
+
+00:04:05.275 --> 00:04:07.010
+it's recursive in nature.
+
+00:04:07.009 --> 00:04:09.479
+So let's talk about why that is.
+
+00:04:09.479 --> 00:04:11.439
+Because really what you're doing is you're traversing
+
+00:04:11.439 --> 00:04:13.979
+the tree until you reach a node that's null,
+
+00:04:13.979 --> 00:04:16.329
+and then when you hit that null node that's
+
+00:04:16.329 --> 00:04:18.699
+when you would actually create this brand new node,
+
+00:04:18.699 --> 00:04:21.444
+and you would assign that null node
+
+00:04:21.444 --> 00:04:25.045
+this brand new node that you're creating from the points in the ID,
+
+00:04:25.045 --> 00:04:27.715
+and how are you traversing the tree?
+
+00:04:27.714 --> 00:04:29.704
+Well, that's just depending on the depth.
+
+00:04:29.704 --> 00:04:31.490
+That's how you're doing your comparisons.
+
+00:04:31.490 --> 00:04:32.795
+It's just like the quiz.
+
+00:04:32.795 --> 00:04:36.410
+You're in the quiz, you're walking through the tree until you hit one of
+
+00:04:36.410 --> 00:04:38.750
+these null nodes and then that's going to create
+
+00:04:38.750 --> 00:04:41.839
+your own brand new node with your point and your ID.
+
+00:04:41.839 --> 00:04:45.935
+So that's basically how the insert function works.
+
+00:04:45.935 --> 00:04:49.850
+So the hints there it's going to be recursive but you can
+
+00:04:49.850 --> 00:04:53.810
+just try seeing if you can do it for one to start out with.
+
+00:04:53.810 --> 00:04:55.714
+Can you assign that route?
+
+00:04:55.714 --> 00:05:00.329
+Then what does it look like when you're calling that render tree function.
+

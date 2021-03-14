@@ -1,0 +1,337 @@
+<!-- udacimak v1.4.4 -->
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <meta content="ie=edge" http-equiv="X-UA-Compatible"/>
+  <title>
+   Implementing KD-Tree
+  </title>
+  <link href="../assets/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="../assets/css/plyr.css" rel="stylesheet"/>
+  <link href="../assets/css/katex.min.css" rel="stylesheet"/>
+  <link href="../assets/css/jquery.mCustomScrollbar.min.css" rel="stylesheet"/>
+  <link href="../assets/css/styles.css" rel="stylesheet"/>
+  <link href="../assets/img/udacimak.png" rel="shortcut icon" type="image/png">
+  </link>
+ </head>
+ <body>
+  <div class="wrapper">
+   <nav id="sidebar">
+    <div class="sidebar-header">
+     <h3>
+      Clustering Obstacles
+     </h3>
+    </div>
+    <ul class="sidebar-list list-unstyled CTAs">
+     <li>
+      <a class="article" href="../index.html">
+       Back to Home
+      </a>
+     </li>
+    </ul>
+    <ul class="sidebar-list list-unstyled components">
+     <li class="">
+      <a href="01. What is Clustering.html">
+       01. What is Clustering?
+      </a>
+     </li>
+     <li class="">
+      <a href="02. Clustering Obstacles.html">
+       02. Clustering Obstacles
+      </a>
+     </li>
+     <li class="">
+      <a href="03. Euclidean Clustering with PCL.html">
+       03. Euclidean Clustering with PCL
+      </a>
+     </li>
+     <li class="">
+      <a href="04. Implementing KD-Tree.html">
+       04. Implementing KD-Tree
+      </a>
+     </li>
+     <li class="">
+      <a href="05. Inserting Points into KD-Tree.html">
+       05. Inserting Points into KD-Tree
+      </a>
+     </li>
+     <li class="">
+      <a href="06. Insert Points.html">
+       06. Insert Points
+      </a>
+     </li>
+     <li class="">
+      <a href="07. Searching Points in a KD-Tree.html">
+       07. Searching Points in a KD-Tree
+      </a>
+     </li>
+     <li class="">
+      <a href="08. Euclidean Clustering.html">
+       08. Euclidean Clustering
+      </a>
+     </li>
+     <li class="">
+      <a href="09. Bounding Boxes.html">
+       09. Bounding Boxes
+      </a>
+     </li>
+     <li class="">
+      <a href="10. Michael on Bounding Boxes.html">
+       10. Michael on Bounding Boxes
+      </a>
+     </li>
+     <li class="">
+      <a href="11. Extra Challenge PCA Boxes.html">
+       11. Extra Challenge: PCA Boxes
+      </a>
+     </li>
+     <li class="">
+      <a href="12. Outro.html">
+       12. Outro
+      </a>
+     </li>
+    </ul>
+    <ul class="sidebar-list list-unstyled CTAs">
+     <li>
+      <a class="article" href="../index.html">
+       Back to Home
+      </a>
+     </li>
+    </ul>
+   </nav>
+   <div id="content">
+    <header class="container-fluild header">
+     <div class="container">
+      <div class="row">
+       <div class="col-12">
+        <div class="align-items-middle">
+         <button class="btn btn-toggle-sidebar" id="sidebarCollapse" type="button">
+          <div>
+          </div>
+          <div>
+          </div>
+          <div>
+          </div>
+         </button>
+         <h1 style="display: inline-block">
+          04. Implementing KD-Tree
+         </h1>
+        </div>
+       </div>
+      </div>
+     </div>
+    </header>
+    <main class="container">
+     <div class="row">
+      <div class="col-12">
+       <div class="ud-atom">
+        <h3>
+         <p>
+          Header Text
+         </p>
+        </h3>
+        <div>
+         <h1 id="implementing-kd-tree">
+          Implementing KD-Tree
+         </h1>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+         <p>
+          ND312 C1 L3 A11 Implementing KD-Tree [LB]
+         </p>
+        </h3>
+        <video controls="">
+         <source src="04. ND312 C1 L3 A11 Implementing KD-Tree [LB]-OG49SnS9URs.mp4" type="video/mp4"/>
+         <track default="true" kind="subtitles" label="en" src="04. ND312 C1 L3 A11 Implementing KD-Tree [LB]-OG49SnS9URs.en.vtt" srclang="en"/>
+        </video>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+         <p>
+          Implementing KD Tree
+         </p>
+        </h3>
+        <div>
+         <p>
+          A KD-Tree is a binary tree that splits points between alternating axes. By separating space by splitting regions, nearest neighbor search can be made much faster when using an algorithm like euclidean clustering. In this quiz you will be looking at a 2D example, so the the tree will be a 2D-Tree. In the first part of the quiz you will be working from
+          <code>
+           src/quiz/cluster/kdtree.h
+          </code>
+          and filling in the function
+          <code>
+           insert
+          </code>
+          which takes a 2D point represented by a vector containing two floats, and a point ID. The ID is a way to uniquely identify points and a way to tell which index the point is referenced from on the overall point cloud. To complete the
+          <code>
+           insert
+          </code>
+          function let's first talk about how a KD-Tree splits information.
+         </p>
+         <h2 id="inserting-points-into-the-tree">
+          Inserting Points into the Tree
+         </h2>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+         <p>
+          Data
+         </p>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="2D points to cluster" class="img img-fluid" src="img/2dpoints.png"/>
+          <figcaption class="figure-caption">
+           <p>
+            2D points to cluster
+           </p>
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+         <p>
+          Building KD-Tree
+         </p>
+        </h3>
+        <div>
+         <p>
+          The image above shows what the 2D points look like. In this simple example there are only 11 points, and there are three clusters where points are in close proximity to each other. You will be finding these clusters later.
+         </p>
+         <p>
+          In
+          <code>
+           src/quiz/cluster/cluster.cpp
+          </code>
+          there is a function for rendering the tree after points have been inserted into it. The image below shows line separations, with blue lines splitting x regions and red lines splitting y regions. The image shows what the tree looks like after all 11 points have been inserted, and you will be writing the code to do this over the next concepts.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+         <p>
+          Built KD-Tree
+         </p>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="Tree separating x and y regions." class="img img-fluid" src="img/kdtree.png"/>
+          <figcaption class="figure-caption">
+           <p>
+            Tree separating x and y regions.
+           </p>
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+      </div>
+      <div class="col-12">
+       <p class="text-right">
+        <a class="btn btn-outline-primary mt-4" href="05. Inserting Points into KD-Tree.html" role="button">
+         Next Concept
+        </a>
+       </p>
+      </div>
+     </div>
+    </main>
+    <footer class="footer">
+     <div class="container">
+      <div class="row">
+       <div class="col-12">
+        <p class="text-center">
+         udacity2.0 If you need the newest courses Plase add me wechat: udacity6
+        </p>
+       </div>
+      </div>
+     </div>
+    </footer>
+   </div>
+  </div>
+  <script src="../assets/js/jquery-3.3.1.min.js">
+  </script>
+  <script src="../assets/js/plyr.polyfilled.min.js">
+  </script>
+  <script src="../assets/js/bootstrap.min.js">
+  </script>
+  <script src="../assets/js/jquery.mCustomScrollbar.concat.min.js">
+  </script>
+  <script src="../assets/js/katex.min.js">
+  </script>
+  <script>
+   // Initialize Plyr video players
+    const players = Array.from(document.querySelectorAll('video')).map(p => new Plyr(p));
+
+    // render math equations
+    let elMath = document.getElementsByClassName('mathquill');
+    for (let i = 0, len = elMath.length; i < len; i += 1) {
+      const el = elMath[i];
+
+      katex.render(el.textContent, el, {
+        throwOnError: false
+      });
+    }
+
+    // this hack will make sure Bootstrap tabs work when using Handlebars
+    if ($('#question-tabs').length && $('#user-answer-tabs').length) {
+      $("#question-tabs a.nav-link").on('click', function () {
+        $("#question-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+      $("#user-answer-tabs a.nav-link").on('click', function () {
+        $("#user-answer-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    } else {
+      $("a.nav-link").on('click', function () {
+        $(".tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    }
+
+    // side bar events
+    $(document).ready(function () {
+      $("#sidebar").mCustomScrollbar({
+        theme: "minimal"
+      });
+
+      $('#sidebarCollapse').on('click', function () {
+        $('#sidebar, #content').toggleClass('active');
+        $('.collapse.in').toggleClass('in');
+        $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+      });
+
+      // scroll to first video on page loading
+      if ($('video').length) {
+        $('html,body').animate({ scrollTop: $('div.plyr').prev().offset().top});
+      }
+
+      // auto play first video: this may not work with chrome/safari due to autoplay policy
+      if (players && players.length > 0) {
+        players[0].play();
+      }
+
+      // scroll sidebar to current concept
+      const currentInSideBar = $( "ul.sidebar-list.components li a:contains('04. Implementing KD-Tree')" )
+      currentInSideBar.css( "text-decoration", "underline" );
+      $("#sidebar").mCustomScrollbar('scrollTo', currentInSideBar);
+    });
+  </script>
+ </body>
+</html>

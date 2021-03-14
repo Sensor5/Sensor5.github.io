@@ -1,0 +1,268 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:03.015
+Let's go to our workspace environment here,
+
+00:00:03.015 --> 00:00:06.015
+and we're looking at kdtree.h.
+
+00:00:06.014 --> 00:00:09.149
+So here's how I did the insert method.
+
+00:00:09.150 --> 00:00:11.640
+So this is a recursive function,
+
+00:00:11.640 --> 00:00:14.850
+so I'm going to be calling this insertHelper.
+
+00:00:14.849 --> 00:00:19.019
+This is going to be this recursive helper for me,
+
+00:00:19.019 --> 00:00:21.855
+and here's how I'm defining it.
+
+00:00:21.855 --> 00:00:27.390
+So I really want to be able to reassign this node in the tree.
+
+00:00:27.390 --> 00:00:28.679
+When I hit it and it's null,
+
+00:00:28.679 --> 00:00:30.419
+I want to be able to reassign it.
+
+00:00:30.420 --> 00:00:34.020
+So I'm actually going to be passing in this address,
+
+00:00:34.020 --> 00:00:36.105
+this memory address for root.
+
+00:00:36.104 --> 00:00:38.729
+So that's I'm starting at the root and then say, "Okay.
+
+00:00:38.729 --> 00:00:43.944
+Here's the memory address for root," and we'll see how this is going to come in handy.
+
+00:00:43.945 --> 00:00:49.740
+So let's go ahead and have this insertHelper function now.
+
+00:00:49.740 --> 00:00:53.554
+The other things that we're passing into our recursive function here is the depth.
+
+00:00:53.554 --> 00:00:55.475
+It starts out as a depth zero.
+
+00:00:55.475 --> 00:00:58.490
+We're at the root, and then here's this information that we need to create
+
+00:00:58.490 --> 00:01:01.770
+this brand new node which is our point and our id.
+
+00:01:01.770 --> 00:01:05.055
+So an insertHelper, what's the first thing that we do?
+
+00:01:05.055 --> 00:01:07.230
+We check if our node is null.
+
+00:01:07.230 --> 00:01:10.185
+Now remember, here we're passing in.
+
+00:01:10.185 --> 00:01:11.390
+We have this double pointer.
+
+00:01:11.390 --> 00:01:16.769
+So node pointer was actually what root was to begin with.
+
+00:01:16.769 --> 00:01:21.884
+Now, we're doing the memory address of this pointer node.
+
+00:01:21.885 --> 00:01:23.520
+So it's a double pointer,
+
+00:01:23.519 --> 00:01:27.185
+and so it's just a memory address
+
+00:01:27.185 --> 00:01:31.070
+that's pointing at our node that we're currently on the tree.
+
+00:01:31.069 --> 00:01:35.964
+What this means is that we dereference it to actually see what it's value is.
+
+00:01:35.965 --> 00:01:40.130
+If it's null, then we're going to go ahead and
+
+00:01:40.129 --> 00:01:43.969
+dereference our node here, and we're going to set it.
+
+00:01:43.969 --> 00:01:46.340
+We're going to say, "Hey, root pointer.
+
+00:01:46.340 --> 00:01:49.939
+This is a new data that you should be pointing at now."
+
+00:01:49.939 --> 00:01:53.584
+We are going to assign it this brand new node.
+
+00:01:53.584 --> 00:01:56.269
+All we need to do that is our point and id.
+
+00:01:56.269 --> 00:02:01.234
+So that's how you can actually reassign this node in the tree.
+
+00:02:01.234 --> 00:02:04.700
+You can use this double pointer in order to do it.
+
+00:02:04.700 --> 00:02:07.219
+You could also use a pointer reference in order to do it.
+
+00:02:07.219 --> 00:02:13.569
+That could work as well. Then you wouldn't have to dereference it here.
+
+00:02:13.569 --> 00:02:17.239
+So there's different options that you can do for that.
+
+00:02:17.240 --> 00:02:20.610
+But here's what you do if you're not at a nodal point.
+
+00:02:20.610 --> 00:02:22.045
+You're going to traverse the tree,
+
+00:02:22.044 --> 00:02:24.439
+so we're not a null node.
+
+00:02:24.439 --> 00:02:26.419
+So we're going to keep traversing the tree,
+
+00:02:26.419 --> 00:02:28.629
+and how do we figure out how to traverse a tree?
+
+00:02:28.629 --> 00:02:31.055
+Well, it all depends on the current depth.
+
+00:02:31.055 --> 00:02:32.659
+So we're calling this cd,
+
+00:02:32.659 --> 00:02:33.949
+it's an unsigned int,
+
+00:02:33.949 --> 00:02:36.349
+and we're not going to have negative current depths,
+
+00:02:36.349 --> 00:02:38.060
+we're just going to have positive ones.
+
+00:02:38.060 --> 00:02:40.789
+So its unsigned and the order to figure that out,
+
+00:02:40.789 --> 00:02:42.364
+we're working with a 2D case.
+
+00:02:42.365 --> 00:02:44.784
+So it's just going to be depth mode two.
+
+00:02:44.784 --> 00:02:47.924
+Is the depth even or odd?
+
+00:02:47.925 --> 00:02:53.880
+If it's even, so we're doing the x-values.
+
+00:02:53.879 --> 00:02:56.750
+So we can just index directly into the point here.
+
+00:02:56.750 --> 00:02:58.145
+Our points is a vector.
+
+00:02:58.145 --> 00:03:01.100
+So our cd's either going to be zero or one.
+
+00:03:01.099 --> 00:03:05.000
+If it's zero, that's going to look at the x-values.
+
+00:03:05.000 --> 00:03:11.849
+We're going to see if it's less than dereference or node here, its point x-value.
+
+00:03:11.849 --> 00:03:13.680
+So we're doing comparison.
+
+00:03:13.680 --> 00:03:18.605
+Our brand new point x-value compared to the current node that we're at x-value.
+
+00:03:18.604 --> 00:03:20.149
+If it's less than,
+
+00:03:20.150 --> 00:03:21.800
+we're going to branch off to the left.
+
+00:03:21.800 --> 00:03:25.145
+So we're going to call our insertHelper method again.
+
+00:03:25.145 --> 00:03:27.905
+We're going to pass it in once again the address.
+
+00:03:27.905 --> 00:03:32.435
+But this time for dereference nodes left child.
+
+00:03:32.435 --> 00:03:34.670
+So we're going to branch off to the left,
+
+00:03:34.669 --> 00:03:36.679
+and we're going to go ahead and increment our depth
+
+00:03:36.680 --> 00:03:39.290
+by one because we're flowing down into the tree.
+
+00:03:39.289 --> 00:03:41.620
+Also, give it our point and id.
+
+00:03:41.620 --> 00:03:45.800
+Otherwise, if it's not less than and it's greater than or equal,
+
+00:03:45.800 --> 00:03:48.935
+then we're going to go ahead and branch off to the right.
+
+00:03:48.935 --> 00:03:50.670
+So exactly the same thing,
+
+00:03:50.669 --> 00:03:52.394
+but instead of going left, we go right,
+
+00:03:52.395 --> 00:03:59.340
+and this insertHelper will actually terminate when it hits a null node.
+
+00:04:11.319 --> 00:04:14.280
+Something pop-ups.
+
+00:04:22.389 --> 00:04:28.870
+Go into Build,maximize the scale.
+
+00:04:30.050 --> 00:04:34.685
+Cluster that CPP, and now,
+
+00:04:34.685 --> 00:04:37.030
+we'll be able to go through and insert all those points and
+
+00:04:37.029 --> 00:04:40.029
+go ahead and call render tree and see what that looks like.
+
+00:04:40.029 --> 00:04:43.794
+So we'll come over here. We'll create that build.
+
+00:04:43.795 --> 00:04:48.550
+We'd do that cmake.dot and then run make,
+
+00:04:50.779 --> 00:04:54.309
+and see what that looks like.
+
+00:04:57.949 --> 00:05:01.019
+That should be quiz cluster,
+
+00:05:01.019 --> 00:05:02.794
+and there's our tree.
+
+00:05:02.795 --> 00:05:05.000
+So after building the kdtree,
+
+00:05:05.000 --> 00:05:10.110
+this is what it looks like for splitting each of those regions across x and y dimensions.
+

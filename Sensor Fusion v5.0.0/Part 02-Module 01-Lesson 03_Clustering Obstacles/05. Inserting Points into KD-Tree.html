@@ -1,0 +1,517 @@
+<!-- udacimak v1.4.4 -->
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <meta content="ie=edge" http-equiv="X-UA-Compatible"/>
+  <title>
+   Inserting Points into KD-Tree
+  </title>
+  <link href="../assets/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="../assets/css/plyr.css" rel="stylesheet"/>
+  <link href="../assets/css/katex.min.css" rel="stylesheet"/>
+  <link href="../assets/css/jquery.mCustomScrollbar.min.css" rel="stylesheet"/>
+  <link href="../assets/css/styles.css" rel="stylesheet"/>
+  <link href="../assets/img/udacimak.png" rel="shortcut icon" type="image/png">
+  </link>
+ </head>
+ <body>
+  <div class="wrapper">
+   <nav id="sidebar">
+    <div class="sidebar-header">
+     <h3>
+      Clustering Obstacles
+     </h3>
+    </div>
+    <ul class="sidebar-list list-unstyled CTAs">
+     <li>
+      <a class="article" href="../index.html">
+       Back to Home
+      </a>
+     </li>
+    </ul>
+    <ul class="sidebar-list list-unstyled components">
+     <li class="">
+      <a href="01. What is Clustering.html">
+       01. What is Clustering?
+      </a>
+     </li>
+     <li class="">
+      <a href="02. Clustering Obstacles.html">
+       02. Clustering Obstacles
+      </a>
+     </li>
+     <li class="">
+      <a href="03. Euclidean Clustering with PCL.html">
+       03. Euclidean Clustering with PCL
+      </a>
+     </li>
+     <li class="">
+      <a href="04. Implementing KD-Tree.html">
+       04. Implementing KD-Tree
+      </a>
+     </li>
+     <li class="">
+      <a href="05. Inserting Points into KD-Tree.html">
+       05. Inserting Points into KD-Tree
+      </a>
+     </li>
+     <li class="">
+      <a href="06. Insert Points.html">
+       06. Insert Points
+      </a>
+     </li>
+     <li class="">
+      <a href="07. Searching Points in a KD-Tree.html">
+       07. Searching Points in a KD-Tree
+      </a>
+     </li>
+     <li class="">
+      <a href="08. Euclidean Clustering.html">
+       08. Euclidean Clustering
+      </a>
+     </li>
+     <li class="">
+      <a href="09. Bounding Boxes.html">
+       09. Bounding Boxes
+      </a>
+     </li>
+     <li class="">
+      <a href="10. Michael on Bounding Boxes.html">
+       10. Michael on Bounding Boxes
+      </a>
+     </li>
+     <li class="">
+      <a href="11. Extra Challenge PCA Boxes.html">
+       11. Extra Challenge: PCA Boxes
+      </a>
+     </li>
+     <li class="">
+      <a href="12. Outro.html">
+       12. Outro
+      </a>
+     </li>
+    </ul>
+    <ul class="sidebar-list list-unstyled CTAs">
+     <li>
+      <a class="article" href="../index.html">
+       Back to Home
+      </a>
+     </li>
+    </ul>
+   </nav>
+   <div id="content">
+    <header class="container-fluild header">
+     <div class="container">
+      <div class="row">
+       <div class="col-12">
+        <div class="align-items-middle">
+         <button class="btn btn-toggle-sidebar" id="sidebarCollapse" type="button">
+          <div>
+          </div>
+          <div>
+          </div>
+          <div>
+          </div>
+         </button>
+         <h1 style="display: inline-block">
+          05. Inserting Points into KD-Tree
+         </h1>
+        </div>
+       </div>
+      </div>
+     </div>
+    </header>
+    <main class="container">
+     <div class="row">
+      <div class="col-12">
+       <div class="ud-atom">
+        <h3>
+         <p>
+          Header Text
+         </p>
+        </h3>
+        <div>
+         <h1 id="inserting-points-into-kd-tree">
+          Inserting Points into KD-Tree
+         </h1>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+         <p>
+          ND312 C1 L3 A17 Inserting Points Into KD-Tree Without Quiz [LB]
+         </p>
+        </h3>
+        <video controls="">
+         <source src="05. ND312 C1 L3 A17 Inserting Points Into KD-Tree Without Quiz [LB]-Va2NBXOTNlY.mp4" type="video/mp4"/>
+         <track default="true" kind="subtitles" label="en" src="05. ND312 C1 L3 A17 Inserting Points Into KD-Tree Without Quiz [LB]-Va2NBXOTNlY.en.vtt" srclang="en"/>
+        </video>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+         <p>
+          Inserting Points into KD-Tree
+         </p>
+        </h3>
+        <div>
+         <p>
+          Now let’s talk about how exactly the tree is created. At the very beginning when the tree is empty, root is NULL. The point inserted becomes the root, and splits the x region. Here is what this visually looks like, after inserting the first point (-6.2, 7).
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+         <p>
+          First Point
+         </p>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="Insert first point, and split x region." class="img img-fluid" src="img/kdtree1.png"/>
+          <figcaption class="figure-caption">
+           <p>
+            Insert first point, and split x region.
+           </p>
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+         <p>
+          Second Point
+         </p>
+        </h3>
+        <div>
+         <p>
+          The next point is (-6.3, 8.4). Since we previously split in the x-dimension, and -6.3 is less than -6.2. This Node will be created and be a part of root's left node. The point (-6.3, 8.4) will split the region in the y dimension.
+         </p>
+         <p>
+          To recap, the root was at depth 0, and split the x region. The next point became the left child of root and had a depth of 1, and split the y region.
+         </p>
+         <p>
+          A point at depth 2 will split the x region again, so the split dimension number can actually be calculated as depth % 2, where 2 is the number of dimensions we are working with. The image below shows how the tree looks after inserting the second point.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+         <p>
+          Second Point
+         </p>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="Inserting second point, splitting y region this time." class="img img-fluid" src="img/kdtree2.png"/>
+          <figcaption class="figure-caption">
+           <p>
+            Inserting second point, splitting y region this time.
+           </p>
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+         <p>
+          Two More Points
+         </p>
+        </h3>
+        <div>
+         <p>
+          Then here is what the tree looks like after inserting two more points (-5.2, 7.1) and (-5.7, 6.3), and having another x split division from point (-5.7, 6.3). The tree is now at depth 2.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+         <p>
+          Two More Points
+         </p>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="Inserting two more points, splitting x region again." class="img img-fluid" src="img/kdtree4.png"/>
+          <figcaption class="figure-caption">
+           <p>
+            Inserting two more points, splitting x region again.
+           </p>
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+         <p>
+          Tree Structure
+         </p>
+        </h3>
+        <div>
+         <p>
+          The image below shows so far what the tree looks like after inserting those 4 points. The labeled nodes A, B, C, D, and E are all NULL but if the next point (7.2, 6.1) is inserted, which of those 5 nodes will the new point node be assigned to? Remember to traverse the tree starting at the root. The depth tells you which dimension (x or y) you should use for comparison.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+         <p>
+          Tree Structure
+         </p>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="Tree structure from first four points." class="img img-fluid" src="img/kdtree5.png"/>
+          <figcaption class="figure-caption">
+           <p>
+            Tree structure from first four points.
+           </p>
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+         <p>
+          Placing New Point
+         </p>
+        </h3>
+        <div>
+         <form>
+          <fieldset>
+           <legend>
+            <p>
+             Which node should the point (7.2, 6.1) be inserted to?
+            </p>
+           </legend>
+          </fieldset>
+          <div>
+           <input id="rbk1" name="837695" type="radio" value="rbk1"/>
+           <label for="rbk1">
+            <p>
+             A
+            </p>
+           </label>
+          </div>
+          <div>
+           <input id="rbk2" name="837695" type="radio" value="rbk2"/>
+           <label for="rbk2">
+            <p>
+             B
+            </p>
+           </label>
+          </div>
+          <div>
+           <input id="rbk3" name="837695" type="radio" value="rbk3"/>
+           <label for="rbk3">
+            <p>
+             C
+            </p>
+           </label>
+          </div>
+          <div>
+           <input id="rbk4" name="837695" type="radio" value="rbk4"/>
+           <label for="rbk4">
+            <p>
+             D
+            </p>
+           </label>
+          </div>
+          <div>
+           <input id="rbk5" name="837695" type="radio" value="rbk5"/>
+           <label for="rbk5">
+            <p>
+             E
+            </p>
+           </label>
+          </div>
+         </form>
+         <details>
+          <summary>
+           <strong>
+            SOLUTION:
+           </strong>
+          </summary>
+          D
+         </details>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h2 id="solution">
+          Solution
+         </h2>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+         <p>
+          ND312 C1 L3 A18 Inserting Points Into KD-Tree Solution [LB]
+         </p>
+        </h3>
+        <video controls="">
+         <source src="05. ND312 C1 L3 A18 Inserting Points Into KD-Tree Solution [LB]-Cah22dr0KWg.mp4" type="video/mp4"/>
+         <track default="true" kind="subtitles" label="en" src="05. ND312 C1 L3 A18 Inserting Points Into KD-Tree Solution [LB]-Cah22dr0KWg.en.vtt" srclang="en"/>
+        </video>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h2 id="improving-the-tree">
+          Improving the Tree
+         </h2>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+         <p>
+          ND312 C1 L3 A28 Improving The Tree [LB]
+         </p>
+        </h3>
+        <video controls="">
+         <source src="05. ND312 C1 L3 A28 Improving The Tree [LB]-9rL2pQLAk4o.mp4" type="video/mp4"/>
+         <track default="true" kind="subtitles" label="en" src="05. ND312 C1 L3 A28 Improving The Tree [LB]-9rL2pQLAk4o.en.vtt" srclang="en"/>
+        </video>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+         <p>
+          Improving the Tree
+         </p>
+        </h3>
+        <div>
+         <p>
+          Having a balanced tree that evenly splits regions improves the search time for finding points later. To improve the tree, insert points that alternate between splitting the x region and the y region evenly. To do this pick the median of sorted x and y points. For instance if you are inserting the first four points that we used above (-6.3, 8.4), (-6.2, 7), (-5.2, 7.1), (-5.7, 6.3) we would first insert (-5.2,7.1) since it is the median along the x axis. If there is an even number of elements the lower median is chosen. The next point to be inserted would be (-6.2, 7), the median of the three points for y. This would be followed by (-5.7,6.3) the lower median between the two for x, and then finally (-6.3,8.4). This ordering will allow the tree to more evenly split the region space and improve search time later.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+      </div>
+      <div class="col-12">
+       <p class="text-right">
+        <a class="btn btn-outline-primary mt-4" href="06. Insert Points.html" role="button">
+         Next Concept
+        </a>
+       </p>
+      </div>
+     </div>
+    </main>
+    <footer class="footer">
+     <div class="container">
+      <div class="row">
+       <div class="col-12">
+        <p class="text-center">
+         udacity2.0 If you need the newest courses Plase add me wechat: udacity6
+        </p>
+       </div>
+      </div>
+     </div>
+    </footer>
+   </div>
+  </div>
+  <script src="../assets/js/jquery-3.3.1.min.js">
+  </script>
+  <script src="../assets/js/plyr.polyfilled.min.js">
+  </script>
+  <script src="../assets/js/bootstrap.min.js">
+  </script>
+  <script src="../assets/js/jquery.mCustomScrollbar.concat.min.js">
+  </script>
+  <script src="../assets/js/katex.min.js">
+  </script>
+  <script>
+   // Initialize Plyr video players
+    const players = Array.from(document.querySelectorAll('video')).map(p => new Plyr(p));
+
+    // render math equations
+    let elMath = document.getElementsByClassName('mathquill');
+    for (let i = 0, len = elMath.length; i < len; i += 1) {
+      const el = elMath[i];
+
+      katex.render(el.textContent, el, {
+        throwOnError: false
+      });
+    }
+
+    // this hack will make sure Bootstrap tabs work when using Handlebars
+    if ($('#question-tabs').length && $('#user-answer-tabs').length) {
+      $("#question-tabs a.nav-link").on('click', function () {
+        $("#question-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+      $("#user-answer-tabs a.nav-link").on('click', function () {
+        $("#user-answer-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    } else {
+      $("a.nav-link").on('click', function () {
+        $(".tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    }
+
+    // side bar events
+    $(document).ready(function () {
+      $("#sidebar").mCustomScrollbar({
+        theme: "minimal"
+      });
+
+      $('#sidebarCollapse').on('click', function () {
+        $('#sidebar, #content').toggleClass('active');
+        $('.collapse.in').toggleClass('in');
+        $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+      });
+
+      // scroll to first video on page loading
+      if ($('video').length) {
+        $('html,body').animate({ scrollTop: $('div.plyr').prev().offset().top});
+      }
+
+      // auto play first video: this may not work with chrome/safari due to autoplay policy
+      if (players && players.length > 0) {
+        players[0].play();
+      }
+
+      // scroll sidebar to current concept
+      const currentInSideBar = $( "ul.sidebar-list.components li a:contains('05. Inserting Points into KD-Tree')" )
+      currentInSideBar.css( "text-decoration", "underline" );
+      $("#sidebar").mCustomScrollbar('scrollTo', currentInSideBar);
+    });
+  </script>
+ </body>
+</html>

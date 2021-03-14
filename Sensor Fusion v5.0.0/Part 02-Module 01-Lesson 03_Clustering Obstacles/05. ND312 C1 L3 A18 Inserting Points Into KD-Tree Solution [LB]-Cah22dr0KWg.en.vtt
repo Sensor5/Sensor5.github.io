@@ -1,0 +1,37 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:03.899
+Well, we're inserting this new point 7.2, 6.1.
+
+00:00:03.899 --> 00:00:07.650
+So we're going to start at the root and we're comparing the x-value.
+
+00:00:07.650 --> 00:00:11.714
+So 7.2 is greater than negative 6.2.
+
+00:00:11.714 --> 00:00:14.085
+So we're going to flow to the right.
+
+00:00:14.085 --> 00:00:16.469
+Next, we're comparing the y- value.
+
+00:00:16.469 --> 00:00:20.429
+Well, 6.1 is less than 7.1.
+
+00:00:20.429 --> 00:00:22.949
+So now we're going to flow to the left.
+
+00:00:22.949 --> 00:00:28.489
+Finally, now we're going to compare this new point with the point minus 5.7,
+
+00:00:28.489 --> 00:00:32.104
+6.3 and we're doing an x comparison again.
+
+00:00:32.104 --> 00:00:37.219
+So 7.2 is greater than negative 5.7, therefore,
+
+00:00:37.219 --> 00:00:43.829
+it flows to the right and it becomes node D. So the answer is D.
+

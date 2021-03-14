@@ -1,0 +1,136 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:01.129 --> 00:00:05.129
+Really, this is the meat of the algorithm itself.
+
+00:00:05.129 --> 00:00:09.324
+This is really the backbone and this is the KD Tree.
+
+00:00:09.324 --> 00:00:12.299
+So that was one of the parameters at
+
+00:00:12.300 --> 00:00:15.360
+this euclidean clustering object back and PCL was using,
+
+00:00:15.359 --> 00:00:19.355
+and it's actually pretty important for doing our clustering efficiently.
+
+00:00:19.355 --> 00:00:20.754
+So in this section,
+
+00:00:20.754 --> 00:00:23.730
+you're going to be implementing your own KD Tree.
+
+00:00:23.730 --> 00:00:25.410
+So what is a KD Tree?
+
+00:00:25.410 --> 00:00:30.030
+Well, it's a data structure and it's represented by this binary tree.
+
+00:00:30.030 --> 00:00:34.730
+So it is a binary tree and we are going to insert points into
+
+00:00:34.729 --> 00:00:39.379
+this binary Tree alternating comparisons between the different dimensions.
+
+00:00:39.380 --> 00:00:41.179
+So if we're working with 3D data,
+
+00:00:41.179 --> 00:00:43.850
+that's going to be alternating between looking at the X,
+
+00:00:43.850 --> 00:00:45.759
+Y and Z dimensions.
+
+00:00:45.759 --> 00:00:48.179
+Otherwise, if we're looking at 2D data,
+
+00:00:48.179 --> 00:00:51.795
+it's just alternating between looking at the X and Y dimensions.
+
+00:00:51.795 --> 00:00:53.710
+So let's say we have some data,
+
+00:00:53.710 --> 00:00:55.280
+and to make things simple,
+
+00:00:55.280 --> 00:00:58.100
+let's work with this 2D data case.
+
+00:00:58.100 --> 00:01:00.245
+So we have these 2D points,
+
+00:01:00.244 --> 00:01:02.210
+and here in particular,
+
+00:01:02.210 --> 00:01:07.640
+we can kind of see that there are three clusters that are relatively close to each other.
+
+00:01:07.640 --> 00:01:11.180
+By the end of these exercises,
+
+00:01:11.180 --> 00:01:14.300
+you'll be able to write your own euclidean clustering algorithm,
+
+00:01:14.299 --> 00:01:16.609
+and identify these three clusters.
+
+00:01:16.609 --> 00:01:18.185
+But before we can do that,
+
+00:01:18.185 --> 00:01:20.605
+you'll be implementing a KD Tree.
+
+00:01:20.605 --> 00:01:24.965
+So let's build a KD Tree based on this two-dimensional data.
+
+00:01:24.965 --> 00:01:26.270
+So in our example,
+
+00:01:26.269 --> 00:01:28.909
+we have 11 points and we have
+
+00:01:28.909 --> 00:01:32.030
+these three groups of points that are relatively close to each other.
+
+00:01:32.030 --> 00:01:37.460
+Well, if we have a KD Tree and we start inserting these points into the KD Tree.
+
+00:01:37.459 --> 00:01:39.259
+These is actually what it looks like.
+
+00:01:39.260 --> 00:01:45.480
+In our KD Tree is this data structure that is organizing data spatially.
+
+00:01:45.480 --> 00:01:48.090
+It's able to break regions apart.
+
+00:01:48.090 --> 00:01:53.204
+So it's splitting regions either in our example here with 2D data,
+
+00:01:53.204 --> 00:01:56.340
+it's splitting regions into the X region,
+
+00:01:56.340 --> 00:01:59.210
+so we can do this vertical split and have
+
+00:01:59.209 --> 00:02:03.679
+these different X regions or we can do this horizontal line split,
+
+00:02:03.680 --> 00:02:05.075
+and split the Y regions.
+
+00:02:05.075 --> 00:02:08.539
+So here, we can see how it's splitting the X region with
+
+00:02:08.539 --> 00:02:12.400
+these blue lines and how it's splitting the Y region with these red lines,
+
+00:02:12.400 --> 00:02:15.965
+and these splits are each coming from these different points,
+
+00:02:15.965 --> 00:02:19.860
+which are going to be different nodes in our binary Tree.
+

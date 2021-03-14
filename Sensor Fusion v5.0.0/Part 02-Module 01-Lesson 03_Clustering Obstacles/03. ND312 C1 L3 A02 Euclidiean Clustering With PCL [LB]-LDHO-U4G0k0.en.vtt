@@ -1,0 +1,67 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:05.070
+So let's look at Euclidean clustering using some built-in PCL functions.
+
+00:00:05.070 --> 00:00:08.940
+For this, we're going to be using the point processor again,
+
+00:00:08.939 --> 00:00:11.609
+and we're going to have some documentation that allows
+
+00:00:11.609 --> 00:00:14.509
+us to do some PCL Euclidean clustering.
+
+00:00:14.509 --> 00:00:16.410
+It's going to be pretty similar to what we're doing
+
+00:00:16.410 --> 00:00:18.660
+in the lesson when we're doing segmentation,
+
+00:00:18.660 --> 00:00:21.359
+but the results of this will look like this.
+
+00:00:21.359 --> 00:00:23.969
+Where now, we can take that obstacle Cloud,
+
+00:00:23.969 --> 00:00:26.354
+and this is from our simulated highway environment,
+
+00:00:26.355 --> 00:00:29.175
+and remember we had the scan of these cars,
+
+00:00:29.175 --> 00:00:34.155
+where now we can actually identify where the cars are individually at.
+
+00:00:34.155 --> 00:00:37.520
+So here we're coloring the cars differently.
+
+00:00:37.520 --> 00:00:39.260
+So we have this blue car over here,
+
+00:00:39.259 --> 00:00:42.649
+this red car over here, and this green car that was behind us in the scene,
+
+00:00:42.649 --> 00:00:45.409
+and this will be the results that you get after
+
+00:00:45.409 --> 00:00:49.939
+implementing the Euclidean clustering function in PCL.
+
+00:00:49.939 --> 00:00:52.909
+So let's look at how to actually fill in this function.
+
+00:00:52.909 --> 00:00:57.064
+So inside the point processor.cpp file,
+
+00:00:57.064 --> 00:00:59.844
+there is a function called the clustering.
+
+00:00:59.844 --> 00:01:05.299
+Then after you're able to implement that back in environment.cpp,
+
+00:01:05.299 --> 00:01:08.819
+you can render the different clusters a different color.
+

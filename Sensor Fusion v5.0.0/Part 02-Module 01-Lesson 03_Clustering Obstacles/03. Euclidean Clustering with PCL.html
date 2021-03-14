@@ -1,0 +1,451 @@
+<!-- udacimak v1.4.4 -->
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <meta content="ie=edge" http-equiv="X-UA-Compatible"/>
+  <title>
+   Euclidean Clustering with PCL
+  </title>
+  <link href="../assets/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="../assets/css/plyr.css" rel="stylesheet"/>
+  <link href="../assets/css/katex.min.css" rel="stylesheet"/>
+  <link href="../assets/css/jquery.mCustomScrollbar.min.css" rel="stylesheet"/>
+  <link href="../assets/css/styles.css" rel="stylesheet"/>
+  <link href="../assets/img/udacimak.png" rel="shortcut icon" type="image/png">
+  </link>
+ </head>
+ <body>
+  <div class="wrapper">
+   <nav id="sidebar">
+    <div class="sidebar-header">
+     <h3>
+      Clustering Obstacles
+     </h3>
+    </div>
+    <ul class="sidebar-list list-unstyled CTAs">
+     <li>
+      <a class="article" href="../index.html">
+       Back to Home
+      </a>
+     </li>
+    </ul>
+    <ul class="sidebar-list list-unstyled components">
+     <li class="">
+      <a href="01. What is Clustering.html">
+       01. What is Clustering?
+      </a>
+     </li>
+     <li class="">
+      <a href="02. Clustering Obstacles.html">
+       02. Clustering Obstacles
+      </a>
+     </li>
+     <li class="">
+      <a href="03. Euclidean Clustering with PCL.html">
+       03. Euclidean Clustering with PCL
+      </a>
+     </li>
+     <li class="">
+      <a href="04. Implementing KD-Tree.html">
+       04. Implementing KD-Tree
+      </a>
+     </li>
+     <li class="">
+      <a href="05. Inserting Points into KD-Tree.html">
+       05. Inserting Points into KD-Tree
+      </a>
+     </li>
+     <li class="">
+      <a href="06. Insert Points.html">
+       06. Insert Points
+      </a>
+     </li>
+     <li class="">
+      <a href="07. Searching Points in a KD-Tree.html">
+       07. Searching Points in a KD-Tree
+      </a>
+     </li>
+     <li class="">
+      <a href="08. Euclidean Clustering.html">
+       08. Euclidean Clustering
+      </a>
+     </li>
+     <li class="">
+      <a href="09. Bounding Boxes.html">
+       09. Bounding Boxes
+      </a>
+     </li>
+     <li class="">
+      <a href="10. Michael on Bounding Boxes.html">
+       10. Michael on Bounding Boxes
+      </a>
+     </li>
+     <li class="">
+      <a href="11. Extra Challenge PCA Boxes.html">
+       11. Extra Challenge: PCA Boxes
+      </a>
+     </li>
+     <li class="">
+      <a href="12. Outro.html">
+       12. Outro
+      </a>
+     </li>
+    </ul>
+    <ul class="sidebar-list list-unstyled CTAs">
+     <li>
+      <a class="article" href="../index.html">
+       Back to Home
+      </a>
+     </li>
+    </ul>
+   </nav>
+   <div id="content">
+    <header class="container-fluild header">
+     <div class="container">
+      <div class="row">
+       <div class="col-12">
+        <div class="align-items-middle">
+         <button class="btn btn-toggle-sidebar" id="sidebarCollapse" type="button">
+          <div>
+          </div>
+          <div>
+          </div>
+          <div>
+          </div>
+         </button>
+         <h1 style="display: inline-block">
+          03. Euclidean Clustering with PCL
+         </h1>
+        </div>
+       </div>
+      </div>
+     </div>
+    </header>
+    <main class="container">
+     <div class="row">
+      <div class="col-12">
+       <div class="ud-atom">
+        <h3>
+         <p>
+          Header Text
+         </p>
+        </h3>
+        <div>
+         <h1 id="euclidean-clustering-with-pcl">
+          Euclidean Clustering with PCL
+         </h1>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+         <p>
+          ND312 C1 L3 A02 Euclidiean Clustering With PCL [LB]
+         </p>
+        </h3>
+        <video controls="">
+         <source src="03. ND312 C1 L3 A02 Euclidiean Clustering With PCL [LB]-LDHO-U4G0k0.mp4" type="video/mp4"/>
+         <track default="true" kind="subtitles" label="en" src="03. ND312 C1 L3 A02 Euclidiean Clustering With PCL [LB]-LDHO-U4G0k0.en.vtt" srclang="en"/>
+        </video>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <p>
+          Inside
+          <code>
+           pointProcessor
+          </code>
+          , the
+          <code>
+           Clustering
+          </code>
+          function is located right under the
+          <code>
+           SegmentPlane
+          </code>
+          function that you previously were working on.
+         </p>
+         <p>
+          PCL provides some documentation for using its built in
+          <a href="http://pointclouds.org/documentation/tutorials/cluster_extraction.php" rel="noopener noreferrer" target="_blank">
+           euclidean clustering
+          </a>
+          functions. In particular check out lines 71-82.
+         </p>
+         <h2 id="euclidean-clustering-arguments">
+          Euclidean Clustering Arguments
+         </h2>
+         <p>
+          The euclidean clustering object
+          <code>
+           ec
+          </code>
+          takes in a distance tolerance. Any points within that distance will be grouped together. It also has min and max arguments for the number of points to represent as clusters. The idea is: if a cluster is really small, it’s probably just noise and we are not concerned with it. Also a max number of points allows us to better break up very large clusters. If a cluster is very large it might just be that many other clusters are overlapping, and a max tolerance can help us better resolve the object detections. The last argument to the euclidean cluster object is the Kd-Tree. The tree is created and built using the input cloud points, which in this case are going to be the obstacle cloud points.
+         </p>
+         <p>
+          Back in environment.cpp let's see how to render the different clusters.
+         </p>
+         <pre><code class="cpp language-cpp">std::vector&lt;pcl::PointCloud&lt;pcl::PointXYZ&gt;::Ptr&gt; cloudClusters = pointProcessor-&gt;Clustering(segmentCloud.first, 1.0, 3, 30);
+
+int clusterId = 0;
+std::vector&lt;Color&gt; colors = {Color(1,0,0), Color(0,1,0), Color(0,0,1)};
+
+for(pcl::PointCloud&lt;pcl::PointXYZ&gt;::Ptr cluster : cloudClusters)
+{
+      std::cout &lt;&lt; "cluster size ";
+      pointProcessor-&gt;numPoints(cluster);
+      renderPointCloud(viewer,cluster,"obstCloud"+std::to_string(clusterId),colors[clusterId]);
+      ++clusterId;
+}</code></pre>
+         <p>
+          In the code above, the
+          <code>
+           Clustering
+          </code>
+          method is called and then there is a loop to iterate through each cluster and call
+          <code>
+           renderPointCloud
+          </code>
+          on each cluster. The renderPointCloud is expecting each pcl viewer point cloud to have a unique identifier, so clusters are counted with
+          <code>
+           clusterId
+          </code>
+          and appended to the
+          <code>
+           obstCloud
+          </code>
+          string.
+          <br/>
+          To get different colors for each of the clusters, a list of colors is defined. Here we simply use red, blue and green.
+         </p>
+         <p>
+          As a bonus the number of points for each cluster is logged. This can be a helpful debugging tool later when trying to pick good min and max point values.
+         </p>
+         <p>
+          In this example the min points for a cluster are set to 3, and the max set to 30. The distance tolerance is also set to 1. Some time and effort will be needed to pick good hyperparameters, but many cases actually there won't be a perfect combination to always get perfect results.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+         <p>
+          Cluster Results
+         </p>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="Clusters shown in different colors, red, green, and blue." class="img img-fluid" src="img/clusters1.png"/>
+          <figcaption class="figure-caption">
+           <p>
+            Clusters shown in different colors, red, green, and blue.
+           </p>
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h2 id="instructions">
+          Instructions
+         </h2>
+         <ul>
+          <li>
+           Define the function clusters in
+           <code>
+            pointProcessor
+           </code>
+           using the pcl document guide above for reference.
+          </li>
+          <li>
+           Experiment with different hyperparameters for the clustering algorithm.
+          </li>
+          <li>
+           In
+           <code>
+            environment.cpp
+           </code>
+           render the different clusters using the code sample above.
+          </li>
+         </ul>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div class="jumbotron">
+         <h3>
+          Workspace
+         </h3>
+         <p class="lead">
+          This section contains either a workspace (it can be a
+          <a href="http://jupyter.org/" target="_blank">
+           Jupyter
+      Notebook
+          </a>
+          workspace or an online code editor work space, etc.) and it cannot be automatically downloaded to be
+    generated here. Please access the classroom with your account and manually download the workspace to your local
+    machine. Note that for some courses, Udacity upload the workspace files onto
+          <a href="https://github.com/udacity" target="_blank">
+           https://github.com/udacity
+          </a>
+          , so you may be able to download them there.
+         </p>
+         <h4>
+          Workspace Information:
+         </h4>
+         <ul>
+          <li>
+           <strong>
+            Default file path:
+           </strong>
+          </li>
+          <li>
+           <strong>
+            Workspace type:
+           </strong>
+           react
+          </li>
+          <li>
+           <strong>
+            Opened files (when workspace is loaded):
+           </strong>
+           n/a
+          </li>
+         </ul>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h2 id="solution">
+          Solution
+         </h2>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+         <p>
+          ND312 C1 L3 A10 Euclidean Clustering With PCL - Solution
+         </p>
+        </h3>
+        <video controls="">
+         <source src="03. ND312 C1 L3 A10 Euclidean Clustering With PCL - Solution-4fX2d-7Ym-c.mp4" type="video/mp4"/>
+         <track default="true" kind="subtitles" label="en" src="03. ND312 C1 L3 A10 Euclidean Clustering With PCL - Solution-4fX2d-7Ym-c.en.vtt" srclang="en"/>
+        </video>
+       </div>
+       <div class="divider">
+       </div>
+      </div>
+      <div class="col-12">
+       <p class="text-right">
+        <a class="btn btn-outline-primary mt-4" href="04. Implementing KD-Tree.html" role="button">
+         Next Concept
+        </a>
+       </p>
+      </div>
+     </div>
+    </main>
+    <footer class="footer">
+     <div class="container">
+      <div class="row">
+       <div class="col-12">
+        <p class="text-center">
+         udacity2.0 If you need the newest courses Plase add me wechat: udacity6
+        </p>
+       </div>
+      </div>
+     </div>
+    </footer>
+   </div>
+  </div>
+  <script src="../assets/js/jquery-3.3.1.min.js">
+  </script>
+  <script src="../assets/js/plyr.polyfilled.min.js">
+  </script>
+  <script src="../assets/js/bootstrap.min.js">
+  </script>
+  <script src="../assets/js/jquery.mCustomScrollbar.concat.min.js">
+  </script>
+  <script src="../assets/js/katex.min.js">
+  </script>
+  <script>
+   // Initialize Plyr video players
+    const players = Array.from(document.querySelectorAll('video')).map(p => new Plyr(p));
+
+    // render math equations
+    let elMath = document.getElementsByClassName('mathquill');
+    for (let i = 0, len = elMath.length; i < len; i += 1) {
+      const el = elMath[i];
+
+      katex.render(el.textContent, el, {
+        throwOnError: false
+      });
+    }
+
+    // this hack will make sure Bootstrap tabs work when using Handlebars
+    if ($('#question-tabs').length && $('#user-answer-tabs').length) {
+      $("#question-tabs a.nav-link").on('click', function () {
+        $("#question-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+      $("#user-answer-tabs a.nav-link").on('click', function () {
+        $("#user-answer-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    } else {
+      $("a.nav-link").on('click', function () {
+        $(".tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    }
+
+    // side bar events
+    $(document).ready(function () {
+      $("#sidebar").mCustomScrollbar({
+        theme: "minimal"
+      });
+
+      $('#sidebarCollapse').on('click', function () {
+        $('#sidebar, #content').toggleClass('active');
+        $('.collapse.in').toggleClass('in');
+        $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+      });
+
+      // scroll to first video on page loading
+      if ($('video').length) {
+        $('html,body').animate({ scrollTop: $('div.plyr').prev().offset().top});
+      }
+
+      // auto play first video: this may not work with chrome/safari due to autoplay policy
+      if (players && players.length > 0) {
+        players[0].play();
+      }
+
+      // scroll sidebar to current concept
+      const currentInSideBar = $( "ul.sidebar-list.components li a:contains('03. Euclidean Clustering with PCL')" )
+      currentInSideBar.css( "text-decoration", "underline" );
+      $("#sidebar").mCustomScrollbar('scrollTo', currentInSideBar);
+    });
+  </script>
+ </body>
+</html>

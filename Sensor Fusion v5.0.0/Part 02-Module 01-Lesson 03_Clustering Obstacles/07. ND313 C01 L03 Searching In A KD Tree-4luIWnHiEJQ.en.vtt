@@ -1,0 +1,337 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:02.895
+All right. Now let's put our k-d tree to use.
+
+00:00:02.895 --> 00:00:05.894
+Let's say we have this target point and we wish to know
+
+00:00:05.894 --> 00:00:09.344
+all the nearby points in the tree to this target point.
+
+00:00:09.345 --> 00:00:13.440
+So how do we do this, and how is the k-d tree really going to speed up this process?
+
+00:00:13.439 --> 00:00:14.984
+So let's look at it.
+
+00:00:14.984 --> 00:00:18.269
+So let's say we have our k-d tree and we look at the first point,
+
+00:00:18.269 --> 00:00:20.399
+that's the root point in our tree.
+
+00:00:20.399 --> 00:00:22.079
+Let's say it's this one right here,
+
+00:00:22.079 --> 00:00:24.599
+which is this nice pivot point for
+
+00:00:24.600 --> 00:00:29.400
+the X dimension and it's splitting up our points nicely between the X.
+
+00:00:29.399 --> 00:00:32.820
+So once we have this point we have our target,
+
+00:00:32.820 --> 00:00:35.509
+and we're just going to do this cheap comparison.
+
+00:00:35.509 --> 00:00:39.239
+We're going to see if it lies within this box or not.
+
+00:00:40.179 --> 00:00:43.039
+Let's say we have this distance tolerance,
+
+00:00:43.039 --> 00:00:45.545
+and that's this length of this arrow right here.
+
+00:00:45.545 --> 00:00:49.715
+So our box is actually going to have two times this distance tolerance.
+
+00:00:49.715 --> 00:00:53.030
+So we can actually do this cheap calculation here
+
+00:00:53.030 --> 00:00:57.020
+this X-Y comparison to see if this points even within the box or not,
+
+00:00:57.020 --> 00:00:58.715
+and it's not in the box.
+
+00:00:58.715 --> 00:01:00.770
+So we know it's not a nearby point.
+
+00:01:00.770 --> 00:01:02.875
+Now here's where it gets interesting,
+
+00:01:02.875 --> 00:01:05.915
+we can actually split left and right in the tree,
+
+00:01:05.915 --> 00:01:08.734
+and the box comparison is going to help us do that.
+
+00:01:08.734 --> 00:01:10.489
+So this first point,
+
+00:01:10.489 --> 00:01:14.959
+this route is going to split the X region into two pieces,
+
+00:01:14.959 --> 00:01:17.524
+and we know whether we can explore
+
+00:01:17.525 --> 00:01:21.260
+our target point in it left or right by doing this X-Y comparison.
+
+00:01:21.260 --> 00:01:24.545
+So here we have our length of our box,
+
+00:01:24.545 --> 00:01:27.230
+we have this point right here and we can see if
+
+00:01:27.230 --> 00:01:33.109
+this X point is actually less than or equal to this X division.
+
+00:01:33.109 --> 00:01:36.379
+We see that it's not greater than this X division,
+
+00:01:36.379 --> 00:01:40.789
+so we don't even have to worry about checking any points in this right region.
+
+00:01:40.790 --> 00:01:43.715
+So we don't have to worry about these two points at all.
+
+00:01:43.715 --> 00:01:46.520
+We do see that's less than this X region.
+
+00:01:46.519 --> 00:01:50.045
+So we will check this left region here.
+
+00:01:50.045 --> 00:01:55.040
+So that means that we'll branch off to the left of our tree.
+
+00:01:55.040 --> 00:01:57.560
+So this is our route. Now we're going to branch off to the left.
+
+00:01:57.560 --> 00:01:59.510
+Let's say once we branch off to the left,
+
+00:01:59.510 --> 00:02:02.250
+here's our next node that we arrive at in our tree.
+
+00:02:02.250 --> 00:02:03.530
+We do the same thing,
+
+00:02:03.530 --> 00:02:05.165
+we see if it's in that box,
+
+00:02:05.165 --> 00:02:07.325
+we see right here it's not in that box.
+
+00:02:07.325 --> 00:02:11.444
+So now we're going to check this Y split.
+
+00:02:11.444 --> 00:02:13.504
+We're going to have this upper and lower region.
+
+00:02:13.504 --> 00:02:17.960
+We do the same thing and look at this Y value here and see if it's less than or
+
+00:02:17.960 --> 00:02:22.745
+greater than this Y value that we get from the split.
+
+00:02:22.745 --> 00:02:24.509
+We see that it's not less than it,
+
+00:02:24.509 --> 00:02:27.179
+so we don't have to worry about any points in this region,
+
+00:02:27.180 --> 00:02:29.150
+and we only have to worry about this region now.
+
+00:02:29.150 --> 00:02:32.270
+So you can see how this k-d tree is really helping
+
+00:02:32.270 --> 00:02:35.900
+us narrow down the search space quite well.
+
+00:02:35.900 --> 00:02:40.310
+So now we are in our tree branch to the right.
+
+00:02:40.310 --> 00:02:42.110
+Again, check out this upper region,
+
+00:02:42.110 --> 00:02:44.150
+and let's say this is the next point we arrive at.
+
+00:02:44.150 --> 00:02:47.990
+Now for the first time, we see that this point is inside the box.
+
+00:02:47.990 --> 00:02:52.800
+So we can do this kind of cheap X-Y comparison and see that this point is in the box.
+
+00:02:52.800 --> 00:02:53.995
+The next thing we look at,
+
+00:02:53.995 --> 00:02:57.384
+is it actually in this circle, this radius?
+
+00:02:57.384 --> 00:03:00.120
+It is actually, so it's in this circle.
+
+00:03:00.120 --> 00:03:03.069
+That's the first time we're actually going to do this distance calculation,
+
+00:03:03.068 --> 00:03:04.959
+and that's just slightly more expensive than
+
+00:03:04.960 --> 00:03:07.330
+doing that comparison because we have the square root.
+
+00:03:07.330 --> 00:03:10.344
+But now for the first time we are just doing a distance calculation,
+
+00:03:10.344 --> 00:03:12.069
+and now we have a nearby point,
+
+00:03:12.069 --> 00:03:15.604
+which is within that distance tolerance to our target point.
+
+00:03:15.604 --> 00:03:17.669
+Awesome. So we have one so far.
+
+00:03:17.669 --> 00:03:20.949
+Let's keep exploring and see if we can find any others.
+
+00:03:20.949 --> 00:03:23.364
+Now also for the first time,
+
+00:03:23.365 --> 00:03:28.495
+our boxes are within both this x-splitting region.
+
+00:03:28.495 --> 00:03:33.740
+So the boxes contained in both this right and this left region here,
+
+00:03:33.740 --> 00:03:37.659
+and now we are actually going to be exploring both sides.
+
+00:03:37.659 --> 00:03:40.270
+So let's go ahead and start with the left over here.
+
+00:03:40.270 --> 00:03:45.439
+So we'd split off to the left and we'd see whether this point is in the box or not,
+
+00:03:45.439 --> 00:03:48.139
+and it's just slightly outside the box.
+
+00:03:48.139 --> 00:03:50.804
+So that's not a nearby point.
+
+00:03:50.805 --> 00:03:55.530
+Then we'd see whether that box is in that upper or lower region.
+
+00:03:55.530 --> 00:03:57.944
+It's not in the upper region at all.
+
+00:03:57.944 --> 00:04:02.344
+This point is not greater than this Y value here.
+
+00:04:02.344 --> 00:04:06.800
+So that means we don't have to worry about any of the points in this region,
+
+00:04:06.800 --> 00:04:08.270
+we would just focus on the lower region.
+
+00:04:08.270 --> 00:04:10.310
+But hey, we don't have any points at all anymore.
+
+00:04:10.310 --> 00:04:12.259
+So we're done on this left side.
+
+00:04:12.259 --> 00:04:17.824
+Then looking back, we saw there was boxes also in this right region here.
+
+00:04:17.824 --> 00:04:22.219
+This point was greater than this X region here.
+
+00:04:22.220 --> 00:04:27.125
+So now we're going to check out the points off to the right,
+
+00:04:27.125 --> 00:04:29.240
+and that's the single point right here.
+
+00:04:29.240 --> 00:04:32.480
+We see once again it's slightly outside this box.
+
+00:04:32.480 --> 00:04:35.444
+So we don't have to worry about it.
+
+00:04:35.444 --> 00:04:38.370
+Then we're going to split,
+
+00:04:38.370 --> 00:04:43.410
+and once we do that we'll see that we don't have any points left and we're done.
+
+00:04:43.410 --> 00:04:48.530
+We went through when we checked all eight points and we just found one point that
+
+00:04:48.529 --> 00:04:53.779
+was within this distance tolerance to this target point now outside the tree.
+
+00:04:53.779 --> 00:04:56.750
+So now we've found all the nearby points in the tree that
+
+00:04:56.750 --> 00:05:00.129
+are in proximity within this distance tolerances,
+
+00:05:00.129 --> 00:05:04.100
+this target point that we're using as a reference.
+
+00:05:04.100 --> 00:05:10.050
+Yeah. We see how that k-d tree really helped near our search space.
+
+00:05:10.120 --> 00:05:12.620
+We only had to do five checks,
+
+00:05:12.620 --> 00:05:13.790
+this was the first one.
+
+00:05:13.790 --> 00:05:16.960
+So one, two, three,
+
+00:05:16.959 --> 00:05:21.439
+four, five, and we only had to do that distance calculation once.
+
+00:05:21.439 --> 00:05:25.069
+The naive approach of looking at nearby points would be,
+
+00:05:25.069 --> 00:05:29.420
+we have our target and we'd iterate through every single point in the tree.
+
+00:05:29.420 --> 00:05:32.120
+So we'd look at the distance of every single point,
+
+00:05:32.120 --> 00:05:33.680
+doing the distance calculation,
+
+00:05:33.680 --> 00:05:37.370
+and if it was below some distance tolerance then we would add it.
+
+00:05:37.370 --> 00:05:42.720
+But the k-d tree really helped speed up our search,
+
+00:05:42.720 --> 00:05:45.725
+so we didn't have to iterate through every single point. Look at the distance.
+
+00:05:45.725 --> 00:05:49.460
+That's quite negligible between doing the naive approach in
+
+00:05:49.459 --> 00:05:54.034
+this k-d tree approach in this example because we only have eight points,
+
+00:05:54.035 --> 00:05:59.930
+but if we had a million points we'd really be able to reap the benefits.
+
+00:05:59.930 --> 00:06:06.540
+So here's how the k-d tree can help us find nearby points given a target point.
+

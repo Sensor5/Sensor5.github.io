@@ -1,0 +1,85 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:03.944
+Let's talk about some ways for improving the Tree real quick.
+
+00:00:03.944 --> 00:00:09.675
+Here in the example we're just naively inserting points arbitrarily.
+
+00:00:09.675 --> 00:00:13.980
+But, if we can actually balance the Tree better,
+
+00:00:13.980 --> 00:00:19.469
+if we insert points that are evenly splitting the region for each dimension.
+
+00:00:19.469 --> 00:00:20.704
+So how do you do this?
+
+00:00:20.704 --> 00:00:23.909
+Well, that means that you would actually sort the points,
+
+00:00:23.910 --> 00:00:27.300
+let's say first by the X component,
+
+00:00:27.300 --> 00:00:31.670
+and then you pick the median value and the insert that point into the Tree.
+
+00:00:31.670 --> 00:00:35.524
+Next you'd sort the points based on the Y values,
+
+00:00:35.524 --> 00:00:38.390
+and then insert the median for the Y's.
+
+00:00:38.390 --> 00:00:42.679
+What this does is it'll actually create a really balanced KD Tree,
+
+00:00:42.679 --> 00:00:44.750
+and having a more balanced Tree,
+
+00:00:44.750 --> 00:00:49.310
+means it's going to more effectively be able to search for points later on,
+
+00:00:49.310 --> 00:00:54.170
+because it'll be able to more evenly split your regions apart.
+
+00:00:54.170 --> 00:00:58.984
+So an example in our 2D case is inserting points.
+
+00:00:58.984 --> 00:01:00.929
+Well, with our four points,
+
+00:01:00.929 --> 00:01:03.240
+we'd be sorting them by the X components,
+
+00:01:03.240 --> 00:01:04.980
+and then insert the X median.
+
+00:01:04.980 --> 00:01:07.410
+Then with those three remaining points,
+
+00:01:07.409 --> 00:01:12.079
+we'll sort them based on the Y values and then insert the Y median,
+
+00:01:12.079 --> 00:01:17.700
+and then finally we'd go X median and then just the last point.
+
+00:01:17.700 --> 00:01:21.260
+If you have an even number of points and you're trying to pick the median,
+
+00:01:21.260 --> 00:01:23.435
+you can just pick the lower median.
+
+00:01:23.435 --> 00:01:25.100
+So this is how you can create
+
+00:01:25.099 --> 00:01:28.609
+a more balanced Tree that'll help you out later on when you're
+
+00:01:28.609 --> 00:01:31.549
+trying to have the most efficient search time
+
+00:01:31.549 --> 00:01:34.890
+for doing nearest neighbor with your KD tree.
+

@@ -1,0 +1,217 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:04.059
+So, let's talk about what we've been building up to now.
+
+00:00:04.059 --> 00:00:06.299
+We know how to construct a KD tree.
+
+00:00:06.299 --> 00:00:08.294
+We know how to search for points in it.
+
+00:00:08.294 --> 00:00:12.914
+Now we have everything we need to actually build Euclidean clustering.
+
+00:00:12.914 --> 00:00:17.324
+Now we're actually going to find clusters in our point data.
+
+00:00:17.324 --> 00:00:23.039
+Now here is the pseudo-code for doing Euclidean clustering using our KD tree.
+
+00:00:23.039 --> 00:00:26.924
+So let's put the KD tree to use and do some clustering with it.
+
+00:00:26.925 --> 00:00:28.875
+So here's the idea.
+
+00:00:28.875 --> 00:00:32.594
+In pseudo-code, here's our Euclidean cluster function,
+
+00:00:32.594 --> 00:00:34.725
+over here on the right,
+
+00:00:34.725 --> 00:00:39.135
+and we have this list of clusters and it's initialized as being empty.
+
+00:00:39.134 --> 00:00:42.784
+So let's iterate through each point in our point cloud.
+
+00:00:42.784 --> 00:00:45.429
+So in our 2D example we had 11 points,
+
+00:00:45.429 --> 00:00:47.210
+we're going to iterate through each of those points,
+
+00:00:47.210 --> 00:00:50.105
+and we're going to keep track if they'd been processed or not.
+
+00:00:50.104 --> 00:00:52.234
+So, iterating through these points,
+
+00:00:52.234 --> 00:00:54.214
+if the point has not been processed,
+
+00:00:54.215 --> 00:00:55.520
+it hasn't been looked at,
+
+00:00:55.520 --> 00:00:58.340
+then we're going to go ahead and create a brand new cluster,
+
+00:00:58.340 --> 00:01:01.640
+and this cluster is represented by a list of ints.
+
+00:01:01.640 --> 00:01:03.774
+It's a list of Point IDs.
+
+00:01:03.774 --> 00:01:07.385
+Then we're going to go ahead and call this proximity function.
+
+00:01:07.385 --> 00:01:11.390
+It's recursive and it's going to take in
+
+00:01:11.390 --> 00:01:13.640
+that point so that point that we're iterating
+
+00:01:13.640 --> 00:01:16.040
+through that hasn't been processed in this brand new cluster,
+
+00:01:16.040 --> 00:01:18.800
+and basically it's job is to build this cluster.
+
+00:01:18.799 --> 00:01:21.019
+We're passing in cluster as a reference,
+
+00:01:21.019 --> 00:01:22.519
+so at the end of the day,
+
+00:01:22.519 --> 00:01:24.579
+when it's exhausted itself,
+
+00:01:24.579 --> 00:01:27.920
+we are going to be left with this cluster that has
+
+00:01:27.920 --> 00:01:30.230
+all these nearby points that we're just going to go ahead
+
+00:01:30.230 --> 00:01:32.870
+and add it to our list of clusters.
+
+00:01:32.870 --> 00:01:35.870
+So, going to go ahead and add it to our list of clusters and
+
+00:01:35.870 --> 00:01:38.810
+then what we can do after we've iterated through all these points,
+
+00:01:38.810 --> 00:01:40.010
+we create these clusters,
+
+00:01:40.010 --> 00:01:42.440
+we've added these clusters to a list of clusters,
+
+00:01:42.439 --> 00:01:43.804
+we just return the clusters.
+
+00:01:43.805 --> 00:01:46.880
+So here, let's check out the innermost part of this,
+
+00:01:46.879 --> 00:01:48.469
+this recursive method proximity.
+
+00:01:48.469 --> 00:01:51.859
+What's it doing? Well, it's building the cluster, and this is how it works.
+
+00:01:51.859 --> 00:01:56.004
+So it takes in a point in that cluster that it's building in,
+
+00:01:56.004 --> 00:01:58.609
+once again if the point has not been processed,
+
+00:01:58.609 --> 00:02:01.265
+then we're going to mark the point as processed.
+
+00:02:01.265 --> 00:02:03.829
+So that's when it actually gets checked off the list,
+
+00:02:03.829 --> 00:02:06.774
+and we're going to add that point to the cluster,
+
+00:02:06.775 --> 00:02:10.250
+and then we're going to see what nearby points
+
+00:02:10.250 --> 00:02:13.639
+there are to that point that we just added to the cluster,
+
+00:02:13.639 --> 00:02:15.409
+so we use our KD tree to do that.
+
+00:02:15.409 --> 00:02:18.319
+We just call that search method that we've just implemented.
+
+00:02:18.319 --> 00:02:21.844
+So you call search on that point and that's going to give you, "hey,
+
+00:02:21.844 --> 00:02:26.250
+here's some nearby points," that are within that distance tolerance,
+
+00:02:26.250 --> 00:02:29.735
+and then you iterate through each of those nearby points
+
+00:02:29.735 --> 00:02:33.140
+and you call proximity again on that nearby point,
+
+00:02:33.139 --> 00:02:35.209
+and that cluster that you're building.
+
+00:02:35.210 --> 00:02:38.570
+So that's going to keep going and it's going to create
+
+00:02:38.569 --> 00:02:43.519
+this cluster until all of these points in proximity had been processed,
+
+00:02:43.520 --> 00:02:47.060
+and then you're left with this cluster of nearby points,
+
+00:02:47.060 --> 00:02:49.479
+and that we're adding later over here.
+
+00:02:49.479 --> 00:02:52.625
+Then this is going to go and keep going until we've done
+
+00:02:52.625 --> 00:02:55.969
+all the points in our point cloud and all the points have been processed,
+
+00:02:55.969 --> 00:02:58.819
+and now you have your collection of clusters.
+
+00:02:58.819 --> 00:03:02.449
+So, here's the results of running that.
+
+00:03:02.449 --> 00:03:05.750
+Here we are identifying these three clusters in
+
+00:03:05.750 --> 00:03:10.340
+our 2D data and these clusters are all within some distance,
+
+00:03:10.340 --> 00:03:12.500
+these points are all within some distance tolerance,
+
+00:03:12.500 --> 00:03:13.819
+that's how they're a part of this cluster.
+
+00:03:13.819 --> 00:03:15.114
+So we have this red group,
+
+00:03:15.115 --> 00:03:17.520
+we have this green group, and we have this blue group.
+
+00:03:17.520 --> 00:03:20.435
+In order to get these same visual results,
+
+00:03:20.435 --> 00:03:24.125
+you'll be implementing the Euclidean clustering function now,
+
+00:03:24.125 --> 00:03:28.289
+and in the cluster that CPP code.
+
