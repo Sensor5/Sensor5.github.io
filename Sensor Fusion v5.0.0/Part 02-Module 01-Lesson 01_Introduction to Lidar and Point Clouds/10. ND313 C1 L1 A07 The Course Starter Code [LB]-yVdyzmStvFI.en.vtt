@@ -1,0 +1,52 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:02.490
+So let's go ahead now and dive
+
+00:00:02.490 --> 00:00:05.759
+into this starter code that we're going to be working with.
+
+00:00:05.759 --> 00:00:10.785
+Basically, what we have set up for this first couple of lessons,
+
+00:00:10.785 --> 00:00:15.074
+is working with this simulated highway environment
+
+00:00:15.074 --> 00:00:19.739
+where we're going to be doing lidar scanning and see the other cars around us.
+
+00:00:19.739 --> 00:00:22.589
+Then, look at the point cloud processing techniques
+
+00:00:22.589 --> 00:00:24.375
+to figure out where these other cars are at.
+
+00:00:24.375 --> 00:00:29.115
+So the main files that we'll be working with, there's four of them;
+
+00:00:29.114 --> 00:00:33.614
+its environment.cpp, its processPointClouds,
+
+00:00:33.615 --> 00:00:36.825
+and there's a.cpp and a header file for that as well.
+
+00:00:36.825 --> 00:00:40.140
+Then, there's this render directory.
+
+00:00:40.140 --> 00:00:43.200
+You won't be working with that too closely,
+
+00:00:43.200 --> 00:00:44.775
+but it's nice to know that it's there,
+
+00:00:44.774 --> 00:00:49.140
+and it has this render.cpp and render.h files.
+
+00:00:49.140 --> 00:00:52.515
+Also, is this sensors lidar.h,
+
+00:00:52.515 --> 00:00:56.369
+and we'll be using that later to do some scanning.
+

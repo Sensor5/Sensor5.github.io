@@ -1,0 +1,46 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:04.650
+All right. Let's check out the solution now for creating this lighter object.
+
+00:00:04.650 --> 00:00:08.740
+So back in environment.cpp.
+
+00:00:09.410 --> 00:00:13.300
+In this simple highway function,
+
+00:00:14.570 --> 00:00:19.890
+we can go ahead and create our Lidar as so.
+
+00:00:19.890 --> 00:00:22.605
+So here we're instantiating on the heap.
+
+00:00:22.605 --> 00:00:24.795
+So we have this lidar pointer type,
+
+00:00:24.795 --> 00:00:26.910
+and we're using the new keyword,
+
+00:00:26.910 --> 00:00:29.969
+and then the arguments were cars,
+
+00:00:29.969 --> 00:00:33.914
+and so cars is actually just coming from the initHighway function.
+
+00:00:33.914 --> 00:00:37.844
+That's just the list of cars in our simulation environment,
+
+00:00:37.844 --> 00:00:42.549
+and then we're using zero just saying that our ground plane is at zero slope.
+
+00:00:42.549 --> 00:00:44.599
+So it's just the horizontal plane.
+
+00:00:44.600 --> 00:00:48.530
+Now, if we go ahead and say that,
+
+00:00:48.530 --> 00:00:52.770
+we could compile and then we have this lighter object.
+

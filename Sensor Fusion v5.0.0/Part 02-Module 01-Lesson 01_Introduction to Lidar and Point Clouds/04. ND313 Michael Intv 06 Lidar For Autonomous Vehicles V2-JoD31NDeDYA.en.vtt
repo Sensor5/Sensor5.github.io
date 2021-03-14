@@ -1,0 +1,124 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:02.730 --> 00:00:07.000
+There are several different types,
+
+00:00:07.000 --> 00:00:17.769
+the most common one or the most well known one is the one that was pioneered by Velodyne,
+
+00:00:17.769 --> 00:00:21.939
+and this is rotating lidar.
+
+00:00:21.940 --> 00:00:24.295
+You have a rod,
+
+00:00:24.295 --> 00:00:31.800
+where you have a bunch of lasers on that rod that rotates 360 degrees continuously,
+
+00:00:31.800 --> 00:00:37.384
+sending out pulses so you get this picture of the environment,
+
+00:00:37.384 --> 00:00:43.250
+360 degrees and several different layers.
+
+00:00:43.369 --> 00:00:47.524
+That lidar rotates at about 10 Hertz,
+
+00:00:47.524 --> 00:00:49.519
+that's the most common one.
+
+00:00:49.520 --> 00:00:56.030
+Then there are lidars that use little micro mirrors
+
+00:00:56.030 --> 00:00:58.969
+or larger mirrors to scan the laser beam
+
+00:00:58.969 --> 00:01:03.079
+across the one laser beam then across the field of view.
+
+00:01:03.079 --> 00:01:10.219
+You have solid-state lidars that use a phased array type principle,
+
+00:01:10.219 --> 00:01:12.745
+like phased array radars,
+
+00:01:12.745 --> 00:01:18.620
+where the phase differences between beams are used to steer,
+
+00:01:18.620 --> 00:01:20.495
+basically steer the beam.
+
+00:01:20.495 --> 00:01:31.150
+You have lidars that use the dispersion relationship and prisms,
+
+00:01:31.150 --> 00:01:40.140
+and then there are other little bit more exotic electro-optic ways of doing things.
+
+00:01:42.349 --> 00:01:52.500
+The power that a lidar consumes is dependent on a few things.
+
+00:01:52.500 --> 00:01:54.650
+I mean the overall system,
+
+00:01:54.650 --> 00:02:03.575
+like the current Velodyne 32 POC uses 10 watts in total.
+
+00:02:03.575 --> 00:02:08.305
+The old Velodyne, this huge
+
+00:02:08.305 --> 00:02:14.615
+contraption on top of the car with the old 64 beam used about 60 watts.
+
+00:02:14.615 --> 00:02:18.995
+But what's more interesting though is the output power of the laser,
+
+00:02:18.995 --> 00:02:23.370
+because that depends then on the wavelengths,
+
+00:02:23.370 --> 00:02:27.310
+and this is correlated with eye safety.
+
+00:02:27.310 --> 00:02:35.115
+So, if you have a laser in the 905 nanometer range,
+
+00:02:35.115 --> 00:02:43.485
+that's the shorter wavelength range that uses about two milli-watts.
+
+00:02:43.485 --> 00:02:47.730
+If you go with a laser that's, let's say,
+
+00:02:47.729 --> 00:02:53.429
+in the 1,500 nanometer range, that can use,
+
+00:02:53.430 --> 00:02:55.770
+I think up to 10 times more power,
+
+00:02:55.770 --> 00:03:01.305
+which means it can actually reach further than the short wavelengths laser,
+
+00:03:01.305 --> 00:03:04.275
+and be as eye safe as the other one,
+
+00:03:04.275 --> 00:03:08.849
+but it also has more expensive components.
+
+00:03:11.270 --> 00:03:15.875
+A lidar beam is eye safe if you can look into
+
+00:03:15.875 --> 00:03:21.659
+the lidar beam without it hurting your eye, basically.
+
+00:03:22.219 --> 00:03:29.750
+There are different wavelengths have different power levels where this is eye safe.
+
+00:03:29.750 --> 00:03:34.759
+There are different classes of lasers and
+
+00:03:34.759 --> 00:03:42.469
+usually the class used for automotive lidars is class one,
+
+00:03:42.469 --> 00:03:44.789
+that is eye safe.
+

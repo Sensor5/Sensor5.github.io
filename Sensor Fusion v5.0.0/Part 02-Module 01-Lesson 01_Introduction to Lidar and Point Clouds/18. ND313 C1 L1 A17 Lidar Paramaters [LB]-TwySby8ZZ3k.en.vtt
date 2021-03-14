@@ -1,0 +1,154 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:04.230
+Now, let's go ahead and look at adjusting our lidar parameters so we can
+
+00:00:04.230 --> 00:00:09.435
+have much higher lidar scan resolution.
+
+00:00:09.435 --> 00:00:11.580
+This is what we're shooting for.
+
+00:00:11.580 --> 00:00:13.710
+We want many more rays.
+
+00:00:13.710 --> 00:00:16.993
+We want lots of these rays hitting our traffic cars,
+
+00:00:16.993 --> 00:00:20.059
+and then we'll be able to use that data to
+
+00:00:20.059 --> 00:00:23.989
+discern where those cars are at in the environment.
+
+00:00:23.989 --> 00:00:26.875
+So here in this next exercise,
+
+00:00:26.875 --> 00:00:32.765
+we're going to go back to lidar.h and there'll be a couple of to-dos in that file.
+
+00:00:32.765 --> 00:00:36.695
+These to-dos will include increasing the number of layers.
+
+00:00:36.695 --> 00:00:40.670
+So if we look at lidar.h.
+
+00:00:40.670 --> 00:00:43.060
+So inside the struct lidar,
+
+00:00:43.060 --> 00:00:44.675
+we'll see these to-dos,
+
+00:00:44.674 --> 00:00:47.750
+and we can see numLayers is currently three.
+
+00:00:47.750 --> 00:00:50.575
+I'll go ahead and increase it to eight,
+
+00:00:50.575 --> 00:00:54.710
+and then the other things to do is,
+
+00:00:54.710 --> 00:00:57.875
+we want a better horizontal layer increment resolution.
+
+00:00:57.875 --> 00:01:03.480
+So right now, it's doing increments of Pi over 6.
+
+00:01:03.479 --> 00:01:05.849
+Instead, do Pi over 64,
+
+00:01:05.849 --> 00:01:09.424
+and then the last two are setting min distance.
+
+00:01:09.424 --> 00:01:10.640
+So why do you want to do that?
+
+00:01:10.640 --> 00:01:15.849
+Well, some of these lasers are actually going to be hitting the roof of your car,
+
+00:01:15.849 --> 00:01:20.199
+and those really don't tell you too much about the environment that tells you,
+
+00:01:20.200 --> 00:01:22.450
+"Hey, do you have this roof right there?"
+
+00:01:22.450 --> 00:01:25.700
+So go ahead. We can filter this out by saying if
+
+00:01:25.700 --> 00:01:29.210
+a point is too close to the lidar sensor,
+
+00:01:29.209 --> 00:01:32.974
+then we assume it's just the roof of the car and we don't worry about it.
+
+00:01:32.974 --> 00:01:36.169
+So there instead of using a min distance of zero,
+
+00:01:36.170 --> 00:01:39.379
+you can set it to five to remove points from the roof of the car.
+
+00:01:39.379 --> 00:01:41.569
+The last thing is to add noise.
+
+00:01:41.569 --> 00:01:44.779
+Well, in any situation like in reality,
+
+00:01:44.780 --> 00:01:46.655
+we have lots of noise that we're working with,
+
+00:01:46.655 --> 00:01:48.724
+things aren't perfect, things aren't clean,
+
+00:01:48.724 --> 00:01:51.229
+and so just adding some noise to
+
+00:01:51.230 --> 00:01:54.469
+the scan will actually create some more interesting PCD data,
+
+00:01:54.469 --> 00:02:00.140
+and also allow you to have more robust algorithms for processing this data as well.
+
+00:02:00.140 --> 00:02:04.204
+So actually, let's do a noise that's quite high.
+
+00:02:04.204 --> 00:02:06.469
+Instead of using zero,
+
+00:02:06.469 --> 00:02:09.229
+we can do a 0.2, and this is in meters,
+
+00:02:09.229 --> 00:02:16.054
+so it'll be quite high but it'll give us some nice interesting PCD data later to look at.
+
+00:02:16.055 --> 00:02:19.969
+So go ahead and just take a couple minutes
+
+00:02:19.969 --> 00:02:23.974
+now to go through lidar.h and change these parameters,
+
+00:02:23.974 --> 00:02:29.704
+and then go ahead and compile and run and look at the increased resolution.
+
+00:02:29.705 --> 00:02:33.380
+Then, the parameters being used here are just suggestions.
+
+00:02:33.379 --> 00:02:36.180
+These can work to see all the cars but these are also
+
+00:02:36.180 --> 00:02:39.080
+parameters that you are highly encouraged to play around with,
+
+00:02:39.080 --> 00:02:43.490
+and you could even see if you can match it up perfectly with the BOP
+
+00:02:43.490 --> 00:02:49.085
+64 and really test the limitations of doing ray casting in this sense.
+
+00:02:49.085 --> 00:02:53.030
+Can you get like 256,000 laser rays?
+
+00:02:53.030 --> 00:02:56.729
+So yeah, go ahead and check it out.
+

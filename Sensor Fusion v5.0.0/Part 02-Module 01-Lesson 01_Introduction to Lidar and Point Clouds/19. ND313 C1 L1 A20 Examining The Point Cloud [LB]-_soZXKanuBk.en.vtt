@@ -1,0 +1,169 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:04.394
+So let's check out examining the point cloud now.
+
+00:00:04.394 --> 00:00:07.244
+So we're able to change
+
+00:00:07.245 --> 00:00:12.030
+our LiDAR hyperparameters and get a higher resolution scan of our environment.
+
+00:00:12.029 --> 00:00:18.464
+Now, let's actually look at what this looks like as a PCD, point cloud data.
+
+00:00:18.464 --> 00:00:21.120
+This is what we're shooting for.
+
+00:00:21.120 --> 00:00:22.785
+In this image here,
+
+00:00:22.785 --> 00:00:27.210
+we went ahead and we are not rendering the highway environment anymore,
+
+00:00:27.210 --> 00:00:31.080
+but we are just rendering the point cloud data from it by itself.
+
+00:00:31.079 --> 00:00:32.744
+What we see here,
+
+00:00:32.744 --> 00:00:35.265
+so in this particular PCD,
+
+00:00:35.265 --> 00:00:37.064
+there wasn't any noise.
+
+00:00:37.064 --> 00:00:39.614
+So you can tell it's very symmetric.
+
+00:00:39.615 --> 00:00:42.300
+Also, the min distance was left at zero,
+
+00:00:42.299 --> 00:00:46.834
+so we can see the roof points of our car here.
+
+00:00:46.835 --> 00:00:51.980
+Now, the important thing is we're seeing these kind of clusters being dealt up.
+
+00:00:51.979 --> 00:00:53.204
+There's one over here,
+
+00:00:53.204 --> 00:00:55.439
+there's a little bit over here,
+
+00:00:55.439 --> 00:00:56.789
+and there's something over here.
+
+00:00:56.789 --> 00:00:59.314
+These are actually those three blue cars,
+
+00:00:59.314 --> 00:01:02.344
+and they're showing up in our PCD data.
+
+00:01:02.344 --> 00:01:08.480
+So later, we can use some processing to actually detect where those obstacles are at.
+
+00:01:08.480 --> 00:01:10.984
+So in this next exercise,
+
+00:01:10.984 --> 00:01:15.500
+we're going to be creating this point cloud data that we'll be later
+
+00:01:15.500 --> 00:01:21.230
+using in the other lessons to do some obstacle detection with.
+
+00:01:21.230 --> 00:01:25.385
+So in this exercise,
+
+00:01:25.385 --> 00:01:29.615
+we're going to be visualizing what this PCD data looks like.
+
+00:01:29.614 --> 00:01:31.324
+In order to do that,
+
+00:01:31.325 --> 00:01:33.590
+instead of calling render rays,
+
+00:01:33.590 --> 00:01:35.820
+there's another function called render point cloud,
+
+00:01:35.819 --> 00:01:39.574
+and this is also in the render.cpp file.
+
+00:01:39.575 --> 00:01:44.969
+So if we look at render.cpp,
+
+00:01:47.780 --> 00:01:51.715
+there's a renderRays and there's a renderPointCloud.
+
+00:01:51.715 --> 00:01:55.984
+So go ahead, and instead of doing renderRays,
+
+00:01:55.984 --> 00:01:58.760
+call the renderPointCloud and also just look at some of
+
+00:01:58.760 --> 00:02:02.719
+the arguments for renderPointCloud.
+
+00:02:02.719 --> 00:02:05.280
+So it has a viewer.
+
+00:02:06.010 --> 00:02:08.974
+Anytime we're doing any sort of rendering,
+
+00:02:08.974 --> 00:02:10.430
+we'll have that viewer,
+
+00:02:10.430 --> 00:02:12.469
+we have that point cloud.
+
+00:02:12.469 --> 00:02:14.645
+So renderRays had that as well,
+
+00:02:14.645 --> 00:02:17.725
+but this time we don't have that position because
+
+00:02:17.724 --> 00:02:20.979
+renderRays knew that because it needs to know how the rays,
+
+00:02:20.979 --> 00:02:24.369
+the starting position of where the rays were being cast from.
+
+00:02:24.370 --> 00:02:26.509
+We also have some color information.
+
+00:02:26.509 --> 00:02:30.799
+Now, by default it'll just rendersPointCloud is white,
+
+00:02:30.800 --> 00:02:34.740
+but you could also fill it in with different colors if you wish.
+
+00:02:37.180 --> 00:02:41.700
+So back in environment.cpp,
+
+00:02:41.699 --> 00:02:44.444
+change the renderRays to renderPointCloud.
+
+00:02:44.444 --> 00:02:48.680
+Then, also if you just want to render the point cloud by itself
+
+00:02:48.680 --> 00:02:53.395
+without any of the cars in the street,
+
+00:02:53.395 --> 00:02:57.159
+there's a flag environment.cpp,
+
+00:02:57.500 --> 00:03:00.120
+and there's this renderScene,
+
+00:03:00.120 --> 00:03:02.430
+and you can just turn renderScene to false,
+
+00:03:02.430 --> 00:03:05.439
+and then you'll just get the renderPointCloud by itself.
+
+00:03:05.439 --> 00:03:12.960
+So go ahead and generate this point cloud and visualize it in your window.
+

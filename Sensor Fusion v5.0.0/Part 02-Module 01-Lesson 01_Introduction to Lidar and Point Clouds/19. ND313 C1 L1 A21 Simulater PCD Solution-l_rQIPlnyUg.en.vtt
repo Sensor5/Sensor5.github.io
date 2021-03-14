@@ -1,0 +1,136 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:04.769
+All right, let's go ahead and check out looking at this point Cloud data now.
+
+00:00:04.769 --> 00:00:07.724
+So back in environment.cpp,
+
+00:00:07.724 --> 00:00:09.914
+instead of calling render rays,
+
+00:00:09.914 --> 00:00:14.639
+we can call render Point Cloud which is defined in render.cpp,
+
+00:00:14.640 --> 00:00:19.094
+and we're going to be giving it our viewer and this input Cloud,
+
+00:00:19.094 --> 00:00:21.419
+and we'll just call it input Cloud as well.
+
+00:00:21.420 --> 00:00:23.820
+So it wants to have a name associated with it,
+
+00:00:23.820 --> 00:00:26.850
+this way you can have multiple point Clouds showing up in
+
+00:00:26.850 --> 00:00:30.765
+the viewer and each one can be identified.
+
+00:00:30.765 --> 00:00:35.579
+The other thing that we're going to do is not render
+
+00:00:35.579 --> 00:00:40.094
+our scene because we'll just want to render the point Cloud data by itself.
+
+00:00:40.094 --> 00:00:42.435
+So we'll make that false.
+
+00:00:42.435 --> 00:00:45.600
+Now, if we go ahead and save our file,
+
+00:00:45.600 --> 00:00:47.789
+and then we go back into,
+
+00:00:47.789 --> 00:00:51.509
+let me go ahead and do full screen on this.
+
+00:00:51.609 --> 00:00:57.668
+We go into the terminator and we make our latest changes,
+
+00:00:57.668 --> 00:01:04.950
+we can then run the simulator and see what the point cloud data looks like.
+
+00:01:10.599 --> 00:01:16.179
+All right. Let's go ahead and launch the executable.
+
+00:01:16.670 --> 00:01:20.239
+Now you'll see that it's a little bit different
+
+00:01:20.239 --> 00:01:22.939
+from the image that we're showing back in the previous slide
+
+00:01:22.939 --> 00:01:25.549
+because we have a mean distance of five so we don't
+
+00:01:25.549 --> 00:01:28.609
+see any of the points from the roof of the ego car,
+
+00:01:28.609 --> 00:01:29.689
+and also we have noise.
+
+00:01:29.689 --> 00:01:32.060
+So and you can see it's nice little scattering effect.
+
+00:01:32.060 --> 00:01:34.325
+It looks a little bit more realistic,
+
+00:01:34.325 --> 00:01:37.540
+not quite as like symmetric in clean.
+
+00:01:37.540 --> 00:01:40.655
+Also, we can move around and we can see
+
+00:01:40.655 --> 00:01:44.719
+where the lidar is picking up these cars on the road.
+
+00:01:44.719 --> 00:01:48.370
+So there's one car over here in this cluster.
+
+00:01:48.370 --> 00:01:51.395
+There is another car over here.
+
+00:01:51.394 --> 00:01:56.329
+We're not seeing as much of it as that other one because it's not as close to the lidar.
+
+00:01:56.329 --> 00:01:58.879
+So this is something where you can play with
+
+00:01:58.879 --> 00:02:03.944
+the lidar hyper parameters and see if you can get higher resolution,
+
+00:02:03.944 --> 00:02:07.574
+better defined scans of your environment.
+
+00:02:07.575 --> 00:02:12.120
+Then that last car is back over here.
+
+00:02:12.120 --> 00:02:17.460
+It's right here, and so we can really
+
+00:02:17.460 --> 00:02:23.060
+CM if we tried to get it an orbit position where we can see the flat plane,
+
+00:02:23.060 --> 00:02:26.824
+and then these things poking up above the ground.
+
+00:02:26.824 --> 00:02:29.409
+That's what we'll be going into next,
+
+00:02:29.409 --> 00:02:32.870
+is really how to separate these ground plane
+
+00:02:32.870 --> 00:02:37.395
+points from everything else which includes our cars.
+
+00:02:37.395 --> 00:02:42.590
+So, you can also look at the camera parameters too and see if you do it in a side view,
+
+00:02:42.590 --> 00:02:45.575
+you can get a nice glimpse of them there maybe.
+
+00:02:45.574 --> 00:02:49.739
+But that's what our point Cloud data looks like.
+

@@ -1,0 +1,22 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:03.015
+Awesome. You've created a lidar sensor and you're seeing
+
+00:00:03.015 --> 00:00:06.120
+and have generated high resolution point cloud data with it.
+
+00:00:06.120 --> 00:00:10.350
+The data that you have generated is sufficient to detect the surrounding cars.
+
+00:00:10.349 --> 00:00:13.724
+Next you'll look at creating a point processor object
+
+00:00:13.724 --> 00:00:17.234
+to detect which parts of the cloud represent the cars in traffic.
+
+00:00:17.234 --> 00:00:21.070
+Check out the next lesson, Point Clouds Segmentation.
+

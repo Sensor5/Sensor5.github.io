@@ -1,0 +1,49 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:02.810 --> 00:00:12.165
+Right now, we do not use a direct representation in a simulator,
+
+00:00:12.164 --> 00:00:15.359
+but we are working on lidar models.
+
+00:00:15.359 --> 00:00:18.644
+There are lidar models that you can actually get.
+
+00:00:18.644 --> 00:00:22.530
+You would just then represent it as
+
+00:00:22.530 --> 00:00:30.135
+those individual beams in the sensor model in a simulator,
+
+00:00:30.135 --> 00:00:34.920
+and you can do ray tracing in real-time
+
+00:00:34.920 --> 00:00:41.700
+with the lidar using GPUs.
+
+00:00:41.700 --> 00:00:45.120
+Then get a very accurate point,
+
+00:00:45.119 --> 00:00:47.054
+get the point Cloud,
+
+00:00:47.054 --> 00:00:50.649
+based on however you represent your environment,
+
+00:00:50.649 --> 00:00:55.280
+because the environment in the simulator is also only an approximation in terms of
+
+00:00:55.280 --> 00:01:00.655
+reflectivity and whatever the material properties of surfaces are.
+
+00:01:00.655 --> 00:01:04.730
+But that can be done and we are actually working on it because it makes
+
+00:01:04.730 --> 00:01:08.689
+the simulation much more
+
+00:01:08.689 --> 00:01:13.379
+useful because then you don't have to make that many assumptions.
+

@@ -1,0 +1,133 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:05.580
+All right. Let's take a look at how we can actually set up our lidar to do the sensing.
+
+00:00:05.580 --> 00:00:12.609
+Now, let's go ahead and we're back in our Visual Studio Editor and environment.cpp.
+
+00:00:12.609 --> 00:00:16.244
+We are going to call two commands.
+
+00:00:16.245 --> 00:00:19.510
+So the first one we are using the lidar scan.
+
+00:00:19.510 --> 00:00:23.210
+So since our lidar is a pointer here,
+
+00:00:23.210 --> 00:00:26.664
+we're going to be using the arrow that call the function.
+
+00:00:26.664 --> 00:00:30.199
+We just call scan with no arguments given.
+
+00:00:30.199 --> 00:00:33.484
+This is going to generate this pcl point Cloud,
+
+00:00:33.484 --> 00:00:36.365
+pcl point XYZ pointer,
+
+00:00:36.365 --> 00:00:38.554
+and we'll be talking a little bit more about this.
+
+00:00:38.554 --> 00:00:41.259
+This is actually going to be a template.
+
+00:00:41.259 --> 00:00:43.229
+So what we can do,
+
+00:00:43.229 --> 00:00:45.000
+we can just call this inputCloud.
+
+00:00:45.000 --> 00:00:47.929
+We could call this rays, up to you.
+
+00:00:47.929 --> 00:00:50.429
+But if we want to visualize it,
+
+00:00:50.429 --> 00:00:52.835
+we'll call this render rays function.
+
+00:00:52.835 --> 00:00:58.649
+What we will be giving it is the viewer and the lidar.
+
+00:01:00.950 --> 00:01:05.810
+So if we go into lidar.h,
+
+00:01:05.810 --> 00:01:15.280
+we have this origin that we can use for it or this position right here.
+
+00:01:15.280 --> 00:01:19.375
+So that's where the lidar is actually going to be located.
+
+00:01:19.375 --> 00:01:25.480
+So we can use that position that tell built rays basically where it'd be cast from.
+
+00:01:25.480 --> 00:01:31.990
+Then, we'll just go ahead and pass in that point Cloud that we just generated above.
+
+00:01:31.989 --> 00:01:35.179
+So we go ahead and save that.
+
+00:01:35.180 --> 00:01:42.430
+Now, if we go into our build directory that we set up previously,
+
+00:01:42.430 --> 00:01:45.205
+we can recompile by running
+
+00:01:45.204 --> 00:01:54.480
+make and this is going through environment.cpp with our latest changes.
+
+00:01:54.480 --> 00:02:00.510
+It's going to rebuild that executable file for us.
+
+00:02:02.150 --> 00:02:04.545
+So it built environment.
+
+00:02:04.545 --> 00:02:06.060
+Now, if we do [inaudible] ,
+
+00:02:06.060 --> 00:02:07.215
+we see that environment,
+
+00:02:07.215 --> 00:02:09.314
+we can go ahead and run that.
+
+00:02:09.314 --> 00:02:16.474
+Basically now, we have our lidar unit that sitting up on top of our green car.
+
+00:02:16.474 --> 00:02:23.364
+So here this is where the lidar is that and it's shooting out all these different rays.
+
+00:02:23.365 --> 00:02:25.850
+So you can orbit around the scene.
+
+00:02:25.889 --> 00:02:31.399
+So we're going to be looking at increasing the resolution of this and a little bit,
+
+00:02:31.400 --> 00:02:33.230
+right now it's pretty sparse.
+
+00:02:33.229 --> 00:02:38.840
+We're not seeing the same definition that we were talking about earlier about the [inaudible].
+
+00:02:38.840 --> 00:02:41.960
+So in a future exercise here in a little bit,
+
+00:02:41.960 --> 00:02:45.170
+we'll be looking at the parameters for lidar to get
+
+00:02:45.169 --> 00:02:48.559
+a more high resolution scan because right now only a couple,
+
+00:02:48.560 --> 00:02:52.580
+one ray is really hitting one in the blue cars and
+
+00:02:52.580 --> 00:02:57.425
+we'll increase the resolution and be able to see better all these cars around us.
+
+00:02:57.425 --> 00:03:05.880
+So that is the solution for doing the lidar rays sensing.
+

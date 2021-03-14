@@ -1,0 +1,46 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:02.720 --> 00:00:04.769
+What is a point cloud?
+
+00:00:04.769 --> 00:00:14.625
+A point cloud is the set of all the Lidar reflections that is measured.
+
+00:00:14.625 --> 00:00:24.570
+So each Lidar, each point is one laser beam going to the object being reflected,
+
+00:00:24.570 --> 00:00:31.050
+and that creates a point because the laser beam is relatively tight in diameter.
+
+00:00:31.050 --> 00:00:38.054
+Then you collect all of the reflections of those laser beams from the environment,
+
+00:00:38.054 --> 00:00:42.039
+and this creates this point cloud.
+
+00:00:44.750 --> 00:00:52.625
+The data Lidar generates depends on the principle of the Lidar field of you,
+
+00:00:52.625 --> 00:00:56.795
+and you know how dense the beams are.
+
+00:00:56.795 --> 00:01:03.304
+But let's call it a 100 megabyte per second roughly,
+
+00:01:03.304 --> 00:01:05.239
+can be the more can be less.
+
+00:01:05.239 --> 00:01:07.429
+If you have 64 lasers,
+
+00:01:07.430 --> 00:01:12.890
+obviously that thing generates way more data than if you have only two layers,
+
+00:01:12.890 --> 00:01:14.390
+or 10 or 30 layers.
+
+00:01:14.390 --> 00:01:19.290
+So it depends a little bit on the Lidar itself.
+

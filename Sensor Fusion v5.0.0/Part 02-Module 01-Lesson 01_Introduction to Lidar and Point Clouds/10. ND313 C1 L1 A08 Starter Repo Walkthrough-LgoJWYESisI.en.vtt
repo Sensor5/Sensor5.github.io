@@ -1,0 +1,139 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:03.345
+Let's go ahead now and in the classroom,
+
+00:00:03.345 --> 00:00:06.224
+we have this, our workspace environment.
+
+00:00:06.224 --> 00:00:10.814
+What's nice is, we can go ahead and we have this desktop button here.
+
+00:00:10.814 --> 00:00:17.234
+We can go ahead and launch right into this virtual desktop environment,
+
+00:00:17.234 --> 00:00:20.219
+and here we have a Visual Studio code.
+
+00:00:20.219 --> 00:00:22.844
+So this is an id that's provided.
+
+00:00:22.844 --> 00:00:28.964
+We can open it up. Let's go ahead and check out what the workspace looks like here.
+
+00:00:28.964 --> 00:00:34.284
+So there is this directory called source,
+
+00:00:34.284 --> 00:00:37.259
+and inside source, we're going to have
+
+00:00:37.259 --> 00:00:40.214
+the environment.cpp file that we're just talking about.
+
+00:00:40.215 --> 00:00:45.680
+Let's go ahead and just look at this file from high overview and see what it's doing.
+
+00:00:45.679 --> 00:00:48.799
+Well, this file is going to be your main file
+
+00:00:48.799 --> 00:00:53.059
+that it's going to have your main function here,
+
+00:00:53.060 --> 00:00:55.460
+and basically what that's going to be doing is launching
+
+00:00:55.460 --> 00:00:58.789
+this visual window that you can use
+
+00:00:58.789 --> 00:01:04.834
+to view your point clouds and other objects in your scene.
+
+00:01:04.834 --> 00:01:06.689
+So what other objects are those?
+
+00:01:06.689 --> 00:01:10.340
+Well, here we're creating this simple highway environment.
+
+00:01:10.340 --> 00:01:12.365
+So there is this highway,
+
+00:01:12.364 --> 00:01:15.709
+and that's going to be generating these virtual cars,
+
+00:01:15.709 --> 00:01:20.919
+this virtual street, and it's going to be rendering this all to the viewer.
+
+00:01:20.920 --> 00:01:25.159
+Then there's also this function for doing initCamera,
+
+00:01:25.159 --> 00:01:27.829
+and this initCamera is going to be setting up.
+
+00:01:27.829 --> 00:01:29.629
+So when you first launch the window,
+
+00:01:29.629 --> 00:01:33.019
+you would have these different camera views that you can look at.
+
+00:01:33.019 --> 00:01:40.144
+So this kind of main function that you'll be launching in this environment.cpp.
+
+00:01:40.144 --> 00:01:42.140
+Here's another big file.
+
+00:01:42.140 --> 00:01:45.644
+This is the processPointClouds.cpp,
+
+00:01:45.644 --> 00:01:48.890
+and this one is where it has
+
+00:01:48.890 --> 00:01:54.769
+all these function decoration setup for doing filtering, for doing segmentation.
+
+00:01:54.769 --> 00:01:56.905
+So if we look at this,
+
+00:01:56.905 --> 00:01:59.430
+if we go up to the top here,
+
+00:01:59.430 --> 00:02:05.695
+we can see that it's being defined as this class,
+
+00:02:05.694 --> 00:02:10.354
+and it's using some different templates that we'll be talking about a little bit later.
+
+00:02:10.354 --> 00:02:13.549
+So we can actually create a point cloud processor,
+
+00:02:13.550 --> 00:02:19.410
+and then we have these functions here for doing filtering the Cloud.
+
+00:02:19.509 --> 00:02:26.639
+I'm looking at doing the segmentation.
+
+00:02:26.750 --> 00:02:29.925
+So we kind of scroll down here.
+
+00:02:29.925 --> 00:02:32.610
+We have a clustering function.
+
+00:02:32.610 --> 00:02:35.920
+Then we're talking a little bit about render,
+
+00:02:35.919 --> 00:02:40.764
+and that's what's actually going to allow us to render our simulated environment.
+
+00:02:40.764 --> 00:02:42.599
+Then the last thing,
+
+00:02:42.599 --> 00:02:45.044
+we'll be working with this file pretty soon.
+
+00:02:45.044 --> 00:02:48.579
+Is a lidar object which will actually be doing ray casting,
+
+00:02:48.580 --> 00:02:52.410
+and we'll use it to create some point cloud data.
+

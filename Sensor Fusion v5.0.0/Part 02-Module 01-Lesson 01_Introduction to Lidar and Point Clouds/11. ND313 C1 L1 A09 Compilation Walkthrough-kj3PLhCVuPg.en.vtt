@@ -1,0 +1,88 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:08.175
+Let's go ahead now and see about compiling this Lidar Simulator.
+
+00:00:08.175 --> 00:00:11.625
+Back in my virtual workspace environment,
+
+00:00:11.625 --> 00:00:16.094
+I have something called the terminator,
+
+00:00:16.094 --> 00:00:19.890
+which is a terminal but it's called the terminator.
+
+00:00:19.890 --> 00:00:23.890
+We're going to go into home.
+
+00:00:25.579 --> 00:00:31.394
+We're going to check out workspace, and from here,
+
+00:00:31.394 --> 00:00:33.839
+we'll go into this sensor fusion,
+
+00:00:33.840 --> 00:00:38.775
+and I just clone this from the GitHub repository.
+
+00:00:38.774 --> 00:00:44.164
+Here, what you want to do is you want to make a new directory called Build,
+
+00:00:44.164 --> 00:00:47.314
+and so you do MK directory Build.
+
+00:00:47.314 --> 00:00:49.714
+Then, I already did this actually,
+
+00:00:49.715 --> 00:00:51.960
+you can go into Build.
+
+00:00:52.219 --> 00:00:56.734
+Basically, we can see right here we have the CMakeList.text.
+
+00:00:56.734 --> 00:01:01.625
+So when I'm inside Build and I run c-make..,
+
+00:01:01.625 --> 00:01:06.099
+this.. is saying look in the directory just one level above,
+
+00:01:06.099 --> 00:01:10.309
+and that it'll see that CMakeLists.txt when I call that,
+
+00:01:10.310 --> 00:01:12.409
+it'll create all the instructions needed,
+
+00:01:12.409 --> 00:01:15.549
+so when I next to the final command build,
+
+00:01:15.549 --> 00:01:17.750
+it'll create this executable for me.
+
+00:01:17.750 --> 00:01:20.245
+So if I go ahead and do make,
+
+00:01:20.245 --> 00:01:23.240
+I build this target now and have
+
+00:01:23.239 --> 00:01:27.364
+this environment executable and that I will later be using.
+
+00:01:27.364 --> 00:01:32.299
+So now you can go ahead and try this for yourself.
+
+00:01:32.299 --> 00:01:35.134
+From the classroom workspace environment,
+
+00:01:35.135 --> 00:01:40.040
+go into the desktop mode and then you can actually
+
+00:01:40.040 --> 00:01:45.255
+go into the terminator cd home workspace,
+
+00:01:45.254 --> 00:01:47.804
+and from that root directory,
+
+00:01:47.805 --> 00:01:53.610
+go ahead and run these commands and see if you can compile the environment.
+

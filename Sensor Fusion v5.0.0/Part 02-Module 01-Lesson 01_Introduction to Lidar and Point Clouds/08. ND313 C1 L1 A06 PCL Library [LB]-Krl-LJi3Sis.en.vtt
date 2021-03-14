@@ -1,0 +1,49 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:04.320
+Cool. Let's go ahead now and check out PCL library.
+
+00:00:04.320 --> 00:00:06.495
+So this is a Point Cloud Library.
+
+00:00:06.495 --> 00:00:10.935
+It's going to really help us out when working with PCD files.
+
+00:00:10.935 --> 00:00:14.625
+The reason that is, is because it's an open source library
+
+00:00:14.625 --> 00:00:19.469
+for C++ and it's very widely used in robotics community.
+
+00:00:19.469 --> 00:00:22.199
+It's going to have a lot of built-in functions that we
+
+00:00:22.199 --> 00:00:24.838
+can check out for doing filtering, segmentation,
+
+00:00:24.838 --> 00:00:28.144
+and clustering, and what's really nice
+
+00:00:28.144 --> 00:00:31.609
+is it has this really cool rendering capabilities as well.
+
+00:00:31.609 --> 00:00:34.789
+So we can visually look at point clouds and we can
+
+00:00:34.789 --> 00:00:38.030
+do this really cool rendering where the different boxes,
+
+00:00:38.030 --> 00:00:40.895
+and shapes, and lines onto our viewer,
+
+00:00:40.895 --> 00:00:44.060
+and really play around with it visually.
+
+00:00:44.060 --> 00:00:47.705
+So PCL is great for all of this.
+
+00:00:47.704 --> 00:00:53.489
+That's what we'll mainly be working with in this lesson.
+

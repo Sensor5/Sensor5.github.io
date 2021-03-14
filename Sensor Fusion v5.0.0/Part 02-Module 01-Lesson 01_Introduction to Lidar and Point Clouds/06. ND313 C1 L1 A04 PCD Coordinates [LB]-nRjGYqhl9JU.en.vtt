@@ -1,0 +1,64 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:01.770
+We were talking about this X,
+
+00:00:01.770 --> 00:00:04.154
+Y, Z Cartesian coordinates.
+
+00:00:04.155 --> 00:00:05.610
+So what does that actually look like?
+
+00:00:05.610 --> 00:00:06.960
+What is this coordinate system?
+
+00:00:06.960 --> 00:00:08.414
+What's it in reference to?
+
+00:00:08.414 --> 00:00:13.349
+Well, this coordinate system is actually the same as the car's local coordinates.
+
+00:00:13.349 --> 00:00:15.765
+So here, we have this top-down view.
+
+00:00:15.765 --> 00:00:20.355
+The X axis is defined pointing out towards the front of the car,
+
+00:00:20.355 --> 00:00:22.964
+while the Y axis is pointing out to the left,
+
+00:00:22.964 --> 00:00:24.375
+while Z axis then,
+
+00:00:24.375 --> 00:00:26.640
+is pointing straight up vertical.
+
+00:00:26.640 --> 00:00:28.609
+Then we have the side view.
+
+00:00:28.609 --> 00:00:32.644
+We can see the X axis pointing out and the Z axis pointing vertically, and then,
+
+00:00:32.645 --> 00:00:35.390
+this will really give us some nice details about how
+
+00:00:35.390 --> 00:00:39.035
+these different vertical layers are organized.
+
+00:00:39.034 --> 00:00:42.079
+So for the [inaudible] case,
+
+00:00:42.079 --> 00:00:50.274
+we have this top layer and it's had a minus 24.8 degree incline from the X axis,
+
+00:00:50.274 --> 00:00:55.114
+and then it covers this 26.8 degree range,
+
+00:00:55.115 --> 00:01:02.615
+then each of these 64 layers will be evenly spread across this 26.8 degree range here.
+
+00:01:02.615 --> 00:01:09.120
+So that's how we define this coordinate system for our X, Y, Z points.
+

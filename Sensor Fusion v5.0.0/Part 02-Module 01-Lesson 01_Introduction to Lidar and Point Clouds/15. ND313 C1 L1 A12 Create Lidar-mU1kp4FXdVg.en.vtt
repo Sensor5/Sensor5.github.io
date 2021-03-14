@@ -1,0 +1,139 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:06.764
+Next, we're actually going to look at creating a Lidar for our simulation environment.
+
+00:00:06.764 --> 00:00:13.230
+So we were talking a little bit before about this lidar.h file.
+
+00:00:13.230 --> 00:00:14.970
+It's in sensors.
+
+00:00:14.970 --> 00:00:20.039
+This is actually what we'll be using to create this virtual Lidar,
+
+00:00:20.039 --> 00:00:24.704
+and then use it to scan the environment and create some PointCloud data with it.
+
+00:00:24.704 --> 00:00:27.209
+The first thing we're going to do though is actually visualize what
+
+00:00:27.210 --> 00:00:32.745
+these Lidar rays look like as they're being cast from this virtual Lidar unit.
+
+00:00:32.744 --> 00:00:39.780
+So what I want you to do then is back in the workspace environment.
+
+00:00:39.780 --> 00:00:43.950
+We will be looking at the simple highway function.
+
+00:00:43.950 --> 00:00:50.810
+Basically, there's a to-do there and it's to create a Lidar object.
+
+00:00:50.810 --> 00:00:57.054
+So what I'd like you to do basically in right at to-do,
+
+00:00:57.054 --> 00:00:59.009
+where it says create Lidar sensor,
+
+00:00:59.009 --> 00:01:01.454
+is to create this Lidar object.
+
+00:01:01.454 --> 00:01:02.954
+In order to do that,
+
+00:01:02.954 --> 00:01:09.694
+go ahead and checkout in "Sensors" lidar.h and see how that's defined.
+
+00:01:09.694 --> 00:01:15.129
+So basically, what the Lidar object is, it's a struct.
+
+00:01:15.980 --> 00:01:19.965
+It has some parameters for holding a PointCloud,
+
+00:01:19.965 --> 00:01:25.010
+and it has a constructor that you'll be using to set it up.
+
+00:01:25.010 --> 00:01:30.455
+So right here in line 85 in lidar.h, check this out.
+
+00:01:30.454 --> 00:01:34.909
+This is how you actually instantiate the Lidar and look at what it's using.
+
+00:01:34.909 --> 00:01:40.879
+So these parameters that's taking in are used to actually do the ray casting.
+
+00:01:40.879 --> 00:01:47.269
+It's basically telling the Lidar what physical objects rays can bounce off of.
+
+00:01:47.269 --> 00:01:52.299
+The objects here in our simulation environment are cars,
+
+00:01:52.299 --> 00:01:55.789
+and this ground slope value.
+
+00:01:55.790 --> 00:01:58.835
+So here we're just talking about this very horizontal ground,
+
+00:01:58.834 --> 00:02:01.640
+so we'll actually just be using zero for that.
+
+00:02:01.640 --> 00:02:03.064
+The cars that we get,
+
+00:02:03.064 --> 00:02:07.609
+that'll actually be from this init highway.
+
+00:02:07.609 --> 00:02:09.949
+It'll be generating these cars for us and returning that.
+
+00:02:09.949 --> 00:02:17.060
+So you can actually instantiate this Lidar object back in the environment.cpp.
+
+00:02:17.060 --> 00:02:20.030
+Let's instantiate it on the heap.
+
+00:02:20.030 --> 00:02:22.580
+So in order to instantiate on the heap,
+
+00:02:22.580 --> 00:02:24.410
+you want to be using the new keyword.
+
+00:02:24.409 --> 00:02:29.329
+The reason we're doing it on the heap instead of the stack is well this Lidar is
+
+00:02:29.330 --> 00:02:31.520
+actually going to be holding this PointCloud and
+
+00:02:31.520 --> 00:02:34.640
+maybe it could potentially be very large.
+
+00:02:34.639 --> 00:02:38.764
+On the stack, we only have about two megabytes to work from.
+
+00:02:38.764 --> 00:02:41.359
+On the heap, they can be much larger.
+
+00:02:41.360 --> 00:02:47.120
+So let's go ahead and instantiate that Lidar object on the heap using the new keyword.
+
+00:02:47.120 --> 00:02:50.960
+So it'll be this Lidar pointer and then new Lidar.
+
+00:02:50.960 --> 00:02:54.605
+I'll use this declaration here for setting up
+
+00:02:54.604 --> 00:02:59.389
+the arguments which are the cars that are returned from init highway,
+
+00:02:59.389 --> 00:03:01.279
+and then zero for the ground plane.
+
+00:03:01.280 --> 00:03:08.265
+So check out this lidar.h file and then go back into environment.cpp,
+
+00:03:08.264 --> 00:03:14.500
+and see if you can create this Lidar object in the simple highway function in the to-do.
+

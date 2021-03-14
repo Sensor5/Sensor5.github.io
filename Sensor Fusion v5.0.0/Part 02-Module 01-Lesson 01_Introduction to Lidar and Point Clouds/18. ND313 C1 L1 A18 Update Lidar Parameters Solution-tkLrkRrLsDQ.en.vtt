@@ -1,0 +1,52 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.200 --> 00:00:07.080
+Alright. So now let's go ahead and look at updating these lidar parameters.
+
+00:00:07.080 --> 00:00:13.905
+Let's go into our lidar.h and then here,
+
+00:00:13.904 --> 00:00:16.589
+we're just going to update the parameters.
+
+00:00:16.589 --> 00:00:21.059
+So minDistance let's change that to five.
+
+00:00:21.059 --> 00:00:24.974
+Let's increase the number of layers to eight.
+
+00:00:24.975 --> 00:00:32.760
+Let's have a higher resolution for the horizontal angle increment here.
+
+00:00:32.759 --> 00:00:39.359
+So Pi over 64 and the last thing to change is the noise.
+
+00:00:39.359 --> 00:00:42.299
+Let's do that 0.2.
+
+00:00:42.299 --> 00:00:52.409
+So if we go ahead and save that for lidar.h and then we go into our terminator.
+
+00:00:53.979 --> 00:01:04.000
+So its home workspace go into build go ahead and make.
+
+00:01:09.469 --> 00:01:19.965
+That environment.cpp includes that lidar.h header so all the updates will show up for it.
+
+00:01:19.965 --> 00:01:25.609
+Now we can go ahead and do the environment and we have
+
+00:01:25.609 --> 00:01:29.495
+a lot more laser rays and which is great
+
+00:01:29.495 --> 00:01:34.560
+and a lot of these lasers are actually hitting the cars.
+
+00:01:35.799 --> 00:01:43.670
+Cool. Yeah, you can definitely play around those lidar parameters and just
+
+00:01:43.670 --> 00:01:51.960
+see how high resolution you can get for doing your lidar scanning using ray casting here.
+

@@ -1,0 +1,61 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:01.470
+All right, cool.
+
+00:00:01.470 --> 00:00:06.359
+So we went through and compiled our executable,
+
+00:00:06.360 --> 00:00:11.984
+and now we're actually going to look at running the environment.
+
+00:00:11.984 --> 00:00:14.609
+This is what the output of that should look like,
+
+00:00:14.609 --> 00:00:17.410
+where here we have our ego car in green,
+
+00:00:17.410 --> 00:00:20.670
+we have these other traffic cars in blue,
+
+00:00:20.670 --> 00:00:25.290
+and it's all sitting nicely on this little virtual highway street.
+
+00:00:25.289 --> 00:00:30.974
+So for doing the instructions for running this simulation environment now.
+
+00:00:30.975 --> 00:00:32.910
+Once you actually compile
+
+00:00:32.909 --> 00:00:36.389
+that executable is actually pretty straight forward just to run it,
+
+00:00:36.390 --> 00:00:39.179
+all you have to do is do.
+
+00:00:39.179 --> 00:00:42.600
+/environment within that bell directory.
+
+00:00:42.600 --> 00:00:46.728
+Then, we'll be able to look around this environment,
+
+00:00:46.728 --> 00:00:49.280
+we can use the mouse to zoom around,
+
+00:00:49.280 --> 00:00:53.105
+orbit and just check out our scene.
+
+00:00:53.104 --> 00:01:01.199
+So let's go ahead and check that out inside belt if we just do environment.
+
+00:01:01.420 --> 00:01:07.829
+We now have this highway environment to look at with our green car,
+
+00:01:07.829 --> 00:01:11.179
+and so go ahead and try this out for yourself now.
+
+00:01:11.180 --> 00:01:16.380
+Launch the environment, just go ahead and explore what that looks like.
+

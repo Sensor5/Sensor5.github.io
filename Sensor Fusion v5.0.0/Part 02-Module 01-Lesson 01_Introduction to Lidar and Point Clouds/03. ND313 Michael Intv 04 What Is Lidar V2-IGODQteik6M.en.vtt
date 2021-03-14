@@ -1,0 +1,85 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:02.990 --> 00:00:08.339
+Lidar is a sensor.
+
+00:00:08.339 --> 00:00:11.250
+Lidar stands for light detection and ranging.
+
+00:00:11.250 --> 00:00:13.425
+Like analog to radar.
+
+00:00:13.425 --> 00:00:17.190
+It sends out beams of light,
+
+00:00:17.190 --> 00:00:21.150
+and it measures how long it takes for the beam of light to come back.
+
+00:00:21.149 --> 00:00:25.149
+So it determines the distance to an object.
+
+00:00:27.379 --> 00:00:30.149
+A lidar contains a laser.
+
+00:00:30.149 --> 00:00:36.274
+A lidar is just a contraption basically consisting of a laser,
+
+00:00:36.274 --> 00:00:43.019
+a method of deflection basically scanning that laser beam across the field of view,
+
+00:00:43.020 --> 00:00:46.980
+and photo diode or a photo detector that
+
+00:00:46.979 --> 00:00:53.640
+detects the incoming photons that are reflected from the object.
+
+00:00:55.990 --> 00:01:03.829
+So the laser sends out a very short pulse, few nanoseconds,
+
+00:01:03.829 --> 00:01:09.439
+and then measures the time it takes for the pulse to go to the object,
+
+00:01:09.439 --> 00:01:13.719
+and back to the lidar where it's detected.
+
+00:01:13.719 --> 00:01:18.435
+This time gives us then an indication,
+
+00:01:18.435 --> 00:01:22.510
+or gives us the exact distance to that object.
+
+00:01:22.510 --> 00:01:27.155
+You scan this laser beams across the field of view,
+
+00:01:27.155 --> 00:01:31.250
+which means you get for each point in the field of view,
+
+00:01:31.250 --> 00:01:36.265
+a distance to an object or no distance if there is no object there whatsoever.
+
+00:01:36.265 --> 00:01:41.810
+From this, it tells you exactly what objects there are,
+
+00:01:41.810 --> 00:01:44.370
+and how far away they are.
+
+00:01:46.359 --> 00:01:52.769
+We use lidar as one sensor in our overall sensor suite.
+
+00:01:52.769 --> 00:01:55.729
+We have several different kinds of sensors.
+
+00:01:55.730 --> 00:01:58.820
+We have lidar, we have radar,
+
+00:01:58.819 --> 00:02:02.299
+and we have various cameras, and ultrasound.
+
+00:02:02.299 --> 00:02:05.814
+All of those sensors work together to detect,
+
+00:02:05.814 --> 00:02:09.819
+and track objects in the environment.
+

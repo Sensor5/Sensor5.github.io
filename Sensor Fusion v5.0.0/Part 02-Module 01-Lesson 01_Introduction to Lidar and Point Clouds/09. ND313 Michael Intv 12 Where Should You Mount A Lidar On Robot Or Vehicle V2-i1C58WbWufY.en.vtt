@@ -1,0 +1,88 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:02.750 --> 00:00:11.099
+You would mount a lidar on the roof for the farthest field of view,
+
+00:00:11.099 --> 00:00:14.730
+but you mount a lidar on the roof it's not going to see
+
+00:00:14.730 --> 00:00:19.214
+anything that's happening close to the vehicle down more to the bottom.
+
+00:00:19.214 --> 00:00:27.765
+So to fill out the overall field of view of the senses of the vehicles,
+
+00:00:27.765 --> 00:00:30.675
+you mount lidars in front, in the back,
+
+00:00:30.675 --> 00:00:36.590
+or on the side depending on where you have gaps in the overall sense of coverage.
+
+00:00:36.590 --> 00:00:42.180
+We have a bunch on the roof kind of for maximizing the field of view,
+
+00:00:42.179 --> 00:00:45.604
+and we have some in the front and in the back to
+
+00:00:45.604 --> 00:00:50.219
+really cover the other areas that are rooftop lidars would not see.
+
+00:00:53.390 --> 00:00:59.704
+The relationship between the vertical field of view and the granularity, I think,
+
+00:00:59.704 --> 00:01:04.939
+let's take the velodyne lidar where you
+
+00:01:04.939 --> 00:01:13.909
+have a finite or a very discrete number of layed individual layers like 16 layers,
+
+00:01:13.909 --> 00:01:16.944
+32 layers, 64 layers, and so on.
+
+00:01:16.944 --> 00:01:23.084
+Usually, all of those lidars have the same vertical field of view,
+
+00:01:23.084 --> 00:01:26.265
+expressing degrees, it's about 30 degrees.
+
+00:01:26.265 --> 00:01:29.635
+If you have 30 degrees and 16 layers,
+
+00:01:29.635 --> 00:01:35.210
+then you have two degrees spacing between the layers in the image.
+
+00:01:35.209 --> 00:01:40.894
+Now, two degrees in about 60 meters,
+
+00:01:40.894 --> 00:01:45.004
+you can hide a pedestrian between two layers.
+
+00:01:45.004 --> 00:01:49.094
+So that limits your actually your resolution,
+
+00:01:49.094 --> 00:01:52.849
+but it also limits in a sense how far you can see
+
+00:01:52.849 --> 00:01:58.444
+because if you have no scan layer on an object,
+
+00:01:58.444 --> 00:02:02.419
+then this object is invisible to the lidar.
+
+00:02:02.420 --> 00:02:06.125
+So the more layers you have in this vertical field of view,
+
+00:02:06.125 --> 00:02:10.175
+the finer the granularity is,
+
+00:02:10.175 --> 00:02:13.570
+the more objects you can see,
+
+00:02:13.569 --> 00:02:15.539
+and in a sense.
+
+00:02:15.539 --> 00:02:21.840
+The farther you can see within the overall power range off the lidar.
+

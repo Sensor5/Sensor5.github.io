@@ -1,0 +1,76 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:03.660
+Cool. So now what are we going to be doing with these points?
+
+00:00:03.660 --> 00:00:06.390
+Now, let's talk about the point Cloud data.
+
+00:00:06.389 --> 00:00:09.375
+This is going to be the format for our points.
+
+00:00:09.375 --> 00:00:12.439
+So this is a.PCD file.
+
+00:00:12.439 --> 00:00:16.500
+Then we're looking at the previous slide and we said okay,
+
+00:00:16.500 --> 00:00:19.484
+256,000 points for every update.
+
+00:00:19.484 --> 00:00:22.109
+Well, each of these points is going to be represented
+
+00:00:22.109 --> 00:00:24.839
+in this format where we have this X,
+
+00:00:24.839 --> 00:00:28.859
+Y, Z Cartesian coordinates and we also have this I value.
+
+00:00:28.859 --> 00:00:32.969
+So before we're saying that we also have this signal strength of
+
+00:00:32.969 --> 00:00:35.089
+the laser and that tells us a little bit
+
+00:00:35.090 --> 00:00:37.295
+about the reflective properties of this material.
+
+00:00:37.295 --> 00:00:38.990
+So that's going to be this I.
+
+00:00:38.990 --> 00:00:40.635
+So we have this X, Y, Z,
+
+00:00:40.634 --> 00:00:44.239
+I and for a single update for the BOP 64,
+
+00:00:44.240 --> 00:00:48.175
+we have 256,000 of those.
+
+00:00:48.174 --> 00:00:51.089
+This is actually what this PCD looks like.
+
+00:00:51.090 --> 00:00:55.730
+Here, we're seeing that the different intensity values are a different color.
+
+00:00:55.729 --> 00:00:58.549
+So this color mapping here is telling us about
+
+00:00:58.549 --> 00:01:01.609
+the reflective properties of the objects and then X,
+
+00:01:01.609 --> 00:01:05.075
+Y, Z is specially telling us where this point is located.
+
+00:01:05.075 --> 00:01:09.400
+Then in this running PCD video,
+
+00:01:09.400 --> 00:01:11.359
+we can see this bicyclists just
+
+00:01:11.359 --> 00:01:14.790
+writing out in front of the car and we're chasing after him.
+

@@ -1,0 +1,109 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:03.600
+All right. So now we're actually able to launch this
+
+00:00:03.600 --> 00:00:07.379
+executable and see what the simulated environment looks like,
+
+00:00:07.379 --> 00:00:11.429
+let's talk a little bit more about how it's creating the scene.
+
+00:00:11.429 --> 00:00:15.209
+For doing this, there's something called the PCL viewer.
+
+00:00:15.210 --> 00:00:18.070
+So this is the point Cloud library viewer.
+
+00:00:18.070 --> 00:00:21.649
+This is what's handling graphics and rendering.
+
+00:00:21.649 --> 00:00:25.199
+So it's rendering the different boxes for the cars, for the road,
+
+00:00:25.199 --> 00:00:30.554
+it's creating those lines and we're also using those functions in
+
+00:00:30.554 --> 00:00:36.524
+environment.cpp for initializing the camera and initializing this highway environment.
+
+00:00:36.524 --> 00:00:43.329
+So let's go ahead and look at what this looks like in environment.cpp.
+
+00:00:44.210 --> 00:00:52.350
+Inside main here, we actually have this viewer that we are creating over here.
+
+00:00:54.009 --> 00:00:57.795
+So this viewer is a PCL visualization,
+
+00:00:57.795 --> 00:01:01.725
+PCL Visualizer and basically,
+
+00:01:01.725 --> 00:01:07.250
+it's going to run at certain frame rate and we can add things to this viewer.
+
+00:01:07.250 --> 00:01:10.909
+So if we look at emit camera in simple highway,
+
+00:01:10.909 --> 00:01:14.210
+we're actually passing in the viewer to these functions.
+
+00:01:14.209 --> 00:01:16.564
+Let's see how they're being passed in.
+
+00:01:16.564 --> 00:01:19.614
+So for example, in a camera,
+
+00:01:19.614 --> 00:01:27.484
+we see that this PCL visualization viewer is actually being passed in as a reference.
+
+00:01:27.484 --> 00:01:35.539
+So what that means is any changes done to it will persist outside this function.
+
+00:01:35.540 --> 00:01:38.359
+So here we set things like the background color,
+
+00:01:38.359 --> 00:01:41.284
+we can initialize the camera parameters,
+
+00:01:41.284 --> 00:01:45.545
+and we can actually tell the viewer set this camera position
+
+00:01:45.545 --> 00:01:50.159
+so that initial position will be set when we launch that window.
+
+00:01:50.159 --> 00:01:58.549
+So similarly, the init highway function is also using that viewer,
+
+00:01:58.549 --> 00:02:02.155
+and it's being passed in as reference again right here.
+
+00:02:02.155 --> 00:02:09.199
+What that is doing basically is we're going through and recreating these different cars,
+
+00:02:09.199 --> 00:02:13.519
+and we're specifying where they're located in the simulation environment.
+
+00:02:13.520 --> 00:02:18.555
+We're creating a vector of those cars and for that viewer,
+
+00:02:18.555 --> 00:02:24.530
+we basically call so car render in that viewer is being passed in again as a reference,
+
+00:02:24.530 --> 00:02:25.939
+and that tells the viewer, hey,
+
+00:02:25.939 --> 00:02:28.085
+I'm going to render this car to the scene.
+
+00:02:28.085 --> 00:02:32.195
+I'm going to render this highway to the viewer.
+
+00:02:32.194 --> 00:02:36.289
+So that is a little bit how that PCL viewer is working.
+
+00:02:36.289 --> 00:02:40.079
+It's handling all the graphics for us.
+
