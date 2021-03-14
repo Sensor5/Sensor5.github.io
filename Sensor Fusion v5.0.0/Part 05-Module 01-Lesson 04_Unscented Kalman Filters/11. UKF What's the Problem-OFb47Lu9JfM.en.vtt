@@ -1,0 +1,213 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.240 --> 00:00:06.160
+To deal with nonlinear functions, the
+UKF uses the unscented transformation.
+
+00:00:06.160 --> 00:00:09.640
+Let's quickly summarize again
+what the problem is with
+
+00:00:09.640 --> 00:00:13.859
+nonlinear process models or
+nonlinear measurement models.
+
+00:00:15.080 --> 00:00:20.330
+Let's start again from the point where
+we have the state vector mean x and
+
+00:00:20.330 --> 00:00:22.840
+the state covariance P a time step k.
+
+00:00:24.130 --> 00:00:30.680
+What we want to do is predict the mean
+and the covariance to time step k+1.
+
+00:00:30.680 --> 00:00:37.930
+So we have X k + 1 pipe k,
+and P k + 1 pipe k.
+
+00:00:37.930 --> 00:00:40.770
+You haven't seen this
+notation system yet.
+
+00:00:40.770 --> 00:00:44.682
+I want to introduce it here because
+it is often used in the literature or
+
+00:00:44.682 --> 00:00:45.277
+on Wikipedia.
+
+00:00:46.330 --> 00:00:50.990
+k pipe k means the estimation is for
+time step k, and
+
+00:00:50.990 --> 00:00:55.690
+the measurement at time k has
+already been taken into account.
+
+00:00:55.690 --> 00:00:59.452
+The is also called
+the posterior estimation.
+
+00:00:59.452 --> 00:01:04.046
+k +1 pipe k means the estimation is for
+time k+1 but
+
+00:01:04.046 --> 00:01:09.675
+the last measurement that has been
+taken into account was from k.
+
+00:01:09.675 --> 00:01:12.890
+This is exactly what we
+have after the prediction.
+
+00:01:12.890 --> 00:01:16.750
+And this is also called
+the a priori estimation.
+
+00:01:16.750 --> 00:01:19.520
+Now, what do these ellipses mean?
+
+00:01:19.520 --> 00:01:22.590
+They visualize the distribution
+of our uncertainty.
+
+00:01:22.590 --> 00:01:26.510
+All points on this line have
+the same probability density.
+
+00:01:27.610 --> 00:01:30.320
+If the uncertainty is
+normally distributed,
+
+00:01:30.320 --> 00:01:33.060
+these points have
+the shape of a ellipse.
+
+00:01:33.060 --> 00:01:35.760
+It is often called error ellipse.
+
+00:01:35.760 --> 00:01:40.287
+It can be seen as the visualization
+of the covariance matrix P.
+
+00:01:40.287 --> 00:01:45.369
+If the process model is linear,
+the prediction problem looks like this.
+
+00:01:45.369 --> 00:01:49.657
+Here, Q is the covariance
+matrix of the process noise.
+
+00:01:49.657 --> 00:01:54.070
+We can use the Kalman filter to solve
+this linear prediction problem.
+
+00:01:54.070 --> 00:01:58.700
+How does this case look like if
+the process model is nonlinear?
+
+00:01:58.700 --> 00:02:02.030
+Then the prediction is defined
+by a nonlinear function, f,
+
+00:02:02.030 --> 00:02:06.670
+as we've just derived it for
+the CTRV remodel.
+
+00:02:06.670 --> 00:02:10.400
+Predicting with a nonlinear function
+provides a distribution which is
+
+00:02:10.400 --> 00:02:13.770
+generally not normally
+distributed any more.
+
+00:02:13.770 --> 00:02:18.600
+Actually it's not so easy to calculate
+this predicted distribution.
+
+00:02:18.600 --> 00:02:21.860
+Generally, it can only be
+calculated numerically.
+
+00:02:22.960 --> 00:02:26.190
+Let's say we use some fancy
+algorithm which can do that, and
+
+00:02:26.190 --> 00:02:27.680
+let it run for a while.
+
+00:02:27.680 --> 00:02:29.590
+Then result might look like this.
+
+00:02:30.590 --> 00:02:35.040
+By the way, later in the localization
+course you will implement an algorithm
+
+00:02:35.040 --> 00:02:37.810
+that does this kind of
+numerical calculation.
+
+00:02:37.810 --> 00:02:39.789
+It's called a particle filter.
+
+00:02:39.789 --> 00:02:43.640
+As you can see, this is not
+a normal distribution any more.
+
+00:02:43.640 --> 00:02:45.456
+Otherwise, it would be an ellipse again.
+
+00:02:45.456 --> 00:02:50.520
+So the predicted state distribution
+is not normally distributed any more.
+
+00:02:50.520 --> 00:02:52.990
+But what the UKF does is keep going
+
+00:02:52.990 --> 00:02:56.530
+as if the prediction was
+still normally distributed.
+
+00:02:56.530 --> 00:02:58.700
+This is not an analytical path any more.
+
+00:02:58.700 --> 00:03:01.070
+Of course, it is an approximation.
+
+00:03:01.070 --> 00:03:04.630
+What we want to find now
+is the normal distribution
+
+00:03:04.630 --> 00:03:09.060
+that represents the real predicted
+distribution as close as possible.
+
+00:03:10.480 --> 00:03:15.660
+So what we are looking for is the normal
+distribution that has the same mean
+
+00:03:15.660 --> 00:03:19.950
+value and the same covariance matrix
+as the real predicted distribution.
+
+00:03:21.100 --> 00:03:24.970
+And this mean value and the covariance
+matrix might look like this.
+
+00:03:26.270 --> 00:03:32.360
+The question is, how do we find this
+mean vector and this covariance matrix?
+
+00:03:32.360 --> 00:03:35.490
+And this is what the unscented
+transformation does for
+
+00:03:35.490 --> 00:03:37.840
+us, as I will show you
+in the next video.
+

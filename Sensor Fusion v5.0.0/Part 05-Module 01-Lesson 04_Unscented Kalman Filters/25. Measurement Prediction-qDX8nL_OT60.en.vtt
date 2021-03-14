@@ -1,0 +1,229 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.770 --> 00:00:04.919
+You have successfully predicted
+the state mean and covariance matrix.
+
+00:00:04.918 --> 00:00:09.980
+Terrific, this means we can go
+into the update step now and
+
+00:00:09.980 --> 00:00:11.240
+predict the measurement.
+
+00:00:12.288 --> 00:00:14.009
+This is where we are now.
+
+00:00:14.009 --> 00:00:17.079
+We have successfully predicted
+the state from times step k
+
+00:00:17.079 --> 00:00:19.359
+to times k step plus one.
+
+00:00:19.359 --> 00:00:22.868
+Now we have to transform the predicted
+state into the measurement space.
+
+00:00:23.910 --> 00:00:28.149
+The function that defines this
+transformation is the measurement model.
+
+00:00:28.149 --> 00:00:32.250
+Of course, now we have to consider what
+kind of sensor produced the current
+
+00:00:32.250 --> 00:00:35.530
+measurement and
+use the corresponding measurement model.
+
+00:00:35.530 --> 00:00:38.079
+The problem we have here is very similar
+
+00:00:38.079 --> 00:00:40.728
+to the problem we had
+in the prediction step.
+
+00:00:40.728 --> 00:00:46.149
+We need to transform a distribution
+through a non linear function so
+
+00:00:46.149 --> 00:00:49.539
+we can apply exactly the same on
+center transformation approach
+
+00:00:49.539 --> 00:00:52.679
+as we did before during
+the state prediction.
+
+00:00:52.679 --> 00:00:57.509
+However, we can take two shortcuts
+here and make it a little easier.
+
+00:00:57.509 --> 00:00:58.820
+Let me show you how.
+
+00:00:58.820 --> 00:01:03.480
+The first thing we did in the prediction
+step was generating [INAUDIBLE] points.
+
+00:01:03.478 --> 00:01:07.090
+We could do the same here again
+using the predicted mean and
+
+00:01:07.090 --> 00:01:08.100
+covariance matrix.
+
+00:01:09.108 --> 00:01:11.828
+However, a popular shortcut is
+
+00:01:11.828 --> 00:01:17.048
+to just reuse the signal points we
+already have from the prediction step.
+
+00:01:17.049 --> 00:01:20.250
+So we can skip generating
+sigma points this time.
+
+00:01:20.250 --> 00:01:23.909
+In this very case,
+we can also skip the augmentation step.
+
+00:01:23.909 --> 00:01:25.189
+Why is that?
+
+00:01:25.188 --> 00:01:28.008
+We needed the augmentation
+because the process noise
+
+00:01:28.010 --> 00:01:30.690
+had a non linear effect on the state.
+
+00:01:30.688 --> 00:01:34.419
+Let's assume we're talking about
+a greater measurement in this example.
+
+00:01:34.420 --> 00:01:37.890
+Here the measurement model was
+a non linear fraction, but
+
+00:01:37.890 --> 00:01:41.840
+the measurement noise had
+a purely additive effect.
+
+00:01:41.840 --> 00:01:45.090
+In this case we don't need
+to perform an augmentation,
+
+00:01:45.090 --> 00:01:48.299
+there is an easier way to
+consider the measurement noise.
+
+00:01:48.299 --> 00:01:50.179
+I will show you later how this works.
+
+00:01:51.280 --> 00:01:54.579
+So the only thing that's left for
+us to do is actually transforming
+
+00:01:54.578 --> 00:01:59.568
+the individual sigma points we already
+have into the measurement space and
+
+00:01:59.569 --> 00:02:02.579
+using them to calculate the mean and
+
+00:02:02.578 --> 00:02:06.309
+the covariance matrix S of
+the predicted measurement.
+
+00:02:06.310 --> 00:02:09.960
+Again, we want to store the transformed
+measurement signal points
+
+00:02:09.960 --> 00:02:12.159
+as columns in a matrix.
+
+00:02:12.158 --> 00:02:15.060
+I call this matrix colorgraphic Z.
+
+00:02:15.060 --> 00:02:17.590
+Remember the measurement
+space of the rater.
+
+00:02:17.590 --> 00:02:20.650
+This was the radial distance rho,
+the angle phi, and
+
+00:02:20.650 --> 00:02:26.050
+the radial velocity rho dot, so
+it is a three dimensional space.
+
+00:02:26.050 --> 00:02:29.580
+This means the matrix with the
+measurement sigma points has three rows
+
+00:02:29.580 --> 00:02:32.170
+and 15 columns in our case.
+
+00:02:32.169 --> 00:02:34.250
+Regarding for
+the measurement noise omega,
+
+00:02:34.250 --> 00:02:38.568
+just put in 0 here, since we will
+account for the measurement noise later.
+
+00:02:38.568 --> 00:02:42.048
+Now that we have the sigma points and
+the measurement space, We want to
+
+00:02:42.050 --> 00:02:46.550
+calculate the resulting mean and
+covariance of the predicted measurement.
+
+00:02:46.550 --> 00:02:50.030
+This is also very similar as before and
+given by these equations.
+
+00:02:51.080 --> 00:02:53.670
+The only thing that comes
+in addition here is that we
+
+00:02:53.669 --> 00:02:56.149
+add the measurement covariance noise.
+
+00:02:56.150 --> 00:02:59.020
+This is how we account for
+the measurement noise.
+
+00:02:59.020 --> 00:03:02.439
+Remember, we can do this instead
+of the augmentation here,
+
+00:03:02.438 --> 00:03:05.489
+because the measurement noise
+in our case does not have
+
+00:03:05.490 --> 00:03:08.530
+a non-linear effect on the measurement
+but it's purely additive.
+
+00:03:09.800 --> 00:03:13.150
+And that's how you predict
+the measurement mean and covariance.
+
+00:03:13.150 --> 00:03:15.968
+It's exactly the same
+problem set as before, but
+
+00:03:15.968 --> 00:03:20.400
+by using the two sharp cards I just
+introduced, it is a very easy step.
+
+00:03:20.400 --> 00:03:24.129
+After this step you have made it almost
+through the UKF processing chain.
+

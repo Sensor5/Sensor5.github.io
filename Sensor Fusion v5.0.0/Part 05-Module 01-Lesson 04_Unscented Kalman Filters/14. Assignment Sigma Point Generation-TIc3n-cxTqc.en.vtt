@@ -1,0 +1,148 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.340 --> 00:00:02.550
+Welcome to the first coding
+quiz in this lesson.
+
+00:00:03.650 --> 00:00:07.150
+Let's go ahead and
+put what we have learned into C++.
+
+00:00:07.150 --> 00:00:11.540
+In this quiz you will write a small
+function that generates sigma points.
+
+00:00:11.540 --> 00:00:13.610
+I've prepared the template for you and
+
+00:00:13.610 --> 00:00:16.079
+I would like to quickly
+make you familiar with it.
+
+00:00:16.079 --> 00:00:19.770
+You will be working on a function
+called GenerateSigmaPoints.
+
+00:00:19.770 --> 00:00:23.050
+Which receives a pointer
+to a matrix as input.
+
+00:00:23.050 --> 00:00:25.840
+This is where you are expected
+to write your result.
+
+00:00:25.840 --> 00:00:28.550
+I will show you how this works
+in the end of the function.
+
+00:00:28.550 --> 00:00:32.170
+This time, we will consider
+the complete state of the CTRV model.
+
+00:00:32.170 --> 00:00:35.220
+So we set the state dimension n_x to 5.
+
+00:00:35.220 --> 00:00:40.300
+Here we set the design parameter
+lambda to 3- n_x as suggested before.
+
+00:00:40.300 --> 00:00:42.330
+Then we set the example set x and
+
+00:00:42.330 --> 00:00:46.650
+the example covariance matrix
+P to some realistic values.
+
+00:00:46.650 --> 00:00:49.320
+Now we create a matrix called Xsig.
+
+00:00:49.320 --> 00:00:53.830
+This is a matrix with five rows and
+11 columns.
+
+00:00:53.830 --> 00:00:56.900
+This is where I want you to
+store the sigma points later.
+
+00:00:56.900 --> 00:00:58.540
+Now here, I give you a little help for
+
+00:00:58.540 --> 00:01:03.070
+calculating the square root matrix
+of the covariance matrix P.
+
+00:01:03.070 --> 00:01:08.050
+What you see here are two function calls
+which are part of the Eigen library.
+
+00:01:08.050 --> 00:01:12.280
+It performs a Cholesky decomposition and
+provides the result we need.
+
+00:01:12.280 --> 00:01:15.790
+Feel free to Google this approach,
+if you want to know more about it.
+
+00:01:15.790 --> 00:01:17.662
+This is where you're
+supposed to put your code.
+
+00:01:17.662 --> 00:01:20.999
+I would like you to calculate
+all 11 sigma points and
+
+00:01:20.999 --> 00:01:24.600
+fill the columns of Xsig
+with the sigma points.
+
+00:01:24.600 --> 00:01:27.140
+One thing is important,
+when you fill this matrix,
+
+00:01:27.140 --> 00:01:30.770
+use the same ordering of sigma
+points as I showed you in the video,
+
+00:01:30.770 --> 00:01:33.580
+to make sure the evaluation works.
+
+00:01:33.580 --> 00:01:37.610
+In the end, the result will be printed,
+so you can check if it's realistic.
+
+00:01:37.610 --> 00:01:40.900
+We received the pointer
+Xsig_out as input.
+
+00:01:40.900 --> 00:01:42.500
+It points to a matrix.
+
+00:01:42.500 --> 00:01:45.610
+This is how we put our
+result into this matrix.
+
+00:01:45.610 --> 00:01:48.700
+Please don't change anything
+outside the student area
+
+00:01:48.700 --> 00:01:50.940
+to make sure your result
+can be evaluated correctly.
+
+00:01:51.950 --> 00:01:54.730
+Some of the challenges of these
+programming assignments are related to
+
+00:01:54.730 --> 00:01:59.270
+handling rows and columns of
+matrices with the Eigen library.
+
+00:01:59.270 --> 00:02:02.580
+Check link to the Eigen cheat sheet
+in the assignment description,
+
+00:02:02.580 --> 00:02:03.630
+that will help you a lot.
+

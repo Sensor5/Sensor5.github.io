@@ -1,0 +1,118 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.510 --> 00:00:04.920
+Congratulations, combining LIDAR and
+RADAR measurements with the help of
+
+00:00:04.920 --> 00:00:10.000
+extended and unscented Kalman
+filters is incredibly impressive.
+
+00:00:10.000 --> 00:00:15.140
+These are core skills that we use on
+the Sensor Fusion team at Mercedes-Benz.
+
+00:00:15.140 --> 00:00:18.920
+&gt;&gt; Let's think about where Sensor Fusion
+fits into the entire autonomous vehicle
+
+00:00:18.920 --> 00:00:20.620
+technology stack.
+
+00:00:20.620 --> 00:00:25.311
+First, sensors record the data, then
+there are pre-processing steps such as
+
+00:00:25.311 --> 00:00:30.240
+clustering algorithms, or more complex
+solutions to detect object hypothesis.
+
+00:00:30.240 --> 00:00:34.490
+And finally, we can use these hypotheses
+as input for object level fusion.
+
+00:00:35.580 --> 00:00:37.170
+&gt;&gt; Inside the sensor fusion block,
+
+00:00:37.170 --> 00:00:40.980
+we combined that data together
+like you did in this lesson.
+
+00:00:40.980 --> 00:00:43.270
+And this is not the only possible flow,
+
+00:00:43.270 --> 00:00:47.660
+we can apply sensor fusion at
+each of these processing steps.
+
+00:00:47.660 --> 00:00:51.820
+&gt;&gt; Once we have the more consistent
+representation of the surrounding world,
+
+00:00:51.820 --> 00:00:56.670
+we pass the results to other part of
+the autonomous vehicle system Further
+
+00:00:56.670 --> 00:01:01.250
+down the line, different teams will
+use this data to localize the vehicle,
+
+00:01:01.250 --> 00:01:04.920
+control the vehicle, and
+plan the vehicle's path.
+
+00:01:04.920 --> 00:01:08.300
+&gt;&gt; It's also worth thinking about ways
+in which the world is more complicated
+
+00:01:08.300 --> 00:01:10.360
+that what we've discussed so far.
+
+00:01:10.360 --> 00:01:12.060
+For example, in this lesson,
+
+00:01:12.060 --> 00:01:15.030
+we have assumed there is
+only one object to track.
+
+00:01:15.030 --> 00:01:17.680
+But what if there are many
+cars on the street?
+
+00:01:17.680 --> 00:01:21.210
+Then you have to find out which
+measurement belongs to which vehicle,
+
+00:01:21.210 --> 00:01:23.300
+that makes sensor fusion even harder.
+
+00:01:23.300 --> 00:01:26.710
+&gt;&gt; But the core techniques you have
+learned in this lesson are the key to
+
+00:01:26.710 --> 00:01:31.430
+extended the sensor fusion block to
+handle these more complex scenarios.
+
+00:01:31.430 --> 00:01:35.110
+&gt;&gt; Sensor fusion is a critical part
+of an autonomous driving system and
+
+00:01:35.110 --> 00:01:37.910
+the other parts of the system
+rely on this data.
+
+00:01:37.910 --> 00:01:42.040
+&gt;&gt; In future modules, you will learn
+about how the components of this system
+
+00:01:42.040 --> 00:01:45.690
+used fused sensor data to
+complete their functions.
+
+00:01:45.690 --> 00:01:47.530
+Good luck on the final
+sensor fusion project.
+

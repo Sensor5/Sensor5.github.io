@@ -1,0 +1,323 @@
+<!-- udacimak v1.4.4 -->
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <meta content="ie=edge" http-equiv="X-UA-Compatible"/>
+  <title>
+   Additional Project Details
+  </title>
+  <link href="../assets/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="../assets/css/plyr.css" rel="stylesheet"/>
+  <link href="../assets/css/katex.min.css" rel="stylesheet"/>
+  <link href="../assets/css/jquery.mCustomScrollbar.min.css" rel="stylesheet"/>
+  <link href="../assets/css/styles.css" rel="stylesheet"/>
+  <link href="../assets/img/udacimak.png" rel="shortcut icon" type="image/png">
+  </link>
+ </head>
+ <body>
+  <div class="wrapper">
+   <nav id="sidebar">
+    <div class="sidebar-header">
+     <h3>
+      Unscented Kalman Filter Highway Project
+     </h3>
+    </div>
+    <ul class="sidebar-list list-unstyled CTAs">
+     <li>
+      <a class="article" href="../index.html">
+       Back to Home
+      </a>
+     </li>
+    </ul>
+    <ul class="sidebar-list list-unstyled components">
+     <li class="">
+      <a href="01. Submitting Your Project.html">
+       01. Submitting Your Project
+      </a>
+     </li>
+     <li class="">
+      <a href="02. Additional Project Details.html">
+       02. Additional Project Details
+      </a>
+     </li>
+     <li class="">
+      <a href="Project Description - Unscented Kalman Filter Highway Project.html">
+       Project Description - Unscented Kalman Filter Highway Project
+      </a>
+     </li>
+     <li class="">
+      <a href="Project Rubric - Unscented Kalman Filter Highway Project.html">
+       Project Rubric - Unscented Kalman Filter Highway Project
+      </a>
+     </li>
+    </ul>
+    <ul class="sidebar-list list-unstyled CTAs">
+     <li>
+      <a class="article" href="../index.html">
+       Back to Home
+      </a>
+     </li>
+    </ul>
+   </nav>
+   <div id="content">
+    <header class="container-fluild header">
+     <div class="container">
+      <div class="row">
+       <div class="col-12">
+        <div class="align-items-middle">
+         <button class="btn btn-toggle-sidebar" id="sidebarCollapse" type="button">
+          <div>
+          </div>
+          <div>
+          </div>
+          <div>
+          </div>
+         </button>
+         <h1 style="display: inline-block">
+          02. Additional Project Details
+         </h1>
+        </div>
+       </div>
+      </div>
+     </div>
+    </header>
+    <main class="container">
+     <div class="row">
+      <div class="col-12">
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h1 id="additional-project-details">
+          Additional Project Details
+         </h1>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h2 id="highway-parameters">
+          Highway Parameters
+         </h2>
+         <p>
+          In
+          <code>
+           highway.h
+          </code>
+          there are a number of parameters that can be modified to help with testing and understanding.
+         </p>
+         <pre><code>// Parameters 
+// --------------------------------
+// Set which cars to track with UKF
+std::vector&lt;bool&gt; trackCars = {true,true,true};
+// Visualize sensor measurements
+bool visualize_lidar = true;
+bool visualize_radar = true;
+bool visualize_pcd = false;
+// Predict path in the future using UKF
+double projectedTime = 0;
+int projectedSteps = 0;
+// --------------------------------</code></pre>
+         <p>
+          The
+          <code>
+           trackCars
+          </code>
+          list can be used to toggle on/off cars for the UKF objects to track. The default is to track all three cars on the road, but for testing it can be nice to toggle to only track one at a time. For instance to only track the first car
+          <code>
+           {true,false,false}
+          </code>
+          .
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="Projecting the UKF path 2 seconds into the future." class="img img-fluid" src="img/ukf-highway-projected.gif"/>
+          <figcaption class="figure-caption">
+           <p>
+            Projecting the UKF path 2 seconds into the future.
+           </p>
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <p>
+          The animation above shows what it looks like if the
+          <code>
+           projectedTime
+          </code>
+          and
+          <code>
+           projectedSteps
+          </code>
+          variables are used. Also in the animation above the visualization for lidar and radar has been set to
+          <code>
+           false
+          </code>
+          and
+          <code>
+           projectedTime = 2
+          </code>
+          and
+          <code>
+           projectedSteps = 6
+          </code>
+          . The green spheres then show the predicted position for the car in the future over a 2 second interval. The number of steps increases the number of positions to interpolate the time interval.
+         </p>
+         <p>
+          It's interesting to see the predicted path which is constrained by the motion model. In this project the motion model used is CTRV, which assumes constant velocity and turning rate. Since our cars do not have constant turning rates  you can see the predicted paths swing around and take a while to correct after the car begins moving straight again.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="Visualizing high resolution point cloud data for traffic." class="img img-fluid" src="img/ukf-highway-pcd.gif"/>
+          <figcaption class="figure-caption">
+           <p>
+            Visualizing high resolution point cloud data for traffic.
+           </p>
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <p>
+          The
+          <code>
+           visualize_pcd
+          </code>
+          parameter can be set to true to visualize the cars from the lidar's perspective from point clouds. The traffic pcd data is available in
+          <code>
+           src/sensors/data/pcd
+          </code>
+          directory. As a bonus assignment this data could be used to cluster the individual cars using techniques from Lidar Obstacle Detection and then bounding boxes could be fitted around the car clusters. The bounding box center (x,y) point could then be used to represent the lidar marker that would be fed into the UKF instead of the project pre-generated lidar marker from
+          <code>
+           tools.cpp
+          </code>
+          <code>
+           lidarSense
+          </code>
+          function.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+      </div>
+      <div class="col-12">
+       <p class="text-right">
+       </p>
+      </div>
+     </div>
+    </main>
+    <footer class="footer">
+     <div class="container">
+      <div class="row">
+       <div class="col-12">
+        <p class="text-center">
+         udacity2.0 If you need the newest courses Plase add me wechat: udacity6
+        </p>
+       </div>
+      </div>
+     </div>
+    </footer>
+   </div>
+  </div>
+  <script src="../assets/js/jquery-3.3.1.min.js">
+  </script>
+  <script src="../assets/js/plyr.polyfilled.min.js">
+  </script>
+  <script src="../assets/js/bootstrap.min.js">
+  </script>
+  <script src="../assets/js/jquery.mCustomScrollbar.concat.min.js">
+  </script>
+  <script src="../assets/js/katex.min.js">
+  </script>
+  <script>
+   // Initialize Plyr video players
+    const players = Array.from(document.querySelectorAll('video')).map(p => new Plyr(p));
+
+    // render math equations
+    let elMath = document.getElementsByClassName('mathquill');
+    for (let i = 0, len = elMath.length; i < len; i += 1) {
+      const el = elMath[i];
+
+      katex.render(el.textContent, el, {
+        throwOnError: false
+      });
+    }
+
+    // this hack will make sure Bootstrap tabs work when using Handlebars
+    if ($('#question-tabs').length && $('#user-answer-tabs').length) {
+      $("#question-tabs a.nav-link").on('click', function () {
+        $("#question-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+      $("#user-answer-tabs a.nav-link").on('click', function () {
+        $("#user-answer-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    } else {
+      $("a.nav-link").on('click', function () {
+        $(".tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    }
+
+    // side bar events
+    $(document).ready(function () {
+      $("#sidebar").mCustomScrollbar({
+        theme: "minimal"
+      });
+
+      $('#sidebarCollapse').on('click', function () {
+        $('#sidebar, #content').toggleClass('active');
+        $('.collapse.in').toggleClass('in');
+        $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+      });
+
+      // scroll to first video on page loading
+      if ($('video').length) {
+        $('html,body').animate({ scrollTop: $('div.plyr').prev().offset().top});
+      }
+
+      // auto play first video: this may not work with chrome/safari due to autoplay policy
+      if (players && players.length > 0) {
+        players[0].play();
+      }
+
+      // scroll sidebar to current concept
+      const currentInSideBar = $( "ul.sidebar-list.components li a:contains('02. Additional Project Details')" )
+      currentInSideBar.css( "text-decoration", "underline" );
+      $("#sidebar").mCustomScrollbar('scrollTo', currentInSideBar);
+    });
+  </script>
+ </body>
+</html>

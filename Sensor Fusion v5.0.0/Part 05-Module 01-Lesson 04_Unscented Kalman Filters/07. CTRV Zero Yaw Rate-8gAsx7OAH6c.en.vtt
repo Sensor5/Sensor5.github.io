@@ -1,0 +1,64 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.660 --> 00:00:03.190
+Now we have the solution
+of the integral.
+
+00:00:03.190 --> 00:00:07.822
+It is a function that brings
+the state from time step k,
+
+00:00:07.822 --> 00:00:10.460
+to time step k + 1, awesome.
+
+00:00:10.460 --> 00:00:13.090
+There's only one problem
+with our solution and
+
+00:00:13.090 --> 00:00:16.820
+that is the division by 0
+when the yaw rate is zero.
+
+00:00:16.820 --> 00:00:19.460
+And this is an important
+case because it means
+
+00:00:19.460 --> 00:00:23.640
+the vehicle is driving on a straight road,
+which happens quite often.
+
+00:00:23.640 --> 00:00:27.110
+There are two ways to derive
+the solution for this special case.
+
+00:00:27.110 --> 00:00:30.110
+You can put the yaw rate to 0
+right from the beginning and
+
+00:00:30.110 --> 00:00:33.190
+solve the integral again,
+for this special case.
+
+00:00:33.190 --> 00:00:35.520
+But remember, when the yaw rate is 0,
+
+00:00:35.520 --> 00:00:39.400
+it means the vehicle drives
+in a straight line.
+
+00:00:39.400 --> 00:00:40.420
+In this case,
+
+00:00:40.420 --> 00:00:45.840
+you can also directly see the solution
+by looking at the triangle again.
+
+00:00:45.840 --> 00:00:49.600
+In the next quiz, try to identify
+the correct process model for
+
+00:00:49.600 --> 00:00:52.032
+the special case when the yaw rate is 0.
+

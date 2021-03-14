@@ -1,0 +1,356 @@
+<!-- udacimak v1.4.4 -->
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <meta content="ie=edge" http-equiv="X-UA-Compatible"/>
+  <title>
+   Submitting Your Project
+  </title>
+  <link href="../assets/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="../assets/css/plyr.css" rel="stylesheet"/>
+  <link href="../assets/css/katex.min.css" rel="stylesheet"/>
+  <link href="../assets/css/jquery.mCustomScrollbar.min.css" rel="stylesheet"/>
+  <link href="../assets/css/styles.css" rel="stylesheet"/>
+  <link href="../assets/img/udacimak.png" rel="shortcut icon" type="image/png">
+  </link>
+ </head>
+ <body>
+  <div class="wrapper">
+   <nav id="sidebar">
+    <div class="sidebar-header">
+     <h3>
+      Unscented Kalman Filter Highway Project
+     </h3>
+    </div>
+    <ul class="sidebar-list list-unstyled CTAs">
+     <li>
+      <a class="article" href="../index.html">
+       Back to Home
+      </a>
+     </li>
+    </ul>
+    <ul class="sidebar-list list-unstyled components">
+     <li class="">
+      <a href="01. Submitting Your Project.html">
+       01. Submitting Your Project
+      </a>
+     </li>
+     <li class="">
+      <a href="02. Additional Project Details.html">
+       02. Additional Project Details
+      </a>
+     </li>
+     <li class="">
+      <a href="Project Description - Unscented Kalman Filter Highway Project.html">
+       Project Description - Unscented Kalman Filter Highway Project
+      </a>
+     </li>
+     <li class="">
+      <a href="Project Rubric - Unscented Kalman Filter Highway Project.html">
+       Project Rubric - Unscented Kalman Filter Highway Project
+      </a>
+     </li>
+    </ul>
+    <ul class="sidebar-list list-unstyled CTAs">
+     <li>
+      <a class="article" href="../index.html">
+       Back to Home
+      </a>
+     </li>
+    </ul>
+   </nav>
+   <div id="content">
+    <header class="container-fluild header">
+     <div class="container">
+      <div class="row">
+       <div class="col-12">
+        <div class="align-items-middle">
+         <button class="btn btn-toggle-sidebar" id="sidebarCollapse" type="button">
+          <div>
+          </div>
+          <div>
+          </div>
+          <div>
+          </div>
+         </button>
+         <h1 style="display: inline-block">
+          01. Submitting Your Project
+         </h1>
+        </div>
+       </div>
+      </div>
+     </div>
+    </header>
+    <main class="container">
+     <div class="row">
+      <div class="col-12">
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h1 id="unscented-kalman-filter-highway-project">
+          Unscented Kalman Filter Highway Project
+         </h1>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="Tracking multiple cars on the highway using UKF." class="img img-fluid" src="img/ukf-highway-tracked.gif"/>
+          <figcaption class="figure-caption">
+           <p>
+            Tracking multiple cars on the highway using UKF.
+           </p>
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <p>
+          Below is a workspace with the SFND_Unscented_Kalman project repository cloned over. In this project you will be filling in the function code for
+          <code>
+           ukf.cpp
+          </code>
+          and
+          <code>
+           ukf.h
+          </code>
+          by using the previous lessons as reference. The results of completing the UKF code can be seen in the animation above, where each of the three traffic cars are tracked using a CTRV motion model. Although the cars have variable acceleration and turning rates the UKF is still able to track the objects quite well with the CTRV model. The accuracy is being calculated by the RMSE, root mean squared error over each time step and for each car. The RMSE is looking at the error difference between the ground truth and estimated position and velocities.  All the cars are considered in the RMSE value so if one car is particularly inaccurate it would affect the overall RMSE in this case. In the animation above the 4 RMSE values are X, Y, Vx, Vy from top to bottom. To pass the project the RMSE values should not exceed the rmse threshold values in the project rubric after the simulator has ran for more than 1 second.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="cars without tracking, lidar pings are red spheres and radar is purple lines." class="img img-fluid" src="img/ukf-highway.png"/>
+          <figcaption class="figure-caption">
+           <p>
+            cars without tracking, lidar pings are red spheres and radar is purple lines.
+           </p>
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <p>
+          <code>
+           main.cpp
+          </code>
+          is using
+          <code>
+           highway.h
+          </code>
+          to create a straight 3 lane highway environment with 3 traffic cars and the main ego car at the center. The viewer scene is centered around the ego car and the coordinate system is relative to the ego car as well. The ego car is green while the other traffic cars are blue. The traffic cars will be accelerating and altering their steering to change lanes. Each of the traffic car's has it's own UKF object generated for it in
+          <code>
+           highway.h
+          </code>
+          , and will update each individual one during every time step.
+         </p>
+         <p>
+          The red spheres above cars represent the (x,y) lidar detection and the purple lines show the radar measurements with the velocity magnitude along the detected angle. The Z axis is not taken into account for tracking, so you are only tracking along the X/Y axis.
+         </p>
+         <h3 id="working-on-the-project-locally">
+          Working on the Project Locally
+         </h3>
+         <p>
+          The
+          <a href="https://github.com/udacity/SFND_Unscented_Kalman_Filter" rel="noopener noreferrer" target="_blank">
+           Github repository
+          </a>
+          can be used to clone over the project locally instead of working on it in the work space. In that situation a zip file containing the root of the compiled project would be uploaded and submitted directly.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h2 id="testing-your-project-before-submission">
+          Testing Your Project Before Submission
+         </h2>
+         <p>
+          Before you submit the project, compile and run the project once more to ensure that everything is working correctly. You should see results that are similar to the .gif above: each of the three vehicles should be tracked with green spheres indicating estimated position and green magnitude arrows showing estimated velocity value and direction. The RMSE values should also look reasonable.
+         </p>
+         <h2 id="checking-the-rubric">
+          Checking the Rubric
+         </h2>
+         <p>
+          If your project works correctly and you are happy with the results, carefully look at the
+          <a href="https://review.udacity.com/#!/rubrics/2551/view" rel="noopener noreferrer" target="_blank">
+           project rubric
+          </a>
+          . If you feel like all the criteria from the rubric are met, you are ready to submit!
+         </p>
+         <h2 id="submitting-the-project">
+          Submitting the Project
+         </h2>
+         <p>
+          You can submit your project using the "SUBMIT PROJECT" button in the terminal below. If you are developing the project locally, and you would prefer to submit using a .zip file or Github repo, proceed to the next concept.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div class="jumbotron">
+         <h3>
+          Workspace
+         </h3>
+         <p class="lead">
+          This section contains either a workspace (it can be a
+          <a href="http://jupyter.org/" target="_blank">
+           Jupyter
+      Notebook
+          </a>
+          workspace or an online code editor work space, etc.) and it cannot be automatically downloaded to be
+    generated here. Please access the classroom with your account and manually download the workspace to your local
+    machine. Note that for some courses, Udacity upload the workspace files onto
+          <a href="https://github.com/udacity" target="_blank">
+           https://github.com/udacity
+          </a>
+          , so you may be able to download them there.
+         </p>
+         <h4>
+          Workspace Information:
+         </h4>
+         <ul>
+          <li>
+           <strong>
+            Default file path:
+           </strong>
+          </li>
+          <li>
+           <strong>
+            Workspace type:
+           </strong>
+           react
+          </li>
+          <li>
+           <strong>
+            Opened files (when workspace is loaded):
+           </strong>
+           n/a
+          </li>
+         </ul>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+      </div>
+      <div class="col-12">
+       <p class="text-right">
+        <a class="btn btn-outline-primary mt-4" href="02. Additional Project Details.html" role="button">
+         Next Concept
+        </a>
+       </p>
+      </div>
+     </div>
+    </main>
+    <footer class="footer">
+     <div class="container">
+      <div class="row">
+       <div class="col-12">
+        <p class="text-center">
+         udacity2.0 If you need the newest courses Plase add me wechat: udacity6
+        </p>
+       </div>
+      </div>
+     </div>
+    </footer>
+   </div>
+  </div>
+  <script src="../assets/js/jquery-3.3.1.min.js">
+  </script>
+  <script src="../assets/js/plyr.polyfilled.min.js">
+  </script>
+  <script src="../assets/js/bootstrap.min.js">
+  </script>
+  <script src="../assets/js/jquery.mCustomScrollbar.concat.min.js">
+  </script>
+  <script src="../assets/js/katex.min.js">
+  </script>
+  <script>
+   // Initialize Plyr video players
+    const players = Array.from(document.querySelectorAll('video')).map(p => new Plyr(p));
+
+    // render math equations
+    let elMath = document.getElementsByClassName('mathquill');
+    for (let i = 0, len = elMath.length; i < len; i += 1) {
+      const el = elMath[i];
+
+      katex.render(el.textContent, el, {
+        throwOnError: false
+      });
+    }
+
+    // this hack will make sure Bootstrap tabs work when using Handlebars
+    if ($('#question-tabs').length && $('#user-answer-tabs').length) {
+      $("#question-tabs a.nav-link").on('click', function () {
+        $("#question-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+      $("#user-answer-tabs a.nav-link").on('click', function () {
+        $("#user-answer-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    } else {
+      $("a.nav-link").on('click', function () {
+        $(".tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    }
+
+    // side bar events
+    $(document).ready(function () {
+      $("#sidebar").mCustomScrollbar({
+        theme: "minimal"
+      });
+
+      $('#sidebarCollapse').on('click', function () {
+        $('#sidebar, #content').toggleClass('active');
+        $('.collapse.in').toggleClass('in');
+        $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+      });
+
+      // scroll to first video on page loading
+      if ($('video').length) {
+        $('html,body').animate({ scrollTop: $('div.plyr').prev().offset().top});
+      }
+
+      // auto play first video: this may not work with chrome/safari due to autoplay policy
+      if (players && players.length > 0) {
+        players[0].play();
+      }
+
+      // scroll sidebar to current concept
+      const currentInSideBar = $( "ul.sidebar-list.components li a:contains('01. Submitting Your Project')" )
+      currentInSideBar.css( "text-decoration", "underline" );
+      $("#sidebar").mCustomScrollbar('scrollTo', currentInSideBar);
+    });
+  </script>
+ </body>
+</html>

@@ -1,0 +1,32 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.700 --> 00:00:04.900
+In the last lesson we used a process
+model with constant velocity.
+
+00:00:04.900 --> 00:00:09.100
+However, with the assumption that the
+velocity is constant you're simplifying
+
+00:00:09.100 --> 00:00:13.140
+the way vehicles actually move
+because most roads have turns.
+
+00:00:13.140 --> 00:00:16.262
+But this is a problem because a
+process model with the assumption of
+
+00:00:16.262 --> 00:00:20.980
+constant velocity and direction will
+predict turning vehicles incorrectly.
+
+00:00:20.980 --> 00:00:24.740
+In the next quiz, think about
+how assuming constant velocity
+
+00:00:24.740 --> 00:00:27.250
+might effect the prediction for
+a vehicle that is turning.
+

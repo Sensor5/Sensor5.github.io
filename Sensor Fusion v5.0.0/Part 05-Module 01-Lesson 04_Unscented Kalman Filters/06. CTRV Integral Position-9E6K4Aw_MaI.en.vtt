@@ -1,0 +1,72 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.650 --> 00:00:04.470
+So, you already solved the last
+three rows, that's great.
+
+00:00:04.470 --> 00:00:08.130
+For the first two rows,
+we actually have to solve the integral.
+
+00:00:08.130 --> 00:00:10.430
+There is no way around this time.
+
+00:00:10.430 --> 00:00:15.440
+First, let's insert the assumption
+that the velocity v is a constant.
+
+00:00:15.440 --> 00:00:20.779
+So we can move the velocity at time
+k as a constant before the integral.
+
+00:00:20.779 --> 00:00:25.974
+Also, we can explicitly express psi
+as a function of t using again,
+
+00:00:25.974 --> 00:00:28.994
+the assumption of a constant yaw rate.
+
+00:00:28.994 --> 00:00:31.881
+After the video,
+take a moment to look at this term and
+
+00:00:31.881 --> 00:00:34.840
+try to figure out what's going on here?
+
+00:00:34.840 --> 00:00:38.850
+For the first two rows we now
+have an explicit function of t.
+
+00:00:38.850 --> 00:00:41.060
+All other variables are constants.
+
+00:00:41.060 --> 00:00:44.500
+So now it is possible to
+solve these integrals.
+
+00:00:44.500 --> 00:00:47.530
+You can look up the solution of
+these integrals in a text book or
+
+00:00:47.530 --> 00:00:50.150
+you can solve them with an online tool.
+
+00:00:50.150 --> 00:00:52.630
+You will find a link below the video.
+
+00:00:52.630 --> 00:00:54.710
+Consider this a bonus question for
+
+00:00:54.710 --> 00:00:57.620
+those who are really good
+in solving integrals.
+
+00:00:57.620 --> 00:01:01.120
+I don't really expect you to
+solve this integral on the fly.
+
+00:01:01.120 --> 00:01:02.750
+Unless of course you think you can.
+

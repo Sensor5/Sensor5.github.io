@@ -1,0 +1,661 @@
+<!-- udacimak v1.4.4 -->
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <meta content="ie=edge" http-equiv="X-UA-Compatible"/>
+  <title>
+   UKF Update Assignment 2
+  </title>
+  <link href="../assets/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="../assets/css/plyr.css" rel="stylesheet"/>
+  <link href="../assets/css/katex.min.css" rel="stylesheet"/>
+  <link href="../assets/css/jquery.mCustomScrollbar.min.css" rel="stylesheet"/>
+  <link href="../assets/css/styles.css" rel="stylesheet"/>
+  <link href="../assets/img/udacimak.png" rel="shortcut icon" type="image/png">
+  </link>
+ </head>
+ <body>
+  <div class="wrapper">
+   <nav id="sidebar">
+    <div class="sidebar-header">
+     <h3>
+      Unscented Kalman Filters
+     </h3>
+    </div>
+    <ul class="sidebar-list list-unstyled CTAs">
+     <li>
+      <a class="article" href="../index.html">
+       Back to Home
+      </a>
+     </li>
+    </ul>
+    <ul class="sidebar-list list-unstyled components">
+     <li class="">
+      <a href="01. Introduction.html">
+       01. Introduction
+      </a>
+     </li>
+     <li class="">
+      <a href="02. The CTRV Model.html">
+       02. The CTRV Model
+      </a>
+     </li>
+     <li class="">
+      <a href="03. The CTRV Model State Vector.html">
+       03. The CTRV Model State Vector
+      </a>
+     </li>
+     <li class="">
+      <a href="04. CTRV Differential Equation.html">
+       04. CTRV Differential Equation
+      </a>
+     </li>
+     <li class="">
+      <a href="05. CTRV Integral 1.html">
+       05. CTRV Integral 1
+      </a>
+     </li>
+     <li class="">
+      <a href="06. CTRV Integral 2.html">
+       06. CTRV Integral 2
+      </a>
+     </li>
+     <li class="">
+      <a href="07. CTRV Zero Yaw Rate.html">
+       07. CTRV Zero Yaw Rate
+      </a>
+     </li>
+     <li class="">
+      <a href="08. CTRV Process Noise Vector.html">
+       08. CTRV Process Noise Vector
+      </a>
+     </li>
+     <li class="">
+      <a href="09. CTRV Process Noise Position.html">
+       09. CTRV Process Noise Position
+      </a>
+     </li>
+     <li class="">
+      <a href="10. UKF Process Chain.html">
+       10. UKF Process Chain
+      </a>
+     </li>
+     <li class="">
+      <a href="11. What Problem Does the UKF Solve.html">
+       11. What Problem Does the UKF Solve?
+      </a>
+     </li>
+     <li class="">
+      <a href="12. UKF Basics Unscented Transformation.html">
+       12. UKF Basics Unscented Transformation
+      </a>
+     </li>
+     <li class="">
+      <a href="13. Generating Sigma Points.html">
+       13. Generating Sigma Points
+      </a>
+     </li>
+     <li class="">
+      <a href="14. Generating Sigma Points Assignment 1.html">
+       14. Generating Sigma Points Assignment 1
+      </a>
+     </li>
+     <li class="">
+      <a href="15. Generating Sigma Points Assignment 2.html">
+       15. Generating Sigma Points Assignment 2
+      </a>
+     </li>
+     <li class="">
+      <a href="16. UKF Augmentation.html">
+       16. UKF Augmentation
+      </a>
+     </li>
+     <li class="">
+      <a href="17. Augmentation Assignment 1.html">
+       17. Augmentation Assignment 1
+      </a>
+     </li>
+     <li class="">
+      <a href="18. Augmentation Assignment 2.html">
+       18. Augmentation Assignment 2
+      </a>
+     </li>
+     <li class="">
+      <a href="19. Sigma Point Prediction.html">
+       19. Sigma Point Prediction
+      </a>
+     </li>
+     <li class="">
+      <a href="20. Sigma Point Prediction Assignment 1.html">
+       20. Sigma Point Prediction Assignment 1
+      </a>
+     </li>
+     <li class="">
+      <a href="21. Sigma Point Prediction Assignment 2.html">
+       21. Sigma Point Prediction Assignment 2
+      </a>
+     </li>
+     <li class="">
+      <a href="22. Predicted Mean and Covariance.html">
+       22. Predicted Mean and Covariance
+      </a>
+     </li>
+     <li class="">
+      <a href="23. Predicted Mean and Covariance Assignment 1.html">
+       23. Predicted Mean and Covariance Assignment 1
+      </a>
+     </li>
+     <li class="">
+      <a href="24. Predicted Mean and Covariance Assignment 2.html">
+       24. Predicted Mean and Covariance Assignment 2
+      </a>
+     </li>
+     <li class="">
+      <a href="25. Measurement Prediction.html">
+       25. Measurement Prediction
+      </a>
+     </li>
+     <li class="">
+      <a href="26. Predict Radar Measurement Assignment 1.html">
+       26. Predict Radar Measurement Assignment 1
+      </a>
+     </li>
+     <li class="">
+      <a href="27. Predict Radar Measurement Assignment 2.html">
+       27. Predict Radar Measurement Assignment 2
+      </a>
+     </li>
+     <li class="">
+      <a href="28. UKF Update.html">
+       28. UKF Update
+      </a>
+     </li>
+     <li class="">
+      <a href="29. UKF Update Assignment 1.html">
+       29. UKF Update Assignment 1
+      </a>
+     </li>
+     <li class="">
+      <a href="30. UKF Update Assignment 2.html">
+       30. UKF Update Assignment 2
+      </a>
+     </li>
+     <li class="">
+      <a href="31. Parameters and Consistency.html">
+       31. Parameters and Consistency
+      </a>
+     </li>
+     <li class="">
+      <a href="32. What to Expect from the Project.html">
+       32. What to Expect from the Project
+      </a>
+     </li>
+     <li class="">
+      <a href="33. Story Time.html">
+       33. Story Time
+      </a>
+     </li>
+     <li class="">
+      <a href="34. Outro.html">
+       34. Outro
+      </a>
+     </li>
+     <li class="">
+      <a href="35. Bonus Round Sensor Fusion [Optional].html">
+       35. Bonus Round: Sensor Fusion [Optional]
+      </a>
+     </li>
+    </ul>
+    <ul class="sidebar-list list-unstyled CTAs">
+     <li>
+      <a class="article" href="../index.html">
+       Back to Home
+      </a>
+     </li>
+    </ul>
+   </nav>
+   <div id="content">
+    <header class="container-fluild header">
+     <div class="container">
+      <div class="row">
+       <div class="col-12">
+        <div class="align-items-middle">
+         <button class="btn btn-toggle-sidebar" id="sidebarCollapse" type="button">
+          <div>
+          </div>
+          <div>
+          </div>
+          <div>
+          </div>
+         </button>
+         <h1 style="display: inline-block">
+          30. UKF Update Assignment 2
+         </h1>
+        </div>
+       </div>
+      </div>
+     </div>
+    </header>
+    <main class="container">
+     <div class="row">
+      <div class="col-12">
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h3 id="solution">
+          Solution
+         </h3>
+         <p>
+          Take a look at our solution below!
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h4>
+          Start Quiz:
+         </h4>
+         <div>
+          <div class="nav nav-tabs nav-fill" id="question-tabs" role="tablist">
+           <a aria-controls="268699-main-cpp" aria-selected="true" class="nav-item nav-link active show" data-toggle="tab" href="#268699-main-cpp" id="tab-268699-main-cpp" role="tab">
+            main.cpp
+           </a>
+           <a aria-controls="268699-ukf-cpp" aria-selected="false" class="nav-item nav-link" data-toggle="tab" href="#268699-ukf-cpp" id="tab-268699-ukf-cpp" role="tab">
+            ukf.cpp
+           </a>
+           <a aria-controls="268699-ukf-h" aria-selected="false" class="nav-item nav-link" data-toggle="tab" href="#268699-ukf-h" id="tab-268699-ukf-h" role="tab">
+            ukf.h
+           </a>
+          </div>
+          <div class="tab-content" id="question-tab-contents" style="padding: 20px 0;">
+           <div aria-labelledby="tab-268699-main-cpp" class="tab-pane active show" id="268699-main-cpp" role="tabpanel">
+            <pre><code></code>#include "Dense"
+#include "ukf.h"
+
+using Eigen::MatrixXd;
+using Eigen::VectorXd;
+
+int main() {
+
+  // Create a UKF instance
+  UKF ukf;
+
+  /**
+   * Programming assignment calls
+   */
+  VectorXd x_out = VectorXd(5);
+  MatrixXd P_out = MatrixXd(5, 5);
+  ukf.UpdateState(&amp;x_out, &amp;P_out);
+
+  return 0;
+}</pre>
+           </div>
+           <div aria-labelledby="tab-268699-ukf-cpp" class="tab-pane" id="268699-ukf-cpp" role="tabpanel">
+            <pre><code></code>#include &lt;iostream&gt;
+#include "ukf.h"
+
+using Eigen::MatrixXd;
+using Eigen::VectorXd;
+
+UKF::UKF() {
+  Init();
+}
+
+UKF::~UKF() {
+}
+
+void UKF::Init() {
+
+}
+
+/**
+ * Programming assignment functions: 
+ */
+
+void UKF::UpdateState(VectorXd* x_out, MatrixXd* P_out) {
+
+  // set state dimension
+  int n_x = 5;
+
+  // set augmented dimension
+  int n_aug = 7;
+
+  // set measurement dimension, radar can measure r, phi, and r_dot
+  int n_z = 3;
+
+  // define spreading parameter
+  double lambda = 3 - n_aug;
+
+  // set vector for weights
+  VectorXd weights = VectorXd(2*n_aug+1);
+  double weight_0 = lambda/(lambda+n_aug);
+  double weight = 0.5/(lambda+n_aug);
+  weights(0) = weight_0;
+
+  for (int i=1; i&lt;2*n_aug+1; ++i) {  
+    weights(i) = weight;
+  }
+
+  // create example matrix with predicted sigma points in state space
+  MatrixXd Xsig_pred = MatrixXd(n_x, 2 * n_aug + 1);
+  Xsig_pred &lt;&lt;
+     5.9374,  6.0640,   5.925,  5.9436,  5.9266,  5.9374,  5.9389,  5.9374,  5.8106,  5.9457,  5.9310,  5.9465,  5.9374,  5.9359,  5.93744,
+       1.48,  1.4436,   1.660,  1.4934,  1.5036,    1.48,  1.4868,    1.48,  1.5271,  1.3104,  1.4787,  1.4674,    1.48,  1.4851,    1.486,
+      2.204,  2.2841,  2.2455,  2.2958,   2.204,   2.204,  2.2395,   2.204,  2.1256,  2.1642,  2.1139,   2.204,   2.204,  2.1702,   2.2049,
+     0.5367, 0.47338, 0.67809, 0.55455, 0.64364, 0.54337,  0.5367, 0.53851, 0.60017, 0.39546, 0.51900, 0.42991, 0.530188,  0.5367, 0.535048,
+      0.352, 0.29997, 0.46212, 0.37633,  0.4841, 0.41872,   0.352, 0.38744, 0.40562, 0.24347, 0.32926,  0.2214, 0.28687,   0.352, 0.318159;
+
+  // create example vector for predicted state mean
+  VectorXd x = VectorXd(n_x);
+  x &lt;&lt;
+     5.93637,
+     1.49035,
+     2.20528,
+    0.536853,
+    0.353577;
+
+  // create example matrix for predicted state covariance
+  MatrixXd P = MatrixXd(n_x,n_x);
+  P &lt;&lt;
+    0.0054342,  -0.002405,  0.0034157, -0.0034819, -0.00299378,
+    -0.002405,    0.01084,   0.001492,  0.0098018,  0.00791091,
+    0.0034157,   0.001492,  0.0058012, 0.00077863, 0.000792973,
+   -0.0034819,  0.0098018, 0.00077863,   0.011923,   0.0112491,
+   -0.0029937,  0.0079109, 0.00079297,   0.011249,   0.0126972;
+
+  // create example matrix with sigma points in measurement space
+  MatrixXd Zsig = MatrixXd(n_z, 2 * n_aug + 1);
+  Zsig &lt;&lt;
+    6.1190,  6.2334,  6.1531,  6.1283,  6.1143,  6.1190,  6.1221,  6.1190,  6.0079,  6.0883,  6.1125,  6.1248,  6.1190,  6.1188,  6.12057,
+   0.24428,  0.2337, 0.27316, 0.24616, 0.24846, 0.24428, 0.24530, 0.24428, 0.25700, 0.21692, 0.24433, 0.24193, 0.24428, 0.24515, 0.245239,
+    2.1104,  2.2188,  2.0639,   2.187,  2.0341,  2.1061,  2.1450,  2.1092,  2.0016,   2.129,  2.0346,  2.1651,  2.1145,  2.0786,  2.11295;
+
+  // create example vector for mean predicted measurement
+  VectorXd z_pred = VectorXd(n_z);
+  z_pred &lt;&lt;
+      6.12155,
+     0.245993,
+      2.10313;
+
+  // create example matrix for predicted measurement covariance
+  MatrixXd S = MatrixXd(n_z,n_z);
+  S &lt;&lt;
+      0.0946171, -0.000139448,   0.00407016,
+   -0.000139448,  0.000617548, -0.000770652,
+     0.00407016, -0.000770652,    0.0180917;
+
+  // create example vector for incoming radar measurement
+  VectorXd z = VectorXd(n_z);
+  z &lt;&lt;
+     5.9214,   // rho in m
+     0.2187,   // phi in rad
+     2.0062;   // rho_dot in m/s
+
+  // create matrix for cross correlation Tc
+  MatrixXd Tc = MatrixXd(n_x, n_z);
+
+  /**
+   * Student part begin
+   */
+
+  // calculate cross correlation matrix
+  Tc.fill(0.0);
+  for (int i = 0; i &lt; 2 * n_aug + 1; ++i) {  // 2n+1 simga points
+    // residual
+    VectorXd z_diff = Zsig.col(i) - z_pred;
+    // angle normalization
+    while (z_diff(1)&gt; M_PI) z_diff(1)-=2.*M_PI;
+    while (z_diff(1)&lt;-M_PI) z_diff(1)+=2.*M_PI;
+
+    // state difference
+    VectorXd x_diff = Xsig_pred.col(i) - x;
+    // angle normalization
+    while (x_diff(3)&gt; M_PI) x_diff(3)-=2.*M_PI;
+    while (x_diff(3)&lt;-M_PI) x_diff(3)+=2.*M_PI;
+
+    Tc = Tc + weights(i) * x_diff * z_diff.transpose();
+  }
+
+  // Kalman gain K;
+  MatrixXd K = Tc * S.inverse();
+
+  // residual
+  VectorXd z_diff = z - z_pred;
+
+  // angle normalization
+  while (z_diff(1)&gt; M_PI) z_diff(1)-=2.*M_PI;
+  while (z_diff(1)&lt;-M_PI) z_diff(1)+=2.*M_PI;
+
+  // update state mean and covariance matrix
+  x = x + K * z_diff;
+  P = P - K*S*K.transpose();
+
+  /**
+   * Student part end
+   */
+
+  // print result
+  std::cout &lt;&lt; "Updated state x: " &lt;&lt; std::endl &lt;&lt; x &lt;&lt; std::endl;
+  std::cout &lt;&lt; "Updated state covariance P: " &lt;&lt; std::endl &lt;&lt; P &lt;&lt; std::endl;
+
+  // write result
+  *x_out = x;
+  *P_out = P;
+}
+
+/**
+ * expected result x:
+ * x =
+ *  5.92276
+ *  1.41823
+ *  2.15593
+ * 0.489274
+ * 0.321338
+ */
+
+/**
+ * expected result P:
+ * P =
+ *   0.00361579 -0.000357881   0.00208316 -0.000937196  -0.00071727
+ * -0.000357881   0.00539867   0.00156846   0.00455342   0.00358885
+ *   0.00208316   0.00156846   0.00410651   0.00160333   0.00171811
+ * -0.000937196   0.00455342   0.00160333   0.00652634   0.00669436
+ *  -0.00071719   0.00358884   0.00171811   0.00669426   0.00881797
+ */</pre>
+           </div>
+           <div aria-labelledby="tab-268699-ukf-h" class="tab-pane" id="268699-ukf-h" role="tabpanel">
+            <pre><code></code>#ifndef UKF_H
+#define UKF_H
+
+#include "Dense"
+
+class UKF {
+ public:
+  /**
+   * Constructor
+   */
+  UKF();
+
+  /**
+   * Destructor
+   */
+  virtual ~UKF();
+
+  /**
+   * Init Initializes Unscented Kalman filter
+   */
+  void Init();
+
+  /**
+   * Student assignment functions
+   */
+  void GenerateSigmaPoints(Eigen::MatrixXd* Xsig_out);
+  void AugmentedSigmaPoints(Eigen::MatrixXd* Xsig_out);
+  void SigmaPointPrediction(Eigen::MatrixXd* Xsig_out);
+  void PredictMeanAndCovariance(Eigen::VectorXd* x_pred, 
+                                Eigen::MatrixXd* P_pred);
+  void PredictRadarMeasurement(Eigen::VectorXd* z_out, 
+                               Eigen::MatrixXd* S_out);
+  void UpdateState(Eigen::VectorXd* x_out, 
+                   Eigen::MatrixXd* P_out);
+};
+
+#endif  // UKF_H</pre>
+           </div>
+          </div>
+         </div>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h4 id="expected-result-x">
+          expected result x:
+         </h4>
+         <p>
+          x =
+         </p>
+         <p>
+          5.92276
+         </p>
+         <p>
+          1.41823
+         </p>
+         <p>
+          2.15593
+         </p>
+         <p>
+          0.489274
+         </p>
+         <p>
+          0.321338
+         </p>
+         <h4 id="expected-result-p">
+          expected result P:
+         </h4>
+         <p>
+          P =
+         </p>
+         <p>
+          0.00361579 -0.000357881   0.00208316 -0.000937196  -0.00071727
+         </p>
+         <p>
+          -0.000357881   0.00539867   0.00156846   0.00455342   0.00358885
+         </p>
+         <p>
+          0.00208316   0.00156846   0.00410651   0.00160333   0.00171811
+         </p>
+         <p>
+          -0.000937196   0.00455342   0.00160333   0.00652634   0.00669436
+         </p>
+         <p>
+          -0.00071719   0.00358884   0.00171811   0.00669426   0.00881797
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+      </div>
+      <div class="col-12">
+       <p class="text-right">
+        <a class="btn btn-outline-primary mt-4" href="31. Parameters and Consistency.html" role="button">
+         Next Concept
+        </a>
+       </p>
+      </div>
+     </div>
+    </main>
+    <footer class="footer">
+     <div class="container">
+      <div class="row">
+       <div class="col-12">
+        <p class="text-center">
+         udacity2.0 If you need the newest courses Plase add me wechat: udacity6
+        </p>
+       </div>
+      </div>
+     </div>
+    </footer>
+   </div>
+  </div>
+  <script src="../assets/js/jquery-3.3.1.min.js">
+  </script>
+  <script src="../assets/js/plyr.polyfilled.min.js">
+  </script>
+  <script src="../assets/js/bootstrap.min.js">
+  </script>
+  <script src="../assets/js/jquery.mCustomScrollbar.concat.min.js">
+  </script>
+  <script src="../assets/js/katex.min.js">
+  </script>
+  <script>
+   // Initialize Plyr video players
+    const players = Array.from(document.querySelectorAll('video')).map(p => new Plyr(p));
+
+    // render math equations
+    let elMath = document.getElementsByClassName('mathquill');
+    for (let i = 0, len = elMath.length; i < len; i += 1) {
+      const el = elMath[i];
+
+      katex.render(el.textContent, el, {
+        throwOnError: false
+      });
+    }
+
+    // this hack will make sure Bootstrap tabs work when using Handlebars
+    if ($('#question-tabs').length && $('#user-answer-tabs').length) {
+      $("#question-tabs a.nav-link").on('click', function () {
+        $("#question-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+      $("#user-answer-tabs a.nav-link").on('click', function () {
+        $("#user-answer-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    } else {
+      $("a.nav-link").on('click', function () {
+        $(".tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    }
+
+    // side bar events
+    $(document).ready(function () {
+      $("#sidebar").mCustomScrollbar({
+        theme: "minimal"
+      });
+
+      $('#sidebarCollapse').on('click', function () {
+        $('#sidebar, #content').toggleClass('active');
+        $('.collapse.in').toggleClass('in');
+        $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+      });
+
+      // scroll to first video on page loading
+      if ($('video').length) {
+        $('html,body').animate({ scrollTop: $('div.plyr').prev().offset().top});
+      }
+
+      // auto play first video: this may not work with chrome/safari due to autoplay policy
+      if (players && players.length > 0) {
+        players[0].play();
+      }
+
+      // scroll sidebar to current concept
+      const currentInSideBar = $( "ul.sidebar-list.components li a:contains('30. UKF Update Assignment 2')" )
+      currentInSideBar.css( "text-decoration", "underline" );
+      $("#sidebar").mCustomScrollbar('scrollTo', currentInSideBar);
+    });
+  </script>
+ </body>
+</html>

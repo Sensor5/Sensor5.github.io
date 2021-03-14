@@ -1,0 +1,45 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.240 --> 00:00:04.200
+The goal of this coding quiz
+is to predict the mean and
+
+00:00:04.200 --> 00:00:06.700
+the covariance of a radar measurement.
+
+00:00:06.700 --> 00:00:12.170
+We expect a radar measurement, so I set
+the measurement dimension to three here.
+
+00:00:12.170 --> 00:00:14.340
+This is an example how
+I set the weights.
+
+00:00:15.510 --> 00:00:19.010
+To be able to build the measurement
+covariance matrix R,
+
+00:00:19.010 --> 00:00:21.900
+you need the values for
+the radar measurement uncertainty.
+
+00:00:23.330 --> 00:00:26.700
+And of course,
+you need the predicted sigma points.
+
+00:00:26.700 --> 00:00:30.950
+This is the matrix, where you can
+store your measurement sigma points.
+
+00:00:30.950 --> 00:00:33.700
+And these are the two output objects,
+
+00:00:33.700 --> 00:00:39.030
+the predicted measurement mean, and
+the predicted covariance matrix S.
+
+00:00:39.030 --> 00:00:39.930
+Good luck with the quiz.
+

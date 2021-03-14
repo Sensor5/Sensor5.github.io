@@ -1,0 +1,56 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.470 --> 00:00:03.600
+Okay, let's put
+the augmentation into C++ code.
+
+00:00:03.600 --> 00:00:05.860
+Now the dimension of
+the augmented state is 7.
+
+00:00:05.860 --> 00:00:09.600
+Other things you will need
+are the variance of the longitudinal
+
+00:00:09.600 --> 00:00:12.710
+acceleration and the yaw acceleration.
+
+00:00:12.710 --> 00:00:17.520
+Together, they build the process noise
+covariance matrix which we call Q.
+
+00:00:17.530 --> 00:00:20.790
+The rest is almost the same
+as in the last session.
+
+00:00:20.790 --> 00:00:25.430
+But this time, you have to build
+the augmented state mean x_aug, and
+
+00:00:25.430 --> 00:00:28.410
+the augmented covariance matrix P_aug.
+
+00:00:28.410 --> 00:00:32.350
+Again, have a look at the cheat sheet,
+it will also help you here.
+
+00:00:32.350 --> 00:00:35.014
+When you build the augmented mean state,
+
+00:00:35.014 --> 00:00:39.600
+consider that the mean value of
+the acceleration noises are both zero.
+
+00:00:39.600 --> 00:00:42.470
+And this is where
+the augmented sigma points go.
+
+00:00:42.470 --> 00:00:45.230
+Pay attention to
+the dimensions of this matrix.
+
+00:00:45.230 --> 00:00:46.180
+Good luck with the quiz.
+

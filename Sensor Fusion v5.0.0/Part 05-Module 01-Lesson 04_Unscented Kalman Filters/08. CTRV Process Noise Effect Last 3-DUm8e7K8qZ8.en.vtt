@@ -1,0 +1,46 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.400 --> 00:00:03.710
+How does the noise vector affect
+the overall process model?
+
+00:00:05.260 --> 00:00:10.090
+Let's do this again row for row starting
+from the bottom with the yaw rate.
+
+00:00:10.090 --> 00:00:14.655
+Assuming the yaw
+acceleration nu psi dot dot
+
+00:00:14.655 --> 00:00:18.565
+is constant between k and k + one.
+
+00:00:18.565 --> 00:00:22.275
+It will just linearly add up to
+the yaw rate with increasing time.
+
+00:00:23.400 --> 00:00:27.605
+So,the influence of the yaw
+acceleration on the yaw rate
+
+00:00:27.605 --> 00:00:30.265
+is the yaw acceleration times delta t.
+
+00:00:31.455 --> 00:00:35.729
+Can you calculate the influence of the
+noise processes nu a and nu psi dot dot
+
+00:00:35.729 --> 00:00:38.846
+new sin delta on the yaw angle and
+the velocity.
+
+00:00:38.846 --> 00:00:42.192
+Consider that the longitudinal
+acceleration noise nu a
+
+00:00:42.192 --> 00:00:45.543
+is also constant
+between k and k + one.
+

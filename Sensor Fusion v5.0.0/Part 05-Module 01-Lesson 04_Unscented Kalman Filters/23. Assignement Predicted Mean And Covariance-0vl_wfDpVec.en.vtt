@@ -1,0 +1,31 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.710 --> 00:00:04.380
+In this quiz, we have two
+objects we want to calculate.
+
+00:00:04.380 --> 00:00:08.170
+The mean predicted state X and
+the state prediction covariance P.
+
+00:00:09.340 --> 00:00:13.420
+This time we start at the point where we
+already have the predicted sigma points.
+
+00:00:14.520 --> 00:00:18.390
+This is a vector where you can put
+in the weights for the sigma points.
+
+00:00:18.390 --> 00:00:21.620
+This is the vector for
+the predicted state mean and
+
+00:00:21.620 --> 00:00:24.960
+this is the matrix for
+the state prediction covariance.
+
+00:00:24.960 --> 00:00:25.910
+Good luck with this quiz.
+

@@ -1,0 +1,528 @@
+<!-- udacimak v1.4.4 -->
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <meta content="ie=edge" http-equiv="X-UA-Compatible"/>
+  <title>
+   The CTRV Model State Vector
+  </title>
+  <link href="../assets/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="../assets/css/plyr.css" rel="stylesheet"/>
+  <link href="../assets/css/katex.min.css" rel="stylesheet"/>
+  <link href="../assets/css/jquery.mCustomScrollbar.min.css" rel="stylesheet"/>
+  <link href="../assets/css/styles.css" rel="stylesheet"/>
+  <link href="../assets/img/udacimak.png" rel="shortcut icon" type="image/png">
+  </link>
+ </head>
+ <body>
+  <div class="wrapper">
+   <nav id="sidebar">
+    <div class="sidebar-header">
+     <h3>
+      Unscented Kalman Filters
+     </h3>
+    </div>
+    <ul class="sidebar-list list-unstyled CTAs">
+     <li>
+      <a class="article" href="../index.html">
+       Back to Home
+      </a>
+     </li>
+    </ul>
+    <ul class="sidebar-list list-unstyled components">
+     <li class="">
+      <a href="01. Introduction.html">
+       01. Introduction
+      </a>
+     </li>
+     <li class="">
+      <a href="02. The CTRV Model.html">
+       02. The CTRV Model
+      </a>
+     </li>
+     <li class="">
+      <a href="03. The CTRV Model State Vector.html">
+       03. The CTRV Model State Vector
+      </a>
+     </li>
+     <li class="">
+      <a href="04. CTRV Differential Equation.html">
+       04. CTRV Differential Equation
+      </a>
+     </li>
+     <li class="">
+      <a href="05. CTRV Integral 1.html">
+       05. CTRV Integral 1
+      </a>
+     </li>
+     <li class="">
+      <a href="06. CTRV Integral 2.html">
+       06. CTRV Integral 2
+      </a>
+     </li>
+     <li class="">
+      <a href="07. CTRV Zero Yaw Rate.html">
+       07. CTRV Zero Yaw Rate
+      </a>
+     </li>
+     <li class="">
+      <a href="08. CTRV Process Noise Vector.html">
+       08. CTRV Process Noise Vector
+      </a>
+     </li>
+     <li class="">
+      <a href="09. CTRV Process Noise Position.html">
+       09. CTRV Process Noise Position
+      </a>
+     </li>
+     <li class="">
+      <a href="10. UKF Process Chain.html">
+       10. UKF Process Chain
+      </a>
+     </li>
+     <li class="">
+      <a href="11. What Problem Does the UKF Solve.html">
+       11. What Problem Does the UKF Solve?
+      </a>
+     </li>
+     <li class="">
+      <a href="12. UKF Basics Unscented Transformation.html">
+       12. UKF Basics Unscented Transformation
+      </a>
+     </li>
+     <li class="">
+      <a href="13. Generating Sigma Points.html">
+       13. Generating Sigma Points
+      </a>
+     </li>
+     <li class="">
+      <a href="14. Generating Sigma Points Assignment 1.html">
+       14. Generating Sigma Points Assignment 1
+      </a>
+     </li>
+     <li class="">
+      <a href="15. Generating Sigma Points Assignment 2.html">
+       15. Generating Sigma Points Assignment 2
+      </a>
+     </li>
+     <li class="">
+      <a href="16. UKF Augmentation.html">
+       16. UKF Augmentation
+      </a>
+     </li>
+     <li class="">
+      <a href="17. Augmentation Assignment 1.html">
+       17. Augmentation Assignment 1
+      </a>
+     </li>
+     <li class="">
+      <a href="18. Augmentation Assignment 2.html">
+       18. Augmentation Assignment 2
+      </a>
+     </li>
+     <li class="">
+      <a href="19. Sigma Point Prediction.html">
+       19. Sigma Point Prediction
+      </a>
+     </li>
+     <li class="">
+      <a href="20. Sigma Point Prediction Assignment 1.html">
+       20. Sigma Point Prediction Assignment 1
+      </a>
+     </li>
+     <li class="">
+      <a href="21. Sigma Point Prediction Assignment 2.html">
+       21. Sigma Point Prediction Assignment 2
+      </a>
+     </li>
+     <li class="">
+      <a href="22. Predicted Mean and Covariance.html">
+       22. Predicted Mean and Covariance
+      </a>
+     </li>
+     <li class="">
+      <a href="23. Predicted Mean and Covariance Assignment 1.html">
+       23. Predicted Mean and Covariance Assignment 1
+      </a>
+     </li>
+     <li class="">
+      <a href="24. Predicted Mean and Covariance Assignment 2.html">
+       24. Predicted Mean and Covariance Assignment 2
+      </a>
+     </li>
+     <li class="">
+      <a href="25. Measurement Prediction.html">
+       25. Measurement Prediction
+      </a>
+     </li>
+     <li class="">
+      <a href="26. Predict Radar Measurement Assignment 1.html">
+       26. Predict Radar Measurement Assignment 1
+      </a>
+     </li>
+     <li class="">
+      <a href="27. Predict Radar Measurement Assignment 2.html">
+       27. Predict Radar Measurement Assignment 2
+      </a>
+     </li>
+     <li class="">
+      <a href="28. UKF Update.html">
+       28. UKF Update
+      </a>
+     </li>
+     <li class="">
+      <a href="29. UKF Update Assignment 1.html">
+       29. UKF Update Assignment 1
+      </a>
+     </li>
+     <li class="">
+      <a href="30. UKF Update Assignment 2.html">
+       30. UKF Update Assignment 2
+      </a>
+     </li>
+     <li class="">
+      <a href="31. Parameters and Consistency.html">
+       31. Parameters and Consistency
+      </a>
+     </li>
+     <li class="">
+      <a href="32. What to Expect from the Project.html">
+       32. What to Expect from the Project
+      </a>
+     </li>
+     <li class="">
+      <a href="33. Story Time.html">
+       33. Story Time
+      </a>
+     </li>
+     <li class="">
+      <a href="34. Outro.html">
+       34. Outro
+      </a>
+     </li>
+     <li class="">
+      <a href="35. Bonus Round Sensor Fusion [Optional].html">
+       35. Bonus Round: Sensor Fusion [Optional]
+      </a>
+     </li>
+    </ul>
+    <ul class="sidebar-list list-unstyled CTAs">
+     <li>
+      <a class="article" href="../index.html">
+       Back to Home
+      </a>
+     </li>
+    </ul>
+   </nav>
+   <div id="content">
+    <header class="container-fluild header">
+     <div class="container">
+      <div class="row">
+       <div class="col-12">
+        <div class="align-items-middle">
+         <button class="btn btn-toggle-sidebar" id="sidebarCollapse" type="button">
+          <div>
+          </div>
+          <div>
+          </div>
+          <div>
+          </div>
+         </button>
+         <h1 style="display: inline-block">
+          03. The CTRV Model State Vector
+         </h1>
+        </div>
+       </div>
+      </div>
+     </div>
+    </header>
+    <main class="container">
+     <div class="row">
+      <div class="col-12">
+       <div class="ud-atom">
+        <h3>
+         <p>
+          State Vector Introduction
+         </p>
+        </h3>
+        <video controls="">
+         <source src="03. State Vector Introduction-hLVz0YOhntA.mp4" type="video/mp4"/>
+         <track default="true" kind="subtitles" label="en" src="03. State Vector Introduction-hLVz0YOhntA.en.vtt" srclang="en"/>
+         <track default="false" kind="subtitles" label="zh-CN" src="03. State Vector Introduction-hLVz0YOhntA.zh-CN.vtt" srclang="zh-CN"/>
+        </video>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="A diagram of the CTRV model." class="img img-fluid" src="img/screenshot-from-2017-02-27-20-45-49.png"/>
+          <figcaption class="figure-caption">
+           <p>
+            A diagram of the CTRV model.
+           </p>
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <p>
+          In the following quizzes, you'll be using state vectors to draw qualitative observations about the motion of turning objects.
+         </p>
+         <h3 id="general-state-vector">
+          General State Vector
+         </h3>
+         <div class="mathquill">
+          x = \begin{bmatrix}
+p_x\\
+p_y\\
+v\\
+\psi\\
+\dot{\psi}
+\end{bmatrix}
+         </div>
+         <h3 id="state-vector-1">
+          State Vector 1
+         </h3>
+         <div class="mathquill">
+          x = \begin{bmatrix}
+2 \space m\\
+4 \space m\\
+7 \space m/s\\
+0.5 \space rad\\
+0.6 \space rad/s
+\end{bmatrix}
+         </div>
+         <h3 id="state-vector-2">
+          State Vector 2
+         </h3>
+         <div class="mathquill">
+          x = \begin{bmatrix}
+2 \space m\\
+4 \space m\\
+7 \space m/s\\
+0.5 \space rad\\
+0 \space rad/s
+\end{bmatrix}
+         </div>
+         <h3 id="state-vector-3">
+          State Vector 3
+         </h3>
+         <div class="mathquill">
+          x = \begin{bmatrix}
+2 \space m\\
+4 \space m\\
+9 \space m/s\\
+0.5 \space rad\\
+0.6 \space rad/s
+\end{bmatrix}
+         </div>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <form>
+          <fieldset>
+           <legend>
+            <p>
+             Which of the above (☝) state vector(s) represent(s) a car driving on a straight path?
+            </p>
+           </legend>
+          </fieldset>
+          <div>
+           <input id="a1488251589028" name="268720" type="checkbox" value="a1488251589028"/>
+           <label for="a1488251589028">
+            <p>
+             1
+            </p>
+           </label>
+          </div>
+          <div>
+           <input id="a1488251631059" name="268720" type="checkbox" value="a1488251631059"/>
+           <label for="a1488251631059">
+            <p>
+             2
+            </p>
+           </label>
+          </div>
+          <div>
+           <input id="a1488251632063" name="268720" type="checkbox" value="a1488251632063"/>
+           <label for="a1488251632063">
+            <p>
+             3
+            </p>
+           </label>
+          </div>
+         </form>
+         <details>
+          <summary>
+           <strong>
+            SOLUTION:
+           </strong>
+          </summary>
+          <ul>
+           <li>
+            2
+           </li>
+          </ul>
+         </details>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <form>
+          <fieldset>
+           <legend>
+            <p>
+             Which of the above state vectors has the smallest turning radius?
+            </p>
+           </legend>
+          </fieldset>
+          <div>
+           <input id="a1488252067691" name="268721" type="radio" value="a1488252067691"/>
+           <label for="a1488252067691">
+            <p>
+             1
+            </p>
+           </label>
+          </div>
+          <div>
+           <input id="a1488252095167" name="268721" type="radio" value="a1488252095167"/>
+           <label for="a1488252095167">
+            <p>
+             2
+            </p>
+           </label>
+          </div>
+          <div>
+           <input id="a1488252096314" name="268721" type="radio" value="a1488252096314"/>
+           <label for="a1488252096314">
+            <p>
+             3
+            </p>
+           </label>
+          </div>
+         </form>
+         <details>
+          <summary>
+           <strong>
+            SOLUTION:
+           </strong>
+          </summary>
+          1
+         </details>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+      </div>
+      <div class="col-12">
+       <p class="text-right">
+        <a class="btn btn-outline-primary mt-4" href="04. CTRV Differential Equation.html" role="button">
+         Next Concept
+        </a>
+       </p>
+      </div>
+     </div>
+    </main>
+    <footer class="footer">
+     <div class="container">
+      <div class="row">
+       <div class="col-12">
+        <p class="text-center">
+         udacity2.0 If you need the newest courses Plase add me wechat: udacity6
+        </p>
+       </div>
+      </div>
+     </div>
+    </footer>
+   </div>
+  </div>
+  <script src="../assets/js/jquery-3.3.1.min.js">
+  </script>
+  <script src="../assets/js/plyr.polyfilled.min.js">
+  </script>
+  <script src="../assets/js/bootstrap.min.js">
+  </script>
+  <script src="../assets/js/jquery.mCustomScrollbar.concat.min.js">
+  </script>
+  <script src="../assets/js/katex.min.js">
+  </script>
+  <script>
+   // Initialize Plyr video players
+    const players = Array.from(document.querySelectorAll('video')).map(p => new Plyr(p));
+
+    // render math equations
+    let elMath = document.getElementsByClassName('mathquill');
+    for (let i = 0, len = elMath.length; i < len; i += 1) {
+      const el = elMath[i];
+
+      katex.render(el.textContent, el, {
+        throwOnError: false
+      });
+    }
+
+    // this hack will make sure Bootstrap tabs work when using Handlebars
+    if ($('#question-tabs').length && $('#user-answer-tabs').length) {
+      $("#question-tabs a.nav-link").on('click', function () {
+        $("#question-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+      $("#user-answer-tabs a.nav-link").on('click', function () {
+        $("#user-answer-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    } else {
+      $("a.nav-link").on('click', function () {
+        $(".tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    }
+
+    // side bar events
+    $(document).ready(function () {
+      $("#sidebar").mCustomScrollbar({
+        theme: "minimal"
+      });
+
+      $('#sidebarCollapse').on('click', function () {
+        $('#sidebar, #content').toggleClass('active');
+        $('.collapse.in').toggleClass('in');
+        $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+      });
+
+      // scroll to first video on page loading
+      if ($('video').length) {
+        $('html,body').animate({ scrollTop: $('div.plyr').prev().offset().top});
+      }
+
+      // auto play first video: this may not work with chrome/safari due to autoplay policy
+      if (players && players.length > 0) {
+        players[0].play();
+      }
+
+      // scroll sidebar to current concept
+      const currentInSideBar = $( "ul.sidebar-list.components li a:contains('03. The CTRV Model State Vector')" )
+      currentInSideBar.css( "text-decoration", "underline" );
+      $("#sidebar").mCustomScrollbar('scrollTo', currentInSideBar);
+    });
+  </script>
+ </body>
+</html>

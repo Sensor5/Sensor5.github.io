@@ -1,0 +1,103 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:04.245
+Now, let's look at the influence of the noise vector on the position.
+
+00:00:04.245 --> 00:00:07.349
+For this, I will zoom in to our object.
+
+00:00:07.349 --> 00:00:10.589
+This is where our object is at time step k,
+
+00:00:10.589 --> 00:00:14.969
+and this is where our object is at time step k plus one,
+
+00:00:14.970 --> 00:00:17.234
+without any acceleration noise.
+
+00:00:17.234 --> 00:00:23.550
+Clearly, the yaw acceleration noise will change the radius of the circle we are driving.
+
+00:00:23.550 --> 00:00:28.289
+So, the yaw acceleration does have some influence on to the position.
+
+00:00:28.289 --> 00:00:30.839
+If the yaw acceleration is positive,
+
+00:00:30.839 --> 00:00:32.700
+we might end up here.
+
+00:00:32.700 --> 00:00:34.915
+If the yaw acceleration is negative,
+
+00:00:34.914 --> 00:00:36.560
+we might end up here.
+
+00:00:36.560 --> 00:00:40.609
+However, we assume the effect of the yaw acceleration on
+
+00:00:40.609 --> 00:00:44.689
+the position is relatively small in comparison to other factors,
+
+00:00:44.689 --> 00:00:47.000
+and we will neglect here.
+
+00:00:47.000 --> 00:00:52.189
+Now, let's look at the effect of the longitudinal acceleration noise on the position.
+
+00:00:52.189 --> 00:00:55.009
+The exact calculation is pretty straight forward.
+
+00:00:55.009 --> 00:00:58.309
+You have to go back to the differential equation where we started.
+
+00:00:58.310 --> 00:01:01.460
+But this time, instead of a constant velocity,
+
+00:01:01.460 --> 00:01:04.670
+you would need to assume a constant acceleration and then,
+
+00:01:04.670 --> 00:01:06.935
+solve the integral for that case.
+
+00:01:06.935 --> 00:01:10.609
+This is absolutely doable and you are welcome to give it a try,
+
+00:01:10.609 --> 00:01:12.724
+but it takes some time.
+
+00:01:12.724 --> 00:01:14.989
+I want to speed things up a little bit,
+
+00:01:14.989 --> 00:01:17.974
+so we can go into the uncentered Kalman filter sooner.
+
+00:01:17.974 --> 00:01:21.019
+So, I suggest using an approximation here,
+
+00:01:21.019 --> 00:01:25.324
+which is really easy but it's still pretty close to the exact solution.
+
+00:01:25.325 --> 00:01:27.935
+What we will use as an approximation,
+
+00:01:27.935 --> 00:01:33.820
+is the acceleration offset of a car driving exactly straight, like here.
+
+00:01:33.819 --> 00:01:36.314
+This approximation will be okay,
+
+00:01:36.314 --> 00:01:39.715
+as long as the [inaudible] is not too high.
+
+00:01:39.715 --> 00:01:42.305
+Can you tell me in the next quiz,
+
+00:01:42.305 --> 00:01:46.765
+what the acceleration offset in px and py would be,
+
+00:01:46.765 --> 00:01:50.239
+if the car drove perfectly straight?
+

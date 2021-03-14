@@ -1,0 +1,63 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.430 --> 00:00:04.780
+What we have introduced so far was the
+deterministic part of the process model.
+
+00:00:06.170 --> 00:00:11.020
+But of course, we also need to consider
+the stochastic part of the process model
+
+00:00:11.020 --> 00:00:15.070
+and that has something to do
+with the process noise nu k.
+
+00:00:15.070 --> 00:00:20.450
+We will describe the uncertainty of
+the process model with a two-dimensional
+
+00:00:20.450 --> 00:00:25.320
+noise vector nu k, consisting of two
+independent scalar noise processes.
+
+00:00:25.320 --> 00:00:29.910
+The first noise process is the
+longitudinal acceleration noise nu a.
+
+00:00:29.910 --> 00:00:33.230
+It influences the longitudinal
+speed of the vehicle and
+
+00:00:33.230 --> 00:00:36.970
+it randomly changes its
+value at every time step k.
+
+00:00:36.970 --> 00:00:41.550
+The longitudinal acceleration
+is a normally distributed white
+
+00:00:41.550 --> 00:00:47.320
+noise with zero mean and
+the variance sigma a squared.
+
+00:00:47.320 --> 00:00:51.540
+The other noise process is the yaw
+acceleration nu-psi-dot-dot.
+
+00:00:51.540 --> 00:00:56.808
+It is also a normally-distributed
+white noise with zero mean and
+
+00:00:56.808 --> 00:01:00.851
+it has the variance sigma
+psi dot dot squared.
+
+00:01:00.851 --> 00:01:05.765
+And what I want to discuss with you
+next is how the noise vector nu k
+
+00:01:05.765 --> 00:01:08.320
+influences our process model.
+

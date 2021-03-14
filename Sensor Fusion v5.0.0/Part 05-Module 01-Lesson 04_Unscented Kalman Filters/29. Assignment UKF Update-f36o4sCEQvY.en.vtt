@@ -1,0 +1,76 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.470 --> 00:00:03.870
+Welcome to the last coding
+quiz before the project.
+
+00:00:03.870 --> 00:00:07.378
+What we want to calculate this time
+is the updated state x and
+
+00:00:07.378 --> 00:00:10.530
+the updated covariance matrix P.
+
+00:00:10.530 --> 00:00:13.850
+We need a lot of
+pre-calculated data this time.
+
+00:00:13.850 --> 00:00:17.160
+These are the predicted sigma
+points in the state space.
+
+00:00:17.160 --> 00:00:21.890
+This is the predicted state mean and
+the state prediction covariance.
+
+00:00:21.890 --> 00:00:24.920
+You can use this variable x again, and
+
+00:00:24.920 --> 00:00:27.520
+override it later with
+the updated state.
+
+00:00:27.520 --> 00:00:28.550
+The same is true for
+
+00:00:28.550 --> 00:00:33.110
+the variable P, override this one
+with the updated covariance matrix.
+
+00:00:34.310 --> 00:00:37.269
+Here we have the predicted sigma
+points in the measurement space.
+
+00:00:38.320 --> 00:00:41.720
+This is the predicted
+measurement mean and
+
+00:00:41.720 --> 00:00:44.110
+this is the covariance of
+the measurement prediction.
+
+00:00:45.230 --> 00:00:48.530
+And of course, you need some values for
+the actual measurement z.
+
+00:00:49.720 --> 00:00:52.225
+Here you can store your
+intermediate results for
+
+00:00:52.225 --> 00:00:53.985
+the cross correlation matrix T.
+
+00:00:55.625 --> 00:01:00.445
+Again, make sure to use the variable
+x and the variable P to store your
+
+00:01:00.445 --> 00:01:03.925
+updated state and
+your updated covariance matrix.
+
+00:01:03.925 --> 00:01:06.625
+All right,
+good luck with this final coding quiz.
+

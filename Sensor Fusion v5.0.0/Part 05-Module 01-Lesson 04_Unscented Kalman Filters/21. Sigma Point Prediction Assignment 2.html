@@ -1,0 +1,615 @@
+<!-- udacimak v1.4.4 -->
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <meta content="ie=edge" http-equiv="X-UA-Compatible"/>
+  <title>
+   Sigma Point Prediction Assignment 2
+  </title>
+  <link href="../assets/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="../assets/css/plyr.css" rel="stylesheet"/>
+  <link href="../assets/css/katex.min.css" rel="stylesheet"/>
+  <link href="../assets/css/jquery.mCustomScrollbar.min.css" rel="stylesheet"/>
+  <link href="../assets/css/styles.css" rel="stylesheet"/>
+  <link href="../assets/img/udacimak.png" rel="shortcut icon" type="image/png">
+  </link>
+ </head>
+ <body>
+  <div class="wrapper">
+   <nav id="sidebar">
+    <div class="sidebar-header">
+     <h3>
+      Unscented Kalman Filters
+     </h3>
+    </div>
+    <ul class="sidebar-list list-unstyled CTAs">
+     <li>
+      <a class="article" href="../index.html">
+       Back to Home
+      </a>
+     </li>
+    </ul>
+    <ul class="sidebar-list list-unstyled components">
+     <li class="">
+      <a href="01. Introduction.html">
+       01. Introduction
+      </a>
+     </li>
+     <li class="">
+      <a href="02. The CTRV Model.html">
+       02. The CTRV Model
+      </a>
+     </li>
+     <li class="">
+      <a href="03. The CTRV Model State Vector.html">
+       03. The CTRV Model State Vector
+      </a>
+     </li>
+     <li class="">
+      <a href="04. CTRV Differential Equation.html">
+       04. CTRV Differential Equation
+      </a>
+     </li>
+     <li class="">
+      <a href="05. CTRV Integral 1.html">
+       05. CTRV Integral 1
+      </a>
+     </li>
+     <li class="">
+      <a href="06. CTRV Integral 2.html">
+       06. CTRV Integral 2
+      </a>
+     </li>
+     <li class="">
+      <a href="07. CTRV Zero Yaw Rate.html">
+       07. CTRV Zero Yaw Rate
+      </a>
+     </li>
+     <li class="">
+      <a href="08. CTRV Process Noise Vector.html">
+       08. CTRV Process Noise Vector
+      </a>
+     </li>
+     <li class="">
+      <a href="09. CTRV Process Noise Position.html">
+       09. CTRV Process Noise Position
+      </a>
+     </li>
+     <li class="">
+      <a href="10. UKF Process Chain.html">
+       10. UKF Process Chain
+      </a>
+     </li>
+     <li class="">
+      <a href="11. What Problem Does the UKF Solve.html">
+       11. What Problem Does the UKF Solve?
+      </a>
+     </li>
+     <li class="">
+      <a href="12. UKF Basics Unscented Transformation.html">
+       12. UKF Basics Unscented Transformation
+      </a>
+     </li>
+     <li class="">
+      <a href="13. Generating Sigma Points.html">
+       13. Generating Sigma Points
+      </a>
+     </li>
+     <li class="">
+      <a href="14. Generating Sigma Points Assignment 1.html">
+       14. Generating Sigma Points Assignment 1
+      </a>
+     </li>
+     <li class="">
+      <a href="15. Generating Sigma Points Assignment 2.html">
+       15. Generating Sigma Points Assignment 2
+      </a>
+     </li>
+     <li class="">
+      <a href="16. UKF Augmentation.html">
+       16. UKF Augmentation
+      </a>
+     </li>
+     <li class="">
+      <a href="17. Augmentation Assignment 1.html">
+       17. Augmentation Assignment 1
+      </a>
+     </li>
+     <li class="">
+      <a href="18. Augmentation Assignment 2.html">
+       18. Augmentation Assignment 2
+      </a>
+     </li>
+     <li class="">
+      <a href="19. Sigma Point Prediction.html">
+       19. Sigma Point Prediction
+      </a>
+     </li>
+     <li class="">
+      <a href="20. Sigma Point Prediction Assignment 1.html">
+       20. Sigma Point Prediction Assignment 1
+      </a>
+     </li>
+     <li class="">
+      <a href="21. Sigma Point Prediction Assignment 2.html">
+       21. Sigma Point Prediction Assignment 2
+      </a>
+     </li>
+     <li class="">
+      <a href="22. Predicted Mean and Covariance.html">
+       22. Predicted Mean and Covariance
+      </a>
+     </li>
+     <li class="">
+      <a href="23. Predicted Mean and Covariance Assignment 1.html">
+       23. Predicted Mean and Covariance Assignment 1
+      </a>
+     </li>
+     <li class="">
+      <a href="24. Predicted Mean and Covariance Assignment 2.html">
+       24. Predicted Mean and Covariance Assignment 2
+      </a>
+     </li>
+     <li class="">
+      <a href="25. Measurement Prediction.html">
+       25. Measurement Prediction
+      </a>
+     </li>
+     <li class="">
+      <a href="26. Predict Radar Measurement Assignment 1.html">
+       26. Predict Radar Measurement Assignment 1
+      </a>
+     </li>
+     <li class="">
+      <a href="27. Predict Radar Measurement Assignment 2.html">
+       27. Predict Radar Measurement Assignment 2
+      </a>
+     </li>
+     <li class="">
+      <a href="28. UKF Update.html">
+       28. UKF Update
+      </a>
+     </li>
+     <li class="">
+      <a href="29. UKF Update Assignment 1.html">
+       29. UKF Update Assignment 1
+      </a>
+     </li>
+     <li class="">
+      <a href="30. UKF Update Assignment 2.html">
+       30. UKF Update Assignment 2
+      </a>
+     </li>
+     <li class="">
+      <a href="31. Parameters and Consistency.html">
+       31. Parameters and Consistency
+      </a>
+     </li>
+     <li class="">
+      <a href="32. What to Expect from the Project.html">
+       32. What to Expect from the Project
+      </a>
+     </li>
+     <li class="">
+      <a href="33. Story Time.html">
+       33. Story Time
+      </a>
+     </li>
+     <li class="">
+      <a href="34. Outro.html">
+       34. Outro
+      </a>
+     </li>
+     <li class="">
+      <a href="35. Bonus Round Sensor Fusion [Optional].html">
+       35. Bonus Round: Sensor Fusion [Optional]
+      </a>
+     </li>
+    </ul>
+    <ul class="sidebar-list list-unstyled CTAs">
+     <li>
+      <a class="article" href="../index.html">
+       Back to Home
+      </a>
+     </li>
+    </ul>
+   </nav>
+   <div id="content">
+    <header class="container-fluild header">
+     <div class="container">
+      <div class="row">
+       <div class="col-12">
+        <div class="align-items-middle">
+         <button class="btn btn-toggle-sidebar" id="sidebarCollapse" type="button">
+          <div>
+          </div>
+          <div>
+          </div>
+          <div>
+          </div>
+         </button>
+         <h1 style="display: inline-block">
+          21. Sigma Point Prediction Assignment 2
+         </h1>
+        </div>
+       </div>
+      </div>
+     </div>
+    </header>
+    <main class="container">
+     <div class="row">
+      <div class="col-12">
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h3 id="solution">
+          Solution
+         </h3>
+         <p>
+          In this case, the solution is the CTRV process model implemented with C++. The solution is in the code editor below. Feel free to play with it!
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h4>
+          Start Quiz:
+         </h4>
+         <div>
+          <div class="nav nav-tabs nav-fill" id="question-tabs" role="tablist">
+           <a aria-controls="268692-main-cpp" aria-selected="true" class="nav-item nav-link active show" data-toggle="tab" href="#268692-main-cpp" id="tab-268692-main-cpp" role="tab">
+            main.cpp
+           </a>
+           <a aria-controls="268692-ukf-cpp" aria-selected="false" class="nav-item nav-link" data-toggle="tab" href="#268692-ukf-cpp" id="tab-268692-ukf-cpp" role="tab">
+            ukf.cpp
+           </a>
+           <a aria-controls="268692-ukf-h" aria-selected="false" class="nav-item nav-link" data-toggle="tab" href="#268692-ukf-h" id="tab-268692-ukf-h" role="tab">
+            ukf.h
+           </a>
+          </div>
+          <div class="tab-content" id="question-tab-contents" style="padding: 20px 0;">
+           <div aria-labelledby="tab-268692-main-cpp" class="tab-pane active show" id="268692-main-cpp" role="tabpanel">
+            <pre><code></code>#include "Dense"
+#include "ukf.h"
+
+using Eigen::MatrixXd;
+
+int main() {
+
+  // Create a UKF instance
+  UKF ukf;
+
+  /**
+   * Programming assignment calls
+   */
+  MatrixXd Xsig_pred = MatrixXd(15, 5);
+  ukf.SigmaPointPrediction(&amp;Xsig_pred);
+
+  return 0;
+}</pre>
+           </div>
+           <div aria-labelledby="tab-268692-ukf-cpp" class="tab-pane" id="268692-ukf-cpp" role="tabpanel">
+            <pre><code></code>#include &lt;iostream&gt;
+#include "ukf.h"
+
+using Eigen::MatrixXd;
+using Eigen::VectorXd;
+
+UKF::UKF() {
+  Init();
+}
+
+UKF::~UKF() {
+
+}
+
+void UKF::Init() {
+
+}
+
+
+/**
+ * Programming assignment functions: 
+ */
+
+void UKF::SigmaPointPrediction(MatrixXd* Xsig_out) {
+
+  // set state dimension
+  int n_x = 5;
+
+  // set augmented dimension
+  int n_aug = 7;
+
+  // create example sigma point matrix
+  MatrixXd Xsig_aug = MatrixXd(n_aug, 2 * n_aug + 1);
+  Xsig_aug &lt;&lt;
+    5.7441,  5.85768,   5.7441,   5.7441,   5.7441,   5.7441,   5.7441,   5.7441,   5.63052,   5.7441,   5.7441,   5.7441,   5.7441,   5.7441,   5.7441,
+      1.38,  1.34566,  1.52806,     1.38,     1.38,     1.38,     1.38,     1.38,   1.41434,  1.23194,     1.38,     1.38,     1.38,     1.38,     1.38,
+    2.2049,  2.28414,  2.24557,  2.29582,   2.2049,   2.2049,   2.2049,   2.2049,   2.12566,  2.16423,  2.11398,   2.2049,   2.2049,   2.2049,   2.2049,
+    0.5015,  0.44339, 0.631886, 0.516923, 0.595227,   0.5015,   0.5015,   0.5015,   0.55961, 0.371114, 0.486077, 0.407773,   0.5015,   0.5015,   0.5015,
+    0.3528, 0.299973, 0.462123, 0.376339,  0.48417, 0.418721,   0.3528,   0.3528,  0.405627, 0.243477, 0.329261,  0.22143, 0.286879,   0.3528,   0.3528,
+         0,        0,        0,        0,        0,        0,  0.34641,        0,         0,        0,        0,        0,        0, -0.34641,        0,
+         0,        0,        0,        0,        0,        0,        0,  0.34641,         0,        0,        0,        0,        0,        0, -0.34641;
+
+  // create matrix with predicted sigma points as columns
+  MatrixXd Xsig_pred = MatrixXd(n_x, 2 * n_aug + 1);
+
+  double delta_t = 0.1; // time diff in sec
+
+  /**
+   * Student part begin
+   */
+
+  // predict sigma points
+  for (int i = 0; i&lt; 2*n_aug+1; ++i) {
+    // extract values for better readability
+    double p_x = Xsig_aug(0,i);
+    double p_y = Xsig_aug(1,i);
+    double v = Xsig_aug(2,i);
+    double yaw = Xsig_aug(3,i);
+    double yawd = Xsig_aug(4,i);
+    double nu_a = Xsig_aug(5,i);
+    double nu_yawdd = Xsig_aug(6,i);
+
+    // predicted state values
+    double px_p, py_p;
+
+    // avoid division by zero
+    if (fabs(yawd) &gt; 0.001) {
+        px_p = p_x + v/yawd * ( sin (yaw + yawd*delta_t) - sin(yaw));
+        py_p = p_y + v/yawd * ( cos(yaw) - cos(yaw+yawd*delta_t) );
+    } else {
+        px_p = p_x + v*delta_t*cos(yaw);
+        py_p = p_y + v*delta_t*sin(yaw);
+    }
+
+    double v_p = v;
+    double yaw_p = yaw + yawd*delta_t;
+    double yawd_p = yawd;
+
+    // add noise
+    px_p = px_p + 0.5*nu_a*delta_t*delta_t * cos(yaw);
+    py_p = py_p + 0.5*nu_a*delta_t*delta_t * sin(yaw);
+    v_p = v_p + nu_a*delta_t;
+
+    yaw_p = yaw_p + 0.5*nu_yawdd*delta_t*delta_t;
+    yawd_p = yawd_p + nu_yawdd*delta_t;
+
+    // write predicted sigma point into right column
+    Xsig_pred(0,i) = px_p;
+    Xsig_pred(1,i) = py_p;
+    Xsig_pred(2,i) = v_p;
+    Xsig_pred(3,i) = yaw_p;
+    Xsig_pred(4,i) = yawd_p;
+  }
+
+  /**
+   * Student part end
+   */
+
+  // print result
+  std::cout &lt;&lt; "Xsig_pred = " &lt;&lt; std::endl &lt;&lt; Xsig_pred &lt;&lt; std::endl;
+
+  // write result
+  *Xsig_out = Xsig_pred;
+}</pre>
+           </div>
+           <div aria-labelledby="tab-268692-ukf-h" class="tab-pane" id="268692-ukf-h" role="tabpanel">
+            <pre><code></code>#ifndef UKF_H
+#define UKF_H
+
+#include "Dense"
+
+class UKF {
+ public:
+  /**
+   * Constructor
+   */
+  UKF();
+
+  /**
+   * Destructor
+   */
+  virtual ~UKF();
+
+  /**
+   * Init Initializes Unscented Kalman filter
+   */
+  void Init();
+
+  /**
+   * Student assignment functions
+   */
+  void GenerateSigmaPoints(Eigen::MatrixXd* Xsig_out);
+  void AugmentedSigmaPoints(Eigen::MatrixXd* Xsig_out);
+  void SigmaPointPrediction(Eigen::MatrixXd* Xsig_out);
+  void PredictMeanAndCovariance(Eigen::VectorXd* x_pred, 
+                                Eigen::MatrixXd* P_pred);
+  void PredictRadarMeasurement(Eigen::VectorXd* z_out, 
+                               Eigen::MatrixXd* S_out);
+  void UpdateState(Eigen::VectorXd* x_out, 
+                   Eigen::MatrixXd* P_out);
+};
+
+#endif  // UKF_H</pre>
+           </div>
+          </div>
+         </div>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h3 id="note">
+          Note:
+         </h3>
+         <p>
+          Some students have noticed that transposing initialized dimensions for
+          <code>
+           MatrixXd(15, 5)
+          </code>
+          produces the same result.  This is due to the manner in which arguments are passed.
+         </p>
+         <p>
+          In
+          <code>
+           ukf.cpp
+          </code>
+          , a pointer is being passed as a function argument not as a reference:
+         </p>
+         <pre><code>void UKF::GenerateSigmaPoints(MatrixXd* Xsig_out) {
+     ..... other code ...
+
+    //write result
+    *Xsig_out = Xsig;</code></pre>
+         <p>
+          Ultimately, we change the contents of the memory location which points to
+          <code>
+           Xsig_out
+          </code>
+          . That is why in this case the initialized dimensions are interchangeable.
+         </p>
+         <p>
+          See
+          <a href="https://s3-us-west-1.amazonaws.com/udacity-selfdrivingcar/forum_archive/Sigma+Point+post.pdf" rel="noopener noreferrer" target="_blank">
+           this post
+          </a>
+          for more detail.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h3 id="expected-result">
+          expected result:
+         </h3>
+         <p>
+          Xsig_pred =
+         </p>
+         <p>
+          5.93553  6.06251  5.92217   5.9415  5.92361  5.93516  5.93705  5.93553  5.80832  5.94481  5.92935  5.94553  5.93589  5.93401  5.93553
+         </p>
+         <p>
+          1.48939  1.44673  1.66484  1.49719    1.508  1.49001  1.49022  1.48939   1.5308  1.31287  1.48182  1.46967  1.48876  1.48855  1.48939
+         </p>
+         <p>
+          2.2049  2.28414  2.24557  2.29582   2.2049   2.2049  2.23954   2.2049  2.12566  2.16423  2.11398   2.2049   2.2049  2.17026   2.2049
+         </p>
+         <p>
+          0.53678 0.473387 0.678098 0.554557 0.643644 0.543372  0.53678 0.538512 0.600173 0.395462 0.519003 0.429916 0.530188  0.53678 0.535048
+         </p>
+         <p>
+          0.3528 0.299973 0.462123 0.376339  0.48417 0.418721   0.3528 0.387441 0.405627 0.243477 0.329261  0.22143 0.286879   0.3528 0.318159
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+      </div>
+      <div class="col-12">
+       <p class="text-right">
+        <a class="btn btn-outline-primary mt-4" href="22. Predicted Mean and Covariance.html" role="button">
+         Next Concept
+        </a>
+       </p>
+      </div>
+     </div>
+    </main>
+    <footer class="footer">
+     <div class="container">
+      <div class="row">
+       <div class="col-12">
+        <p class="text-center">
+         udacity2.0 If you need the newest courses Plase add me wechat: udacity6
+        </p>
+       </div>
+      </div>
+     </div>
+    </footer>
+   </div>
+  </div>
+  <script src="../assets/js/jquery-3.3.1.min.js">
+  </script>
+  <script src="../assets/js/plyr.polyfilled.min.js">
+  </script>
+  <script src="../assets/js/bootstrap.min.js">
+  </script>
+  <script src="../assets/js/jquery.mCustomScrollbar.concat.min.js">
+  </script>
+  <script src="../assets/js/katex.min.js">
+  </script>
+  <script>
+   // Initialize Plyr video players
+    const players = Array.from(document.querySelectorAll('video')).map(p => new Plyr(p));
+
+    // render math equations
+    let elMath = document.getElementsByClassName('mathquill');
+    for (let i = 0, len = elMath.length; i < len; i += 1) {
+      const el = elMath[i];
+
+      katex.render(el.textContent, el, {
+        throwOnError: false
+      });
+    }
+
+    // this hack will make sure Bootstrap tabs work when using Handlebars
+    if ($('#question-tabs').length && $('#user-answer-tabs').length) {
+      $("#question-tabs a.nav-link").on('click', function () {
+        $("#question-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+      $("#user-answer-tabs a.nav-link").on('click', function () {
+        $("#user-answer-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    } else {
+      $("a.nav-link").on('click', function () {
+        $(".tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    }
+
+    // side bar events
+    $(document).ready(function () {
+      $("#sidebar").mCustomScrollbar({
+        theme: "minimal"
+      });
+
+      $('#sidebarCollapse').on('click', function () {
+        $('#sidebar, #content').toggleClass('active');
+        $('.collapse.in').toggleClass('in');
+        $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+      });
+
+      // scroll to first video on page loading
+      if ($('video').length) {
+        $('html,body').animate({ scrollTop: $('div.plyr').prev().offset().top});
+      }
+
+      // auto play first video: this may not work with chrome/safari due to autoplay policy
+      if (players && players.length > 0) {
+        players[0].play();
+      }
+
+      // scroll sidebar to current concept
+      const currentInSideBar = $( "ul.sidebar-list.components li a:contains('21. Sigma Point Prediction Assignment 2')" )
+      currentInSideBar.css( "text-decoration", "underline" );
+      $("#sidebar").mCustomScrollbar('scrollTo', currentInSideBar);
+    });
+  </script>
+ </body>
+</html>

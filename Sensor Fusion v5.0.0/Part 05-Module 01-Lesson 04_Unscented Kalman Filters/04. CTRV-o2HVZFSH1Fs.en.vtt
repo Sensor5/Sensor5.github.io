@@ -1,0 +1,116 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.370 --> 00:00:03.500
+Now, let's take a look at how
+the assumption of a circular motion
+
+00:00:03.500 --> 00:00:05.190
+leads to a process model.
+
+00:00:05.190 --> 00:00:08.270
+So in this example,
+at time k, the car's here.
+
+00:00:08.270 --> 00:00:13.935
+The goal of the process model f is to
+predict where the car is at time k + 1.
+
+00:00:13.935 --> 00:00:16.531
+Written as an equation,
+it looks like this.
+
+00:00:16.531 --> 00:00:20.960
+The process model f predicts
+the state at time step k + 1.
+
+00:00:20.960 --> 00:00:23.020
+Given the state at time step k and
+
+00:00:23.020 --> 00:00:27.330
+a noise vector nu k,
+this is the function we want to find.
+
+00:00:27.330 --> 00:00:30.420
+What we want to do now is
+derive this process model.
+
+00:00:30.420 --> 00:00:34.010
+I will show you a very general and,
+therefore, powerful approach.
+
+00:00:34.010 --> 00:00:37.770
+You will be able to use this approach
+to derive process models for
+
+00:00:37.770 --> 00:00:40.650
+many, many real world problems.
+
+00:00:40.650 --> 00:00:44.290
+We cannot directly write down the
+process model simply by looking at this
+
+00:00:44.290 --> 00:00:45.250
+figure.
+
+00:00:45.250 --> 00:00:48.980
+But we can say something about
+the change rate of the state x,
+
+00:00:48.980 --> 00:00:50.130
+called x dot.
+
+00:00:51.300 --> 00:00:52.950
+&gt;From the geometric relations,
+
+00:00:52.950 --> 00:00:59.370
+we can directly derive how the change
+rate x dot depends on the state x.
+
+00:00:59.370 --> 00:01:01.650
+This is a differential equation.
+
+00:01:01.650 --> 00:01:05.650
+What I would like you to do now is
+derive this differential equation.
+
+00:01:05.650 --> 00:01:09.375
+The goal is to express each of
+the five time derivatives of the state,
+
+00:01:09.375 --> 00:01:12.530
+a dependency of any of
+the state elements.
+
+00:01:12.530 --> 00:01:18.710
+I'll show you an example, Px dot is
+the same as the velocity in x direction.
+
+00:01:18.710 --> 00:01:21.560
+Unfortunately, the velocity
+in x direction
+
+00:01:21.560 --> 00:01:26.450
+is not part of the state vector,
+otherwise, I would be finished already.
+
+00:01:26.450 --> 00:01:30.220
+But the speed V and the yawing of psi
+are both elements of the state vector.
+
+00:01:31.400 --> 00:01:34.610
+And if I look at this triangle,
+
+00:01:34.610 --> 00:01:39.217
+I can identify that Vx
+= cosine psi times V.
+
+00:01:39.217 --> 00:01:42.410
+Now, go ahead and
+pick the correct terms for
+
+00:01:42.410 --> 00:01:44.220
+the four remaining change
+rates of the state.
+

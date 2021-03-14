@@ -1,0 +1,67 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.540 --> 00:00:03.856
+We have the complete differential
+equation now, awesome.
+
+00:00:03.856 --> 00:00:07.090
+But how do we get from time
+step k to time step k+1?
+
+00:00:07.090 --> 00:00:13.930
+Let's say the discrete time step k
+relates to the continuous time value tk,
+
+00:00:13.930 --> 00:00:19.334
+and the discrete time step k+1 relates
+to the continuous time value tk + 1.
+
+00:00:19.334 --> 00:00:24.720
+The difference between tk +1 and
+tk is called delta t.
+
+00:00:24.720 --> 00:00:28.960
+Then this state at time k + 1
+is given by the state of time k,
+
+00:00:30.160 --> 00:00:36.370
+plus the integral over x-dot,
+from time tk to time tk + 1.
+
+00:00:36.370 --> 00:00:39.440
+This can potentially be
+a very complex calculation.
+
+00:00:39.440 --> 00:00:42.160
+But in the special case of the CTRV,
+
+00:00:42.160 --> 00:00:44.570
+this integral can be
+solved pretty easily.
+
+00:00:44.570 --> 00:00:48.060
+In the first two rows, I will just
+insert the terms of the differential
+
+00:00:48.060 --> 00:00:51.790
+equation without solving the integral,
+we will do this later.
+
+00:00:51.790 --> 00:00:55.240
+Let's start with the last three
+rows which are the easiest.
+
+00:00:55.240 --> 00:00:58.180
+Even if you don't really remember
+how to solve an integral,
+
+00:00:58.180 --> 00:01:02.050
+you still might be able to choose
+the correct answer in the quiz below.
+
+00:01:02.050 --> 00:01:05.780
+Remember we assume the yaw rate and
+the velocity are constant.
+

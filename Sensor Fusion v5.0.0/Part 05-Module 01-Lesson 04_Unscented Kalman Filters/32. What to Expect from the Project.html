@@ -1,0 +1,511 @@
+<!-- udacimak v1.4.4 -->
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <meta content="ie=edge" http-equiv="X-UA-Compatible"/>
+  <title>
+   What to Expect from the Project
+  </title>
+  <link href="../assets/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="../assets/css/plyr.css" rel="stylesheet"/>
+  <link href="../assets/css/katex.min.css" rel="stylesheet"/>
+  <link href="../assets/css/jquery.mCustomScrollbar.min.css" rel="stylesheet"/>
+  <link href="../assets/css/styles.css" rel="stylesheet"/>
+  <link href="../assets/img/udacimak.png" rel="shortcut icon" type="image/png">
+  </link>
+ </head>
+ <body>
+  <div class="wrapper">
+   <nav id="sidebar">
+    <div class="sidebar-header">
+     <h3>
+      Unscented Kalman Filters
+     </h3>
+    </div>
+    <ul class="sidebar-list list-unstyled CTAs">
+     <li>
+      <a class="article" href="../index.html">
+       Back to Home
+      </a>
+     </li>
+    </ul>
+    <ul class="sidebar-list list-unstyled components">
+     <li class="">
+      <a href="01. Introduction.html">
+       01. Introduction
+      </a>
+     </li>
+     <li class="">
+      <a href="02. The CTRV Model.html">
+       02. The CTRV Model
+      </a>
+     </li>
+     <li class="">
+      <a href="03. The CTRV Model State Vector.html">
+       03. The CTRV Model State Vector
+      </a>
+     </li>
+     <li class="">
+      <a href="04. CTRV Differential Equation.html">
+       04. CTRV Differential Equation
+      </a>
+     </li>
+     <li class="">
+      <a href="05. CTRV Integral 1.html">
+       05. CTRV Integral 1
+      </a>
+     </li>
+     <li class="">
+      <a href="06. CTRV Integral 2.html">
+       06. CTRV Integral 2
+      </a>
+     </li>
+     <li class="">
+      <a href="07. CTRV Zero Yaw Rate.html">
+       07. CTRV Zero Yaw Rate
+      </a>
+     </li>
+     <li class="">
+      <a href="08. CTRV Process Noise Vector.html">
+       08. CTRV Process Noise Vector
+      </a>
+     </li>
+     <li class="">
+      <a href="09. CTRV Process Noise Position.html">
+       09. CTRV Process Noise Position
+      </a>
+     </li>
+     <li class="">
+      <a href="10. UKF Process Chain.html">
+       10. UKF Process Chain
+      </a>
+     </li>
+     <li class="">
+      <a href="11. What Problem Does the UKF Solve.html">
+       11. What Problem Does the UKF Solve?
+      </a>
+     </li>
+     <li class="">
+      <a href="12. UKF Basics Unscented Transformation.html">
+       12. UKF Basics Unscented Transformation
+      </a>
+     </li>
+     <li class="">
+      <a href="13. Generating Sigma Points.html">
+       13. Generating Sigma Points
+      </a>
+     </li>
+     <li class="">
+      <a href="14. Generating Sigma Points Assignment 1.html">
+       14. Generating Sigma Points Assignment 1
+      </a>
+     </li>
+     <li class="">
+      <a href="15. Generating Sigma Points Assignment 2.html">
+       15. Generating Sigma Points Assignment 2
+      </a>
+     </li>
+     <li class="">
+      <a href="16. UKF Augmentation.html">
+       16. UKF Augmentation
+      </a>
+     </li>
+     <li class="">
+      <a href="17. Augmentation Assignment 1.html">
+       17. Augmentation Assignment 1
+      </a>
+     </li>
+     <li class="">
+      <a href="18. Augmentation Assignment 2.html">
+       18. Augmentation Assignment 2
+      </a>
+     </li>
+     <li class="">
+      <a href="19. Sigma Point Prediction.html">
+       19. Sigma Point Prediction
+      </a>
+     </li>
+     <li class="">
+      <a href="20. Sigma Point Prediction Assignment 1.html">
+       20. Sigma Point Prediction Assignment 1
+      </a>
+     </li>
+     <li class="">
+      <a href="21. Sigma Point Prediction Assignment 2.html">
+       21. Sigma Point Prediction Assignment 2
+      </a>
+     </li>
+     <li class="">
+      <a href="22. Predicted Mean and Covariance.html">
+       22. Predicted Mean and Covariance
+      </a>
+     </li>
+     <li class="">
+      <a href="23. Predicted Mean and Covariance Assignment 1.html">
+       23. Predicted Mean and Covariance Assignment 1
+      </a>
+     </li>
+     <li class="">
+      <a href="24. Predicted Mean and Covariance Assignment 2.html">
+       24. Predicted Mean and Covariance Assignment 2
+      </a>
+     </li>
+     <li class="">
+      <a href="25. Measurement Prediction.html">
+       25. Measurement Prediction
+      </a>
+     </li>
+     <li class="">
+      <a href="26. Predict Radar Measurement Assignment 1.html">
+       26. Predict Radar Measurement Assignment 1
+      </a>
+     </li>
+     <li class="">
+      <a href="27. Predict Radar Measurement Assignment 2.html">
+       27. Predict Radar Measurement Assignment 2
+      </a>
+     </li>
+     <li class="">
+      <a href="28. UKF Update.html">
+       28. UKF Update
+      </a>
+     </li>
+     <li class="">
+      <a href="29. UKF Update Assignment 1.html">
+       29. UKF Update Assignment 1
+      </a>
+     </li>
+     <li class="">
+      <a href="30. UKF Update Assignment 2.html">
+       30. UKF Update Assignment 2
+      </a>
+     </li>
+     <li class="">
+      <a href="31. Parameters and Consistency.html">
+       31. Parameters and Consistency
+      </a>
+     </li>
+     <li class="">
+      <a href="32. What to Expect from the Project.html">
+       32. What to Expect from the Project
+      </a>
+     </li>
+     <li class="">
+      <a href="33. Story Time.html">
+       33. Story Time
+      </a>
+     </li>
+     <li class="">
+      <a href="34. Outro.html">
+       34. Outro
+      </a>
+     </li>
+     <li class="">
+      <a href="35. Bonus Round Sensor Fusion [Optional].html">
+       35. Bonus Round: Sensor Fusion [Optional]
+      </a>
+     </li>
+    </ul>
+    <ul class="sidebar-list list-unstyled CTAs">
+     <li>
+      <a class="article" href="../index.html">
+       Back to Home
+      </a>
+     </li>
+    </ul>
+   </nav>
+   <div id="content">
+    <header class="container-fluild header">
+     <div class="container">
+      <div class="row">
+       <div class="col-12">
+        <div class="align-items-middle">
+         <button class="btn btn-toggle-sidebar" id="sidebarCollapse" type="button">
+          <div>
+          </div>
+          <div>
+          </div>
+          <div>
+          </div>
+         </button>
+         <h1 style="display: inline-block">
+          32. What to Expect from the Project
+         </h1>
+        </div>
+       </div>
+      </div>
+     </div>
+    </header>
+    <main class="container">
+     <div class="row">
+      <div class="col-12">
+       <div class="ud-atom">
+        <h3>
+         <p>
+          What to Expect from the Project
+         </p>
+        </h3>
+        <video controls="">
+         <source src="32. What to Expect from the Project-WAt_g6HgYvs.mp4" type="video/mp4"/>
+         <track default="false" kind="subtitles" label="zh-CN" src="32. What to Expect from the Project-WAt_g6HgYvs.zh-CN.vtt" srclang="zh-CN"/>
+         <track default="true" kind="subtitles" label="en" src="32. What to Expect from the Project-WAt_g6HgYvs.en.vtt" srclang="en"/>
+        </video>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h3 id="initializing-the-kalman-filter">
+          Initializing the Kalman Filter
+         </h3>
+         <p>
+          As discussed previously, the process noise parameters have an important effect on your Kalman filter; you will need to tune the longitudinal and yaw acceleration noise parameters as part of the project.
+         </p>
+         <p>
+          The initial values for your state variables will also affect your Kalman filter's performance. Both the:
+         </p>
+         <ul>
+          <li>
+           state vector
+           <strong>
+            x
+           </strong>
+           and the
+          </li>
+          <li>
+           state covariance matrix
+           <strong>
+            P
+           </strong>
+          </li>
+         </ul>
+         <p>
+          need to be initialized for the unscented Kalman filter to work properly.
+         </p>
+         <h4 id="initializing-the-state-vector-x">
+          Initializing the State Vector x
+         </h4>
+         <p>
+          The state vector
+          <strong>
+           x
+          </strong>
+          contains
+          <span class="mathquill ud-math">
+           x = [p_x,  p_y, v, \psi, \dot{\psi}]
+          </span>
+          .
+         </p>
+         <p>
+          You won't know where the bicycle is until you receive the first sensor measurement. Once the first sensor measurement arrives, you can initialize
+          <span class="mathquill ud-math">
+           p_x
+          </span>
+          and
+          <span class="mathquill ud-math">
+           p_y
+          </span>
+          .
+         </p>
+         <p>
+          For the other variables in the state vector
+          <strong>
+           x
+          </strong>
+          , you can try different initialization values to see what works best.
+         </p>
+         <p>
+          Note that although radar does include velocity information, the radar velocity and the CTRV velocity are not the same. Radar velocity is measured from the autonomous vehicle's perspective. If you drew a straight line from the vehicle to the bicycle, radar measures the velocity along that line.
+         </p>
+         <p>
+          In the CTRV model, the velocity is from the object's perspective, which in this case is the bicycle; the CTRV velocity is tangential to the circle along which the bicycle travels. Therefore, you cannot directly use the radar velocity measurement to initialize the state vector.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h4 id="initializing-the-state-covariance-matrix-p">
+          Initializing the State Covariance Matrix P
+         </h4>
+         <p>
+          To initialize the state covariance matrix
+          <strong>
+           P
+          </strong>
+          , one option is to start with the identity matrix. For the CTRV model,
+          <strong>
+           P
+          </strong>
+          is a 5x5 matrix. The identity matrix would be:
+         </p>
+         <div class="mathquill">
+          P_{\text initial} =  \begin{bmatrix}
+1 \qquad 0 \qquad 0 \qquad 0 \qquad 0 \\
+0 \qquad 1 \qquad 0 \qquad 0 \qquad 0 \\
+0 \qquad 0 \qquad 1 \qquad 0 \qquad 0 \\
+0 \qquad 0 \qquad 0 \qquad 1 \qquad 0 \\
+0 \qquad 0 \qquad 0 \qquad 0 \qquad 1
+\end{bmatrix}
+         </div>
+         <p>
+          Think back to what the state covariance matrix represents: take for example the value in the first row, second column. The value at (1, 2) would be the covariance
+          <span class="mathquill ud-math">
+           \large \sigma_{px, py}
+          </span>
+          measuring the linear relationship between the two variables.
+         </p>
+         <p>
+          The diagonal values represent the variances for each of the variables in the
+          <strong>
+           x
+          </strong>
+          state vector:
+          <span class="mathquill ud-math">
+           \large [\sigma^2_{p_x},  \sigma^2_{p_y}, \sigma^2_{v}, \sigma^2_{\psi}, \sigma^2_{\dot{\psi}}]
+          </span>
+          .
+         </p>
+         <p>
+          Why is the identity matrix a good place to start? Since the non-diagonal values represent the covariances between variables, the
+          <strong>
+           P
+          </strong>
+          matrix is symmetrical. The identity matrix is also symmetrical. The symmetry comes from the fact that the covariance between two variables is the same whether you look at (x, y) or (y, x):
+          <span class="mathquill ud-math">
+           \large \sigma_{px, py} = \sigma_{py, px}
+          </span>
+          . If you print out the
+          <strong>
+           P
+          </strong>
+          matrix in your UKF code, you will see that
+          <strong>
+           P
+          </strong>
+          remains symmetrical even after the matrix gets updated. If your solution is working, you will also see that P starts to converge to small values relatively quickly.
+         </p>
+         <p>
+          Instead of setting each of the diagonal values to 1, you can try setting the diagonal values by how much difference you expect between the true state and the initialized
+          <strong>
+           x
+          </strong>
+          state vector. For example, in the project, we assume the standard deviation of the lidar x and y measurements is 0.15. If we initialized
+          <span class="mathquill ud-math">
+           p_x
+          </span>
+          with a lidar measurement, the initial variance or uncertainty in
+          <br/>
+          <span class="mathquill ud-math">
+           p_x
+          </span>
+          would probably be less than 1.
+         </p>
+         <p>
+          You will have to experiment with different initialization values to find a working solution.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+      </div>
+      <div class="col-12">
+       <p class="text-right">
+        <a class="btn btn-outline-primary mt-4" href="33. Story Time.html" role="button">
+         Next Concept
+        </a>
+       </p>
+      </div>
+     </div>
+    </main>
+    <footer class="footer">
+     <div class="container">
+      <div class="row">
+       <div class="col-12">
+        <p class="text-center">
+         udacity2.0 If you need the newest courses Plase add me wechat: udacity6
+        </p>
+       </div>
+      </div>
+     </div>
+    </footer>
+   </div>
+  </div>
+  <script src="../assets/js/jquery-3.3.1.min.js">
+  </script>
+  <script src="../assets/js/plyr.polyfilled.min.js">
+  </script>
+  <script src="../assets/js/bootstrap.min.js">
+  </script>
+  <script src="../assets/js/jquery.mCustomScrollbar.concat.min.js">
+  </script>
+  <script src="../assets/js/katex.min.js">
+  </script>
+  <script>
+   // Initialize Plyr video players
+    const players = Array.from(document.querySelectorAll('video')).map(p => new Plyr(p));
+
+    // render math equations
+    let elMath = document.getElementsByClassName('mathquill');
+    for (let i = 0, len = elMath.length; i < len; i += 1) {
+      const el = elMath[i];
+
+      katex.render(el.textContent, el, {
+        throwOnError: false
+      });
+    }
+
+    // this hack will make sure Bootstrap tabs work when using Handlebars
+    if ($('#question-tabs').length && $('#user-answer-tabs').length) {
+      $("#question-tabs a.nav-link").on('click', function () {
+        $("#question-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+      $("#user-answer-tabs a.nav-link").on('click', function () {
+        $("#user-answer-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    } else {
+      $("a.nav-link").on('click', function () {
+        $(".tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    }
+
+    // side bar events
+    $(document).ready(function () {
+      $("#sidebar").mCustomScrollbar({
+        theme: "minimal"
+      });
+
+      $('#sidebarCollapse').on('click', function () {
+        $('#sidebar, #content').toggleClass('active');
+        $('.collapse.in').toggleClass('in');
+        $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+      });
+
+      // scroll to first video on page loading
+      if ($('video').length) {
+        $('html,body').animate({ scrollTop: $('div.plyr').prev().offset().top});
+      }
+
+      // auto play first video: this may not work with chrome/safari due to autoplay policy
+      if (players && players.length > 0) {
+        players[0].play();
+      }
+
+      // scroll sidebar to current concept
+      const currentInSideBar = $( "ul.sidebar-list.components li a:contains('32. What to Expect from the Project')" )
+      currentInSideBar.css( "text-decoration", "underline" );
+      $("#sidebar").mCustomScrollbar('scrollTo', currentInSideBar);
+    });
+  </script>
+ </body>
+</html>

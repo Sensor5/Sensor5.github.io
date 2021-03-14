@@ -1,0 +1,71 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.970 --> 00:00:03.990
+This time your goal is to
+predict the sigma points.
+
+00:00:03.990 --> 00:00:08.430
+So we start from a point where we
+already have the augmented sigma points.
+
+00:00:08.430 --> 00:00:11.930
+Let's quickly repeat the meaning
+of each of these points.
+
+00:00:11.930 --> 00:00:14.260
+This column is one sigma point.
+
+00:00:14.260 --> 00:00:17.180
+We have here a value for the position x.
+
+00:00:17.180 --> 00:00:20.960
+For the position y, for
+the velocity v, for
+
+00:00:20.960 --> 00:00:24.860
+the yaw angle psi, and
+for the yaw rate psi dot.
+
+00:00:26.150 --> 00:00:29.380
+This value is the longitudinal
+acceleration noise nu a.
+
+00:00:30.670 --> 00:00:34.360
+And this value is the yaw
+acceleration noise nu psi dot dot.
+
+00:00:35.570 --> 00:00:37.880
+The noise values are mostly 0.
+
+00:00:37.880 --> 00:00:40.080
+But not for all sigma points,
+as you can see here.
+
+00:00:41.150 --> 00:00:45.650
+Make sure to also put these two noise
+values correctly into the process model.
+
+00:00:45.650 --> 00:00:49.310
+This is the matrix you want to fill
+with with the predicted sigma points.
+
+00:00:49.310 --> 00:00:52.329
+And, of course, you need delta_t
+if you want to calculate numbers.
+
+00:00:54.270 --> 00:00:58.330
+The main thing you have to do here is
+implement the CTRV remodel into C++ code.
+
+00:00:59.820 --> 00:01:03.020
+Make sure to also consider
+the effect of the process noise, and
+
+00:01:03.020 --> 00:01:04.349
+to catch division by zero.
+
+00:01:05.540 --> 00:01:06.660
+All right, good luck.
+

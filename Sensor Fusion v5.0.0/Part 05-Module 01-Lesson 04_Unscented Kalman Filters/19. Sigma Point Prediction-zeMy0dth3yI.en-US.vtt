@@ -1,0 +1,84 @@
+WEBVTT
+Kind: captions
+Language: en-US
+
+00:00:00.760 --> 00:00:04.490
+You have now successfully mastered
+the generation of Sigma Points,
+
+00:00:04.490 --> 00:00:08.118
+and even implemented an example in C++.
+
+00:00:08.118 --> 00:00:11.460
+Really great job, and you know what?
+
+00:00:11.460 --> 00:00:13.300
+This was the most difficult and
+
+00:00:13.300 --> 00:00:17.679
+complicated part, all the remaining
+steps will be much simpler.
+
+00:00:17.679 --> 00:00:20.489
+Let's move on the prediction
+of Sigma Points.
+
+00:00:20.489 --> 00:00:24.329
+What we have now is this matrix
+of augmented Sigma Points.
+
+00:00:24.329 --> 00:00:25.759
+For the prediction step,
+
+00:00:25.760 --> 00:00:29.270
+we simply insert every Sigma Point
+into the process model.
+
+00:00:30.280 --> 00:00:35.420
+Again, we store every predicted
+Sigma Point as a column of a matrix,
+
+00:00:35.420 --> 00:00:39.472
+we call this matrix calligraphic Xk+1|k.
+
+00:00:39.472 --> 00:00:42.420
+When you will bring this to C++ code,
+
+00:00:42.420 --> 00:00:46.210
+the main thing you have to do
+is implement this process model.
+
+00:00:46.210 --> 00:00:50.250
+One thing you should also consider,
+the input to the process model
+
+00:00:50.250 --> 00:00:54.049
+is a seven dimensional Augmented vector,
+which makes sense.
+
+00:00:54.049 --> 00:00:58.269
+These are five state dimensions and
+two noise dimensions.
+
+00:00:58.270 --> 00:01:01.020
+The output is a five dimensional vector,
+
+00:01:01.020 --> 00:01:04.480
+because this is what the process
+model returns, that means
+
+00:01:04.480 --> 00:01:09.561
+the matrix with the predicted Sigma
+Points has five rows and 15 columns.
+
+00:01:09.561 --> 00:01:10.399
+All right,
+
+00:01:10.400 --> 00:01:13.710
+that's everything you need to know
+about the prediction of Sigma Points.
+
+00:01:13.709 --> 00:01:16.644
+Let's see if you can
+implement this in C++.
+

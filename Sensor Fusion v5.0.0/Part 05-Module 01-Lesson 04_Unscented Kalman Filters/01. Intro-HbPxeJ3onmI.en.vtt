@@ -1,0 +1,102 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.720 --> 00:00:04.590
+Congratulations on mastering
+the extended Kalman Filter.
+
+00:00:04.590 --> 00:00:07.760
+With this, you can solve a lot of
+problems related to advanced driver
+
+00:00:07.760 --> 00:00:10.860
+assistance systems and
+self-driving cars.
+
+00:00:10.860 --> 00:00:14.518
+&gt;&gt; Absolutely, if you look into
+the code of a car and cruise control
+
+00:00:14.518 --> 00:00:19.356
+system with automatic distance keeping,
+you will find an Extended Kalman Filter.
+
+00:00:19.356 --> 00:00:21.939
+&gt;&gt; There is also another
+technique gaining more and
+
+00:00:21.939 --> 00:00:24.150
+more attention in this field.
+
+00:00:24.150 --> 00:00:27.849
+It is called
+the Unscented Kalman Filter or UKF.
+
+00:00:27.849 --> 00:00:30.799
+And you can achieve even
+better results with it.
+
+00:00:30.799 --> 00:00:35.579
+The UKF is an alternative technique
+to deal with norming your process models,
+
+00:00:35.579 --> 00:00:37.920
+or nonlinear measurement models.
+
+00:00:37.920 --> 00:00:42.430
+But instead of linearizing a nonlinear
+function, the UKF uses so-called
+
+00:00:42.430 --> 00:00:46.300
+sigma points to approximate
+the probability distribution.
+
+00:00:46.300 --> 00:00:48.530
+&gt;&gt; This has two advantages.
+
+00:00:48.530 --> 00:00:51.870
+In many cases the sigma points
+approximate the nonlinear transition
+
+00:00:51.870 --> 00:00:54.210
+better than a linearization does.
+
+00:00:54.210 --> 00:00:58.420
+Also it is not necessary to
+calculate a Jacobian matrix.
+
+00:00:58.420 --> 00:01:00.660
+&gt;&gt; What are students are going
+to learn in the lesson?
+
+00:01:00.660 --> 00:01:02.900
+&gt;&gt; This lesson has three parts.
+
+00:01:02.900 --> 00:01:05.940
+First I will introduce a more
+sophisticated process model
+
+00:01:05.940 --> 00:01:08.740
+that is able to estimate
+the turn rate of a vehicle.
+
+00:01:08.740 --> 00:01:11.390
+Then I will show you how
+the Unscented Kalman Filter
+
+00:01:11.390 --> 00:01:13.650
+deals with this nonlinear process model.
+
+00:01:13.650 --> 00:01:18.020
+Finally, we will implement the filter
+together step by step in C++, and
+
+00:01:18.020 --> 00:01:20.070
+use it to solve a challenging
+tracking scenario.
+
+00:01:21.370 --> 00:01:23.340
+&gt;&gt; Let's get started and
+see how the UKF works.
+

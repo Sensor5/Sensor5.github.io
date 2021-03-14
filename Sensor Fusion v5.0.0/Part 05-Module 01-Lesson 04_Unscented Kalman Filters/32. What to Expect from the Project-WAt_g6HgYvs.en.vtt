@@ -1,0 +1,275 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.560 --> 00:00:04.800
+It's really great to see you made it all
+the way through this challenging lesson.
+
+00:00:04.800 --> 00:00:07.290
+In the project description, you will
+find everything you need to know to
+
+00:00:07.290 --> 00:00:09.500
+successfully complete the project.
+
+00:00:09.500 --> 00:00:10.030
+In this video,
+
+00:00:10.030 --> 00:00:14.280
+I would like to point out some things
+about the UKF I find quite remarkable.
+
+00:00:14.280 --> 00:00:17.260
+And I also want to explain why
+a Kalman filter in general
+
+00:00:17.260 --> 00:00:20.190
+is such an important tool for
+self driving cars.
+
+00:00:20.190 --> 00:00:22.920
+Let's have a look at
+the scenario in the project.
+
+00:00:22.920 --> 00:00:26.570
+You have seen a similar plot
+before in the EKF project.
+
+00:00:26.570 --> 00:00:30.400
+We see here a bicycle that is
+first driving straight and
+
+00:00:30.400 --> 00:00:31.970
+then turning into a circle.
+
+00:00:31.970 --> 00:00:34.700
+The path of the bicycle
+is shown in blue.
+
+00:00:34.700 --> 00:00:39.160
+The green line is the sequence of all
+measurements we receive both from LiDAR
+
+00:00:39.160 --> 00:00:39.950
+and radar.
+
+00:00:39.950 --> 00:00:43.140
+As before,
+these measurements are quite noisy.
+
+00:00:43.140 --> 00:00:48.020
+The orange dots are the estimation
+results of the UKF fusing laser and
+
+00:00:48.020 --> 00:00:49.360
+radar measurements.
+
+00:00:49.360 --> 00:00:53.160
+Remember, the linear process
+model in the last project
+
+00:00:53.160 --> 00:00:55.380
+had problems following the turn.
+
+00:00:55.380 --> 00:01:00.060
+The CTRV model we're using this time
+follows the turn quite nicely, and
+
+00:01:00.060 --> 00:01:03.070
+still provides a smooth
+position estimate.
+
+00:01:03.070 --> 00:01:05.650
+You can play around with
+the process noise values, and
+
+00:01:05.650 --> 00:01:07.550
+make the estimation even smoother.
+
+00:01:07.550 --> 00:01:10.520
+Or force it to follow
+the measurements quicker.
+
+00:01:10.520 --> 00:01:12.650
+When you change
+the process noise values,
+
+00:01:12.650 --> 00:01:15.540
+also make sure to check
+the consistency of your filter.
+
+00:01:15.540 --> 00:01:18.510
+This is how the consistency
+check of my filter looks like.
+
+00:01:18.510 --> 00:01:22.833
+What you see here in orange are the NIS
+values of the three dimensional radar
+
+00:01:22.833 --> 00:01:23.810
+measurements.
+
+00:01:23.810 --> 00:01:26.100
+I also plotted the 95% line in blue.
+
+00:01:27.250 --> 00:01:31.670
+Just as expected, a small number
+if NIS values exceed this line.
+
+00:01:31.670 --> 00:01:34.020
+If your NIS values look like this,
+
+00:01:34.020 --> 00:01:37.100
+you know you have set
+up a consistent filter.
+
+00:01:37.100 --> 00:01:40.450
+This is how the NIS values of
+the laser measurements look like.
+
+00:01:40.450 --> 00:01:44.620
+Be aware that the 95% line is at
+a different level in this case
+
+00:01:44.620 --> 00:01:48.050
+because the laser measurement
+is a two dimensional vector.
+
+00:01:48.050 --> 00:01:51.450
+The project description will give you
+details about the exact criteria for
+
+00:01:51.450 --> 00:01:53.660
+a successful consistency check.
+
+00:01:53.660 --> 00:01:56.470
+Remember if the UKF is consistent,
+
+00:01:56.470 --> 00:01:59.369
+it means it provides
+a realistic covariance matrix.
+
+00:02:00.510 --> 00:02:04.660
+The UKF also estimates the velocity
+of the bicycle of course.
+
+00:02:04.660 --> 00:02:06.670
+It can do it with or without radar.
+
+00:02:06.670 --> 00:02:09.650
+But if you compare these two options,
+you will find out
+
+00:02:09.650 --> 00:02:15.000
+that the velocity estimate converges
+much faster if you use the radar too.
+
+00:02:15.000 --> 00:02:17.890
+Give it a try and switch on and
+off both sensors, and
+
+00:02:17.890 --> 00:02:20.600
+see how they contribute
+in different ways.
+
+00:02:20.600 --> 00:02:24.442
+What I find really impressive is
+how precise the UKF can estimate
+
+00:02:24.442 --> 00:02:26.446
+the orientation of the bicycle.
+
+00:02:26.446 --> 00:02:30.030
+None of our sensors is able to
+directly observe the orientation, but
+
+00:02:30.030 --> 00:02:32.650
+we still get a precise estimate.
+
+00:02:32.650 --> 00:02:36.620
+Even the yaw rate can be estimated
+providing useful results.
+
+00:02:36.620 --> 00:02:38.180
+For autonomous vehicles,
+
+00:02:38.180 --> 00:02:41.380
+the yaw rate of other vehicles
+is very important to know.
+
+00:02:41.380 --> 00:02:43.970
+Imagine another car
+starting to change lanes or
+
+00:02:43.970 --> 00:02:47.020
+a bicycle in front of you
+wants to do a left turn.
+
+00:02:47.020 --> 00:02:50.880
+Hopefully, they would both signalize
+their intention but in the end
+
+00:02:50.880 --> 00:02:54.790
+the yaw rate is the ultimate indicator
+for such a behavior prediction.
+
+00:02:54.790 --> 00:02:58.215
+Let's summarize the three most
+important properties of the UKF as
+
+00:02:58.215 --> 00:03:00.370
+a sensor fusion tool for
+self driving cars.
+
+00:03:00.370 --> 00:03:05.175
+Number one, with the UKF, you will be able
+to take noisy measurement data as input and
+
+00:03:05.175 --> 00:03:06.942
+provide a smooth position and
+
+00:03:06.942 --> 00:03:12.860
+velocity estimation of dynamic objects
+around you, without introducing a delay.
+
+00:03:12.860 --> 00:03:16.258
+Number two, you can provide
+an estimation of the orientation and
+
+00:03:16.258 --> 00:03:20.337
+the yaw rate of other vehicles using
+sensors that can't even directly observe
+
+00:03:20.337 --> 00:03:21.156
+these things.
+
+00:03:21.156 --> 00:03:23.878
+And number three, in addition to that,
+
+00:03:23.878 --> 00:03:27.892
+the UKF also gives information
+on how precise the result is,
+
+00:03:27.892 --> 00:03:31.851
+because it always provides a covariance
+matrix for every estimation.
+
+00:03:31.851 --> 00:03:36.427
+And you know that this covariance
+matrix is realistic if the UKF performs
+
+00:03:36.427 --> 00:03:38.800
+a consistency check.
+
+00:03:38.800 --> 00:03:42.420
+The uncertainty of the estimation result
+is very important for self driving cars.
+
+00:03:42.420 --> 00:03:46.720
+Because if the position of your leading
+vehicle is quite uncertain at some time,
+
+00:03:46.720 --> 00:03:48.220
+you better keep a little more distance
+
