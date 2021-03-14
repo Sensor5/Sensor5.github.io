@@ -1,0 +1,605 @@
+<!-- udacimak v1.4.4 -->
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <meta content="ie=edge" http-equiv="X-UA-Compatible"/>
+  <title>
+   Process Covariance Matrix
+  </title>
+  <link href="../assets/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="../assets/css/plyr.css" rel="stylesheet"/>
+  <link href="../assets/css/katex.min.css" rel="stylesheet"/>
+  <link href="../assets/css/jquery.mCustomScrollbar.min.css" rel="stylesheet"/>
+  <link href="../assets/css/styles.css" rel="stylesheet"/>
+  <link href="../assets/img/udacimak.png" rel="shortcut icon" type="image/png">
+  </link>
+ </head>
+ <body>
+  <div class="wrapper">
+   <nav id="sidebar">
+    <div class="sidebar-header">
+     <h3>
+      Lidar and Radar Fusion with Kalman Filters in C++
+     </h3>
+    </div>
+    <ul class="sidebar-list list-unstyled CTAs">
+     <li>
+      <a class="article" href="../index.html">
+       Back to Home
+      </a>
+     </li>
+    </ul>
+    <ul class="sidebar-list list-unstyled components">
+     <li class="">
+      <a href="01. Kalman Filters in C++.html">
+       01. Kalman Filters in C++
+      </a>
+     </li>
+     <li class="">
+      <a href="02. Intro.html">
+       02. Intro
+      </a>
+     </li>
+     <li class="">
+      <a href="03. Lesson Map and Fusion Flow.html">
+       03. Lesson Map and Fusion Flow
+      </a>
+     </li>
+     <li class="">
+      <a href="04. Lesson Variables and Equations.html">
+       04. Lesson Variables and Equations
+      </a>
+     </li>
+     <li class="">
+      <a href="05. Estimation Problem Refresh.html">
+       05. Estimation Problem Refresh
+      </a>
+     </li>
+     <li class="">
+      <a href="06. Kalman Filter Intuition.html">
+       06. Kalman Filter Intuition
+      </a>
+     </li>
+     <li class="">
+      <a href="07. Kalman Filter Equations in C++ Part 1.html">
+       07. Kalman Filter Equations in C++ Part 1
+      </a>
+     </li>
+     <li class="">
+      <a href="08. Kalman Filter Equations in C++ Part 2.html">
+       08. Kalman Filter Equations in C++ Part 2
+      </a>
+     </li>
+     <li class="">
+      <a href="09. State Prediction.html">
+       09. State Prediction
+      </a>
+     </li>
+     <li class="">
+      <a href="10. Process Covariance Matrix.html">
+       10. Process Covariance Matrix
+      </a>
+     </li>
+     <li class="">
+      <a href="11. Laser Measurements Part 1.html">
+       11. Laser Measurements Part 1
+      </a>
+     </li>
+     <li class="">
+      <a href="12. Laser Measurements Part 2.html">
+       12. Laser Measurements Part 2
+      </a>
+     </li>
+     <li class="">
+      <a href="13. Laser Measurements Part 3.html">
+       13. Laser Measurements Part 3
+      </a>
+     </li>
+     <li class="">
+      <a href="14. Laser Measurements Part 4.html">
+       14. Laser Measurements Part 4
+      </a>
+     </li>
+     <li class="">
+      <a href="15. Radar Measurements.html">
+       15. Radar Measurements
+      </a>
+     </li>
+     <li class="">
+      <a href="16. Mapping with a Nonlinear Function.html">
+       16. Mapping with a Nonlinear Function
+      </a>
+     </li>
+     <li class="">
+      <a href="17. Extended Kalman Filter.html">
+       17. Extended Kalman Filter
+      </a>
+     </li>
+     <li class="">
+      <a href="18. Multivariate Taylor Series Expansion.html">
+       18. Multivariate Taylor Series Expansion
+      </a>
+     </li>
+     <li class="">
+      <a href="19. Jacobian Matrix Part 1.html">
+       19. Jacobian Matrix Part 1
+      </a>
+     </li>
+     <li class="">
+      <a href="20. Jacobian Matrix Part 2.html">
+       20. Jacobian Matrix Part 2
+      </a>
+     </li>
+     <li class="">
+      <a href="21. EKF Algorithm Generalization.html">
+       21. EKF Algorithm Generalization
+      </a>
+     </li>
+     <li class="">
+      <a href="22. Sensor Fusion General Flow.html">
+       22. Sensor Fusion General Flow
+      </a>
+     </li>
+     <li class="">
+      <a href="23. Evaluating KF Performance Part 1.html">
+       23. Evaluating KF Performance Part 1
+      </a>
+     </li>
+     <li class="">
+      <a href="24. Evaluating KF Performance 2.html">
+       24. Evaluating KF Performance 2
+      </a>
+     </li>
+     <li class="">
+      <a href="25. Outro.html">
+       25. Outro
+      </a>
+     </li>
+    </ul>
+    <ul class="sidebar-list list-unstyled CTAs">
+     <li>
+      <a class="article" href="../index.html">
+       Back to Home
+      </a>
+     </li>
+    </ul>
+   </nav>
+   <div id="content">
+    <header class="container-fluild header">
+     <div class="container">
+      <div class="row">
+       <div class="col-12">
+        <div class="align-items-middle">
+         <button class="btn btn-toggle-sidebar" id="sidebarCollapse" type="button">
+          <div>
+          </div>
+          <div>
+          </div>
+          <div>
+          </div>
+         </button>
+         <h1 style="display: inline-block">
+          10. Process Covariance Matrix
+         </h1>
+        </div>
+       </div>
+      </div>
+     </div>
+    </header>
+    <main class="container">
+     <div class="row">
+      <div class="col-12">
+       <div class="ud-atom">
+        <h3>
+         <p>
+          Process Covariance Matrix
+         </p>
+        </h3>
+        <video controls="">
+         <source src="10. Process Covariance Matrix-iFcIiqRGaws.mp4" type="video/mp4"/>
+         <track default="false" kind="subtitles" label="ja-JP" src="10. Process Covariance Matrix-iFcIiqRGaws.ja-JP.vtt" srclang="ja-JP"/>
+         <track default="true" kind="subtitles" label="en" src="10. Process Covariance Matrix-iFcIiqRGaws.en.vtt" srclang="en"/>
+         <track default="false" kind="subtitles" label="zh-CN" src="10. Process Covariance Matrix-iFcIiqRGaws.zh-CN.vtt" srclang="zh-CN"/>
+        </video>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h3 id="calculating-acceleration-noise-parameters">
+          Calculating Acceleration Noise Parameters
+         </h3>
+         <p>
+          Before we discuss the derivation of the process covariance matrix Q, you might be curious about how to choose values for
+          <span class="mathquill ud-math">
+           \sigma_{ax_{}}^2
+          </span>
+          and
+          <span class="mathquill ud-math">
+           \sigma_{ay}^2
+          </span>
+          .
+         </p>
+         <p>
+          For the extended Kalman filter project, you will be given values for both.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h3 id="process-covariance-matrix-q---intuition">
+          Process Covariance Matrix Q - Intuition
+         </h3>
+         <p>
+          As a reminder, here are the state covariance matrix update equation and the equation for Q.
+         </p>
+         <p>
+          <span class="mathquill ud-math">
+           P' = FPF^T + Q
+          </span>
+         </p>
+         <p>
+          <span class="mathquill ud-math">
+           Q = \begin{pmatrix} \frac{\Delta t^4}{{4}}\sigma_{ax}^2    &amp;   0   &amp;   \frac{\Delta t^3}{{2}}\sigma_{ax}^2 &amp;   0 \\ 0  &amp;   \frac{\Delta t^4}{{4}}\sigma_{ay}^2 &amp;   0   &amp;   \frac{\Delta t^3}{{2}}\sigma_{ay}^2 \\ \frac{\Delta t^3}{{2}}\sigma_{ax}^2  &amp;   0   &amp;   \Delta t^2\sigma_{ax}^2 &amp;   0 \\ 0  &amp;   \frac{\Delta t^3}{{2}}\sigma_{ay}^2 &amp;   0   &amp;   \Delta t^2\sigma_{ay}^2 \end{pmatrix}
+          </span>
+         </p>
+         <p>
+          Because our state vector only tracks position and velocity, we are modeling acceleration as a random noise. The Q matrix includes time
+          <span class="mathquill ud-math">
+           \Delta t
+          </span>
+          to account for the fact that as more time passes, we become more uncertain about our position and velocity. So as
+          <span class="mathquill ud-math">
+           \Delta t
+          </span>
+          increases, we add more uncertainty to the state covariance matrix
+          <span class="mathquill ud-math">
+           P
+          </span>
+          .
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <p>
+          Combining both 2D position and 2D velocity equations previously deducted formulas we have:
+         </p>
+         <div class="mathquill">
+          \begin{cases} 
+p_x' = p_x + v_x \Delta t  + \frac{a_x \Delta t^2}{{2}}\\
+p_y' = p_y + v_y \Delta t  + \frac{a_y \Delta t^2}{{2}}\\
+v_x' = v_x +  a_x \Delta t\\
+v_y' = v_y + a_y \Delta t
+\end{cases}
+         </div>
+         <p>
+          Since the acceleration is unknown we can add it to the noise component, and this random noise would be expressed analytically as the last terms in the equation derived above. So, we have a random acceleration vector
+          <span class="mathquill ud-math">
+           \nu
+          </span>
+          in this form:
+         </p>
+         <div class="mathquill">
+          \nu =
+\begin{pmatrix}
+\nu_{px} \\
+\nu_{py} \\ 
+\nu_{vx} \\ 
+\nu_{vy}
+\end{pmatrix}
+=
+\begin{pmatrix}
+ \frac{a_x \Delta t^2}{{2}}  \\
+ \frac{a_y \Delta t^2}{{2}}  \\
+ a_x \Delta t \\
+ a_y \Delta t
+\end{pmatrix}
+         </div>
+         <p>
+          which is described by a zero mean and a covariance matrix
+          <span class="mathquill ud-math">
+           Q
+          </span>
+          , so
+          <span class="mathquill ud-math">
+           \nu \sim N(0,Q)
+          </span>
+          .
+         </p>
+         <p>
+          The vector
+          <span class="mathquill ud-math">
+           \nu
+          </span>
+          can be decomposed into two components a 4 by 2 matrix
+          <span class="mathquill ud-math">
+           G
+          </span>
+          which does not contain random variables and a 2 by 1 matrix
+          <span class="mathquill ud-math">
+           a
+          </span>
+          which contains the random acceleration components:
+         </p>
+         <div class="mathquill">
+          \nu =
+\begin{pmatrix}
+ \frac{a_x \Delta t^2}{{2}} \\
+ \frac{a_y \Delta t^2}{{2}} \\
+ a_x \Delta t \\
+ a_y \Delta t
+\end{pmatrix} = \begin{pmatrix}
+ \frac{\Delta t^2}{{2}}    &amp;   0   \\
+ 0    &amp;   \frac{\Delta t^2}{{2}}  \\
+ \Delta t    &amp;   0               \\  
+ 0    &amp;   \Delta t
+\end{pmatrix}
+\begin{pmatrix}
+ a_x\\
+ a_y
+\end{pmatrix} = Ga
+         </div>
+         <p>
+          <span class="mathquill ud-math">
+           \Delta t
+          </span>
+          is computed at each Kalman Filter step and the acceleration is a random vector with zero mean and standard deviations
+          <span class="mathquill ud-math">
+           \sigma_{ax_{}}
+          </span>
+          and
+          <span class="mathquill ud-math">
+           \sigma_{ay}
+          </span>
+          .
+         </p>
+         <p>
+          Based on our noise vector we can define now the new covariance matrix
+          <span class="mathquill ud-math">
+           Q
+          </span>
+          .
+          <br/>
+          The covariance matrix is defined as the expectation value of the noise vector
+          <span class="mathquill ud-math">
+           \nu
+          </span>
+          times the noise vector
+          <span class="mathquill ud-math">
+           \nu^T
+          </span>
+          . So let’s write this down:
+         </p>
+         <div class="mathquill">
+          Q = E[\nu \nu^T] = E[Gaa^TG^T]
+         </div>
+         <p>
+          As
+          <span class="mathquill ud-math">
+           G
+          </span>
+          does not contain random variables, we can put it outside the expectation calculation.
+         </p>
+         <div class="mathquill">
+          Q = G E[aa^T] G^T = G \begin{pmatrix}
+ \sigma_{ax}^2    &amp;   \sigma_{axy}    \\
+ \sigma_{axy}    &amp;   \sigma_{ay}^2
+\end{pmatrix}
+G^T = G Q_{\nu} G^T
+         </div>
+         <p>
+          This leaves us with three statistical moments:
+         </p>
+         <ul>
+          <li>
+           the expectation of ax times ax, which is the variance of ax squared:
+           <span class="mathquill ud-math">
+            \sigma_{ax}^2
+           </span>
+           .
+          </li>
+          <li>
+           the expectation of ay times ay, which is the variance of ay squared:
+           <span class="mathquill ud-math">
+            \sigma_{ay}^2
+           </span>
+           .
+          </li>
+          <li>
+           and the expectation of ax times ay, which is the covariance of
+           <span class="mathquill ud-math">
+            ax
+           </span>
+           and
+           <span class="mathquill ud-math">
+            ay
+           </span>
+           :
+           <span class="mathquill ud-math">
+            \sigma_{axy}
+           </span>
+           .
+          </li>
+         </ul>
+         <p>
+          <span class="mathquill ud-math">
+           a_{x_{}}
+          </span>
+          and
+          <span class="mathquill ud-math">
+           a_{y_{}}
+          </span>
+          are assumed uncorrelated noise processes. This means that the covariance
+          <span class="mathquill ud-math">
+           \sigma_{axy_{}}
+          </span>
+          in
+          <span class="mathquill ud-math">
+           Q_{\nu}
+          </span>
+          is zero:
+         </p>
+         <div class="mathquill">
+          Q_{\nu} = \begin{pmatrix}
+\sigma_{ax}^2    &amp;   \sigma_{axy}    \\
+\sigma_{axy}    &amp;   \sigma_{ay}^2
+\end{pmatrix}
+=
+\begin{pmatrix}
+\sigma_{ax}^2    &amp;   0   \\
+ 0    &amp;   \sigma_{ay}^2
+\end{pmatrix}
+         </div>
+         <p>
+          So after combining everything in one matrix we obtain our 4 by 4
+          <span class="mathquill ud-math">
+           Q
+          </span>
+          matrix:
+         </p>
+         <div class="mathquill">
+          Q = G Q_{\nu} G^T = 
+\begin{pmatrix}
+ \frac{\Delta t^4}{{4}}\sigma_{ax}^2    &amp;   0   &amp;   \frac{\Delta t^3}{{2}}\sigma_{ax}^2 &amp;   0 \\
+0    &amp;   \frac{\Delta t^4}{{4}}\sigma_{ay}^2 &amp;   0   &amp;   \frac{\Delta t^3}{{2}}\sigma_{ay}^2 \\
+ \frac{\Delta t^3}{{2}}\sigma_{ax}^2    &amp;   0   &amp;   \Delta t^2\sigma_{ax}^2 &amp;   0 \\
+0    &amp;   \frac{\Delta t^3}{{2}}\sigma_{ay}^2 &amp;   0   &amp;   \Delta t^2\sigma_{ay}^2
+\end{pmatrix}
+         </div>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h3 id="note-on-notation">
+          Note on Notation
+         </h3>
+         <p>
+          Some authors describe
+          <span class="mathquill ud-math">
+           Q
+          </span>
+          as the complete process noise covariance matrix. And some authors describe
+          <span class="mathquill ud-math">
+           Q
+          </span>
+          as the covariance matrix of the individual noise processes. In our case, the covariance matrix of the individual noise processes matrix is called
+          <span class="mathquill ud-math">
+           Q_\nu
+          </span>
+          , which is something to be aware of.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+      </div>
+      <div class="col-12">
+       <p class="text-right">
+        <a class="btn btn-outline-primary mt-4" href="11. Laser Measurements Part 1.html" role="button">
+         Next Concept
+        </a>
+       </p>
+      </div>
+     </div>
+    </main>
+    <footer class="footer">
+     <div class="container">
+      <div class="row">
+       <div class="col-12">
+        <p class="text-center">
+         udacity2.0 If you need the newest courses Plase add me wechat: udacity6
+        </p>
+       </div>
+      </div>
+     </div>
+    </footer>
+   </div>
+  </div>
+  <script src="../assets/js/jquery-3.3.1.min.js">
+  </script>
+  <script src="../assets/js/plyr.polyfilled.min.js">
+  </script>
+  <script src="../assets/js/bootstrap.min.js">
+  </script>
+  <script src="../assets/js/jquery.mCustomScrollbar.concat.min.js">
+  </script>
+  <script src="../assets/js/katex.min.js">
+  </script>
+  <script>
+   // Initialize Plyr video players
+    const players = Array.from(document.querySelectorAll('video')).map(p => new Plyr(p));
+
+    // render math equations
+    let elMath = document.getElementsByClassName('mathquill');
+    for (let i = 0, len = elMath.length; i < len; i += 1) {
+      const el = elMath[i];
+
+      katex.render(el.textContent, el, {
+        throwOnError: false
+      });
+    }
+
+    // this hack will make sure Bootstrap tabs work when using Handlebars
+    if ($('#question-tabs').length && $('#user-answer-tabs').length) {
+      $("#question-tabs a.nav-link").on('click', function () {
+        $("#question-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+      $("#user-answer-tabs a.nav-link").on('click', function () {
+        $("#user-answer-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    } else {
+      $("a.nav-link").on('click', function () {
+        $(".tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    }
+
+    // side bar events
+    $(document).ready(function () {
+      $("#sidebar").mCustomScrollbar({
+        theme: "minimal"
+      });
+
+      $('#sidebarCollapse').on('click', function () {
+        $('#sidebar, #content').toggleClass('active');
+        $('.collapse.in').toggleClass('in');
+        $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+      });
+
+      // scroll to first video on page loading
+      if ($('video').length) {
+        $('html,body').animate({ scrollTop: $('div.plyr').prev().offset().top});
+      }
+
+      // auto play first video: this may not work with chrome/safari due to autoplay policy
+      if (players && players.length > 0) {
+        players[0].play();
+      }
+
+      // scroll sidebar to current concept
+      const currentInSideBar = $( "ul.sidebar-list.components li a:contains('10. Process Covariance Matrix')" )
+      currentInSideBar.css( "text-decoration", "underline" );
+      $("#sidebar").mCustomScrollbar('scrollTo', currentInSideBar);
+    });
+  </script>
+ </body>
+</html>

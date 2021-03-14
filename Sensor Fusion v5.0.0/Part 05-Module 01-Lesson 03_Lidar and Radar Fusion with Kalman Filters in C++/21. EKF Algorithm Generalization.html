@@ -1,0 +1,727 @@
+<!-- udacimak v1.4.4 -->
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <meta content="ie=edge" http-equiv="X-UA-Compatible"/>
+  <title>
+   EKF Algorithm Generalization
+  </title>
+  <link href="../assets/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="../assets/css/plyr.css" rel="stylesheet"/>
+  <link href="../assets/css/katex.min.css" rel="stylesheet"/>
+  <link href="../assets/css/jquery.mCustomScrollbar.min.css" rel="stylesheet"/>
+  <link href="../assets/css/styles.css" rel="stylesheet"/>
+  <link href="../assets/img/udacimak.png" rel="shortcut icon" type="image/png">
+  </link>
+ </head>
+ <body>
+  <div class="wrapper">
+   <nav id="sidebar">
+    <div class="sidebar-header">
+     <h3>
+      Lidar and Radar Fusion with Kalman Filters in C++
+     </h3>
+    </div>
+    <ul class="sidebar-list list-unstyled CTAs">
+     <li>
+      <a class="article" href="../index.html">
+       Back to Home
+      </a>
+     </li>
+    </ul>
+    <ul class="sidebar-list list-unstyled components">
+     <li class="">
+      <a href="01. Kalman Filters in C++.html">
+       01. Kalman Filters in C++
+      </a>
+     </li>
+     <li class="">
+      <a href="02. Intro.html">
+       02. Intro
+      </a>
+     </li>
+     <li class="">
+      <a href="03. Lesson Map and Fusion Flow.html">
+       03. Lesson Map and Fusion Flow
+      </a>
+     </li>
+     <li class="">
+      <a href="04. Lesson Variables and Equations.html">
+       04. Lesson Variables and Equations
+      </a>
+     </li>
+     <li class="">
+      <a href="05. Estimation Problem Refresh.html">
+       05. Estimation Problem Refresh
+      </a>
+     </li>
+     <li class="">
+      <a href="06. Kalman Filter Intuition.html">
+       06. Kalman Filter Intuition
+      </a>
+     </li>
+     <li class="">
+      <a href="07. Kalman Filter Equations in C++ Part 1.html">
+       07. Kalman Filter Equations in C++ Part 1
+      </a>
+     </li>
+     <li class="">
+      <a href="08. Kalman Filter Equations in C++ Part 2.html">
+       08. Kalman Filter Equations in C++ Part 2
+      </a>
+     </li>
+     <li class="">
+      <a href="09. State Prediction.html">
+       09. State Prediction
+      </a>
+     </li>
+     <li class="">
+      <a href="10. Process Covariance Matrix.html">
+       10. Process Covariance Matrix
+      </a>
+     </li>
+     <li class="">
+      <a href="11. Laser Measurements Part 1.html">
+       11. Laser Measurements Part 1
+      </a>
+     </li>
+     <li class="">
+      <a href="12. Laser Measurements Part 2.html">
+       12. Laser Measurements Part 2
+      </a>
+     </li>
+     <li class="">
+      <a href="13. Laser Measurements Part 3.html">
+       13. Laser Measurements Part 3
+      </a>
+     </li>
+     <li class="">
+      <a href="14. Laser Measurements Part 4.html">
+       14. Laser Measurements Part 4
+      </a>
+     </li>
+     <li class="">
+      <a href="15. Radar Measurements.html">
+       15. Radar Measurements
+      </a>
+     </li>
+     <li class="">
+      <a href="16. Mapping with a Nonlinear Function.html">
+       16. Mapping with a Nonlinear Function
+      </a>
+     </li>
+     <li class="">
+      <a href="17. Extended Kalman Filter.html">
+       17. Extended Kalman Filter
+      </a>
+     </li>
+     <li class="">
+      <a href="18. Multivariate Taylor Series Expansion.html">
+       18. Multivariate Taylor Series Expansion
+      </a>
+     </li>
+     <li class="">
+      <a href="19. Jacobian Matrix Part 1.html">
+       19. Jacobian Matrix Part 1
+      </a>
+     </li>
+     <li class="">
+      <a href="20. Jacobian Matrix Part 2.html">
+       20. Jacobian Matrix Part 2
+      </a>
+     </li>
+     <li class="">
+      <a href="21. EKF Algorithm Generalization.html">
+       21. EKF Algorithm Generalization
+      </a>
+     </li>
+     <li class="">
+      <a href="22. Sensor Fusion General Flow.html">
+       22. Sensor Fusion General Flow
+      </a>
+     </li>
+     <li class="">
+      <a href="23. Evaluating KF Performance Part 1.html">
+       23. Evaluating KF Performance Part 1
+      </a>
+     </li>
+     <li class="">
+      <a href="24. Evaluating KF Performance 2.html">
+       24. Evaluating KF Performance 2
+      </a>
+     </li>
+     <li class="">
+      <a href="25. Outro.html">
+       25. Outro
+      </a>
+     </li>
+    </ul>
+    <ul class="sidebar-list list-unstyled CTAs">
+     <li>
+      <a class="article" href="../index.html">
+       Back to Home
+      </a>
+     </li>
+    </ul>
+   </nav>
+   <div id="content">
+    <header class="container-fluild header">
+     <div class="container">
+      <div class="row">
+       <div class="col-12">
+        <div class="align-items-middle">
+         <button class="btn btn-toggle-sidebar" id="sidebarCollapse" type="button">
+          <div>
+          </div>
+          <div>
+          </div>
+          <div>
+          </div>
+         </button>
+         <h1 style="display: inline-block">
+          21. EKF Algorithm Generalization
+         </h1>
+        </div>
+       </div>
+      </div>
+     </div>
+    </header>
+    <main class="container">
+     <div class="row">
+      <div class="col-12">
+       <div class="ud-atom">
+        <h3>
+         <p>
+          EKF Algortihm Generalization
+         </p>
+        </h3>
+        <video controls="">
+         <source src="21. EKF Algortihm Generalization-co0ZczAuwdM.mp4" type="video/mp4"/>
+         <track default="false" kind="subtitles" label="zh-CN" src="21. EKF Algortihm Generalization-co0ZczAuwdM.zh-CN.vtt" srclang="zh-CN"/>
+         <track default="false" kind="subtitles" label="ja-JP" src="21. EKF Algortihm Generalization-co0ZczAuwdM.ja-JP.vtt" srclang="ja-JP"/>
+         <track default="true" kind="subtitles" label="en" src="21. EKF Algortihm Generalization-co0ZczAuwdM.en.vtt" srclang="en"/>
+        </video>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h3 id="extended-kalman-filter-equations">
+          Extended Kalman Filter Equations
+         </h3>
+         <p>
+          Although the mathematical proof is somewhat complex, it turns out that the Kalman filter equations and extended Kalman filter equations are very similar. The main differences are:
+         </p>
+         <ul>
+          <li>
+           the
+           <span class="mathquill ud-math">
+            F
+           </span>
+           matrix will be replaced by
+           <span class="mathquill ud-math">
+            F_j
+           </span>
+           when calculating
+           <span class="mathquill ud-math">
+            P'
+           </span>
+           .
+          </li>
+          <li>
+           the
+           <span class="mathquill ud-math">
+            H
+           </span>
+           matrix in the Kalman filter will be replaced by the Jacobian matrix
+           <span class="mathquill ud-math">
+            H_j
+           </span>
+           when calculating
+           <span class="mathquill ud-math">
+            S
+           </span>
+           ,
+           <span class="mathquill ud-math">
+            K
+           </span>
+           , and
+           <span class="mathquill ud-math">
+            P
+           </span>
+           .
+          </li>
+          <li>
+           to calculate
+           <span class="mathquill ud-math">
+            x'
+           </span>
+           , the prediction update function,
+           <span class="mathquill ud-math">
+            f
+           </span>
+           , is used instead of the
+           <span class="mathquill ud-math">
+            F
+           </span>
+           matrix.
+          </li>
+          <li>
+           to calculate
+           <span class="mathquill ud-math">
+            y
+           </span>
+           , the
+           <span class="mathquill ud-math">
+            h
+           </span>
+           function is used instead of the
+           <span class="mathquill ud-math">
+            H
+           </span>
+           matrix.
+          </li>
+         </ul>
+         <p>
+          For this project, however, we do not need to use the
+          <span class="mathquill ud-math">
+           f
+          </span>
+          function or
+          <span class="mathquill ud-math">
+           F_j
+          </span>
+          . If we had been using a non-linear model in the prediction step, we would need to replace the
+          <span class="mathquill ud-math">
+           F
+          </span>
+          matrix with its Jacobian,
+          <span class="mathquill ud-math">
+           F_j
+          </span>
+          . However, we are using a linear model for the prediction step. So, for the prediction step, we can still use the regular Kalman filter equations and the
+          <span class="mathquill ud-math">
+           F
+          </span>
+          matrix rather than the extended Kalman filter equations.
+         </p>
+         <p>
+          The measurement update for lidar will also use the regular Kalman filter equations, since lidar uses linear equations. Only the measurement update for the radar sensor will use the extended Kalman filter equations.
+         </p>
+         <p>
+          <strong>
+           One important point to reiterate is that the equation
+           <span class="mathquill ud-math">
+            y = z - Hx'
+           </span>
+           for the Kalman filter does not become
+           <span class="mathquill ud-math">
+            y = z - H_jx
+           </span>
+           for the extended Kalman filter. Instead, for extended Kalman filters, we'll use the h function directly to map predicted locations
+           <span class="mathquill ud-math">
+            x'
+           </span>
+           from Cartesian to polar coordinates.
+          </strong>
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="The comparison for reference." class="img img-fluid" src="img/algorithm-generalization-900.jpg"/>
+          <figcaption class="figure-caption">
+           <p>
+            The comparison for reference.
+           </p>
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h3 id="clarification-of-u--0">
+          Clarification of u = 0
+         </h3>
+         <p>
+          In the above image, the prediction equation is written as
+          <span class="mathquill ud-math">
+           x' = Fx + u
+          </span>
+          and
+          <span class="mathquill ud-math">
+           x' = f(x,u)
+          </span>
+          . Previously the equation was written
+          <span class="mathquill ud-math">
+           x' = Fx + \nu
+          </span>
+          .
+         </p>
+         <p>
+          It is just a question of notation where
+          <span class="mathquill ud-math">
+           \nu
+          </span>
+          is the greek letter "nu" and "u" is  used in the code examples. Remember that
+          <span class="mathquill ud-math">
+           \nu
+          </span>
+          is represented by a gaussian distribution with mean zero. The equation
+          <span class="mathquill ud-math">
+           x' = Fx + u
+          </span>
+          or the equivalent equation
+          <span class="mathquill ud-math">
+           x' = Fx + \nu
+          </span>
+          calculates the mean value of the state variable
+          <span class="mathquill ud-math">
+           x
+          </span>
+          ; hence we set u = 0. The uncertainty in the gaussian distribution shows up in the
+          <span class="mathquill ud-math">
+           Q
+          </span>
+          matrix.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h3 id="more-details-about-calculations-with-radar-versus-lidar">
+          More Details About Calculations with Radar Versus Lidar
+         </h3>
+         <p>
+          In the radar update step, the Jacobian matrix
+          <span class="mathquill ud-math">
+           H_j
+          </span>
+          is used to calculate
+          <span class="mathquill ud-math">
+           S
+          </span>
+          ,
+          <span class="mathquill ud-math">
+           K
+          </span>
+          and
+          <span class="mathquill ud-math">
+           P
+          </span>
+          . To calculate
+          <span class="mathquill ud-math">
+           y
+          </span>
+          , we use the equations that map the predicted location
+          <span class="mathquill ud-math">
+           x'
+          </span>
+          from Cartesian coordinates to polar coordinates:
+         </p>
+         <div class="mathquill">
+          h(x')= \begin{pmatrix}
+\sqrt{ p{'}_{x}^2 + p{'}_{y}^2 }\\
+\arctan(p_y' / p_x')\\
+\frac{p_x' v_x' + p_y' v_y'}{\sqrt{p{'}_{x}^2 + p{'}_{y}^2}}
+\end{pmatrix}
+         </div>
+         <p>
+          The predicted measurement vector
+          <span class="mathquill ud-math">
+           x'
+          </span>
+          is a vector containing values in the form
+          <span class="mathquill ud-math">
+           \begin{bmatrix} p_x,  p_y, v_x, v_y \end{bmatrix}
+          </span>
+          . The radar sensor will output values in polar coordinates:
+         </p>
+         <div class="mathquill">
+          \begin{pmatrix}
+    \rho\\
+    \phi\\
+    \dot{\rho}
+\end{pmatrix}
+         </div>
+         <p>
+          In order to calculate
+          <span class="mathquill ud-math">
+           y
+          </span>
+          for the radar sensor, we need to convert
+          <span class="mathquill ud-math">
+           x'
+          </span>
+          to polar coordinates. In other words, the function
+          <span class="mathquill ud-math">
+           h(x)
+          </span>
+          maps values from Cartesian coordinates to polar coordinates.  So the equation for radar becomes
+          <span class="mathquill ud-math">
+           y = z_{radar} - h(x')
+          </span>
+          .
+         </p>
+         <p>
+          One other important point when calculating
+          <span class="mathquill ud-math">
+           y
+          </span>
+          with radar sensor data: the second value in the polar coordinate vector is the angle
+          <span class="mathquill ud-math">
+           \phi
+          </span>
+          . You'll need to make sure to normalize
+          <span class="mathquill ud-math">
+           \phi
+          </span>
+          in the
+          <span class="mathquill ud-math">
+           y
+          </span>
+          vector so that its angle is between
+          <span class="mathquill ud-math">
+           -\pi
+          </span>
+          and
+          <span class="mathquill ud-math">
+           \pi
+          </span>
+          ; in other words, add or subtract
+          <span class="mathquill ud-math">
+           2\pi
+          </span>
+          from
+          <span class="mathquill ud-math">
+           \phi
+          </span>
+          until it is between
+          <span class="mathquill ud-math">
+           -\pi
+          </span>
+          and
+          <span class="mathquill ud-math">
+           \pi
+          </span>
+          .
+         </p>
+         <p>
+          To summarize:
+         </p>
+         <ul>
+          <li>
+           for measurement updates with lidar, we can use the
+           <span class="mathquill ud-math">
+            H
+           </span>
+           matrix for calculating
+           <span class="mathquill ud-math">
+            y
+           </span>
+           ,
+           <span class="mathquill ud-math">
+            S
+           </span>
+           ,
+           <span class="mathquill ud-math">
+            K
+           </span>
+           and
+           <span class="mathquill ud-math">
+            P
+           </span>
+           .
+          </li>
+          <li>
+           for radar,
+           <span class="mathquill ud-math">
+            H_j
+           </span>
+           is used to calculate
+           <span class="mathquill ud-math">
+            S
+           </span>
+           ,
+           <span class="mathquill ud-math">
+            K
+           </span>
+           and
+           <span class="mathquill ud-math">
+            P
+           </span>
+           .
+          </li>
+         </ul>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <form>
+          <fieldset>
+           <legend>
+            <p>
+             Compared to Kalman Filters, how would the Extended Kalman Filter result differ when the prediction function and measurement function are both linear?
+            </p>
+           </legend>
+          </fieldset>
+          <div>
+           <input id="a1481689158721" name="229726" type="radio" value="a1481689158721"/>
+           <label for="a1481689158721">
+            <p>
+             The Extended Kalman Filter's result would be the same as the standard Kalman Filter's result.
+            </p>
+           </label>
+          </div>
+          <div>
+           <input id="a1481689187365" name="229726" type="radio" value="a1481689187365"/>
+           <label for="a1481689187365">
+            <p>
+             The Extended Kalman Filter's result would vary unpredictably compared to the Kalman Filter's result.
+            </p>
+           </label>
+          </div>
+          <div>
+           <input id="a1481689196715" name="229726" type="radio" value="a1481689196715"/>
+           <label for="a1481689196715">
+            <p>
+             The Extended Kalman Filter's result would be less accurate than the Kalman Filter's result.
+            </p>
+           </label>
+          </div>
+          <div>
+           <input id="a1481689204450" name="229726" type="radio" value="a1481689204450"/>
+           <label for="a1481689204450">
+            <p>
+             The Extended Kalman Filter's result would be more accurate than the Kalman Filter's result.
+            </p>
+           </label>
+          </div>
+         </form>
+         <details>
+          <summary>
+           <strong>
+            SOLUTION:
+           </strong>
+          </summary>
+          The Extended Kalman Filter's result would be the same as the standard Kalman Filter's result.
+         </details>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+      </div>
+      <div class="col-12">
+       <p class="text-right">
+        <a class="btn btn-outline-primary mt-4" href="22. Sensor Fusion General Flow.html" role="button">
+         Next Concept
+        </a>
+       </p>
+      </div>
+     </div>
+    </main>
+    <footer class="footer">
+     <div class="container">
+      <div class="row">
+       <div class="col-12">
+        <p class="text-center">
+         udacity2.0 If you need the newest courses Plase add me wechat: udacity6
+        </p>
+       </div>
+      </div>
+     </div>
+    </footer>
+   </div>
+  </div>
+  <script src="../assets/js/jquery-3.3.1.min.js">
+  </script>
+  <script src="../assets/js/plyr.polyfilled.min.js">
+  </script>
+  <script src="../assets/js/bootstrap.min.js">
+  </script>
+  <script src="../assets/js/jquery.mCustomScrollbar.concat.min.js">
+  </script>
+  <script src="../assets/js/katex.min.js">
+  </script>
+  <script>
+   // Initialize Plyr video players
+    const players = Array.from(document.querySelectorAll('video')).map(p => new Plyr(p));
+
+    // render math equations
+    let elMath = document.getElementsByClassName('mathquill');
+    for (let i = 0, len = elMath.length; i < len; i += 1) {
+      const el = elMath[i];
+
+      katex.render(el.textContent, el, {
+        throwOnError: false
+      });
+    }
+
+    // this hack will make sure Bootstrap tabs work when using Handlebars
+    if ($('#question-tabs').length && $('#user-answer-tabs').length) {
+      $("#question-tabs a.nav-link").on('click', function () {
+        $("#question-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+      $("#user-answer-tabs a.nav-link").on('click', function () {
+        $("#user-answer-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    } else {
+      $("a.nav-link").on('click', function () {
+        $(".tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    }
+
+    // side bar events
+    $(document).ready(function () {
+      $("#sidebar").mCustomScrollbar({
+        theme: "minimal"
+      });
+
+      $('#sidebarCollapse').on('click', function () {
+        $('#sidebar, #content').toggleClass('active');
+        $('.collapse.in').toggleClass('in');
+        $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+      });
+
+      // scroll to first video on page loading
+      if ($('video').length) {
+        $('html,body').animate({ scrollTop: $('div.plyr').prev().offset().top});
+      }
+
+      // auto play first video: this may not work with chrome/safari due to autoplay policy
+      if (players && players.length > 0) {
+        players[0].play();
+      }
+
+      // scroll sidebar to current concept
+      const currentInSideBar = $( "ul.sidebar-list.components li a:contains('21. EKF Algorithm Generalization')" )
+      currentInSideBar.css( "text-decoration", "underline" );
+      $("#sidebar").mCustomScrollbar('scrollTo', currentInSideBar);
+    });
+  </script>
+ </body>
+</html>

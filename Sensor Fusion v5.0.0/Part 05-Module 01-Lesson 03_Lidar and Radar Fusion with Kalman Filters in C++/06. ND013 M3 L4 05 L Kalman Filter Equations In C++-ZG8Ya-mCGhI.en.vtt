@@ -1,0 +1,106 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.390 --> 00:00:05.097
+Now let me give you a quick
+reminder of the Kalman filter for
+
+00:00:05.097 --> 00:00:07.620
+a simple 1D motion case.
+
+00:00:07.620 --> 00:00:12.980
+Let's say that our mission is to
+track a pedestrian whose state,
+
+00:00:12.980 --> 00:00:16.890
+x, is described by a position and
+velocity.
+
+00:00:16.890 --> 00:00:21.093
+When designing the Kalman filter, we
+have to define the two linear functions.
+
+00:00:21.093 --> 00:00:23.888
+The state transition function,
+
+00:00:23.888 --> 00:00:29.090
+that models how the state is
+changed from time k-1 to time k.
+
+00:00:29.090 --> 00:00:33.213
+And the measurement function,
+that models how the measurement is
+
+00:00:33.213 --> 00:00:37.048
+calculated, and how it's related
+to the predicted state x.
+
+00:00:37.048 --> 00:00:41.406
+The first terms in these functions
+represent the deterministic part of
+
+00:00:41.406 --> 00:00:42.670
+our model.
+
+00:00:42.670 --> 00:00:49.420
+And the last terms, nu noise and omega
+noise, represent the stochastic part.
+
+00:00:49.420 --> 00:00:53.541
+Or in other words, random noises
+that affect the prediction and
+
+00:00:53.541 --> 00:00:56.270
+measurement update steps.
+
+00:00:56.270 --> 00:01:02.494
+So by using the linear motion model with
+a constant velocity, the new location,
+
+00:01:02.494 --> 00:01:07.740
+p, of our pedestrian is the old
+location + velocity times delta t.
+
+00:01:07.740 --> 00:01:09.930
+Because velocity is constant,
+
+00:01:09.930 --> 00:01:13.100
+the new velocity is the same
+as the old velocity.
+
+00:01:13.100 --> 00:01:16.270
+We can express this in
+a matrix form like so.
+
+00:01:16.270 --> 00:01:20.570
+And for the measurement function,
+our vehicle only senses the pedestrian
+
+00:01:20.570 --> 00:01:24.080
+position, so the measurement
+function looks like this.
+
+00:01:24.080 --> 00:01:28.430
+It also can be represented
+in a matrix form as so.
+
+00:01:28.430 --> 00:01:32.450
+As we already know, the Kalman filter
+algorithm is composed of a prediction
+
+00:01:32.450 --> 00:01:36.800
+step where we predict our state and
+covariance p.
+
+00:01:36.800 --> 00:01:42.710
+And we also use a measurement update
+step, often called correction step,
+
+00:01:42.710 --> 00:01:46.810
+where we use the latest measurement
+to update the state estimate and
+
+00:01:46.810 --> 00:01:47.780
+its uncertainty.
+

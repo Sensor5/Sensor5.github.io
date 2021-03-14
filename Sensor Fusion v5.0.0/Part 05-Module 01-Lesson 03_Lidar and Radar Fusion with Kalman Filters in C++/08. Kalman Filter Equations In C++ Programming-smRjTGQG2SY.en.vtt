@@ -1,0 +1,49 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.240 --> 00:00:02.090
+Here is how my code looks.
+
+00:00:02.090 --> 00:00:06.590
+It exactly implements step by step,
+all the equations for the prediction and
+
+00:00:06.590 --> 00:00:07.800
+measurement update.
+
+00:00:07.800 --> 00:00:11.660
+This includes the error calculation,
+given my new measurement z.
+
+00:00:11.660 --> 00:00:18.150
+The 'H' matrix transposed, the 'S' matrix 
+and its inverse, the Kalman gain, and the
+newupdated state 'x', and covariance 'P'.
+
+00:00:18.150 --> 00:00:22.430
+And the new updated state x,
+and covariance p.
+
+00:00:22.430 --> 00:00:26.370
+These are the prediction equations
+exactly as they are described in
+
+00:00:26.370 --> 00:00:28.080
+The Kalman filter algorithm.
+
+00:00:28.080 --> 00:00:31.195
+Let's have a look at
+the prediction function over here.
+
+00:00:31.195 --> 00:00:33.275
+I've got another question for you.
+
+00:00:33.275 --> 00:00:37.865
+Why do we not mention the process
+noise in the state prediction line
+
+00:00:37.865 --> 00:00:41.895
+here, in the code, although state
+transition function has one?
+

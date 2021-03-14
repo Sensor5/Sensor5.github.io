@@ -1,0 +1,59 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.370 --> 00:00:02.229
+Here we are in the lesson map.
+
+00:00:02.229 --> 00:00:04.730
+So far,
+we have defined the motion model.
+
+00:00:04.730 --> 00:00:08.210
+At this point, let's say a Lidar
+measurement has come in.
+
+00:00:08.210 --> 00:00:13.220
+Now, let's design our measurement
+model for a laser sensor in 2D.
+
+00:00:13.220 --> 00:00:16.179
+This will involve defining
+the right measurement vector,
+
+00:00:16.179 --> 00:00:21.120
+Z, the measurement matrix H,
+and the covariance matrix, R.
+
+00:00:21.120 --> 00:00:24.609
+The Lidar sensor output
+is a point cloud, but for
+
+00:00:24.609 --> 00:00:28.359
+simplicity we consider here
+that we already analyzed
+
+00:00:28.359 --> 00:00:32.298
+the point cloud to compute the 2D
+location of the pedestrian.
+
+00:00:32.298 --> 00:00:36.323
+So our measurement vector
+Z is just Px and Py.
+
+00:00:36.323 --> 00:00:42.213
+We also know that our state is
+a 4D vector of Px, Py and Vx, Vy.
+
+00:00:42.213 --> 00:00:46.505
+Now, I would like you to derive
+the right measurement matrix H,
+
+00:00:46.505 --> 00:00:51.450
+which is the projection from a 4D
+state to a 2D observation state.
+
+00:00:51.450 --> 00:00:53.590
+Take a look at the possible
+matrices below.
+

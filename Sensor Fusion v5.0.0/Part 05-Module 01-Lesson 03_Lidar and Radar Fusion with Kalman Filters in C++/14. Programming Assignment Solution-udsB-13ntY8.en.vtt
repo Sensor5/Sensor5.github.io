@@ -1,0 +1,124 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:01.706
+And here is my code.
+
+00:00:01.706 --> 00:00:03.754
+In the process measurement function,
+
+00:00:03.754 --> 00:00:07.324
+I first update the state transition matrix, F,
+
+00:00:07.325 --> 00:00:09.916
+and the process covariance matrix,
+
+00:00:09.916 --> 00:00:12.074
+Q, based on new elapsed time.
+
+00:00:12.074 --> 00:00:17.609
+And finally, I call the Kalman filter predict and update.
+
+00:00:17.609 --> 00:00:19.335
+Let me show you, actually,
+
+00:00:19.335 --> 00:00:22.530
+how the visualization of our results would look.
+
+00:00:22.530 --> 00:00:25.980
+Say, that our pedestrian is moving in a kind of figure eight.
+
+00:00:25.980 --> 00:00:28.050
+And as you see here,
+
+00:00:28.050 --> 00:00:31.844
+the orange dots are our laser measurements,
+
+00:00:31.844 --> 00:00:35.795
+which is basically the observed px and py position.
+
+00:00:35.795 --> 00:00:38.655
+The green line is the real path of the pedestrian,
+
+00:00:38.655 --> 00:00:41.295
+or in other words, the ground truth.
+
+00:00:41.295 --> 00:00:46.725
+And the blue line is the estimated position resulted from our Kalman filter solution.
+
+00:00:46.725 --> 00:00:49.649
+The estimated trajectory actually might look different
+
+00:00:49.649 --> 00:00:53.609
+depending on how we choose the measurement or process noises.
+
+00:00:53.609 --> 00:00:59.414
+For example, here, I increase the measurement noise so the measurement covariance matrix,
+
+00:00:59.414 --> 00:01:02.850
+R, has two on the diagonal line.
+
+00:01:02.850 --> 00:01:04.004
+If I zoom in,
+
+00:01:04.004 --> 00:01:06.000
+then we can have a look closer at
+
+00:01:06.000 --> 00:01:10.894
+the estimated results compared to the measurements and the ground truth.
+
+00:01:10.894 --> 00:01:16.019
+It works quite well when the pedestrian is moving along the straight line.
+
+00:01:16.019 --> 00:01:19.634
+However, our linear motion model is not perfect,
+
+00:01:19.635 --> 00:01:22.380
+especially for the scenarios when the pedestrian is
+
+00:01:22.379 --> 00:01:26.239
+moving along a circular path, as you see here.
+
+00:01:26.239 --> 00:01:27.869
+We always predict that
+
+00:01:27.870 --> 00:01:31.814
+the pedestrian position would be somewhere along the straight line,
+
+00:01:31.814 --> 00:01:36.015
+although their real position follows the green trajectory.
+
+00:01:36.015 --> 00:01:40.659
+So, our estimation would actually underestimate the truth state.
+
+00:01:40.659 --> 00:01:43.219
+So, how can we solve this?
+
+00:01:43.219 --> 00:01:46.275
+Well, instead of using the linear motion model,
+
+00:01:46.275 --> 00:01:48.060
+we can predict the state by using
+
+00:01:48.060 --> 00:01:51.674
+a more complex motion model such as the circular motion.
+
+00:01:51.674 --> 00:01:54.929
+But you will learn about that in the next lesson.
+
+00:01:54.930 --> 00:01:58.670
+Great. Now that we can update with laser data,
+
+00:01:58.670 --> 00:02:01.129
+let us see what we can do with radar data.
+
+00:02:01.129 --> 00:02:03.414
+That is the power of the Kalman filter.
+
+00:02:03.415 --> 00:02:07.050
+It can use multiple data sources originating from
+
+00:02:07.049 --> 00:02:11.000
+different sensors to estimate a more accurate object state.
+

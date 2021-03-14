@@ -1,0 +1,95 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.490 --> 00:00:03.677
+I hope you're ready to put
+your C++ skills the test.
+
+00:00:03.677 --> 00:00:07.320
+Let me reintroduce you to
+Andrei Vatavu from Mercedes-Benz.
+
+00:00:07.320 --> 00:00:09.150
+Hi, Andrei, thank you for having us.
+
+00:00:09.150 --> 00:00:10.349
+&gt;&gt; Hi, David.
+
+00:00:10.349 --> 00:00:14.369
+&gt;&gt; So at this point student should have
+a pretty good intuition of the concepts
+
+00:00:14.369 --> 00:00:16.089
+behind Kalman filters.
+
+00:00:16.089 --> 00:00:18.379
+What do you want them
+to do in this lesson?
+
+00:00:18.379 --> 00:00:19.679
+&gt;&gt; Good question.
+
+00:00:19.679 --> 00:00:20.309
+In this lesson,
+
+00:00:20.309 --> 00:00:24.839
+you will learn how to develop a fusion
+system by using Kalman filters.
+
+00:00:24.839 --> 00:00:25.809
+As David said,
+
+00:00:25.809 --> 00:00:30.079
+after the lesson with Sebastian,
+you should already have a good sense of
+
+00:00:30.079 --> 00:00:34.170
+how to generally apply the Kalman
+filter to estimation problems.
+
+00:00:34.170 --> 00:00:38.469
+You've only used it to combine
+sequential measurements from one sensor.
+
+00:00:38.469 --> 00:00:42.250
+But actually, it's also possible to use
+Kalman filters to combine measurements
+
+00:00:42.250 --> 00:00:43.909
+from different sensors.
+
+00:00:43.909 --> 00:00:46.819
+And that's why we use
+it in sensor fusion.
+
+00:00:46.820 --> 00:00:48.380
+&gt;&gt; That sounds pretty neat.
+
+00:00:48.380 --> 00:00:52.200
+The plan for the project in this module
+is to use sensor fusion to track
+
+00:00:52.200 --> 00:00:53.609
+a pedestrian, right?
+
+00:00:53.609 --> 00:00:56.320
+&gt;&gt; Right,
+you have already learned that lidar and
+
+00:00:56.320 --> 00:00:59.905
+radar have their individual
+strengths and weaknesses.
+
+00:00:59.905 --> 00:01:02.465
+By combining the strengths
+of both of these sensors,
+
+00:01:02.465 --> 00:01:07.465
+you'll be able to estimate precisely the
+pedestrian location, heading, and speed.
+
+00:01:07.465 --> 00:01:11.948
+And one last thing,
+you will implement all of this in C++.
+

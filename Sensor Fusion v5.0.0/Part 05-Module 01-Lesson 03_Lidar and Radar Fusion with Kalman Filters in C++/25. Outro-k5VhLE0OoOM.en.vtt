@@ -1,0 +1,53 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.450 --> 00:00:04.207
+Thank you, Andrei, for the fun
+lesson on extended Kalman filters.
+
+00:00:04.207 --> 00:00:05.540
+&gt;&gt; My pleasure.
+
+00:00:05.540 --> 00:00:09.490
+&gt;&gt; Can you give us a quick summary one
+more time of all of this information?
+
+00:00:09.490 --> 00:00:12.750
+&gt;&gt; At the high level, you've
+designed the fusion system that can
+
+00:00:12.750 --> 00:00:16.850
+incorporate measurements provided
+by laser and radar sensors.
+
+00:00:16.850 --> 00:00:20.510
+Thus we can estimate
+pedestrians' position and speed.
+
+00:00:20.510 --> 00:00:24.735
+Along the way, you learned how to
+implement a Kalman filter in 2D.
+
+00:00:24.735 --> 00:00:28.210
+And you also started working
+with nonlinear measurement models.
+
+00:00:29.330 --> 00:00:31.610
+&gt;&gt; Yes, that was a great start.
+
+00:00:31.610 --> 00:00:34.800
+I'll help you dive deeper into
+handling nonlinear motion,
+
+00:00:34.800 --> 00:00:37.460
+such as a turning car or bicycle.
+
+00:00:37.460 --> 00:00:40.100
+You'll build something called
+an unscented Kalman filter,
+
+00:00:40.100 --> 00:00:42.970
+which is a very powerful and
+flexible technique for sensor fusion.
+

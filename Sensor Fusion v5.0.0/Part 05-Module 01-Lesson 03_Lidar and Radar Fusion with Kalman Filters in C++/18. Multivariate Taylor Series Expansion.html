@@ -1,0 +1,427 @@
+<!-- udacimak v1.4.4 -->
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <meta content="ie=edge" http-equiv="X-UA-Compatible"/>
+  <title>
+   Multivariate Taylor Series Expansion
+  </title>
+  <link href="../assets/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="../assets/css/plyr.css" rel="stylesheet"/>
+  <link href="../assets/css/katex.min.css" rel="stylesheet"/>
+  <link href="../assets/css/jquery.mCustomScrollbar.min.css" rel="stylesheet"/>
+  <link href="../assets/css/styles.css" rel="stylesheet"/>
+  <link href="../assets/img/udacimak.png" rel="shortcut icon" type="image/png">
+  </link>
+ </head>
+ <body>
+  <div class="wrapper">
+   <nav id="sidebar">
+    <div class="sidebar-header">
+     <h3>
+      Lidar and Radar Fusion with Kalman Filters in C++
+     </h3>
+    </div>
+    <ul class="sidebar-list list-unstyled CTAs">
+     <li>
+      <a class="article" href="../index.html">
+       Back to Home
+      </a>
+     </li>
+    </ul>
+    <ul class="sidebar-list list-unstyled components">
+     <li class="">
+      <a href="01. Kalman Filters in C++.html">
+       01. Kalman Filters in C++
+      </a>
+     </li>
+     <li class="">
+      <a href="02. Intro.html">
+       02. Intro
+      </a>
+     </li>
+     <li class="">
+      <a href="03. Lesson Map and Fusion Flow.html">
+       03. Lesson Map and Fusion Flow
+      </a>
+     </li>
+     <li class="">
+      <a href="04. Lesson Variables and Equations.html">
+       04. Lesson Variables and Equations
+      </a>
+     </li>
+     <li class="">
+      <a href="05. Estimation Problem Refresh.html">
+       05. Estimation Problem Refresh
+      </a>
+     </li>
+     <li class="">
+      <a href="06. Kalman Filter Intuition.html">
+       06. Kalman Filter Intuition
+      </a>
+     </li>
+     <li class="">
+      <a href="07. Kalman Filter Equations in C++ Part 1.html">
+       07. Kalman Filter Equations in C++ Part 1
+      </a>
+     </li>
+     <li class="">
+      <a href="08. Kalman Filter Equations in C++ Part 2.html">
+       08. Kalman Filter Equations in C++ Part 2
+      </a>
+     </li>
+     <li class="">
+      <a href="09. State Prediction.html">
+       09. State Prediction
+      </a>
+     </li>
+     <li class="">
+      <a href="10. Process Covariance Matrix.html">
+       10. Process Covariance Matrix
+      </a>
+     </li>
+     <li class="">
+      <a href="11. Laser Measurements Part 1.html">
+       11. Laser Measurements Part 1
+      </a>
+     </li>
+     <li class="">
+      <a href="12. Laser Measurements Part 2.html">
+       12. Laser Measurements Part 2
+      </a>
+     </li>
+     <li class="">
+      <a href="13. Laser Measurements Part 3.html">
+       13. Laser Measurements Part 3
+      </a>
+     </li>
+     <li class="">
+      <a href="14. Laser Measurements Part 4.html">
+       14. Laser Measurements Part 4
+      </a>
+     </li>
+     <li class="">
+      <a href="15. Radar Measurements.html">
+       15. Radar Measurements
+      </a>
+     </li>
+     <li class="">
+      <a href="16. Mapping with a Nonlinear Function.html">
+       16. Mapping with a Nonlinear Function
+      </a>
+     </li>
+     <li class="">
+      <a href="17. Extended Kalman Filter.html">
+       17. Extended Kalman Filter
+      </a>
+     </li>
+     <li class="">
+      <a href="18. Multivariate Taylor Series Expansion.html">
+       18. Multivariate Taylor Series Expansion
+      </a>
+     </li>
+     <li class="">
+      <a href="19. Jacobian Matrix Part 1.html">
+       19. Jacobian Matrix Part 1
+      </a>
+     </li>
+     <li class="">
+      <a href="20. Jacobian Matrix Part 2.html">
+       20. Jacobian Matrix Part 2
+      </a>
+     </li>
+     <li class="">
+      <a href="21. EKF Algorithm Generalization.html">
+       21. EKF Algorithm Generalization
+      </a>
+     </li>
+     <li class="">
+      <a href="22. Sensor Fusion General Flow.html">
+       22. Sensor Fusion General Flow
+      </a>
+     </li>
+     <li class="">
+      <a href="23. Evaluating KF Performance Part 1.html">
+       23. Evaluating KF Performance Part 1
+      </a>
+     </li>
+     <li class="">
+      <a href="24. Evaluating KF Performance 2.html">
+       24. Evaluating KF Performance 2
+      </a>
+     </li>
+     <li class="">
+      <a href="25. Outro.html">
+       25. Outro
+      </a>
+     </li>
+    </ul>
+    <ul class="sidebar-list list-unstyled CTAs">
+     <li>
+      <a class="article" href="../index.html">
+       Back to Home
+      </a>
+     </li>
+    </ul>
+   </nav>
+   <div id="content">
+    <header class="container-fluild header">
+     <div class="container">
+      <div class="row">
+       <div class="col-12">
+        <div class="align-items-middle">
+         <button class="btn btn-toggle-sidebar" id="sidebarCollapse" type="button">
+          <div>
+          </div>
+          <div>
+          </div>
+          <div>
+          </div>
+         </button>
+         <h1 style="display: inline-block">
+          18. Multivariate Taylor Series Expansion
+         </h1>
+        </div>
+       </div>
+      </div>
+     </div>
+    </header>
+    <main class="container">
+     <div class="row">
+      <div class="col-12">
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h3 id="solution-to-the-previous-quiz">
+          Solution to the Previous Quiz
+         </h3>
+         <h3 id="solution">
+          Solution
+         </h3>
+         <div class="mathquill">
+          h(x) \approx h(\mu) + \frac{\partial h(\mu)}{\partial x}(x-\mu) = \arctan(\mu) + \frac{1}{1+\mu^2}(x-\mu)
+         </div>
+         <p>
+          In our example
+          <span class="mathquill ud-math">
+           \mu=0
+          </span>
+          , therefore:
+         </p>
+         <div class="mathquill">
+          h(x) \approx \arctan(0) + \frac{1}{1+0}(x-0) = x
+         </div>
+         <p>
+          So, the function,
+          <span class="mathquill ud-math">
+           h(x) = \arctan(x)
+          </span>
+          , will be approximated by a line:
+          <br/>
+          <span class="mathquill ud-math">
+           h(x) \approx x
+          </span>
+          .
+         </p>
+         <p>
+          And now, let's keep going!
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h3 id="multivariate-taylor-series">
+          Multivariate Taylor Series
+         </h3>
+         <p>
+          Now that you’ve seen how to do a Taylor series expansion with a one-dimensional equation, we’ll need to look at the Taylor series expansion for multi-dimensional equations. Recall from the
+          <em>
+           Radar Measurements
+          </em>
+          lecture that the h function is composed of three equations that show how the predicted state,
+          <span class="mathquill ud-math">
+           x' = (p_x', p_y', v_x', v_y')^T
+          </span>
+          , is mapped into the measurement space,
+          <span class="mathquill ud-math">
+           z = (\rho, \varphi, \dot{\rho})^T
+          </span>
+          :
+         </p>
+         <div class="mathquill">
+          h(x')= \begin{pmatrix}
+\sqrt{ p{'}_x^2 + p{'}_y^2 }\\
+\arctan(p_y' / p_x')\\
+\frac{p_x' v_x' + p_y' v_y'}{\sqrt{p{'}_x^2 + p{'}_{y}^2}}
+\end{pmatrix}
+         </div>
+         <p>
+          These are multi-dimensional equations, so we will need to use a multi-dimensional Taylor series expansion to make a linear approximation of the
+          <span class="mathquill ud-math">
+           h
+          </span>
+          function. Here is a general formula for the multi-dimensional Taylor series expansion:
+         </p>
+         <div class="mathquill">
+          T(x) = f(a) + (x - a)^TDf(a) + \frac 1{2!}(x-a)^T{D^2f(a)}(x - a) + ...
+         </div>
+         <p>
+          where
+          <span class="mathquill ud-math">
+           Df(a)
+          </span>
+          is called the Jacobian matrix and
+          <span class="mathquill ud-math">
+           D^2f(a)
+          </span>
+          is called the
+          <a href="https://www.khanacademy.org/math/multivariable-calculus/applications-of-multivariable-derivatives/quadratic-approximations/a/the-hessian" rel="noopener noreferrer" target="_blank">
+           Hessian matrix
+          </a>
+          . They represent first order and second order derivatives of multi-dimensional equations. A full Taylor series expansion would include higher order terms as well for the third order derivatives, fourth order derivatives, and so on.
+         </p>
+         <p>
+          Notice the similarities between the multi-dimensional Taylor series expansion and the one-dimensional Taylor series expansion:
+         </p>
+         <div class="mathquill">
+          T(x) = f(a) + \frac{f'(a)}{1!}(x - a) + \frac{f''(a)}{2!}(x-a)^2 + \frac{f'''(a)}{3!}(x - a)^3 + ...
+         </div>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <p>
+          To derive a linear approximation for the h function, we will only keep the expansion up to the Jacobian matrix
+          <span class="mathquill ud-math">
+           Df(a)
+          </span>
+          . We will ignore the Hessian matrix
+          <span class="mathquill ud-math">
+           D^2f(a)
+          </span>
+          and other higher order terms. Assuming
+          <span class="mathquill ud-math">
+           (x - a)
+          </span>
+          is small,
+          <span class="mathquill ud-math">
+           (x - a)^2
+          </span>
+          or the multi-dimensional equivalent
+          <span class="mathquill ud-math">
+           (x-a)^T (x - a)
+          </span>
+          will be even smaller; the extended Kalman filter we'll be using assumes that higher order terms beyond the Jacobian are negligible.
+         </p>
+         <p>
+          Let's first calculate the Jacobian matrix for the extended Kalman filter. Then we'll show the difference between the Kalman filter equations and the extended Kalman filter equations.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+      </div>
+      <div class="col-12">
+       <p class="text-right">
+        <a class="btn btn-outline-primary mt-4" href="19. Jacobian Matrix Part 1.html" role="button">
+         Next Concept
+        </a>
+       </p>
+      </div>
+     </div>
+    </main>
+    <footer class="footer">
+     <div class="container">
+      <div class="row">
+       <div class="col-12">
+        <p class="text-center">
+         udacity2.0 If you need the newest courses Plase add me wechat: udacity6
+        </p>
+       </div>
+      </div>
+     </div>
+    </footer>
+   </div>
+  </div>
+  <script src="../assets/js/jquery-3.3.1.min.js">
+  </script>
+  <script src="../assets/js/plyr.polyfilled.min.js">
+  </script>
+  <script src="../assets/js/bootstrap.min.js">
+  </script>
+  <script src="../assets/js/jquery.mCustomScrollbar.concat.min.js">
+  </script>
+  <script src="../assets/js/katex.min.js">
+  </script>
+  <script>
+   // Initialize Plyr video players
+    const players = Array.from(document.querySelectorAll('video')).map(p => new Plyr(p));
+
+    // render math equations
+    let elMath = document.getElementsByClassName('mathquill');
+    for (let i = 0, len = elMath.length; i < len; i += 1) {
+      const el = elMath[i];
+
+      katex.render(el.textContent, el, {
+        throwOnError: false
+      });
+    }
+
+    // this hack will make sure Bootstrap tabs work when using Handlebars
+    if ($('#question-tabs').length && $('#user-answer-tabs').length) {
+      $("#question-tabs a.nav-link").on('click', function () {
+        $("#question-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+      $("#user-answer-tabs a.nav-link").on('click', function () {
+        $("#user-answer-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    } else {
+      $("a.nav-link").on('click', function () {
+        $(".tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    }
+
+    // side bar events
+    $(document).ready(function () {
+      $("#sidebar").mCustomScrollbar({
+        theme: "minimal"
+      });
+
+      $('#sidebarCollapse').on('click', function () {
+        $('#sidebar, #content').toggleClass('active');
+        $('.collapse.in').toggleClass('in');
+        $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+      });
+
+      // scroll to first video on page loading
+      if ($('video').length) {
+        $('html,body').animate({ scrollTop: $('div.plyr').prev().offset().top});
+      }
+
+      // auto play first video: this may not work with chrome/safari due to autoplay policy
+      if (players && players.length > 0) {
+        players[0].play();
+      }
+
+      // scroll sidebar to current concept
+      const currentInSideBar = $( "ul.sidebar-list.components li a:contains('18. Multivariate Taylor Series Expansion')" )
+      currentInSideBar.css( "text-decoration", "underline" );
+      $("#sidebar").mCustomScrollbar('scrollTo', currentInSideBar);
+    });
+  </script>
+ </body>
+</html>

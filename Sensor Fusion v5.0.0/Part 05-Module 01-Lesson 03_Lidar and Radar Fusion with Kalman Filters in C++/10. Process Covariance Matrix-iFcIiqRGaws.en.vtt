@@ -1,0 +1,175 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.400 --> 00:00:03.710
+Here we in the lesson map,
+just as a reminder.
+
+00:00:03.710 --> 00:00:07.620
+We need the process covariance
+matrix to model the stochastic
+
+00:00:07.620 --> 00:00:09.480
+part of the state transition function.
+
+00:00:10.890 --> 00:00:14.640
+First I'm going to show you how
+the acceleration is expressed by
+
+00:00:14.640 --> 00:00:16.510
+the kinematic equations.
+
+00:00:16.510 --> 00:00:20.410
+And then I'm going to use that
+information to derive the process
+
+00:00:20.410 --> 00:00:22.649
+covariance matrix Q.
+
+00:00:22.649 --> 00:00:27.399
+Say we have two consecutive observations
+of the same pedestrian with initial and
+
+00:00:27.399 --> 00:00:28.910
+final velocities.
+
+00:00:28.910 --> 00:00:32.789
+&gt;From the kinematic formulas we can
+derive the current position and
+
+00:00:32.789 --> 00:00:37.280
+speed as a function of previous
+state variables, including
+
+00:00:37.280 --> 00:00:42.630
+the change in the velocity or in other
+words, including the acceleration.
+
+00:00:42.630 --> 00:00:45.090
+You can see how this is derived below.
+
+00:00:45.090 --> 00:00:48.580
+Looking at the deterministic
+part of our motion model,
+
+00:00:48.579 --> 00:00:51.039
+we assume the velocity is constant.
+
+00:00:51.039 --> 00:00:55.170
+However, in reality
+the pedestrian speed might change.
+
+00:00:55.170 --> 00:00:59.829
+Since the acceleration is unknown,
+we can add it to the noise component.
+
+00:00:59.829 --> 00:01:04.367
+And this random noise would be expressed
+analytically as in the last terms in
+
+00:01:04.367 --> 00:01:05.280
+the equation.
+
+00:01:05.280 --> 00:01:09.094
+So, we have a random acceleration
+vector in this form,
+
+00:01:09.094 --> 00:01:13.819
+which is described by a 0 mean and
+the covariance matrix, Q.
+
+00:01:13.819 --> 00:01:17.069
+Delta t is computed at each
+Kalman filter step, and
+
+00:01:17.069 --> 00:01:21.339
+the acceleration is a random
+vector with 0 mean and
+
+00:01:21.340 --> 00:01:26.100
+standard deviations sigma ax and
+sigma ay.
+
+00:01:26.099 --> 00:01:29.299
+This vector can be decomposed
+into two components.
+
+00:01:29.299 --> 00:01:35.340
+A four by two matrix G which does
+not contain random variables.
+
+00:01:35.340 --> 00:01:38.010
+And a two by one matrix,
+
+00:01:38.010 --> 00:01:42.439
+A, which contains the random
+acceleration components.
+
+00:01:42.439 --> 00:01:46.890
+Based on our noise vector, we can
+define now the new covariance matrix Q.
+
+00:01:46.890 --> 00:01:51.739
+The covariance matrix is defined as the
+expectation value of the noise vector
+
+00:01:51.739 --> 00:01:55.250
+mu times the noise vector mu transpose.
+
+00:01:55.250 --> 00:01:57.420
+So, let's write this down.
+
+00:01:57.420 --> 00:02:01.260
+As matrix G does not
+contain random variables,
+
+00:02:01.260 --> 00:02:04.450
+we can put it outside
+expectation calculation.
+
+00:02:04.450 --> 00:02:07.829
+This leaves us with three
+statistical moments.
+
+00:02:07.829 --> 00:02:15.020
+The expectation of ax times ax, which is
+the variance of ax, sigma ax squared.
+
+00:02:15.020 --> 00:02:22.070
+The expectation of ay times ay which is
+the variance of ay, sigma ay squared,
+
+00:02:22.069 --> 00:02:27.900
+and the expectation of ax times ay,
+which is the covariance of ax and ay.
+
+00:02:27.900 --> 00:02:32.580
+Ax and ay are assumed
+uncorrelated noise processes.
+
+00:02:32.580 --> 00:02:37.710
+This means that the covariance sigma ax,
+ay in Q nu is 0.
+
+00:02:37.710 --> 00:02:41.046
+So after combining
+everything in one matrix,
+
+00:02:41.045 --> 00:02:43.620
+we obtain our four by four Q matrix.
+
+00:02:43.620 --> 00:02:48.550
+I also want you to be aware that
+sometimes in the literature,
+
+00:02:48.550 --> 00:02:50.460
+Q nu might be noted as Q.
+
+00:02:50.460 --> 00:02:54.780
+So sometimes there might be
+a confusion between two matrices.
+
+00:02:54.780 --> 00:02:56.259
+See below for more information.
+

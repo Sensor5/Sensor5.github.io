@@ -1,0 +1,172 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.310 --> 00:00:02.980
+So I have a programming assignment for
+you.
+
+00:00:02.980 --> 00:00:06.400
+I would like you to implement
+the C++ program for
+
+00:00:06.400 --> 00:00:08.700
+the Kalman filter update equations.
+
+00:00:08.700 --> 00:00:10.460
+Let me help you get started.
+
+00:00:10.460 --> 00:00:12.910
+So here is the starting code.
+
+00:00:12.910 --> 00:00:17.145
+For matrix manipulation, I would
+like you to use the Eigen library,
+
+00:00:17.145 --> 00:00:21.005
+it has no dependencies and
+it's really easy to use.
+
+00:00:21.005 --> 00:00:24.895
+For more details about how to
+integrate the Eigen library,
+
+00:00:24.895 --> 00:00:28.460
+take a look at the documentation
+which I've linked to below.
+
+00:00:28.460 --> 00:00:34.999
+In order to perform matrix operations, I
+have to include the Eigen/Dense header.
+
+00:00:34.999 --> 00:00:39.647
+Additionally, all classes and
+functions defined in
+
+00:00:39.647 --> 00:00:44.616
+this header are in the Eigen name space,
+so I use it here.
+
+00:00:44.616 --> 00:00:49.119
+Next, I'm going to show you some
+examples of working with matrices and
+
+00:00:49.119 --> 00:00:51.620
+vectors in the main function.
+
+00:00:51.620 --> 00:00:56.200
+You'll be able to run this examples
+in the code editor after this video.
+
+00:00:56.200 --> 00:01:00.930
+You can create a vertical vector of
+two elements with a common like this.
+
+00:01:00.930 --> 00:01:05.349
+And if the vector size was
+previously specified, you can use
+
+00:01:05.349 --> 00:01:10.760
+the so-called comma initializer to set
+all the coefficients to some values.
+
+00:01:10.760 --> 00:01:15.565
+And you can use the cout comment
+to print out the vector,
+
+00:01:15.565 --> 00:01:17.135
+as you will see here.
+
+00:01:17.135 --> 00:01:20.035
+The matrices can be
+created in the same way.
+
+00:01:20.035 --> 00:01:23.425
+For example, this is an initialization
+
+00:01:23.425 --> 00:01:28.700
+of a (2,2) matrix with the values 1,
+2, 3, and 4.
+
+00:01:28.700 --> 00:01:31.480
+I print it here, and this is my output.
+
+00:01:31.480 --> 00:01:34.410
+You can use the same comma initializer,
+or
+
+00:01:34.410 --> 00:01:38.370
+you can set each matrix
+value explicitly, like this.
+
+00:01:38.370 --> 00:01:44.280
+Also you can compute the transpose of
+a matrix with the transpose method.
+
+00:01:44.280 --> 00:01:47.150
+And here is how you can
+get the matrix inverse.
+
+00:01:47.150 --> 00:01:50.460
+And you can multiply matrices and
+vectors,
+
+00:01:50.460 --> 00:01:53.850
+as you do with normal variables,
+as you can see here.
+
+00:01:53.850 --> 00:01:56.690
+Now, that you've seen how
+to use the Eigen library,
+
+00:01:56.690 --> 00:02:00.420
+let's take a look at the code that
+you'll be working with in this quiz.
+
+00:02:00.420 --> 00:02:06.460
+At the top of 'tracking_1D.cpp', 
+I declared all the Kalman filter
+variables here.
+
+00:02:06.460 --> 00:02:11.260
+Jumping down into the main function,
+for our 1D motion case,
+
+00:02:11.260 --> 00:02:15.320
+I initialize them with the same
+values as in the previous lesson.
+
+00:02:15.320 --> 00:02:18.910
+You can't see them all right now,
+but I promise they are there.
+
+00:02:18.910 --> 00:02:23.810
+And here is my mostly empty
+filter function, where I iterate
+
+00:02:23.810 --> 00:02:28.970
+over my list of measurements and
+where I want you to add your code.
+
+00:02:28.970 --> 00:02:33.560
+Concretely, I want you to implement the
+measurement update and the prediction
+
+00:02:33.560 --> 00:02:38.720
+steps inside the loop, given all
+the matrices initialized before.
+
+00:02:38.720 --> 00:02:43.008
+If you need some help, take a look back
+at the filter implementation you made
+
+00:02:43.008 --> 00:02:44.800
+in Sebastian's lesson.
+
+00:02:44.800 --> 00:02:49.870
+After this video, you can find the link
+to the same programming quiz in Python.
+
+00:02:49.870 --> 00:02:50.390
+Good luck.
+

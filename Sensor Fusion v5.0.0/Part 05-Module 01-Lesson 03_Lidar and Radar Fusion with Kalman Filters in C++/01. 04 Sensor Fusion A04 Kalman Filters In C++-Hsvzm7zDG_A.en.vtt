@@ -1,0 +1,31 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:01.790
+Let's talk Kalman filters.
+
+00:00:01.790 --> 00:00:04.679
+You've seen Kalman filters in the context of localization,
+
+00:00:04.679 --> 00:00:06.434
+but they're much more general.
+
+00:00:06.434 --> 00:00:11.550
+You can apply them to almost any tracking problem in physical systems.
+
+00:00:11.550 --> 00:00:13.350
+So, you can talk about motion models,
+
+00:00:13.349 --> 00:00:15.179
+we're going to talk about sensor fusion,
+
+00:00:15.179 --> 00:00:17.309
+and apply Kalman filters in their contexts,
+
+00:00:17.309 --> 00:00:19.125
+and to throw one more wrench,
+
+00:00:19.125 --> 00:00:21.160
+you're going to do it in C++.
+

@@ -1,0 +1,158 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.260 --> 00:00:05.580
+Say that we have our predicted state x
+described by a Gaussian distribution.
+
+00:00:05.580 --> 00:00:10.750
+If we map this Gaussian to
+a nonlinear function h,
+
+00:00:11.890 --> 00:00:15.017
+then the result is not
+a Gaussian distribution anymore.
+
+00:00:15.017 --> 00:00:18.227
+So the Kalman filter is
+not applicable anymore.
+
+00:00:18.227 --> 00:00:22.942
+And in order to visualize the impact
+of this nonlinear transformation,
+
+00:00:22.942 --> 00:00:24.885
+I've created a simple test.
+
+00:00:24.885 --> 00:00:29.112
+I've generated a list of 10,000
+random values drawn from
+
+00:00:29.112 --> 00:00:33.740
+a normal distribution with a mean
+of 0 and a standard deviation of 3.
+
+00:00:33.740 --> 00:00:37.100
+And here is the histogram
+of these values.
+
+00:00:37.100 --> 00:00:40.800
+And you can see that it
+follows a Gaussian shape.
+
+00:00:40.800 --> 00:00:47.850
+Then for each of these values xi, I have
+computed the corresponding h over xi.
+
+00:00:47.850 --> 00:00:51.910
+And in my case,
+h is the arctangent of xi, which
+
+00:00:51.910 --> 00:00:56.240
+is a nonlinear function that is also
+used in our radar measurement model.
+
+00:00:56.240 --> 00:00:58.970
+The result is stored in an output list.
+
+00:00:58.970 --> 00:01:03.000
+And finally, I use my output list
+to generate a new histogram.
+
+00:01:03.000 --> 00:01:08.430
+What we see here is that the resulting
+distribution is not a Gaussian any more,
+
+00:01:08.430 --> 00:01:10.770
+because of the nonlinearity of h.
+
+00:01:10.770 --> 00:01:15.466
+Moreover, the transformed density
+cannot be represented in closed form.
+
+00:01:15.466 --> 00:01:19.400
+So Kalman filter update equations
+are not applicable here.
+
+00:01:19.400 --> 00:01:20.820
+How can we fix that?
+
+00:01:20.820 --> 00:01:24.960
+A possible solution is to
+linearize the h(x) function.
+
+00:01:24.960 --> 00:01:29.920
+And that's the key idea of
+the so-called extended Kalman filter.
+
+00:01:29.920 --> 00:01:34.543
+So we have to approximate our
+measurement function h by a linear
+
+00:01:34.543 --> 00:01:40.227
+function which is tangent to h at the
+mean location of the original Gaussian.
+
+00:01:40.227 --> 00:01:43.010
+So I repeated the same test.
+
+00:01:43.010 --> 00:01:47.215
+I used the same list of randomly sampled
+values from a normal distribution.
+
+00:01:47.215 --> 00:01:51.142
+But instead of applying
+the nonlinear function h,
+
+00:01:51.142 --> 00:01:56.910
+all the xi values were passed
+through the linear approximation of h.
+
+00:01:56.910 --> 00:02:01.299
+And we can see now that unlike
+the non linear case, this time,
+
+00:02:01.299 --> 00:02:05.458
+our resulting distribution
+retained the Gaussian nature.
+
+00:02:05.458 --> 00:02:08.691
+So how do we linearize
+a nonlinear function?
+
+00:02:08.691 --> 00:02:14.040
+The extended Kalman filter uses a method
+called first order Taylor expansion.
+
+00:02:14.040 --> 00:02:19.440
+So what we do is we first evaluate
+the nonlinear function h at the mean
+
+00:02:19.440 --> 00:02:25.341
+location mu, which is the best estimate
+of our predicted distribution.
+
+00:02:25.341 --> 00:02:29.530
+And then we extrapolate
+the line with slope around mu.
+
+00:02:29.530 --> 00:02:33.690
+And this slope is given by
+the first derivative of h.
+
+00:02:33.690 --> 00:02:38.414
+Similarly, extended Kalman filters
+implement exactly the same linearization
+
+00:02:38.414 --> 00:02:41.970
+when the state transition
+f of x is also nonlinear.
+
+00:02:41.970 --> 00:02:44.450
+So in the next quiz, I would like
+
+00:02:44.450 --> 00:02:48.420
+you to compute as a practice the linear
+equation for a given function.
+

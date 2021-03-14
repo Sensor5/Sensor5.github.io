@@ -1,0 +1,205 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.170 --> 00:00:01.500
+Congratulations.
+
+00:00:01.500 --> 00:00:04.730
+You've just implemented a full
+Kalman filter program for
+
+00:00:04.730 --> 00:00:07.280
+tracking a pedestrian in 2D.
+
+00:00:07.280 --> 00:00:12.010
+You have used laser measurements to
+update the 4D state containing the Px,
+
+00:00:12.010 --> 00:00:15.180
+Py position, and Vx, Vy velocity.
+
+00:00:15.180 --> 00:00:18.510
+But, of course,
+this model is called sensor fusion.
+
+00:00:18.510 --> 00:00:21.750
+So, we need to be able to
+fuse data from another sensor
+
+00:00:21.750 --> 00:00:23.740
+to improve our object tracking.
+
+00:00:23.740 --> 00:00:28.880
+So next up, we will integrate radar
+measurements into our Kalman filter.
+
+00:00:28.880 --> 00:00:32.034
+So how will radar data
+improve our predictions?
+
+00:00:32.034 --> 00:00:37.845
+Although the laser is providing the
+pedestrian position with high accuracy,
+
+00:00:37.845 --> 00:00:42.690
+atually, we don't have yet
+a way to observe directly its speed.
+
+00:00:42.690 --> 00:00:45.030
+That's where radars can help us.
+
+00:00:45.030 --> 00:00:46.760
+Using the doppler effect,
+
+00:00:46.760 --> 00:00:51.280
+the radar can directly measure
+the radial velocity of a moving object.
+
+00:00:51.280 --> 00:00:55.960
+The radial velocity is the component
+of velocity moving towards or
+
+00:00:55.960 --> 00:00:57.610
+away from the sensor.
+
+00:00:57.610 --> 00:01:00.790
+However, we also know that
+the radar has a lower spatial
+
+00:01:00.790 --> 00:01:03.200
+resolution than the laser sensors.
+
+00:01:03.200 --> 00:01:06.690
+So why not combine both of
+these sensors together?
+
+00:01:06.690 --> 00:01:10.690
+Let's design our Kalman filter to
+work with new radar information.
+
+00:01:10.690 --> 00:01:13.610
+The state transition function
+will be exactly what you've
+
+00:01:13.610 --> 00:01:15.550
+designed in the LIDAR case.
+
+00:01:15.550 --> 00:01:20.134
+We use the same state with
+four parameters, Px, Py, Vx,
+
+00:01:20.134 --> 00:01:24.970
+Vy with the same linear motion model and
+process noise.
+
+00:01:24.970 --> 00:01:28.360
+However, our new radar sees
+the world differently.
+
+00:01:28.360 --> 00:01:32.030
+Let's have our vehicle here and
+the pedestrian here.
+
+00:01:32.030 --> 00:01:36.370
+The x axis always points in
+the vehicle's direction of movement and
+
+00:01:36.370 --> 00:01:39.210
+the y axis points to the left.
+
+00:01:39.210 --> 00:01:44.560
+Instead of a 2D pos, the radar can
+directly measure the object range,
+
+00:01:44.560 --> 00:01:50.170
+rho, bearing, phi, and
+range rate, rho dot.
+
+00:01:50.170 --> 00:01:54.997
+The range, rho, is the radial distance
+from the origin to our pedestrian.
+
+00:01:54.997 --> 00:01:59.776
+So we can always define a ray which
+extends from the origin to our object
+
+00:01:59.776 --> 00:02:00.586
+position.
+
+00:02:00.586 --> 00:02:07.290
+The bearing, phi, in this case, is the
+angle between the ray and x direction.
+
+00:02:07.290 --> 00:02:09.900
+And the range rate, rho dot,
+
+00:02:09.900 --> 00:02:15.630
+also known as the radial velocity,
+is the velocity along this ray.
+
+00:02:15.630 --> 00:02:18.540
+And similar to our motion model,
+
+00:02:18.540 --> 00:02:23.460
+the radar observations are corrupted
+by a zero-mean random noise, omega.
+
+00:02:23.460 --> 00:02:27.265
+Considering that the three
+measurement vector components are not
+
+00:02:27.265 --> 00:02:31.850
+cross-correlated, their radar
+measurement covariance matrix becomes
+
+00:02:31.850 --> 00:02:34.210
+a three-by-three diagonal matrix.
+
+00:02:34.210 --> 00:02:39.500
+So, our state is still the same and
+has four parameters, px, py,
+
+00:02:39.500 --> 00:02:46.710
+vx, vy and the measurement vector has
+three parameters, rho, phi and rho dot.
+
+00:02:46.710 --> 00:02:52.090
+And the next questing is, what is
+the measurement function h of x prime,
+
+00:02:52.090 --> 00:02:56.690
+that maps the predicted state x
+prime into the measurement space?
+
+00:02:56.690 --> 00:03:00.380
+And that's how I define the h function,
+
+00:03:00.380 --> 00:03:03.570
+which basically specifies how
+the predictive position and
+
+00:03:03.570 --> 00:03:09.000
+speed can be related to the object
+range, bearing, and range rate.
+
+00:03:09.000 --> 00:03:12.150
+You can find that the derivational
+disequations below.
+
+00:03:12.150 --> 00:03:17.230
+Looking at the lowercase h function, you
+can see that it is a nonlinear function.
+
+00:03:17.230 --> 00:03:21.070
+So comparing to the linear
+case when using laser data,
+
+00:03:21.070 --> 00:03:24.180
+we don't have a measurement matrix,
+h, here.
+
+00:03:24.180 --> 00:03:27.470
+And in the next quiz,
+I would like to check your intuition.
+

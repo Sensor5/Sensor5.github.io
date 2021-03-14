@@ -1,0 +1,120 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.280 --> 00:00:02.930
+Once we have implemented
+our tracking algorithm,
+
+00:00:02.930 --> 00:00:05.380
+we might want to check its performance
+
+00:00:05.380 --> 00:00:10.060
+in terms of how far the estimated
+result is from the true result.
+
+00:00:10.060 --> 00:00:12.700
+There are many evaluation metrics, but
+
+00:00:12.700 --> 00:00:17.260
+perhaps the most common one is
+the so-called root mean squared error.
+
+00:00:17.260 --> 00:00:20.400
+In the context of tracking,
+it's an accuracy metric used to
+
+00:00:20.400 --> 00:00:24.960
+measure the deviation of the estimated
+state from the true state.
+
+00:00:24.960 --> 00:00:27.150
+So let's see how it's computed.
+
+00:00:27.150 --> 00:00:31.670
+At the given processing step,
+I basically need two values,
+
+00:00:31.670 --> 00:00:36.630
+the estimated state which is a vector
+with a position and velocity components,
+
+00:00:36.630 --> 00:00:41.880
+and the real values that are usually
+known as ground truth values.
+
+00:00:41.880 --> 00:00:44.220
+The difference between
+the estimated state and
+
+00:00:44.220 --> 00:00:47.835
+the ground truth state gives me a so
+called, residual.
+
+00:00:47.835 --> 00:00:51.540
+These residuals are squared and
+averaged and
+
+00:00:51.540 --> 00:00:55.060
+finally the square root
+gives me the error metric.
+
+00:00:55.060 --> 00:00:59.800
+The lower is the error,
+the higher is our estimation accuracy.
+
+00:00:59.800 --> 00:01:02.530
+Let's see how it works in C++.
+
+00:01:02.530 --> 00:01:05.080
+So, I'm giving you a starting code.
+
+00:01:05.080 --> 00:01:11.050
+I want you to complete CalculateRMSE
+function, which takes a list
+
+00:01:11.050 --> 00:01:16.110
+of estimated states, and another list
+of corresponding ground truth states.
+
+00:01:16.110 --> 00:01:20.080
+It returns a vector with a root mean
+square error of the position and
+
+00:01:20.080 --> 00:01:21.160
+velocity.
+
+00:01:21.160 --> 00:01:23.490
+Also consider that you have to check for
+
+00:01:23.490 --> 00:01:28.609
+invalid inputs in the case of the two
+vectors, estimations and ground truths.
+
+00:01:28.609 --> 00:01:31.550
+The estimation vector
+should be non-empty and
+
+00:01:31.550 --> 00:01:34.840
+it has to be the same size
+as the ground truth vector.
+
+00:01:34.840 --> 00:01:37.650
+So you will have to use
+the Eigen functions to perform
+
+00:01:37.650 --> 00:01:39.830
+all the necessary operations.
+
+00:01:39.830 --> 00:01:44.610
+You might want to subtract the vector
+from another vector as in this example.
+
+00:01:44.610 --> 00:01:49.280
+You also can do the coefficient-wise
+multiplications as here, or
+
+00:01:49.280 --> 00:01:52.100
+you can compute the vector
+element square root as here.
+

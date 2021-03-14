@@ -1,0 +1,754 @@
+<!-- udacimak v1.4.4 -->
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <meta content="ie=edge" http-equiv="X-UA-Compatible"/>
+  <title>
+   Kalman Filter Equations in C++ Part 1
+  </title>
+  <link href="../assets/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="../assets/css/plyr.css" rel="stylesheet"/>
+  <link href="../assets/css/katex.min.css" rel="stylesheet"/>
+  <link href="../assets/css/jquery.mCustomScrollbar.min.css" rel="stylesheet"/>
+  <link href="../assets/css/styles.css" rel="stylesheet"/>
+  <link href="../assets/img/udacimak.png" rel="shortcut icon" type="image/png">
+  </link>
+ </head>
+ <body>
+  <div class="wrapper">
+   <nav id="sidebar">
+    <div class="sidebar-header">
+     <h3>
+      Lidar and Radar Fusion with Kalman Filters in C++
+     </h3>
+    </div>
+    <ul class="sidebar-list list-unstyled CTAs">
+     <li>
+      <a class="article" href="../index.html">
+       Back to Home
+      </a>
+     </li>
+    </ul>
+    <ul class="sidebar-list list-unstyled components">
+     <li class="">
+      <a href="01. Kalman Filters in C++.html">
+       01. Kalman Filters in C++
+      </a>
+     </li>
+     <li class="">
+      <a href="02. Intro.html">
+       02. Intro
+      </a>
+     </li>
+     <li class="">
+      <a href="03. Lesson Map and Fusion Flow.html">
+       03. Lesson Map and Fusion Flow
+      </a>
+     </li>
+     <li class="">
+      <a href="04. Lesson Variables and Equations.html">
+       04. Lesson Variables and Equations
+      </a>
+     </li>
+     <li class="">
+      <a href="05. Estimation Problem Refresh.html">
+       05. Estimation Problem Refresh
+      </a>
+     </li>
+     <li class="">
+      <a href="06. Kalman Filter Intuition.html">
+       06. Kalman Filter Intuition
+      </a>
+     </li>
+     <li class="">
+      <a href="07. Kalman Filter Equations in C++ Part 1.html">
+       07. Kalman Filter Equations in C++ Part 1
+      </a>
+     </li>
+     <li class="">
+      <a href="08. Kalman Filter Equations in C++ Part 2.html">
+       08. Kalman Filter Equations in C++ Part 2
+      </a>
+     </li>
+     <li class="">
+      <a href="09. State Prediction.html">
+       09. State Prediction
+      </a>
+     </li>
+     <li class="">
+      <a href="10. Process Covariance Matrix.html">
+       10. Process Covariance Matrix
+      </a>
+     </li>
+     <li class="">
+      <a href="11. Laser Measurements Part 1.html">
+       11. Laser Measurements Part 1
+      </a>
+     </li>
+     <li class="">
+      <a href="12. Laser Measurements Part 2.html">
+       12. Laser Measurements Part 2
+      </a>
+     </li>
+     <li class="">
+      <a href="13. Laser Measurements Part 3.html">
+       13. Laser Measurements Part 3
+      </a>
+     </li>
+     <li class="">
+      <a href="14. Laser Measurements Part 4.html">
+       14. Laser Measurements Part 4
+      </a>
+     </li>
+     <li class="">
+      <a href="15. Radar Measurements.html">
+       15. Radar Measurements
+      </a>
+     </li>
+     <li class="">
+      <a href="16. Mapping with a Nonlinear Function.html">
+       16. Mapping with a Nonlinear Function
+      </a>
+     </li>
+     <li class="">
+      <a href="17. Extended Kalman Filter.html">
+       17. Extended Kalman Filter
+      </a>
+     </li>
+     <li class="">
+      <a href="18. Multivariate Taylor Series Expansion.html">
+       18. Multivariate Taylor Series Expansion
+      </a>
+     </li>
+     <li class="">
+      <a href="19. Jacobian Matrix Part 1.html">
+       19. Jacobian Matrix Part 1
+      </a>
+     </li>
+     <li class="">
+      <a href="20. Jacobian Matrix Part 2.html">
+       20. Jacobian Matrix Part 2
+      </a>
+     </li>
+     <li class="">
+      <a href="21. EKF Algorithm Generalization.html">
+       21. EKF Algorithm Generalization
+      </a>
+     </li>
+     <li class="">
+      <a href="22. Sensor Fusion General Flow.html">
+       22. Sensor Fusion General Flow
+      </a>
+     </li>
+     <li class="">
+      <a href="23. Evaluating KF Performance Part 1.html">
+       23. Evaluating KF Performance Part 1
+      </a>
+     </li>
+     <li class="">
+      <a href="24. Evaluating KF Performance 2.html">
+       24. Evaluating KF Performance 2
+      </a>
+     </li>
+     <li class="">
+      <a href="25. Outro.html">
+       25. Outro
+      </a>
+     </li>
+    </ul>
+    <ul class="sidebar-list list-unstyled CTAs">
+     <li>
+      <a class="article" href="../index.html">
+       Back to Home
+      </a>
+     </li>
+    </ul>
+   </nav>
+   <div id="content">
+    <header class="container-fluild header">
+     <div class="container">
+      <div class="row">
+       <div class="col-12">
+        <div class="align-items-middle">
+         <button class="btn btn-toggle-sidebar" id="sidebarCollapse" type="button">
+          <div>
+          </div>
+          <div>
+          </div>
+          <div>
+          </div>
+         </button>
+         <h1 style="display: inline-block">
+          07. Kalman Filter Equations in C++ Part 1
+         </h1>
+        </div>
+       </div>
+      </div>
+     </div>
+    </header>
+    <main class="container">
+     <div class="row">
+      <div class="col-12">
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h3 id="kalman-filter-equations-in-c">
+          Kalman Filter Equations in C++
+         </h3>
+         <p>
+          Now, let's do a quick refresher of the Kalman Filter for a simple 1D motion case. Let's say that your goal is to track a pedestrian with state
+          <span class="mathquill ud-math">
+           x
+          </span>
+          that is described by a position and velocity.
+         </p>
+         <div class="mathquill">
+          x = \begin{pmatrix} 
+p \\ 
+v 
+\end{pmatrix}
+         </div>
+         <h5 id="prediction-step">
+          Prediction Step
+         </h5>
+         <p>
+          When designing the Kalman filter, we have to define the two linear functions: the state transition function and the measurement function. The state transition function is
+         </p>
+         <p>
+          <span class="mathquill ud-math">
+           x' = F*x + noise
+          </span>
+          ,
+         </p>
+         <p>
+          where,
+         </p>
+         <p>
+          <span class="mathquill ud-math">
+           F = \begin{pmatrix} 1 &amp; \Delta t \\ 0 &amp; 1 \end{pmatrix}
+          </span>
+         </p>
+         <p>
+          and
+          <span class="mathquill ud-math">
+           x'
+          </span>
+          is where we predict the object to be after time
+          <span class="mathquill ud-math">
+           \Delta t
+          </span>
+          .
+         </p>
+         <p>
+          <span class="mathquill ud-math">
+           F
+          </span>
+          is a matrix that, when multiplied with
+          <span class="mathquill ud-math">
+           x
+          </span>
+          , predicts where the object will be after time
+          <span class="mathquill ud-math">
+           \Delta t
+          </span>
+          .
+         </p>
+         <p>
+          By using the linear motion model with a constant velocity, the new location,
+          <span class="mathquill ud-math">
+           p'
+          </span>
+          is calculated as
+         </p>
+         <p>
+          <span class="mathquill ud-math">
+           p' = p + v * \Delta t
+          </span>
+          ,
+         </p>
+         <p>
+          where
+          <span class="mathquill ud-math">
+           p
+          </span>
+          is the old location and
+          <span class="mathquill ud-math">
+           v
+          </span>
+          , the velocity, will be the same as the new velocity (
+          <span class="mathquill ud-math">
+           v' = v
+          </span>
+          ) because the velocity is constant.
+         </p>
+         <p>
+          We can express this in a matrix form as follows:
+         </p>
+         <p>
+          <span class="mathquill ud-math">
+           \begin{pmatrix} p' \\ v' \end{pmatrix} = \begin{pmatrix}1 &amp; \Delta t \\ 0 &amp; 1 \end{pmatrix} \begin{pmatrix} p \\ v \end{pmatrix}
+          </span>
+         </p>
+         <p>
+          Remember we are representing the object location and velocity as gaussian distributions with mean
+          <span class="mathquill ud-math">
+           x
+          </span>
+          . When working with the equation
+          <span class="mathquill ud-math">
+           x' = F
+           <em>
+            x + noise
+           </em>
+          </span>
+          , we are calculating the mean value of the state vector. The noise is also represented by a gaussian distribution but with mean zero; hence, noise = 0 is saying that the mean noise is zero. The equation then becomes
+          <span class="mathquill ud-math">
+           x' = F*x
+          </span>
+         </p>
+         <p>
+          But the noise does have uncertainty. The uncertainty shows up in the
+          <span class="mathquill ud-math">
+           Q
+          </span>
+          matrix as acceleration noise.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h5 id="update-step">
+          Update Step
+         </h5>
+         <p>
+          For the update step, we use the measurement function to map the state vector into the measurement space of the sensor. To give a concrete example, lidar only measures an object's position. But the extended Kalman filter models an object's position and velocity. So multiplying by the measurement function H matrix will drop the velocity information from the state vector
+          <span class="mathquill ud-math">
+           x
+          </span>
+          . Then the lidar measurement position and our belief about the object's position can be compared.
+         </p>
+         <p>
+          <span class="mathquill ud-math">
+           z = H*x + w
+          </span>
+         </p>
+         <p>
+          where
+          <span class="mathquill ud-math">
+           w
+          </span>
+          represents sensor measurement noise.
+         </p>
+         <p>
+          So for lidar, the measurement function looks like this:
+         </p>
+         <p>
+          <span class="mathquill ud-math">
+           z = p'
+          </span>
+          .
+         </p>
+         <p>
+          It also can be represented in a matrix form:
+         </p>
+         <p>
+          <span class="mathquill ud-math">
+           z=\begin{pmatrix} 1 &amp; 0 \end{pmatrix} \begin{pmatrix} p' \\ v'  \end{pmatrix}
+          </span>
+          .
+         </p>
+         <p>
+          As we already know, the general algorithm is composed of a prediction step where I predict the new state and covariance,
+          <span class="mathquill ud-math">
+           P
+          </span>
+          .
+         </p>
+         <p>
+          And we also have a measurement update (or also called many times a correction step) where we use the latest measurements to update our estimate and our uncertainty.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+         <p>
+          Kalman Filter Equations In C++ Programming
+         </p>
+        </h3>
+        <video controls="">
+         <source src="07. Kalman Filter Equations In C++ Programming-KV4ZdUnOz9I.mp4" type="video/mp4"/>
+         <track default="false" kind="subtitles" label="ja-JP" src="07. Kalman Filter Equations In C++ Programming-KV4ZdUnOz9I.ja-JP.vtt" srclang="ja-JP"/>
+         <track default="false" kind="subtitles" label="zh-CN" src="07. Kalman Filter Equations In C++ Programming-KV4ZdUnOz9I.zh-CN.vtt" srclang="zh-CN"/>
+         <track default="true" kind="subtitles" label="en" src="07. Kalman Filter Equations In C++ Programming-KV4ZdUnOz9I.en.vtt" srclang="en"/>
+        </video>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <p>
+          Here is a download link to the
+          <a href="https://d17h27t6h515a5.cloudfront.net/topher/2017/March/58b7604e_eigen/eigen.zip" rel="noopener noreferrer" target="_blank">
+           Eigen Library
+          </a>
+          that is being used throughout the programming assignments.  Further details regarding this library can be found
+          <a href="http://eigen.tuxfamily.org/" rel="noopener noreferrer" target="_blank">
+           here
+          </a>
+          .
+         </p>
+         <p>
+          Note: In the classroom editor we are calling just Dense instead of Eigen/Dense as seen in videos. This is because the Eigen library had to have its folder structure reformatted to work with the programming quiz editor. If you run the code on your own computer you would still use Eigen/Dense.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <p>
+          <strong>
+           Notes for using the Eigen Library:
+          </strong>
+         </p>
+         <p>
+          You can create a  vertical vector of two elements with a command like this:
+         </p>
+         <p>
+          <code>
+           VectorXd my_vector(2);
+          </code>
+         </p>
+         <p>
+          You can use the so called comma initializer to set all the coefficients to some values:
+         </p>
+         <p>
+          <code>
+           my_vector &lt;&lt; 10, 20;
+          </code>
+         </p>
+         <p>
+          and you can use the cout command to print out the vector:
+         </p>
+         <p>
+          <code>
+           cout &lt;&lt; my_vector &lt;&lt; endl;
+          </code>
+         </p>
+         <p>
+          The matrices can be created in the same way. For example, This is an initialization of a 2 by 2 matrix with the values 1, 2, 3, and 4:
+         </p>
+         <pre><code class="cpp language-cpp">MatrixXd my_matrix(2,2);
+my_matrix &lt;&lt; 1, 2,
+             3, 4;</code></pre>
+         <p>
+          You can use the same comma initializer or you can set each matrix value explicitly. For example, that's how we can change the matrix elements in the second row:
+         </p>
+         <pre><code class="cpp language-cpp">my_matrix(1,0) = 11;    //second row, first column
+my_matrix(1,1) = 12;    //second row, second column</code></pre>
+         <p>
+          Also, you can compute the transpose of a matrix with the following command:
+         </p>
+         <p>
+          <code>
+           MatrixXd my_matrix_t = my_matrix.transpose();
+          </code>
+         </p>
+         <p>
+          And here is how you can get the matrix inverse:
+         </p>
+         <p>
+          <code>
+           MatrixXd my_matrix_i = my_matrix.inverse();
+          </code>
+         </p>
+         <p>
+          For multiplying the matrix m with the vector b you can write this in one line as let’s say matrix c equals m times v:
+         </p>
+         <pre><code class="cpp language-cpp">MatrixXd another_matrix;
+another_matrix = my_matrix*my_vector;</code></pre>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <div>
+          <h4>
+           Task Description:
+          </h4>
+          <p>
+           Programming Assignment TODOs
+          </p>
+         </div>
+         <form>
+          <fieldset>
+           <legend>
+            Task List:
+           </legend>
+           <div>
+            <input id="f433a0d6-588c-450a-bbb6-7e4064b400db--0" type="checkbox"/>
+            <label for="f433a0d6-588c-450a-bbb6-7e4064b400db--0">
+             <p>
+              Implement the prediction step within the loop.
+             </p>
+            </label>
+           </div>
+           <div>
+            <input id="f433a0d6-588c-450a-bbb6-7e4064b400db--1" type="checkbox"/>
+            <label for="f433a0d6-588c-450a-bbb6-7e4064b400db--1">
+             <p>
+              Implement the measurement update step within the loop.
+             </p>
+            </label>
+           </div>
+          </fieldset>
+         </form>
+         <div>
+          <h4>
+           Task Feedback:
+          </h4>
+          <p>
+           Nice! Have you tested your code below?
+          </p>
+         </div>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <p>
+          Note that in the quiz below, in the
+          <code>
+           filter()
+          </code>
+          function, we actually do the measurement and then the prediction in the loop. Over time, the order of these doesn't have a huge impact, since it is just a cycle from one to the other. Here, the first thing you need is a measurement because otherwise there is no location information or even information that the object exists unless a sensor picked it up. So, you initialize location values with the measurement.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h4>
+          Start Quiz:
+         </h4>
+         <div>
+          <div class="nav nav-tabs nav-fill" id="question-tabs" role="tablist">
+           <a aria-controls="220670-main-cpp" aria-selected="true" class="nav-item nav-link active show" data-toggle="tab" href="#220670-main-cpp" id="tab-220670-main-cpp" role="tab">
+            main.cpp
+           </a>
+          </div>
+          <div class="tab-content" id="question-tab-contents" style="padding: 20px 0;">
+           <div aria-labelledby="tab-220670-main-cpp" class="tab-pane active show" id="220670-main-cpp" role="tabpanel">
+            <pre><code></code>/** 
+ * Write a function 'filter()' that implements a multi-
+ *   dimensional Kalman Filter for the example given
+ */
+
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+#include "Dense"
+
+using std::cout;
+using std::endl;
+using std::vector;
+using Eigen::VectorXd;
+using Eigen::MatrixXd;
+
+// Kalman Filter variables
+VectorXd x;	// object state
+MatrixXd P;	// object covariance matrix
+VectorXd u;	// external motion
+MatrixXd F; // state transition matrix
+MatrixXd H;	// measurement matrix
+MatrixXd R;	// measurement covariance matrix
+MatrixXd I; // Identity matrix
+MatrixXd Q;	// process covariance matrix
+
+vector&lt;VectorXd&gt; measurements;
+void filter(VectorXd &amp;x, MatrixXd &amp;P);
+
+
+int main() {
+  /**
+   * Code used as example to work with Eigen matrices
+   */
+  // design the KF with 1D motion
+  x = VectorXd(2);
+  x &lt;&lt; 0, 0;
+
+  P = MatrixXd(2, 2);
+  P &lt;&lt; 1000, 0, 0, 1000;
+
+  u = VectorXd(2);
+  u &lt;&lt; 0, 0;
+
+  F = MatrixXd(2, 2);
+  F &lt;&lt; 1, 1, 0, 1;
+
+  H = MatrixXd(1, 2);
+  H &lt;&lt; 1, 0;
+
+  R = MatrixXd(1, 1);
+  R &lt;&lt; 1;
+
+  I = MatrixXd::Identity(2, 2);
+
+  Q = MatrixXd(2, 2);
+  Q &lt;&lt; 0, 0, 0, 0;
+
+  // create a list of measurements
+  VectorXd single_meas(1);
+  single_meas &lt;&lt; 1;
+  measurements.push_back(single_meas);
+  single_meas &lt;&lt; 2;
+  measurements.push_back(single_meas);
+  single_meas &lt;&lt; 3;
+  measurements.push_back(single_meas);
+
+  // call Kalman filter algorithm
+  filter(x, P);
+
+  return 0;
+}
+
+
+void filter(VectorXd &amp;x, MatrixXd &amp;P) {
+
+  for (unsigned int n = 0; n &lt; measurements.size(); ++n) {
+
+    VectorXd z = measurements[n];
+    // TODO: YOUR CODE HERE
+		
+    // KF Measurement update step
+		 
+    // new state
+		
+    // KF Prediction step
+		
+    cout &lt;&lt; "x=" &lt;&lt; endl &lt;&lt;  x &lt;&lt; endl;
+    cout &lt;&lt; "P=" &lt;&lt; endl &lt;&lt;  P &lt;&lt; endl;
+  }
+}</pre>
+           </div>
+          </div>
+         </div>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+      </div>
+      <div class="col-12">
+       <p class="text-right">
+        <a class="btn btn-outline-primary mt-4" href="08. Kalman Filter Equations in C++ Part 2.html" role="button">
+         Next Concept
+        </a>
+       </p>
+      </div>
+     </div>
+    </main>
+    <footer class="footer">
+     <div class="container">
+      <div class="row">
+       <div class="col-12">
+        <p class="text-center">
+         udacity2.0 If you need the newest courses Plase add me wechat: udacity6
+        </p>
+       </div>
+      </div>
+     </div>
+    </footer>
+   </div>
+  </div>
+  <script src="../assets/js/jquery-3.3.1.min.js">
+  </script>
+  <script src="../assets/js/plyr.polyfilled.min.js">
+  </script>
+  <script src="../assets/js/bootstrap.min.js">
+  </script>
+  <script src="../assets/js/jquery.mCustomScrollbar.concat.min.js">
+  </script>
+  <script src="../assets/js/katex.min.js">
+  </script>
+  <script>
+   // Initialize Plyr video players
+    const players = Array.from(document.querySelectorAll('video')).map(p => new Plyr(p));
+
+    // render math equations
+    let elMath = document.getElementsByClassName('mathquill');
+    for (let i = 0, len = elMath.length; i < len; i += 1) {
+      const el = elMath[i];
+
+      katex.render(el.textContent, el, {
+        throwOnError: false
+      });
+    }
+
+    // this hack will make sure Bootstrap tabs work when using Handlebars
+    if ($('#question-tabs').length && $('#user-answer-tabs').length) {
+      $("#question-tabs a.nav-link").on('click', function () {
+        $("#question-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+      $("#user-answer-tabs a.nav-link").on('click', function () {
+        $("#user-answer-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    } else {
+      $("a.nav-link").on('click', function () {
+        $(".tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    }
+
+    // side bar events
+    $(document).ready(function () {
+      $("#sidebar").mCustomScrollbar({
+        theme: "minimal"
+      });
+
+      $('#sidebarCollapse').on('click', function () {
+        $('#sidebar, #content').toggleClass('active');
+        $('.collapse.in').toggleClass('in');
+        $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+      });
+
+      // scroll to first video on page loading
+      if ($('video').length) {
+        $('html,body').animate({ scrollTop: $('div.plyr').prev().offset().top});
+      }
+
+      // auto play first video: this may not work with chrome/safari due to autoplay policy
+      if (players && players.length > 0) {
+        players[0].play();
+      }
+
+      // scroll sidebar to current concept
+      const currentInSideBar = $( "ul.sidebar-list.components li a:contains('07. Kalman Filter Equations in C++ Part 1')" )
+      currentInSideBar.css( "text-decoration", "underline" );
+      $("#sidebar").mCustomScrollbar('scrollTo', currentInSideBar);
+    });
+  </script>
+ </body>
+</html>

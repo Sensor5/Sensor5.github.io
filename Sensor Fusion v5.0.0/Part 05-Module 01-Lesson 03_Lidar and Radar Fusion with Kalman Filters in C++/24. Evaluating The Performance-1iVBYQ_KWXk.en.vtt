@@ -1,0 +1,37 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.320 --> 00:00:02.560
+And here is my code.
+
+00:00:02.560 --> 00:00:04.258
+I checked the invalid inputs here.
+
+00:00:04.258 --> 00:00:08.517
+For example, if the two lists are not the 
+same size. &lt;end of thought&gt;
+
+00:00:08.517 --> 00:00:11.095
+&lt;new thought&gt; I accumulate the square of
+the residuals
+
+00:00:11.095 --> 00:00:15.420
+for each pair estimation[i] and
+ground_truth[i].
+
+00:00:15.420 --> 00:00:17.590
+Then I compute the mean here and
+
+00:00:17.590 --> 00:00:21.470
+finally I get the square root here before
+returning the result.
+
+00:00:21.470 --> 00:00:26.058
+So for these specific estimations and
+ground_truths,
+
+00:00:26.058 --> 00:00:32.512
+the resultant mean squared error is 
+0.1, 0.1, 0.1, 0.1.
+

@@ -1,0 +1,31 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.310 --> 00:00:04.140
+And, as you see here,
+I use the predicted state to read
+
+00:00:04.140 --> 00:00:09.040
+the four parameters, px, py, vx, vy.
+
+00:00:09.040 --> 00:00:13.070
+And then I just use them to
+compute each Jacobian element
+
+00:00:13.070 --> 00:00:16.420
+according to the matrix definition
+I've showed you before.
+
+00:00:16.420 --> 00:00:21.800
+In order to make it easier,
+I precompute some of the terms like c1,
+
+00:00:21.800 --> 00:00:26.350
+c2 and c3 to avoid repeated
+computations in the matrix.
+
+00:00:26.350 --> 00:00:29.720
+Here is how I compute the Jacobian and
+here is the result.
+

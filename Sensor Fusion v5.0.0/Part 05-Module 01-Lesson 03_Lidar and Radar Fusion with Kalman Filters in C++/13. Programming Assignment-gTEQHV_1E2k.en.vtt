@@ -1,0 +1,235 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.220 --> 00:00:04.310
+Let's continue with our next programming
+assignment where you'll actually
+
+00:00:04.310 --> 00:00:08.220
+build a Kalman filter that can
+take in lidar measurements and
+
+00:00:08.220 --> 00:00:10.180
+track a pedestrian in 2D.
+
+00:00:10.180 --> 00:00:11.790
+That's pretty cool.
+
+00:00:11.790 --> 00:00:17.120
+The State Vector of a pedestrian
+is described by px py position
+
+00:00:17.120 --> 00:00:18.850
+vx vy velocity.
+
+00:00:18.850 --> 00:00:20.960
+I will give you some starter code, but
+
+00:00:20.960 --> 00:00:24.950
+I want you to set out the rest
+of the Kalman filter variables.
+
+00:00:24.950 --> 00:00:30.200
+This time, the code is structured into
+three main parts, a KalmanFilter class,
+
+00:00:30.200 --> 00:00:34.710
+a Tracking class, and
+a MeasurementPackage class.
+
+00:00:34.710 --> 00:00:38.720
+Here I have the KalmanFilter class,
+the cpp file and
+
+00:00:38.720 --> 00:00:41.020
+the corresponding header file.
+
+00:00:41.020 --> 00:00:45.500
+This is what you've already coded but
+the whole KalmanFilter code including
+
+00:00:45.500 --> 00:00:50.915
+its predict and update functions is
+now decoupled from the tracking logic.
+
+00:00:50.915 --> 00:00:54.645
+We also have a Tracking class
+where we actually create and
+
+00:00:54.645 --> 00:00:56.755
+use a KalmanFilter object.
+
+00:00:56.755 --> 00:01:00.875
+For this quiz,
+you're going to modify F and Q matrices
+
+00:01:00.875 --> 00:01:05.675
+according to the elapsed time between
+the current and previous measurement.
+
+00:01:05.675 --> 00:01:09.725
+You can do so
+inside the process measurement function.
+
+00:01:09.725 --> 00:01:14.045
+Afterwards, your code should call
+the KalmanFilter predict and
+
+00:01:14.045 --> 00:01:14.939
+update functions.
+
+00:01:16.000 --> 00:01:19.720
+Just keep in mind that all
+the KalmanFilter matrices,
+
+00:01:19.720 --> 00:01:25.430
+as well as the predict update functions
+are members of the kf_ object.
+
+00:01:25.430 --> 00:01:29.760
+There is a big difference between this
+and previous programming assignment.
+
+00:01:29.760 --> 00:01:33.990
+Here, we don't process the entire
+list of measurements, but
+
+00:01:33.990 --> 00:01:36.540
+rather the most recent measurement.
+
+00:01:36.540 --> 00:01:41.170
+We are simulating a more realistic
+scenario where the process measurement
+
+00:01:41.170 --> 00:01:46.630
+function is called every time we receive
+new data from a given sensor which,
+
+00:01:46.630 --> 00:01:49.540
+in this case,
+is only from a laser scanner.
+
+00:01:49.540 --> 00:01:53.800
+Also, the sensor data is
+organized in package objects now.
+
+00:01:53.800 --> 00:01:57.860
+These measurement packages are passed as
+an argument to the process measurement
+
+00:01:57.860 --> 00:01:58.970
+function.
+
+00:01:58.970 --> 00:02:00.380
+As you see here,
+
+00:02:00.380 --> 00:02:04.280
+the package properties are grouped
+into MeasurementPackage class.
+
+00:02:04.280 --> 00:02:08.520
+So this class is composed
+of a timestamp_ variable,
+
+00:02:08.520 --> 00:02:12.810
+which is a point in time where the
+measurement was created by a sensor and
+
+00:02:12.810 --> 00:02:18.200
+an enum variable called SensorType
+with two options, LASER and RADAR.
+
+00:02:18.200 --> 00:02:22.230
+This is not important right now,
+as you will only see laser measurement.
+
+00:02:22.230 --> 00:02:27.050
+And there is also vector variable
+with most recent raw measurements.
+
+00:02:27.050 --> 00:02:31.590
+Specifically, if MeasurementPackage
+comes from a laser sensor,
+
+00:02:31.590 --> 00:02:36.910
+then the raw_measurements_ vector will
+contain just observed x and y position.
+
+00:02:36.910 --> 00:02:41.490
+And here is an example of retrieving
+my data from MeasurementPackage.
+
+00:02:41.490 --> 00:02:45.760
+You'll see the x measurement,
+the y measurement and the timestamp.
+
+00:02:45.760 --> 00:02:51.350
+And if we print out these values,
+the result would be something like this.
+
+00:02:51.350 --> 00:02:55.520
+The x position,
+the y position and the timestamp.
+
+00:02:55.520 --> 00:02:58.720
+The big number assigned to
+the timestamp variable,
+
+00:02:58.720 --> 00:03:03.524
+is the number of microseconds that have
+elapsed since Thursday, January 1,
+
+00:03:03.524 --> 00:03:08.210
+1970 which obviously always increases.
+
+00:03:08.210 --> 00:03:12.927
+I would like to point out that in this
+programing assignment the tracking code
+
+00:03:12.927 --> 00:03:18.230
+will first call the predict function and
+then measurement update function.
+
+00:03:18.230 --> 00:03:22.850
+And that is because our prediction
+depends on the elapsed time between
+
+00:03:22.850 --> 00:03:26.610
+two measurements, and
+the time is not fixed anymore.
+
+00:03:26.610 --> 00:03:32.490
+So we can predict our state only after
+next observation timestamp is available.
+
+00:03:32.490 --> 00:03:36.660
+Basically we have to wait for
+the next process measurement call, and
+
+00:03:36.660 --> 00:03:41.350
+then to apply the prediction, right
+before the next measurement update.
+
+00:03:41.350 --> 00:03:46.310
+The first process measurement call will
+just initialize the state position with
+
+00:03:46.310 --> 00:03:51.950
+the first x and y measurement and
+the state velocity vx,
+
+00:03:51.950 --> 00:03:57.720
+vy with 0, assuming we don't know
+the initial velocity and that's it.
+
+00:03:57.720 --> 00:03:59.971
+Remember if you're having trouble,
+
+00:03:59.971 --> 00:04:04.230
+the steps you need to take
+are written as a comment in the code.
+
+00:04:04.230 --> 00:04:04.840
+Good luck.
+

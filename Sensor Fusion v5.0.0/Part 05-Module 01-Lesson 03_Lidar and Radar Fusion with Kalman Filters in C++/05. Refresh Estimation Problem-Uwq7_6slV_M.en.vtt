@@ -1,0 +1,183 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.200 --> 00:00:01.790
+Let's go back to the problem.
+
+00:00:01.790 --> 00:00:06.870
+We want to track a pedestrian moving
+in front of our autonomous vehicle.
+
+00:00:06.870 --> 00:00:11.390
+At its core, the Kalman filter
+is a two-step estimation problem,
+
+00:00:11.390 --> 00:00:13.860
+predict and then update.
+
+00:00:13.860 --> 00:00:18.610
+We always start with what we already
+know from the past about the pedestrian.
+
+00:00:18.610 --> 00:00:23.440
+We use that information to predict the
+state of the pedestrian up to the time
+
+00:00:23.440 --> 00:00:27.345
+when the next measurement arrives, and
+this is called the prediction step.
+
+00:00:27.345 --> 00:00:32.580
+The next step is called the update step,
+where we essentially use the new
+
+00:00:32.580 --> 00:00:37.940
+observations to correct our belief
+about the state of the pedestrian.
+
+00:00:37.940 --> 00:00:43.600
+The Kalman filter simply consists of an
+endless loop of prediction/update steps,
+
+00:00:43.600 --> 00:00:47.080
+this is what you built with
+Sebastian earlier in this module.
+
+00:00:47.080 --> 00:00:50.730
+But what happens when there are two
+sensors that observe the same
+
+00:00:50.730 --> 00:00:51.730
+pedestrian?
+
+00:00:51.730 --> 00:00:54.130
+How does that change the Kalman 
+comma filter?
+
+00:00:54.130 --> 00:00:58.650
+Actually, we can keep the same processing
+flow with the difference that
+
+00:00:58.650 --> 00:01:04.090
+each sensor is going to have its
+own prediction/update scheme.
+
+00:01:04.090 --> 00:01:07.660
+In other words, the belief about
+the pedestrian's position and
+
+00:01:07.660 --> 00:01:10.860
+velocity is updated asynchronously
+
+00:01:10.860 --> 00:01:15.480
+each time new measurement is received
+regardless the source sensor.
+
+00:01:15.480 --> 00:01:19.120
+Let's step through an example
+flow to see how it works.
+
+00:01:19.120 --> 00:01:23.978
+Here the pedestrian state at
+time k is a distribution with
+
+00:01:23.978 --> 00:01:27.225
+its mean (x) and covariance (P).
+
+00:01:27.225 --> 00:01:29.824
+Let's say we're now at time k + 1, and
+
+00:01:29.824 --> 00:01:33.400
+we've just received
+the laser measurement.
+
+00:01:33.400 --> 00:01:37.330
+The first thing we do before we
+look at the measurement update
+
+00:01:37.330 --> 00:01:40.080
+is to make a prediction about where we
+
+00:01:40.080 --> 00:01:44.240
+think the pedestrian from
+time k will be at time k+1.
+
+00:01:44.240 --> 00:01:48.880
+The second thing we do is the so
+called measurement update, where we
+
+00:01:48.880 --> 00:01:53.080
+combine the pedestrian's predicted
+state with the new laser measurement.
+
+00:01:53.080 --> 00:01:57.320
+What we now have is a more accurate
+belief about the pedestrian's position
+
+00:01:57.320 --> 00:02:00.910
+at time k+1,
+this is what we call the posterior.
+
+00:02:00.910 --> 00:02:06.620
+Now let's imagine that we receive
+the radar measurement at time k+2.
+
+00:02:06.620 --> 00:02:11.870
+First, we again predict
+the pedestrian state from k+1 to k+2.
+
+00:02:11.870 --> 00:02:13.790
+Note, this prediction for
+
+00:02:13.790 --> 00:02:18.460
+radar is exactly the same
+function as in the laser case.
+
+00:02:18.460 --> 00:02:22.770
+What changes, in this case,
+is the Measurement Update step.
+
+00:02:22.770 --> 00:02:26.470
+As we know, the radar sees
+the word differently than laser.
+
+00:02:26.470 --> 00:02:30.542
+While laser provides measurement
+in a Cartesian coordinate system,
+
+00:02:30.542 --> 00:02:34.001
+radar provides measurement in
+a polar coordinate system.
+
+00:02:34.001 --> 00:02:38.879
+Thus we have to use different
+measurement update functions specific
+
+00:02:38.879 --> 00:02:43.970
+to radar data, so this is a more
+detailed view of the Kalman filter.
+
+00:02:43.970 --> 00:02:48.580
+We received the measurements from
+different sensors at each timestamp, and
+
+00:02:48.580 --> 00:02:53.010
+then we make a prediction
+followed by a measurement update.
+
+00:02:53.010 --> 00:02:54.800
+Are you following me so far?
+
+00:02:54.800 --> 00:02:59.350
+In the next quiz,
+I want you to continue this flow, but
+
+00:02:59.350 --> 00:03:03.610
+this time let's think about
+predicting and updating if data from
+
+00:03:03.610 --> 00:03:08.114
+different sensors arrive
+simultaneously at time k+3
+

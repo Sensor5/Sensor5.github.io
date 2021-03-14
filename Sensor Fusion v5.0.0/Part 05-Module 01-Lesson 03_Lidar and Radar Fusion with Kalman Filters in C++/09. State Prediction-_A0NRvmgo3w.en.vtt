@@ -1,0 +1,99 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.140 --> 00:00:04.669
+Congratulations, you've just
+implemented the C++ comma filter for
+
+00:00:04.669 --> 00:00:06.570
+one dimensional tracking problem.
+
+00:00:06.570 --> 00:00:09.169
+But now let's say that our vehicle
+
+00:00:09.169 --> 00:00:12.480
+sounds are able to provide
+the measurements in 2D.
+
+00:00:12.480 --> 00:00:14.490
+Here we are in the lesson map.
+
+00:00:14.490 --> 00:00:17.440
+At this point we need to
+rethink the predictions.
+
+00:00:17.440 --> 00:00:18.050
+step.
+
+00:00:18.050 --> 00:00:22.160
+And first, we have define
+the state transition matrix, F,
+
+00:00:22.160 --> 00:00:25.359
+and the process covariance matrix, Q.
+
+00:00:25.359 --> 00:00:27.369
+So we have the following changes.
+
+00:00:27.370 --> 00:00:33.390
+First, as our pedestrian is moving along
+both horizontal and vertical directions.
+
+00:00:33.390 --> 00:00:38.450
+We want to estimate now a 2D
+position and 2D velocity.
+
+00:00:38.450 --> 00:00:41.478
+So we have a 4D state vector.
+
+00:00:41.478 --> 00:00:45.429
+Xx is equal to Px, Py, Vx, Vy.
+
+00:00:45.429 --> 00:00:49.899
+Second we'll use the same linear
+motion model with the custom velocity.
+
+00:00:49.899 --> 00:00:54.739
+So, the new x and
+y position will be the old positions +
+
+00:00:54.740 --> 00:00:59.520
+the displacement, which is the same
+as the velocity * delta t.
+
+00:00:59.520 --> 00:01:03.000
+The velocity along both x and
+y axes stays the same.
+
+00:01:04.260 --> 00:01:08.160
+So, this gives us the following
+state transition equation.
+
+00:01:08.159 --> 00:01:13.200
+Expressed in a matrix form as you
+can see here and below this video.
+
+00:01:13.200 --> 00:01:17.799
+The third main change is that
+delta t is not constant anymore.
+
+00:01:17.799 --> 00:01:20.224
+In reality,
+the time elapsed between two.
+
+00:01:20.224 --> 00:01:23.155
+Two consecutive observations might vary.
+
+00:01:23.155 --> 00:01:25.795
+But let's look a bit closer
+at the MOTION NOISE,
+
+00:01:25.795 --> 00:01:29.225
+because you didn't really use
+this before with Sebastian.
+
+00:01:29.224 --> 00:01:32.384
+I want to challenge your
+intuition with two quizzes.
+

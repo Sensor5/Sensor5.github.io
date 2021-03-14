@@ -1,0 +1,59 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.340 --> 00:00:03.110
+So how do I put this together?
+
+00:00:03.110 --> 00:00:06.710
+I can start from my Kalman Filter,
+previously described.
+
+00:00:06.710 --> 00:00:11.750
+What I change is I simply use
+my non-linear function, f(x),
+
+00:00:11.750 --> 00:00:13.200
+to predict the state.
+
+00:00:13.200 --> 00:00:16.620
+And h(x) to compute
+the measurement error here.
+
+00:00:16.620 --> 00:00:21.670
+Additionally, the state transition
+matrix F and the measurement matrix
+
+00:00:21.670 --> 00:00:28.660
+H are replaced by corresponding
+Jacobians: Fj, and Hj.
+
+00:00:28.660 --> 00:00:32.020
+So first, we have to compute
+these Jacobian matrices.
+
+00:00:32.020 --> 00:00:34.930
+Because the linearization points change,
+
+00:00:34.930 --> 00:00:38.640
+I have to recompute the Jacobians
+at every point in time.
+
+00:00:38.640 --> 00:00:40.930
+So for the Extended Kalman Filter,
+
+00:00:40.930 --> 00:00:45.805
+I first linearize the nonlinear
+prediction and measurement functions.
+
+00:00:45.805 --> 00:00:51.109
+And then I just use the same
+mechanism to estimate the new state.
+
+00:00:51.109 --> 00:00:55.787
+In the next quiz, I want you to compare
+filters with extended filters for
+
+00:00:55.787 --> 00:00:57.075
+a particular example.
+

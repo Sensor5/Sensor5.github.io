@@ -1,0 +1,119 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.320 --> 00:00:02.730
+Here's where we are in the lesson map.
+
+00:00:02.730 --> 00:00:07.770
+Next up, we have to linearize
+our function h(x).
+
+00:00:07.770 --> 00:00:10.480
+Remember that this
+starts with derivatives.
+
+00:00:10.480 --> 00:00:11.740
+Let's get to it.
+
+00:00:11.740 --> 00:00:15.790
+If we generalize our previous
+example to a higher dimension,
+
+00:00:15.790 --> 00:00:21.940
+the derivative of h(x), with
+respect to x, is called the Jacobian.
+
+00:00:21.940 --> 00:00:26.670
+And it's going to be a matrix
+containing all the partial derivatives.
+
+00:00:26.670 --> 00:00:29.970
+For example, for
+my function lower case h,
+
+00:00:29.970 --> 00:00:35.350
+in the first row over here, I have
+the first dimension of the function
+
+00:00:35.350 --> 00:00:40.220
+h1 derived with respect to
+the first dimension of x,
+
+00:00:40.220 --> 00:00:44.290
+second dimension of x,
+to the nth dimension of x.
+
+00:00:44.290 --> 00:00:49.092
+And then I repeat this for
+every dimension of lower case h,
+
+00:00:49.092 --> 00:00:54.778
+to be more specific,I know that
+the measurement function describes
+
+00:00:54.778 --> 00:00:59.679
+three components: range,
+bearing, and range rate, and
+
+00:00:59.679 --> 00:01:05.250
+my state is a vector with four
+components: Px, Py, Vx, Vy.
+
+00:01:05.250 --> 00:01:11.250
+In that case, the Jacobian matrix Hj is
+going to be matrix with three rows and
+
+00:01:11.250 --> 00:01:12.460
+four columns.
+
+00:01:12.460 --> 00:01:17.330
+After computing all of these partial
+derivatives, I obtain this matrix.
+
+00:01:17.330 --> 00:01:21.750
+If you're interested to see more
+details about how I got this results,
+
+00:01:21.750 --> 00:01:23.660
+have a look at the details below.
+
+00:01:23.660 --> 00:01:25.430
+So let's program this.
+
+00:01:25.430 --> 00:01:29.490
+Now, I would like you to implement
+CalculateJacobian function,
+
+00:01:29.490 --> 00:01:32.180
+which takes our current
+predicted state and
+
+00:01:32.180 --> 00:01:36.300
+computes the new Jacobian matrix,
+Hj, that you just saw.
+
+00:01:36.300 --> 00:01:42.020
+So, for example, if our predicted state
+is x is equal to 1, 2, 0.2, and 0.4,
+
+00:01:42.020 --> 00:01:49.410
+I would like to output a 3x4
+matrix with the following values.
+
+00:01:49.410 --> 00:01:53.430
+Fill in your code here in
+a CalculateJacobian function.
+
+00:01:53.430 --> 00:01:58.440
+Also, you have to make sure you don't
+divide by 0 when computing the Jacobian.
+
+00:01:58.440 --> 00:02:02.350
+In other words, you have to
+check that neither x nor y is 0.
+
+00:02:02.350 --> 00:02:06.260
+If this happens,
+just print out the error message as so.
+

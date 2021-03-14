@@ -1,0 +1,487 @@
+<!-- udacimak v1.4.4 -->
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <meta content="ie=edge" http-equiv="X-UA-Compatible"/>
+  <title>
+   Kalman Filter Intuition
+  </title>
+  <link href="../assets/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="../assets/css/plyr.css" rel="stylesheet"/>
+  <link href="../assets/css/katex.min.css" rel="stylesheet"/>
+  <link href="../assets/css/jquery.mCustomScrollbar.min.css" rel="stylesheet"/>
+  <link href="../assets/css/styles.css" rel="stylesheet"/>
+  <link href="../assets/img/udacimak.png" rel="shortcut icon" type="image/png">
+  </link>
+ </head>
+ <body>
+  <div class="wrapper">
+   <nav id="sidebar">
+    <div class="sidebar-header">
+     <h3>
+      Lidar and Radar Fusion with Kalman Filters in C++
+     </h3>
+    </div>
+    <ul class="sidebar-list list-unstyled CTAs">
+     <li>
+      <a class="article" href="../index.html">
+       Back to Home
+      </a>
+     </li>
+    </ul>
+    <ul class="sidebar-list list-unstyled components">
+     <li class="">
+      <a href="01. Kalman Filters in C++.html">
+       01. Kalman Filters in C++
+      </a>
+     </li>
+     <li class="">
+      <a href="02. Intro.html">
+       02. Intro
+      </a>
+     </li>
+     <li class="">
+      <a href="03. Lesson Map and Fusion Flow.html">
+       03. Lesson Map and Fusion Flow
+      </a>
+     </li>
+     <li class="">
+      <a href="04. Lesson Variables and Equations.html">
+       04. Lesson Variables and Equations
+      </a>
+     </li>
+     <li class="">
+      <a href="05. Estimation Problem Refresh.html">
+       05. Estimation Problem Refresh
+      </a>
+     </li>
+     <li class="">
+      <a href="06. Kalman Filter Intuition.html">
+       06. Kalman Filter Intuition
+      </a>
+     </li>
+     <li class="">
+      <a href="07. Kalman Filter Equations in C++ Part 1.html">
+       07. Kalman Filter Equations in C++ Part 1
+      </a>
+     </li>
+     <li class="">
+      <a href="08. Kalman Filter Equations in C++ Part 2.html">
+       08. Kalman Filter Equations in C++ Part 2
+      </a>
+     </li>
+     <li class="">
+      <a href="09. State Prediction.html">
+       09. State Prediction
+      </a>
+     </li>
+     <li class="">
+      <a href="10. Process Covariance Matrix.html">
+       10. Process Covariance Matrix
+      </a>
+     </li>
+     <li class="">
+      <a href="11. Laser Measurements Part 1.html">
+       11. Laser Measurements Part 1
+      </a>
+     </li>
+     <li class="">
+      <a href="12. Laser Measurements Part 2.html">
+       12. Laser Measurements Part 2
+      </a>
+     </li>
+     <li class="">
+      <a href="13. Laser Measurements Part 3.html">
+       13. Laser Measurements Part 3
+      </a>
+     </li>
+     <li class="">
+      <a href="14. Laser Measurements Part 4.html">
+       14. Laser Measurements Part 4
+      </a>
+     </li>
+     <li class="">
+      <a href="15. Radar Measurements.html">
+       15. Radar Measurements
+      </a>
+     </li>
+     <li class="">
+      <a href="16. Mapping with a Nonlinear Function.html">
+       16. Mapping with a Nonlinear Function
+      </a>
+     </li>
+     <li class="">
+      <a href="17. Extended Kalman Filter.html">
+       17. Extended Kalman Filter
+      </a>
+     </li>
+     <li class="">
+      <a href="18. Multivariate Taylor Series Expansion.html">
+       18. Multivariate Taylor Series Expansion
+      </a>
+     </li>
+     <li class="">
+      <a href="19. Jacobian Matrix Part 1.html">
+       19. Jacobian Matrix Part 1
+      </a>
+     </li>
+     <li class="">
+      <a href="20. Jacobian Matrix Part 2.html">
+       20. Jacobian Matrix Part 2
+      </a>
+     </li>
+     <li class="">
+      <a href="21. EKF Algorithm Generalization.html">
+       21. EKF Algorithm Generalization
+      </a>
+     </li>
+     <li class="">
+      <a href="22. Sensor Fusion General Flow.html">
+       22. Sensor Fusion General Flow
+      </a>
+     </li>
+     <li class="">
+      <a href="23. Evaluating KF Performance Part 1.html">
+       23. Evaluating KF Performance Part 1
+      </a>
+     </li>
+     <li class="">
+      <a href="24. Evaluating KF Performance 2.html">
+       24. Evaluating KF Performance 2
+      </a>
+     </li>
+     <li class="">
+      <a href="25. Outro.html">
+       25. Outro
+      </a>
+     </li>
+    </ul>
+    <ul class="sidebar-list list-unstyled CTAs">
+     <li>
+      <a class="article" href="../index.html">
+       Back to Home
+      </a>
+     </li>
+    </ul>
+   </nav>
+   <div id="content">
+    <header class="container-fluild header">
+     <div class="container">
+      <div class="row">
+       <div class="col-12">
+        <div class="align-items-middle">
+         <button class="btn btn-toggle-sidebar" id="sidebarCollapse" type="button">
+          <div>
+          </div>
+          <div>
+          </div>
+          <div>
+          </div>
+         </button>
+         <h1 style="display: inline-block">
+          06. Kalman Filter Intuition
+         </h1>
+        </div>
+       </div>
+      </div>
+     </div>
+    </header>
+    <main class="container">
+     <div class="row">
+      <div class="col-12">
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h3 id="additional-info-about-the-last-quiz">
+          Additional Info about the Last Quiz
+         </h3>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="" class="img img-fluid" src="img/measureupdatequizpost.png"/>
+          <figcaption class="figure-caption">
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <p>
+          Because we have already run a prediction-update iteration with the first sensor at time k+3, the output of the second prediction at time k+3 will actually be identical to the output from the update step with the first sensor. So, in theory, you could skip the second prediction step and just run a prediction, update, update iteration.
+         </p>
+         <p>
+          But you'll learn more about that later. First, a bit of math.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+         <p>
+          ND013 M3 L4 05 L Kalman Filter Equations In C++
+         </p>
+        </h3>
+        <video controls="">
+         <source src="06. ND013 M3 L4 05 L Kalman Filter Equations In C++-ZG8Ya-mCGhI.mp4" type="video/mp4"/>
+         <track default="false" kind="subtitles" label="ja-JP" src="06. ND013 M3 L4 05 L Kalman Filter Equations In C++-ZG8Ya-mCGhI.ja-JP.vtt" srclang="ja-JP"/>
+         <track default="false" kind="subtitles" label="zh-CN" src="06. ND013 M3 L4 05 L Kalman Filter Equations In C++-ZG8Ya-mCGhI.zh-CN.vtt" srclang="zh-CN"/>
+         <track default="true" kind="subtitles" label="en" src="06. ND013 M3 L4 05 L Kalman Filter Equations In C++-ZG8Ya-mCGhI.en.vtt" srclang="en"/>
+        </video>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h3 id="kalman-filter-intuition">
+          Kalman Filter Intuition
+         </h3>
+         <p>
+          The Kalman equation contains many variables, so here is a high level overview to get some intuition about what the Kalman filter is doing.
+         </p>
+         <h5 id="prediction">
+          Prediction
+         </h5>
+         <p>
+          Let's say we know an object's current position and velocity , which we keep in the
+          <span class="multiquill">
+           x
+          </span>
+          variable. Now one second has passed. We can predict where the object will be one second later because we knew the object position and velocity one second ago; we'll just assume the object kept going at the same velocity.
+         </p>
+         <p>
+          The
+          <span class="mathquill ud-math">
+           x' = Fx + \nu
+          </span>
+          equation does these prediction calculations for us.
+         </p>
+         <p>
+          But maybe the object didn't maintain the exact same velocity. Maybe the object changed direction, accelerated or decelerated. So when we predict the position one second later, our uncertainty increases.
+          <span class="mathquill ud-math">
+           P' = FPF^T + Q
+          </span>
+          represents this increase in uncertainty.
+         </p>
+         <p>
+          Process noise refers to the uncertainty in the prediction step. We assume the object travels at a constant velocity, but in reality, the object might accelerate or decelerate. The notation
+          <span class="mathquill ud-math">
+           \nu \sim N(0, Q)
+          </span>
+          defines the process noise as a gaussian distribution with mean zero and covariance Q.
+         </p>
+         <h5 id="update">
+          Update
+         </h5>
+         <p>
+          Now we get some sensor information that tells where the object is relative to the car. First we compare where we think we are with what the sensor data tells us
+          <span class="mathquill ud-math">
+           y = z - Hx'
+          </span>
+          .
+         </p>
+         <p>
+          The
+          <span class="mathquill ud-math">
+           K
+          </span>
+          matrix, often called the Kalman filter gain, combines the uncertainty of where we think we are
+          <span class="mathquill ud-math">
+           P'
+          </span>
+          with the uncertainty of our sensor measurement
+          <span class="mathquill ud-math">
+           R
+          </span>
+          . If our sensor measurements are very uncertain (R is high relative to P'), then the Kalman filter will give more weight to where we think we are:
+          <span class="mathquill ud-math">
+           x'
+          </span>
+          . If where we think we are is uncertain (P' is high relative to R), the Kalman filter will put more weight on the sensor measurement:
+          <span class="mathquill ud-math">
+           z
+          </span>
+          .
+         </p>
+         <p>
+          Measurement noise refers to uncertainty in sensor measurements. The notation
+          <span class="mathquill ud-math">
+           \omega \sim N(0, R)
+          </span>
+          defines the measurement noise as a gaussian distribution with mean zero and covariance R. Measurement noise comes from uncertainty in sensor measurements.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h3 id="a-note-about-the-state-transition-function-bu">
+          A Note About the State Transition Function: Bu
+         </h3>
+         <p>
+          If you go back to the video, you'll notice that the state transition function was first given as
+          <br/>
+          <span class="mathquill ud-math">
+           x' = Fx + Bu + \nu
+          </span>
+          .
+         </p>
+         <p>
+          But then
+          <span class="mathquill ud-math">
+           Bu
+          </span>
+          was crossed out leaving
+          <span class="mathquill ud-math">
+           x' = Fx + \nu
+          </span>
+          .
+         </p>
+         <p>
+          <span class="mathquill ud-math">
+           B
+          </span>
+          is a matrix called the control input matrix and
+          <span class="mathquill ud-math">
+           u
+          </span>
+          is the control vector.
+         </p>
+         <p>
+          As an example, let's say we were tracking a car and we knew for certain how much the car's motor was going to accelerate or decelerate over time; in other words, we had an equation to model the exact amount of acceleration at any given moment.
+          <span class="mathquill ud-math">
+           Bu
+          </span>
+          would represent the updated position of the car due to the internal force of the motor. We would use
+          <span class="mathquill ud-math">
+           \nu
+          </span>
+          to represent any random noise that we could not precisely predict like if the car slipped on the road or a strong wind moved the car.
+         </p>
+         <p>
+          For the Kalman filter lessons, we will assume that there is no way to measure or know the exact acceleration of a tracked object. For example, if we were in an autonomous vehicle tracking a bicycle, pedestrian or another car, we would not be able to model the internal forces of the other object; hence, we do not know for certain what the other object's acceleration is. Instead, we will set
+          <span class="mathquill ud-math">
+           Bu = 0
+          </span>
+          and represent acceleration as a random noise with mean
+          <span class="mathquill ud-math">
+           \nu
+          </span>
+          .
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+      </div>
+      <div class="col-12">
+       <p class="text-right">
+        <a class="btn btn-outline-primary mt-4" href="07. Kalman Filter Equations in C++ Part 1.html" role="button">
+         Next Concept
+        </a>
+       </p>
+      </div>
+     </div>
+    </main>
+    <footer class="footer">
+     <div class="container">
+      <div class="row">
+       <div class="col-12">
+        <p class="text-center">
+         udacity2.0 If you need the newest courses Plase add me wechat: udacity6
+        </p>
+       </div>
+      </div>
+     </div>
+    </footer>
+   </div>
+  </div>
+  <script src="../assets/js/jquery-3.3.1.min.js">
+  </script>
+  <script src="../assets/js/plyr.polyfilled.min.js">
+  </script>
+  <script src="../assets/js/bootstrap.min.js">
+  </script>
+  <script src="../assets/js/jquery.mCustomScrollbar.concat.min.js">
+  </script>
+  <script src="../assets/js/katex.min.js">
+  </script>
+  <script>
+   // Initialize Plyr video players
+    const players = Array.from(document.querySelectorAll('video')).map(p => new Plyr(p));
+
+    // render math equations
+    let elMath = document.getElementsByClassName('mathquill');
+    for (let i = 0, len = elMath.length; i < len; i += 1) {
+      const el = elMath[i];
+
+      katex.render(el.textContent, el, {
+        throwOnError: false
+      });
+    }
+
+    // this hack will make sure Bootstrap tabs work when using Handlebars
+    if ($('#question-tabs').length && $('#user-answer-tabs').length) {
+      $("#question-tabs a.nav-link").on('click', function () {
+        $("#question-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+      $("#user-answer-tabs a.nav-link").on('click', function () {
+        $("#user-answer-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    } else {
+      $("a.nav-link").on('click', function () {
+        $(".tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    }
+
+    // side bar events
+    $(document).ready(function () {
+      $("#sidebar").mCustomScrollbar({
+        theme: "minimal"
+      });
+
+      $('#sidebarCollapse').on('click', function () {
+        $('#sidebar, #content').toggleClass('active');
+        $('.collapse.in').toggleClass('in');
+        $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+      });
+
+      // scroll to first video on page loading
+      if ($('video').length) {
+        $('html,body').animate({ scrollTop: $('div.plyr').prev().offset().top});
+      }
+
+      // auto play first video: this may not work with chrome/safari due to autoplay policy
+      if (players && players.length > 0) {
+        players[0].play();
+      }
+
+      // scroll sidebar to current concept
+      const currentInSideBar = $( "ul.sidebar-list.components li a:contains('06. Kalman Filter Intuition')" )
+      currentInSideBar.css( "text-decoration", "underline" );
+      $("#sidebar").mCustomScrollbar('scrollTo', currentInSideBar);
+    });
+  </script>
+ </body>
+</html>
