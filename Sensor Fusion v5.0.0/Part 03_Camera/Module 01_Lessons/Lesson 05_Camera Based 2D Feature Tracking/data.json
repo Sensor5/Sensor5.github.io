@@ -1,0 +1,446 @@
+{
+  "data": {
+    "lesson": {
+      "id": 842250,
+      "key": "4b340bfe-c1be-400d-b64f-ecbaf51c6fb8",
+      "title": "Camera Based 2D Feature Tracking",
+      "semantic_type": "Lesson",
+      "is_public": true,
+      "version": "1.0.0",
+      "locale": "en-us",
+      "summary": null,
+      "lesson_type": "Classroom",
+      "display_workspace_project_only": true,
+      "resources": {
+        "files": [
+          {
+            "name": "Videos Zip File",
+            "uri": "https://zips.udacity-data.com/4b340bfe-c1be-400d-b64f-ecbaf51c6fb8/842250/1558650737493/Camera+Based+2D+Feature+Tracking+Videos.zip"
+          },
+          {
+            "name": "Transcripts Zip File",
+            "uri": "https://zips.udacity-data.com/4b340bfe-c1be-400d-b64f-ecbaf51c6fb8/842250/1558650734356/Camera+Based+2D+Feature+Tracking+Subtitles.zip"
+          }
+        ],
+        "google_plus_link": null,
+        "career_resource_center_link": null,
+        "coaching_appointments_link": null,
+        "office_hours_link": null,
+        "aws_provisioning_link": null
+      },
+      "project": {
+        "key": "b22f25e9-0b43-4854-bdf2-185791009878",
+        "version": "1.0.0",
+        "locale": "en-us",
+        "duration": 10080,
+        "semantic_type": "Project",
+        "title": "Camera Based 2D Feature Tracking",
+        "description": "* Clone the Github Repo for the code [here](https://github.com/udacity/SFND_2D_Feature_Tracking) to work locally, or use the starter code provided in the workspace.\n* Complete the project according to the instructions on the previous page.\n* When you have finished working on your project, check that all rubric points are met before submitting.\n* Submit your project using the workspace.",
+        "is_public": true,
+        "summary": null,
+        "forum_path": "",
+        "rubric_id": "2549",
+        "terminal_project_id": null,
+        "resources": null,
+        "image": null
+      },
+      "lab": null,
+      "concepts": [
+        {
+          "id": 847621,
+          "key": "95ebe4cd-2c42-4c7c-8048-b6f95c98a813",
+          "title": "Mid-Term Project Introduction",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "95ebe4cd-2c42-4c7c-8048-b6f95c98a813",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 847622,
+              "key": "198d5cf8-7f7c-4664-acee-8a050fda87c2",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "# Mid-Term Project Introduction",
+              "instructor_notes": ""
+            },
+            {
+              "id": 847623,
+              "key": "00c135f9-97b1-4268-a519-6d3f12c2cc2d",
+              "title": "ND313 C03 L04 A01 C41 Intro",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "NxhTpozqXIs",
+                "china_cdn_id": "NxhTpozqXIs.mp4"
+              }
+            },
+            {
+              "id": 847624,
+              "key": "39f4469c-98a3-48ba-853c-3e7910d829a7",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "### Code Walkthrough",
+              "instructor_notes": ""
+            },
+            {
+              "id": 847856,
+              "key": "e22cebf1-377e-44a3-bd5f-6524adee45fa",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "The next video is a detailed walkthrough of the source code for the project. You can find the Github Repo for the code [here](https://github.com/udacity/SFND_2D_Feature_Tracking) to follow along, or you can find the project code in the workspace at the end of this lesson.\n\nJust as with the exercises in this course, you can compile and run the project from the top-level directory using `cmake` and `make`:\n- `mkdir build && cd build`\n- `cmake ..`\n- `make`\n- `./2D_feature_tracking`\n\nAlso, you can find the project rubric [here](https://review.udacity.com/#!/rubrics/2549/view) to follow along with the project tasks that are described in the next classroom concepts.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 850757,
+              "key": "7d7da872-32e5-4b00-ad89-298d720bbc42",
+              "title": "ND313 C03 L04 A02 C41 Mid",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "LmTtSYRfi7g",
+                "china_cdn_id": "LmTtSYRfi7g.mp4"
+              }
+            }
+          ]
+        },
+        {
+          "id": 848236,
+          "key": "141829c4-dec6-4694-afa9-c7de75f734d3",
+          "title": "The Data Buffer",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "141829c4-dec6-4694-afa9-c7de75f734d3",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 848242,
+              "key": "3aca7234-5177-4f44-815b-5c7d3be1aa73",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "# The Data Buffer",
+              "instructor_notes": ""
+            },
+            {
+              "id": 848243,
+              "key": "63f7d16e-9fbb-4c7f-afc3-49b0338d89df",
+              "title": "ND313 C03 L04 A06 C42 Intro",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "9ndzOpPHxA4",
+                "china_cdn_id": "9ndzOpPHxA4.mp4"
+              }
+            },
+            {
+              "id": 848244,
+              "key": "f1b15c96-c80a-4136-b6d6-89607fff629c",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## Task MP.1\n\nYour first task is to set up the loading procedure for the images, which is currently not optimal. In the student version of the code, we push all images into a vector inside a for-loop and with every new image, the data structure grows. Now imagine you want to process a large image sequence with several thousand images and Lidar point clouds over night - in the current implementation this would push the memory of your computer to its limit and eventually slow down the entire program. So in order to prevent this, we only want to hold a certain number of images in memory so that when a new one arrives, the oldest one is deleted from one end of the vector and the new one is added to the other end. The following figure illustrates the principle.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 848249,
+              "key": "dc62fee5-ac33-4d15-9998-d4073e46da46",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/May/5cd61862_draggedimage/draggedimage.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/dc62fee5-ac33-4d15-9998-d4073e46da46",
+              "caption": "",
+              "alt": "",
+              "width": 1918,
+              "height": 795,
+              "instructor_notes": null
+            },
+            {
+              "id": 848247,
+              "key": "1b23b932-ab81-437e-9dbe-c77ccf2b16e1",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "Please replace the code in section 'TASK MP.1' with an implementation of this principle.\n",
+              "instructor_notes": ""
+            }
+          ]
+        },
+        {
+          "id": 848237,
+          "key": "cf9dd808-3d9c-4895-9c1b-64d02a625023",
+          "title": "Keypoint Detection",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "cf9dd808-3d9c-4895-9c1b-64d02a625023",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 848250,
+              "key": "ff4b4155-7795-4c63-a34b-cbab19096df5",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "# Keypoint Detection",
+              "instructor_notes": ""
+            },
+            {
+              "id": 848251,
+              "key": "ba25cddd-ccbe-47ec-af09-ed7357bc6d38",
+              "title": "ND313 C03 L04 A07 C43 Intro",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "CVXysH5gHUQ",
+                "china_cdn_id": "CVXysH5gHUQ.mp4"
+              }
+            },
+            {
+              "id": 848252,
+              "key": "99ebb1d6-3501-4e15-98ca-759c1b64b343",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## TASK MP.2\n\nYour second task is to focus on keypoint detection. In the student version of the code you will find an existing implementation of the Shi-Tomasi detector. Please implement a selection of alternative detectors, which are HARRIS, FAST, BRISK, ORB, AKAZE, and SIFT. The following figure shows keypoints detected with the SIFT method.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 848253,
+              "key": "13a510c0-a1f8-4cee-9384-f6ef657d26e3",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/May/5cd61901_draggedimage-1/draggedimage-1.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/13a510c0-a1f8-4cee-9384-f6ef657d26e3",
+              "caption": "",
+              "alt": "",
+              "width": 2460,
+              "height": 742,
+              "instructor_notes": null
+            },
+            {
+              "id": 848254,
+              "key": "5af2dc8c-8d05-46c0-bb08-b1b0d9b7fa50",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "The Harris detector is already familiar to you from a previous exercise and the other methods are available in the OpenCV. Also, please adjust the project code in a way that each detector can be selected by setting the string 'detectorType' to the respective name. Please note that all detectors should be added to the file 'matching2D_student.cpp'. Take a look at the header file 'matching2D.hpp' for details on the call parameters for the functions you need to implement.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 848255,
+              "key": "bc3761bf-0421-4691-baf1-97307f9877f7",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "### TASK MP.3\n\nIn a later part of the mid-term project, you will be evaluating the various detectors and descriptors with regard to a set of performance metrics. As we are focussing on a collision detection system in this course, keypoints on the preceding vehicle are of special interest to us. Therefore, in order to enable a more targeted evaluation, we want to discard feature points that are not located on the preceding vehicle.\n\nYour third task therefore is to remove all keypoints outside of a bounding box around the preceding vehicle. Box parameters you should use are : cx = 535, cy = 180, w = 180, h = 150.\n\nPlease note that this cropping of feature points should only be used for evaluation purposes in the mid-term project. For later sections of this course, especially in the final project, please disable keypoint cropping using this method. Also, there will be keypoints within the box that are e.g. on the road surface or on other vehicles. Please keep an eye on their number in relation to keypoints on the actual vehicle and discuss this later in the evaluation part of the mid-term project.",
+              "instructor_notes": ""
+            }
+          ]
+        },
+        {
+          "id": 848239,
+          "key": "bdcf470c-e4eb-4a4b-a107-abf39dd6b6df",
+          "title": "Descriptor Extraction & Matching",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "bdcf470c-e4eb-4a4b-a107-abf39dd6b6df",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 848256,
+              "key": "e7aac08b-6559-412d-beb0-9c5267b6e635",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "# Descriptor Extraction & Matching",
+              "instructor_notes": ""
+            },
+            {
+              "id": 848257,
+              "key": "c3d3f4d4-33c3-4c54-9b33-a3ba88af3a1c",
+              "title": "ND313 C03 L04 A08 C44 Intro",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "w-0hSIMq32o",
+                "china_cdn_id": "w-0hSIMq32o.mp4"
+              }
+            },
+            {
+              "id": 848258,
+              "key": "1baaa713-8d7b-4089-9941-0b5aad4c7bce",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## Descriptor Code Walkthrough",
+              "instructor_notes": ""
+            },
+            {
+              "id": 848259,
+              "key": "6d079971-9dda-49bd-bc9b-785065dd45d8",
+              "title": "ND313 C03 L04 A09 C44 Intro Pt 2",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "Ap6uNX95Ewc",
+                "china_cdn_id": "Ap6uNX95Ewc.mp4"
+              }
+            },
+            {
+              "id": 848272,
+              "key": "bcd3430a-cf77-4ec5-888d-bb6dda7454ab",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "### TASK MP.4\n\nYour fourth task is to implement a variety of keypoint descriptors to the already implemented BRISK method and make them selectable using the string 'descriptorType'. The methods you must integrate are BRIEF, ORB, FREAK, AKAZE and SIFT.\n\n### TASK MP.5\n\nYour fifth task will focus on the matching part. The current implementation uses Brute Force matching combined with Nearest-Neighbor selection. You must now add FLANN as an alternative to brute-force as well as the K-Nearest-Neighbor approach.\n\n### TASK MP.6\n\nAs your sixth task, you will then implement the descriptor distance ratio test as a filtering method to remove bad keypoint matches.",
+              "instructor_notes": ""
+            }
+          ]
+        },
+        {
+          "id": 848241,
+          "key": "fda6fbe9-b3be-43d1-8ef1-cb89a4130481",
+          "title": "Performance Evaluation",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "fda6fbe9-b3be-43d1-8ef1-cb89a4130481",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 848274,
+              "key": "01745000-956e-4af5-b681-c302280eaabe",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "# Performance Evaluation",
+              "instructor_notes": ""
+            },
+            {
+              "id": 848275,
+              "key": "e3cc415b-d29c-4dc2-b669-9fff357f9b35",
+              "title": "ND313 C03 L04 A10 C45 Intro",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "OMqg22EGssM",
+                "china_cdn_id": "OMqg22EGssM.mp4"
+              }
+            },
+            {
+              "id": 848277,
+              "key": "48757e06-f81a-4ed2-b584-76360141ba28",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "In this last part of the mid-term project you will document speed and number of matched keypoints for all detector / descriptor combinations with a focus on the preceding vehicle over a sequence of ten images.\n\n## TASK MP.7\n\nYour seventh task is to count the number of keypoints on the preceding vehicle for all 10 images and take note of the distribution of their neighborhood size. Do this for all the detectors you have implemented.\n\n## TASK MP.8\n\nYour eighth task is to count the number of matched keypoints for all 10 images using all possible combinations of detectors and descriptors. In the matching step, use the BF approach with the descriptor distance ratio set to 0.8.\n\n## TASK MP.9\n\nYour ninth task is to log the time it takes for keypoint detection and descriptor extraction. The results must be entered into a spreadsheet and based on this information you will then suggest the TOP3 detector / descriptor combinations as the best choice for our purpose of detecting keypoints on vehicles. Finally, in a short text, please justify your recommendation based on your observations and on the data you collected.",
+              "instructor_notes": ""
+            }
+          ]
+        },
+        {
+          "id": 848203,
+          "key": "81f0b3f7-8811-42a2-9f70-94ba1a00b968",
+          "title": "Mid-Term Project Workspace and Submission",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "81f0b3f7-8811-42a2-9f70-94ba1a00b968",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 848295,
+              "key": "0d233e33-f266-4411-81ef-9f2ccf626b69",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "# Mid-Term Project Workspace and Submission\n\nThis project can only be submitted through this workspace. This is done to ensure that you are able to test your code in an environment similar to what reviewers will use. \n\nIf you have developed your project locally, you can upload the project directory to the workspace for submission. Similarly, if you have your code in Github, you can clone your project into the workspace for submission.\n\nPlease check your submission against the [rubric](https://review.udacity.com/#!/rubrics/2549/view) before submitting. We look forward to your project submission!",
+              "instructor_notes": ""
+            },
+            {
+              "id": 848212,
+              "key": "bd3d7e56-a92f-4d5b-b140-6c5a7e4db70b",
+              "title": null,
+              "semantic_type": "WorkspaceAtom",
+              "is_public": true,
+              "workspace_id": "r831540c848203xREACTy1iee5b1",
+              "pool_id": "autonomouscpu",
+              "view_id": "react-gh8ip",
+              "gpu_capable": false,
+              "configuration": {
+                "id": "reserved",
+                "blueprint": {
+                  "conf": {
+                    "disk": null,
+                    "port": 3000,
+                    "ports": [],
+                    "userCode": "export CXX=g++-7\nexport CXXFLAGS=-std=c++17",
+                    "openFiles": [],
+                    "showFiles": true,
+                    "allowClose": true,
+                    "allowSubmit": true,
+                    "terminalTitle": "BASH",
+                    "actionButtonText": "Desktop",
+                    "openTerminalOnStartup": true
+                  },
+                  "kind": "react"
+                },
+                "workspaceId": "reserved"
+              },
+              "starter_files": null
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "_deprecated": [
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    }
+  ]
+}

@@ -1,0 +1,1604 @@
+{
+  "data": {
+    "lesson": {
+      "id": 843586,
+      "key": "5996c9de-1a94-47ac-87d8-67842ad60beb",
+      "title": "Autonomous Vehicles and Computer Vision",
+      "semantic_type": "Lesson",
+      "is_public": true,
+      "version": "1.0.0",
+      "locale": "en-us",
+      "summary": null,
+      "lesson_type": "Classroom",
+      "display_workspace_project_only": false,
+      "resources": {
+        "files": [
+          {
+            "name": "Videos Zip File",
+            "uri": "https://zips.udacity-data.com/5996c9de-1a94-47ac-87d8-67842ad60beb/843586/1561073033959/Autonomous+Vehicles+and+Computer+Vision+Videos.zip"
+          },
+          {
+            "name": "Transcripts Zip File",
+            "uri": "https://zips.udacity-data.com/5996c9de-1a94-47ac-87d8-67842ad60beb/843586/1561073029936/Autonomous+Vehicles+and+Computer+Vision+Subtitles.zip"
+          }
+        ],
+        "google_plus_link": null,
+        "career_resource_center_link": null,
+        "coaching_appointments_link": null,
+        "office_hours_link": null,
+        "aws_provisioning_link": null
+      },
+      "project": null,
+      "lab": null,
+      "concepts": [
+        {
+          "id": 843587,
+          "key": "9c7c5278-b2d9-4163-9607-43abfc14de43",
+          "title": "Levels of Autonomous Driving",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "9c7c5278-b2d9-4163-9607-43abfc14de43",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 843658,
+              "key": "15f196b9-4730-43dc-9830-006e56882b0a",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "# Levels of Autonomous Driving",
+              "instructor_notes": ""
+            },
+            {
+              "id": 843657,
+              "key": "314497e0-cdd1-47d5-9018-37dbc24971fd",
+              "title": "ND313 C03 L01 A02 C12 Intro",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "DQgs4Ty3Cz8",
+                "china_cdn_id": "DQgs4Ty3Cz8.mp4"
+              }
+            },
+            {
+              "id": 843588,
+              "key": "55bee9e5-92d3-4bec-a1f9-cdf6fbd2498b",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "According to [CB Insights](https://www.cbinsights.com/research/autonomous-driverless-vehicles-corporations-list/), there are 46 corporations currently working on autonomous vehicles (as of April 2019). This includes automakers such as Audi, Tesla, BMW, Volvo or GM but also new additions to the automotive space such as Alphabet / Waymo, Uber or Baidu - who hail from totally different industries.\n\nIt is expected that the autonomous vehicle market will grow from $54 billion in 2019 to $556 billion in 2026, according to [Allied Market Research estimates](https://www.techworld.com/picture-gallery/data/-companies-working-on-driverless-cars-3641537/). Such growth rates, combined with technological break-throughs of recent years, explain why things are moving so fast and why everyone is trying to get a share of this emerging market.\n\nIn addition to autonomous vehicles, there are systems which assist the driver in various driving tasks such as changing lanes, remembering speed signs or braking in time in case the preceding vehicle suddenly decelerates. Such systems are referred to as Advanced Driver Assistance Systems (ADAS) and they are the predecessor of a fully autonomous vehicle. There are some vehicles in the market, however, that imply full autonomy (such as the Tesla Autopilot), but are ‚only‘ an ADAS systems.\n\nBefore we analyze a selection of autonomous vehicle prototypes and their respective sensors, let us look at a way to define autonomy - because not all autonomous cars and driver assistance systems are created equal. The following graphic shows the „levels of autonomous driving“, which the Society of Autonomous Engineers (SAE) has defined.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 843589,
+              "key": "786dc049-8a32-42b3-abb2-706241d2d61e",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## The SAE  Levels of Autonomous Driving\n\n",
+              "instructor_notes": ""
+            },
+            {
+              "id": 843590,
+              "key": "6f8e20c6-7f61-4a85-ae66-7da63777041e",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/April/5cb77419_nhtsa-sae-automation-levels/nhtsa-sae-automation-levels.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/6f8e20c6-7f61-4a85-ae66-7da63777041e",
+              "caption": "https://www.nhtsa.gov/technology-innovation/automated-vehicles-safety",
+              "alt": "Levels of autonomous driving",
+              "width": 1600,
+              "height": 739,
+              "instructor_notes": null
+            },
+            {
+              "id": 843591,
+              "key": "be3e21e2-f557-4a84-b5f6-136073c8c292",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "For many years, ADAS products such as forward collision warning (FCW) or adaptive cruise control (ACC) were the only systems available that provided at least some degree of automation in a selected number of driving situations (e.g. on highways, in cities at low speed).\n\nTesla has been one of the first companies world-wide to introduce a system into the market that promised a high degree of autonomy, the Auto Pilot. On the SAE chart however, this system is „only“ at level 2, that means the driver must remain engaged and should monitor the environment at all times.\n\nThe step to level 3 is a large one as the driver is no longer required to monitor the environment, even though he must be able to take back control at all times. From a legal viewpoint this means that the responsibility for the driving task is with the car and thus with the manufacturer. This is why we do not see a large number of commercially available vehicles with level 3 systems on board yet. Several manufacturers have announced such systems but at the time of writing (May 2019), we do not find them in the market. The reason for this is three-fold:\n\n1. Such systems must be build reliable enough to minimize the number of faulty decisions. Engineers usually solve this problem by adding a large number of sensors to the car, which makes such systems (very) costly.\n2. The fear of law suits arising from accidents results in an intentionally reduced availability of systems, for example by limiting the driving speed or the scenario (e.g. only in traffic jams on highways with clearly visible lane markings at speeds below 60kph).\n3. The readiness of the driver to take control of the vehicle can not be guaranteed at all times. There are many situations in which this is not possible due to human reaction times and alertness levels.\n\nTherefore, many experts believe that level 3 systems will only be a transition step to more advanced systems which are operating on levels 4 and 5. At those levels, the vehicle is capable of performing all driving tasks and the „driver“ is not required to take control. Obviously, such systems will require a strong engineering effort to guarantee driver and road user safety at all times.\n\nIn the next section, we will take a closer look at a selection of partially autonomous vehicles and their respective sensor suites. But for now, you should try to test your knowledge by answering the following quiz questions.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 843656,
+              "key": "63daac4d-a0d1-4d67-a15a-7e61c01156ad",
+              "title": "Levels of Autonomy",
+              "semantic_type": "MatchingQuizAtom",
+              "is_public": true,
+              "instructor_notes": null,
+              "user_state": {
+                "node_key": "63daac4d-a0d1-4d67-a15a-7e61c01156ad",
+                "completed_at": null,
+                "last_viewed_at": null,
+                "unstructured": null
+              },
+              "question": {
+                "complex_prompt": {
+                  "text": "Please assess the following systems with regard to their SAE level of autonomy:"
+                },
+                "concepts_label": "System",
+                "answers_label": "Level of Autonomy",
+                "concepts": [
+                  {
+                    "text": "The vehicle executes either steering or acceleration while the human driver executes all remaining aspects of the driving task. The driver is responsible for monitoring the driving environment. ",
+                    "correct_answer": {
+                      "id": "a1555526848958",
+                      "text": "Level 1"
+                    }
+                  },
+                  {
+                    "text": "The vehicle executes all aspects of the driving task with the expectation that the driver will be available to intervene upon request. The system is responsible for monitoring the driving environment.",
+                    "correct_answer": {
+                      "id": "a1555526919533",
+                      "text": "Level 3"
+                    }
+                  }
+                ],
+                "answers": [
+                  {
+                    "id": "a1555526848958",
+                    "text": "Level 1"
+                  },
+                  {
+                    "id": "a1555526919533",
+                    "text": "Level 3"
+                  },
+                  {
+                    "id": "a1555527498558",
+                    "text": "Level 3"
+                  },
+                  {
+                    "id": "a1555527521958",
+                    "text": "Level 5"
+                  },
+                  {
+                    "id": "a1555527512824",
+                    "text": "Level 4"
+                  },
+                  {
+                    "id": "a1555527491685",
+                    "text": "Level 2"
+                  }
+                ]
+              }
+            },
+            {
+              "id": 847260,
+              "key": "32f35de7-5060-4891-b174-11c6fe2dfd33",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## Outro",
+              "instructor_notes": ""
+            },
+            {
+              "id": 847261,
+              "key": "75608378-b3f0-4852-97fa-2eccffa9f418",
+              "title": "ND313 C03 L01 A03 C12 Outro",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "Gby_V8-pJV8",
+                "china_cdn_id": "Gby_V8-pJV8.mp4"
+              }
+            }
+          ]
+        },
+        {
+          "id": 843666,
+          "key": "6e147e48-5f9f-4a86-b920-c07e11f67f81",
+          "title": "Autonomous Vehicle Sensor Sets",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "6e147e48-5f9f-4a86-b920-c07e11f67f81",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 843667,
+              "key": "c3bf0131-8157-4b92-9bdb-1202885b6fc9",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "# Autonomous Vehicle Sensor Sets",
+              "instructor_notes": ""
+            },
+            {
+              "id": 843668,
+              "key": "4b782c1f-6c02-46fa-a928-a14b03a7aff6",
+              "title": "ND313 C03 L01 A04 C13 Intro",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "PggNowlMD5A",
+                "china_cdn_id": "PggNowlMD5A.mp4"
+              }
+            },
+            {
+              "id": 843669,
+              "key": "12d1c5d1-bd7f-4a6d-abaa-63db0749ddef",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "In the last section you have learned about the different levels of autonomous driving and about the leap it takes to move from level 2 to level 3 or even further. It should now be obvious that one key to level 4 and level 5 autonomy is a smart combination of sensors and perception algorithms to monitor the vehicle environment at all times to guarantee a proper and safe reaction to all traffic events.\n\nTo give you an idea of how this problem is approached in practice, this section contains a brief overview of some vehicles that aim at realizing level 4 or even level 5 driving. As this course is mostly about cameras and computer vision and to a small degree also about Lidar, let us focus mainly on those two sensor types. Let us now take a look at a few autonomous vehicles and their respective sensor suites.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 843670,
+              "key": "84826bcd-d10a-4636-b591-76d0759c9e5e",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## The Uber ATG Autonomous Vehicle\n\nThe current version of the Uber autonomous vehicle combines a top-mounted 360° Lidar scanner with several cameras and radar sensors placed around the car circumference.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 843671,
+              "key": "908a1b9f-34d4-489c-aaee-4a388c4ce92f",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/April/5cb78657_uber-atg-volvo/uber-atg-volvo.jpg",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/908a1b9f-34d4-489c-aaee-4a388c4ce92f",
+              "caption": "",
+              "alt": "",
+              "width": 2048,
+              "height": 1553,
+              "instructor_notes": null
+            },
+            {
+              "id": 843672,
+              "key": "7a090fa9-d72c-4034-a4ee-6b129f46e791",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "Let us take a look at those sensor classes one-by one:\n\n1. _Cameras_: Ubers fleet of modified Volvo XC90 SUVs features a range of cameras on their roofs, plus additional cameras that point to the sides and behind the car. The roof cameras are able to focus both close and far field, watch for braking vehicles, crossing pedestrians, traffic lights, and signage. The cameras feed their material to a central on-board computer, which also receives the signals of the other sensors to create a precise image of the vehicle’s surroundings. Much like human eyes, the performance of camera systems at night is strongly reduced, which makes them less reliable to locate objects with the required detection rates and positional accuracy. This is why the Uber fleet is equipped with two additional sensor types.\n2. _Radar_: Radar systems emit radio waves which are reflected off of (many but not all) objects. The returning waves can be analyzed with regard to their runtime (which gives distance) as well as their shifted frequency (which gives relative speed). The latter property clearly distinguished the radar from the other two sensor types as it is the only one who is able to directly measure the speed of objects. Also, radar is very robust against adverse weather conditions like heavy snow and thick fog. Used by cruise control systems for many years, radar works best when identifying larger objects with good reflective properties. When it comes to detecting smaller or „soft“ objects (humans, animals) with reduced reflective properties, the radar detection performance drops. Even though camera and radar combine well, there are situations where both sensors do not work optimally - which is why Uber chose to throw a third sensor into the mix.\n3. _Lidar_ : Lidar works in a similar way to radar, but instead of emitting radio waves it uses infrared light. The roof-mouted sensor rotates at a high velocity and builds a detailed 3D image of its surroundings. In case of the Velodyne VLS-128, a total of 128 laser beams is used to detect obstacles up to a distance of 300 meters. During a single spin through 360 degrees, a total of up to 4 million datapoints per second is generated. Similar to the camera, Lidar is an optical sensor. It has the significant advantage however of \"bringing its own light source“, whereas cameras are dependent on ambient light and the vehicle headlights. It has to be noted however, that Lidar performance is also reduced in adverse environmental conditions such as snow, heavy rain or fog. Coupled with low reflective properties of certain materials, a Lidar might thus fail at generating a sufficiently dense point cloud for some objects in traffic, leaving only a few 3D points with which to work. It is thus a good idea to combine Lidar with other sensors to ensure that detection performance is sufficiently hight for autonomous navigation through traffic.\n\nThe following scene shows the Lidar 3D point cloud generated by the Uber autonomous vehicle as well as the image of the front camera as an overlay in the top-left corner. The overall impression of the reconstructed scene is very positive. If you look closely however, you can observe that the number of Lidar points varies greatly between the objects in the scene.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 843673,
+              "key": "c054127e-b727-402a-a344-7ad7b6a35d2e",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/April/5cb786f2_camera-2-2/camera-2-2.gif",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/c054127e-b727-402a-a344-7ad7b6a35d2e",
+              "caption": "https://eng.uber.com/atg-dataviz/",
+              "alt": "Lidar point cloud and other sensor data visualized.",
+              "width": 1080,
+              "height": 599,
+              "instructor_notes": null
+            },
+            {
+              "id": 843674,
+              "key": "5a2a365a-15ae-4d56-af65-e41d4f7e3e19",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "# Mercedes Benz Autonomous Prototype\n\n",
+              "instructor_notes": ""
+            },
+            {
+              "id": 843675,
+              "key": "f9a0aaba-54c5-4736-8517-d0e90697a480",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "Currently, German car maker Mercedes Benz is developing an autonomous vehicle prototype that is equipped with cameras, Lidar and radar sensors, similar to the Uber vehicle. Mercedes uses several cameras to scan the area around the vehicle. Of special interest is a stereo setup consisting of two synchronized cameras, which is able to measure depth by finding corresponding features in both images. The picture below shows the entire host of cameras used by the system. Mercedes states that the stereo camera alone generates a total of 100 gigabytes of data for every kilometer driven.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 859024,
+              "key": "46bf20dd-79fd-4fcc-9a2a-7c6a859c2ccf",
+              "title": "ND313 Timo Intv 28 Are Stereo Cameras Useful",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "adI6LK3S97U",
+                "china_cdn_id": "adI6LK3S97U.mp4"
+              }
+            },
+            {
+              "id": 843676,
+              "key": "5a8a94b9-939b-4822-9db3-d4537e52ff50",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/April/5cb78774_draggedimage/draggedimage.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/5a8a94b9-939b-4822-9db3-d4537e52ff50",
+              "caption": "https://www.mercedes-benz.com/en/mercedes-benz/innovation/successful-autonomous-driving-a-pilot-project-by-daimler-and-bosch/",
+              "alt": "Mercedes Benz Vehicle",
+              "width": 2588,
+              "height": 1146,
+              "instructor_notes": null
+            },
+            {
+              "id": 843678,
+              "key": "d4bb884f-b956-4a92-ad6a-df99fe9511bc",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## The Tesla Autopilot\n\nWhen the Autopilot system was first sold, it basically was a combination of adaptive cruise control and lane change assist - a set of functions which had long been available with other manufacturers around the globe. The name „Autopilot“ implied however, that the car would be truly autonomous. And indeed did many Tesla owners test the system to its limits by climbing onto the back seat , reading a book or taking a nap while being driven by the system. On the SAE scale however, the Autopilot can „only“ be classified as level 2, i.e. the driver is responsible for the driving task at all times.\n\nIn October 2016, the Tesla Model S and X sensor set was significantly upgraded and the capabilities of the Autopilot were extended by regular airborne software updates.\n\nThe image shows the interior of a Tesla with the camera views superimposed on the right side. The image shows left and right rear-facing cameras as well as a forward-facing camera for medium-range perception.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 843679,
+              "key": "aa4659ff-6276-4923-8a1b-b2bfa887509c",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/April/5cb787d2_screen-shot-2018-04-25-at-10-14-46-pm/screen-shot-2018-04-25-at-10-14-46-pm.jpg",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/aa4659ff-6276-4923-8a1b-b2bfa887509c",
+              "caption": "",
+              "alt": "Tesla interior using autopilot",
+              "width": 2800,
+              "height": 1372,
+              "instructor_notes": null
+            },
+            {
+              "id": 843680,
+              "key": "976267f2-93f2-4d84-91da-7b6b255621f4",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "As can be seen in the overview, the system combines several camera sensors with partially overlapping fields of view with a forward-facing radar sensor.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 843682,
+              "key": "14d588b6-a278-4ed5-9b09-ba315c8991f5",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/April/5cb78820_tesla-autopilot-hardware/tesla-autopilot-hardware.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/14d588b6-a278-4ed5-9b09-ba315c8991f5",
+              "caption": "https://www.tesla.com/de_DE/autopilot",
+              "alt": "Camera, radar, and ultrasonic ranges.",
+              "width": 2119,
+              "height": 1257,
+              "instructor_notes": null
+            },
+            {
+              "id": 843685,
+              "key": "b1a5b1a5-02af-468e-af43-4a96f59aac6a",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "Let us look at each sensor type in turn:\n\n1. _Cameras_ : The forward-facing optical array consists of four cameras with differing focal lengths. The narrow-forward camera captures footage up until 250m in front, the forward camera with a slightly larger opening angle looks up until 150m in front, a wide-angle camera that captures 60m in front, and a set of forward-looking side cameras that capture footage 80m in front and to the side of the car. The wide-angle camera is designed to read road signs and traffic lights, allowing the car to react accordingly. It is debated however, wether this feature can be reliably used in traffic.\n2. _Radar_ : The forward-looking radar can see up to 160m ahead of the car. According to Tesla founder Elon Musk it is able to see through \"sand, snow, fog—almost anything\".\n3. _Sonar_ : A 360° ultrasonic sonar detects obstacles in an eight-meter radius around the car. The ultrasonic sensors work at any speed and are used to spot objects in close proximity of the car. The ultrasonic sensors can also be used to assist the car when automatically switching lanes. Their range however, compared to the other sensors of the set, is significantly limited and ends at about 8 meters distance.\n\nAs you may have noticed, Tesla is not using a Lidar sensor despite its plans to offer level 4 or even level 5 autonomous driving with this setup. Unlike many other manufacturers who aim at full autonomy such as Uber, Waymo and several others, Tesla is convinced that a set of high-performance cameras coupled with a powerful radar sensor will be sufficient for level 4 / level 5 autonomy. At the time of writing, there is a fierce debate going on about the best sensor set of autonomous vehicles. Tesla argues that the price and packaging disadvantage of Lidar would make the Autopilot unattractive to customers. Harsh critics such as GM's director of autonomous vehicle integration Scott Miller disagrees and argues with the highly elevated safety requirements of autonomous vehicles, which would not be met with cameras and radar alone.\n\nIs has to be noted however that in all sensor setups, be it Uber, Tesla, Waymo or traditional manufacturers such as Mercedes or Audi, cameras are always used. Even though there is an ongoing debate on wether radar or Lidar or a combination of the two would be best, cameras are never in question. It is therefore a good idea to learn about cameras and computer vision, which we will do in great detail in this course.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 847262,
+              "key": "cd4276a4-346b-479b-81f1-8306af22b83e",
+              "title": "ND313 C03 L01 A05 C13 Mid",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "nrYkozd_9Mc",
+                "china_cdn_id": "nrYkozd_9Mc.mp4"
+              }
+            },
+            {
+              "id": 843688,
+              "key": "496b453a-221c-40bb-b047-10ece35c9b76",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## Sensor Selection Criteria\n\nThe design of an autonomous or ADAS-equipped vehicle involves the selection of a suitable sensor set. As you have learned in the preceding section, there is a discussion going on about which combination of sensors would be necessary to reach full (or even partial) autonomy. In this section, you will learn about sensor selection criteria as well as the differences between camera, Lidar and radar with respect to each criterion.\n\nIn the following, the most typical selection criteria are briefly discussed.\n\n1. **Range** : Lidar and radar systems can detect objects at distances ranging from a few meters to more than 200m. Many Lidar systems have difficulties detecting objects at very close distances, whereas radar can detect objects from less than a meter, depending on the system type (either long, mid or short range) . Mono cameras are not able to reliably measure metric distance to object - this is only possible by making some assumptions about the nature of the world (e.g. planar road surface). Stereo cameras on the other hand can measure distance, but only up to a distance of approx. 80m with accuracy deteriorating significantly from there.\n2. **Spatial resolution** : Lidar scans have a spatial resolution in the order of 0.1° due to the short wavelength of the emitted IR laser light . This allows for high-resolution 3D scans and thus characterization of objects in a scene. Radar on the other hand can not resolve small features very well, especially as distances increase. The spatial resolution of camera systems is defined by the optics, by the pixel size on the image and by its signal-to-noise ratio. Details on small object are lost as soon as the light rays emanating from them are spread to several pixels on the image sensor (blurring). Also, when little ambient light exists to illuminate objects, spatial resolution increases as objects details are superimposed by increasing noise levels of the imager.\n3. **Robustness in darkness** : Both radar and Lidar have an excellent robustness in darkness, as they are both active sensors. While daytime performance of Lidar systems is very good, they have an even better performance at night because there is no ambient sunlight that might interfere with the detection of IR laser reflections. Cameras on the other hand have a very reduced detection capability at night, as they are passive sensors that rely on ambient light. Even though there have been advances in night time performance of image sensors, they have the lowest performance among the three sensor types.\n4. **Robustness in rain, snow, fog** : One of the biggest benefits of radar sensors is their performance under adverse weather conditions. They are not significantly affected by snow, heavy rain or any other obstruction in the air such as fog or sand particles. As an optical system, Lidar and camera are susceptible to adverse weather and its performance usually degrades significantly with increasing levels of adversity.\n5. **Classification of objects** : Cameras excel at classifying objects such as vehicles, pedestrians, speed signs and many others. This is one of the prime advantage of camera systems and recent advances in AI emphasize this even stronger. Lidar scans with their high-density 3D point clouds also allow for a certain level of classification, albeit with less object diversity than cameras. Radar systems do not allow for much object classification.\n6. **Perceiving 2D structures** : Camera systems are the only sensor able to interpret two-dimensional information such as speed signs, lane markings or traffic lights, as they are able to measure both color and light intensity. This is the primary advantage of cameras over the other sensor types.\n7. **Measure speed** : Radar can directly measure the velocity of objects by exploiting the Doppler frequency shift. This is one of the primary advantages of radar sensors. Lidar can only approximate speed by using successive distance measurements, which makes it less accurate in this regard. Cameras, even though they are not able to measure distance, can measure time to collision by observing the displacement of objects on the image plane. This property will be used later in this course.\n8. **System cost** : Radar systems have been widely used in the automotive industry in recent years with current systems being highly compact and affordable. The same holds for mono cameras, which have a price well below US$100 in most cases. Stereo cameras are more expensive due to the increased hardware cost and the significantly lower number of units in the market. Lidar has gained popularity over the last years, especially in the automotive industry. Due to technological advances, its cost has dropped from more than US$75,000 to below US$5,000. Many experts predict that the cost of a Lidar module might drop to less than US$500 over the next years.\n9. **Package size** : Both radar and mono cameras can be integrated very well into vehicles. Stereo cameras are in some cases bulky, which makes it harder to integrate them behind the windshield as they sometimes may restrict the driver's field of vision. Lidar systems exist in various sizes. The 360° scanning Lidar is typically mounted on top of the roof and is thus very well visible. The industry shift towards much smaller solid-state Lidar systems will dramatically shrink the system size of Lidar sensors in the very near future.\n10. **Computational requirements** : Lidar and radar require little back-end processing. While cameras are a cost-efficient and easily available sensor, they require significant processing to extract useful information from the images, which adds to the overall system cost.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 843715,
+              "key": "d563d144-7998-4b1f-84be-fcebd57043e0",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "In the following table, the different sensor types are assessed with regard to the criteria discussed above. \n",
+              "instructor_notes": ""
+            },
+            {
+              "id": 843705,
+              "key": "f5a08733-0b79-4920-bc14-9b423407aab3",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "|  | Range measurement | Robustness in darkness | Robustness in rain, snow, or fog | Classification of objects | Perceiving 2D Structures | Measure speed / TTC | Package size |\n|:------------:|:-----------------:|:----------------------:|:--------------------------------:|:-------------------------:|:------------------------:|:-------------------:|:------------:|\n|  **Camera**  |         -         |            -           |                 -                |             ++            |            ++            |          +          |       +      |\n|   **Radar**  |         ++        |           ++           |                ++                |             -             |             -            |          ++         |       +      |\n|   **Lidar**  |         +         |           ++           |                 +                |             +             |             -            |          +          |       -      |",
+              "instructor_notes": ""
+            },
+            {
+              "id": 843714,
+              "key": "dbc2a1a7-a5c4-4d05-b0e1-a709c00e9d8d",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "In the quizzes below, you will complete the table from above by adding +, ++ or - in the empty columns.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 843701,
+              "key": "1b02a9ea-6a74-4ddc-af8b-7c14e79d79a0",
+              "title": "Spatial Resolution",
+              "semantic_type": "MatchingQuizAtom",
+              "is_public": true,
+              "instructor_notes": null,
+              "user_state": {
+                "node_key": "1b02a9ea-6a74-4ddc-af8b-7c14e79d79a0",
+                "completed_at": null,
+                "last_viewed_at": null,
+                "unstructured": null
+              },
+              "question": {
+                "complex_prompt": {
+                  "text": "Based on the criteria discussed above, please complete the rating of _spatial resolution_ for each sensor by adding +, ++ or -."
+                },
+                "concepts_label": "Sensor",
+                "answers_label": "Spatial Resolution",
+                "concepts": [
+                  {
+                    "text": "Camera",
+                    "correct_answer": {
+                      "id": "a1555532491159",
+                      "text": "+"
+                    }
+                  },
+                  {
+                    "text": "Radar",
+                    "correct_answer": {
+                      "id": "a1555532551148",
+                      "text": "-"
+                    }
+                  },
+                  {
+                    "text": "Lidar",
+                    "correct_answer": {
+                      "id": "a1555532557802",
+                      "text": "++"
+                    }
+                  }
+                ],
+                "answers": [
+                  {
+                    "id": "a1555532491159",
+                    "text": "+"
+                  },
+                  {
+                    "id": "a1555532551148",
+                    "text": "-"
+                  },
+                  {
+                    "id": "a1555532557802",
+                    "text": "++"
+                  }
+                ]
+              }
+            },
+            {
+              "id": 843716,
+              "key": "8c350ef3-7cfd-4b37-b225-1d51c5026afb",
+              "title": "Robustness in Daylight",
+              "semantic_type": "MatchingQuizAtom",
+              "is_public": true,
+              "instructor_notes": null,
+              "user_state": {
+                "node_key": "8c350ef3-7cfd-4b37-b225-1d51c5026afb",
+                "completed_at": null,
+                "last_viewed_at": null,
+                "unstructured": null
+              },
+              "question": {
+                "complex_prompt": {
+                  "text": "Based on the criteria discussed above, please complete the rating of _robustness in daylight_ for each sensor by adding + or ++."
+                },
+                "concepts_label": "Sensor",
+                "answers_label": "Robustness in Daylight",
+                "concepts": [
+                  {
+                    "text": "Camera",
+                    "correct_answer": {
+                      "id": "a1555534718998",
+                      "text": "+"
+                    }
+                  },
+                  {
+                    "text": "Radar",
+                    "correct_answer": {
+                      "id": "a1555534808186",
+                      "text": "++"
+                    }
+                  },
+                  {
+                    "text": "Lidar",
+                    "correct_answer": {
+                      "id": "a1555534815568",
+                      "text": "+"
+                    }
+                  }
+                ],
+                "answers": [
+                  {
+                    "id": "a1555534808186",
+                    "text": "++"
+                  },
+                  {
+                    "id": "a1555534815568",
+                    "text": "+"
+                  },
+                  {
+                    "id": "a1555534718998",
+                    "text": "+"
+                  }
+                ]
+              }
+            },
+            {
+              "id": 843720,
+              "key": "7c0cea0c-3001-430d-b3db-682494618454",
+              "title": "System Cost",
+              "semantic_type": "MatchingQuizAtom",
+              "is_public": true,
+              "instructor_notes": null,
+              "user_state": {
+                "node_key": "7c0cea0c-3001-430d-b3db-682494618454",
+                "completed_at": null,
+                "last_viewed_at": null,
+                "unstructured": null
+              },
+              "question": {
+                "complex_prompt": {
+                  "text": "Based on the criteria discussed above, please complete the rating of _system cost_ for each sensor by adding + or -. Here, a higher cost should receive a lower rating."
+                },
+                "concepts_label": "Sensor",
+                "answers_label": "System Cost",
+                "concepts": [
+                  {
+                    "text": "Camera",
+                    "correct_answer": {
+                      "id": "a1555534903528",
+                      "text": "+"
+                    }
+                  },
+                  {
+                    "text": "Radar",
+                    "correct_answer": {
+                      "id": "a1555535031796",
+                      "text": "+"
+                    }
+                  },
+                  {
+                    "text": "Lidar",
+                    "correct_answer": {
+                      "id": "a1555535034926",
+                      "text": "-"
+                    }
+                  }
+                ],
+                "answers": [
+                  {
+                    "id": "a1555535031796",
+                    "text": "+"
+                  },
+                  {
+                    "id": "a1555534903528",
+                    "text": "+"
+                  },
+                  {
+                    "id": "a1555535034926",
+                    "text": "-"
+                  }
+                ]
+              }
+            },
+            {
+              "id": 843723,
+              "key": "d7901a7f-fd65-4363-ade4-709a70e97a4b",
+              "title": "Computation Requirements",
+              "semantic_type": "MatchingQuizAtom",
+              "is_public": true,
+              "instructor_notes": null,
+              "user_state": {
+                "node_key": "d7901a7f-fd65-4363-ade4-709a70e97a4b",
+                "completed_at": null,
+                "last_viewed_at": null,
+                "unstructured": null
+              },
+              "question": {
+                "complex_prompt": {
+                  "text": "Based on the criteria discussed above, please complete the rating of _computational requirements_ for each sensor by adding -, +, or ++."
+                },
+                "concepts_label": "Sensor",
+                "answers_label": "Computational Requirements",
+                "concepts": [
+                  {
+                    "text": "Camera",
+                    "correct_answer": {
+                      "id": "a1555535131276",
+                      "text": "-"
+                    }
+                  },
+                  {
+                    "text": "Radar",
+                    "correct_answer": {
+                      "id": "a1555535255973",
+                      "text": "+"
+                    }
+                  },
+                  {
+                    "text": "Lidar",
+                    "correct_answer": {
+                      "id": "a1555535259098",
+                      "text": "++"
+                    }
+                  }
+                ],
+                "answers": [
+                  {
+                    "id": "a1555535131276",
+                    "text": "-"
+                  },
+                  {
+                    "id": "a1555535259098",
+                    "text": "++"
+                  },
+                  {
+                    "id": "a1555535255973",
+                    "text": "+"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "id": 843728,
+          "key": "efceb298-8539-4f5d-aa0d-0e2e3f2ddc80",
+          "title": "Camera Technology Overview",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "efceb298-8539-4f5d-aa0d-0e2e3f2ddc80",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 843729,
+              "key": "d212fe83-3f82-46af-89a8-4d05b01a497a",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "# Camera Technology Overview",
+              "instructor_notes": ""
+            },
+            {
+              "id": 843730,
+              "key": "1d4452a5-1815-4e93-bd4f-6a79904a969f",
+              "title": "ND313 C03 L01 A06 C14 Intro",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "7qxX1ic-gFI",
+                "china_cdn_id": "7qxX1ic-gFI.mp4"
+              }
+            },
+            {
+              "id": 843732,
+              "key": "fa564db8-a590-4b55-9f12-273f5f922481",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "In this section you will learn about the basic properties of a camera. We will start from the most basic model called a „pinhole camera“ and then progress to using lenses, which are a key component of camera systems. You need this knowledge in order to understand how a camera creates images, which of its properties influence image appearance and quality and which parameters you have to consider in order to successfully extract meaningful information from these images.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 843733,
+              "key": "b7b1e150-edda-4b95-83fa-f0f6dd32d17c",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## The Pinhole camera\n\nA very simple camera can be designed by placing a light barrier with a tiny opening (the pinhole) between an object of interest. The light emitted by the object passes through the pinhole and lands on a photosensitive surface which stores the light information as an image. The reason why the pinhole has been made so small is to avoid image blurring due to superimposing rays of light stemming from various parts of the object of interest.\n\nThis simple principle has been well known for centuries and was for example used by artists to create photorealistic portraits.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 843734,
+              "key": "5f13197d-6063-40e1-92c6-cfc9a5f7c297",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/April/5cb79734_draggedimage/draggedimage.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/5f13197d-6063-40e1-92c6-cfc9a5f7c297",
+              "caption": "https://owlcation.com/humanities/Leonardo-da-Vincis-Camera-Obscura",
+              "alt": "Camera obscura image",
+              "width": 1582,
+              "height": 844,
+              "instructor_notes": null
+            },
+            {
+              "id": 843738,
+              "key": "399fb64d-14c9-47d8-9236-cd237b1b960a",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "A formal model of the pinhole camera model is shown below.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 843739,
+              "key": "be079dcf-7d87-4cfd-b064-b72fb1b6526a",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/April/5cb79785_draggedimage-1/draggedimage-1.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/be079dcf-7d87-4cfd-b064-b72fb1b6526a",
+              "caption": "",
+              "alt": "Pinhole camera model",
+              "width": 1872,
+              "height": 836,
+              "instructor_notes": null
+            },
+            {
+              "id": 843740,
+              "key": "8cf41818-2e03-4d35-9350-7476cfbcb858",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "The photosensitive surface on the left is called the _image plane_ whereas the pinhole is called the _camera center_. The distance between the camera center and the image plane is called the _focal length f_.\n\nA point P on the object of interest can be mapped to a point P’ on the image plane by casting a beam through the center of projection until it hits the image plane as shown in the figure below.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 843743,
+              "key": "1c15ad64-9ceb-463b-8474-218be88649ec",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/April/5cb79830_draggedimage-2/draggedimage-2.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/1c15ad64-9ceb-463b-8474-218be88649ec",
+              "caption": "",
+              "alt": "Point mapping",
+              "width": 1882,
+              "height": 1053,
+              "instructor_notes": null
+            },
+            {
+              "id": 843808,
+              "key": "2d6bbb7b-954a-47db-b85d-821ab40de27a",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "In three-dimensional space, the relation between <span class=\"mathquill\">P</span> and <span class=\"mathquill\">P'</span> is expressed by the following equations:\n\n",
+              "instructor_notes": ""
+            },
+            {
+              "id": 843904,
+              "key": "01b880c0-b21b-402c-8db3-20a47a70a2d2",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/April/5cb8c7b7_draggedimage-3/draggedimage-3.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/01b880c0-b21b-402c-8db3-20a47a70a2d2",
+              "caption": "",
+              "alt": "Equations describing the relationship between P and P'",
+              "width": 400,
+              "height": 854,
+              "instructor_notes": null
+            },
+            {
+              "id": 843905,
+              "key": "3e556e63-5bc9-4dfe-a52a-8332b0d641e2",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "Based on these equations, we are able to compute the 2D position of an object on the image plane, given the 3D position of the object in space as well as the focal length of the camera. Note however that the resulting coordinates x’ and y’ are metrical coordinates and not pixel positions yet.\n\nThe problem with pinhole cameras is that the amount of light passing through the pinhole is not sufficient to generate a decent image on an image sensor. If one were to increase the amount of light by widening the pinhole opening as shown in the figure below, rays of light from other parts of the object of interest would superimpose each other, leading to a blurring effect: The larger the pinhole, the brighter the image but at the same time, the more severe the blurring of the object on the image plane would be.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 845215,
+              "key": "12a51b76-d62e-43b3-b2a7-f3f494a4b975",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/April/5cc0c8c1_draggedimage-4/draggedimage-4.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/12a51b76-d62e-43b3-b2a7-f3f494a4b975",
+              "caption": "",
+              "alt": "",
+              "width": 1789,
+              "height": 888,
+              "instructor_notes": null
+            },
+            {
+              "id": 845216,
+              "key": "f31b6da8-a045-4a8e-98f0-a38482619c17",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "One way to solve this problem is use a lens, which is able to capture multiple rays of light that emanate from the same point on the object of interest. So let’s look at lenses next.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 843906,
+              "key": "81a6f3f3-05c4-4972-983d-9e302e732d79",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## Lenses and Aperture",
+              "instructor_notes": ""
+            },
+            {
+              "id": 843907,
+              "key": "13b34f6e-ed1d-4de4-8069-7ac3c6776042",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "A properly sized and positioned lens refracts all rays of light that emanate from a point P1 on an object in space such that they converge to a single point <span class=\"mathquill\"> p_1'</span> in the image plane. Rays of light passing through the lens center are not refracted however, they continue on as a straight line until they intersect the image plane.\n\nPoints on the object that are closer or farther away, such as <span class=\"mathquill\">P_2</span>, appear out of focus on the image plane, because the set of light rays emanating from them does not converge in a point but rather in a circle with a finite radius instead. This blurry circle is usually referred to as _circle of confusion (COF)_. To reduce blurring, an aperture can be used, which is a concentric opening of usually adjustable size placed directly behind the lens. The following figure illustrates the principle:",
+              "instructor_notes": ""
+            },
+            {
+              "id": 843908,
+              "key": "f3a9b00a-aece-4148-891b-a34f88547a0f",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/April/5cb8cac3_draggedimage-5/draggedimage-5.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/f3a9b00a-aece-4148-891b-a34f88547a0f",
+              "caption": "",
+              "alt": "",
+              "width": 1793,
+              "height": 779,
+              "instructor_notes": null
+            },
+            {
+              "id": 843909,
+              "key": "de6f00a8-8f95-46ff-bc1b-db74a9d533fe",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "By reducing the diameter of the aperture, light rays passing through the lens on the outer edges are blocked, which reduces the size of the COF on the image plane. It can easily be seen that a smaller aperture results in reduced blurring, but at the expense of low light sensitivity. The larger the aperture, the more light rays are focussed onto the image area, resulting in brighter images with a better signal-to-noise ratio.\n\nSo how can we compute where an object in space will appear in the image? Given a 3D point in space, its 2D position on the image plane after passing through a lens can be computed similar to the pinhole camera. In practice, lenses introduce distortion into images, depending on the lens type. The distortion most relevant to practice is called “radial distortion”. It is caused by the focal length of the lens not being uniform over its diameter. Therefore, the magnification effect of the lens changes depending on the distance between the camera center (the optical axis) and the ray of light passing through the lens. If the magnification increases the resulting distortion effect is called ‚pin cushion distortion‘. It it decreases, it is called ‚barrel distortion‘ instead. Barrel distortions usually occur, when wide-angle lenses are used. In the figure below, both distortion types are illustrated.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 843910,
+              "key": "9d45f70b-ea74-438c-8178-68032bc34613",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/April/5cb8cae8_rad027/rad027.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/9d45f70b-ea74-438c-8178-68032bc34613",
+              "caption": "",
+              "alt": "",
+              "width": 556,
+              "height": 254,
+              "instructor_notes": null
+            },
+            {
+              "id": 843911,
+              "key": "950e4391-0ceb-4260-8b31-a0854605820b",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "When extracting information from camera images, many applications seek to draw conclusions on the spatial location of objects of interest (e.g. vehicles). To get there, the distortion effect of the lens must be removed or at least mitigated. The relevant process is called calibration. For each camera-lens-setup, a _calibration_ procedure must be performed so the distortion parameters can be individually computed. This is usually done by taking a set of pictures of well-known objects such as planar checkerboard patterns, from whose known geometry all lens and image sensor parameters can be robustly derived. The process of removing distortions from a camera image is called _rectification_. In the image below, the calibration setup used to rectify most of the images in this course is shown. It can easily be seen that lines at both left and right are distorted significantly.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 843912,
+              "key": "c0b79503-c2f0-462c-b812-6ec1518c1a94",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/April/5cb8cb22_0000000000/0000000000.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/c0b79503-c2f0-462c-b812-6ec1518c1a94",
+              "caption": "",
+              "alt": "",
+              "width": 1392,
+              "height": 512,
+              "instructor_notes": null
+            },
+            {
+              "id": 843913,
+              "key": "f6871985-ebc0-449b-94ab-0ea0d8196525",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "It is beyond the scope of this course however to go into the details of distortion correction. Most of the images you will be using are already free of lens distortion. When using your own camera setup however, a calibration procedure must be performed when precise measurements and a spatial reconstruction of objects is the goal.\n\nAs mentioned before, the projection of points in 3D space onto the image plane does not directly correspond to what we see in actual digital images, which are made up of thousands of _picture elements_ or _pixels_. To understand how images can be expressed in discrete pixels, we need to take a closer look at the above-mentioned camera model once more. In the figure below, the camera center is shown with a position <span class=\"mathquill\">O</span> in space along with its own coordinate system with axes <span class=\"mathquill\">i</span>, <span class=\"mathquill\">j</span> and <span class=\"mathquill\">k</span>, where <span class=\"mathquill\">k</span> is pointing into the direction of the image plane. The position <span class=\"mathquill\">C'</span> where <span class=\"mathquill\">k</span> intersects the image plane is called the principal point and represents the center of the image coordinate system.\n\nThe first step after projecting a point <span class=\"mathquill\">P</span> in space onto the image plane is thus to subtract the principal point coordinates so that the discrete image has its own coordinate system centered in e.g. the lower left corner of the image plane",
+              "instructor_notes": ""
+            },
+            {
+              "id": 843914,
+              "key": "2478e567-fb58-4a7d-a6f2-1b28f0e2c106",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/April/5cb8cbed_draggedimage-6/draggedimage-6.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/2478e567-fb58-4a7d-a6f2-1b28f0e2c106",
+              "caption": "",
+              "alt": "",
+              "width": 1584,
+              "height": 1331,
+              "instructor_notes": null
+            },
+            {
+              "id": 843915,
+              "key": "ff27fd16-968b-4abc-b35c-1284b9feb9d5",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "The second step in the transformation process is to move from metric to pixel coordinates. To do so, we can use parameters <span class=\"mathquill\">k</span> and <span class=\"mathquill\">l</span> provided by the calibration procedure which convert meters to pixels and which can be easily integrated into the projection equations as seen below. Note that in image coordinates, the y-axis has its origin in the upper-left corner and is pointing downwards.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 843916,
+              "key": "30a6dc1e-fbc5-47ea-ad15-83b1340bbcc5",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/April/5cb8cc10_draggedimage-7/draggedimage-7.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/30a6dc1e-fbc5-47ea-ad15-83b1340bbcc5",
+              "caption": "",
+              "alt": "Transformation from metric to pixel coordinates",
+              "width": 600,
+              "height": 600,
+              "instructor_notes": null
+            },
+            {
+              "id": 843917,
+              "key": "3565b0e8-e375-4f9c-9a2e-46bd9c4b3cb5",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "In a later section of this course, we will be mapping Lidar 3D points into the camera image. To do so, we will make use of these equations. Specifically, the product of focal width <span class=\"mathquill\">f</span> and <span class=\"mathquill\">k</span> and <span class=\"mathquill\">l</span>  respectively (also termed alpha and beta) will be used in a calibration matrix to simplify the mapping operation significantly.\n\nOne final note on image rectification: In many applications (e.g. feature tracking) it makes sense to process the original image to avoid interpolation errors when the rectified image is computed and transformed pixels do not fall exactly onto the center of a discrete pixel in the rectified image but close to the border to another pixel instead. In such a case, it is advisable to locate the features in the unmodified original image and then transform the resulting coordinates using the equations above. When using deep learning based on a set of trained weights, it makes sense to rectify the image first before feeding it to a network - if we would use the original image, distortions (such as from a fish-eye lens) would lead to detection errors as networks are usually trained on a distortion-free image set.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 847288,
+              "key": "226677b1-a202-4731-81b6-e1e2952b4308",
+              "title": "ND313 C03 L01 A07 C14 Mid",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "mb4UTgUgu4w",
+                "china_cdn_id": "mb4UTgUgu4w.mp4"
+              }
+            },
+            {
+              "id": 843918,
+              "key": "a0e1cf13-a54e-4350-803e-e1cf00fae298",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## Imagers and Bayer Pattern",
+              "instructor_notes": ""
+            },
+            {
+              "id": 843919,
+              "key": "2c7fc49d-4579-42ec-924a-25d6eafdae42",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "In this last section, you will learn how rays of light with a certain wavelength are converted into color pixels that can be stored digitally.\n\nWhen an image is captured by a camera, light passes through the lens and falls on the image sensor. This sensor consists of light sensitive elements that register the amount of light that falls on them and convert it into a corresponding number of electrons. The more light, the more electrons are generated. Once the exposure time is complete, the generated electrons are converted into a voltage, which is finally transformed into a discrete number by means of an A/D-converter.\n\nCurrently, there are two main image technologies, which are CCD (Charge-Coupled Device) and CMOS (Complementary Metal-oxide Semiconductor). Both technologies convert electrons into voltage and are inherently color blind, as they can not distinguish the different wavelengths which generate the electrons. To enable color vision, tiny filter elements (also micro-lenses) are placed in front of each pixel which only allow a certain wavelength to pass through. One common way to map wavelength to color is to arrange the filter elements in an RGB (Red, Green, Blue) pattern to allow the primary colors to pass through individually, which gives us three individual images - one for each primary color.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 843920,
+              "key": "a8e79edc-d18a-4536-a86d-54f905d41afa",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/April/5cb8cd1d_color-filter-array/color-filter-array.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/a8e79edc-d18a-4536-a86d-54f905d41afa",
+              "caption": "",
+              "alt": "",
+              "width": 1644,
+              "height": 617,
+              "instructor_notes": null
+            },
+            {
+              "id": 843921,
+              "key": "6aa421e3-cc8d-42c2-a318-ddb06c2afcaa",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "Mixed in different combinations, RGB values can produce most of the colors visible to the human eye. When each discrete color value is coded with 8bits (i.e. 256 values), a total of 16.7 million different colors can be created with the RGB filter concept. The most common way of arranging the RGB filters is called a _Bayer pattern_, which has alternating rows of red-green and green-blue filters. Since the human eye is more sensitive to green than to red or blue, the Bayer array has twice as many green color filters. When processing color images in a computer vision application, all three RGB layers are available and it has to be decided which color layers to use. If processing power is limited, the different channels are combined into a gray scale image. In the upcoming section on computer vision, you will be introduced to the OpenCV computer vision library. You can take a look at the conversion formula to get from RGB to grayscale which is used in the method _cvtColor_ here : https://docs.opencv.org/3.1.0/de/d25/imgproc_color_conversions.html",
+              "instructor_notes": ""
+            },
+            {
+              "id": 843922,
+              "key": "d18cbb01-c565-4d7a-8a48-5bde24ff1c64",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## CCD vs. CMOS\n\nIn a _CCD sensor_, the electrons collected in each picture element are transferred from the chip through a single or only a few output nodes. The charges are then converted to voltage levels, buffered, and sent out as an analog signal. This signal is then amplified and converted to discrete numbers using an A/D-converter outside the sensor. Originally, CCD technology has had several advantages compared to CMOS, such as higher light sensitivity and less noise. In recent years, however, these differences have all but disappeared. The major disadvantages of CCD are a higher production price and a higher power consumption (up to 100x more than CMOS) , which usually leads to heat issues in the camera.\n\nCMOS _sensors_ were originally used for machine vision applications, but the image quality was poor due to their inferior light sensitivity. With modern CMOS sensors however, both quality and light sensitivity have significantly increased. The CMOS technology has several advantages: Unlike CCD, CMOS chips incorporate amplifiers and A/D-converters, which brings a huge cost advantage. With CCD, those components are located outside of the chip. CMOS sensors also have a faster data readout, lower power consumption, higher noise immunity, and a smaller system size. In automotive applications, almost all cameras use CMOS sensors because of these advantages. The camera setup used for recording most of the image sequences in this course can be found here : http://www.cvlibs.net/datasets/kitti/setup.php",
+              "instructor_notes": ""
+            },
+            {
+              "id": 859022,
+              "key": "fcc2bdf4-3263-4cf0-9220-90b509c07cd8",
+              "title": "ND313 Timo Intv 07 What Types Of Lenses Do Sdc Use",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "EKAj7KcskGk",
+                "china_cdn_id": "EKAj7KcskGk.mp4"
+              }
+            },
+            {
+              "id": 859023,
+              "key": "f1cc920e-e1f7-47ec-b153-0a796a58dfc0",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## Review\n\nNow you should have an understanding of how light that is refracted from an object of interest (e.g. a pedestrian) finds its way onto an image sensor after passing through a lens and is finally converted into a discrete color value, that can be processed by a computer vision algorithm. Let’s test your knowledge in a short quiz and then we move on to the next section, which is about basic operations to manipulate and interpret those pixels.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 843924,
+              "key": "b0338de9-33fe-4f72-9191-d5fcea189cee",
+              "title": "Focal Length",
+              "semantic_type": "ValidatedQuizAtom",
+              "is_public": true,
+              "instructor_notes": null,
+              "user_state": {
+                "node_key": "b0338de9-33fe-4f72-9191-d5fcea189cee",
+                "completed_at": null,
+                "last_viewed_at": null,
+                "unstructured": null
+              },
+              "question": {
+                "prompt": "What is the focal length of a camera?",
+                "matchers": [
+                  {
+                    "expression": ".*"
+                  }
+                ]
+              }
+            },
+            {
+              "id": 843925,
+              "key": "900d81f3-3967-4c08-8b67-eab029f29e7f",
+              "title": "Blurring",
+              "semantic_type": "ValidatedQuizAtom",
+              "is_public": true,
+              "instructor_notes": null,
+              "user_state": {
+                "node_key": "900d81f3-3967-4c08-8b67-eab029f29e7f",
+                "completed_at": null,
+                "last_viewed_at": null,
+                "unstructured": null
+              },
+              "question": {
+                "prompt": "How can blurring of objects in an image be reduced?",
+                "matchers": [
+                  {
+                    "expression": ".*"
+                  }
+                ]
+              }
+            },
+            {
+              "id": 843926,
+              "key": "0338ee84-66c0-482c-9553-dc2e37aadcb7",
+              "title": "Principal Point",
+              "semantic_type": "ValidatedQuizAtom",
+              "is_public": true,
+              "instructor_notes": null,
+              "user_state": {
+                "node_key": "0338ee84-66c0-482c-9553-dc2e37aadcb7",
+                "completed_at": null,
+                "last_viewed_at": null,
+                "unstructured": null
+              },
+              "question": {
+                "prompt": "What is the principal point and how does it relate to pixel coordinates?\n\n",
+                "matchers": [
+                  {
+                    "expression": ".*"
+                  }
+                ]
+              }
+            },
+            {
+              "id": 843927,
+              "key": "ce58e992-ac58-4b18-95e4-621d8e8a4e22",
+              "title": "Bayer Pattern",
+              "semantic_type": "ValidatedQuizAtom",
+              "is_public": true,
+              "instructor_notes": null,
+              "user_state": {
+                "node_key": "ce58e992-ac58-4b18-95e4-621d8e8a4e22",
+                "completed_at": null,
+                "last_viewed_at": null,
+                "unstructured": null
+              },
+              "question": {
+                "prompt": "Why does the Bayer pattern put more emphasis on green filters than on red or blue filters?",
+                "matchers": [
+                  {
+                    "expression": ".*"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "id": 858987,
+          "key": "e7578cec-3fc8-4503-ad6c-29684552fb49",
+          "title": "Camera Technology at MBRDNA",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "e7578cec-3fc8-4503-ad6c-29684552fb49",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 859013,
+              "key": "b67154bf-724e-41ac-9a3b-d11c273b2166",
+              "title": "ND313 Timo Intv 05 Does It Make Sense To Have Multiple Cameras On A Robot Or Av",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "D4ffxdVewCg",
+                "china_cdn_id": "D4ffxdVewCg.mp4"
+              }
+            }
+          ]
+        },
+        {
+          "id": 843928,
+          "key": "01268b34-4499-4d3a-8fc1-c7bdd22c1bf7",
+          "title": "The OpenCV Computer Vision Library",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "01268b34-4499-4d3a-8fc1-c7bdd22c1bf7",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 843929,
+              "key": "15977659-a9f1-4e52-a632-eb042ff5cb4d",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "# The OpenCV Computer Vision Library",
+              "instructor_notes": ""
+            },
+            {
+              "id": 843930,
+              "key": "950efba7-6682-46f6-8102-d7ccf8561ae5",
+              "title": "ND313 C03 L01 A08 C15 Intro",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "fAPWyNCrzFo",
+                "china_cdn_id": "fAPWyNCrzFo.mp4"
+              }
+            },
+            {
+              "id": 843931,
+              "key": "09fdf7ad-5d32-4811-9858-013b307cff49",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "Throughout this course, you will be using the [OpenCV](https://opencv.org/), which is a cross-platform computer vision library which was originally developed in the year 2000 to provide a common infrastructure for computer vision applications and to accelerate the use of machine vision in science and engineering projects. Originally founded by Intel, the open-source library is now supported by several companies and hundreds of experts all over the globe.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 843932,
+              "key": "22acb75e-715b-4fc5-b8b6-4e6579831728",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/April/5cb8d7b7_opencv-logo-with-text-svg-version.svg/opencv-logo-with-text-svg-version.svg.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/22acb75e-715b-4fc5-b8b6-4e6579831728",
+              "caption": "",
+              "alt": "OpenCV logo",
+              "width": 200,
+              "height": 1262,
+              "instructor_notes": null
+            },
+            {
+              "id": 843933,
+              "key": "c2aa4402-4965-43fb-b019-f86b0ca404a7",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "The library has more than 2500 algorithms that can be used to detect and recognize faces, identify objects, classify human actions in videos, track camera movements, track moving objects, perform machine learning and many more. OpenCV is written natively in C++ but has interfaces to Python, Java and Matlab as well. In this course, you will be using the C++ version of OpenCV.\n\nThe major advantage in using the OpenCV library is that you will be able to leverage a well-tested set of state-of-the-art computer vision algorithms. Without having to concentrate on the actual implementation of computer vision concepts such as Sobel operators, keypoint detection or machine learning you can use them right out of the box and concentrate on combining them in the right way to develop a working software prototype. Despite this ease of use however, a good understanding of the theories behind those concepts is needed to use them correctly. \n\nIn the following, you will familiarize yourself with some basic concepts you will need to get started with OpenCV and to prepare yourself for the more advanced lessons later in the course. The libraries listed below will be used extensively throughout this lecture. They are however only a small part of the entire OpenCV. Later, you will also include some specialized libraries such as _flann_ (Fast Library for Approximate Nearest Neighbors) or _dnn_ (Deep Neural Networks), which will be described only in those sections of this course where they are used.\n\nA note on namespaces: Most OpenCV functions exist within the _cv_ namespace. Usually, to shorten the code, the _using namespace cv_ command is used in many applications. In this course however, this is not done to make it clear when we are using function calls from the OpenCV.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 843934,
+              "key": "d9aeaccc-7c28-4ffb-bc01-652b19e0258e",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## OpenCV Library Overview",
+              "instructor_notes": ""
+            },
+            {
+              "id": 843935,
+              "key": "3fa60969-ef64-4325-8475-c439ada5a839",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "The core module is the section of the library that contains all of the basic object types and their operations. To use the library in your code, the following header has to be included: \n```cpp\n#include \"opencv2/core/core.hpp\"\n```\n\nThe _highgui_ module contains user interface functions that can be used to display images or take simple user input. To use the library in your code, the following header has to be included: \n```cpp\n#include \"opencv2/highgui/highgui.hpp\"\n```\nIn this project, basic functions such as `cv::imshow` will be used to display images in a window.\n\nThe _imgproc_ (image processing) module contains basic transformations on images, such as  image filtering, geometric transformations, feature detection and tracking. To use the library in your code, the following header has to be included: \n```cpp\n#include \"opencv2/imgproc/imgproc.hpp\"\n```\n\nThe _features2d_ module contains algorithms for detecting, describing, and matching keypoints between images. To use the library in your code, the following header has to be included: \n```cpp\n#include \"opencv2/features2d/features2d.hpp\"\n```",
+              "instructor_notes": ""
+            },
+            {
+              "id": 843936,
+              "key": "2f16b555-0c44-47c8-a2db-e9c69f871fe4",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## The OpenCV Matrix Datatype",
+              "instructor_notes": ""
+            },
+            {
+              "id": 843937,
+              "key": "88de0576-abfa-4511-9b86-7015a54975c3",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "The basic data type in OpenCV to store and manipulate images is the `cv::Mat datatype`. It can be used for arrays of any number of dimensions. The data stored in `cv::Mat` is arranged in a so-called `raster scan order`. For a two-dimensional array (such as a grayscale image), this means that the data is organized into rows, and each row appears one after the other. A three-dimensional array (e.g. a color image) is arranged in planes, where each plane is filled out row by row, and then the planes are packed one after the other. To see how this works, let us look into the `cv::Mat` datatype more deeply:\n\nThe data inside a `cv::Mat` variable can be either single numbers or multiple numbers. In the case of multiple numbers (e.g. represented by `cv::Scalar`), the matrix is referred to as a multichannel array. There are several ways to create and initialize a `cv::Mat` variable. The `create_matrix.cpp` file in the workspace below illustrates one way how this can be done.\n\n**Note:** To build and run the code below, use the following steps:\n1. Go to the virtual Desktop by clicking the `Desktop` button. You can use Terminator or a VSCode terminal to run the following commands: \n2. From the `/home/workspace/OpenCV_exercises` directory, run the commands: `mkdir build && cd build`\n3. `cmake ..`\n4. `make`\n5. Run the `create_matrix` executable from `build` with the command: `./create_matrix`\n",
+              "instructor_notes": ""
+            },
+            {
+              "id": 847370,
+              "key": "7b764bc1-c8c0-4b34-a890-d49ea27b87df",
+              "title": null,
+              "semantic_type": "WorkspaceAtom",
+              "is_public": true,
+              "workspace_id": "r831540c843928xREACT0abwultq",
+              "pool_id": "autonomouscpu",
+              "view_id": "react-q5800",
+              "gpu_capable": false,
+              "configuration": {
+                "id": "reserved",
+                "blueprint": {
+                  "conf": {
+                    "disk": null,
+                    "port": 3000,
+                    "ports": [],
+                    "userCode": "export CXX=g++-7\nexport CXXFLAGS=-std=c++17",
+                    "openFiles": [
+                      "/home/workspace/OpenCV_exercises/src/create_matrix.cpp",
+                      "/home/workspace/OpenCV_exercises/src/change_pixels.cpp",
+                      "/home/workspace/OpenCV_exercises/src/load_image_1.cpp",
+                      "/home/workspace/OpenCV_exercises/src/load_image_2.cpp",
+                      "/home/workspace/OpenCV_exercises/src/load_image_3.cpp"
+                    ],
+                    "showFiles": true,
+                    "allowClose": true,
+                    "allowSubmit": false,
+                    "terminalTitle": "BASH",
+                    "actionButtonText": "Desktop",
+                    "openTerminalOnStartup": true
+                  },
+                  "kind": "react"
+                },
+                "workspaceId": "reserved"
+              },
+              "starter_files": null
+            },
+            {
+              "id": 847450,
+              "key": "0a07d5bd-581b-4ded-9511-e9572228375f",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "In the code example, the variable _m18u_ is created with 480 rows and 640 columns with a color depth of 8 bit as unsigned char and a single channel (hence the _8UC1). Then, the entire image is set to the 8bit maximum value of 255, which corresponds to white. The function `cv::imshow` displays the image on the screen. When you execute the code, you should see a white image appear in a window on the screen.\n\nMatrices in OpenCV can also be created with three channels to represent color.\n\n**Here is a short task for you**: In the `create_matrix.cpp` file, create a variable of type `cv::Mat` named `m3_8u` which has three channels with a depth of 8bit per channel. Then, set the first channel to 255 using the `cv::Scalar` datatype and display the result. You can use the documentation [here](https://docs.opencv.org/4.1.0/d6/d6d/tutorial_mat_the_basic_image_container.html) if you get stuck. ",
+              "instructor_notes": ""
+            },
+            {
+              "id": 843942,
+              "key": "90abac92-e32f-4a81-be37-10b7aee9ea42",
+              "title": "Exercise",
+              "semantic_type": "RadioQuizAtom",
+              "is_public": true,
+              "instructor_notes": null,
+              "user_state": {
+                "node_key": "90abac92-e32f-4a81-be37-10b7aee9ea42",
+                "completed_at": null,
+                "last_viewed_at": null,
+                "unstructured": null
+              },
+              "question": {
+                "prompt": "In the `create_matrix.cpp` file, create a variable of type `cv::Mat` named `m3_8u` which has three channels with a depth of 8bit per channel. Then, set the first channel to 255 using the `cv::Scalar` datatype and display the result. Which color does the image have?",
+                "answers": [
+                  {
+                    "id": "a1555619827497",
+                    "text": "Yellow",
+                    "is_correct": false
+                  },
+                  {
+                    "id": "a1555619854501",
+                    "text": "Blue",
+                    "is_correct": true
+                  },
+                  {
+                    "id": "a1555619859438",
+                    "text": "Green",
+                    "is_correct": false
+                  }
+                ]
+              }
+            },
+            {
+              "id": 843949,
+              "key": "b0f9fb91-031e-44d9-9cae-17560504dc73",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## Manipulating Matrices\n\nNow that you can create matrices, let us try to change some of their entries: By using the command `cv::Mat::at<data type>(row, col) = data` the element at the given position can be replaced with data. Please note that the data type you provide to the `at`-function has to match the actual data stored in the matrix you are trying to access.\n\n**Here is another short task for you**: In the `change_pixels.cpp` file, write a nested loop that runs over the entire width of the matrix in the example below. Then, set every element to 255. Take special care to select the correct data type for the given format. What does the resulting image look like?\n\n**Note:** You can build and run your code for this task using the same steps as above, except for this exercise, the executable will be named `change_pixels`.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 847460,
+              "key": "6df754e8-4731-469d-819b-3cf3415470ca",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/May/5cd49f2f_draggedimage-1/draggedimage-1.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/6df754e8-4731-469d-819b-3cf3415470ca",
+              "caption": "Code from the `change_pixels.cpp` file",
+              "alt": "",
+              "width": 1752,
+              "height": 728,
+              "instructor_notes": null
+            },
+            {
+              "id": 843952,
+              "key": "07bf483a-067e-43b3-affe-5b593d345e41",
+              "title": "Manipulating Matrices",
+              "semantic_type": "RadioQuizAtom",
+              "is_public": true,
+              "instructor_notes": null,
+              "user_state": {
+                "node_key": "07bf483a-067e-43b3-affe-5b593d345e41",
+                "completed_at": null,
+                "last_viewed_at": null,
+                "unstructured": null
+              },
+              "question": {
+                "prompt": "After writing the nested loop described above, what does the resulting image look like?",
+                "answers": [
+                  {
+                    "id": "a1555625371977",
+                    "text": "A white bar from top to bottom.",
+                    "is_correct": false
+                  },
+                  {
+                    "id": "a1555625436162",
+                    "text": "A blue bar from left to right.",
+                    "is_correct": false
+                  },
+                  {
+                    "id": "a1555625437969",
+                    "text": "A white bar from left to right.",
+                    "is_correct": true
+                  }
+                ]
+              }
+            },
+            {
+              "id": 843953,
+              "key": "269606de-b747-45d5-af54-38f149e3cb45",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## Loading and Handling Images\n\nThe next thing we want to do is to load an image from file. Let us assume that the image resides in the same path as the executable. By calling `cv::imread` we can load the image from file and assign it to a `cv::Mat` variable. Take a look at the following code example to see how a single image can be loaded from file. You can build the code as above, and you can run the code from the virtual desktop using the `load_image_1` executable.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 847463,
+              "key": "8a550619-06f3-47dc-aca2-365719eaeda6",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/May/5cd4ac13_draggedimage-2/draggedimage-2.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/8a550619-06f3-47dc-aca2-365719eaeda6",
+              "caption": "Code from the `load_image_1.cpp` file",
+              "alt": "",
+              "width": 1248,
+              "height": 442,
+              "instructor_notes": null
+            },
+            {
+              "id": 843955,
+              "key": "e738b0d2-6835-4e6e-8cac-1864a88a553c",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "Assuming that there are 5 images in total in the code directory (img0005.png - img0009.png) , they can easily be read from file one after the other using string concatenation. The next example shows how the filename can be easily assembled from single elements using string concatenation and the setfill-function, which ensures that the prepending zeros are added to the loop variable before appending it to the filename. You can run the next example using the `load_image_2` executable.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 847464,
+              "key": "fc98e862-9e86-49e1-9769-1b41e50d87f3",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/May/5cd4ac6f_draggedimage-3/draggedimage-3.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/fc98e862-9e86-49e1-9769-1b41e50d87f3",
+              "caption": "Code from the `load_image_2.cpp` file",
+              "alt": "",
+              "width": 1370,
+              "height": 778,
+              "instructor_notes": null
+            },
+            {
+              "id": 843957,
+              "key": "e5e76bd9-61c8-4ac6-990d-a3143bc3010e",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "Later in the course, we will load and process several images one after the other. It is important to handle large amounts of data in a smart way so that images and other structures are not needlessly copied. Also, we want to flexibly rearrange data as well as delete and append elements on a regular basis. In C++, this can easily be achieved by using vectors. In the following code, a set of images is loaded from file as before and pushed into a dynamic list of type `vector<cv::Mat>`. Then, an iterator is used to loop over the list and display the loaded images one by one. \n\nYou can run the code below using the `load_image_3` executable.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 847465,
+              "key": "d0966591-83fb-47cf-bce3-b2468704a20f",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/May/5cd4ac8f_draggedimage-4/draggedimage-4.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/d0966591-83fb-47cf-bce3-b2468704a20f",
+              "caption": "Code from the `load_image_3.cpp` file",
+              "alt": "",
+              "width": 1480,
+              "height": 1136,
+              "instructor_notes": null
+            },
+            {
+              "id": 843959,
+              "key": "9fcda431-09d8-4e3a-9fda-b936d3a6d07f",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "The `auto` keyword is simply asking the compiler to deduce the type of the variable from the initialization, which is much more convenient than writing `vector<cv::Mat>::iterator it` instead. The current image within the loop can be accessed by using the `*it` expression.\n\n**Here is a last exercise for you**: In the loop of `load_image_3.cpp`, prevent image number 7 from being displayed.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 843961,
+              "key": "a11c8b73-60c7-462b-a106-224c91cf7630",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## Summary",
+              "instructor_notes": ""
+            },
+            {
+              "id": 843962,
+              "key": "6d713355-eea7-4846-86eb-8fdfdff10e88",
+              "title": "ND313 C03 L01 A09 C15 Outro",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "qhacFf0G87g",
+                "china_cdn_id": "qhacFf0G87g.mp4"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "_deprecated": [
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    }
+  ]
+}

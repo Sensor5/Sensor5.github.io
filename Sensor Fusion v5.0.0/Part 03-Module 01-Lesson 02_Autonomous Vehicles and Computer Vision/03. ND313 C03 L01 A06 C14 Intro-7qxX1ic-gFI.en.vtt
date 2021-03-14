@@ -1,0 +1,37 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:02.399
+So welcome to this section which is about giving you
+
+00:00:02.399 --> 00:00:04.919
+a short intro into cameras and Attribute Geometry.
+
+00:00:04.919 --> 00:00:08.640
+On the following, you will learn about the pinhole camera which helps you understand
+
+00:00:08.640 --> 00:00:12.990
+how light from an object forms an image and it's transformed into pixels.
+
+00:00:12.990 --> 00:00:16.440
+You will learn some basic facts about lenses and about the aperture,
+
+00:00:16.440 --> 00:00:20.910
+about image distortion, and about differences between CCD and CMOS images.
+
+00:00:20.910 --> 00:00:23.309
+This knowledge will be useful later in the course when you need
+
+00:00:23.309 --> 00:00:25.709
+to know how an image has been formed by the camera,
+
+00:00:25.710 --> 00:00:28.469
+so that you can compute some properties of objects in the scene,
+
+00:00:28.469 --> 00:00:31.259
+such as, for example, time to collision to another vehicle.
+
+00:00:31.260 --> 00:00:33.850
+So let's move on and see you soon.
+

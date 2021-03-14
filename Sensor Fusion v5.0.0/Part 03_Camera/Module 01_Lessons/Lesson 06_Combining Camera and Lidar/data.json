@@ -1,0 +1,1313 @@
+{
+  "data": {
+    "lesson": {
+      "id": 847900,
+      "key": "fb74bfb2-bfe1-4d86-a997-320ab71c0dbd",
+      "title": "Combining Camera and Lidar",
+      "semantic_type": "Lesson",
+      "is_public": true,
+      "version": "1.0.0",
+      "locale": "en-us",
+      "summary": null,
+      "lesson_type": "Classroom",
+      "display_workspace_project_only": false,
+      "resources": {
+        "files": [
+          {
+            "name": "Videos Zip File",
+            "uri": "https://zips.udacity-data.com/fb74bfb2-bfe1-4d86-a997-320ab71c0dbd/847900/1561072891960/Combining+Camera+and+Lidar+Videos.zip"
+          },
+          {
+            "name": "Transcripts Zip File",
+            "uri": "https://zips.udacity-data.com/fb74bfb2-bfe1-4d86-a997-320ab71c0dbd/847900/1561072887808/Combining+Camera+and+Lidar+Subtitles.zip"
+          }
+        ],
+        "google_plus_link": null,
+        "career_resource_center_link": null,
+        "coaching_appointments_link": null,
+        "office_hours_link": null,
+        "aws_provisioning_link": null
+      },
+      "project": null,
+      "lab": null,
+      "concepts": [
+        {
+          "id": 847901,
+          "key": "93e3b893-f874-477f-8f02-1ff465c160de",
+          "title": "Lidar-to-Camera Point Projection",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "93e3b893-f874-477f-8f02-1ff465c160de",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 847902,
+              "key": "c47b8ad0-6467-4c21-9cc4-ba9bfc80b8ae",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "# Lidar-to-Camera Point Projection",
+              "instructor_notes": ""
+            },
+            {
+              "id": 847903,
+              "key": "02e7af3d-a9c8-4b2b-b9ad-9653e3af884c",
+              "title": "L5 C5.1 Atom1 (HS)",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "mru6Yrt2Ufo",
+                "china_cdn_id": "mru6Yrt2Ufo.mp4"
+              }
+            },
+            {
+              "id": 847904,
+              "key": "5f448b79-215b-4a57-b306-4519f74b7dce",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## Displaying and Cropping Lidar Points\n\nIn this section, we will load a set of Lidar points from file and display it from a top view perspective. Also, we will manually remove points that are located in the road surface. This is an important step which is needed to correctly compute the time-to-collision in the final project. The Lidar points have been obtained using a Velodyne HDL-64E sensor spinning at a frequency of 10Hz and capturing approximately 100k points per cycle. Further information on the KITTI sensor setup can be found here : http://www.cvlibs.net/datasets/kitti/setup.php",
+              "instructor_notes": ""
+            },
+            {
+              "id": 847905,
+              "key": "6439558d-626d-48f3-92b4-136be14e59c1",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/May/5cd9e627_hdl-64e-topimage/hdl-64e-topimage.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/6439558d-626d-48f3-92b4-136be14e59c1",
+              "caption": "",
+              "alt": "",
+              "width": 500,
+              "height": 502,
+              "instructor_notes": null
+            },
+            {
+              "id": 847906,
+              "key": "c97ccd86-48fb-4ba3-85b0-9ae8c39fc632",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "As will be detailed later, the Velodyne sensor has been synchronized with a forward-looking camera, which, at the time of capturing the Lidar data used in this section, was showing the following (by now very familiar) scene.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 847908,
+              "key": "d55ef603-8be4-459a-8248-d16ae4f09434",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/May/5cd9e66e_0000000000/0000000000.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/d55ef603-8be4-459a-8248-d16ae4f09434",
+              "caption": "",
+              "alt": "",
+              "width": 1242,
+              "height": 375,
+              "instructor_notes": null
+            },
+            {
+              "id": 847907,
+              "key": "27c84a35-2406-4308-a3ae-fb86fd9d0861",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "The Lidar points corresponding to the scene are displayed in the following figure, together with the Velodyne coordinate system and a set of distance markers. While the top view image has been cropped at 20m, the farthest point for this scene in the original dataset is at ~78m.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 847909,
+              "key": "f17f4ac5-1c0c-4b8b-b21b-7652705629b0",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/May/5cd9e6ad_draggedimage/draggedimage.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/f17f4ac5-1c0c-4b8b-b21b-7652705629b0",
+              "caption": "",
+              "alt": "",
+              "width": 600,
+              "height": 1938,
+              "instructor_notes": null
+            },
+            {
+              "id": 847910,
+              "key": "54f1f511-0ddc-496d-8c55-5b4c6de36cae",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## Exercise\n\nThe following code in `show_lidar_top_view.cpp` loads and displays the Lidar points in a top view perspective. When you run the code example, you will see that all Lidar points are displayed, including the ones on the road surface. Please complete the following exercises before continuing:\n\n1. Change the color of the Lidar points such that X=0.0m corresponds to red while X=20.0m is shown as green with a gradual transition in between. The output of the Lidar point cloud should look like this:",
+              "instructor_notes": ""
+            },
+            {
+              "id": 847911,
+              "key": "e02e26c7-a4a3-4881-86f5-cea85725ca09",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/May/5cd9e6e0_draggedimage-1/draggedimage-1.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/e02e26c7-a4a3-4881-86f5-cea85725ca09",
+              "caption": "",
+              "alt": "",
+              "width": 600,
+              "height": 1932,
+              "instructor_notes": null
+            },
+            {
+              "id": 847912,
+              "key": "bdb9d3cc-082b-44db-b983-5f693d3169be",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "2. Remove all Lidar points on the road surface while preserving measurements on the obstacles in the scene. Your final result should look something like this:",
+              "instructor_notes": ""
+            },
+            {
+              "id": 847913,
+              "key": "cdb1c7ed-b0bb-46a6-a808-7f1c1d5899e0",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/May/5cd9e71d_draggedimage-2/draggedimage-2.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/cdb1c7ed-b0bb-46a6-a808-7f1c1d5899e0",
+              "caption": "",
+              "alt": "",
+              "width": 600,
+              "height": 1942,
+              "instructor_notes": null
+            },
+            {
+              "id": 847914,
+              "key": "0db52af1-81f5-408c-b1c7-490fb3e8531d",
+              "title": null,
+              "semantic_type": "WorkspaceAtom",
+              "is_public": true,
+              "workspace_id": "r831540c847901xREACT2b3al7pj",
+              "pool_id": "autonomouscpu",
+              "view_id": "react-t242j",
+              "gpu_capable": false,
+              "configuration": {
+                "id": "reserved",
+                "blueprint": {
+                  "conf": {
+                    "disk": null,
+                    "port": 3000,
+                    "ports": [],
+                    "userCode": "export CXX=g++-7\nexport CXXFLAGS=-std=c++17",
+                    "openFiles": [
+                      "/home/workspace/lidar_to_camera/src/show_lidar_top_view.cpp",
+                      "/home/workspace/lidar_to_camera/src/project_lidar_to_camera.cpp"
+                    ],
+                    "showFiles": true,
+                    "allowClose": true,
+                    "allowSubmit": false,
+                    "terminalTitle": "BASH",
+                    "actionButtonText": "Desktop",
+                    "openTerminalOnStartup": true
+                  },
+                  "kind": "react"
+                },
+                "workspaceId": "reserved"
+              },
+              "starter_files": null
+            },
+            {
+              "id": 850396,
+              "key": "90b4972b-3fcf-497b-a6d5-fd3e49882461",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## Solution",
+              "instructor_notes": ""
+            },
+            {
+              "id": 850397,
+              "key": "f079dd5a-5032-4ef6-a701-3021a79d5fdb",
+              "title": "L5 C5.1 Atom3 (SC)",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "pzYFO12BiE0",
+                "china_cdn_id": "pzYFO12BiE0.mp4"
+              }
+            },
+            {
+              "id": 847915,
+              "key": "6d9a4c33-1c19-4057-994f-7d41b0260f85",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "Now that we can display Lidar data as 3D points in the sensor coordinate system, let us move on to the next section, where we want to start working on a way to project these points into the camera image.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 847916,
+              "key": "2185f15b-92f8-4772-917d-b415656ad165",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## Homogeneous coordinates\n\nIn this section, our goal is to project points from 3D space onto the image plane. In order to do this, we can use the equations discussed in lesson 1 of this course:",
+              "instructor_notes": ""
+            },
+            {
+              "id": 847918,
+              "key": "113150a5-15ff-404e-878c-49d1e084a1c6",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/May/5cd9e858_draggedimage-4/draggedimage-4.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/113150a5-15ff-404e-878c-49d1e084a1c6",
+              "caption": "",
+              "alt": "Homogenous coordinates",
+              "width": 600,
+              "height": 516,
+              "instructor_notes": null
+            },
+            {
+              "id": 847917,
+              "key": "63984d3f-017d-4b08-bb9f-b8f890f3dc3e",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "In addition to the intrinsic camera parameters which make up the geometry of the projection, we need additional information about the position and alignment of both camera and Lidar in a common reference coordinate system. To move from Lidar to camera involves translation and rotation operations, which we need to apply to every 3D point. So our goal here is to simplify the notation with which we can express the projection. Using a linear transformation (or mapping), 3D points could be represented by a vector and operations such as translation, rotation, scaling and perspective projection could be represented as matrices by which the vector is multiplied. The problem with the projection equations we have so far is that they involve a division by Z, which makes them non-linear and thus prevents us from transforming them into the much more convenient matrix-vector form.\n\nA way to avoid this problem is to change the coordinate system and go from the original Euclidean coordinate system to a form called the _Homogenous coordinate system_. Moving back and forth between both coordinate systems is a non-linear operation, but once we are in the homogenous coordinate system, projective transformations such as the one given above become linear and can thus be expressed as simple matrix-vector multiplications. Transformations between both coordinate systems work as shown in the following figure.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 847919,
+              "key": "87124a48-ac05-4ff5-92eb-9e4078ae01f1",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/May/5cd9e870_draggedimage-5/draggedimage-5.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/87124a48-ac05-4ff5-92eb-9e4078ae01f1",
+              "caption": "",
+              "alt": "Transformations from Euclidean to Homogenous coordinates",
+              "width": 600,
+              "height": 1367,
+              "instructor_notes": null
+            },
+            {
+              "id": 847920,
+              "key": "5efc680c-067d-49ae-843a-73686ddd56a4",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "A point in the n-dimensional euclidian coordinate system is represented by a vector with n components. The transformation into (n+1)-dimensional homogeneous coordinates can be achieved by simply adding the number 1 as an additional component. The transformation can be applied to both image coordinates as well as scene coordinates.\n\nConverting back from homogeneous coordinates to Euclidean then works by suppressing the last coordinate and dividing the first n coordinates by the (n+1)-th coordinate as shown in the figure above. As discussed earlier in this section, this is a non-linear operation and once we are back in Euclidean space, the neat separation of the different parameters into individual matrix components is lost. In the following, we will take a look at those matrix components.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 847921,
+              "key": "dad201b1-68cf-4be4-b8d1-8c9fba421cae",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## Intrinsic Parameters\n\nNow we are ready to express the projection equations in matrix-vector form:",
+              "instructor_notes": ""
+            },
+            {
+              "id": 847923,
+              "key": "736592dd-7700-482c-8de4-76ec04b2e757",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/May/5cd9e8e3_draggedimage-6/draggedimage-6.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/736592dd-7700-482c-8de4-76ec04b2e757",
+              "caption": "",
+              "alt": "",
+              "width": 600,
+              "height": 849,
+              "instructor_notes": null
+            },
+            {
+              "id": 847922,
+              "key": "81943465-a497-4920-bfd2-5cb31d9bd198",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "As can be seen, the camera parameters are arranged in a matrix, which conveniently expresses the properties of our pinhole camera model in a compact way. Additional properties of a more complex camera model such as skewness or shear can easily be added. The following video animation shows the effect of the individual _intrinsic parameters_ of the camera on the appearance of objects on the image plane.\n[**source**: [http://ksimek.github.io/2013/08/13/intrinsic](http://ksimek.github.io/2013/08/13/intrinsic)]\n",
+              "instructor_notes": ""
+            },
+            {
+              "id": 847924,
+              "key": "a83b60dd-67e0-4a06-90eb-a9a4ab54d144",
+              "title": "IntrinsicCameraParameters",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "Cu-VRkG1sY4",
+                "china_cdn_id": "Cu-VRkG1sY4.mp4"
+              }
+            },
+            {
+              "id": 847925,
+              "key": "157842dd-a8bf-4490-80d5-d582f5eef2e1",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## Extrinsic Parameters\n\nThe mapping between a point P in 3D space to a point P’ in the 2D image plane has so far been described in the camera coordinate system with the pinhole as its center . But what if the information we have about points in 3D (or in general about any physical object) is available in another coordinate system, such as the vehicle coordinate system common in many automotive applications? As shown in the figure below, the origin of the vehicle coordinate system is placed directly on the ground below the midpoint of the rear axle with the x-axis pointing into driving direction. In addition to the axis naming convention, the figure also shows the typically used names for rotation around X, Y and Z which are 'roll', 'pitch' and 'yaw'.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 847926,
+              "key": "fed67015-fc1f-4dff-92c9-b655945d14cf",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/May/5cd9eb36_draggedimage-7/draggedimage-7.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/fed67015-fc1f-4dff-92c9-b655945d14cf",
+              "caption": "",
+              "alt": "",
+              "width": 500,
+              "height": 734,
+              "instructor_notes": null
+            },
+            {
+              "id": 847927,
+              "key": "0bfd34e8-028f-480d-b8d2-bdef1617ae13",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "Let us assume the vehicle were equipped with a Lidar sensor and a camera, who would both be calibrated in the vehicle coordinate system. In order to project points measured in the Lidar sensor coordinate system into the camera, we need to add an additional transformation to our mapping operation that allows us to relate points from the vehicle coordinate system to the camera coordinate system and vice versa. Generally, such a mapping operation can be broken down into three components: translation, rotation and scaling. Let’s look at each of them in turn:\n\n_Translation_ : As seen in the following figure, translation describes the linear shift of a point <span class=\"mathquill\">\\vec{P}</span> to a new location <span class=\"mathquill\">\\vec{P'}</span> by adding the components of a translation vector <span class=\"mathquill\">\\vec{t}</span> to the components of <span class=\"mathquill\">\\vec{P}</span>.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 847928,
+              "key": "8cfed523-3230-4ba3-86f8-981352975a41",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/May/5cd9eb70_draggedimage-8/draggedimage-8.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/8cfed523-3230-4ba3-86f8-981352975a41",
+              "caption": "",
+              "alt": "",
+              "width": 600,
+              "height": 1026,
+              "instructor_notes": null
+            },
+            {
+              "id": 847929,
+              "key": "392ca469-9453-4964-8c96-81ab3f895b4b",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "In homogeneous coordinates, this can be expressed by concatenating an identity matrix <span class=\"mathquill\">I</span> of size <span class=\"mathquill\">N</span> (where span class=\"mathquill\">N</span> is the number of components in <span class=\"mathquill\">\\vec{P}</span>) and the translation vector <span class=\"mathquill\">\\vec{t}</span>. The translation operation then becomes a simple matrix-vector multiplication as shown in the figure above.\n\n_Scale_ : While translation involves adding a translation vector <span class=\"mathquill\">\\vec{t}</span> to the components of <span class=\"mathquill\">\\vec{P}</span>, scaling works by multiplying the components with a scale vector <span class=\"mathquill\">\\vec{s}</span> instead. In homogeneous coordinates, this can be expressed as a matrix-vector multiplication as seen in the figure below.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 847935,
+              "key": "a8a42bba-4e10-4f6d-83ec-14f2aab578b1",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/May/5cd9ed03_draggedimage-9/draggedimage-9.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/a8a42bba-4e10-4f6d-83ec-14f2aab578b1",
+              "caption": "",
+              "alt": "",
+              "width": 600,
+              "height": 231,
+              "instructor_notes": null
+            },
+            {
+              "id": 847939,
+              "key": "ef657579-e5be-44b1-98d2-e3031d91daba",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "_Rotation_ : A point <span class=\"mathquill\">\\vec{P'}</span> is rotated in counter-clockwise direction (mathematically positive) by using the following equations for <span class=\"mathquill\">x</span> and <span class=\"mathquill\">y</span>.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 847940,
+              "key": "a53b2fc6-e9bf-442b-923a-de8fe656de6f",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/May/5cd9ed6f_draggedimage-10/draggedimage-10.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/a53b2fc6-e9bf-442b-923a-de8fe656de6f",
+              "caption": "",
+              "alt": "",
+              "width": 600,
+              "height": 918,
+              "instructor_notes": null
+            },
+            {
+              "id": 847943,
+              "key": "647a2312-a9b7-48fe-ac06-e681ebb780cd",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "As before, the operation can be expressed as a matrix-vector multiplication with <span class=\"mathquill\">R</span> being called the 'rotation matrix‘. In 3D space, a point <span class=\"mathquill\">P</span> can be rotated around all three axes using the following rotation matrices:",
+              "instructor_notes": ""
+            },
+            {
+              "id": 847944,
+              "key": "eed5f43f-4e8e-45b9-b68f-8d033f2c4a6f",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/May/5cd9edd3_draggedimage-11/draggedimage-11.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/eed5f43f-4e8e-45b9-b68f-8d033f2c4a6f",
+              "caption": "",
+              "alt": "",
+              "width": 600,
+              "height": 1468,
+              "instructor_notes": null
+            },
+            {
+              "id": 847947,
+              "key": "ba5aa4ca-743a-4abe-ba59-837a939478d2",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "Note that the three individual rotations can be combined into a joint rotation matrix R by successive application in the order <span class=\"mathquill\">R = R_z \\cdot R_y \\cdot R_x</span>\n\nOne of the advantages of homogeneous coordinates is that they allow for an easy combination of multiple transformations by concatenating several matrix-vector multiplications.\n\nThe combined matrix consisting of <span class=\"mathquill\">R</span> and <span class=\"mathquill\">\\vec{t}</span> is also referred to as the _extrinsic matrix_, as it models how points are transformed between coordinate system. Once a point in the Lidar coordinate system has been expressed in camera coordinates, we need to project it onto the image plane. For this purpose, we need to additionally integrate the intrinsic parameters discussed above. With homogeneous coordinates, we can simply do this by concatenating the individual matrices in the following manner:",
+              "instructor_notes": ""
+            },
+            {
+              "id": 847948,
+              "key": "425d79f3-0bc7-4282-993d-d50098f81e59",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/May/5cd9ee8a_draggedimage-12/draggedimage-12.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/425d79f3-0bc7-4282-993d-d50098f81e59",
+              "caption": "",
+              "alt": "",
+              "width": 600,
+              "height": 605,
+              "instructor_notes": null
+            },
+            {
+              "id": 847950,
+              "key": "01facf7b-1ced-4aab-a3ef-6ecd2ec4f486",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "Note that the scale component has been integrated into the intrinsic matrix <span class=\"mathquill\">K</span>  (with the focal length being the relevant parameter) and is no longer part of the extrinsic matrix. In the following video, the influence of the extrinsic parameters on the appearance of an object on the image plane is simulated. [**source**: [http://ksimek.github.io/perspective_camera_toy.html](http://ksimek.github.io/perspective_camera_toy.html)]",
+              "instructor_notes": ""
+            },
+            {
+              "id": 847953,
+              "key": "e95d81f3-9914-4027-8dec-a8c1812def37",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## Overview of the KITTI sensor setup\n\nNow that we have an understanding of how points in 3D space can be projected onto the image plane of a camera, let us take a look at the sensor setup of the KITTI vehicle that was used to generate the data sequences. In the following figure, the vehicle is shown, equipped with two forward-facing cameras, a roof-mounted Velodyne Lidar as well as an inertial measurement unit or IMU (which we will not be using in this course).",
+              "instructor_notes": ""
+            },
+            {
+              "id": 847954,
+              "key": "ae4f4c85-f5f5-449e-969b-ca57abecc19c",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/May/5cd9ef0c_kitti-setup/kitti-setup.jpg",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/ae4f4c85-f5f5-449e-969b-ca57abecc19c",
+              "caption": "",
+              "alt": "Overview of the KITTI sensors",
+              "width": 600,
+              "height": 908,
+              "instructor_notes": null
+            },
+            {
+              "id": 847958,
+              "key": "ab2251bb-c57b-4ed3-b84b-e8c27b4a6ffb",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "For all datasets, calibration files with intrinsic and extrinsic parameters are available once you download them from the KITTI website. In the following, the content of the file \"calib_velo_to_cam.txt“ is shown, which relates the Velodyne sensor and the left camera of the stereo rig (valid for the highway sequence we are using):\n```\n\ncalib_time: 15-Mar-2012 11:37:16\n\nR: 7.533745e-03 -9.999714e-01 -6.166020e-04 1.480249e-02 7.280733e-04 -9.998902e-01 9.998621e-01 7.523790e-03 1.480755e-02\n\nT: -4.069766e-03 -7.631618e-02 -2.717806e-01\n\n…\n\n```\n\nThe matrices R and T provide us with the extrinsic parameters of the sensor setup. As we know, we also need information about the intrinsic parameters in order to perform the projection. These are stored in the file \"calib_cam_to_cam.txt\", which is given as an excerpt in the following:\n\n```\n\ncalib_time: 09-Jan-2012 13:57:47\n\n…\n\nR_rect_00: 9.999239e-01 9.837760e-03 -7.445048e-03 -9.869795e-03 9.999421e-01 -4.278459e-03 7.402527e-03 4.351614e-03 9.999631e-01\n\nP_rect_00: 7.215377e+02 0.000000e+00 6.095593e+02 0.000000e+00 0.000000e+00 7.215377e+02 1.728540e+02 0.000000e+00 0.000000e+00 0.000000e+00 1.000000e+00 0.000000e+00\n\n…\n\n```\nThe matrix `R_rect_00` is the 3x3 rectifying rotation to make image planes co-planar, i.e. to align both cameras of the stereo rig (there are two Point Gray cameras in the KITTI vehicle) in a way that one row of pixels in the left camera directly corresponds to another row of pixels in the right camera (as opposed to a slanted line crossing over the image plane). As we are focussing on the mono camera here, we did not go into details on the underlying concepts - but If you want to learn more about this, research \"epipolar geometry\". The matrix P_rect_00 contains the intrinsic camera parameters as discussed above (we called it K). The following equation shows how to project a 3D Lidar point X in space to a 2D image point Y (using the notation in the Kitti readme file) on the image plane of the left camera using homogeneous coordinates:",
+              "instructor_notes": ""
+            },
+            {
+              "id": 847960,
+              "key": "e4e832cf-bca1-4ad3-b9d2-e45d14c7f1e8",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/May/5cd9efc1_draggedimage-13/draggedimage-13.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/e4e832cf-bca1-4ad3-b9d2-e45d14c7f1e8",
+              "caption": "",
+              "alt": "",
+              "width": 600,
+              "height": 62,
+              "instructor_notes": null
+            },
+            {
+              "id": 847963,
+              "key": "7f8cb233-0244-45f4-9930-a02c40bb5cbe",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## Exercise: Projecting Lidar Points into the Camera",
+              "instructor_notes": ""
+            },
+            {
+              "id": 847965,
+              "key": "2e56b8ee-3062-4353-bd9d-6356f80b4a7b",
+              "title": "L5 C5.1 Atom8 (HS, SC)",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "B7e3eD7Knl8",
+                "china_cdn_id": "B7e3eD7Knl8.mp4"
+              }
+            },
+            {
+              "id": 847967,
+              "key": "1e534045-3143-49d9-9f85-a3c727aaebca",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "In the code sample in `project_lidar_to_camera.cpp` of the workspace above, a framework for projecting Lidar points has been prepared. Please use your new knowledge to complete the following exercises:\n\n1. In the loop over all Lidar points, convert each 3D point into homogeneous coordinates and store it in a 4D variable X.\n2. Then, apply the projection equation as detailed in lesson 5.1 to map X onto the image plane of the camera. Store the result in Y.\n3. Once this is done, transform Y back into Euclidean coordinates and store the result in the variable pt.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 847968,
+              "key": "ecf34d6d-6d34-41a9-9f0b-08d65b96e719",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "Once you have completed all three steps, the output of the code sample should look like the figure below.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 847969,
+              "key": "8c01f320-a6a8-41b8-8e8d-f02bca18f6a0",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/May/5cd9f052_draggedimage-14/draggedimage-14.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/8c01f320-a6a8-41b8-8e8d-f02bca18f6a0",
+              "caption": "",
+              "alt": "",
+              "width": 600,
+              "height": 740,
+              "instructor_notes": null
+            },
+            {
+              "id": 847970,
+              "key": "b2a5e17a-6a75-48dc-975d-23455f6bce9e",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "Cleary, something is not working here. The idea of coloring the individual pixels was that red should represent close 3D points while green should be used for far-away points. The image looks good up until the horizon is reached. The bright red sky is not correct though. So let’s take a look at what is wrong here.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 847971,
+              "key": "532b1d19-fb2b-4bd3-801e-d61fd23e2bd9",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## Filtering Lidar Points\n\nEarlier on in this section, you learned how to convert the Lidar point cloud into a top view perspective. The conversion process implicitly assumed that we would only be interested in points directly in front of the vehicle. In the code, the following lines show how the conversion into the top view image was performed:",
+              "instructor_notes": ""
+            },
+            {
+              "id": 847995,
+              "key": "71681f2c-6c1b-48ae-81f3-c2fffd9a5562",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "```cpp\nint y = (-xw * imageSize.height / worldSize.height) + imageSize.height;\nint x = (-yw * imageSize.height / worldSize.height) + imageSize.width / 2;\n```",
+              "instructor_notes": ""
+            },
+            {
+              "id": 848001,
+              "key": "3c34f316-03d1-4de2-9710-83f3d8eea009",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "As you now know, the Velodyne Lidar is roof-mounted and spins in a 360° circle at 10 Hz. That means, it also measures 3D points behind the vehicle facing away from the camera. Those points are also contained in the data set but they do not show up in the top view image. But when projected into the camera, they produce a valid image plane coordinate, even though they are not visible to the camera (the projecting line intersects the image plane from behind). The associated Lidar points have a negative x-coordinate which causes the respective pixel color to appear in red on the image plane. So in order to avoid this from happening, let’s take a look at some filtering options we have to thin out the point cloud.\n\nThe code below shows how a filter can be applied to remove Lidar points that do not satisfy a set of constraints, i.e. they are …\n\n1. … positioned behind the Lidar sensor and thus have a negative x coordinate.\n2. … too far away in x-direction and thus exceeding an upper distance limit.\n3. … too far off to the sides in y-direction and thus not relevant for collision detection\n4. … too close to the road surface in negative z-direction.\n5. … showing a reflectivity close to zero, which might indicate low reliability.\n\n```cpp\n    for(auto it=lidarPoints.begin(); it!=lidarPoints.end(); ++it) {\n\n        float maxX = 25.0, maxY = 6.0, minZ = -1.4; \n        if(it->x > maxX || it->x < 0.0 || abs(it->y) > maxY || it->z < minZ || it->r<0.01 )\n        {\n            continue; // skip to next point\n        }\n```\nAfter applying these filters to the Lidar point cloud, the resulting overlay image shows a significantly reduced number of points. From the perspective of collision detection, measurement quality is of highest importance and the filtering step, aside from increasing the processing speed further down the pipeline, can help improve reliability. Try this now in your `project_lidar_to_camera.cpp` file in the workspace above!",
+              "instructor_notes": ""
+            },
+            {
+              "id": 848005,
+              "key": "6b170df8-9e0d-4571-a2e2-84302d22f43e",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/May/5cd9f6dc_draggedimage-17/draggedimage-17.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/6b170df8-9e0d-4571-a2e2-84302d22f43e",
+              "caption": "",
+              "alt": "",
+              "width": 2472,
+              "height": 740,
+              "instructor_notes": null
+            },
+            {
+              "id": 848008,
+              "key": "d9e0926b-e722-4aee-8224-35a5523a11b1",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## Outro",
+              "instructor_notes": ""
+            },
+            {
+              "id": 848009,
+              "key": "b0646fd1-ed60-48e7-b32f-c7831cd48ac2",
+              "title": "L5 C5.1 Atom10 (HS)",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "cZGkfjgkpzA",
+                "china_cdn_id": "cZGkfjgkpzA.mp4"
+              }
+            }
+          ]
+        },
+        {
+          "id": 848012,
+          "key": "77657b72-080f-4d93-b9d7-a6abf3b2e92b",
+          "title": "Object Detection with YOLO",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "77657b72-080f-4d93-b9d7-a6abf3b2e92b",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 848013,
+              "key": "ce79190a-6bb3-44a0-b03e-da9778e9ab06",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "# Object Detection with YOLO",
+              "instructor_notes": ""
+            },
+            {
+              "id": 848014,
+              "key": "de3e65b1-fa98-4652-8427-64edfc0bfc8e",
+              "title": "L5 C5.2 Atom1 (HS)",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "ZpyEq_U4pRY",
+                "china_cdn_id": "ZpyEq_U4pRY.mp4"
+              }
+            },
+            {
+              "id": 848015,
+              "key": "2ac25e1d-7430-4b96-a0f9-b166c7239219",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## Why Object Detection?\n\nAs mentioned in the introductory video, we need a way to detect vehicles in our images so that we can isolate matched keypoints as well as projected Lidar points and associate them to a specific object. Let us take a look at the program flow schematic we already discussed in the lesson on engineering a collision detection system.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 848018,
+              "key": "9958b077-a4ac-4514-ace6-851d633131b8",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/May/5cd9f7cf_draggedimage/draggedimage.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/9958b077-a4ac-4514-ace6-851d633131b8",
+              "caption": "",
+              "alt": "",
+              "width": 800,
+              "height": 2476,
+              "instructor_notes": null
+            },
+            {
+              "id": 848017,
+              "key": "68398099-34e2-4373-a494-382523fbd79c",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "Based on what you learned in the previous lesson, you are now able to detect and match keypoints using a variety of detectors and descriptors. In order to compute the time-to-collision for a specific vehicle however, we need to isolate the keypoints on that vehicle so that TTC estimation is not distorted due to the inclusion of matches on e.g. the road surface, stationary objects or other vehicles in the scene. One way to achieve this is to automatically identify the vehicles in the scene using object detection. The output of such an algorithm would (ideally) be a set of 2D bounding boxes around all objects in the scene. Based on these bounding boxes, we could then easily associate keypoint matches to objects and achieve a stable TTC estimate.\n\nFor the Lidar measurements, the same rationale can be applied. As you have learned in the previous course on Lidar, you already know that 3D points can be successfully clustered into individual objects, e.g. by using algorithms from the Point Cloud Library (PCL), which can be seen as an equivalent to the OpenCV library for 3D applications. In this section, let us look at yet another approach to group Lidar points into objects. Based on what you learned in the previous section, you now know how to project Lidar points onto the image plane. Given a set of bounding boxes from object detection, we could thus easily associate a 3D Lidar point to a specific object in a scene by simply checking wether it is enclosed by a bounding box when projected into the camera.\n\nWe will look in detail at both of the described approaches later in this section but for now, let us look at a way to detect objects in camera images - which is a prerequisite for grouping keypoint matches as well as Lidar points. in the schematic shown above, the content of the current lesson is highlighted by a blue rectangle and in this section we will be focussing on 'detecting & classifying objects‘.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 848021,
+              "key": "585c04c7-603f-4ecd-9f0d-40b6870d900c",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## Introduction into YOLO\n\nThe aim of this section is to enable you to quickly leverage a powerful and state-of-the-art tool for object detection. It is not the purpose to perform a theoretical deep-dive into the inner workings of such algorithms, but rather you should be enabled to integrate object detection into the code framework of this course quickly and seamlessly. The following image shows the an example output of the code we will be developing in this section.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 848022,
+              "key": "e771953a-3129-466a-aa04-33eb41488d09",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/May/5cd9f8aa_draggedimage-1/draggedimage-1.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/e771953a-3129-466a-aa04-33eb41488d09",
+              "caption": "",
+              "alt": "",
+              "width": 600,
+              "height": 658,
+              "instructor_notes": null
+            },
+            {
+              "id": 848023,
+              "key": "19e719a8-1cb0-4c32-8c3f-62ae9d8ea382",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "In the past, methods for object detection were often based on histograms of oriented gradients (HOG) and support vector machines (SVM). Until the advent of deep-learning, the HOG/SVM approach was long considered the state-of-the-art approach to detection. While the results of HOG/SVM are still acceptable for a large variety of problems, its use on platforms with limited processing speed is limited. As with SIFT, one of the major issues is the methods reliance on the intensity gradient - which is a costly operation.\n\nAnother approach to object detection is the use of deep-learning frameworks such as TensorFlow or Caffe. However, the learning curve for both is very steep and would warrant an entire course on its own. An easy-to-use alternative that works right out of the box and is also based on similar underlying concepts is YOLO, a very fast detection framework that is shipped with the OpenCV library. Developed by Joseph Redmon, Santosh Divvala, Ross Girshick, and Ali Farhadi at Cornell University, YOLO uses a different approach than most other methods: Here, a single neural network is applied to the full image. This network divides the image into regions and predicts bounding boxes and probabilities for each region. These bounding boxes are weighted by the predicted probabilities. The following figure illustrates the principle:",
+              "instructor_notes": ""
+            },
+            {
+              "id": 848024,
+              "key": "f524e47e-c227-492a-ad6b-2184e7c74b61",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/May/5cd9f927_yolo-workflow/yolo-workflow.jpg",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/f524e47e-c227-492a-ad6b-2184e7c74b61",
+              "caption": "\\[adapted from this [source](https://github.com/pjreddie/darknet/wiki/YOLO:-Real-Time-Object-Detection)\\]",
+              "alt": "",
+              "width": 800,
+              "height": 1200,
+              "instructor_notes": null
+            },
+            {
+              "id": 848025,
+              "key": "d1b64f14-ead6-4074-9482-e016074fa523",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "Other than classifier-based systems such as HOG/SVM, YOLO looks at the whole image so its predictions are informed by global context in the image. It also makes predictions with a single network pass unlike systems like R-CNN which require thousands of passes for a single image. This makes it extremely fast while at the same time generating similar results as other state-of-the-art methods such as the Single Shot MultiBox Detector (SSD).\n\nThe makers of YOLO have also made available a set of pre-trained weights that enable the current version YOLOv3 to recognize 80 different objects in images and videos based on COCO (http://cocodataset.org/#home) , which is a is large-scale object detection, segmentation, and captioning dataset. In the context of this course this means, that we can use YOLOv3 as an out-of-the-box classifier which is able to detect vehicles (and many other obstacles) with reasonable accuracy.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 848032,
+              "key": "b9db6b2a-86e1-4547-a63e-e7d319f297fb",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## The YOLOv3 Workflow\n\nIn this section, we will take a look at the different steps involved to execute YOLO on the course image set. The parameters used below are mainly the ones suggested by the authors. In the following, a short overview of the main algorithmic steps is given:\n\n- First, the image is divided into a 13x13 grid of cells. Based on the size of the input image, the size of these cells in pixels varies. In the code below, a size of 416 x 416 pixels was used, leading to a cell size of 32 x 32 pixels.\n- As seen in the schematic above, each cell is then used for predicting a set of bounding boxes. For each bounding box, the network also predicts the confidence that the bounding box encloses a particular object as well as the probability of the object belonging to a particular class (taken from the COCO dataset).\n- Lastly, a non-maximum suppression is used to eliminate bounding boxes with a low confidence level as well as redundant bounding boxes enclosing the same object.\n\nIn the following, the main workflow as well as the respective code is presented.\n\n_Step 1: Initialize the Parameters_\n\nEvery bounding box predicted by YOLOv3 is associated with a confidence score. The parameter 'confThreshold' is used to remove all bounding boxes with a lower score value.\n\nThen, a non-maximum suppression is applied to the remaining bounding boxes. The NMS procedure is controlled by the parameter ‚nmsThreshold‘.\n\nThe size of the input image is controlled by the parameters ‚inpWidth‘ and ‚inpHeight‘, which is set to 416 as proposed by the YOLO authors. Other values could e.g. be 320 (faster) or 608 (more accurate).\n\n_Step 2: Prepare the Model_\n\nThe file 'yolov3.weights' contains the pre-trained network’s weights and has been made available by the authors of YOLO [here](https://pjreddie.com/media/files/yolov3.weights).\n\nThe file 'yolov3.cfg' containing the network configuration is available [here](https://github.com/pjreddie/darknet/blob/master/cfg/yolov3.cfg) and the coco.names file which contains the 80 different class names used in the COCO dataset can be downloaded [here](https://github.com/pjreddie/darknet/blob/master/data/coco.names).\n\nThe following code shows how to load the model weights as well as the associated model configuration:\n```cpp\n    // load image from file\n    cv::Mat img = cv::imread(\"./images/img1.png\");\n\n    // load class names from file\n    string yoloBasePath = \"./dat/yolo/\";\n    string yoloClassesFile = yoloBasePath + \"coco.names\";\n    string yoloModelConfiguration = yoloBasePath + \"yolov3.cfg\";\n    string yoloModelWeights = yoloBasePath + \"yolov3.weights\"; \n\n    vector<string> classes;\n    ifstream ifs(yoloClassesFile.c_str());\n    string line;\n    while (getline(ifs, line)) classes.push_back(line);\n    \n    // load neural network\n    cv::dnn::Net net = cv::dnn::readNetFromDarknet(yoloModelConfiguration, yoloModelWeights);\n    net.setPreferableBackend(cv::dnn::DNN_BACKEND_OPENCV);\n    net.setPreferableTarget(cv::dnn::DNN_TARGET_CPU);\n```\nAfter loading the network, the DNN backend is set to DNN_BACKEND_OPENCV. If OpenCV is built with Intel’s Inference Engine, DNN_BACKEND_INFERENCE_ENGINE should be used instead. The target is set to CPU in the code, as opposed to using DNN_TARGET_OPENCL, which would be the method of choice if a (Intel) GPU was available.\n\n_Step 3: Generate 4D Blob from Input Image_\n\nAs data flows through the network, YOLO stores, communicates, and manipulates the information as \"blobs\": the blob is the standard array and unified memory interface for many frameworks, including Caffe. A blob is a wrapper over the actual data being processed and passed along and also provides synchronization capability between the CPU and the GPU. Mathematically, a blob is an N-dimensional array stored in a C-contiguous fashion. The conventional blob dimensions for batches of image data are number N x channel C x height H x width W. In this nomenclature, N is the batch size of the data. Batch processing achieves better throughput for communication and device processing. For a training batch of 256 images, N would be 256. The parameter C represents the feature dimension, e.g. for RGB images C = 3. In OpenCV, blobs are stored as 4-dimensional cv::Mat array with NCHW dimensions order. More details on blobs can be found here: http://caffe.berkeleyvision.org/tutorial/net_layer_blob.html\n\nThe following example illustrates the memory structure of a blob with N=2, C=16 channels and height H=5 / width W=4.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 848037,
+              "key": "4c58fcef-ee63-4fec-b4e0-8a92b1bb1954",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/May/5cd9fb9c_software/software.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/4c58fcef-ee63-4fec-b4e0-8a92b1bb1954",
+              "caption": "\\[[source](https://intel.github.io/mkl-dnn/understanding_memory_formats.html)\\]",
+              "alt": "",
+              "width": 600,
+              "height": 407,
+              "instructor_notes": null
+            },
+            {
+              "id": 848039,
+              "key": "95688314-e2d2-4dff-a0fb-1c50c8c4889d",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "In a blob data structure, a value at position (n, c, h, w) can be accessed (if needed) using the following formula: b (n, c, h, w) = ((n * C + c) * H + h) * W + w.\n\nThe code below shows how an image loaded from the file is passed through the blobFromImage function to be converted into an input block for the neural network. The pixel values are scaled with a scaling factor of 1/255 to a target range of 0 to 1. It also adjusts the size of the image to the specified size of (416, 416, 416) without cropping.\n```cpp\n    // generate 4D blob from input image\n    cv::Mat blob;\n    double scalefactor = 1/255.0;\n    cv::Size size = cv::Size(416, 416);\n    cv::Scalar mean = cv::Scalar(0,0,0);\n    bool swapRB = false;\n    bool crop = false;\n    cv::dnn::blobFromImage(img, blob, scalefactor, size, mean, swapRB, crop);\n```\nLater in the code, the output blob will be passed as input to the network. Then, a forward pass will be executed to obtain a list of predicted bounding boxes as output from the network. These boxes go through a post-processing step to filter out those with low confidence values. Let’s look at those steps in more detail.\n\n_Step 4: Run Forward Pass Through the Network_\n\nAs the next step, we have to pass the blob we just created to the network as its input. Then, we run the forward-function of OpenCV to perform a single forward-pass through the network. In order to do that, we need to identify the last layer of the network and provide the associated internal names to the function. This can be done by using the OpenCV function 'getUnconnectedOutLayers', which gives the names of all unconnected output layers, which are in fact the last layers of the network. The following code shows how this can be achieved:\n\n```cpp\n    // Get names of output layers\n    vector<cv::String> names;\n    vector<int> outLayers = net.getUnconnectedOutLayers(); // get indices of output layers, i.e. layers with unconnected outputs\n    vector<cv::String> layersNames = net.getLayerNames(); // get names of all layers in the network\n    \n    names.resize(outLayers.size());\n    for (size_t i = 0; i < outLayers.size(); ++i) // Get the names of the output layers in names\n    {\n        names[i] = layersNames[outLayers[i] - 1];\n    }\n\n    // invoke forward propagation through network\n    vector<cv::Mat> netOutput;\n    net.setInput(blob);\n    net.forward(netOutput, names);\n```\n\nThe result of the forward pass and thus the output of the network is a vector of size C (the number of blob classes) with the first four elements in each class representing the center in x, the center in y as well as the width and height of the associated bounding box. The fifth element represents the trust or confidence that the respective bounding box actually encloses an object. The remaining elements of the matrix are the confidence associated with each of the classes contained in the coco.cfg file. Further on in the code, each box is assigned to the class corresponding to the highest confidence.\n\nThe following code shows how to scan through the network results and assemble the bounding boxes with a sufficiently high confidence score into a vector. The function `cv::minMaxLoc` finds the minimum and maximum element values and their positions with extremums searched across the whole array.\n\n```cpp\n    // Scan through all bounding boxes and keep only the ones with high confidence\n    float confThreshold = 0.20;\n    vector<int> classIds;\n    vector<float> confidences;\n    vector<cv::Rect> boxes;\n    for (size_t i = 0; i < netOutput.size(); ++i)\n    {\n        float* data = (float*)netOutput[i].data;\n        for (int j = 0; j < netOutput[i].rows; ++j, data += netOutput[i].cols)\n        {\n            cv::Mat scores = netOutput[i].row(j).colRange(5, netOutput[i].cols);\n            cv::Point classId;\n            double confidence;\n            \n            // Get the value and location of the maximum score\n            cv::minMaxLoc(scores, 0, &confidence, 0, &classId);\n            if (confidence > confThreshold)\n            {\n                cv::Rect box; int cx, cy;\n                cx = (int)(data[0] * img.cols);\n                cy = (int)(data[1] * img.rows);\n                box.width = (int)(data[2] * img.cols);\n                box.height = (int)(data[3] * img.rows);\n                box.x = cx - box.width/2; // left\n                box.y = cy - box.height/2; // top\n                \n                boxes.push_back(box);\n                classIds.push_back(classId.x);\n                confidences.push_back((float)confidence);\n            }\n        }\n    }\n```\nApplying the YOLOv3 algorithm to our highway image provides the following result:",
+              "instructor_notes": ""
+            },
+            {
+              "id": 848041,
+              "key": "12839dcf-5448-4443-8ab9-f6156d783d86",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/May/5cd9fce9_draggedimage-6/draggedimage-6.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/12839dcf-5448-4443-8ab9-f6156d783d86",
+              "caption": "",
+              "alt": "",
+              "width": 2480,
+              "height": 744,
+              "instructor_notes": null
+            },
+            {
+              "id": 848042,
+              "key": "4969f84e-f66d-4ec1-a57b-1b8abd04cc2b",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "As can be seen, the car in the left lane is covered by two bounding boxes of similar size. To avoid the occurrence of redundant boxes, the last step performs a non-maximum suppression which aims at keeping only the bounding box with the highest confidence score.\n\n_Step 5: Post-Processing of Network Output_\n\nThe OpenCV library offers a ready-made function for the suppression of overlapping bounding boxes. This function is called NMSBoxes and it can be used as illustrated by the following short code sample:\n```cpp\n    // perform non-maxima suppression\n    float nmsThreshold = 0.4;  // Non-maximum suppression threshold\n    vector<int> indices;\n    cv::dnn::NMSBoxes(boxes, confidences, confThreshold, nmsThreshold, indices);\n```\nAfter applying non-maximum suppression, redundant bounding boxes will have been successfully removed. The following figure shows the results, where green indicates preserved bounding boxes while red bounding boxes have been removed during NMS.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 848043,
+              "key": "465cde84-c125-47ea-8f1e-ccea337e7808",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/May/5cd9fd48_draggedimage-8/draggedimage-8.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/465cde84-c125-47ea-8f1e-ccea337e7808",
+              "caption": "",
+              "alt": "",
+              "width": 2478,
+              "height": 750,
+              "instructor_notes": null
+            },
+            {
+              "id": 848044,
+              "key": "bf4d9f1c-8cbc-429e-80e1-387cfd92507f",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## Exercise",
+              "instructor_notes": ""
+            },
+            {
+              "id": 848045,
+              "key": "e936adf5-382a-4f3b-9d02-671322367d66",
+              "title": "L5 C5.2 Atom4 (HS)",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "AvGh3pFQKJQ",
+                "china_cdn_id": "AvGh3pFQKJQ.mp4"
+              }
+            },
+            {
+              "id": 848046,
+              "key": "fb0ebd1e-02c5-42fc-860b-0034341167e5",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "In this exercise, please conduct the following experiments with the code given below:\n\n1. Look at the coco.cfg file and find out which object classes the YOLO network is able to detect. Then, find some interesting images containing some of those objects and load them into the framework. Share some of the results with us if you like.\n2. Experiment with the size of the blob image and use some other settings instead of 416 x 416. Measure the execution time for varying sizes of the blob image.\n3. Experiment with the confidence threshold and the NMS threshold. How do the detection results change for different settings of both variables?\n\nNote that we are now using a proprietary structure called 'BoundingBoxes' to store the results of the object detection step. In the course of this lesson, further information will be added to this structure, such as Lidar points or image keypoints associated with the respective object.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 850669,
+              "key": "261076ba-58a2-4e47-8c0a-4c501da59ee6",
+              "title": null,
+              "semantic_type": "WorkspaceAtom",
+              "is_public": true,
+              "workspace_id": "r831540c848012xREACTlnv29mx4",
+              "pool_id": "autonomouscpu",
+              "view_id": "react-hxlvl",
+              "gpu_capable": false,
+              "configuration": {
+                "id": "reserved",
+                "blueprint": {
+                  "conf": {
+                    "disk": null,
+                    "port": 3000,
+                    "ports": [],
+                    "userCode": "export CXX=g++-7\nexport CXXFLAGS=-std=c++17",
+                    "openFiles": [
+                      "/home/workspace/detect_objects/src/detect_objects_2.cpp"
+                    ],
+                    "showFiles": true,
+                    "allowClose": true,
+                    "allowSubmit": false,
+                    "terminalTitle": "BASH",
+                    "actionButtonText": "Desktop",
+                    "openTerminalOnStartup": true
+                  },
+                  "kind": "react"
+                },
+                "workspaceId": "reserved"
+              },
+              "starter_files": null
+            },
+            {
+              "id": 848047,
+              "key": "3f452b53-196b-402e-b2c4-15daf9203d0c",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## Outro",
+              "instructor_notes": ""
+            },
+            {
+              "id": 850398,
+              "key": "c6272704-a5e4-4d8e-940d-f3c5cfc64aa5",
+              "title": "L5 C5.2 Atom5 (HS)",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "jh75oLxSfo0",
+                "china_cdn_id": "jh75oLxSfo0.mp4"
+              }
+            }
+          ]
+        },
+        {
+          "id": 858994,
+          "key": "63180eea-a420-4052-869b-3a17f5c7b002",
+          "title": "Standard CV vs Deep Learning",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "63180eea-a420-4052-869b-3a17f5c7b002",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 858995,
+              "key": "53a98647-fea1-4a0d-b9ad-f4ffbeeaae6b",
+              "title": "ND313 Timo Intv 09 Standard Cv Vs Deep Learning V2",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "p5DMU6ZJw2U",
+                "china_cdn_id": "p5DMU6ZJw2U.mp4"
+              }
+            }
+          ]
+        },
+        {
+          "id": 848048,
+          "key": "287ac53f-9169-411d-b125-41e500aa4043",
+          "title": "Creating 3D-Objects",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "287ac53f-9169-411d-b125-41e500aa4043",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 848049,
+              "key": "a7486790-7b9e-47da-9652-ad54912f953f",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "# Creating 3D-Objects",
+              "instructor_notes": ""
+            },
+            {
+              "id": 848050,
+              "key": "7ae12165-5fab-4023-849a-88b963778393",
+              "title": "L5 C5.3 Atom1 (HS)",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "FcXzpiuDogk",
+                "china_cdn_id": "FcXzpiuDogk.mp4"
+              }
+            },
+            {
+              "id": 848051,
+              "key": "f440e0e0-f89c-4ac6-aed3-78b05ec0a451",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## Grouping Lidar Points Using a Region of Interest\n\nThe goal of this section is to group Lidar points that belong to the same physical object in the scene. To do this, we will make use of the camera-based object detection method we investigated in the last section. By using the YOLOv3 framework, we can extract a set of objects from a camera image that are represented by an enclosing rectangle (a \"region of interest\" or ROI) as well as a class label that identifies the type of object, e.g. a vehicle.\n\nIn the following, we will make use of the ROI to associate 3D Lidar points in space with 2D objects in the camera image. As can be seen in the following image, the idea is to project all Lidar points onto the image plane using calibration data and camera view geometry. By cycling through all Lidar points contained in the current data buffer in an outer loop and through all ROI in an inner loop, a test can be performed to check whether a Lidar point belongs to a specific bounding box.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 848052,
+              "key": "59842af8-5a7c-403c-bbd7-626528a13dd4",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/May/5cd9fe56_draggedimage/draggedimage.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/59842af8-5a7c-403c-bbd7-626528a13dd4",
+              "caption": "",
+              "alt": "",
+              "width": 2482,
+              "height": 750,
+              "instructor_notes": null
+            },
+            {
+              "id": 848053,
+              "key": "6fc85070-db75-4775-98ff-dbc675f85468",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "If a Lidar point has been found to be within a ROI, it is added to the BoundingBox data structure we have seen in the previous section on object detection with YOLO. The BoundingBox structure introduced there now contains the following elements:\n```cpp\nstruct BoundingBox { // bounding box around a classified object (contains both 2D and 3D data)\n    \n    int boxID; // unique identifier for this bounding box\n    int trackID; // unique identifier for the track to which this bounding box belongs\n    \n    cv::Rect roi; // 2D region-of-interest in image coordinates\n    int classID; // ID based on class file provided to YOLO framework\n    double confidence; // classification trust\n\n    std::vector<LidarPoint> lidarPoints; // Lidar 3D points which project into 2D image roi\n    std::vector<cv::KeyPoint> keypoints; // keypoints enclosed by 2D roi\n    std::vector<cv::DMatch> kptMatches; // keypoint matches enclosed by 2D roi\n};\n```\nDuring object detection, the members \"boxID\", \"roi\", \"classID\" and \"confidence\" have been filled with data. During Lidar point grouping in this section, the member \"lidarPoints\" is filled with all points within the boundaries of the respective ROI rectangle. In terms of the image shown above, this means that all colored Lidar points which have been projected into the camera image are associated with the green rectangle which encloses them. Lidar points not enclosed by a rectangle are ignored.\n\nIn some cases, object detection returns ROI that are too large and thus overlap into parts of the scene that are not a part of the enclosed object (e.g. a neighboring vehicle or the road surface). It is therefore advisable to adjust the size of the ROI slightly so that the number of Lidar points which are not physically located on the object is reduced. The following code shows how this can be achieved without much effort.\n\n```cpp\nvector<vector<BoundingBox>::iterator> enclosingBoxes; // pointers to all bounding boxes which enclose the current Lidar point\nfor (vector<BoundingBox>::iterator it2 = boundingBoxes.begin(); it2 != boundingBoxes.end(); ++it2)\n{\n    // shrink current bounding box slightly to avoid having too many outlier points around the edges\n    cv::Rect smallerBox;\n    smallerBox.x = (*it2).roi.x + shrinkFactor * (*it2).roi.width / 2.0;\n    smallerBox.y = (*it2).roi.y + shrinkFactor * (*it2).roi.height / 2.0;\n    smallerBox.width = (*it2).roi.width * (1 - shrinkFactor);\n    smallerBox.height = (*it2).roi.height * (1 - shrinkFactor);\n```\nBy providing a factor \"shrinkFactor\" which denotes the amount of resizing in [% ], a smaller box is created from the original bounding box. Further down in the code (see final project student code for details), a check is performed for each keypoint wether it belongs to the smaller bounding box. The figure below shows two different settings for \"shrinkFactor\". It can be seen that for second figure, the projected Lidar points are concentrated on the central area of the preceding vehicle whereas Lidar points close to the edges are ignored.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 848069,
+              "key": "19a2bc57-54bb-433c-85bf-f5b6ef0b31cb",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/May/5cda0354_sf-25-/sf-25-.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/19a2bc57-54bb-433c-85bf-f5b6ef0b31cb",
+              "caption": "",
+              "alt": "",
+              "width": 600,
+              "height": 320,
+              "instructor_notes": null
+            },
+            {
+              "id": 848070,
+              "key": "78d5bae0-8cf7-4123-94c9-4cab992c62d7",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "In practice, a moderate setting of 5-10% should be used to avoid discarding too much data. In some cases, when the bounding boxes returned by object detection are severely oversized, this process of boundary frame shrinkage can be an important tool to improve the quality of the associated Lidar point group.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 848071,
+              "key": "bf334ab9-b8b7-47df-89b3-da54258ea3e0",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## Exercise: Avoiding Grouping Errors\n\nAnother potential problem in addition to oversized regions of interest is their strictly rectangular shape, which rarely fits the physical outline of the enclosed objects. As can be seen in the figure at the very top of this section, the two vehicles in the left lane exhibit a significant overlap in their regions of interest.\n\nDuring point cloud association, Lidar points located on one vehicle might inadvertently be associated to another other vehicle. In the example illustrated in the figure below, a set of Lidar points in the upper right corner of the green ROI that actually belong to the red truck are associated with the blue vehicle. In the top view perspective on the left, this error becomes clearly visible.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 848072,
+              "key": "db648a16-1ec8-470a-85b5-c770283d9b3d",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/May/5cda03b5_ebene/ebene.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/db648a16-1ec8-470a-85b5-c770283d9b3d",
+              "caption": "",
+              "alt": "",
+              "width": 600,
+              "height": 544,
+              "instructor_notes": null
+            },
+            {
+              "id": 848073,
+              "key": "d8445e5c-d9cb-4d53-9f26-2f0be731dba0",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "In the following code example you will find the algorithm that is responsible for this incorrect behavior.\n\nYour task now is to make changes to this code in such a way that Lidar points enclosed within multiple bounding boxes are excluded from further processing. Visualize your result to ensure that everything works correctly before you proceed to the next section.\n\nYou can find the code in the workspace below in `cluster_with_roi.cpp`, and after making, you can run the code using the executable `cluster_with_roi`.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 850681,
+              "key": "f1d7f61b-5fe5-4c42-9a4d-f9e4e47968a2",
+              "title": null,
+              "semantic_type": "WorkspaceAtom",
+              "is_public": true,
+              "workspace_id": "r831540c848048xREACTndmqdyr3",
+              "pool_id": "autonomouscpu",
+              "view_id": "react-5qe3o",
+              "gpu_capable": false,
+              "configuration": {
+                "id": "reserved",
+                "blueprint": {
+                  "conf": {
+                    "disk": null,
+                    "port": 3000,
+                    "ports": [],
+                    "userCode": "export CXX=g++-7\nexport CXXFLAGS=-std=c++17",
+                    "openFiles": [
+                      "/home/workspace/cluster_with_roi/src/cluster_with_roi.cpp"
+                    ],
+                    "showFiles": true,
+                    "allowClose": true,
+                    "allowSubmit": false,
+                    "terminalTitle": "BASH",
+                    "actionButtonText": "Display",
+                    "openTerminalOnStartup": true
+                  },
+                  "kind": "react"
+                },
+                "workspaceId": "reserved"
+              },
+              "starter_files": null
+            },
+            {
+              "id": 848075,
+              "key": "2c7c0fdb-3d4e-42e9-9efe-3e0749392fff",
+              "title": "L5 C5.3 Atom3 (HS, SC)",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "kX5W8Gud7So",
+                "china_cdn_id": "kX5W8Gud7So.mp4"
+              }
+            },
+            {
+              "id": 848074,
+              "key": "b1a1059c-b70b-4576-81da-6f6ab804fbac",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## Creating 3D Objects\n\nAt this stage, we have successfully linked 2D camera data with 3D Lidar points. For (almost) every object in the image, there is now a set of Lidar points belonging to this object which we can easily access in the code.\n\nThe aim of this section is to augment our top-view image by displaying information about all bounding boxes (i.e. our 3D objects). In the code sample below, the following properties are extracted from each 3D object :\n\n1. distance to closest point in x-direction\n2. object width and height\n3. number of supporting Lidar points\n\nLet us take a look at the code to see how this is achieved.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 848077,
+              "key": "09992bb8-805f-4f97-9034-a82b30436849",
+              "title": "L5 C5.3 Atom4 (HS, SC)",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "ID_zxQ37V3s",
+                "china_cdn_id": "ID_zxQ37V3s.mp4"
+              }
+            },
+            {
+              "id": 848080,
+              "key": "2ddb87bd-a9c1-425d-b2b0-02a7448af49a",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "As you can see in the resulting top-view image below, Lidar points have been grouped together into several distinct 3D objects.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 848085,
+              "key": "d3ea10f2-74ee-4aac-8e34-81d24d2bd400",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/May/5cda0465_draggedimage-4/draggedimage-4.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/d3ea10f2-74ee-4aac-8e34-81d24d2bd400",
+              "caption": "",
+              "alt": "",
+              "width": 600,
+              "height": 1438,
+              "instructor_notes": null
+            },
+            {
+              "id": 848087,
+              "key": "20f03e54-c524-4cbe-979b-8d91fe95a704",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "So by combining Lidar and camera information, an augmented view on the objects in the observed scene can be obtained. However, a computation of the time-to-collision is not yet possible as there is currently no link in time between 3D objects. It will be your task in the upcoming final project to implement this link and to finally compute TTC measurements based on both Lidar and camera.",
+              "instructor_notes": ""
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "_deprecated": [
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    }
+  ]
+}

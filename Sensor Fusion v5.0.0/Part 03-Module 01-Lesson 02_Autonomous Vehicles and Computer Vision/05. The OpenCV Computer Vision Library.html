@@ -1,0 +1,903 @@
+<!-- udacimak v1.4.4 -->
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <meta content="ie=edge" http-equiv="X-UA-Compatible"/>
+  <title>
+   The OpenCV Computer Vision Library
+  </title>
+  <link href="../assets/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="../assets/css/plyr.css" rel="stylesheet"/>
+  <link href="../assets/css/katex.min.css" rel="stylesheet"/>
+  <link href="../assets/css/jquery.mCustomScrollbar.min.css" rel="stylesheet"/>
+  <link href="../assets/css/styles.css" rel="stylesheet"/>
+  <link href="../assets/img/udacimak.png" rel="shortcut icon" type="image/png">
+  </link>
+ </head>
+ <body>
+  <div class="wrapper">
+   <nav id="sidebar">
+    <div class="sidebar-header">
+     <h3>
+      Autonomous Vehicles and Computer Vision
+     </h3>
+    </div>
+    <ul class="sidebar-list list-unstyled CTAs">
+     <li>
+      <a class="article" href="../index.html">
+       Back to Home
+      </a>
+     </li>
+    </ul>
+    <ul class="sidebar-list list-unstyled components">
+     <li class="">
+      <a href="01. Levels of Autonomous Driving.html">
+       01. Levels of Autonomous Driving
+      </a>
+     </li>
+     <li class="">
+      <a href="02. Autonomous Vehicle Sensor Sets.html">
+       02. Autonomous Vehicle Sensor Sets
+      </a>
+     </li>
+     <li class="">
+      <a href="03. Camera Technology Overview.html">
+       03. Camera Technology Overview
+      </a>
+     </li>
+     <li class="">
+      <a href="04. Camera Technology at MBRDNA.html">
+       04. Camera Technology at MBRDNA
+      </a>
+     </li>
+     <li class="">
+      <a href="05. The OpenCV Computer Vision Library.html">
+       05. The OpenCV Computer Vision Library
+      </a>
+     </li>
+    </ul>
+    <ul class="sidebar-list list-unstyled CTAs">
+     <li>
+      <a class="article" href="../index.html">
+       Back to Home
+      </a>
+     </li>
+    </ul>
+   </nav>
+   <div id="content">
+    <header class="container-fluild header">
+     <div class="container">
+      <div class="row">
+       <div class="col-12">
+        <div class="align-items-middle">
+         <button class="btn btn-toggle-sidebar" id="sidebarCollapse" type="button">
+          <div>
+          </div>
+          <div>
+          </div>
+          <div>
+          </div>
+         </button>
+         <h1 style="display: inline-block">
+          05. The OpenCV Computer Vision Library
+         </h1>
+        </div>
+       </div>
+      </div>
+     </div>
+    </header>
+    <main class="container">
+     <div class="row">
+      <div class="col-12">
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h1 id="the-opencv-computer-vision-library">
+          The OpenCV Computer Vision Library
+         </h1>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+         <p>
+          ND313 C03 L01 A08 C15 Intro
+         </p>
+        </h3>
+        <video controls="">
+         <source src="05. ND313 C03 L01 A08 C15 Intro-fAPWyNCrzFo.mp4" type="video/mp4"/>
+         <track default="true" kind="subtitles" label="en" src="05. ND313 C03 L01 A08 C15 Intro-fAPWyNCrzFo.en.vtt" srclang="en"/>
+        </video>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <p>
+          Throughout this course, you will be using the
+          <a href="https://opencv.org/" rel="noopener noreferrer" target="_blank">
+           OpenCV
+          </a>
+          , which is a cross-platform computer vision library which was originally developed in the year 2000 to provide a common infrastructure for computer vision applications and to accelerate the use of machine vision in science and engineering projects. Originally founded by Intel, the open-source library is now supported by several companies and hundreds of experts all over the globe.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="" class="img img-fluid" src="img/opencv-logo-with-text-svg-version.svg.png"/>
+          <figcaption class="figure-caption">
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <p>
+          The library has more than 2500 algorithms that can be used to detect and recognize faces, identify objects, classify human actions in videos, track camera movements, track moving objects, perform machine learning and many more. OpenCV is written natively in C++ but has interfaces to Python, Java and Matlab as well. In this course, you will be using the C++ version of OpenCV.
+         </p>
+         <p>
+          The major advantage in using the OpenCV library is that you will be able to leverage a well-tested set of state-of-the-art computer vision algorithms. Without having to concentrate on the actual implementation of computer vision concepts such as Sobel operators, keypoint detection or machine learning you can use them right out of the box and concentrate on combining them in the right way to develop a working software prototype. Despite this ease of use however, a good understanding of the theories behind those concepts is needed to use them correctly.
+         </p>
+         <p>
+          In the following, you will familiarize yourself with some basic concepts you will need to get started with OpenCV and to prepare yourself for the more advanced lessons later in the course. The libraries listed below will be used extensively throughout this lecture. They are however only a small part of the entire OpenCV. Later, you will also include some specialized libraries such as
+          <em>
+           flann
+          </em>
+          (Fast Library for Approximate Nearest Neighbors) or
+          <em>
+           dnn
+          </em>
+          (Deep Neural Networks), which will be described only in those sections of this course where they are used.
+         </p>
+         <p>
+          A note on namespaces: Most OpenCV functions exist within the
+          <em>
+           cv
+          </em>
+          namespace. Usually, to shorten the code, the
+          <em>
+           using namespace cv
+          </em>
+          command is used in many applications. In this course however, this is not done to make it clear when we are using function calls from the OpenCV.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h2 id="opencv-library-overview">
+          OpenCV Library Overview
+         </h2>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <p>
+          The core module is the section of the library that contains all of the basic object types and their operations. To use the library in your code, the following header has to be included:
+         </p>
+         <pre><code class="cpp language-cpp">#include "opencv2/core/core.hpp"</code></pre>
+         <p>
+          The
+          <em>
+           highgui
+          </em>
+          module contains user interface functions that can be used to display images or take simple user input. To use the library in your code, the following header has to be included:
+         </p>
+         <pre><code class="cpp language-cpp">#include "opencv2/highgui/highgui.hpp"</code></pre>
+         <p>
+          In this project, basic functions such as
+          <code>
+           cv::imshow
+          </code>
+          will be used to display images in a window.
+         </p>
+         <p>
+          The
+          <em>
+           imgproc
+          </em>
+          (image processing) module contains basic transformations on images, such as  image filtering, geometric transformations, feature detection and tracking. To use the library in your code, the following header has to be included:
+         </p>
+         <pre><code class="cpp language-cpp">#include "opencv2/imgproc/imgproc.hpp"</code></pre>
+         <p>
+          The
+          <em>
+           features2d
+          </em>
+          module contains algorithms for detecting, describing, and matching keypoints between images. To use the library in your code, the following header has to be included:
+         </p>
+         <pre><code class="cpp language-cpp">#include "opencv2/features2d/features2d.hpp"</code></pre>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h2 id="the-opencv-matrix-datatype">
+          The OpenCV Matrix Datatype
+         </h2>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <p>
+          The basic data type in OpenCV to store and manipulate images is the
+          <code>
+           cv::Mat datatype
+          </code>
+          . It can be used for arrays of any number of dimensions. The data stored in
+          <code>
+           cv::Mat
+          </code>
+          is arranged in a so-called
+          <code>
+           raster scan order
+          </code>
+          . For a two-dimensional array (such as a grayscale image), this means that the data is organized into rows, and each row appears one after the other. A three-dimensional array (e.g. a color image) is arranged in planes, where each plane is filled out row by row, and then the planes are packed one after the other. To see how this works, let us look into the
+          <code>
+           cv::Mat
+          </code>
+          datatype more deeply:
+         </p>
+         <p>
+          The data inside a
+          <code>
+           cv::Mat
+          </code>
+          variable can be either single numbers or multiple numbers. In the case of multiple numbers (e.g. represented by
+          <code>
+           cv::Scalar
+          </code>
+          ), the matrix is referred to as a multichannel array. There are several ways to create and initialize a
+          <code>
+           cv::Mat
+          </code>
+          variable. The
+          <code>
+           create_matrix.cpp
+          </code>
+          file in the workspace below illustrates one way how this can be done.
+         </p>
+         <p>
+          <strong>
+           Note:
+          </strong>
+          To build and run the code below, use the following steps:
+         </p>
+         <ol>
+          <li>
+           Go to the virtual Desktop by clicking the
+           <code>
+            Desktop
+           </code>
+           button. You can use Terminator or a VSCode terminal to run the following commands:
+          </li>
+          <li>
+           From the
+           <code>
+            /home/workspace/OpenCV_exercises
+           </code>
+           directory, run the commands:
+           <code>
+            mkdir build &amp;&amp; cd build
+           </code>
+          </li>
+          <li>
+           <code>
+            cmake ..
+           </code>
+          </li>
+          <li>
+           <code>
+            make
+           </code>
+          </li>
+          <li>
+           Run the
+           <code>
+            create_matrix
+           </code>
+           executable from
+           <code>
+            build
+           </code>
+           with the command:
+           <code>
+            ./create_matrix
+           </code>
+          </li>
+         </ol>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div class="jumbotron">
+         <h3>
+          Workspace
+         </h3>
+         <p class="lead">
+          This section contains either a workspace (it can be a
+          <a href="http://jupyter.org/" target="_blank">
+           Jupyter
+      Notebook
+          </a>
+          workspace or an online code editor work space, etc.) and it cannot be automatically downloaded to be
+    generated here. Please access the classroom with your account and manually download the workspace to your local
+    machine. Note that for some courses, Udacity upload the workspace files onto
+          <a href="https://github.com/udacity" target="_blank">
+           https://github.com/udacity
+          </a>
+          , so you may be able to download them there.
+         </p>
+         <h4>
+          Workspace Information:
+         </h4>
+         <ul>
+          <li>
+           <strong>
+            Default file path:
+           </strong>
+          </li>
+          <li>
+           <strong>
+            Workspace type:
+           </strong>
+           react
+          </li>
+          <li>
+           <strong>
+            Opened files (when workspace is loaded):
+           </strong>
+           n/a
+          </li>
+          <li>
+           <strong>
+            userCode:
+           </strong>
+           <br/>
+           <code>
+            <p>
+             export CXX=g++-7
+             <br>
+              export CXXFLAGS=-std=c++17
+             </br>
+            </p>
+           </code>
+          </li>
+         </ul>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <p>
+          In the code example, the variable
+          <em>
+           m18u
+          </em>
+          is created with 480 rows and 640 columns with a color depth of 8 bit as unsigned char and a single channel (hence the _8UC1). Then, the entire image is set to the 8bit maximum value of 255, which corresponds to white. The function
+          <code>
+           cv::imshow
+          </code>
+          displays the image on the screen. When you execute the code, you should see a white image appear in a window on the screen.
+         </p>
+         <p>
+          Matrices in OpenCV can also be created with three channels to represent color.
+         </p>
+         <p>
+          <strong>
+           Here is a short task for you
+          </strong>
+          : In the
+          <code>
+           create_matrix.cpp
+          </code>
+          file, create a variable of type
+          <code>
+           cv::Mat
+          </code>
+          named
+          <code>
+           m3_8u
+          </code>
+          which has three channels with a depth of 8bit per channel. Then, set the first channel to 255 using the
+          <code>
+           cv::Scalar
+          </code>
+          datatype and display the result. You can use the documentation
+          <a href="https://docs.opencv.org/4.1.0/d6/d6d/tutorial_mat_the_basic_image_container.html" rel="noopener noreferrer" target="_blank">
+           here
+          </a>
+          if you get stuck.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+         <p>
+          Exercise
+         </p>
+        </h3>
+        <div>
+         <form>
+          <fieldset>
+           <legend>
+            <p>
+             In the
+             <code>
+              create_matrix.cpp
+             </code>
+             file, create a variable of type
+             <code>
+              cv::Mat
+             </code>
+             named
+             <code>
+              m3_8u
+             </code>
+             which has three channels with a depth of 8bit per channel. Then, set the first channel to 255 using the
+             <code>
+              cv::Scalar
+             </code>
+             datatype and display the result. Which color does the image have?
+            </p>
+           </legend>
+          </fieldset>
+          <div>
+           <input id="a1555619827497" name="843942" type="radio" value="a1555619827497"/>
+           <label for="a1555619827497">
+            <p>
+             Yellow
+            </p>
+           </label>
+          </div>
+          <div>
+           <input id="a1555619854501" name="843942" type="radio" value="a1555619854501"/>
+           <label for="a1555619854501">
+            <p>
+             Blue
+            </p>
+           </label>
+          </div>
+          <div>
+           <input id="a1555619859438" name="843942" type="radio" value="a1555619859438"/>
+           <label for="a1555619859438">
+            <p>
+             Green
+            </p>
+           </label>
+          </div>
+         </form>
+         <details>
+          <summary>
+           <strong>
+            SOLUTION:
+           </strong>
+          </summary>
+          Blue
+         </details>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h2 id="manipulating-matrices">
+          Manipulating Matrices
+         </h2>
+         <p>
+          Now that you can create matrices, let us try to change some of their entries: By using the command
+          <code>
+           cv::Mat::at&lt;data type&gt;(row, col) = data
+          </code>
+          the element at the given position can be replaced with data. Please note that the data type you provide to the
+          <code>
+           at
+          </code>
+          -function has to match the actual data stored in the matrix you are trying to access.
+         </p>
+         <p>
+          <strong>
+           Here is another short task for you
+          </strong>
+          : In the
+          <code>
+           change_pixels.cpp
+          </code>
+          file, write a nested loop that runs over the entire width of the matrix in the example below. Then, set every element to 255. Take special care to select the correct data type for the given format. What does the resulting image look like?
+         </p>
+         <p>
+          <strong>
+           Note:
+          </strong>
+          You can build and run your code for this task using the same steps as above, except for this exercise, the executable will be named
+          <code>
+           change_pixels
+          </code>
+          .
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="Code from the `change_pixels.cpp` file" class="img img-fluid" src="img/draggedimage-1.png"/>
+          <figcaption class="figure-caption">
+           <p>
+            Code from the
+            <code>
+             change_pixels.cpp
+            </code>
+            file
+           </p>
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+         <p>
+          Manipulating Matrices
+         </p>
+        </h3>
+        <div>
+         <form>
+          <fieldset>
+           <legend>
+            <p>
+             After writing the nested loop described above, what does the resulting image look like?
+            </p>
+           </legend>
+          </fieldset>
+          <div>
+           <input id="a1555625371977" name="843952" type="radio" value="a1555625371977"/>
+           <label for="a1555625371977">
+            <p>
+             A white bar from top to bottom.
+            </p>
+           </label>
+          </div>
+          <div>
+           <input id="a1555625436162" name="843952" type="radio" value="a1555625436162"/>
+           <label for="a1555625436162">
+            <p>
+             A blue bar from left to right.
+            </p>
+           </label>
+          </div>
+          <div>
+           <input id="a1555625437969" name="843952" type="radio" value="a1555625437969"/>
+           <label for="a1555625437969">
+            <p>
+             A white bar from left to right.
+            </p>
+           </label>
+          </div>
+         </form>
+         <details>
+          <summary>
+           <strong>
+            SOLUTION:
+           </strong>
+          </summary>
+          A white bar from left to right.
+         </details>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h2 id="loading-and-handling-images">
+          Loading and Handling Images
+         </h2>
+         <p>
+          The next thing we want to do is to load an image from file. Let us assume that the image resides in the same path as the executable. By calling
+          <code>
+           cv::imread
+          </code>
+          we can load the image from file and assign it to a
+          <code>
+           cv::Mat
+          </code>
+          variable. Take a look at the following code example to see how a single image can be loaded from file. You can build the code as above, and you can run the code from the virtual desktop using the
+          <code>
+           load_image_1
+          </code>
+          executable.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="Code from the `load_image_1.cpp` file" class="img img-fluid" src="img/draggedimage-2.png"/>
+          <figcaption class="figure-caption">
+           <p>
+            Code from the
+            <code>
+             load_image_1.cpp
+            </code>
+            file
+           </p>
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <p>
+          Assuming that there are 5 images in total in the code directory (img0005.png - img0009.png) , they can easily be read from file one after the other using string concatenation. The next example shows how the filename can be easily assembled from single elements using string concatenation and the setfill-function, which ensures that the prepending zeros are added to the loop variable before appending it to the filename. You can run the next example using the
+          <code>
+           load_image_2
+          </code>
+          executable.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="Code from the `load_image_2.cpp` file" class="img img-fluid" src="img/draggedimage-3.png"/>
+          <figcaption class="figure-caption">
+           <p>
+            Code from the
+            <code>
+             load_image_2.cpp
+            </code>
+            file
+           </p>
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <p>
+          Later in the course, we will load and process several images one after the other. It is important to handle large amounts of data in a smart way so that images and other structures are not needlessly copied. Also, we want to flexibly rearrange data as well as delete and append elements on a regular basis. In C++, this can easily be achieved by using vectors. In the following code, a set of images is loaded from file as before and pushed into a dynamic list of type
+          <code>
+           vector&lt;cv::Mat&gt;
+          </code>
+          . Then, an iterator is used to loop over the list and display the loaded images one by one.
+         </p>
+         <p>
+          You can run the code below using the
+          <code>
+           load_image_3
+          </code>
+          executable.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="Code from the `load_image_3.cpp` file" class="img img-fluid" src="img/draggedimage-4.png"/>
+          <figcaption class="figure-caption">
+           <p>
+            Code from the
+            <code>
+             load_image_3.cpp
+            </code>
+            file
+           </p>
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <p>
+          The
+          <code>
+           auto
+          </code>
+          keyword is simply asking the compiler to deduce the type of the variable from the initialization, which is much more convenient than writing
+          <code>
+           vector&lt;cv::Mat&gt;::iterator it
+          </code>
+          instead. The current image within the loop can be accessed by using the
+          <code>
+           *it
+          </code>
+          expression.
+         </p>
+         <p>
+          <strong>
+           Here is a last exercise for you
+          </strong>
+          : In the loop of
+          <code>
+           load_image_3.cpp
+          </code>
+          , prevent image number 7 from being displayed.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h2 id="summary">
+          Summary
+         </h2>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+         <p>
+          ND313 C03 L01 A09 C15 Outro
+         </p>
+        </h3>
+        <video controls="">
+         <source src="05. ND313 C03 L01 A09 C15 Outro-qhacFf0G87g.mp4" type="video/mp4"/>
+         <track default="true" kind="subtitles" label="en" src="05. ND313 C03 L01 A09 C15 Outro-qhacFf0G87g.en.vtt" srclang="en"/>
+        </video>
+       </div>
+       <div class="divider">
+       </div>
+      </div>
+      <div class="col-12">
+       <p class="text-right">
+       </p>
+      </div>
+     </div>
+    </main>
+    <footer class="footer">
+     <div class="container">
+      <div class="row">
+       <div class="col-12">
+        <p class="text-center">
+         udacity2.0 If you need the newest courses Plase add me wechat: udacity6
+        </p>
+       </div>
+      </div>
+     </div>
+    </footer>
+   </div>
+  </div>
+  <script src="../assets/js/jquery-3.3.1.min.js">
+  </script>
+  <script src="../assets/js/plyr.polyfilled.min.js">
+  </script>
+  <script src="../assets/js/bootstrap.min.js">
+  </script>
+  <script src="../assets/js/jquery.mCustomScrollbar.concat.min.js">
+  </script>
+  <script src="../assets/js/katex.min.js">
+  </script>
+  <script>
+   // Initialize Plyr video players
+    const players = Array.from(document.querySelectorAll('video')).map(p => new Plyr(p));
+
+    // render math equations
+    let elMath = document.getElementsByClassName('mathquill');
+    for (let i = 0, len = elMath.length; i < len; i += 1) {
+      const el = elMath[i];
+
+      katex.render(el.textContent, el, {
+        throwOnError: false
+      });
+    }
+
+    // this hack will make sure Bootstrap tabs work when using Handlebars
+    if ($('#question-tabs').length && $('#user-answer-tabs').length) {
+      $("#question-tabs a.nav-link").on('click', function () {
+        $("#question-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+      $("#user-answer-tabs a.nav-link").on('click', function () {
+        $("#user-answer-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    } else {
+      $("a.nav-link").on('click', function () {
+        $(".tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    }
+
+    // side bar events
+    $(document).ready(function () {
+      $("#sidebar").mCustomScrollbar({
+        theme: "minimal"
+      });
+
+      $('#sidebarCollapse').on('click', function () {
+        $('#sidebar, #content').toggleClass('active');
+        $('.collapse.in').toggleClass('in');
+        $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+      });
+
+      // scroll to first video on page loading
+      if ($('video').length) {
+        $('html,body').animate({ scrollTop: $('div.plyr').prev().offset().top});
+      }
+
+      // auto play first video: this may not work with chrome/safari due to autoplay policy
+      if (players && players.length > 0) {
+        players[0].play();
+      }
+
+      // scroll sidebar to current concept
+      const currentInSideBar = $( "ul.sidebar-list.components li a:contains('05. The OpenCV Computer Vision Library')" )
+      currentInSideBar.css( "text-decoration", "underline" );
+      $("#sidebar").mCustomScrollbar('scrollTo', currentInSideBar);
+    });
+  </script>
+ </body>
+</html>

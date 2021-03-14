@@ -1,0 +1,922 @@
+<!-- udacimak v1.4.4 -->
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <meta content="ie=edge" http-equiv="X-UA-Compatible"/>
+  <title>
+   Camera Technology Overview
+  </title>
+  <link href="../assets/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="../assets/css/plyr.css" rel="stylesheet"/>
+  <link href="../assets/css/katex.min.css" rel="stylesheet"/>
+  <link href="../assets/css/jquery.mCustomScrollbar.min.css" rel="stylesheet"/>
+  <link href="../assets/css/styles.css" rel="stylesheet"/>
+  <link href="../assets/img/udacimak.png" rel="shortcut icon" type="image/png">
+  </link>
+ </head>
+ <body>
+  <div class="wrapper">
+   <nav id="sidebar">
+    <div class="sidebar-header">
+     <h3>
+      Autonomous Vehicles and Computer Vision
+     </h3>
+    </div>
+    <ul class="sidebar-list list-unstyled CTAs">
+     <li>
+      <a class="article" href="../index.html">
+       Back to Home
+      </a>
+     </li>
+    </ul>
+    <ul class="sidebar-list list-unstyled components">
+     <li class="">
+      <a href="01. Levels of Autonomous Driving.html">
+       01. Levels of Autonomous Driving
+      </a>
+     </li>
+     <li class="">
+      <a href="02. Autonomous Vehicle Sensor Sets.html">
+       02. Autonomous Vehicle Sensor Sets
+      </a>
+     </li>
+     <li class="">
+      <a href="03. Camera Technology Overview.html">
+       03. Camera Technology Overview
+      </a>
+     </li>
+     <li class="">
+      <a href="04. Camera Technology at MBRDNA.html">
+       04. Camera Technology at MBRDNA
+      </a>
+     </li>
+     <li class="">
+      <a href="05. The OpenCV Computer Vision Library.html">
+       05. The OpenCV Computer Vision Library
+      </a>
+     </li>
+    </ul>
+    <ul class="sidebar-list list-unstyled CTAs">
+     <li>
+      <a class="article" href="../index.html">
+       Back to Home
+      </a>
+     </li>
+    </ul>
+   </nav>
+   <div id="content">
+    <header class="container-fluild header">
+     <div class="container">
+      <div class="row">
+       <div class="col-12">
+        <div class="align-items-middle">
+         <button class="btn btn-toggle-sidebar" id="sidebarCollapse" type="button">
+          <div>
+          </div>
+          <div>
+          </div>
+          <div>
+          </div>
+         </button>
+         <h1 style="display: inline-block">
+          03. Camera Technology Overview
+         </h1>
+        </div>
+       </div>
+      </div>
+     </div>
+    </header>
+    <main class="container">
+     <div class="row">
+      <div class="col-12">
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h1 id="camera-technology-overview">
+          Camera Technology Overview
+         </h1>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+         <p>
+          ND313 C03 L01 A06 C14 Intro
+         </p>
+        </h3>
+        <video controls="">
+         <source src="03. ND313 C03 L01 A06 C14 Intro-7qxX1ic-gFI.mp4" type="video/mp4"/>
+         <track default="true" kind="subtitles" label="en" src="03. ND313 C03 L01 A06 C14 Intro-7qxX1ic-gFI.en.vtt" srclang="en"/>
+        </video>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <p>
+          In this section you will learn about the basic properties of a camera. We will start from the most basic model called a „pinhole camera“ and then progress to using lenses, which are a key component of camera systems. You need this knowledge in order to understand how a camera creates images, which of its properties influence image appearance and quality and which parameters you have to consider in order to successfully extract meaningful information from these images.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h2 id="the-pinhole-camera">
+          The Pinhole camera
+         </h2>
+         <p>
+          A very simple camera can be designed by placing a light barrier with a tiny opening (the pinhole) between an object of interest. The light emitted by the object passes through the pinhole and lands on a photosensitive surface which stores the light information as an image. The reason why the pinhole has been made so small is to avoid image blurring due to superimposing rays of light stemming from various parts of the object of interest.
+         </p>
+         <p>
+          This simple principle has been well known for centuries and was for example used by artists to create photorealistic portraits.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="https://owlcation.com/humanities/Leonardo-da-Vincis-Camera-Obscura" class="img img-fluid" src="img/draggedimage.png"/>
+          <figcaption class="figure-caption">
+           <p>
+            <a href="https://owlcation.com/humanities/Leonardo-da-Vincis-Camera-Obscura" rel="noopener noreferrer" target="_blank">
+             https://owlcation.com/humanities/Leonardo-da-Vincis-Camera-Obscura
+            </a>
+           </p>
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <p>
+          A formal model of the pinhole camera model is shown below.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="" class="img img-fluid" src="img/draggedimage-1.png"/>
+          <figcaption class="figure-caption">
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <p>
+          The photosensitive surface on the left is called the
+          <em>
+           image plane
+          </em>
+          whereas the pinhole is called the
+          <em>
+           camera center
+          </em>
+          . The distance between the camera center and the image plane is called the
+          <em>
+           focal length f
+          </em>
+          .
+         </p>
+         <p>
+          A point P on the object of interest can be mapped to a point P’ on the image plane by casting a beam through the center of projection until it hits the image plane as shown in the figure below.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="" class="img img-fluid" src="img/draggedimage-2.png"/>
+          <figcaption class="figure-caption">
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <p>
+          In three-dimensional space, the relation between
+          <span class="mathquill ud-math">
+           P
+          </span>
+          and
+          <span class="mathquill ud-math">
+           P'
+          </span>
+          is expressed by the following equations:
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="" class="img img-fluid" src="img/draggedimage-3.png"/>
+          <figcaption class="figure-caption">
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <p>
+          Based on these equations, we are able to compute the 2D position of an object on the image plane, given the 3D position of the object in space as well as the focal length of the camera. Note however that the resulting coordinates x’ and y’ are metrical coordinates and not pixel positions yet.
+         </p>
+         <p>
+          The problem with pinhole cameras is that the amount of light passing through the pinhole is not sufficient to generate a decent image on an image sensor. If one were to increase the amount of light by widening the pinhole opening as shown in the figure below, rays of light from other parts of the object of interest would superimpose each other, leading to a blurring effect: The larger the pinhole, the brighter the image but at the same time, the more severe the blurring of the object on the image plane would be.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="" class="img img-fluid" src="img/draggedimage-4.png"/>
+          <figcaption class="figure-caption">
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <p>
+          One way to solve this problem is use a lens, which is able to capture multiple rays of light that emanate from the same point on the object of interest. So let’s look at lenses next.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h2 id="lenses-and-aperture">
+          Lenses and Aperture
+         </h2>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <p>
+          A properly sized and positioned lens refracts all rays of light that emanate from a point P1 on an object in space such that they converge to a single point
+          <span class="mathquill ud-math">
+           p_1'
+          </span>
+          in the image plane. Rays of light passing through the lens center are not refracted however, they continue on as a straight line until they intersect the image plane.
+         </p>
+         <p>
+          Points on the object that are closer or farther away, such as
+          <span class="mathquill ud-math">
+           P_2
+          </span>
+          , appear out of focus on the image plane, because the set of light rays emanating from them does not converge in a point but rather in a circle with a finite radius instead. This blurry circle is usually referred to as
+          <em>
+           circle of confusion (COF)
+          </em>
+          . To reduce blurring, an aperture can be used, which is a concentric opening of usually adjustable size placed directly behind the lens. The following figure illustrates the principle:
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="" class="img img-fluid" src="img/draggedimage-5.png"/>
+          <figcaption class="figure-caption">
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <p>
+          By reducing the diameter of the aperture, light rays passing through the lens on the outer edges are blocked, which reduces the size of the COF on the image plane. It can easily be seen that a smaller aperture results in reduced blurring, but at the expense of low light sensitivity. The larger the aperture, the more light rays are focussed onto the image area, resulting in brighter images with a better signal-to-noise ratio.
+         </p>
+         <p>
+          So how can we compute where an object in space will appear in the image? Given a 3D point in space, its 2D position on the image plane after passing through a lens can be computed similar to the pinhole camera. In practice, lenses introduce distortion into images, depending on the lens type. The distortion most relevant to practice is called “radial distortion”. It is caused by the focal length of the lens not being uniform over its diameter. Therefore, the magnification effect of the lens changes depending on the distance between the camera center (the optical axis) and the ray of light passing through the lens. If the magnification increases the resulting distortion effect is called ‚pin cushion distortion‘. It it decreases, it is called ‚barrel distortion‘ instead. Barrel distortions usually occur, when wide-angle lenses are used. In the figure below, both distortion types are illustrated.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="" class="img img-fluid" src="img/rad027.png"/>
+          <figcaption class="figure-caption">
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <p>
+          When extracting information from camera images, many applications seek to draw conclusions on the spatial location of objects of interest (e.g. vehicles). To get there, the distortion effect of the lens must be removed or at least mitigated. The relevant process is called calibration. For each camera-lens-setup, a
+          <em>
+           calibration
+          </em>
+          procedure must be performed so the distortion parameters can be individually computed. This is usually done by taking a set of pictures of well-known objects such as planar checkerboard patterns, from whose known geometry all lens and image sensor parameters can be robustly derived. The process of removing distortions from a camera image is called
+          <em>
+           rectification
+          </em>
+          . In the image below, the calibration setup used to rectify most of the images in this course is shown. It can easily be seen that lines at both left and right are distorted significantly.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="" class="img img-fluid" src="img/0000000000.png"/>
+          <figcaption class="figure-caption">
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <p>
+          It is beyond the scope of this course however to go into the details of distortion correction. Most of the images you will be using are already free of lens distortion. When using your own camera setup however, a calibration procedure must be performed when precise measurements and a spatial reconstruction of objects is the goal.
+         </p>
+         <p>
+          As mentioned before, the projection of points in 3D space onto the image plane does not directly correspond to what we see in actual digital images, which are made up of thousands of
+          <em>
+           picture elements
+          </em>
+          or
+          <em>
+           pixels
+          </em>
+          . To understand how images can be expressed in discrete pixels, we need to take a closer look at the above-mentioned camera model once more. In the figure below, the camera center is shown with a position
+          <span class="mathquill ud-math">
+           O
+          </span>
+          in space along with its own coordinate system with axes
+          <span class="mathquill ud-math">
+           i
+          </span>
+          ,
+          <span class="mathquill ud-math">
+           j
+          </span>
+          and
+          <span class="mathquill ud-math">
+           k
+          </span>
+          , where
+          <span class="mathquill ud-math">
+           k
+          </span>
+          is pointing into the direction of the image plane. The position
+          <span class="mathquill ud-math">
+           C'
+          </span>
+          where
+          <span class="mathquill ud-math">
+           k
+          </span>
+          intersects the image plane is called the principal point and represents the center of the image coordinate system.
+         </p>
+         <p>
+          The first step after projecting a point
+          <span class="mathquill ud-math">
+           P
+          </span>
+          in space onto the image plane is thus to subtract the principal point coordinates so that the discrete image has its own coordinate system centered in e.g. the lower left corner of the image plane
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="" class="img img-fluid" src="img/draggedimage-6.png"/>
+          <figcaption class="figure-caption">
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <p>
+          The second step in the transformation process is to move from metric to pixel coordinates. To do so, we can use parameters
+          <span class="mathquill ud-math">
+           k
+          </span>
+          and
+          <span class="mathquill ud-math">
+           l
+          </span>
+          provided by the calibration procedure which convert meters to pixels and which can be easily integrated into the projection equations as seen below. Note that in image coordinates, the y-axis has its origin in the upper-left corner and is pointing downwards.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="" class="img img-fluid" src="img/draggedimage-7.png"/>
+          <figcaption class="figure-caption">
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <p>
+          In a later section of this course, we will be mapping Lidar 3D points into the camera image. To do so, we will make use of these equations. Specifically, the product of focal width
+          <span class="mathquill ud-math">
+           f
+          </span>
+          and
+          <span class="mathquill ud-math">
+           k
+          </span>
+          and
+          <span class="mathquill ud-math">
+           l
+          </span>
+          respectively (also termed alpha and beta) will be used in a calibration matrix to simplify the mapping operation significantly.
+         </p>
+         <p>
+          One final note on image rectification: In many applications (e.g. feature tracking) it makes sense to process the original image to avoid interpolation errors when the rectified image is computed and transformed pixels do not fall exactly onto the center of a discrete pixel in the rectified image but close to the border to another pixel instead. In such a case, it is advisable to locate the features in the unmodified original image and then transform the resulting coordinates using the equations above. When using deep learning based on a set of trained weights, it makes sense to rectify the image first before feeding it to a network - if we would use the original image, distortions (such as from a fish-eye lens) would lead to detection errors as networks are usually trained on a distortion-free image set.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+         <p>
+          ND313 C03 L01 A07 C14 Mid
+         </p>
+        </h3>
+        <video controls="">
+         <source src="03. ND313 C03 L01 A07 C14 Mid-mb4UTgUgu4w.mp4" type="video/mp4"/>
+         <track default="true" kind="subtitles" label="en" src="03. ND313 C03 L01 A07 C14 Mid-mb4UTgUgu4w.en.vtt" srclang="en"/>
+        </video>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h2 id="imagers-and-bayer-pattern">
+          Imagers and Bayer Pattern
+         </h2>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <p>
+          In this last section, you will learn how rays of light with a certain wavelength are converted into color pixels that can be stored digitally.
+         </p>
+         <p>
+          When an image is captured by a camera, light passes through the lens and falls on the image sensor. This sensor consists of light sensitive elements that register the amount of light that falls on them and convert it into a corresponding number of electrons. The more light, the more electrons are generated. Once the exposure time is complete, the generated electrons are converted into a voltage, which is finally transformed into a discrete number by means of an A/D-converter.
+         </p>
+         <p>
+          Currently, there are two main image technologies, which are CCD (Charge-Coupled Device) and CMOS (Complementary Metal-oxide Semiconductor). Both technologies convert electrons into voltage and are inherently color blind, as they can not distinguish the different wavelengths which generate the electrons. To enable color vision, tiny filter elements (also micro-lenses) are placed in front of each pixel which only allow a certain wavelength to pass through. One common way to map wavelength to color is to arrange the filter elements in an RGB (Red, Green, Blue) pattern to allow the primary colors to pass through individually, which gives us three individual images - one for each primary color.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="" class="img img-fluid" src="img/color-filter-array.png"/>
+          <figcaption class="figure-caption">
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <p>
+          Mixed in different combinations, RGB values can produce most of the colors visible to the human eye. When each discrete color value is coded with 8bits (i.e. 256 values), a total of 16.7 million different colors can be created with the RGB filter concept. The most common way of arranging the RGB filters is called a
+          <em>
+           Bayer pattern
+          </em>
+          , which has alternating rows of red-green and green-blue filters. Since the human eye is more sensitive to green than to red or blue, the Bayer array has twice as many green color filters. When processing color images in a computer vision application, all three RGB layers are available and it has to be decided which color layers to use. If processing power is limited, the different channels are combined into a gray scale image. In the upcoming section on computer vision, you will be introduced to the OpenCV computer vision library. You can take a look at the conversion formula to get from RGB to grayscale which is used in the method
+          <em>
+           cvtColor
+          </em>
+          here :
+          <a href="https://docs.opencv.org/3.1.0/de/d25/imgproc_color_conversions.html" rel="noopener noreferrer" target="_blank">
+           https://docs.opencv.org/3.1.0/de/d25/imgproc_color_conversions.html
+          </a>
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h2 id="ccd-vs-cmos">
+          CCD vs. CMOS
+         </h2>
+         <p>
+          In a
+          <em>
+           CCD sensor
+          </em>
+          , the electrons collected in each picture element are transferred from the chip through a single or only a few output nodes. The charges are then converted to voltage levels, buffered, and sent out as an analog signal. This signal is then amplified and converted to discrete numbers using an A/D-converter outside the sensor. Originally, CCD technology has had several advantages compared to CMOS, such as higher light sensitivity and less noise. In recent years, however, these differences have all but disappeared. The major disadvantages of CCD are a higher production price and a higher power consumption (up to 100x more than CMOS) , which usually leads to heat issues in the camera.
+         </p>
+         <p>
+          CMOS
+          <em>
+           sensors
+          </em>
+          were originally used for machine vision applications, but the image quality was poor due to their inferior light sensitivity. With modern CMOS sensors however, both quality and light sensitivity have significantly increased. The CMOS technology has several advantages: Unlike CCD, CMOS chips incorporate amplifiers and A/D-converters, which brings a huge cost advantage. With CCD, those components are located outside of the chip. CMOS sensors also have a faster data readout, lower power consumption, higher noise immunity, and a smaller system size. In automotive applications, almost all cameras use CMOS sensors because of these advantages. The camera setup used for recording most of the image sequences in this course can be found here :
+          <a href="http://www.cvlibs.net/datasets/kitti/setup.php" rel="noopener noreferrer" target="_blank">
+           http://www.cvlibs.net/datasets/kitti/setup.php
+          </a>
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+         <p>
+          ND313 Timo Intv 07 What Types Of Lenses Do Sdc Use
+         </p>
+        </h3>
+        <video controls="">
+         <source src="03. ND313 Timo Intv 07 What Types Of Lenses Do Sdc Use-EKAj7KcskGk.mp4" type="video/mp4"/>
+         <track default="true" kind="subtitles" label="en" src="03. ND313 Timo Intv 07 What Types Of Lenses Do Sdc Use-EKAj7KcskGk.en.vtt" srclang="en"/>
+        </video>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h2 id="review">
+          Review
+         </h2>
+         <p>
+          Now you should have an understanding of how light that is refracted from an object of interest (e.g. a pedestrian) finds its way onto an image sensor after passing through a lens and is finally converted into a discrete color value, that can be processed by a computer vision algorithm. Let’s test your knowledge in a short quiz and then we move on to the next section, which is about basic operations to manipulate and interpret those pixels.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+         <p>
+          Focal Length
+         </p>
+        </h3>
+        <div>
+         <div>
+          <p>
+           <strong>
+            QUESTION:
+           </strong>
+           <p>
+            What is the focal length of a camera?
+           </p>
+          </p>
+          <div class="" form-group"="">
+           <label for="answer">
+            <strong>
+             ANSWER:
+            </strong>
+           </label>
+           <textarea class="form-control" id="answer"></textarea>
+          </div>
+         </div>
+         <details>
+          <summary>
+           <strong>
+            SOLUTION:
+           </strong>
+          </summary>
+          <p>
+           <i>
+            NOTE: The solutions are expressed in RegEx pattern. Udacity uses these patterns to check the given answer
+           </i>
+          </p>
+         </details>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+         <p>
+          Blurring
+         </p>
+        </h3>
+        <div>
+         <div>
+          <p>
+           <strong>
+            QUESTION:
+           </strong>
+           <p>
+            How can blurring of objects in an image be reduced?
+           </p>
+          </p>
+          <div class="" form-group"="">
+           <label for="answer">
+            <strong>
+             ANSWER:
+            </strong>
+           </label>
+           <textarea class="form-control" id="answer"></textarea>
+          </div>
+         </div>
+         <details>
+          <summary>
+           <strong>
+            SOLUTION:
+           </strong>
+          </summary>
+          <p>
+           <i>
+            NOTE: The solutions are expressed in RegEx pattern. Udacity uses these patterns to check the given answer
+           </i>
+          </p>
+         </details>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+         <p>
+          Principal Point
+         </p>
+        </h3>
+        <div>
+         <div>
+          <p>
+           <strong>
+            QUESTION:
+           </strong>
+           <p>
+            What is the principal point and how does it relate to pixel coordinates?
+           </p>
+          </p>
+          <div class="" form-group"="">
+           <label for="answer">
+            <strong>
+             ANSWER:
+            </strong>
+           </label>
+           <textarea class="form-control" id="answer"></textarea>
+          </div>
+         </div>
+         <details>
+          <summary>
+           <strong>
+            SOLUTION:
+           </strong>
+          </summary>
+          <p>
+           <i>
+            NOTE: The solutions are expressed in RegEx pattern. Udacity uses these patterns to check the given answer
+           </i>
+          </p>
+         </details>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+         <p>
+          Bayer Pattern
+         </p>
+        </h3>
+        <div>
+         <div>
+          <p>
+           <strong>
+            QUESTION:
+           </strong>
+           <p>
+            Why does the Bayer pattern put more emphasis on green filters than on red or blue filters?
+           </p>
+          </p>
+          <div class="" form-group"="">
+           <label for="answer">
+            <strong>
+             ANSWER:
+            </strong>
+           </label>
+           <textarea class="form-control" id="answer"></textarea>
+          </div>
+         </div>
+         <details>
+          <summary>
+           <strong>
+            SOLUTION:
+           </strong>
+          </summary>
+          <p>
+           <i>
+            NOTE: The solutions are expressed in RegEx pattern. Udacity uses these patterns to check the given answer
+           </i>
+          </p>
+         </details>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+      </div>
+      <div class="col-12">
+       <p class="text-right">
+        <a class="btn btn-outline-primary mt-4" href="04. Camera Technology at MBRDNA.html" role="button">
+         Next Concept
+        </a>
+       </p>
+      </div>
+     </div>
+    </main>
+    <footer class="footer">
+     <div class="container">
+      <div class="row">
+       <div class="col-12">
+        <p class="text-center">
+         udacity2.0 If you need the newest courses Plase add me wechat: udacity6
+        </p>
+       </div>
+      </div>
+     </div>
+    </footer>
+   </div>
+  </div>
+  <script src="../assets/js/jquery-3.3.1.min.js">
+  </script>
+  <script src="../assets/js/plyr.polyfilled.min.js">
+  </script>
+  <script src="../assets/js/bootstrap.min.js">
+  </script>
+  <script src="../assets/js/jquery.mCustomScrollbar.concat.min.js">
+  </script>
+  <script src="../assets/js/katex.min.js">
+  </script>
+  <script>
+   // Initialize Plyr video players
+    const players = Array.from(document.querySelectorAll('video')).map(p => new Plyr(p));
+
+    // render math equations
+    let elMath = document.getElementsByClassName('mathquill');
+    for (let i = 0, len = elMath.length; i < len; i += 1) {
+      const el = elMath[i];
+
+      katex.render(el.textContent, el, {
+        throwOnError: false
+      });
+    }
+
+    // this hack will make sure Bootstrap tabs work when using Handlebars
+    if ($('#question-tabs').length && $('#user-answer-tabs').length) {
+      $("#question-tabs a.nav-link").on('click', function () {
+        $("#question-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+      $("#user-answer-tabs a.nav-link").on('click', function () {
+        $("#user-answer-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    } else {
+      $("a.nav-link").on('click', function () {
+        $(".tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    }
+
+    // side bar events
+    $(document).ready(function () {
+      $("#sidebar").mCustomScrollbar({
+        theme: "minimal"
+      });
+
+      $('#sidebarCollapse').on('click', function () {
+        $('#sidebar, #content').toggleClass('active');
+        $('.collapse.in').toggleClass('in');
+        $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+      });
+
+      // scroll to first video on page loading
+      if ($('video').length) {
+        $('html,body').animate({ scrollTop: $('div.plyr').prev().offset().top});
+      }
+
+      // auto play first video: this may not work with chrome/safari due to autoplay policy
+      if (players && players.length > 0) {
+        players[0].play();
+      }
+
+      // scroll sidebar to current concept
+      const currentInSideBar = $( "ul.sidebar-list.components li a:contains('03. Camera Technology Overview')" )
+      currentInSideBar.css( "text-decoration", "underline" );
+      $("#sidebar").mCustomScrollbar('scrollTo', currentInSideBar);
+    });
+  </script>
+ </body>
+</html>

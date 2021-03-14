@@ -1,0 +1,358 @@
+{
+  "data": {
+    "lesson": {
+      "id": 842256,
+      "key": "7d861c32-dbbf-4222-b000-87bbd9f3e07a",
+      "title": "Track an Object in 3D Space",
+      "semantic_type": "Lesson",
+      "is_public": true,
+      "version": "1.0.0",
+      "locale": "en-us",
+      "summary": null,
+      "lesson_type": "Classroom",
+      "display_workspace_project_only": true,
+      "resources": {
+        "files": [
+          {
+            "name": "Videos Zip File",
+            "uri": "https://zips.udacity-data.com/7d861c32-dbbf-4222-b000-87bbd9f3e07a/842256/1558589338822/Track+an+Object+in+3D+Space+Videos.zip"
+          },
+          {
+            "name": "Transcripts Zip File",
+            "uri": "https://zips.udacity-data.com/7d861c32-dbbf-4222-b000-87bbd9f3e07a/842256/1558589335684/Track+an+Object+in+3D+Space+Subtitles.zip"
+          }
+        ],
+        "google_plus_link": null,
+        "career_resource_center_link": null,
+        "coaching_appointments_link": null,
+        "office_hours_link": null,
+        "aws_provisioning_link": null
+      },
+      "project": {
+        "key": "7079689a-7970-401b-add2-be8a83843f2e",
+        "version": "1.0.0",
+        "locale": "en-us",
+        "duration": 20160,
+        "semantic_type": "Project",
+        "title": "Track an Object in 3D Space",
+        "description": "You can find the code for this project [here](https://github.com/udacity/SFND_3D_Object_Tracking) and in the project workspace. The grading rubric can be found Check the [project rubric](https://review.udacity.com/#!/rubrics/2550/view) to ensure that all criteria are met. \n\n## Project Submission Checklist\n\n**Before submitting your project, please review and confirm the following items.** \n<input type=\"checkbox\"> I am confident all rubric items have been met and my project will pass as submitted.\n<input type=\"checkbox\"> Project builds correctly without errors and runs.\n<input type=\"checkbox\"> All required functionality exists and my project behaves as expected per the project's specifications.\n\n**Once you have checked all these items, you are ready to submit!**\n",
+        "is_public": true,
+        "summary": null,
+        "forum_path": "",
+        "rubric_id": "2550",
+        "terminal_project_id": null,
+        "resources": null,
+        "image": null
+      },
+      "lab": null,
+      "concepts": [
+        {
+          "id": 850399,
+          "key": "9fbbff06-8a08-4932-9775-350a2a3946b6",
+          "title": "Overview",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "9fbbff06-8a08-4932-9775-350a2a3946b6",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 850400,
+              "key": "d29d5b48-7bc6-44a5-bff3-156125d03c17",
+              "title": "FP C6.1 Atom1 (HS, SC)",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "ghUqSPmPuZA",
+                "china_cdn_id": "ghUqSPmPuZA.mp4"
+              }
+            },
+            {
+              "id": 850438,
+              "key": "624a220f-5a11-46b1-9bf4-26e36c49e903",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "You will be building your project using start code that can be found [here](https://github.com/udacity/SFND_3D_Object_Tracking). You may want to download that code so you can follow along in the next concepts.",
+              "instructor_notes": ""
+            }
+          ]
+        },
+        {
+          "id": 850401,
+          "key": "d028ec61-38c7-4bf4-9e6c-b31b6343e7ed",
+          "title": "Code Overview",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "d028ec61-38c7-4bf4-9e6c-b31b6343e7ed",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 850402,
+              "key": "3805931e-a7fe-4a7c-a0e2-27786441c293",
+              "title": "FP C6.2 Atom1 (HS, SC)",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "0yJ7gE2JMcw",
+                "china_cdn_id": "0yJ7gE2JMcw.mp4"
+              }
+            }
+          ]
+        },
+        {
+          "id": 850403,
+          "key": "815f9bde-7cd0-4914-85b7-682488cb7f3a",
+          "title": "Match 3D Objects",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "815f9bde-7cd0-4914-85b7-682488cb7f3a",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 850561,
+              "key": "02965944-c449-4413-a8d0-3cd765a35626",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "# Match 3D Objects",
+              "instructor_notes": ""
+            },
+            {
+              "id": 850404,
+              "key": "0ccd6978-2234-4e01-a870-e5910a1c037a",
+              "title": "FP C6.3 Atom1 (HS, SC)",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "UqaC-d8vhyY",
+                "china_cdn_id": "UqaC-d8vhyY.mp4"
+              }
+            },
+            {
+              "id": 850562,
+              "key": "babd3e8a-ae08-43a5-a032-14b8a7bc2ec9",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## FP.1 : Match 3D Objects\n\nIn this task, please implement the method \"matchBoundingBoxes\", which takes as input both the previous and the current data frames and provides as output the ids of the matched regions of interest (i.e. the boxID property)“. Matches must be the ones with the highest number of keypoint correspondences.\n\nThe task is complete once the code is functional and returns the specified output, where each bounding box is assigned the match candidate with the highest number of occurrences.\n\n",
+              "instructor_notes": ""
+            }
+          ]
+        },
+        {
+          "id": 850405,
+          "key": "ad5f2275-a6ce-4659-9b8c-771916885999",
+          "title": "Compute Lidar-based TTC",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "ad5f2275-a6ce-4659-9b8c-771916885999",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 850563,
+              "key": "788c54b8-bb86-4275-b1d5-772cec62f0bb",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "# Compute Lidar-based TTC",
+              "instructor_notes": ""
+            },
+            {
+              "id": 850406,
+              "key": "dd8e3069-d4d1-4f88-9d5e-eec11c662d86",
+              "title": "FP C6.4 Atom1 (HS, SC)",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "YAauGTeSilA",
+                "china_cdn_id": "YAauGTeSilA.mp4"
+              }
+            },
+            {
+              "id": 850564,
+              "key": "6d363836-e351-49ac-8c0c-c44b8f0124a6",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## FP.2 : Compute Lidar-based TTC\n\nIn this part of the final project, your task is to compute the time-to-collision for all matched 3D objects based on Lidar measurements alone. Please take a look at the second lesson of this course to revisit the theory behind TTC estimation. Also, please implement the estimation in a way that makes it robust against outliers which might be way too close and thus lead to faulty estimates of the TTC. Please return your TCC to the main function at the end of computeTTCLidar.\n\nThe task is complete once the code is functional and returns the specified output. Also, the code is able to deal with outlier Lidar points in a statistically robust way to avoid severe estimation errors.",
+              "instructor_notes": ""
+            }
+          ]
+        },
+        {
+          "id": 850407,
+          "key": "0cb5c04d-4dfa-4f62-9e9d-0344b927f1a9",
+          "title": "Compute Camera-based TTC",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "0cb5c04d-4dfa-4f62-9e9d-0344b927f1a9",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 850565,
+              "key": "17465820-fa99-4760-83e0-50474d0bcf23",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "# Compute Camera-based TTC",
+              "instructor_notes": ""
+            },
+            {
+              "id": 850408,
+              "key": "2d19dd6e-6aeb-4537-a109-44ea0510ad75",
+              "title": "FP C6.5 Atom1 (HS, SC)",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "_gn3yqpzKmU",
+                "china_cdn_id": "_gn3yqpzKmU.mp4"
+              }
+            },
+            {
+              "id": 850566,
+              "key": "9b89d332-678b-4f16-a331-84ad27d62035",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## FP.3 : Associate Keypoint Correspondences with Bounding Boxes\n\nBefore a TTC estimate can be computed in the next exercise, you need to find all keypoint matches that belong to each 3D object. You can do this by simply checking wether the corresponding keypoints are within the region of interest in the camera image. All matches which satisfy this condition should be added to a vector. The problem you will find is that there will be outliers among your matches. To eliminate those, I recommend that you compute a robust mean of all the euclidean distances between keypoint matches and then remove those that are too far away from the mean.\n\nThe task is complete once the code performs as described and adds the keypoint correspondences to the \"kptMatches\" property of the respective bounding boxes. Also, outlier matches have been removed based on the euclidean distance between them in relation to all the matches in the bounding box.\n\n## FP.4 : Compute Camera-based TTC\n\nOnce keypoint matches have been added to the bounding boxes, the next step is to compute the TTC estimate. As with Lidar, we already looked into this in the second lesson of this course, so you please revisit the respective section and use the code sample there as a starting point for this task here. Once you have your estimate of the TTC, please return it to the main function at the end of computeTTCCamera.\n\nThe task is complete once the code is functional and returns the specified output. Also, the code must be able to deal with outlier correspondences in a statistically robust way to avoid severe estimation errors.\n",
+              "instructor_notes": ""
+            }
+          ]
+        },
+        {
+          "id": 850409,
+          "key": "0cfcf44c-21e5-4fd6-a1c7-58b29a3d2f39",
+          "title": "Performance Evaluation",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "0cfcf44c-21e5-4fd6-a1c7-58b29a3d2f39",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 850567,
+              "key": "7e48cbb4-8b99-4717-a14f-733f2b1b1e31",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "# Performance Evaluation",
+              "instructor_notes": ""
+            },
+            {
+              "id": 850410,
+              "key": "b6a0dd3c-133d-400b-8945-20d015b085b7",
+              "title": "FP C6.6 Atom1 (HS)",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "bozht0VBXvA",
+                "china_cdn_id": "bozht0VBXvA.mp4"
+              }
+            },
+            {
+              "id": 850568,
+              "key": "4f7dfa27-3073-4532-90a6-c44da85e7cf0",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## FP.5 : Performance Evaluation 1\n\nThis exercise is about conducting tests with the final project code, especially with regard to the Lidar part. Look for several examples where you have the impression that the Lidar-based TTC estimate is way off. Once you have found those, describe your observations and provide a sound argumentation why you think this happened.\n\nThe task is complete once several examples (2-3) have been identified and described in detail. The assertion that the TTC is off should be based on manually estimating the distance to the rear of the preceding vehicle from a top view perspective of the Lidar points.\n\n## FP.6 : Performance Evaluation 2\n\nThis last exercise is about running the different detector / descriptor combinations and looking at the differences in TTC estimation. Find out which methods perform best and also include several examples where camera-based TTC estimation is way off. As with Lidar, describe your observations again and also look into potential reasons. This is the last task in the final project.\n\nThe task is complete once all detector / descriptor combinations implemented in previous chapters have been compared with regard to the TTC estimate on a frame-by-frame basis. To facilitate the comparison, a spreadsheet and graph should be used to represent the different TTCs.\n\nWe are super-excited to receive your submission as soon as possible.",
+              "instructor_notes": ""
+            }
+          ]
+        },
+        {
+          "id": 850439,
+          "key": "76048fcb-37fc-46ca-93ec-598f659746a1",
+          "title": "Final Project Workspace",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "76048fcb-37fc-46ca-93ec-598f659746a1",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 850559,
+              "key": "eead567e-9226-4282-9949-2522d0863df2",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "# Final Project Workspace and Submission\n\nThis project can only be submitted through this workspace. This is done to ensure that you are able to test your code in an environment similar to what reviewers will use. \n\nIf you have developed your project locally, you can upload the project directory to the workspace for submission. Similarly, if you have your code in Github, you can clone your project into the workspace for submission.\n\nPlease check your submission against the [rubric](https://review.udacity.com/#!/rubrics/2550/view) before submitting. We look forward to your project submission!",
+              "instructor_notes": ""
+            },
+            {
+              "id": 850560,
+              "key": "7aade8e4-317c-47c6-998a-7fad21160c29",
+              "title": null,
+              "semantic_type": "WorkspaceAtom",
+              "is_public": true,
+              "workspace_id": "r831540c850439xREACTntwe6clq",
+              "pool_id": "autonomouscpu",
+              "view_id": "react-elunp",
+              "gpu_capable": false,
+              "configuration": {
+                "id": "reserved",
+                "blueprint": {
+                  "conf": {
+                    "disk": null,
+                    "port": 3000,
+                    "ports": [],
+                    "userCode": "export CXX=g++-7\nexport CXXFLAGS=-std=c++17",
+                    "openFiles": [],
+                    "showFiles": true,
+                    "allowClose": true,
+                    "allowSubmit": true,
+                    "terminalTitle": "BASH",
+                    "actionButtonText": "Desktop",
+                    "openTerminalOnStartup": true
+                  },
+                  "kind": "react"
+                },
+                "workspaceId": "reserved"
+              },
+              "starter_files": null
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

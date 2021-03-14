@@ -1,0 +1,28 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:01.514
+I am Timo Rehfeld,
+
+00:00:01.514 --> 00:00:03.780
+and I'm a Principal Engineer at Mercedes-Benz,
+
+00:00:03.779 --> 00:00:06.839
+and my role is to coordinate and develop
+
+00:00:06.839 --> 00:00:12.099
+sensor fusion algorithms for Mercedes's self-driving car taxi service.
+
+00:00:14.419 --> 00:00:16.559
+So in the past,
+
+00:00:16.559 --> 00:00:21.314
+I worked with correlation-based tracking, calibration,
+
+00:00:21.315 --> 00:00:28.150
+segmentation, classification, basically everything that you can extract from images,
+
+00:00:28.149 --> 00:00:31.390
+and can help the car make decisions.
+

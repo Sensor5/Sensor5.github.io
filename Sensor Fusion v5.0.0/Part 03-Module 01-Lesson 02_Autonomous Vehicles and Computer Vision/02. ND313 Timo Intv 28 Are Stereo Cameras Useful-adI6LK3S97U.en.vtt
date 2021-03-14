@@ -1,0 +1,82 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:02.759 --> 00:00:06.070
+I think stereo cameras are definitely useful,
+
+00:00:06.070 --> 00:00:07.089
+but it really depends on
+
+00:00:07.089 --> 00:00:10.869
+the overall sensor configuration or the other sensors that you have on the car.
+
+00:00:10.869 --> 00:00:15.929
+If you consider depth estimation from the stereo camera,
+
+00:00:15.929 --> 00:00:19.120
+the density of the depth map compared to
+
+00:00:19.120 --> 00:00:23.770
+any other sensor is really high and the precision is also great in the near field.
+
+00:00:23.769 --> 00:00:26.754
+It's just a problem in the far field and in terms of cost,
+
+00:00:26.754 --> 00:00:28.195
+if you want to have a cheap,
+
+00:00:28.195 --> 00:00:30.594
+high resolution depth sensor,
+
+00:00:30.594 --> 00:00:33.445
+stereo camera in particular is the way to go.
+
+00:00:33.445 --> 00:00:37.590
+If you compare stereo to structure from motion with a single camera,
+
+00:00:37.590 --> 00:00:38.900
+you can basically choose,
+
+00:00:38.899 --> 00:00:40.140
+if you have a single camera,
+
+00:00:40.140 --> 00:00:43.939
+you can either reconstruct the 3D environment based on
+
+00:00:43.939 --> 00:00:46.625
+your own motion or you can use
+
+00:00:46.625 --> 00:00:49.759
+features in the static environment to estimate your own motion.
+
+00:00:49.759 --> 00:00:51.664
+So that's the visual odometry part.
+
+00:00:51.664 --> 00:00:56.118
+But as soon as you have dynamic objects in the scene and you're also moving yourself,
+
+00:00:56.118 --> 00:00:58.340
+then you cannot really estimate the distance and
+
+00:00:58.340 --> 00:01:00.950
+velocity of other traffic participants anymore.
+
+00:01:00.950 --> 00:01:04.790
+That you can only do with stereo and I think that's why it's still very valuable.
+
+00:01:04.790 --> 00:01:08.540
+But it really depends on how many other sensors you also have on a vehicle.
+
+00:01:08.540 --> 00:01:10.955
+If you have a LiDAR and a RADAR who can
+
+00:01:10.954 --> 00:01:15.200
+measure distance much more precisely and measure velocity much more precisely,
+
+00:01:15.200 --> 00:01:18.185
+I think the benefit for stereo is decreasing.
+
+00:01:18.185 --> 00:01:20.799
+It's still redundancy though.
+

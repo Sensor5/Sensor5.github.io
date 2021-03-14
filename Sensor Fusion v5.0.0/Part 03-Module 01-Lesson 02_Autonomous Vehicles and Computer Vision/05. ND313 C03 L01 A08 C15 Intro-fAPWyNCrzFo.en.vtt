@@ -1,0 +1,52 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:02.835
+Hi and welcome to this first section about computer vision.
+
+00:00:02.835 --> 00:00:06.269
+Now the idea here is to give you a short intro to the basics of the Open CV,
+
+00:00:06.269 --> 00:00:08.879
+which is a free and very powerful computer vision library
+
+00:00:08.880 --> 00:00:11.070
+that even includes a deep learning framework.
+
+00:00:11.070 --> 00:00:12.750
+Now in this section, you will learn about
+
+00:00:12.750 --> 00:00:15.359
+the matrix data type which can be used to represent images,
+
+00:00:15.359 --> 00:00:18.570
+and also you will learn how to read and right pixels in a matrix,
+
+00:00:18.570 --> 00:00:20.295
+and how to read an image from a file.
+
+00:00:20.295 --> 00:00:23.429
+Lastly, you will learn how to store pointers to multiple images.
+
+00:00:23.429 --> 00:00:25.545
+This is particularly useful for looping over
+
+00:00:25.545 --> 00:00:28.995
+long image sequences where memory has to be carefully managed.
+
+00:00:28.995 --> 00:00:32.445
+Now the idea here is to introduce you to some basic Open CV tools,
+
+00:00:32.445 --> 00:00:34.500
+you will need to master the subsequent chapters
+
+00:00:34.500 --> 00:00:36.795
+and to already give you some practice with using them.
+
+00:00:36.795 --> 00:00:38.250
+So let's get our hands dirty with
+
+00:00:38.250 --> 00:00:42.490
+the first coding examples with C Plus Plus and the Open CV.
+

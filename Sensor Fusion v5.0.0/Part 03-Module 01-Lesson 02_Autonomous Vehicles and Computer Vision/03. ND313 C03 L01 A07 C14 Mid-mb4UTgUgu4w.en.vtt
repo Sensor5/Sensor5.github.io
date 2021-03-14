@@ -1,0 +1,61 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:02.940
+Well, let me give you one final remark on camera calibration.
+
+00:00:02.940 --> 00:00:05.160
+In many applications, it makes perfect sense to use
+
+00:00:05.160 --> 00:00:07.290
+the original image instead of the rectified one.
+
+00:00:07.290 --> 00:00:09.570
+This avoids interpolation errors which you would get when
+
+00:00:09.570 --> 00:00:13.635
+a rectified pixel position is off-center and overlaps with its neighbors.
+
+00:00:13.634 --> 00:00:16.949
+In such a case, it is better to locate the feature in the original image and then
+
+00:00:16.949 --> 00:00:21.119
+transform the resulting coordinates using the equations you just saw.
+
+00:00:21.120 --> 00:00:22.880
+When you are using deep learning instead,
+
+00:00:22.879 --> 00:00:26.750
+it makes much more sense to rectify the image first before feeding it to the network.
+
+00:00:26.750 --> 00:00:28.010
+By using the original image,
+
+00:00:28.010 --> 00:00:30.230
+you would probably cause detection problems as
+
+00:00:30.230 --> 00:00:33.215
+networks are usually trained on distortion free image sense.
+
+00:00:33.215 --> 00:00:34.340
+If this were not the case,
+
+00:00:34.340 --> 00:00:36.620
+you would have to retrain your knowledge base every
+
+00:00:36.619 --> 00:00:39.079
+time you change your camera and that would not be feasible.
+
+00:00:39.079 --> 00:00:41.570
+Now before we take the first steps into computer vision,
+
+00:00:41.570 --> 00:00:45.200
+you need to learn a few facts about color images and about different image or types.
+
+00:00:45.200 --> 00:00:48.515
+So go ahead and complete the section including the quiz at the end.
+
+00:00:48.515 --> 00:00:54.390
+In the next section, we will then start with an Intro to OpenCV and image processing.
+

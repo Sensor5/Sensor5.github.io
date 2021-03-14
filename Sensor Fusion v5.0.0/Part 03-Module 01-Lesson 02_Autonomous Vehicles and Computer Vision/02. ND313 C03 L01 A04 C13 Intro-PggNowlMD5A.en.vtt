@@ -1,0 +1,43 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:03.345
+Hi and welcome to this section of Autonomous Vehicle Sensor Sets.
+
+00:00:03.345 --> 00:00:06.269
+Now, the goal here is to give you a brief overview of the sensor sets of
+
+00:00:06.269 --> 00:00:09.254
+some of the autonomous vehicles you might currently see on public roads.
+
+00:00:09.255 --> 00:00:11.820
+It's really important for you to have this overview of
+
+00:00:11.820 --> 00:00:14.400
+the variety of sensor types among those vehicles.
+
+00:00:14.400 --> 00:00:17.565
+What you will find is that they have a varying degree of redundancy,
+
+00:00:17.565 --> 00:00:19.950
+overlapping fields of view, and in some cases,
+
+00:00:19.949 --> 00:00:22.379
+fundamentally different approaches to sensor packaging.
+
+00:00:22.379 --> 00:00:25.064
+That's how the sensor is integrated into the vehicle.
+
+00:00:25.065 --> 00:00:29.190
+Also, it should take special note of similarities between those vehicles and think about
+
+00:00:29.190 --> 00:00:31.380
+reasons why the Tesla approach to autonomy might
+
+00:00:31.379 --> 00:00:33.869
+be different from Uber's concept, for example.
+
+00:00:33.869 --> 00:00:38.140
+Now, let's dive into autonomous vehicle sensors and have fun exploring.
+

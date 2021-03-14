@@ -1,0 +1,259 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:03.089
+Welcome to this course on cameras and uncensored fusion.
+
+00:00:03.089 --> 00:00:05.549
+My name is Andreas and I'm a professor in engineering
+
+00:00:05.549 --> 00:00:08.160
+and an experienced professional in the automotive industry.
+
+00:00:08.160 --> 00:00:12.350
+I am super excited to share with you my knowledge on computer vision and on cameras,
+
+00:00:12.349 --> 00:00:16.394
+which I have gleaned from various positions with Volkswagen and with Porsche in Germany.
+
+00:00:16.394 --> 00:00:19.439
+Now, the journey you're about to embark on is super fascinating and
+
+00:00:19.440 --> 00:00:22.300
+I do envy you for making those first steps.
+
+00:00:22.300 --> 00:00:25.975
+Now before we start, let's talk a little bit about why this course is important to you.
+
+00:00:25.975 --> 00:00:29.359
+Okay. Decades ago like in the 1980s engineers at CMU
+
+00:00:29.359 --> 00:00:32.539
+already developed a self-driving vehicle and to them it was already
+
+00:00:32.539 --> 00:00:35.780
+clear back then that a single sensor would be way too risky which is why they
+
+00:00:35.780 --> 00:00:39.289
+chose a camera and the LIDAR sensor for the contraption and it worked.
+
+00:00:39.289 --> 00:00:41.600
+Well, it's somewhat worked. We have come a long way
+
+00:00:41.600 --> 00:00:44.090
+since then and technology has really matured and
+
+00:00:44.090 --> 00:00:47.210
+both sensor types both Camera and LIDAR are now being used
+
+00:00:47.210 --> 00:00:50.649
+by companies all over the world to build autonomous vehicles.
+
+00:00:50.649 --> 00:00:52.969
+The ability to drive autonomously will really
+
+00:00:52.969 --> 00:00:55.670
+change our mobility profoundly in the very near future.
+
+00:00:55.670 --> 00:00:59.269
+By learning and understanding this technology especially sensors,
+
+00:00:59.268 --> 00:01:01.269
+you can be a part of this.
+
+00:01:01.270 --> 00:01:03.950
+Now let's take a look at the things you will learn in this course.
+
+00:01:03.950 --> 00:01:06.590
+The first is camera technology and optics.
+
+00:01:06.590 --> 00:01:09.185
+Then we have image processing and computer vision.
+
+00:01:09.185 --> 00:01:13.189
+Finally its sensor fusion with LIDAR and you will use your new knowledge
+
+00:01:13.189 --> 00:01:17.149
+to really develop a cool project which is collision avoidance for vehicles.
+
+00:01:17.150 --> 00:01:21.565
+Now let's look at those things in turn and see why they are important to you.
+
+00:01:21.564 --> 00:01:23.715
+The first is camera technology.
+
+00:01:23.715 --> 00:01:27.560
+Cameras are one of the main sensors in autonomous vehicles and they are the only sensors
+
+00:01:27.560 --> 00:01:31.840
+able to interpret 2D information such as road signs or lane markings.
+
+00:01:31.840 --> 00:01:34.060
+Also, if you look around in traffic outside,
+
+00:01:34.060 --> 00:01:35.420
+everything is optimized for
+
+00:01:35.420 --> 00:01:39.320
+our human visual perception and the camera benefits from this.
+
+00:01:39.319 --> 00:01:42.500
+After decades of engineering it is safe to say that cameras are
+
+00:01:42.500 --> 00:01:45.290
+a very mature technology but the main problem is
+
+00:01:45.290 --> 00:01:48.800
+still that they are subject to the same drawbacks as the human eyes.
+
+00:01:48.799 --> 00:01:51.019
+They have reduced performance in darkness and they
+
+00:01:51.019 --> 00:01:53.640
+are bad under adverse weather conditions such as snow,
+
+00:01:53.640 --> 00:01:57.034
+a heavy rain and other things which could happen outside.
+
+00:01:57.034 --> 00:01:59.539
+Now the second thing you learn is a computer vision which is
+
+00:01:59.540 --> 00:02:02.840
+the science of extracting meaningful information from camera images.
+
+00:02:02.840 --> 00:02:05.329
+Computer vision has been researched for many decades with
+
+00:02:05.329 --> 00:02:10.120
+first papers dating back to the 1960s and since the early 1990s,
+
+00:02:10.120 --> 00:02:13.580
+automotive companies have started working on the first ADA systems that's
+
+00:02:13.580 --> 00:02:16.940
+Advanced Driver Assistance systems and they could detect lane markings,
+
+00:02:16.939 --> 00:02:19.909
+understand road signs and also locate pedestrians.
+
+00:02:19.909 --> 00:02:23.359
+There are two broad types of computer vision you can say.
+
+00:02:23.360 --> 00:02:25.550
+The classic science deals with feature tracking,
+
+00:02:25.550 --> 00:02:28.939
+segmentation, 3D reconstruction and also object recognition.
+
+00:02:28.939 --> 00:02:32.300
+Those fields are well understood and the Art of Engineering is to know
+
+00:02:32.300 --> 00:02:36.170
+which method to use for which problem and how to choose the right parameters.
+
+00:02:36.169 --> 00:02:37.989
+That means how to turn the right knob.
+
+00:02:37.990 --> 00:02:42.040
+Then there's a second type of computer vision which is based on deep learning.
+
+00:02:42.039 --> 00:02:44.750
+The idea here is to train a network which is roughly modeled
+
+00:02:44.750 --> 00:02:47.780
+after our biological brain and then you use large amounts of
+
+00:02:47.780 --> 00:02:50.390
+data to train it and make it understand the difference between let's
+
+00:02:50.389 --> 00:02:53.569
+say a pedestrian and a pot of flowers or this coffee cup here.
+
+00:02:53.569 --> 00:02:56.780
+The art with deep learning is how to select the right network for
+
+00:02:56.780 --> 00:02:59.990
+your problem and then how to train it properly with the right data.
+
+00:02:59.990 --> 00:03:02.840
+Now one downside of deep learning is,
+
+00:03:02.840 --> 00:03:06.140
+that it's often hard to understand how a trained network works which
+
+00:03:06.139 --> 00:03:09.739
+makes it really hard to pinpoint certain problems and to solve them.
+
+00:03:09.740 --> 00:03:11.719
+Now a good engineer knows both worlds.
+
+00:03:11.719 --> 00:03:16.620
+So he has large toolbox to choose from depending on the problem which is at hand.
+
+00:03:16.620 --> 00:03:18.844
+This is why in this course we will look at both sides.
+
+00:03:18.844 --> 00:03:21.229
+You will learn how to: A detect and track features using
+
+00:03:21.229 --> 00:03:23.599
+the classic computer vision and B you will
+
+00:03:23.599 --> 00:03:26.090
+use deep learning to locate vehicles in camera images.
+
+00:03:26.090 --> 00:03:29.689
+Finally, we will look at sensor fusion between camera and LIDAR.
+
+00:03:29.689 --> 00:03:33.094
+There are so many situations in traffic where a camera alone will fail.
+
+00:03:33.094 --> 00:03:34.444
+There is darkness, bad weather,
+
+00:03:34.444 --> 00:03:38.469
+direct sunlight and many more which make computer vision really challenging.
+
+00:03:38.469 --> 00:03:42.169
+In such cases, a second sensor is needed to save the day so to speak.
+
+00:03:42.169 --> 00:03:43.594
+Depending on who you ask,
+
+00:03:43.594 --> 00:03:45.784
+this second sensor could well be a RADAR sensor,
+
+00:03:45.784 --> 00:03:48.305
+a LIDAR sensor or a combination of both.
+
+00:03:48.305 --> 00:03:50.990
+Interestingly, the camera is always a part of
+
+00:03:50.990 --> 00:03:53.510
+the sensor study and your final project you will need all of
+
+00:03:53.509 --> 00:03:56.030
+those things to build a collision avoidance system which is really
+
+00:03:56.030 --> 00:03:58.669
+cool but also a very challenging problem.
+
+00:03:58.669 --> 00:04:01.639
+To make this project even more realistic you will use data from
+
+00:04:01.639 --> 00:04:03.289
+an autonomous vehicle equipped with
+
+00:04:03.289 --> 00:04:06.569
+a forward-looking camera and the high resolution LIDAR sensor.
+
+00:04:06.569 --> 00:04:08.719
+Now, let's start together on this exciting journey of
+
+00:04:08.719 --> 00:04:11.254
+making a vehicle see through machine vision eyes.
+
+00:04:11.254 --> 00:04:13.349
+Have fun exploring.
+

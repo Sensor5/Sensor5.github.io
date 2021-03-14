@@ -1,0 +1,494 @@
+<!-- udacimak v1.4.4 -->
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <meta content="ie=edge" http-equiv="X-UA-Compatible"/>
+  <title>
+   Levels of Autonomous Driving
+  </title>
+  <link href="../assets/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="../assets/css/plyr.css" rel="stylesheet"/>
+  <link href="../assets/css/katex.min.css" rel="stylesheet"/>
+  <link href="../assets/css/jquery.mCustomScrollbar.min.css" rel="stylesheet"/>
+  <link href="../assets/css/styles.css" rel="stylesheet"/>
+  <link href="../assets/img/udacimak.png" rel="shortcut icon" type="image/png">
+  </link>
+ </head>
+ <body>
+  <div class="wrapper">
+   <nav id="sidebar">
+    <div class="sidebar-header">
+     <h3>
+      Autonomous Vehicles and Computer Vision
+     </h3>
+    </div>
+    <ul class="sidebar-list list-unstyled CTAs">
+     <li>
+      <a class="article" href="../index.html">
+       Back to Home
+      </a>
+     </li>
+    </ul>
+    <ul class="sidebar-list list-unstyled components">
+     <li class="">
+      <a href="01. Levels of Autonomous Driving.html">
+       01. Levels of Autonomous Driving
+      </a>
+     </li>
+     <li class="">
+      <a href="02. Autonomous Vehicle Sensor Sets.html">
+       02. Autonomous Vehicle Sensor Sets
+      </a>
+     </li>
+     <li class="">
+      <a href="03. Camera Technology Overview.html">
+       03. Camera Technology Overview
+      </a>
+     </li>
+     <li class="">
+      <a href="04. Camera Technology at MBRDNA.html">
+       04. Camera Technology at MBRDNA
+      </a>
+     </li>
+     <li class="">
+      <a href="05. The OpenCV Computer Vision Library.html">
+       05. The OpenCV Computer Vision Library
+      </a>
+     </li>
+    </ul>
+    <ul class="sidebar-list list-unstyled CTAs">
+     <li>
+      <a class="article" href="../index.html">
+       Back to Home
+      </a>
+     </li>
+    </ul>
+   </nav>
+   <div id="content">
+    <header class="container-fluild header">
+     <div class="container">
+      <div class="row">
+       <div class="col-12">
+        <div class="align-items-middle">
+         <button class="btn btn-toggle-sidebar" id="sidebarCollapse" type="button">
+          <div>
+          </div>
+          <div>
+          </div>
+          <div>
+          </div>
+         </button>
+         <h1 style="display: inline-block">
+          01. Levels of Autonomous Driving
+         </h1>
+        </div>
+       </div>
+      </div>
+     </div>
+    </header>
+    <main class="container">
+     <div class="row">
+      <div class="col-12">
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h1 id="levels-of-autonomous-driving">
+          Levels of Autonomous Driving
+         </h1>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+         <p>
+          ND313 C03 L01 A02 C12 Intro
+         </p>
+        </h3>
+        <video controls="">
+         <source src="01. ND313 C03 L01 A02 C12 Intro-DQgs4Ty3Cz8.mp4" type="video/mp4"/>
+         <track default="true" kind="subtitles" label="en" src="01. ND313 C03 L01 A02 C12 Intro-DQgs4Ty3Cz8.en.vtt" srclang="en"/>
+        </video>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <p>
+          According to
+          <a href="https://www.cbinsights.com/research/autonomous-driverless-vehicles-corporations-list/" rel="noopener noreferrer" target="_blank">
+           CB Insights
+          </a>
+          , there are 46 corporations currently working on autonomous vehicles (as of April 2019). This includes automakers such as Audi, Tesla, BMW, Volvo or GM but also new additions to the automotive space such as Alphabet / Waymo, Uber or Baidu - who hail from totally different industries.
+         </p>
+         <p>
+          It is expected that the autonomous vehicle market will grow from $54 billion in 2019 to $556 billion in 2026, according to
+          <a href="https://www.techworld.com/picture-gallery/data/-companies-working-on-driverless-cars-3641537/" rel="noopener noreferrer" target="_blank">
+           Allied Market Research estimates
+          </a>
+          . Such growth rates, combined with technological break-throughs of recent years, explain why things are moving so fast and why everyone is trying to get a share of this emerging market.
+         </p>
+         <p>
+          In addition to autonomous vehicles, there are systems which assist the driver in various driving tasks such as changing lanes, remembering speed signs or braking in time in case the preceding vehicle suddenly decelerates. Such systems are referred to as Advanced Driver Assistance Systems (ADAS) and they are the predecessor of a fully autonomous vehicle. There are some vehicles in the market, however, that imply full autonomy (such as the Tesla Autopilot), but are ‚only‘ an ADAS systems.
+         </p>
+         <p>
+          Before we analyze a selection of autonomous vehicle prototypes and their respective sensors, let us look at a way to define autonomy - because not all autonomous cars and driver assistance systems are created equal. The following graphic shows the „levels of autonomous driving“, which the Society of Autonomous Engineers (SAE) has defined.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h2 id="the-sae--levels-of-autonomous-driving">
+          The SAE  Levels of Autonomous Driving
+         </h2>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="https://www.nhtsa.gov/technology-innovation/automated-vehicles-safety" class="img img-fluid" src="img/nhtsa-sae-automation-levels.png"/>
+          <figcaption class="figure-caption">
+           <p>
+            <a href="https://www.nhtsa.gov/technology-innovation/automated-vehicles-safety" rel="noopener noreferrer" target="_blank">
+             https://www.nhtsa.gov/technology-innovation/automated-vehicles-safety
+            </a>
+           </p>
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <p>
+          For many years, ADAS products such as forward collision warning (FCW) or adaptive cruise control (ACC) were the only systems available that provided at least some degree of automation in a selected number of driving situations (e.g. on highways, in cities at low speed).
+         </p>
+         <p>
+          Tesla has been one of the first companies world-wide to introduce a system into the market that promised a high degree of autonomy, the Auto Pilot. On the SAE chart however, this system is „only“ at level 2, that means the driver must remain engaged and should monitor the environment at all times.
+         </p>
+         <p>
+          The step to level 3 is a large one as the driver is no longer required to monitor the environment, even though he must be able to take back control at all times. From a legal viewpoint this means that the responsibility for the driving task is with the car and thus with the manufacturer. This is why we do not see a large number of commercially available vehicles with level 3 systems on board yet. Several manufacturers have announced such systems but at the time of writing (May 2019), we do not find them in the market. The reason for this is three-fold:
+         </p>
+         <ol>
+          <li>
+           Such systems must be build reliable enough to minimize the number of faulty decisions. Engineers usually solve this problem by adding a large number of sensors to the car, which makes such systems (very) costly.
+          </li>
+          <li>
+           The fear of law suits arising from accidents results in an intentionally reduced availability of systems, for example by limiting the driving speed or the scenario (e.g. only in traffic jams on highways with clearly visible lane markings at speeds below 60kph).
+          </li>
+          <li>
+           The readiness of the driver to take control of the vehicle can not be guaranteed at all times. There are many situations in which this is not possible due to human reaction times and alertness levels.
+          </li>
+         </ol>
+         <p>
+          Therefore, many experts believe that level 3 systems will only be a transition step to more advanced systems which are operating on levels 4 and 5. At those levels, the vehicle is capable of performing all driving tasks and the „driver“ is not required to take control. Obviously, such systems will require a strong engineering effort to guarantee driver and road user safety at all times.
+         </p>
+         <p>
+          In the next section, we will take a closer look at a selection of partially autonomous vehicles and their respective sensor suites. But for now, you should try to test your knowledge by answering the following quiz questions.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+         <p>
+          Levels of Autonomy
+         </p>
+        </h3>
+        <div>
+         <p>
+          <strong>
+           QUIZ QUESTION:
+          </strong>
+          :
+          <p>
+           Please assess the following systems with regard to their SAE level of autonomy:
+          </p>
+         </p>
+         <p>
+          <strong>
+           ANSWER CHOICES:
+          </strong>
+         </p>
+         <button class="btn btn-primary">
+          <p>
+           The vehicle executes either steering or acceleration while the human driver executes all remaining aspects of the driving task. The driver is responsible for monitoring the driving environment.
+          </p>
+         </button>
+         <button class="btn btn-primary">
+          <p>
+           The vehicle executes all aspects of the driving task with the expectation that the driver will be available to intervene upon request. The system is responsible for monitoring the driving environment.
+          </p>
+         </button>
+         <br/>
+         <br/>
+         <table class="table">
+          <tr class="thead-dark table-hover">
+           <th>
+            <p>
+             System
+            </p>
+           </th>
+           <th>
+            <p>
+             Level of Autonomy
+            </p>
+           </th>
+          </tr>
+          <tr>
+           <td>
+            <p>
+             Level 1
+            </p>
+           </td>
+           <td>
+           </td>
+          </tr>
+          <tr>
+           <td>
+            <p>
+             Level 3
+            </p>
+           </td>
+           <td>
+           </td>
+          </tr>
+          <tr>
+           <td>
+            <p>
+             Level 3
+            </p>
+           </td>
+           <td>
+           </td>
+          </tr>
+          <tr>
+           <td>
+            <p>
+             Level 5
+            </p>
+           </td>
+           <td>
+           </td>
+          </tr>
+          <tr>
+           <td>
+            <p>
+             Level 4
+            </p>
+           </td>
+           <td>
+           </td>
+          </tr>
+          <tr>
+           <td>
+            <p>
+             Level 2
+            </p>
+           </td>
+           <td>
+           </td>
+          </tr>
+         </table>
+         <details>
+          <summary>
+           <strong>
+            SOLUTION:
+           </strong>
+          </summary>
+          <table class="table">
+           <tr class="thead-dark table-hover">
+            <th>
+             <p>
+              System
+             </p>
+            </th>
+            <th>
+             <p>
+              Level of Autonomy
+             </p>
+            </th>
+           </tr>
+           <tr>
+            <td>
+             <p>
+              Level 1
+             </p>
+            </td>
+            <td>
+             <button class="btn btn-primary">
+              <p>
+               The vehicle executes either steering or acceleration while the human driver executes all remaining aspects of the driving task. The driver is responsible for monitoring the driving environment.
+              </p>
+             </button>
+            </td>
+           </tr>
+           <tr>
+            <td>
+             <p>
+              Level 3
+             </p>
+            </td>
+            <td>
+             <button class="btn btn-primary">
+              <p>
+               The vehicle executes all aspects of the driving task with the expectation that the driver will be available to intervene upon request. The system is responsible for monitoring the driving environment.
+              </p>
+             </button>
+            </td>
+           </tr>
+           <tr>
+            <td>
+             <p>
+              Level 3
+             </p>
+            </td>
+            <td>
+             <button class="btn btn-primary">
+              <p>
+               The vehicle executes all aspects of the driving task with the expectation that the driver will be available to intervene upon request. The system is responsible for monitoring the driving environment.
+              </p>
+             </button>
+            </td>
+           </tr>
+          </table>
+         </details>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h2 id="outro">
+          Outro
+         </h2>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+         <p>
+          ND313 C03 L01 A03 C12 Outro
+         </p>
+        </h3>
+        <video controls="">
+         <source src="01. ND313 C03 L01 A03 C12 Outro-Gby_V8-pJV8.mp4" type="video/mp4"/>
+         <track default="true" kind="subtitles" label="en" src="01. ND313 C03 L01 A03 C12 Outro-Gby_V8-pJV8.en.vtt" srclang="en"/>
+        </video>
+       </div>
+       <div class="divider">
+       </div>
+      </div>
+      <div class="col-12">
+       <p class="text-right">
+        <a class="btn btn-outline-primary mt-4" href="02. Autonomous Vehicle Sensor Sets.html" role="button">
+         Next Concept
+        </a>
+       </p>
+      </div>
+     </div>
+    </main>
+    <footer class="footer">
+     <div class="container">
+      <div class="row">
+       <div class="col-12">
+        <p class="text-center">
+         udacity2.0 If you need the newest courses Plase add me wechat: udacity6
+        </p>
+       </div>
+      </div>
+     </div>
+    </footer>
+   </div>
+  </div>
+  <script src="../assets/js/jquery-3.3.1.min.js">
+  </script>
+  <script src="../assets/js/plyr.polyfilled.min.js">
+  </script>
+  <script src="../assets/js/bootstrap.min.js">
+  </script>
+  <script src="../assets/js/jquery.mCustomScrollbar.concat.min.js">
+  </script>
+  <script src="../assets/js/katex.min.js">
+  </script>
+  <script>
+   // Initialize Plyr video players
+    const players = Array.from(document.querySelectorAll('video')).map(p => new Plyr(p));
+
+    // render math equations
+    let elMath = document.getElementsByClassName('mathquill');
+    for (let i = 0, len = elMath.length; i < len; i += 1) {
+      const el = elMath[i];
+
+      katex.render(el.textContent, el, {
+        throwOnError: false
+      });
+    }
+
+    // this hack will make sure Bootstrap tabs work when using Handlebars
+    if ($('#question-tabs').length && $('#user-answer-tabs').length) {
+      $("#question-tabs a.nav-link").on('click', function () {
+        $("#question-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+      $("#user-answer-tabs a.nav-link").on('click', function () {
+        $("#user-answer-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    } else {
+      $("a.nav-link").on('click', function () {
+        $(".tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    }
+
+    // side bar events
+    $(document).ready(function () {
+      $("#sidebar").mCustomScrollbar({
+        theme: "minimal"
+      });
+
+      $('#sidebarCollapse').on('click', function () {
+        $('#sidebar, #content').toggleClass('active');
+        $('.collapse.in').toggleClass('in');
+        $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+      });
+
+      // scroll to first video on page loading
+      if ($('video').length) {
+        $('html,body').animate({ scrollTop: $('div.plyr').prev().offset().top});
+      }
+
+      // auto play first video: this may not work with chrome/safari due to autoplay policy
+      if (players && players.length > 0) {
+        players[0].play();
+      }
+
+      // scroll sidebar to current concept
+      const currentInSideBar = $( "ul.sidebar-list.components li a:contains('01. Levels of Autonomous Driving')" )
+      currentInSideBar.css( "text-decoration", "underline" );
+      $("#sidebar").mCustomScrollbar('scrollTo', currentInSideBar);
+    });
+  </script>
+ </body>
+</html>

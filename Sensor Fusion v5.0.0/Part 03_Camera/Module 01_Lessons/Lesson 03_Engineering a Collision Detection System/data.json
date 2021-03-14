@@ -1,0 +1,879 @@
+{
+  "data": {
+    "lesson": {
+      "id": 844609,
+      "key": "dfe71db5-4233-4e4f-b33f-40cb9899dc13",
+      "title": "Engineering a Collision Detection System",
+      "semantic_type": "Lesson",
+      "is_public": true,
+      "version": "1.0.0",
+      "locale": "en-us",
+      "summary": null,
+      "lesson_type": "Classroom",
+      "display_workspace_project_only": false,
+      "resources": {
+        "files": [
+          {
+            "name": "Videos Zip File",
+            "uri": "https://zips.udacity-data.com/dfe71db5-4233-4e4f-b33f-40cb9899dc13/844609/1561072871540/Engineering+a+Collision+Detection+System+Videos.zip"
+          },
+          {
+            "name": "Transcripts Zip File",
+            "uri": "https://zips.udacity-data.com/dfe71db5-4233-4e4f-b33f-40cb9899dc13/844609/1561072868312/Engineering+a+Collision+Detection+System+Subtitles.zip"
+          }
+        ],
+        "google_plus_link": null,
+        "career_resource_center_link": null,
+        "coaching_appointments_link": null,
+        "office_hours_link": null,
+        "aws_provisioning_link": null
+      },
+      "project": null,
+      "lab": null,
+      "concepts": [
+        {
+          "id": 844610,
+          "key": "be934900-efc9-4f0b-83e9-aa1fcc596888",
+          "title": "Collision Detection Basics",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "be934900-efc9-4f0b-83e9-aa1fcc596888",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": {
+            "files": [
+              {
+                "name": "Exercise-Solutions",
+                "uri": "https://video.udacity-data.com/topher/2019/May/5ceddbb5_exercise-solutions/exercise-solutions.jpg"
+              }
+            ],
+            "google_plus_link": null,
+            "career_resource_center_link": null,
+            "coaching_appointments_link": null,
+            "office_hours_link": null,
+            "aws_provisioning_link": null
+          },
+          "atoms": [
+            {
+              "id": 844611,
+              "key": "f7f29a99-0899-484a-9448-c3d5dde7bb7f",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "# Collision Detection Basics ",
+              "instructor_notes": ""
+            },
+            {
+              "id": 844612,
+              "key": "eacccd44-b40f-4cd7-81d0-b1473f2aa962",
+              "title": "ND313 C03 L02 A01 C21 Intro",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "td8UlKUk5wc",
+                "china_cdn_id": "td8UlKUk5wc.mp4"
+              }
+            },
+            {
+              "id": 844613,
+              "key": "f5e821e4-e7c8-47fb-b3da-b09b95fa3a61",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## The Collision Detection Problem\n\nA _collision avoidance system_ (CAS) is an active safety feature that warns drivers or even triggers the brake in the event of an imminent collision with an object in the path of driving. If a preceding vehicle is present, the CAS continuously estimates the time-to-collision (TTC). When the TTC falls below a lower threshold, the CAS can then decide to either warn the driver of the imminent danger or - depending on the system - apply the vehicle brakes autonomously. For the engineering task you will be completing in this course this means that you will need to find a way to compute the TTC to the vehicle in front.\n\nLet us take a look at the following scene:",
+              "instructor_notes": ""
+            },
+            {
+              "id": 844614,
+              "key": "50950141-5d56-434a-9cfc-ba348da5c6b0",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/April/5cbf442e_draggedimage/draggedimage.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/50950141-5d56-434a-9cfc-ba348da5c6b0",
+              "caption": "",
+              "alt": "Traffic Scenario",
+              "width": 800,
+              "height": 939,
+              "instructor_notes": null
+            },
+            {
+              "id": 844615,
+              "key": "4b66f9f1-36f5-4023-b4f5-cf58765cb97c",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "In this traffic scenario, the green vehicle starts to reduce its speed at time <span class=\"mathquill\">t_0</span>, which is when the yellow vehicle, equipped with a collision sensor, takes the distance measurement <span class=\"mathquill\">d_0</span>. A moment later, at time <span class=\"mathquill\">t_1</span>, the green vehicle is considerably closer and a second measurement <span class=\"mathquill\">d_1</span> is taken. The goal now is to compute the remaining TTC so the system can warn the driver of the yellow vehicle or even trigger the brakes autonomously.\n\nBefore we can do this however, we need to find a way to describe the relative motion of the vehicles with a mathematical model.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 844616,
+              "key": "b8f6f19f-6bb0-4f05-93f1-99b37a9d9842",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## Constant velocity vs. constant acceleration\n\nTo compute the TTC, we need to make assumptions on the physical behavior of the preceding vehicle. One assumption could be that the relative velocity between the yellow and green vehicle in the above figure were constant. This would lead to the so-called _constant velocity model_ (CVM) which is represented by eq. 1 in the following diagram.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 844617,
+              "key": "670e13a1-0f7f-410c-8df5-e70d67072f46",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/April/5cbf44f8_draggedimage-1/draggedimage-1.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/670e13a1-0f7f-410c-8df5-e70d67072f46",
+              "caption": "",
+              "alt": "",
+              "width": 800,
+              "height": 782,
+              "instructor_notes": null
+            },
+            {
+              "id": 844618,
+              "key": "d6bda49d-40a2-452c-80df-f4e4238c9ca7",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "As you can see, the distance to the vehicle at time instant <span class=\"mathquill\">t + \\Delta t</span> is smaller than at time <span class=\"mathquill\">t</span>, because we subtract the product of a constant relative velocity <span class=\"mathquill\">v_0</span> and time <span class=\"mathquill\">\\Delta t</span>. From an engineering perspective, we would need a sensor capable of measuring the distance to the preceeding vehicle on a precisely times basis with a constant dt between measurements. This could very well be achieved with e.g. a Lidar sensor.\n\nEspecially in dynamic traffic situations where a vehicle is braking hard, the CVM is not accurate enough however, as the relative velocity between both vehicles changes between measurements. In the following figure, the approaching vehicle is shown at three time instants with increasing velocity.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 844619,
+              "key": "cd61fd96-db9b-4edb-8ad2-68d7c5e64f5b",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/April/5cbf45a2_draggedimage-2/draggedimage-2.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/cd61fd96-db9b-4edb-8ad2-68d7c5e64f5b",
+              "caption": "",
+              "alt": "",
+              "width": 800,
+              "height": 670,
+              "instructor_notes": null
+            },
+            {
+              "id": 844620,
+              "key": "d7fdcd05-bcea-4896-a653-4c15f6165541",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "We can thus expand on our CVM by assuming velocity to be a function of time and subtract a second term in eq. 2 which is the product of a constant acceleration and the squared time dt between both measurements. Eq. 3 displays velocity as a function of time, which is also dependent on the constant acceleration we used in eq. 2. This model is referred to as _constant acceleration model_ (CAM) and it is commonly used in commercially available collision detection systems. On a side note, if we were using a radar sensor instead of a Lidar, a direct measurement on velocity could be taken by exploiting a frequency shift in the returning electromagnetic wave due to the Doppler effect. This is a significant advantage over sensors such as Lidar, where velocity can only be computed based on (noisy) distance measurements.\n\nIn this course, we will be using a CVM instead of the CAM as it is much simpler to handle with regard to the math involved and with regard to the complexity of the programming task ahead of you. For small instances of dt we will assume that the CVM model is accurate enough and that it will give us a decent estimate of the TTC. Should you be involved in building a commercial version of such a system at a later stage in your career however, keep in mind that you should be using a constant acceleration model instead.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 847892,
+              "key": "64fd050d-e9d6-4faa-9d53-cc79f56de624",
+              "title": "ND313 C03 L02 A01b C21-A4",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "T8tSjKZaJfQ",
+                "china_cdn_id": "T8tSjKZaJfQ.mp4"
+              }
+            },
+            {
+              "id": 844621,
+              "key": "5c6cb028-8a09-427a-9828-46ee127e1162",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## Exercise\n\nImagine the following scenario: A preceding vehicle with a relative distance of 25m and a relative speed to the CAS-equipped vehicle of 30km/h is braking hard. The road surface is slippery and the resulting constant deceleration is at 5m/s^2. ",
+              "instructor_notes": ""
+            },
+            {
+              "id": 844651,
+              "key": "9547e771-1b59-4e61-9859-adc3a265233f",
+              "title": "",
+              "semantic_type": "QuizAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "user_state": {
+                "node_key": "9547e771-1b59-4e61-9859-adc3a265233f",
+                "completed_at": null,
+                "last_viewed_at": null,
+                "unstructured": null
+              },
+              "instruction": null,
+              "question": {
+                "title": "Constant Acceleration",
+                "prompt": "How many seconds does it take before both vehicles collide with each other using the constant acceleration model? Write your answer to two decimal places.",
+                "semantic_type": "CodeGradedQuestion",
+                "evaluation_id": "4905293155008512"
+              },
+              "answer": null
+            },
+            {
+              "id": 844654,
+              "key": "85ce2ec2-ae5f-4641-85d3-73aeeaa947fc",
+              "title": "",
+              "semantic_type": "QuizAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "user_state": {
+                "node_key": "85ce2ec2-ae5f-4641-85d3-73aeeaa947fc",
+                "completed_at": null,
+                "last_viewed_at": null,
+                "unstructured": null
+              },
+              "instruction": null,
+              "question": {
+                "title": "Constant Velocity",
+                "prompt": "How many seconds does it take before both vehicles collide with each other using the constant velocity model? Write your answer to two decimal places.",
+                "semantic_type": "CodeGradedQuestion",
+                "evaluation_id": "4924955045527552"
+              },
+              "answer": null
+            },
+            {
+              "id": 844656,
+              "key": "01711ffc-d2e8-4769-b981-445d0df65551",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## Exercise Solutions\n\nSolutions to the above exercises can be found in the link below. ",
+              "instructor_notes": ""
+            }
+          ]
+        },
+        {
+          "id": 844657,
+          "key": "c78c2068-ff3b-4146-9f1f-77ea44188ef2",
+          "title": "Estimating TTC with Lidar",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "c78c2068-ff3b-4146-9f1f-77ea44188ef2",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 844658,
+              "key": "05ca71c3-1d50-44be-bf5f-92d1c37b0092",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "# Estimating TTC with Lidar",
+              "instructor_notes": ""
+            },
+            {
+              "id": 844660,
+              "key": "5254f800-b75f-4723-ad3f-060742d15014",
+              "title": "ND313 C03 L02 A02 C22 Intro",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "961l-IJpA6w",
+                "china_cdn_id": "961l-IJpA6w.mp4"
+              }
+            },
+            {
+              "id": 844659,
+              "key": "b4a420bd-571f-4c3a-a30a-c444afb6c664",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## The Math Behind Time-to-Collision (TTC)\n\nIn the following, let us assume that our CAS-equipped vehicle is using a Lidar sensor to take distance measurements on preceding vehicles. The sensor in this scenario will give us the distance to the closest 3D point in the path of driving. In the figure below, the closest point is indicated by a red line emanating from a Lidar sensor on top of the CAS vehicle.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 844661,
+              "key": "840a6e6f-132a-45ed-b23e-8eb6432c359e",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/April/5cbf582d_draggedimage/draggedimage.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/840a6e6f-132a-45ed-b23e-8eb6432c359e",
+              "caption": "",
+              "alt": "",
+              "width": 800,
+              "height": 549,
+              "instructor_notes": null
+            },
+            {
+              "id": 844662,
+              "key": "2a9e0756-1b9b-47d9-9bae-f486db43599c",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "Based on the model of a constant-velocity we discussed in the last section, the velocity <span class=\"mathquill\">v_0</span> can be computed from two successive Lidar measurements as follows:",
+              "instructor_notes": ""
+            },
+            {
+              "id": 844663,
+              "key": "a2faa1b5-9c84-4f73-a9fe-2e168b148806",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/April/5cbf5862_draggedimage-1/draggedimage-1.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/a2faa1b5-9c84-4f73-a9fe-2e168b148806",
+              "caption": "",
+              "alt": "",
+              "width": 800,
+              "height": 634,
+              "instructor_notes": null
+            },
+            {
+              "id": 844664,
+              "key": "2bc3722c-28d9-449d-9df2-db6aaad09017",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "Once the relative velocity <span class=\"mathquill\">v_0</span> is known, the time to collision can easily be computed by dividing the remaining distance between both vehicles by <span class=\"mathquill\">v_0</span>. So given a Lidar sensor which is able to take precise distance measurements, a system for TTC estimation can be developed based based on a CVM and on the set of equations shown above. Note however that a radar sensor would be the superior solution for TTC computation as it can directly measure the relative speed, whereas with the Lidar sensor we need to compute <span class=\"mathquill\">v_0</span> from two (noisy) distance measurements.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 844665,
+              "key": "5484eddf-1e83-4e1f-bff7-40a24cd0af48",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## Preparing the Lidar Point Cloud\n\nThe following image shows a Lidar point cloud as an overlay over a camera image taken in a highway scenario with a preceding vehicle directly in the path of driving. Distance to the sensor is color-coded (green is far away, red is close). On the left side, a bird-view perspective of the Lidar points is shown as well.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 844669,
+              "key": "f64dc7ac-ec7b-4b5b-b9ec-967d92349d5d",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/April/5cbf5aea_ebene/ebene.jpg",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/f64dc7ac-ec7b-4b5b-b9ec-967d92349d5d",
+              "caption": "",
+              "alt": "",
+              "width": 2639,
+              "height": 937,
+              "instructor_notes": null
+            },
+            {
+              "id": 844671,
+              "key": "b62674fe-4ba9-48ff-af37-07a7046c5b0b",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "As can easily be seen, the Lidar sensor provides measurements on the vehicles as well as on the road surface. Also, some 3D points in the camera image do not seem accurate when compared to their surrounding neighbors. Especially the points near the roof of the preceding vehicle differ in color from the points on the tailgate.\n\nAs measurement accuracy is correlated to the amount of light reflected from an object, it makes sense to consider the reflectiveness r of each Lidar point which we can access in addition to the x, y and z coordinates. The image below highlights high reflectiveness with green, whereas regions with low reflectiveness are shown as red. An analysis of the associated reflectivity of the point cloud shows that such deviations often occur in regions with reduced reflectiveness.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 844672,
+              "key": "b2034702-1e89-42cc-8518-175d1946246b",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/April/5cbf5b3e_draggedimage-2/draggedimage-2.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/b2034702-1e89-42cc-8518-175d1946246b",
+              "caption": "",
+              "alt": "",
+              "width": 484,
+              "height": 284,
+              "instructor_notes": null
+            },
+            {
+              "id": 844673,
+              "key": "882dfcb1-bec5-47cd-aada-036c4bc29c23",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "In order to derive a stable TTC measurement from the given point cloud, two main steps have to be performed:\n\n1. Remove measurements on the road surface\n2. Remove measurements with low reflectivity\n\nIn the figure below, Lidar points are shown in a top-view perspective and as an image overlay after applying the filtering. After removing Lidar points in this manner, it is now much easier to derive the distance d(t) to the preceding vehicle. ",
+              "instructor_notes": ""
+            },
+            {
+              "id": 844674,
+              "key": "5a48fca1-8200-4264-a391-b20b67894642",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/April/5cbf5b9e_pfeile/pfeile.jpg",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/5a48fca1-8200-4264-a391-b20b67894642",
+              "caption": "",
+              "alt": "",
+              "width": 2739,
+              "height": 1025,
+              "instructor_notes": null
+            },
+            {
+              "id": 844675,
+              "key": "b5249764-608d-4bf4-9fc7-99a5d8f643d7",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "In a later lesson, you will learn how to project Lidar points into the camera image and how to perform the removal procedure as seen in the above examples. For now, let us assume that for each time step dt, the Lidar sensor would return the distance d(t+dt) to the preceding vehicle.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 844676,
+              "key": "3647be25-7749-41e7-8f11-98d274ca5250",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## Computing TTC from Distance Measurements\n\nIn the code examples in this course, Lidar points are packaged into a data structure called LidarPoints. As seen below, the structure consists of the point coordinates x (forward), y (left) an z (up) in metric coordinates and of the point reflectivity r on a scale between 0 and 1 (high reflectivity).\n\n```cpp\nstruct LidarPoint { // single lidar point in space\n    double x, y, z; // point position in m\n    double r; // point reflectivity in the range 0-1\n};\n```\n\nIn order to compute the TTC, we need to find the distance to the closest Lidar point in the path of driving. In the figure below, Lidar measurements located on the tailgate of the preceding vehicle are measured at times <span class=\"mathquill\">t_0</span> (green) and <span class=\"mathquill\">t_1</span> (red). It can be seen, that the distance to the vehicle has decreased slightly between both time instants.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 844677,
+              "key": "8dd05edf-1636-44f9-a0ea-73585bad6e7f",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/April/5cbf5c22_new-group/new-group.jpg",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/8dd05edf-1636-44f9-a0ea-73585bad6e7f",
+              "caption": "",
+              "alt": "",
+              "width": 1462,
+              "height": 1224,
+              "instructor_notes": null
+            },
+            {
+              "id": 844680,
+              "key": "028d37a0-4855-401d-b1b6-db03d3679438",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "The following code searches for the closest point in the point cloud associated with <span class=\"mathquill\">t_0</span> (`lidarPointsPrev`) and in the point cloud associated with <span class=\"mathquill\">t_1</span> (`lidarPointsCurr`). After finding the distance to the closest points respectively, the TTC is computed based on the formula we derived at the beginning of this section.\n\n```cpp\nvoid computeTTCLidar(std::vector<LidarPoint> &lidarPointsPrev, \n                     std::vector<LidarPoint> &lidarPointsCurr, double &TTC)\n{\n    // auxiliary variables\n    double dT = 0.1; // time between two measurements in seconds\n\n    // find closest distance to Lidar points \n    double minXPrev = 1e9, minXCurr = 1e9;\n    for(auto it=lidarPointsPrev.begin(); it!=lidarPointsPrev.end(); ++it) {\n        minXPrev = minXPrev>it->x ? it->x : minXPrev;\n    }\n\n    for(auto it=lidarPointsCurr.begin(); it!=lidarPointsCurr.end(); ++it) {\n        minXCurr = minXCurr>it->x ? it->x : minXCurr;\n    }\n\n    // compute TTC from both measurements\n    TTC = minXCurr * dT / (minXPrev-minXCurr);\n}\n```\nEven though Lidar is a reliable sensor, erroneous measurements may still occur. As seen in the figure above, a small number of points is located behind the tailgate, seemingly without connection to the vehicle. When searching for the closest points, such measurements will pose a problem as the estimated distance will be too small. There are ways to avoid such errors by post-processing the point cloud, but there will be no guarantee that such problems will never occur in practice. It is thus a good idea to perform a more robust computation of minXCurr and minXPrev which is able to cope with a certain number of outliers (in the final project, you will do this) and also look at a second sensor which is able to compute the TTC, such as the camera.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 847293,
+              "key": "d9080440-3be5-49ff-9853-842bd0957e48",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## Exercise",
+              "instructor_notes": ""
+            },
+            {
+              "id": 847294,
+              "key": "566187c7-9fb6-4497-a11e-a1f5997bfcb3",
+              "title": "ND313 C03 L02 A03 C22 Quiz",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "YWatEESYasw",
+                "china_cdn_id": "YWatEESYasw.mp4"
+              }
+            },
+            {
+              "id": 844698,
+              "key": "925d4d33-f4d3-47ff-a8d7-614504108985",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "In the workspace below, extend the function `computeTTCLidar` shown above so that only Lidar points within a narrow corridor whose width is defined by a variable laneWidth are considered during minimum search. The width of the corridor should be set to 4 meters.\n\nYou can run your code as usual by creating a `build` directory in `TTC_lidar`. Then use the following steps from within the `build` directory:\n1. `cmake ..`\n2. `make`\n3. `./compute_ttc_lidar`",
+              "instructor_notes": ""
+            },
+            {
+              "id": 847467,
+              "key": "4adc2323-6788-405d-b7b8-30034a74d9b6",
+              "title": null,
+              "semantic_type": "WorkspaceAtom",
+              "is_public": true,
+              "workspace_id": "r831540c844657xREACTram31eo2",
+              "pool_id": "autonomouscpu",
+              "view_id": "react-8odnb",
+              "gpu_capable": false,
+              "configuration": {
+                "id": "reserved",
+                "blueprint": {
+                  "conf": {
+                    "disk": null,
+                    "port": 3000,
+                    "ports": [],
+                    "userCode": "export CXX=g++-7\nexport CXXFLAGS=-std=c++17",
+                    "openFiles": [
+                      "/home/workspace/TTC_lidar/src/compute_ttc_lidar.cpp"
+                    ],
+                    "showFiles": true,
+                    "allowClose": true,
+                    "allowSubmit": false,
+                    "terminalTitle": "BASH",
+                    "actionButtonText": "Preview",
+                    "openTerminalOnStartup": true
+                  },
+                  "kind": "react"
+                },
+                "workspaceId": "reserved"
+              },
+              "starter_files": null
+            }
+          ]
+        },
+        {
+          "id": 844700,
+          "key": "daceaff3-1519-4f4c-82ff-16e02b5c2e8f",
+          "title": "Estimating TTC with a Camera",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "daceaff3-1519-4f4c-82ff-16e02b5c2e8f",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 844701,
+              "key": "79a55a64-87c6-4053-ae01-22cb30df322c",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "# Estimating TTC with a Camera",
+              "instructor_notes": ""
+            },
+            {
+              "id": 844702,
+              "key": "bc59db60-4a57-4538-a663-62f86e895805",
+              "title": "ND313 C03 L02 A04 C23 Intro",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "h8WoErQle2U",
+                "china_cdn_id": "h8WoErQle2U.mp4"
+              }
+            },
+            {
+              "id": 844703,
+              "key": "de7fabfd-faab-4104-af5d-f63127a3484d",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## Measuring TTC without distance\n\nMonocular cameras are not able to measure metric distances. They are passive sensors that rely on the ambient light which reflects off of objects into the camera lens. It is thus not possible to measure the runtime of light as with Lidar technology.\n\nTo measure distance, a second camera would be needed. Given two images taken by two carefully aligned cameras (also called a _stereo setup_) at the same time instant, one would have to locate common points of interest in both images (e.g. the tail lights of the preceding vehicle) and then triangulate their distance using camera geometry and perspective projection. For many years, automotive researchers have developed stereo cameras for the use in ADAS products and some of those have made it to market. Especially Mercedes-Benz has pioneered this technology and extensive information can be found here : http://www.6d-vision.com/. With more advanced ADAS products and with autonomous vehicles however, stereo cameras have started to disappear from the market due to their package size, the high price and the high computational load for finding corresponding features.\n\nDespite those limitations of the mono camera, let us see if there is a way to compute TTC without the need to measure distance. Let us consider the constant velocity motion model we introduced in a previous section of this course and think about a way to replace the metric distances d with something the camera can measure reliably, such as pixel distances directly on the image plane. In the following figure, you can see how the height <span class=\"mathquill\">H</span> of the preceding vehicle can be mapped onto the image place using perspective projection. We can see that the same height <span class=\"mathquill\">H</span> maps to different heights <span class=\"mathquill\">h_0</span> and <span class=\"mathquill\">h_1</span> in the image plane, depending on the distance <span class=\"mathquill\">d_0</span> and <span class=\"mathquill\">d_1</span> of the vehicle. It is obvious that there is a geometric relation between <span class=\"mathquill\">h</span>, <span class=\"mathquill\">H</span>, <span class=\"mathquill\">d</span> and the focal length <span class=\"mathquill\">f</span> of the pinhole camera - and this is what we want to exploit in the following.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 844704,
+              "key": "3a33cfc7-5368-427a-a6c2-31ac1e72d666",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/April/5cbf7ab2_draggedimage/draggedimage.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/3a33cfc7-5368-427a-a6c2-31ac1e72d666",
+              "caption": "",
+              "alt": "",
+              "width": 1859,
+              "height": 677,
+              "instructor_notes": null
+            },
+            {
+              "id": 844705,
+              "key": "6be86cd3-dfad-45de-abd6-4d2fc614a4fa",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "Let us take a look at the following set of equations:",
+              "instructor_notes": ""
+            },
+            {
+              "id": 844706,
+              "key": "afb39bd5-110e-4b64-91db-e883c089852d",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/April/5cbf7ad4_draggedimage-1/draggedimage-1.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/afb39bd5-110e-4b64-91db-e883c089852d",
+              "caption": "",
+              "alt": "",
+              "width": 2110,
+              "height": 994,
+              "instructor_notes": null
+            },
+            {
+              "id": 844707,
+              "key": "73e7ffc0-a645-4630-851b-0a9d4c32eb47",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "In (1) we use the focal length of the camera and a distance measurement <span class=\"mathquill\">d_0</span> performed at time <span class=\"mathquill\">t_0</span> to project the height <span class=\"mathquill\">H</span> of the vehicle onto the image plane and thus to a height <span class=\"mathquill\">h_0</span> in pixels. The same is done at time <span class=\"mathquill\"> t_1</span>, leading to a projected height <span class=\"mathquill\">h_1</span>.\n\nIn (2), we compute the ratio of the relative heights <span class=\"mathquill\">h_0</span> and <span class=\"mathquill\">h_1</span>. As both <span class=\"mathquill\">H</span> and <span class=\"mathquill\">f</span> are cancelled out, we can observe a direct relation between relative height <span class=\"mathquill\">h</span> and absolute metric distance <span class=\"mathquill\">d</span>. We can thus express the distance to the vehicle <span class=\"mathquill\">d_0</span> as the product of <span class=\"mathquill\">d_1</span> and the ratio of relative heights on the image plane.\n\nIn (3), we substitute <span class=\"mathquill\">d_0</span> in the equation for constant velocity and solve for <span class=\"mathquill\">d_1</span>, which is now dependent on the constant relative velocity <span class=\"mathquill\">v_0</span>, on the time between measuring <span class=\"mathquill\">d_0</span> and <span class=\"mathquill\">d_1</span> and on the ratio of relative heights on the image plane.\n\nIn (4), the TTC is computed as the ratio of remaining distance to impact, which is <span class=\"mathquill\">d_1</span>, and the constant velocity <span class=\"mathquill\">v_0</span>. As we can easily see, the TTC now only consists of <span class=\"mathquill\">\\Delta t</span>, <span class=\"mathquill\">h_0</span> and <span class=\"mathquill\">h_1</span>. Thus, it is possible to measure the time to collision by observing relative height change on the image sensor. Distance measurements are not needed and we can thus use a mono camera to estimate the time-to-collision by observing changes in relative height (also called _scale change_) directly in the image. ",
+              "instructor_notes": ""
+            },
+            {
+              "id": 844708,
+              "key": "d1f7c2ca-c771-45df-b4d7-c7daae6dde4a",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## The Problem with Bounding Box Detection\n\nIn the figure below, a neural network has been used to locate vehicles in successive images of a monocular camera. For each vehicle, the network returns a bounding box, whose width and/or height could in principal be used to compute the height ratio in the TTC equation we derived in the last section.\n\nWhen observed closely however, it can be seen that the bounding boxes do not always reflect the true vehicle dimensions and the aspect ratio differs between images. Using bounding box height or width for TTC computation would thus lead to significant estimation errors.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 844709,
+              "key": "2b1ebac7-8941-41bc-be02-0a37f9bbe8d8",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/April/5cbf7c48_new-group/new-group.jpg",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/2b1ebac7-8941-41bc-be02-0a37f9bbe8d8",
+              "caption": "",
+              "alt": "",
+              "width": 2099,
+              "height": 1193,
+              "instructor_notes": null
+            },
+            {
+              "id": 844710,
+              "key": "ece07a96-8886-46c7-9cbd-b1a7146cadbf",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "In most engineering tasks, relying on a single measurement or property is not reliable enough. This holds especially true for safety-related products. Therefore, we want to consider wether there are further properties of vehicles and objects we can observe in an image.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 844711,
+              "key": "a7c29a19-43f5-4215-a70c-fb6f013df619",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## Using Texture Keypoints Instead\n\nInstead of relying on the detection of the vehicle as a whole we now want to analyze its structure on a smaller scale. If if were possible to locate uniquely identifiable keypoints that could be tracked from one frame to the next, we could use the distance between all keypoints on the vehicle relative to each other to compute a robust estimate of the height ratio in out TTC equation. The following figure illustrates the concept.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 844721,
+              "key": "5bcf4dce-7824-41a4-ae95-91557bfd7ef9",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/April/5cbf8c08_new-group-1/new-group-1.jpg",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/5bcf4dce-7824-41a4-ae95-91557bfd7ef9",
+              "caption": "",
+              "alt": "",
+              "width": 2880,
+              "height": 1800,
+              "instructor_notes": null
+            },
+            {
+              "id": 844722,
+              "key": "3fa14e67-ac57-486a-bf0d-ebc500d239cc",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "In (a), a set of keypoints has been detected and the relative distances between keypoints 1-7 have been computed. In (b), 4 keypoints have been matched between successive images (with keypoint 3 being a mismatch) using a higher-dimensional similarity measure called _descriptor_ (more about that in the next lesson). The ratio of all relative distances between each other can be used to compute a reliable TTC estimate by replacing the height ratio <span class=\"mathquill\">h_1 / h_0</span> with the mean or median of all distance ratios <span class=\"mathquill\">d_k / d_k' </span>.\n\nThe following figure shows several example of relative distances between keypoints as an overlay over a highway driving scene (only the preceding vehicle is highlighted).",
+              "instructor_notes": ""
+            },
+            {
+              "id": 844723,
+              "key": "c734003f-09f2-4565-90d9-ca2929df8569",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/April/5cbf8ddb_draggedimage-2/draggedimage-2.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/c734003f-09f2-4565-90d9-ca2929df8569",
+              "caption": "",
+              "alt": "",
+              "width": 768,
+              "height": 418,
+              "instructor_notes": null
+            },
+            {
+              "id": 844724,
+              "key": "61a4913e-aae8-4ce2-a529-4444d79937b3",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## Computing TTC from Relative Keypoint Distances\n\nIn the code examples in this course, matching keypoints between images are packaged into an OpenCV data structure called `cv::DMatch`. The structure elements we will be using in this course are `queryIdx`, which is the index of a keypoint in the current frame, and `trainIdx`, which is the index of the matched keypoint in the previous frame.\n\nAll matched keypoints are stored in a dynamic list, which is then passed to a function called `computeTTCCamera`, which returns the time-to-collision for each object in the scene. Let us take a look at this function in the following.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 847299,
+              "key": "d33b25d7-97d8-4c1f-bb3c-e23e52d89c48",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## Exercise",
+              "instructor_notes": ""
+            },
+            {
+              "id": 844726,
+              "key": "438abb68-51ba-4c5b-a4dc-76fd887a42c3",
+              "title": "ND313 C03 L02 A05 C23 Quiz",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "2eeP2SWrdiA",
+                "china_cdn_id": "2eeP2SWrdiA.mp4"
+              }
+            },
+            {
+              "id": 844725,
+              "key": "31b68e39-0b19-4a87-ab14-ee908db82999",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "Imagine a set of associated keypoint between two successive frames which contain a large number of mismatches. Computing the mean distance ratio as in the function we just discussed would presumably lead to a faulty calculation of the TTC. A more robust way of computing the average of a dataset with outliers is to use the median instead. In the code below, replace `meanDistRatio` with a variable `medianDistRatio` and do not forget to consider both an even and an odd number of values in the vector `distRatios`.\n\n",
+              "instructor_notes": ""
+            },
+            {
+              "id": 844727,
+              "key": "09cd867d-e5b3-417b-90c5-29a7a7aaaa6a",
+              "title": null,
+              "semantic_type": "WorkspaceAtom",
+              "is_public": true,
+              "workspace_id": "r831540c844700xREACTh44qy40q",
+              "pool_id": "autonomouscpu",
+              "view_id": "react-j1ibk",
+              "gpu_capable": false,
+              "configuration": {
+                "id": "reserved",
+                "blueprint": {
+                  "conf": {
+                    "disk": null,
+                    "port": 3000,
+                    "ports": [],
+                    "userCode": "export CXX=g++-7\nexport CXXFLAGS=-std=c++17",
+                    "openFiles": [
+                      "/home/workspace/TTC_camera/src/compute_ttc_camera.cpp"
+                    ],
+                    "showFiles": true,
+                    "allowClose": true,
+                    "allowSubmit": false,
+                    "terminalTitle": "BASH",
+                    "actionButtonText": "Desktop",
+                    "openTerminalOnStartup": true
+                  },
+                  "kind": "react"
+                },
+                "workspaceId": "reserved"
+              },
+              "starter_files": null
+            }
+          ]
+        },
+        {
+          "id": 850792,
+          "key": "7e308cb6-49b9-4079-9ff8-7ad1640b8d8a",
+          "title": "Course Structure",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "7e308cb6-49b9-4079-9ff8-7ad1640b8d8a",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 850793,
+              "key": "8894e751-5287-47cb-b2f4-4fb9aa0f1c02",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "# Course Structure",
+              "instructor_notes": ""
+            },
+            {
+              "id": 850794,
+              "key": "aedfa227-3395-4ee7-9934-e93ce601f2dc",
+              "title": "ND313 C03 L02 A06 C24 Intro",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "8ViLZSG-ofg",
+                "china_cdn_id": "8ViLZSG-ofg.mp4"
+              }
+            }
+          ]
+        },
+        {
+          "id": 858992,
+          "key": "be27ac68-64b1-46a1-bea0-161ad46b90e7",
+          "title": "Early Fusion vs. Late Fusion",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "be27ac68-64b1-46a1-bea0-161ad46b90e7",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 858993,
+              "key": "ebe769dc-8c12-4ad2-8b93-26938131e31d",
+              "title": "ND313 Timo Intv 04 Diff Btwn Early Fusion And Late Fusion",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "enKofyXO1Vk",
+                "china_cdn_id": "enKofyXO1Vk.mp4"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "_deprecated": [
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    }
+  ]
+}

@@ -1,0 +1,235 @@
+{
+  "id": 2549,
+  "project_id": 596,
+  "upload_types": [
+    "zip"
+  ],
+  "file_filter_regex": "(MidTermProject_Camera_Student|dataStructures|matching2D|matching2D_Student)",
+  "nomination_eligible": false,
+  "stand_out": "",
+  "hide_criteria": false,
+  "created_at": "2019-04-08T21:55:26.504Z",
+  "updated_at": "2019-06-25T17:37:23.385Z",
+  "hashtag": "",
+  "max_upload_size_mb": 500,
+  "estimated_sla": null,
+  "project_assistant_enabled": false,
+  "checkmate_enabled": false,
+  "checkmate_metadata": null,
+  "available_for_cert_project": false,
+  "classroom_node_id": 842255,
+  "classroom_project_key": "b22f25e9-0b43-4854-bdf2-185791009878",
+  "language": "en-us",
+  "ndkeys": [
+    "nd313",
+    "nd313-beta",
+    "nd-instructor",
+    "nd313-cn",
+    "nd313-ent"
+  ],
+  "coursekeys": [],
+  "sections": [
+    {
+      "id": 5546,
+      "name": "Mid-Term Report",
+      "created_at": "2019-05-19T17:20:19.024Z",
+      "updated_at": "2019-05-19T17:20:37.695Z",
+      "deleted_at": null,
+      "position": 0,
+      "rubric_id": 2549,
+      "rubric_items": [
+        {
+          "id": 15939,
+          "section_id": 5546,
+          "passed_description": "Provide a Writeup / README that includes all the rubric points and how you addressed each one. You can submit your writeup as markdown or pdf.",
+          "exceeded_description": "",
+          "created_at": "2019-05-19T17:20:37.813Z",
+          "updated_at": "2019-05-30T17:54:13.165Z",
+          "deleted_at": null,
+          "optional": false,
+          "position": 0,
+          "criteria": "MP.0 Mid-Term Report",
+          "exceedable": false
+        }
+      ]
+    },
+    {
+      "id": 5547,
+      "name": "Data Buffer",
+      "created_at": "2019-05-19T17:22:17.114Z",
+      "updated_at": "2019-05-19T17:22:29.503Z",
+      "deleted_at": null,
+      "position": 1,
+      "rubric_id": 2549,
+      "rubric_items": [
+        {
+          "id": 15942,
+          "section_id": 5547,
+          "passed_description": "Implement a vector for dataBuffer objects whose size does not exceed a limit (e.g. 2 elements). This can be achieved by pushing in new elements on one end and removing elements on the other end. ",
+          "exceeded_description": "",
+          "created_at": "2019-05-19T17:22:29.633Z",
+          "updated_at": "2019-05-30T17:54:13.169Z",
+          "deleted_at": null,
+          "optional": false,
+          "position": 0,
+          "criteria": "MP.1 Data Buffer Optimization",
+          "exceedable": false
+        }
+      ]
+    },
+    {
+      "id": 5548,
+      "name": "Keypoints",
+      "created_at": "2019-05-19T17:23:09.496Z",
+      "updated_at": "2019-05-19T17:23:20.981Z",
+      "deleted_at": null,
+      "position": 2,
+      "rubric_id": 2549,
+      "rubric_items": [
+        {
+          "id": 15943,
+          "section_id": 5548,
+          "passed_description": "Implement detectors HARRIS, FAST, BRISK, ORB, AKAZE, and SIFT and make them selectable by setting a string accordingly.",
+          "exceeded_description": "",
+          "created_at": "2019-05-19T17:23:21.122Z",
+          "updated_at": "2019-05-30T20:34:52.459Z",
+          "deleted_at": null,
+          "optional": false,
+          "position": 0,
+          "criteria": "MP.2 Keypoint Detection",
+          "exceedable": false
+        },
+        {
+          "id": 15944,
+          "section_id": 5548,
+          "passed_description": "Remove all keypoints outside of a pre-defined rectangle and only use the keypoints within the rectangle for further processing. ",
+          "exceeded_description": "",
+          "created_at": "2019-05-19T17:23:52.138Z",
+          "updated_at": "2019-05-30T17:54:13.176Z",
+          "deleted_at": null,
+          "optional": false,
+          "position": 1,
+          "criteria": "MP.3 Keypoint Removal",
+          "exceedable": false
+        }
+      ]
+    },
+    {
+      "id": 5549,
+      "name": "Descriptors",
+      "created_at": "2019-05-19T17:26:01.291Z",
+      "updated_at": "2019-05-19T17:26:15.695Z",
+      "deleted_at": null,
+      "position": 3,
+      "rubric_id": 2549,
+      "rubric_items": [
+        {
+          "id": 15946,
+          "section_id": 5549,
+          "passed_description": "Implement descriptors BRIEF, ORB, FREAK, AKAZE and SIFT and make them selectable by setting a string accordingly.",
+          "exceeded_description": "",
+          "created_at": "2019-05-19T17:26:15.840Z",
+          "updated_at": "2019-05-30T17:54:13.180Z",
+          "deleted_at": null,
+          "optional": false,
+          "position": 0,
+          "criteria": "MP.4 Keypoint Descriptors",
+          "exceedable": false
+        },
+        {
+          "id": 15947,
+          "section_id": 5549,
+          "passed_description": "Implement FLANN matching as well as k-nearest neighbor selection. Both methods must be selectable using the respective strings in the main function. ",
+          "exceeded_description": "",
+          "created_at": "2019-05-19T17:26:35.357Z",
+          "updated_at": "2019-05-30T17:54:13.183Z",
+          "deleted_at": null,
+          "optional": false,
+          "position": 1,
+          "criteria": "MP.5 Descriptor Matching",
+          "exceedable": false
+        },
+        {
+          "id": 15948,
+          "section_id": 5549,
+          "passed_description": "Use the K-Nearest-Neighbor matching to implement the descriptor distance ratio test, which looks at the ratio of best vs. second-best match to decide whether to keep an associated pair of keypoints.",
+          "exceeded_description": "",
+          "created_at": "2019-05-19T17:27:02.323Z",
+          "updated_at": "2019-05-30T17:54:13.186Z",
+          "deleted_at": null,
+          "optional": false,
+          "position": 2,
+          "criteria": "MP.6 Descriptor Distance Ratio",
+          "exceedable": false
+        }
+      ]
+    },
+    {
+      "id": 5550,
+      "name": "Performance",
+      "created_at": "2019-05-19T17:27:53.701Z",
+      "updated_at": "2019-05-19T17:28:06.164Z",
+      "deleted_at": null,
+      "position": 4,
+      "rubric_id": 2549,
+      "rubric_items": [
+        {
+          "id": 15949,
+          "section_id": 5550,
+          "passed_description": "Count the number of keypoints on the preceding vehicle for all 10 images and take note of the distribution of their neighborhood size. Do this for all the detectors you have implemented. ",
+          "exceeded_description": "",
+          "created_at": "2019-05-19T17:28:06.310Z",
+          "updated_at": "2019-05-30T17:54:13.189Z",
+          "deleted_at": null,
+          "optional": false,
+          "position": 0,
+          "criteria": "MP.7 Performance Evaluation 1",
+          "exceedable": false
+        },
+        {
+          "id": 15950,
+          "section_id": 5550,
+          "passed_description": "Count the number of matched keypoints for all 10 images using all possible combinations of detectors and descriptors. In the matching step, the BF approach is used with the descriptor distance ratio set to 0.8.",
+          "exceeded_description": "",
+          "created_at": "2019-05-19T17:28:32.408Z",
+          "updated_at": "2019-05-30T17:54:13.195Z",
+          "deleted_at": null,
+          "optional": false,
+          "position": 1,
+          "criteria": "MP.8 Performance Evaluation 2",
+          "exceedable": false
+        },
+        {
+          "id": 15951,
+          "section_id": 5550,
+          "passed_description": "Log the time it takes for keypoint detection and descriptor extraction. The results must be entered into a spreadsheet and based on this data, the TOP3 detector / descriptor combinations must be recommended as the best choice for our purpose of detecting keypoints on vehicles.",
+          "exceeded_description": "",
+          "created_at": "2019-05-19T17:28:56.734Z",
+          "updated_at": "2019-05-30T17:54:13.199Z",
+          "deleted_at": null,
+          "optional": false,
+          "position": 2,
+          "criteria": "MP.9 Performance Evaluation 3",
+          "exceedable": false
+        }
+      ]
+    }
+  ],
+  "project": {
+    "id": 596,
+    "name": "Camera Based 2D Feature Tracking",
+    "nanodegree_key": "nd313",
+    "is_cert_project": false,
+    "audit_project_id": null,
+    "hashtag": null,
+    "audit_rubric_id": null,
+    "entitlement_required": false,
+    "is_career": false,
+    "recruitment_family_id": 9,
+    "created_at": "2019-03-26T17:37:16.660Z",
+    "updated_at": "2020-06-01T17:44:39.538Z",
+    "price": "7.0",
+    "ungradeable_price": "3.0",
+    "audit_price": null
+  }
+}

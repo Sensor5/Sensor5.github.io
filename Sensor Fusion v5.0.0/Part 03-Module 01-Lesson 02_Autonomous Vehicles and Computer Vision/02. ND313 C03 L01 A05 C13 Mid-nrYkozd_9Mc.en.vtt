@@ -1,0 +1,79 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:03.060
+Now, was it surprising to you that Tesla's not using Lidar
+
+00:00:03.060 --> 00:00:07.004
+despite its plans to offer level four and even level five autonomous driving really soon.
+
+00:00:07.004 --> 00:00:09.300
+Well unlike Uber or Waymo and several others,
+
+00:00:09.300 --> 00:00:11.970
+Tesla has really convinced that the set of cameras coupled with
+
+00:00:11.970 --> 00:00:15.585
+radar and ultrasonic sensors will be sufficient for full autonomy.
+
+00:00:15.585 --> 00:00:17.220
+At the time of recording this video,
+
+00:00:17.219 --> 00:00:18.869
+there is a really fierce debate going on
+
+00:00:18.870 --> 00:00:21.095
+about the best sensor set of autonomous vehicles.
+
+00:00:21.094 --> 00:00:23.059
+Tesla always argues that the price and
+
+00:00:23.059 --> 00:00:27.219
+the packaging issues are the ones which make Lidar really unattractive to customers.
+
+00:00:27.219 --> 00:00:29.059
+Some critics disagree, and they say that
+
+00:00:29.059 --> 00:00:31.369
+the safety requirement movements of autonomous vehicles,
+
+00:00:31.370 --> 00:00:33.545
+they cannot be met with cameras and radar alone.
+
+00:00:33.545 --> 00:00:36.395
+In my opinion, as with many tech competitions before,
+
+00:00:36.395 --> 00:00:37.910
+be it mono camera verses stereo,
+
+00:00:37.909 --> 00:00:39.059
+or in the 1980's,
+
+00:00:39.060 --> 00:00:41.929
+VHS verses Betamax, price customer value and
+
+00:00:41.929 --> 00:00:45.229
+eventually success on the major markets around the world would decide.
+
+00:00:45.229 --> 00:00:47.284
+Interestingly, despite the debate on whether
+
+00:00:47.284 --> 00:00:49.984
+radar or lidar or a combination of the two would be best,
+
+00:00:49.984 --> 00:00:51.905
+cameras are never in question.
+
+00:00:51.905 --> 00:00:55.219
+It's there for a really good idea to learn about cameras and computer vision,
+
+00:00:55.219 --> 00:00:57.140
+which we will do in great detail in this course.
+
+00:00:57.140 --> 00:00:59.030
+Now let's continue to look at some of the criteria
+
+00:00:59.030 --> 00:01:01.980
+for selecting autonomous vehicle sensors.
+

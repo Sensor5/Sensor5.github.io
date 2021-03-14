@@ -1,0 +1,1349 @@
+<!-- udacimak v1.4.4 -->
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <meta content="ie=edge" http-equiv="X-UA-Compatible"/>
+  <title>
+   Autonomous Vehicle Sensor Sets
+  </title>
+  <link href="../assets/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="../assets/css/plyr.css" rel="stylesheet"/>
+  <link href="../assets/css/katex.min.css" rel="stylesheet"/>
+  <link href="../assets/css/jquery.mCustomScrollbar.min.css" rel="stylesheet"/>
+  <link href="../assets/css/styles.css" rel="stylesheet"/>
+  <link href="../assets/img/udacimak.png" rel="shortcut icon" type="image/png">
+  </link>
+ </head>
+ <body>
+  <div class="wrapper">
+   <nav id="sidebar">
+    <div class="sidebar-header">
+     <h3>
+      Autonomous Vehicles and Computer Vision
+     </h3>
+    </div>
+    <ul class="sidebar-list list-unstyled CTAs">
+     <li>
+      <a class="article" href="../index.html">
+       Back to Home
+      </a>
+     </li>
+    </ul>
+    <ul class="sidebar-list list-unstyled components">
+     <li class="">
+      <a href="01. Levels of Autonomous Driving.html">
+       01. Levels of Autonomous Driving
+      </a>
+     </li>
+     <li class="">
+      <a href="02. Autonomous Vehicle Sensor Sets.html">
+       02. Autonomous Vehicle Sensor Sets
+      </a>
+     </li>
+     <li class="">
+      <a href="03. Camera Technology Overview.html">
+       03. Camera Technology Overview
+      </a>
+     </li>
+     <li class="">
+      <a href="04. Camera Technology at MBRDNA.html">
+       04. Camera Technology at MBRDNA
+      </a>
+     </li>
+     <li class="">
+      <a href="05. The OpenCV Computer Vision Library.html">
+       05. The OpenCV Computer Vision Library
+      </a>
+     </li>
+    </ul>
+    <ul class="sidebar-list list-unstyled CTAs">
+     <li>
+      <a class="article" href="../index.html">
+       Back to Home
+      </a>
+     </li>
+    </ul>
+   </nav>
+   <div id="content">
+    <header class="container-fluild header">
+     <div class="container">
+      <div class="row">
+       <div class="col-12">
+        <div class="align-items-middle">
+         <button class="btn btn-toggle-sidebar" id="sidebarCollapse" type="button">
+          <div>
+          </div>
+          <div>
+          </div>
+          <div>
+          </div>
+         </button>
+         <h1 style="display: inline-block">
+          02. Autonomous Vehicle Sensor Sets
+         </h1>
+        </div>
+       </div>
+      </div>
+     </div>
+    </header>
+    <main class="container">
+     <div class="row">
+      <div class="col-12">
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h1 id="autonomous-vehicle-sensor-sets">
+          Autonomous Vehicle Sensor Sets
+         </h1>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+         <p>
+          ND313 C03 L01 A04 C13 Intro
+         </p>
+        </h3>
+        <video controls="">
+         <source src="02. ND313 C03 L01 A04 C13 Intro-PggNowlMD5A.mp4" type="video/mp4"/>
+         <track default="true" kind="subtitles" label="en" src="02. ND313 C03 L01 A04 C13 Intro-PggNowlMD5A.en.vtt" srclang="en"/>
+        </video>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <p>
+          In the last section you have learned about the different levels of autonomous driving and about the leap it takes to move from level 2 to level 3 or even further. It should now be obvious that one key to level 4 and level 5 autonomy is a smart combination of sensors and perception algorithms to monitor the vehicle environment at all times to guarantee a proper and safe reaction to all traffic events.
+         </p>
+         <p>
+          To give you an idea of how this problem is approached in practice, this section contains a brief overview of some vehicles that aim at realizing level 4 or even level 5 driving. As this course is mostly about cameras and computer vision and to a small degree also about Lidar, let us focus mainly on those two sensor types. Let us now take a look at a few autonomous vehicles and their respective sensor suites.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h2 id="the-uber-atg-autonomous-vehicle">
+          The Uber ATG Autonomous Vehicle
+         </h2>
+         <p>
+          The current version of the Uber autonomous vehicle combines a top-mounted 360° Lidar scanner with several cameras and radar sensors placed around the car circumference.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="" class="img img-fluid" src="img/uber-atg-volvo.jpg"/>
+          <figcaption class="figure-caption">
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <p>
+          Let us take a look at those sensor classes one-by one:
+         </p>
+         <ol>
+          <li>
+           <em>
+            Cameras
+           </em>
+           : Ubers fleet of modified Volvo XC90 SUVs features a range of cameras on their roofs, plus additional cameras that point to the sides and behind the car. The roof cameras are able to focus both close and far field, watch for braking vehicles, crossing pedestrians, traffic lights, and signage. The cameras feed their material to a central on-board computer, which also receives the signals of the other sensors to create a precise image of the vehicle’s surroundings. Much like human eyes, the performance of camera systems at night is strongly reduced, which makes them less reliable to locate objects with the required detection rates and positional accuracy. This is why the Uber fleet is equipped with two additional sensor types.
+          </li>
+          <li>
+           <em>
+            Radar
+           </em>
+           : Radar systems emit radio waves which are reflected off of (many but not all) objects. The returning waves can be analyzed with regard to their runtime (which gives distance) as well as their shifted frequency (which gives relative speed). The latter property clearly distinguished the radar from the other two sensor types as it is the only one who is able to directly measure the speed of objects. Also, radar is very robust against adverse weather conditions like heavy snow and thick fog. Used by cruise control systems for many years, radar works best when identifying larger objects with good reflective properties. When it comes to detecting smaller or „soft“ objects (humans, animals) with reduced reflective properties, the radar detection performance drops. Even though camera and radar combine well, there are situations where both sensors do not work optimally - which is why Uber chose to throw a third sensor into the mix.
+          </li>
+          <li>
+           <em>
+            Lidar
+           </em>
+           : Lidar works in a similar way to radar, but instead of emitting radio waves it uses infrared light. The roof-mouted sensor rotates at a high velocity and builds a detailed 3D image of its surroundings. In case of the Velodyne VLS-128, a total of 128 laser beams is used to detect obstacles up to a distance of 300 meters. During a single spin through 360 degrees, a total of up to 4 million datapoints per second is generated. Similar to the camera, Lidar is an optical sensor. It has the significant advantage however of "bringing its own light source“, whereas cameras are dependent on ambient light and the vehicle headlights. It has to be noted however, that Lidar performance is also reduced in adverse environmental conditions such as snow, heavy rain or fog. Coupled with low reflective properties of certain materials, a Lidar might thus fail at generating a sufficiently dense point cloud for some objects in traffic, leaving only a few 3D points with which to work. It is thus a good idea to combine Lidar with other sensors to ensure that detection performance is sufficiently hight for autonomous navigation through traffic.
+          </li>
+         </ol>
+         <p>
+          The following scene shows the Lidar 3D point cloud generated by the Uber autonomous vehicle as well as the image of the front camera as an overlay in the top-left corner. The overall impression of the reconstructed scene is very positive. If you look closely however, you can observe that the number of Lidar points varies greatly between the objects in the scene.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="https://eng.uber.com/atg-dataviz/" class="img img-fluid" src="img/camera-2-2.gif"/>
+          <figcaption class="figure-caption">
+           <p>
+            <a href="https://eng.uber.com/atg-dataviz/" rel="noopener noreferrer" target="_blank">
+             https://eng.uber.com/atg-dataviz/
+            </a>
+           </p>
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h1 id="mercedes-benz-autonomous-prototype">
+          Mercedes Benz Autonomous Prototype
+         </h1>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <p>
+          Currently, German car maker Mercedes Benz is developing an autonomous vehicle prototype that is equipped with cameras, Lidar and radar sensors, similar to the Uber vehicle. Mercedes uses several cameras to scan the area around the vehicle. Of special interest is a stereo setup consisting of two synchronized cameras, which is able to measure depth by finding corresponding features in both images. The picture below shows the entire host of cameras used by the system. Mercedes states that the stereo camera alone generates a total of 100 gigabytes of data for every kilometer driven.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+         <p>
+          ND313 Timo Intv 28 Are Stereo Cameras Useful
+         </p>
+        </h3>
+        <video controls="">
+         <source src="02. ND313 Timo Intv 28 Are Stereo Cameras Useful-adI6LK3S97U.mp4" type="video/mp4"/>
+         <track default="true" kind="subtitles" label="en" src="02. ND313 Timo Intv 28 Are Stereo Cameras Useful-adI6LK3S97U.en.vtt" srclang="en"/>
+        </video>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="https://www.mercedes-benz.com/en/mercedes-benz/innovation/successful-autonomous-driving-a-pilot-project-by-daimler-and-bosch/" class="img img-fluid" src="img/draggedimage.png"/>
+          <figcaption class="figure-caption">
+           <p>
+            <a href="https://www.mercedes-benz.com/en/mercedes-benz/innovation/successful-autonomous-driving-a-pilot-project-by-daimler-and-bosch/" rel="noopener noreferrer" target="_blank">
+             https://www.mercedes-benz.com/en/mercedes-benz/innovation/successful-autonomous-driving-a-pilot-project-by-daimler-and-bosch/
+            </a>
+           </p>
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h2 id="the-tesla-autopilot">
+          The Tesla Autopilot
+         </h2>
+         <p>
+          When the Autopilot system was first sold, it basically was a combination of adaptive cruise control and lane change assist - a set of functions which had long been available with other manufacturers around the globe. The name „Autopilot“ implied however, that the car would be truly autonomous. And indeed did many Tesla owners test the system to its limits by climbing onto the back seat , reading a book or taking a nap while being driven by the system. On the SAE scale however, the Autopilot can „only“ be classified as level 2, i.e. the driver is responsible for the driving task at all times.
+         </p>
+         <p>
+          In October 2016, the Tesla Model S and X sensor set was significantly upgraded and the capabilities of the Autopilot were extended by regular airborne software updates.
+         </p>
+         <p>
+          The image shows the interior of a Tesla with the camera views superimposed on the right side. The image shows left and right rear-facing cameras as well as a forward-facing camera for medium-range perception.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="" class="img img-fluid" src="img/screen-shot-2018-04-25-at-10-14-46-pm.jpg"/>
+          <figcaption class="figure-caption">
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <p>
+          As can be seen in the overview, the system combines several camera sensors with partially overlapping fields of view with a forward-facing radar sensor.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="https://www.tesla.com/de_DE/autopilot" class="img img-fluid" src="img/tesla-autopilot-hardware.png"/>
+          <figcaption class="figure-caption">
+           <p>
+            <a href="https://www.tesla.com/de_DE/autopilot" rel="noopener noreferrer" target="_blank">
+             https://www.tesla.com/de_DE/autopilot
+            </a>
+           </p>
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <p>
+          Let us look at each sensor type in turn:
+         </p>
+         <ol>
+          <li>
+           <em>
+            Cameras
+           </em>
+           : The forward-facing optical array consists of four cameras with differing focal lengths. The narrow-forward camera captures footage up until 250m in front, the forward camera with a slightly larger opening angle looks up until 150m in front, a wide-angle camera that captures 60m in front, and a set of forward-looking side cameras that capture footage 80m in front and to the side of the car. The wide-angle camera is designed to read road signs and traffic lights, allowing the car to react accordingly. It is debated however, wether this feature can be reliably used in traffic.
+          </li>
+          <li>
+           <em>
+            Radar
+           </em>
+           : The forward-looking radar can see up to 160m ahead of the car. According to Tesla founder Elon Musk it is able to see through "sand, snow, fog—almost anything".
+          </li>
+          <li>
+           <em>
+            Sonar
+           </em>
+           : A 360° ultrasonic sonar detects obstacles in an eight-meter radius around the car. The ultrasonic sensors work at any speed and are used to spot objects in close proximity of the car. The ultrasonic sensors can also be used to assist the car when automatically switching lanes. Their range however, compared to the other sensors of the set, is significantly limited and ends at about 8 meters distance.
+          </li>
+         </ol>
+         <p>
+          As you may have noticed, Tesla is not using a Lidar sensor despite its plans to offer level 4 or even level 5 autonomous driving with this setup. Unlike many other manufacturers who aim at full autonomy such as Uber, Waymo and several others, Tesla is convinced that a set of high-performance cameras coupled with a powerful radar sensor will be sufficient for level 4 / level 5 autonomy. At the time of writing, there is a fierce debate going on about the best sensor set of autonomous vehicles. Tesla argues that the price and packaging disadvantage of Lidar would make the Autopilot unattractive to customers. Harsh critics such as GM's director of autonomous vehicle integration Scott Miller disagrees and argues with the highly elevated safety requirements of autonomous vehicles, which would not be met with cameras and radar alone.
+         </p>
+         <p>
+          Is has to be noted however that in all sensor setups, be it Uber, Tesla, Waymo or traditional manufacturers such as Mercedes or Audi, cameras are always used. Even though there is an ongoing debate on wether radar or Lidar or a combination of the two would be best, cameras are never in question. It is therefore a good idea to learn about cameras and computer vision, which we will do in great detail in this course.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+         <p>
+          ND313 C03 L01 A05 C13 Mid
+         </p>
+        </h3>
+        <video controls="">
+         <source src="02. ND313 C03 L01 A05 C13 Mid-nrYkozd_9Mc.mp4" type="video/mp4"/>
+         <track default="true" kind="subtitles" label="en" src="02. ND313 C03 L01 A05 C13 Mid-nrYkozd_9Mc.en.vtt" srclang="en"/>
+        </video>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h2 id="sensor-selection-criteria">
+          Sensor Selection Criteria
+         </h2>
+         <p>
+          The design of an autonomous or ADAS-equipped vehicle involves the selection of a suitable sensor set. As you have learned in the preceding section, there is a discussion going on about which combination of sensors would be necessary to reach full (or even partial) autonomy. In this section, you will learn about sensor selection criteria as well as the differences between camera, Lidar and radar with respect to each criterion.
+         </p>
+         <p>
+          In the following, the most typical selection criteria are briefly discussed.
+         </p>
+         <ol>
+          <li>
+           <strong>
+            Range
+           </strong>
+           : Lidar and radar systems can detect objects at distances ranging from a few meters to more than 200m. Many Lidar systems have difficulties detecting objects at very close distances, whereas radar can detect objects from less than a meter, depending on the system type (either long, mid or short range) . Mono cameras are not able to reliably measure metric distance to object - this is only possible by making some assumptions about the nature of the world (e.g. planar road surface). Stereo cameras on the other hand can measure distance, but only up to a distance of approx. 80m with accuracy deteriorating significantly from there.
+          </li>
+          <li>
+           <strong>
+            Spatial resolution
+           </strong>
+           : Lidar scans have a spatial resolution in the order of 0.1° due to the short wavelength of the emitted IR laser light . This allows for high-resolution 3D scans and thus characterization of objects in a scene. Radar on the other hand can not resolve small features very well, especially as distances increase. The spatial resolution of camera systems is defined by the optics, by the pixel size on the image and by its signal-to-noise ratio. Details on small object are lost as soon as the light rays emanating from them are spread to several pixels on the image sensor (blurring). Also, when little ambient light exists to illuminate objects, spatial resolution increases as objects details are superimposed by increasing noise levels of the imager.
+          </li>
+          <li>
+           <strong>
+            Robustness in darkness
+           </strong>
+           : Both radar and Lidar have an excellent robustness in darkness, as they are both active sensors. While daytime performance of Lidar systems is very good, they have an even better performance at night because there is no ambient sunlight that might interfere with the detection of IR laser reflections. Cameras on the other hand have a very reduced detection capability at night, as they are passive sensors that rely on ambient light. Even though there have been advances in night time performance of image sensors, they have the lowest performance among the three sensor types.
+          </li>
+          <li>
+           <strong>
+            Robustness in rain, snow, fog
+           </strong>
+           : One of the biggest benefits of radar sensors is their performance under adverse weather conditions. They are not significantly affected by snow, heavy rain or any other obstruction in the air such as fog or sand particles. As an optical system, Lidar and camera are susceptible to adverse weather and its performance usually degrades significantly with increasing levels of adversity.
+          </li>
+          <li>
+           <strong>
+            Classification of objects
+           </strong>
+           : Cameras excel at classifying objects such as vehicles, pedestrians, speed signs and many others. This is one of the prime advantage of camera systems and recent advances in AI emphasize this even stronger. Lidar scans with their high-density 3D point clouds also allow for a certain level of classification, albeit with less object diversity than cameras. Radar systems do not allow for much object classification.
+          </li>
+          <li>
+           <strong>
+            Perceiving 2D structures
+           </strong>
+           : Camera systems are the only sensor able to interpret two-dimensional information such as speed signs, lane markings or traffic lights, as they are able to measure both color and light intensity. This is the primary advantage of cameras over the other sensor types.
+          </li>
+          <li>
+           <strong>
+            Measure speed
+           </strong>
+           : Radar can directly measure the velocity of objects by exploiting the Doppler frequency shift. This is one of the primary advantages of radar sensors. Lidar can only approximate speed by using successive distance measurements, which makes it less accurate in this regard. Cameras, even though they are not able to measure distance, can measure time to collision by observing the displacement of objects on the image plane. This property will be used later in this course.
+          </li>
+          <li>
+           <strong>
+            System cost
+           </strong>
+           : Radar systems have been widely used in the automotive industry in recent years with current systems being highly compact and affordable. The same holds for mono cameras, which have a price well below US$100 in most cases. Stereo cameras are more expensive due to the increased hardware cost and the significantly lower number of units in the market. Lidar has gained popularity over the last years, especially in the automotive industry. Due to technological advances, its cost has dropped from more than US$75,000 to below US$5,000. Many experts predict that the cost of a Lidar module might drop to less than US$500 over the next years.
+          </li>
+          <li>
+           <strong>
+            Package size
+           </strong>
+           : Both radar and mono cameras can be integrated very well into vehicles. Stereo cameras are in some cases bulky, which makes it harder to integrate them behind the windshield as they sometimes may restrict the driver's field of vision. Lidar systems exist in various sizes. The 360° scanning Lidar is typically mounted on top of the roof and is thus very well visible. The industry shift towards much smaller solid-state Lidar systems will dramatically shrink the system size of Lidar sensors in the very near future.
+          </li>
+          <li>
+           <strong>
+            Computational requirements
+           </strong>
+           : Lidar and radar require little back-end processing. While cameras are a cost-efficient and easily available sensor, they require significant processing to extract useful information from the images, which adds to the overall system cost.
+          </li>
+         </ol>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <p>
+          In the following table, the different sensor types are assessed with regard to the criteria discussed above.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <table>
+          <thead>
+           <tr>
+            <th id="" style="text-align:center;">
+            </th>
+            <th id="range_measurement" style="text-align:center;">
+             Range measurement
+            </th>
+            <th id="robustness_in_darkness" style="text-align:center;">
+             Robustness in darkness
+            </th>
+            <th id="robustness_in_rain,_snow,_or_fog" style="text-align:center;">
+             Robustness in rain, snow, or fog
+            </th>
+            <th id="classification_of_objects" style="text-align:center;">
+             Classification of objects
+            </th>
+            <th id="perceiving_2d_structures" style="text-align:center;">
+             Perceiving 2D Structures
+            </th>
+            <th id="measure_speed_/_ttc" style="text-align:center;">
+             Measure speed / TTC
+            </th>
+            <th id="package_size" style="text-align:center;">
+             Package size
+            </th>
+           </tr>
+          </thead>
+          <tbody>
+           <tr>
+            <td style="text-align:center;">
+             <strong>
+              Camera
+             </strong>
+            </td>
+            <td style="text-align:center;">
+             -
+            </td>
+            <td style="text-align:center;">
+             -
+            </td>
+            <td style="text-align:center;">
+             -
+            </td>
+            <td style="text-align:center;">
+             ++
+            </td>
+            <td style="text-align:center;">
+             ++
+            </td>
+            <td style="text-align:center;">
+             +
+            </td>
+            <td style="text-align:center;">
+             +
+            </td>
+           </tr>
+           <tr>
+            <td style="text-align:center;">
+             <strong>
+              Radar
+             </strong>
+            </td>
+            <td style="text-align:center;">
+             ++
+            </td>
+            <td style="text-align:center;">
+             ++
+            </td>
+            <td style="text-align:center;">
+             ++
+            </td>
+            <td style="text-align:center;">
+             -
+            </td>
+            <td style="text-align:center;">
+             -
+            </td>
+            <td style="text-align:center;">
+             ++
+            </td>
+            <td style="text-align:center;">
+             +
+            </td>
+           </tr>
+           <tr>
+            <td style="text-align:center;">
+             <strong>
+              Lidar
+             </strong>
+            </td>
+            <td style="text-align:center;">
+             +
+            </td>
+            <td style="text-align:center;">
+             ++
+            </td>
+            <td style="text-align:center;">
+             +
+            </td>
+            <td style="text-align:center;">
+             +
+            </td>
+            <td style="text-align:center;">
+             -
+            </td>
+            <td style="text-align:center;">
+             +
+            </td>
+            <td style="text-align:center;">
+             -
+            </td>
+           </tr>
+          </tbody>
+         </table>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <p>
+          In the quizzes below, you will complete the table from above by adding +, ++ or - in the empty columns.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+         <p>
+          Spatial Resolution
+         </p>
+        </h3>
+        <div>
+         <p>
+          <strong>
+           QUIZ QUESTION:
+          </strong>
+          :
+          <p>
+           Based on the criteria discussed above, please complete the rating of
+           <em>
+            spatial resolution
+           </em>
+           for each sensor by adding +, ++ or -.
+          </p>
+         </p>
+         <p>
+          <strong>
+           ANSWER CHOICES:
+          </strong>
+         </p>
+         <button class="btn btn-primary">
+          <p>
+           Camera
+          </p>
+         </button>
+         <button class="btn btn-primary">
+          <p>
+           Radar
+          </p>
+         </button>
+         <button class="btn btn-primary">
+          <p>
+           Lidar
+          </p>
+         </button>
+         <br/>
+         <br/>
+         <table class="table">
+          <tr class="thead-dark table-hover">
+           <th>
+            <p>
+             Sensor
+            </p>
+           </th>
+           <th>
+            <p>
+             Spatial Resolution
+            </p>
+           </th>
+          </tr>
+          <tr>
+           <td>
+            <p>
+             +
+            </p>
+           </td>
+           <td>
+           </td>
+          </tr>
+          <tr>
+           <td>
+            <p>
+             -
+            </p>
+           </td>
+           <td>
+           </td>
+          </tr>
+          <tr>
+           <td>
+            <p>
+             ++
+            </p>
+           </td>
+           <td>
+           </td>
+          </tr>
+         </table>
+         <details>
+          <summary>
+           <strong>
+            SOLUTION:
+           </strong>
+          </summary>
+          <table class="table">
+           <tr class="thead-dark table-hover">
+            <th>
+             <p>
+              Sensor
+             </p>
+            </th>
+            <th>
+             <p>
+              Spatial Resolution
+             </p>
+            </th>
+           </tr>
+           <tr>
+            <td>
+             <p>
+              +
+             </p>
+            </td>
+            <td>
+             <button class="btn btn-primary">
+              <p>
+               Camera
+              </p>
+             </button>
+            </td>
+           </tr>
+           <tr>
+            <td>
+             <p>
+              -
+             </p>
+            </td>
+            <td>
+             <button class="btn btn-primary">
+              <p>
+               Radar
+              </p>
+             </button>
+            </td>
+           </tr>
+           <tr>
+            <td>
+             <p>
+              ++
+             </p>
+            </td>
+            <td>
+             <button class="btn btn-primary">
+              <p>
+               Lidar
+              </p>
+             </button>
+            </td>
+           </tr>
+          </table>
+         </details>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+         <p>
+          Robustness in Daylight
+         </p>
+        </h3>
+        <div>
+         <p>
+          <strong>
+           QUIZ QUESTION:
+          </strong>
+          :
+          <p>
+           Based on the criteria discussed above, please complete the rating of
+           <em>
+            robustness in daylight
+           </em>
+           for each sensor by adding + or ++.
+          </p>
+         </p>
+         <p>
+          <strong>
+           ANSWER CHOICES:
+          </strong>
+         </p>
+         <button class="btn btn-primary">
+          <p>
+           Camera
+          </p>
+         </button>
+         <button class="btn btn-primary">
+          <p>
+           Radar
+          </p>
+         </button>
+         <button class="btn btn-primary">
+          <p>
+           Lidar
+          </p>
+         </button>
+         <br/>
+         <br/>
+         <table class="table">
+          <tr class="thead-dark table-hover">
+           <th>
+            <p>
+             Sensor
+            </p>
+           </th>
+           <th>
+            <p>
+             Robustness in Daylight
+            </p>
+           </th>
+          </tr>
+          <tr>
+           <td>
+            <p>
+             ++
+            </p>
+           </td>
+           <td>
+           </td>
+          </tr>
+          <tr>
+           <td>
+            <p>
+             +
+            </p>
+           </td>
+           <td>
+           </td>
+          </tr>
+          <tr>
+           <td>
+            <p>
+             +
+            </p>
+           </td>
+           <td>
+           </td>
+          </tr>
+         </table>
+         <details>
+          <summary>
+           <strong>
+            SOLUTION:
+           </strong>
+          </summary>
+          <table class="table">
+           <tr class="thead-dark table-hover">
+            <th>
+             <p>
+              Sensor
+             </p>
+            </th>
+            <th>
+             <p>
+              Robustness in Daylight
+             </p>
+            </th>
+           </tr>
+           <tr>
+            <td>
+             <p>
+              ++
+             </p>
+            </td>
+            <td>
+             <button class="btn btn-primary">
+              <p>
+               Radar
+              </p>
+             </button>
+            </td>
+           </tr>
+           <tr>
+            <td>
+             <p>
+              +
+             </p>
+            </td>
+            <td>
+             <button class="btn btn-primary">
+              <p>
+               Camera
+              </p>
+             </button>
+            </td>
+           </tr>
+           <tr>
+            <td>
+             <p>
+              +
+             </p>
+            </td>
+            <td>
+             <button class="btn btn-primary">
+              <p>
+               Lidar
+              </p>
+             </button>
+            </td>
+           </tr>
+           <tr>
+            <td>
+             <p>
+              +
+             </p>
+            </td>
+            <td>
+             <button class="btn btn-primary">
+              <p>
+               Camera
+              </p>
+             </button>
+            </td>
+           </tr>
+           <tr>
+            <td>
+             <p>
+              +
+             </p>
+            </td>
+            <td>
+             <button class="btn btn-primary">
+              <p>
+               Lidar
+              </p>
+             </button>
+            </td>
+           </tr>
+          </table>
+         </details>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+         <p>
+          System Cost
+         </p>
+        </h3>
+        <div>
+         <p>
+          <strong>
+           QUIZ QUESTION:
+          </strong>
+          :
+          <p>
+           Based on the criteria discussed above, please complete the rating of
+           <em>
+            system cost
+           </em>
+           for each sensor by adding + or -. Here, a higher cost should receive a lower rating.
+          </p>
+         </p>
+         <p>
+          <strong>
+           ANSWER CHOICES:
+          </strong>
+         </p>
+         <button class="btn btn-primary">
+          <p>
+           Camera
+          </p>
+         </button>
+         <button class="btn btn-primary">
+          <p>
+           Radar
+          </p>
+         </button>
+         <button class="btn btn-primary">
+          <p>
+           Lidar
+          </p>
+         </button>
+         <br/>
+         <br/>
+         <table class="table">
+          <tr class="thead-dark table-hover">
+           <th>
+            <p>
+             Sensor
+            </p>
+           </th>
+           <th>
+            <p>
+             System Cost
+            </p>
+           </th>
+          </tr>
+          <tr>
+           <td>
+            <p>
+             +
+            </p>
+           </td>
+           <td>
+           </td>
+          </tr>
+          <tr>
+           <td>
+            <p>
+             +
+            </p>
+           </td>
+           <td>
+           </td>
+          </tr>
+          <tr>
+           <td>
+            <p>
+             -
+            </p>
+           </td>
+           <td>
+           </td>
+          </tr>
+         </table>
+         <details>
+          <summary>
+           <strong>
+            SOLUTION:
+           </strong>
+          </summary>
+          <table class="table">
+           <tr class="thead-dark table-hover">
+            <th>
+             <p>
+              Sensor
+             </p>
+            </th>
+            <th>
+             <p>
+              System Cost
+             </p>
+            </th>
+           </tr>
+           <tr>
+            <td>
+             <p>
+              +
+             </p>
+            </td>
+            <td>
+             <button class="btn btn-primary">
+              <p>
+               Camera
+              </p>
+             </button>
+            </td>
+           </tr>
+           <tr>
+            <td>
+             <p>
+              +
+             </p>
+            </td>
+            <td>
+             <button class="btn btn-primary">
+              <p>
+               Radar
+              </p>
+             </button>
+            </td>
+           </tr>
+           <tr>
+            <td>
+             <p>
+              +
+             </p>
+            </td>
+            <td>
+             <button class="btn btn-primary">
+              <p>
+               Camera
+              </p>
+             </button>
+            </td>
+           </tr>
+           <tr>
+            <td>
+             <p>
+              +
+             </p>
+            </td>
+            <td>
+             <button class="btn btn-primary">
+              <p>
+               Radar
+              </p>
+             </button>
+            </td>
+           </tr>
+           <tr>
+            <td>
+             <p>
+              -
+             </p>
+            </td>
+            <td>
+             <button class="btn btn-primary">
+              <p>
+               Lidar
+              </p>
+             </button>
+            </td>
+           </tr>
+          </table>
+         </details>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+         <p>
+          Computation Requirements
+         </p>
+        </h3>
+        <div>
+         <p>
+          <strong>
+           QUIZ QUESTION:
+          </strong>
+          :
+          <p>
+           Based on the criteria discussed above, please complete the rating of
+           <em>
+            computational requirements
+           </em>
+           for each sensor by adding -, +, or ++.
+          </p>
+         </p>
+         <p>
+          <strong>
+           ANSWER CHOICES:
+          </strong>
+         </p>
+         <button class="btn btn-primary">
+          <p>
+           Camera
+          </p>
+         </button>
+         <button class="btn btn-primary">
+          <p>
+           Radar
+          </p>
+         </button>
+         <button class="btn btn-primary">
+          <p>
+           Lidar
+          </p>
+         </button>
+         <br/>
+         <br/>
+         <table class="table">
+          <tr class="thead-dark table-hover">
+           <th>
+            <p>
+             Sensor
+            </p>
+           </th>
+           <th>
+            <p>
+             Computational Requirements
+            </p>
+           </th>
+          </tr>
+          <tr>
+           <td>
+            <p>
+             -
+            </p>
+           </td>
+           <td>
+           </td>
+          </tr>
+          <tr>
+           <td>
+            <p>
+             ++
+            </p>
+           </td>
+           <td>
+           </td>
+          </tr>
+          <tr>
+           <td>
+            <p>
+             +
+            </p>
+           </td>
+           <td>
+           </td>
+          </tr>
+         </table>
+         <details>
+          <summary>
+           <strong>
+            SOLUTION:
+           </strong>
+          </summary>
+          <table class="table">
+           <tr class="thead-dark table-hover">
+            <th>
+             <p>
+              Sensor
+             </p>
+            </th>
+            <th>
+             <p>
+              Computational Requirements
+             </p>
+            </th>
+           </tr>
+           <tr>
+            <td>
+             <p>
+              -
+             </p>
+            </td>
+            <td>
+             <button class="btn btn-primary">
+              <p>
+               Camera
+              </p>
+             </button>
+            </td>
+           </tr>
+           <tr>
+            <td>
+             <p>
+              ++
+             </p>
+            </td>
+            <td>
+             <button class="btn btn-primary">
+              <p>
+               Lidar
+              </p>
+             </button>
+            </td>
+           </tr>
+           <tr>
+            <td>
+             <p>
+              +
+             </p>
+            </td>
+            <td>
+             <button class="btn btn-primary">
+              <p>
+               Radar
+              </p>
+             </button>
+            </td>
+           </tr>
+          </table>
+         </details>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+      </div>
+      <div class="col-12">
+       <p class="text-right">
+        <a class="btn btn-outline-primary mt-4" href="03. Camera Technology Overview.html" role="button">
+         Next Concept
+        </a>
+       </p>
+      </div>
+     </div>
+    </main>
+    <footer class="footer">
+     <div class="container">
+      <div class="row">
+       <div class="col-12">
+        <p class="text-center">
+         udacity2.0 If you need the newest courses Plase add me wechat: udacity6
+        </p>
+       </div>
+      </div>
+     </div>
+    </footer>
+   </div>
+  </div>
+  <script src="../assets/js/jquery-3.3.1.min.js">
+  </script>
+  <script src="../assets/js/plyr.polyfilled.min.js">
+  </script>
+  <script src="../assets/js/bootstrap.min.js">
+  </script>
+  <script src="../assets/js/jquery.mCustomScrollbar.concat.min.js">
+  </script>
+  <script src="../assets/js/katex.min.js">
+  </script>
+  <script>
+   // Initialize Plyr video players
+    const players = Array.from(document.querySelectorAll('video')).map(p => new Plyr(p));
+
+    // render math equations
+    let elMath = document.getElementsByClassName('mathquill');
+    for (let i = 0, len = elMath.length; i < len; i += 1) {
+      const el = elMath[i];
+
+      katex.render(el.textContent, el, {
+        throwOnError: false
+      });
+    }
+
+    // this hack will make sure Bootstrap tabs work when using Handlebars
+    if ($('#question-tabs').length && $('#user-answer-tabs').length) {
+      $("#question-tabs a.nav-link").on('click', function () {
+        $("#question-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+      $("#user-answer-tabs a.nav-link").on('click', function () {
+        $("#user-answer-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    } else {
+      $("a.nav-link").on('click', function () {
+        $(".tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    }
+
+    // side bar events
+    $(document).ready(function () {
+      $("#sidebar").mCustomScrollbar({
+        theme: "minimal"
+      });
+
+      $('#sidebarCollapse').on('click', function () {
+        $('#sidebar, #content').toggleClass('active');
+        $('.collapse.in').toggleClass('in');
+        $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+      });
+
+      // scroll to first video on page loading
+      if ($('video').length) {
+        $('html,body').animate({ scrollTop: $('div.plyr').prev().offset().top});
+      }
+
+      // auto play first video: this may not work with chrome/safari due to autoplay policy
+      if (players && players.length > 0) {
+        players[0].play();
+      }
+
+      // scroll sidebar to current concept
+      const currentInSideBar = $( "ul.sidebar-list.components li a:contains('02. Autonomous Vehicle Sensor Sets')" )
+      currentInSideBar.css( "text-decoration", "underline" );
+      $("#sidebar").mCustomScrollbar('scrollTo', currentInSideBar);
+    });
+  </script>
+ </body>
+</html>

@@ -1,0 +1,2047 @@
+{
+  "data": {
+    "lesson": {
+      "id": 844730,
+      "key": "53855af9-95ad-41f6-bb0f-7e5464baa34b",
+      "title": "Tracking Image Features",
+      "semantic_type": "Lesson",
+      "is_public": true,
+      "version": "1.0.0",
+      "locale": "en-us",
+      "summary": null,
+      "lesson_type": "Classroom",
+      "display_workspace_project_only": false,
+      "resources": {
+        "files": [
+          {
+            "name": "Videos Zip File",
+            "uri": "https://zips.udacity-data.com/53855af9-95ad-41f6-bb0f-7e5464baa34b/844730/1561072957002/Tracking+Image+Features+Videos.zip"
+          },
+          {
+            "name": "Transcripts Zip File",
+            "uri": "https://zips.udacity-data.com/53855af9-95ad-41f6-bb0f-7e5464baa34b/844730/1561072945552/Tracking+Image+Features+Subtitles.zip"
+          }
+        ],
+        "google_plus_link": null,
+        "career_resource_center_link": null,
+        "coaching_appointments_link": null,
+        "office_hours_link": null,
+        "aws_provisioning_link": null
+      },
+      "project": null,
+      "lab": null,
+      "concepts": [
+        {
+          "id": 844731,
+          "key": "393aeaa5-b65e-4b33-a6fc-35a6de215313",
+          "title": "Intensity Gradient and Filtering",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "393aeaa5-b65e-4b33-a6fc-35a6de215313",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 844732,
+              "key": "fce308cf-175d-466b-9a94-27ec8d2730e1",
+              "title": "ND313 C03 L03 A01 C31 Intro",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "2E9TNZlCGX8",
+                "china_cdn_id": "2E9TNZlCGX8.mp4"
+              }
+            },
+            {
+              "id": 844733,
+              "key": "f8ed4342-0987-4590-aec5-425133eeb5be",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## Locating Keypoints in an Image\n\nAs discussed in the previous lesson, a camera is not able to measure distance to an object directly. However, for our collision avoidance system, we can compute time-to-collision based on relative distance ratios on the image sensor instead. To do so, we need a set of locations on the image plane which can serve as stable anchors to compute relative distances between them. This section discussed how to locate such anchor locations - or _keypoints_ in an image.\n\nTake a look at the three patches in the following figure which have been extracted from an image of a highway driving scene. The grid shows the borders of individual pixels. How would you describe meaningful locations within those patches that could be used as keypoints?",
+              "instructor_notes": ""
+            },
+            {
+              "id": 844734,
+              "key": "30854308-68b4-4606-8a35-83af89cd763e",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/April/5cbf9117_new-group/new-group.jpg",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/30854308-68b4-4606-8a35-83af89cd763e",
+              "caption": "",
+              "alt": "Three image patches extracted from a highway driving scene.",
+              "width": 429,
+              "height": 118,
+              "instructor_notes": null
+            },
+            {
+              "id": 844735,
+              "key": "46217b7f-20cf-41b6-9829-3211aadb4502",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "In the leftmost patch, there is a distinctive contrast between bright and dark pixels which resembles a line from the bottom-left to the upper-right. The patch in the middle resembles a corner formed by a group of very dark pixels in the upper-left. The rightmost patch looks like a bright blob that might be approximated by an ellipse.\n\nIn order to precisely locate a keypoint in an image, we need a way to assign them a unique coordinate in both x an y. Not all of the above patches lend themselves to this goal. Both the corner as well as the ellipse can be positioned accurately in x and y, the line in the leftmost image can not.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 844736,
+              "key": "e8f0ea68-73af-4ac2-ab3c-56dccd50c579",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/April/5cbf9168_new-group-kopieren/new-group-kopieren.jpg",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/e8f0ea68-73af-4ac2-ab3c-56dccd50c579",
+              "caption": "",
+              "alt": "Three images patches with lines drawn.",
+              "width": 429,
+              "height": 118,
+              "instructor_notes": null
+            },
+            {
+              "id": 844737,
+              "key": "d6ba55f1-e07a-45fa-b008-9ce0c655dc18",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "In the following, we will thus concentrate on detecting corners in an image. In a later section, we will also look at detector who are optimized for blob-like structures, such as the _SIFT_ detector.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 844738,
+              "key": "32c779a6-becc-4431-b06f-0d52a389c0f4",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## The Intensity Gradient\n\nIn the above examples, the contrast between neighboring pixels contains the information we need : In order to precisely locate e.g. the corner in the middle patch, we do not need to know its color but instead we require the color difference between the pixels that form the corner to be as high as possible. An ideal corner would consist of only black and white pixels.\n\nThe figure below shows the intensity profile of all pixels along the red line in the image as well as the intensity gradient, which is the derivative of image intensity.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 844739,
+              "key": "2656391c-8a70-4bf6-9a1d-5d27eff9e8c0",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/April/5cbf91b8_intensity-and-derivative/intensity-and-derivative.jpg",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/2656391c-8a70-4bf6-9a1d-5d27eff9e8c0",
+              "caption": "Adapted from https://cs.brown.edu/courses/cs143/lectures_Fall2017/07_Fall2017_EdgeDetection.pdf",
+              "alt": "Intensity profile of image pixels along red line.",
+              "width": 1327,
+              "height": 978,
+              "instructor_notes": null
+            },
+            {
+              "id": 844740,
+              "key": "3e47a135-c553-4b81-b892-3edf6f427b1d",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "It can be seen that the intensity profile increases rapidly at positions where the contrast between neighboring pixels changes significantly. The lower part of the street lamp on the left side and the dark door show a distinct intensity difference to the light wall. If we wanted to assign unique coordinates to the pixels where the change occurs, we could do so by looking at the derivative of the intensity, which is the blue gradient profile you can see below the red line. Sudden changes in image intensity are clearly visible as distinct peaks and valleys in the gradient profile. If we were to look for such peaks not only from left to right but also from top to bottom, we could look for points which show a gradient peak both in horizontal and in vertical direction and choose them as keypoints with both x and y coordinates. In the example patches above, this would work best for the corner, whereas an edge-like structure would have more or less identical gradients at all positions with no clear peak in x and y.\n\nBased on the above observations, the first step into keypoint detection is thus the computation of a gradient image. Mathematically, the gradient is the partial derivative of the image intensity into both x and y direction. The figure below shows the intensity gradient for three example patches. The gradient direction is represented by the arrow.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 844741,
+              "key": "ef357444-0c61-472d-836d-5e2c8d96efab",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/April/5cbf927a_draggedimage/draggedimage.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/ef357444-0c61-472d-836d-5e2c8d96efab",
+              "caption": "",
+              "alt": "Intensity gradient for three patches and partial derivatives.",
+              "width": 1813,
+              "height": 1435,
+              "instructor_notes": null
+            },
+            {
+              "id": 844742,
+              "key": "3c12029e-5d8f-4d72-845b-21c3556cc0fa",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "In equations (1) and (2), the intensity gradient is approximated by the intensity differences between neighboring pixels, divided by the distance between those pixels in x- and y-direction. Next, based on the intensity gradient vector, we can compute both the direction as well as the magnitude as given by the following equations:",
+              "instructor_notes": ""
+            },
+            {
+              "id": 844743,
+              "key": "06c70931-e2d7-4111-8541-683653c479bc",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/April/5cbf92b5_draggedimage-1/draggedimage-1.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/06c70931-e2d7-4111-8541-683653c479bc",
+              "caption": "",
+              "alt": "Equations for gradient direction and magnitude.",
+              "width": 1751,
+              "height": 916,
+              "instructor_notes": null
+            },
+            {
+              "id": 844744,
+              "key": "55f2ee75-25ad-44d7-9677-46734e4cf214",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "There are numerous ways of computing the intensity gradient. The most straightforward approach would be to simply compute the intensity difference between neighboring pixels. This approach however is extremely sensitive to noise and should be avoided in practice. Further down in this section, we will look at a well-proven standard approach, the Sobel operator.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 844745,
+              "key": "79701b3f-18ef-4bbc-87df-3a3f26f1d8f5",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## Image Filters and Gaussian Smoothing\n\nBefore we further discuss gradient computation, we need to think about noise, which is present in all images (except artificial ones) and which decreases with increasing light intensity. To counteract noise, especially under low-light conditions, a smoothing operator has to be applied to the image before gradient computation. Usually, a Gaussian filter is used for this purpose which is shifted over the image and combined with the intensity values beneath it. In order to parameterize the filter properly, two parameters have to be adjusted:\n\n1. The standard deviation, which controls the spatial extension of the filter in the image plane. The larger the standard deviation, the wider the area which is covered by the filter.\n2. The kernel size, which defines how many pixels around the center location will contribute to the smoothing operation.\n\nThe following figure shows three Gaussian filter kernels with varying standard deviations.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 844746,
+              "key": "ff05b560-fb8c-473b-af30-1b7d374b325a",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/April/5cbf938c_jcuj2/jcuj2.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/ff05b560-fb8c-473b-af30-1b7d374b325a",
+              "caption": "",
+              "alt": "",
+              "width": 1515,
+              "height": 396,
+              "instructor_notes": null
+            },
+            {
+              "id": 844747,
+              "key": "a5c41898-7354-4d1a-97fe-3a6c605501ae",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "Gaussian smoothing works by assigning each pixel a weighted sum of the surrounding pixels based on the height of the Gaussian curve at each point. The largest contribution will come from the center pixel itself, whereas the contribution from the pixels surroundings will decrease depending on the height of the Gaussian curve and thus its standard deviation. It can easily be seen that the contribution of the surrounding pixels around the center location increases when the standard deviation is large (left image).\n\nApplying the Gaussian filter (or any other filter) works in four successive steps which are illustrated by the figure below:\n\n1. Create a filter kernel with the desired properties (e.g. Gaussian smoothing or edge detection)\n2. Define the anchor point within the kernel (usually the center position) and place it on top of the first pixel of the image.\n3. Compute the sum of the products of kernel coefficients with the corresponding image pixel values beneath.\n4. Place the result to the location of the kernel anchor in the input image.\n5. Repeat the process for all pixels over the entire image.\n\nThe following figure illustrates the process of shifting the (yellow) filter kernel over the image row by row and assigning the result of the two-dimensional sum <span class=\"mathquill\">H(x,y)</span> to every pixel location.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 844748,
+              "key": "bc9dcd03-c3e6-4534-bfbb-95b0bc047162",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/April/5cbf93e9_draggedimage-2/draggedimage-2.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/bc9dcd03-c3e6-4534-bfbb-95b0bc047162",
+              "caption": "",
+              "alt": "",
+              "width": 1890,
+              "height": 857,
+              "instructor_notes": null
+            },
+            {
+              "id": 844749,
+              "key": "013cb0fc-2fac-4160-a62d-a425d27545cd",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "A filter kernel for Gaussian smoothing is shown in the next figure. In (a), a 3D Gaussian curve is shown and in (b), the corresponding discrete filter kernel can be seen with a central anchor point (41) corresponding to the maximum of the Gaussian curve and with decreasing values towards the edges in a (approximately) circular shape.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 844750,
+              "key": "2850529d-c9e1-4199-a704-0570cd5c9802",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/April/5cbf9457_b-corresponding-discrete-filter-kernel/b-corresponding-discrete-filter-kernel.jpg",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/2850529d-c9e1-4199-a704-0570cd5c9802",
+              "caption": "https://homepages.inf.ed.ac.uk/rbf/HIPR2/gsmooth.htm",
+              "alt": "",
+              "width": 2428,
+              "height": 1128,
+              "instructor_notes": null
+            },
+            {
+              "id": 847306,
+              "key": "bef22486-3ff1-4800-b982-21ae2fe51fd9",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## Exercise",
+              "instructor_notes": ""
+            },
+            {
+              "id": 847307,
+              "key": "7958e2b7-f6cc-4e9d-8cdd-42f475b362cf",
+              "title": "ND313 C03 L03 A02 C31 Mid",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "g_sYIKjjdv4",
+                "china_cdn_id": "g_sYIKjjdv4.mp4"
+              }
+            },
+            {
+              "id": 844751,
+              "key": "511b0e0d-d82a-4eca-97fc-ad7a9b049ac2",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "The following code uses the function `cv::filter2D` to apply the filter above to an image. Run the code and figure out why the output image does not look as it is supposed to look after applying the smoothing filter. Once you know why, make the necessary changes and run the code again until you see a slightly blurred image. You can compile using `cmake` and `make` as before, and run the code using the generated `gaussian_smoothing` executable.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 844752,
+              "key": "ea5b6f09-8717-489a-9cd7-45db0468d2ca",
+              "title": null,
+              "semantic_type": "WorkspaceAtom",
+              "is_public": true,
+              "workspace_id": "r831540c844731xREACTtoa64cwt",
+              "pool_id": "autonomouscpu",
+              "view_id": "react-7m42n",
+              "gpu_capable": false,
+              "configuration": {
+                "id": "reserved",
+                "blueprint": {
+                  "conf": {
+                    "disk": null,
+                    "port": 3000,
+                    "ports": [],
+                    "userCode": "export CXX=g++-7\nexport CXXFLAGS=-std=c++17",
+                    "openFiles": [
+                      "/home/workspace/gradient_filtering/src/gaussian_smoothing.cpp",
+                      "/home/workspace/gradient_filtering/src/gradient_sobel.cpp",
+                      "/home/workspace/gradient_filtering/src/magnitude_sobel.cpp"
+                    ],
+                    "showFiles": true,
+                    "allowClose": true,
+                    "allowSubmit": false,
+                    "terminalTitle": "BASH",
+                    "actionButtonText": "Desktop",
+                    "openTerminalOnStartup": true
+                  },
+                  "kind": "react"
+                },
+                "workspaceId": "reserved"
+              },
+              "starter_files": null
+            },
+            {
+              "id": 844753,
+              "key": "cb67fab6-850f-4c1d-955d-ec6f6b23f63c",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "The above code is meant to illustrate the principle of filters and of Gaussian blurring. In your projects however, you can (and should) use the function cv::GaussianBlur, which lets you change the standard deviation easily without having to adjust the filter kernel.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 844754,
+              "key": "885a9680-8df5-4a90-999d-fe48a7486683",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## Computing the Intensity Gradient\n\nAfter smoothing the image slightly to reduce the influence of noise, we can now compute the intensity gradient of the image in both x and y direction. In the literature, there are several approaches to gradient computation to be found. Among the most famous it the `Sobel` operator (proposed in 1968), but there are several others, such as the `Scharr` operator, which is optimized for rotational symmetry.\n\nThe Sobel operator is based on applying small integer-valued filters both in horizontal and vertical direction. The operators are 3x3 kernels, one for the gradient in x and one for the gradient in y. Both kernels are shown below.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 844755,
+              "key": "25b371d0-c91c-4be2-995d-ef3d525a88a1",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/April/5cbf9515_draggedimage-4/draggedimage-4.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/25b371d0-c91c-4be2-995d-ef3d525a88a1",
+              "caption": "",
+              "alt": "",
+              "width": 2154,
+              "height": 546,
+              "instructor_notes": null
+            },
+            {
+              "id": 844756,
+              "key": "0a61dd63-abf9-42ba-84b5-ef6a16fbd9d2",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "In the following code, one kernel of the Sobel operator is applied to an image. Note that it has been converted to grayscale to avoid computing the operator on each color channel. This code can be found in the `gradient_sobel.cpp` file in the desktop workspace above. You can run the code by using the `gradient_sobel` executable.\n\n```cpp\n    // load image from file\n    cv::Mat img;\n    img = cv::imread(\"./img1.png\");\n\n    // convert image to grayscale\n    cv::Mat imgGray;\n    cv::cvtColor(img, imgGray, cv::COLOR_BGR2GRAY);\n\n    // create filter kernel\n    float sobel_x[9] = {-1, 0, +1,\n                        -2, 0, +2, \n                        -1, 0, +1};\n    cv::Mat kernel_x = cv::Mat(3, 3, CV_32F, sobel_x);\n\n    // apply filter\n    cv::Mat result_x;\n    cv::filter2D(imgGray, result_x, -1, kernel_x, cv::Point(-1, -1), 0, cv::BORDER_DEFAULT);\n\n    // show result\n    string windowName = \"Sobel operator (x-direction)\";\n    cv::namedWindow( windowName, 1 ); // create window \n    cv::imshow(windowName, result_x);\n    cv::waitKey(0); // wait for keyboard input before continuing\n```\nThe resulting gradient image is shown below. It can be seen that areas of strong local contrast such as the cast shadow of the preceding vehicle leads to high values in the filtered image.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 844757,
+              "key": "400b08d8-2647-462b-8902-0b504dffc66e",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/April/5cbf9604_draggedimage-6/draggedimage-6.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/400b08d8-2647-462b-8902-0b504dffc66e",
+              "caption": "",
+              "alt": "Gradient image with S_x filter.",
+              "width": 2470,
+              "height": 738,
+              "instructor_notes": null
+            },
+            {
+              "id": 844758,
+              "key": "a0afa903-e5b0-4d11-a0df-fc27d6adec73",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "Note that in the above code, only the <span class=\"mathquill\">S_x</span> filter kernel has been applied for now, which is why the cast shadow only shows in x direction. Applying <span class=\"mathquill\">S_y</span> to the image yields the following result:",
+              "instructor_notes": ""
+            },
+            {
+              "id": 844759,
+              "key": "4e1bd196-8505-4dce-a950-fb3b38ba6673",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/April/5cbf96e0_draggedimage-7/draggedimage-7.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/4e1bd196-8505-4dce-a950-fb3b38ba6673",
+              "caption": "",
+              "alt": "Gradient image with S_x and S_y filter.",
+              "width": 2468,
+              "height": 732,
+              "instructor_notes": null
+            },
+            {
+              "id": 847316,
+              "key": "fd25612f-5424-4958-bbe3-350a7c9f60ca",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## Exercise",
+              "instructor_notes": ""
+            },
+            {
+              "id": 847319,
+              "key": "84c265b8-fef4-4e78-8ac5-cde0d4ef57d4",
+              "title": "ND313 C03 L03 A03 C31 Outro",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "kQNTa0x8CDI",
+                "china_cdn_id": "kQNTa0x8CDI.mp4"
+              }
+            },
+            {
+              "id": 844760,
+              "key": "4ef87090-8938-494e-b708-619516afb90c",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "Based on the image gradients in both x and y, compute an image which contains the gradient magnitude according to the equation at the beginning of this section for every pixel position. Also, apply different levels of Gaussian blurring before applying the Sobel operator and compare the results.\n\nYou can use the `magnitude_sobel.cpp` file in the desktop workspace above for your solution, and after `make`, you can run the code using the `magnitude_sobel` executable.\n\nThe result should look something like this, with the noise in the road surface being almost gone due to smoothing:",
+              "instructor_notes": ""
+            },
+            {
+              "id": 844762,
+              "key": "2466b2fb-22c3-4f21-8577-fe8c11cd05ff",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/April/5cbf97b8_draggedimage-9/draggedimage-9.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/2466b2fb-22c3-4f21-8577-fe8c11cd05ff",
+              "caption": "",
+              "alt": "",
+              "width": 2468,
+              "height": 738,
+              "instructor_notes": null
+            }
+          ]
+        },
+        {
+          "id": 844765,
+          "key": "d9b6ff38-e9d3-4723-b598-be901d061f81",
+          "title": "Haris Corner Detection",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "d9b6ff38-e9d3-4723-b598-be901d061f81",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 844766,
+              "key": "a465ba28-9141-4c20-a5bf-f630d23340a6",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "# Harris Corner Detection",
+              "instructor_notes": ""
+            },
+            {
+              "id": 844767,
+              "key": "5573f6a6-59c6-4a1a-969d-89052a5d1e4e",
+              "title": "ND313 C03 L03 A04 C32 Intro",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "WL7Ybk5rm30",
+                "china_cdn_id": "WL7Ybk5rm30.mp4"
+              }
+            },
+            {
+              "id": 844768,
+              "key": "54ff0ae9-51f2-46b4-9b9c-0a251036c6ad",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## Local Measures of Uniqueness\n\nThe idea of keypoint detection is to detect a unique structure in an image that can be precisely located in both coordinate directions. As discussed in the previous section, corners are ideally suited for this purpose. To illustrate this, the following figure shows an image patch which consists of line structures on a homogeneously colored background. A red arrow indicates that no unique position can be found in this direction. The green arrow expresses the opposite. As can be seen, the corner is the only local structure that can be assigned a unique coordinate in x and y.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 844769,
+              "key": "7b6305d0-cc32-4cce-8646-a899f9a808b2",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/April/5cbf9853_draggedimage/draggedimage.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/7b6305d0-cc32-4cce-8646-a899f9a808b2",
+              "caption": "",
+              "alt": "",
+              "width": 2199,
+              "height": 853,
+              "instructor_notes": null
+            },
+            {
+              "id": 844770,
+              "key": "9f306bd5-bc6f-417f-b9d4-590645f22f9d",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "In order to locate a corner, we consider how the content of the window would change when shifting it by a small amount. For case (a) in the figure above, there is no measurable change in any coordinate direction at the current location of the red window W whereas for (b), there will be significant change into the direction orthogonal to the edge and no change when moving into the direction of the edge. In case of (c), the window content will change in any coordinate direction.\n\nThe idea of locating corners by means of an algorithm is to find a way to detect areas with a significant change in the image structure based on a displacement of a local window W. Generally, a suitable measure for describing change mathematically is the sum of squared differences (SSD), which looks at the deviations of all pixels in a local neighborhood before and after performing a coordinate shift. The equation below illustrates the concept.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 844771,
+              "key": "688e0750-4f91-47c3-9c61-6b1bddcbc4bb",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/April/5cbf9898_draggedimage-1/draggedimage-1.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/688e0750-4f91-47c3-9c61-6b1bddcbc4bb",
+              "caption": "",
+              "alt": "",
+              "width": 805,
+              "height": 151,
+              "instructor_notes": null
+            },
+            {
+              "id": 844772,
+              "key": "378be427-ac3c-4f11-bdaf-efb43a467f44",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "After shifting the Window W by an amount u in x-direction and v in y-direction the equation sums up the squared differences of all pixels within W at the old and at the new window position. In the following we will use some mathematical transformations to derive a measure for the change of the local environment around a pixel from the general definition of the SSD.\n\nIn the first step, based on the definition of <span class=\"mathquill\">E(u,v)</span> above, we will at first make a Taylor series expansion of <span class=\"mathquill\">I(x+u, y+u)</span>. For small values of u and v, the first-order approximation is sufficient, which leads to the following expression.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 844773,
+              "key": "f8968a9e-8624-4fcb-a4b7-4200992ad936",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/May/5ceeb8f7_taylorseries/taylorseries.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/f8968a9e-8624-4fcb-a4b7-4200992ad936",
+              "caption": "",
+              "alt": "",
+              "width": 4058,
+              "height": 1495,
+              "instructor_notes": null
+            },
+            {
+              "id": 844774,
+              "key": "3c6a4989-e94a-4ddb-bba8-d1f25badcf2c",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "The derivation of the image intensity <span class=\"mathquill\">I</span> both in x- and y-direction is something you have learned in the previous section already - this is simply the intensity gradient . From this point on, we will use the shorthand notation shown above to express the gradient.\n\nIn the second step, we will now insert the approximated expression of <span class=\"mathquill\">I(x+u, y+v)</span> into the SSD equation above, which simplifies to the following form:",
+              "instructor_notes": ""
+            },
+            {
+              "id": 844775,
+              "key": "8a20a7ae-360d-427a-984a-1199786a9e35",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/April/5cbf9994_draggedimage-3/draggedimage-3.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/8a20a7ae-360d-427a-984a-1199786a9e35",
+              "caption": "",
+              "alt": "",
+              "width": 1954,
+              "height": 1141,
+              "instructor_notes": null
+            },
+            {
+              "id": 844776,
+              "key": "97c2adac-fdb8-4617-93fc-a385d682c781",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "The result of our mathematical transformations is a matrix <span class=\"mathquill\">H</span>, which can now be conveniently analyzed to locate structural change in a local window <span class=\"mathquill\">W</span> around every pixel position <span class=\"mathquill\">u,v</span> in an image. In the literature, the matrix <span class=\"mathquill\">H</span> is often referred to as covariance matrix.\n\nTo do this, it helps to visualize the matrix <span class=\"mathquill\">H</span> as an ellipse, whose axis length and directions are given by its eigenvalues and eigenvectors. As can be seen in the following figure, the larger eigenvector points into the direction of maximal intensity change, whereas the smaller eigenvector points into the direction of minimal change. So in order to identify corners, we need to find positions in the image which have two significantly large eigenvalues of <span class=\"mathquill\">H</span>.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 844777,
+              "key": "9b690084-a19a-4f14-9cf9-68b6cf8a14e9",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/April/5cbf99fd_draggedimage-4/draggedimage-4.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/9b690084-a19a-4f14-9cf9-68b6cf8a14e9",
+              "caption": "",
+              "alt": "",
+              "width": 1459,
+              "height": 1427,
+              "instructor_notes": null
+            },
+            {
+              "id": 844778,
+              "key": "96903816-2db8-408f-9c29-4ced0d34d49f",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "Without going into details on eigenvalues in this course, we will look at a simple formula of how they can be computed from <span class=\"mathquill\">H</span>:",
+              "instructor_notes": ""
+            },
+            {
+              "id": 844779,
+              "key": "2e52cc45-dc21-4fdf-955c-74601970c992",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/April/5cbf9a2d_draggedimage-5/draggedimage-5.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/2e52cc45-dc21-4fdf-955c-74601970c992",
+              "caption": "",
+              "alt": "",
+              "width": 2009,
+              "height": 320,
+              "instructor_notes": null
+            },
+            {
+              "id": 844780,
+              "key": "e09f9a09-4bbc-40f1-94eb-f6f2f5f7d884",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "In addition to the smoothing of the image before gradient computation, the Harris detector uses a Gaussian window <span class=\"mathquill\">w(x,y)</span> to compute a weighted sum of the intensity gradients around a local neighborhood. The size of this neighborhood is called scale in the context of feature detection and it is controlled by the standard deviation of the Gaussian distribution.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 844781,
+              "key": "9f1bfdc9-23bb-4fe7-a766-cfeb47db8b40",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/April/5cbf9a66_draggedimage-6/draggedimage-6.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/9f1bfdc9-23bb-4fe7-a766-cfeb47db8b40",
+              "caption": "",
+              "alt": "",
+              "width": 1763,
+              "height": 1168,
+              "instructor_notes": null
+            },
+            {
+              "id": 844782,
+              "key": "d36131bf-05d3-4c56-9297-3b6aa51559e7",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "As can be seen, the larger the scale of the Gaussian window, the larger the feature below that contributes to the sum of gradients. By adjusting scale, we can thus control the keypoints we are able to detect.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 844783,
+              "key": "04be131b-b815-4f52-88cb-734ff7b1d49f",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## The Harris Corner Detector\n\nBased on the eigenvalues of <span class=\"mathquill\">H</span>, one of the most famous corner detectors is the Harris detector. This method evaluates the following expression to derive a corner response measure at every pixel location with the factor k being an empirical constant which is usually in the range between k = 0.04 - 0.06.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 844784,
+              "key": "563cce11-d109-410f-8402-79f4f8c54171",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/April/5cbf9aaf_draggedimage-7/draggedimage-7.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/563cce11-d109-410f-8402-79f4f8c54171",
+              "caption": "",
+              "alt": "",
+              "width": 1975,
+              "height": 1213,
+              "instructor_notes": null
+            },
+            {
+              "id": 844785,
+              "key": "44ed9143-44ba-4f92-ad4a-09e04abed226",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "Based on the concepts presented in this section, the following code computes the corner response for a given image and displays the result.\n```cpp\n    // load image from file\n    cv::Mat img;\n    img = cv::imread(\"./img1.png\");\n\n    // convert image to grayscale\n    cv::Mat imgGray; \n    cv::cvtColor(img, imgGray, cv::COLOR_BGR2GRAY);\n\n    // Detector parameters\n    int blockSize = 2; // for every pixel, a blockSize × blockSize neighborhood is considered\n    int apertureSize = 3; // aperture parameter for Sobel operator (must be odd)\n    int minResponse = 100; // minimum value for a corner in the 8bit scaled response matrix\n    double k = 0.04; // Harris parameter (see equation for details)\n    \n    // Detect Harris corners and normalize output\n    cv::Mat dst, dst_norm, dst_norm_scaled;\n    dst = cv::Mat::zeros(imgGray.size(), CV_32FC1 );\n    cv::cornerHarris( imgGray, dst, blockSize, apertureSize, k, cv::BORDER_DEFAULT ); \n    cv::normalize( dst, dst_norm, 0, 255, cv::NORM_MINMAX, CV_32FC1, cv::Mat() );\n    cv::convertScaleAbs( dst_norm, dst_norm_scaled );\n\n    // visualize results\n    string windowName = \"Harris Corner Detector Response Matrix\";\n    cv::namedWindow( windowName, 4 );\n    cv::imshow( windowName, dst_norm_scaled );\n    cv::waitKey(0);\n```\nThe result can be seen below : The brighter a pixel, the higher the Harris corner response. \n",
+              "instructor_notes": ""
+            },
+            {
+              "id": 844786,
+              "key": "67c34b16-2aa7-4ed4-aa02-91fdd56365a3",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/April/5cbf9b32_draggedimage-9/draggedimage-9.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/67c34b16-2aa7-4ed4-aa02-91fdd56365a3",
+              "caption": "",
+              "alt": "",
+              "width": 2472,
+              "height": 744,
+              "instructor_notes": null
+            },
+            {
+              "id": 847326,
+              "key": "ae84e9c3-f276-405c-b5d7-8a8b596ae052",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## Exercise",
+              "instructor_notes": ""
+            },
+            {
+              "id": 847327,
+              "key": "3950d789-8511-43aa-b653-2168449e4452",
+              "title": "ND313 C03 L03 A05 C32 Outro",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "NKV9IIfxOaI",
+                "china_cdn_id": "NKV9IIfxOaI.mp4"
+              }
+            },
+            {
+              "id": 844787,
+              "key": "9bf56054-915e-44e0-80ea-62d3e7356a64",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "In order to locate corners, we now have to perform a non-maxima suppression to (a) ensure that we get the pixel with maximum cornerness in a local neighborhood and (b) to prevent corners from being too close to each other as we prefer an even spread of corners throughout the image.\n\nYour task is to locate local maxima in the Harris response matrix and perform a non-maximum suppression (NMS) in a local neighborhood around each maximum. The resulting coordinates shall be stored in a list of keypoints of the type `vector<cv::KeyPoint>`. The result should look like this, with each circle denoting the position of a Harris corner.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 844788,
+              "key": "c28a1163-7cff-4981-b5fe-485d8c60c24c",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/April/5cbf9b75_draggedimage-10/draggedimage-10.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/c28a1163-7cff-4981-b5fe-485d8c60c24c",
+              "caption": "",
+              "alt": "",
+              "width": 2474,
+              "height": 738,
+              "instructor_notes": null
+            },
+            {
+              "id": 847609,
+              "key": "e889c4c4-b640-42c7-a388-f0e1361fb852",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "You can write your code in the `cornerness_harris.cpp` file in the desktop workspace below. After building, you can run the code using the generated `cornerness_harris` executable.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 844789,
+              "key": "5c6df2dc-d542-476a-9861-fe09ec16137d",
+              "title": null,
+              "semantic_type": "WorkspaceAtom",
+              "is_public": true,
+              "workspace_id": "r831540c844765xREACTkmaig29s",
+              "pool_id": "autonomouscpu",
+              "view_id": "react-57ot9",
+              "gpu_capable": false,
+              "configuration": {
+                "id": "reserved",
+                "blueprint": {
+                  "conf": {
+                    "disk": null,
+                    "port": 3000,
+                    "ports": [],
+                    "userCode": "export CXX=g++-7\nexport CXXFLAGS=-std=c++17",
+                    "openFiles": [
+                      "/home/workspace/cornerness_harris/src/cornerness_harris.cpp"
+                    ],
+                    "showFiles": true,
+                    "allowClose": true,
+                    "allowSubmit": false,
+                    "terminalTitle": "BASH",
+                    "actionButtonText": "Desktop",
+                    "openTerminalOnStartup": true
+                  },
+                  "kind": "react"
+                },
+                "workspaceId": "reserved"
+              },
+              "starter_files": null
+            }
+          ]
+        },
+        {
+          "id": 844792,
+          "key": "e76a7615-5e3a-441d-a015-b7190ce1b621",
+          "title": "Overview of Popular Keypoint Detectors",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "e76a7615-5e3a-441d-a015-b7190ce1b621",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 844793,
+              "key": "353a63fe-e97a-4bcb-b3bc-ecba24cdcc75",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "# Overview of Popular Keypoint Detectors",
+              "instructor_notes": ""
+            },
+            {
+              "id": 844794,
+              "key": "267a6fbc-f491-4b48-9cb2-55baef845193",
+              "title": "ND313 C03 L03 A06 C33 Intro",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "fqwXIypb6rQ",
+                "china_cdn_id": "fqwXIypb6rQ.mp4"
+              }
+            },
+            {
+              "id": 844795,
+              "key": "748e295c-5b50-491e-b5f4-843533ca8b8d",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## Invariance to Photometric and Geometric Changes\n\nIn the literature (and in the OpenCV library), there is a large number of feature detectors (including the Harris detector), we can choose from. Depending on the type of keypoint that shall be detected and based on the properties of the images, the robustness of the respective detector with regard to both photometric and geometric transformations needs to be considered.\n\nThere are four basic transformation types we need to think about when selecting a suitable keypoint detector:\n\n1. Rotation\n2. Scale change\n3. Intensity change\n4. Affine transformation\n\nThe following figure shows two images in frame i of a video sequence (a) who have been subjected to several transformations in frame i + n (b).",
+              "instructor_notes": ""
+            },
+            {
+              "id": 844796,
+              "key": "6704ead9-2404-44e6-a26e-3b1272b1b844",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/April/5cbf9d8a_frame-transformations/frame-transformations.jpg",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/6704ead9-2404-44e6-a26e-3b1272b1b844",
+              "caption": "",
+              "alt": "",
+              "width": 1706,
+              "height": 897,
+              "instructor_notes": null
+            },
+            {
+              "id": 844797,
+              "key": "4e322a5f-d1bc-4a04-9c4a-4f2540a9dc7c",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "For the graffiti sequence, which is one of the standard image sets used in computer vision (also see http://www.robots.ox.ac.uk/~vgg/research/affine/), we can observe all of the transformations listed above whereas for the highway sequence, when focussing on the preceding vehicle, there is only a scale change as well as an intensity change between frames i and i+n.\n\nIn the following, the above criteria are used to briefly assess the Harris corner detector.\n\nRotation R :",
+              "instructor_notes": ""
+            },
+            {
+              "id": 844798,
+              "key": "c567f123-302c-4ca8-9b2d-e826da53e22a",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/April/5cbf9db7_draggedimage/draggedimage.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/c567f123-302c-4ca8-9b2d-e826da53e22a",
+              "caption": "",
+              "alt": "",
+              "width": 1874,
+              "height": 1074,
+              "instructor_notes": null
+            },
+            {
+              "id": 844799,
+              "key": "c330d8cb-bb4a-4040-9ac0-fafe69f6d481",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "Intensity change:",
+              "instructor_notes": ""
+            },
+            {
+              "id": 844800,
+              "key": "c08f3932-bdcd-45f9-9e23-d294a4cfa639",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/April/5cbf9e07_draggedimage-1/draggedimage-1.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/c08f3932-bdcd-45f9-9e23-d294a4cfa639",
+              "caption": "",
+              "alt": "",
+              "width": 1981,
+              "height": 921,
+              "instructor_notes": null
+            },
+            {
+              "id": 844801,
+              "key": "59a267eb-b7ff-4813-a072-b17374c062fc",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "Scale change:",
+              "instructor_notes": ""
+            },
+            {
+              "id": 844803,
+              "key": "35aa1956-4b0a-440a-abb0-5b2c40470395",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/April/5cbf9e28_draggedimage-2/draggedimage-2.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/35aa1956-4b0a-440a-abb0-5b2c40470395",
+              "caption": "",
+              "alt": "",
+              "width": 1855,
+              "height": 1073,
+              "instructor_notes": null
+            },
+            {
+              "id": 844802,
+              "key": "f816a735-b96f-459c-b555-ab0c6152c5ee",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "Summarizing, the Harris detector is robust under rotation and additive intensity shifts, but sensitive to scale change, multiplicative intensity shifts (i.e. changes in contrast) and affine transformations. However, if it were possible to modify the Harris detector in a way such that it were able to account for changes of the object scale, e.g. when the preceding vehicle approaches, it might be (despite its age), a suitable detector for our purposes.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 844804,
+              "key": "b84a84d2-bdb7-4642-a52e-a23650b80ffa",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## Automatic Scale Selection\n\nIn order to detect keypoints at their ideal scale, we must know (or find) their respective dimensions in the image and adapt the size of the Gaussian window <span class=\"mathquill\">w(x,y)</span> as introduced earlier in this section. If the keypoint scale is unknown or if keypoints with varying size exist in the image, detection must be performed successively at multiple scale levels.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 844805,
+              "key": "b9573c66-8b1b-42fc-aee9-f7f337d5b3ec",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/April/5cbf9e61_draggedimage-3/draggedimage-3.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/b9573c66-8b1b-42fc-aee9-f7f337d5b3ec",
+              "caption": "",
+              "alt": "",
+              "width": 1926,
+              "height": 1199,
+              "instructor_notes": null
+            },
+            {
+              "id": 844806,
+              "key": "2c98e83c-94a8-4911-84ca-b0bb348a420b",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "Based on the increment of the standard deviation between two neighboring levels, the same keypoint might be detected multiple times. This poses the problem of choosing the „correct“ scale which best represents the keypoint.\n\nIn a landmark paper from 1998, Tony Lindeberg published a method for \"Feature detection with automatic scale selection\". In this paper, he proposed a function <span class=\"mathquill\">F(x,y,scale)</span>, which could be used to select those keypoints that showed a stable maximum of <span class=\"mathquill\">F</span> over scale. The scale for which <span class=\"mathquill\">F</span> was maximized was termed the \"characteristic scale“ of the respective keypoint.\n\nThe following image shows such a function <span class=\"mathquill\">F</span> which has been evaluated for several scale levels and exhibits a clear maximum that can be seen as the characteristic scale of the image content within the circular region.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 844807,
+              "key": "bc9dcf08-c104-4d28-b356-e6f9b187ba50",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/April/5cbf9ecc_scale-space-sunflower/scale-space-sunflower.jpg",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/bc9dcf08-c104-4d28-b356-e6f9b187ba50",
+              "caption": "Adapted from [Feature Detection with Automatic Scale Selection](https://people.kth.se/~tony/papers/cvap198.pdf).",
+              "alt": "",
+              "width": 588,
+              "height": 584,
+              "instructor_notes": null
+            },
+            {
+              "id": 844808,
+              "key": "4c42e337-5a3e-4ebf-b61f-7d38b2173f02",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "Details of how to properly design a suitable function <span class=\"mathquill\">F</span> are not in the focus of this course however. The major take-away is the knowledge that a good detector is able to automatically select the characteristic scale of a keypoint based on structural properties of its local neighborhood. Modern keypoint detectors usually possess this ability and are thus robust under changes of the image scale.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 847333,
+              "key": "6215f2d6-03e1-4cc6-8f50-89943913b252",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## Overview of Popular Keypoint Detectors",
+              "instructor_notes": ""
+            },
+            {
+              "id": 847899,
+              "key": "27401d4c-62c8-48d4-a383-da1e04ae017d",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "Keypoint detectors are a very popular research area and thus a large number of powerful algorithms have been developed over the years. Applications of keypoint detection include such things as object recognition and tracking, image matching and panoramic stitching as well as robotic mapping and 3D modeling. In addition to invariance under the transformations mentioned above, detectors can be compared for their detection performance and their processing speed.\n\nThe Harris detector along with several other \"classics\" belongs to a group of traditional detectors, which aim at maximizing detection accuracy. In this group, computational complexity is not a primary concern. The following list shows a number of popular classic detectors :\n\n- 1988 Harris Corner Detector (Harris, Stephens)\n- 1996 Good Features to Track (Shi, Tomasi)\n- 1999 Scale Invariant Feature Transform (Lowe)\n- 2006 Speeded Up Robust Features (Bay, Tuytelaars, Van Gool)\n\nIn recent years, a number of faster detectors has been developed which aims at real-time applications on smartphones and other portable devices. The following list shows the most popular detectors belonging to this group:\n\n- 2006 Features from Accelerated Segment Test (FAST) (Rosten, Drummond)\n- 2010 Binary Robust Independent Elementary Features (BRIEF) (Calonder, et al.)\n- 2011 Oriented FAST and Rotated BRIEF (ORB) (Rublee et al.)\n- 2011 Binary Robust Invariant Scalable Keypoints (BRISK) (Leutenegger, Chli, Siegwart)\n- 2012 Fast Retina Keypoint (FREAK) (Alahi, Ortiz, Vandergheynst)\n- 2012 KAZE (Alcantarilla, Bartoli, Davidson)\n\nIn this course, we will be using the Harris detector as well as the Shi-Tomasi detector (which is very similar to Harris) as representatives from the first group of \"classic“ detectors. From the second group, we will be leveraging the OpenCV to implement the entire list of detectors. ",
+              "instructor_notes": ""
+            },
+            {
+              "id": 847335,
+              "key": "0926e351-64e2-4a77-8e99-dcfcaa7a524c",
+              "title": "ND313 C03 L03 A07 C33 Outro",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "ybf16ErRqVg",
+                "china_cdn_id": "ybf16ErRqVg.mp4"
+              }
+            },
+            {
+              "id": 848944,
+              "key": "325aa232-2f3a-4f81-b66a-55b0cb800aeb",
+              "title": "ND313 C03 L03 A07 C33 Outro Pt 2",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "Hel5bW4bD4w",
+                "china_cdn_id": "Hel5bW4bD4w.mp4"
+              }
+            },
+            {
+              "id": 844810,
+              "key": "4fdda578-358c-4934-8fc4-fe7f36019833",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## Exercise\n\nBefore we go into details on the above-mentioned detectors in the next section, use the OpenCV library to add the FAST detector in addition to the already implemented Shi-Tomasi detector and compare both algorithms with regard to (a) number of keypoints, (b) distribution of keypoints over the image and (c) processing speed. Describe your observations with a special focus on the preceding vehicle.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 844811,
+              "key": "99a8d294-33c6-4265-a7e4-735567e8d4fb",
+              "title": null,
+              "semantic_type": "WorkspaceAtom",
+              "is_public": true,
+              "workspace_id": "r831540c844792xREACTpasdjhxp",
+              "pool_id": "autonomouscpu",
+              "view_id": "react-0r3pm",
+              "gpu_capable": false,
+              "configuration": {
+                "id": "reserved",
+                "blueprint": {
+                  "conf": {
+                    "disk": null,
+                    "port": 3000,
+                    "ports": [],
+                    "userCode": "export CXX=g++-7\nexport CXXFLAGS=-std=c++17",
+                    "openFiles": [
+                      "/home/workspace/detect_keypoints/src/detect_keypoints.cpp"
+                    ],
+                    "showFiles": true,
+                    "allowClose": true,
+                    "allowSubmit": false,
+                    "terminalTitle": "BASH",
+                    "actionButtonText": "Desktop",
+                    "openTerminalOnStartup": true
+                  },
+                  "kind": "react"
+                },
+                "workspaceId": "reserved"
+              },
+              "starter_files": null
+            },
+            {
+              "id": 844812,
+              "key": "c8294bf6-733c-4115-bace-bef2dfb758fa",
+              "title": "Reflect",
+              "semantic_type": "ReflectAtom",
+              "is_public": true,
+              "instructor_notes": null,
+              "user_state": {
+                "node_key": "c8294bf6-733c-4115-bace-bef2dfb758fa",
+                "completed_at": null,
+                "last_viewed_at": null,
+                "unstructured": null
+              },
+              "question": {
+                "title": null,
+                "semantic_type": "TextQuestion",
+                "evaluation_id": null,
+                "text": "Describe your observations from the exercise above with a special focus on the preceding vehicle."
+              },
+              "answer": {
+                "text": "Thank you for your reflection!",
+                "video": null
+              }
+            }
+          ]
+        },
+        {
+          "id": 844815,
+          "key": "6958e5a8-7ef9-4417-b522-3add2c626513",
+          "title": "Gradient-based vs. Binary Descriptors",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "6958e5a8-7ef9-4417-b522-3add2c626513",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 844816,
+              "key": "e31ca8c5-1c03-4310-9115-ab07a3095545",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "# Gradient-based vs. Binary Descriptors",
+              "instructor_notes": ""
+            },
+            {
+              "id": 844817,
+              "key": "e8fce1e2-07f0-4e32-81f9-633e6a544bb0",
+              "title": "ND313 C03 L03 A08 C34 Intro",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "0ddUBGq8Gig",
+                "china_cdn_id": "0ddUBGq8Gig.mp4"
+              }
+            },
+            {
+              "id": 844818,
+              "key": "38a3f1a4-4259-4873-ae07-1f6630ee4006",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## Detectors and Descriptors\n\nBefore we go into details on how some of the keypoint detectors discussed in the previous section work, let us take a look at the problem ahead of us. Our task is to find corresponding keypoints in a sequence of images that we can use to compute the TTC to a preceding object, e.g. a vehicle. We therefore need a way to robustly assign keypoints to each other based on some measure of similarity. In the literature, a large variety of similarity measures (called _descriptors_) have been proposed and in many cases, authors have published both a new method for keypoint detection as well as similarity measure which has been optimized for their type of keypoints.\n\nLet us refine our terminology at this point :\n\n- A _keypoint_ (sometimes also interest point or salient point) detector is an algorithm that chooses points from an image based on a local maximum of a function, such as the \"cornerness\" metric we saw with the Harris detector.\n- A _descriptor_ is a vector of values, which describes the image patch around a keypoint. There are various techniques ranging from comparing raw pixel values to much more sophisticated approaches such as histograms of gradient orientations.\n\nDescriptors help us to assign similar keypoints in different images to each other. As shown in the figure below, a set of keypoints in one frame is assigned keypoints in another frame such that the similarity of their respective descriptors is maximized and (ideally) the keypoints represent the same object in the image. In addition to maximizing similarity, a good descriptor should also be able to minimize the number of mismatches, i.e. avoid assigning keypoints to each other that do not correspond to the same object.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 844819,
+              "key": "d57c916c-59a5-4959-8171-7e8b7343dd5a",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/April/5cbfa254_new-group/new-group.jpg",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/d57c916c-59a5-4959-8171-7e8b7343dd5a",
+              "caption": "",
+              "alt": "",
+              "width": 450,
+              "height": 526,
+              "instructor_notes": null
+            },
+            {
+              "id": 844820,
+              "key": "fea9f871-eb8d-4163-a70e-09d4620295e8",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "Before we go into details on a powerful class of detector / descriptor combinations (i.e. binary descriptors such as BRISK), let us briefly revisit one of the most famous descriptors of all time - the Scale Invariant Feature Transform. The reason we are doing this is two-fold : First, this method is still relevant and being used in a large number of applications. And second, we need to lay some foundations so that you will be able to better understand and appreciate the contributions of binary descriptors. ",
+              "instructor_notes": ""
+            },
+            {
+              "id": 859015,
+              "key": "98eb27bc-1fb3-4bc1-b876-27e96d652ffb",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "# HOG Descriptors and SIFT",
+              "instructor_notes": ""
+            },
+            {
+              "id": 859016,
+              "key": "7fbcfd88-c54e-4af7-9441-54556a9c57ff",
+              "title": "ND313 Timo Intv 10 Can You Describe SIFT",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "r0BhmnZpyiI",
+                "china_cdn_id": "r0BhmnZpyiI.mp4"
+              }
+            },
+            {
+              "id": 844821,
+              "key": "96d9e9a5-f1d1-444d-8612-6b0a5e29b7ab",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "In the following, we will take a brief look at the family of descriptors based on Histograms of Oriented Gradients (HOG). The basic idea behind HOG is to describe the structure of an object by the distribution its intensity gradients in a local neighborhood. To achieve this, an image is divided into cells in which gradients are computed and collected in a histogram. The set of histogram from all cells is then used as a similarity measure to uniquely identify an image patch or object.\n\nOne of the best-known examples of the HOG family is the Scale-Invariant Feature Transform (SIFT), introduced in 1999 by David Lowe. The SIFT method includes both a keypoint detector as well as a descriptor and it follows a five-step process, which is briefly outlined in the following.\n\n1. First, keypoints are detected in the image using an approach called „Laplacian-Of-Gaussian (LoG)“, which is based on second-degree intensity derivatives. The LoG is applied to various scale levels of the image and tends to detect blobs instead of corners. In addition to a unique scale level, keypoints are also assigned an orientation based on the intensity gradients in a local neighborhood around the keypoint.\n2. Second, for every keypoint, its surrounding area is transformed by removing the orientation and thus ensuring a _canonical orientation_. Also, the size of the area is resized to 16 x 16 pixels, providing a normalized patch.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 844822,
+              "key": "736f83ab-4dbe-43e1-ab5d-83649ef45943",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/April/5cbfc27d_sift-1/sift-1.jpg",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/736f83ab-4dbe-43e1-ab5d-83649ef45943",
+              "caption": "The mountain scenery image material has been taken from the original publication by D. Lowe.",
+              "alt": "",
+              "width": 769,
+              "height": 247,
+              "instructor_notes": null
+            },
+            {
+              "id": 844823,
+              "key": "f2b83bf3-b344-4538-8dc0-2886aa798b3a",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "3. Third, the orientation and magnitude of each pixel within the normalized patch are computed based on the intensity gradients Ix and Iy.\n4. Fourth, the normalized patch is divided into a grid of 4 x 4 cells. Within each cell, the orientations of pixels which exceed a threshold on magnitude are collected in a histogram consisting of 8 bins.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 844824,
+              "key": "e5092eb3-515c-46c7-a9bd-be7e5155516f",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/April/5cbfc31a_sift-2/sift-2.jpg",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/e5092eb3-515c-46c7-a9bd-be7e5155516f",
+              "caption": "",
+              "alt": "",
+              "width": 769,
+              "height": 330,
+              "instructor_notes": null
+            },
+            {
+              "id": 844825,
+              "key": "c3c2207e-458b-4505-a1e4-8fd6f95ca184",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/April/5cbfc323_sift-3/sift-3.jpg",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/c3c2207e-458b-4505-a1e4-8fd6f95ca184",
+              "caption": "",
+              "alt": "",
+              "width": 400,
+              "height": 116,
+              "instructor_notes": null
+            },
+            {
+              "id": 844826,
+              "key": "126776e0-2c4b-4bc5-a3ce-dd3867e657a5",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "5. Last, the 8-bin histograms of all 16 cells are concatenated into a 128-dimensional vector (the descriptor) which is used to uniquely represent the keypoint.\n\nThe SIFT detector / descriptor is able to robustly identify objects even among clutter and under partial occlusion. It is invariant to uniform changes in scale, to rotation, to changes in both brightness and contrast and it is even partially invariant to affine distortions.\n\nThe downside of SIFT is its low speed, which prevents it from being used in real-time applications on e.g. smartphones. Other members of the HOG family (such as SURF and GLOH), have been optimized for speed. However, they are still too computationally expensive and should not be used in real-time applications. Also, SIFT and SURF are heavily patented, so they can’t be freely used in a commercial context. In order to use SIFT in the OpenCV, you have to `#include <opencv2/xfeatures2d/nonfree.hpp>`, which further emphasizes this issue.\n\nA much faster (and free) alternative to HOG-based methods is the family of binary descriptors, which provide a fast alternative at only slightly worse accuracy and performance. Let us take a look at those in the next section.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 844827,
+              "key": "1b99055d-8c83-4c72-8cb2-ceb0b67d5523",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## Binary Descriptors and BRISK\n\nThe problem with HOG-based descriptors is that they are based on computing the intensity gradients, which is a very costly operation. Even though there have been some improvements such as SURF, which uses the integral image instead, these methods do not lend themselves to real-time applications on devices with limited processing capabilities (such as smartphones).\n\nThe central idea of binary descriptors is to rely solely on the intensity information (i.e. the image itself) and to encode the information around a keypoint in a string of binary numbers, which can be compared very efficiently in the matching step, when corresponding keypoints are searched. Currently, the most popular binary descriptors are BRIEF, BRISK, ORB, FREAK and KAZE (all available in the OpenCV library).\n\nFrom a high-level perspective, binary descriptors consist of three major parts:\n1. A **sampling pattern** which describes where sample points are located around the location of a keypoint.\n2. A method for **orientation compensation**, which removes the influence of rotation of the image patch around a keypoint location.\n3. A method for **sample-pair selection**, which generates pairs of sample points which are compared against each other with regard to their intensity values. If the first value is larger than the second, we write a '1' into the binary string, otherwise we write a '0'. After performing this for all point pairs in the sampling pattern, a long binary chain (or ‚string‘) is created (hence the family name of this descriptor class).\n\nIn the following, the \"Binary Robust Invariant Scalable Keypoints (BRISK)\" keypoint detector / descriptor is used as a representative for the binary descriptor family. Proposed in 2011 by Stefan Leutenegger et al., BRISK is a FAST-based detector in combination with a binary descriptor created from intensity comparisons retrieved by dedicated sampling of each keypoint neighborhood.\n\nThe sampling pattern of BRISK is composed out of a number of sample points (blue), where a concentric ring (red) around each sample point denotes an area where Gaussian smoothing is applied. As opposed to some other binary descriptors such as ORB or BRIEF, the BRISK sampling pattern is fixed. The smoothing is important to avoid aliasing (an effect that causes different signals to become indistinguishable - or aliases of one another - when sampled).",
+              "instructor_notes": ""
+            },
+            {
+              "id": 844828,
+              "key": "ce8c7e19-e247-4c5c-8b4d-47c654377abe",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/April/5cbfc3b9_brisk-1/brisk-1.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/ce8c7e19-e247-4c5c-8b4d-47c654377abe",
+              "caption": "",
+              "alt": "",
+              "width": 321,
+              "height": 315,
+              "instructor_notes": null
+            },
+            {
+              "id": 844829,
+              "key": "f6cb06c6-5258-4f6a-9972-ee0aea384faf",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "During sample pair selection, the BRISK algorithm differentiates between long- and short-distance pairs. The long-distance pairs (i.e. sample points with a minimal distance between each other on the sample pattern) are used for estimating the orientation of the image patch from intensity gradients, whereas the short-distance pairs are used for the intensity comparisons from which the descriptor string is assembled. Mathematically, the pairs are expressed as follows:",
+              "instructor_notes": ""
+            },
+            {
+              "id": 847196,
+              "key": "b370de67-4ea9-41f6-b131-482c141afe63",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/May/5cd315cd_draggedimage/draggedimage.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/b370de67-4ea9-41f6-b131-482c141afe63",
+              "caption": "",
+              "alt": "Mathematical description of pairs for BRISK algorithm.",
+              "width": 2118,
+              "height": 953,
+              "instructor_notes": null
+            },
+            {
+              "id": 847197,
+              "key": "d965713a-19fd-4d87-8f38-5a29e237f72c",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "First, we define the set A of all possible pairings of sample points. Then, we extract the subset L from A for which the euclidean distance is above a pre-defined upper threshold. This set are the long-distance pairs used for orientation estimation. Lastly, we extract those pairs from A whose euclidean distance is below a lower threshold. This set S contains the short-distance pairs for assembling the binary descriptor string.\n\nThe following figure shows the two types of distance pairs on the sampling pattern for short pairs (left) and long pairs (right).\n\n\n\n",
+              "instructor_notes": ""
+            },
+            {
+              "id": 847198,
+              "key": "04bdb83b-5f3d-4226-9d93-41cf37b8a3d1",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/May/5cd3166e_new-group-1/new-group-1.jpg",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/04bdb83b-5f3d-4226-9d93-41cf37b8a3d1",
+              "caption": "\\[based on this [source](based on https://www.cse.unr.edu/~bebis/CS491Y/Lectures/BRISK.pptx) \\]",
+              "alt": "",
+              "width": 1017,
+              "height": 603,
+              "instructor_notes": null
+            },
+            {
+              "id": 847199,
+              "key": "7e8cf0f8-cb72-414c-a05e-9f7b35ad5231",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "From the long pairs, the keypoint direction vector <span class=\"mathquill\">\\vec{g}</span> is computed as follows:",
+              "instructor_notes": ""
+            },
+            {
+              "id": 847200,
+              "key": "539f8630-3d03-44f8-9d7e-d4dff8d3c5f6",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/May/5cd31743_draggedimage-1/draggedimage-1.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/539f8630-3d03-44f8-9d7e-d4dff8d3c5f6",
+              "caption": "",
+              "alt": "Keypoint direction vector computation.",
+              "width": 1913,
+              "height": 1027,
+              "instructor_notes": null
+            },
+            {
+              "id": 847201,
+              "key": "91a8f5ae-ee96-452d-8123-afa383f5c6bb",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "First, the gradient strength between two sample points is computed based on the normalized unit vector that gives the direction between both points multiplied with the intensity difference of both points at their respective scales. In (2), the keypoint direction vector <span class=\"mathquill\">\\vec{g}</span> is then computed from the sum of all gradient strengths.\n\nBased on <span class=\"mathquill\">\\vec{g}</span>, we can use the direction of the sample pattern to rearrange the short-distance pairings and thus ensure rotation invariance. Based on the rotation-invariant short-distance pairings, the final binary descriptor can be constructed as follows:",
+              "instructor_notes": ""
+            },
+            {
+              "id": 847204,
+              "key": "cf9299ff-829a-4055-abb1-bc54eb284d63",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/May/5cd317b6_draggedimage-2/draggedimage-2.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/cf9299ff-829a-4055-abb1-bc54eb284d63",
+              "caption": "",
+              "alt": "",
+              "width": 1947,
+              "height": 1269,
+              "instructor_notes": null
+            },
+            {
+              "id": 847205,
+              "key": "ab2c2cd4-d583-40a3-bce7-799e0e41b5c2",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "After computing the orientation angle of the keypoint from g, we use it to make the short-distance pairings invariant to rotation. Then, the intensity between all pairs in <span class=\"mathquill\">S</span> is compared and used to assemble the binary descriptor we can use for matching.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 847346,
+              "key": "dfe47cdd-2c4d-4230-bc2e-6318025c8e57",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## HOG vs. Binary Exercise",
+              "instructor_notes": ""
+            },
+            {
+              "id": 847347,
+              "key": "2028c73b-ce59-4500-8636-ac5d8d77979c",
+              "title": "ND313 C03 L03 A09 C34 Outro",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "69oJ9Jx2DPE",
+                "china_cdn_id": "69oJ9Jx2DPE.mp4"
+              }
+            },
+            {
+              "id": 844832,
+              "key": "a076cae9-7780-434d-8a9e-eba04339ca96",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "In the code at the end of this section, keypoints and descriptors are computed using the BRISK method. The time for both keypoint detection and descriptor computation is printed to the console. For the BRISK detector, the keypoints can be seen in the following figure with the center of a circle denoting its location and the size of the circle reflecting the characteristic scale.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 844833,
+              "key": "0aaf0451-4a96-4b25-9a95-f6ea39f434f2",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/April/5cbfc43e_draggedimage/draggedimage.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/0aaf0451-4a96-4b25-9a95-f6ea39f434f2",
+              "caption": "",
+              "alt": "",
+              "width": 2468,
+              "height": 744,
+              "instructor_notes": null
+            },
+            {
+              "id": 844834,
+              "key": "e87ba8db-918f-44ac-a67c-7d741191c3ce",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "Given the code in `describe_keypoints.cpp` of the workspace below, add the SIFT detector / descriptor, compute the time for both steps and compare both BRISK and SIFT with regard to processing speed and the number and visual appearance of keypoints.\n\nAfter building your code with `cmake` and `make`, you can run the code from the virtual desktop using the `describe_keypoints` executable.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 844836,
+              "key": "be1b5cc7-41c0-447c-b1d4-fc7e2e54743c",
+              "title": null,
+              "semantic_type": "WorkspaceAtom",
+              "is_public": true,
+              "workspace_id": "r831540c844815xREACTm84gqv8z",
+              "pool_id": "autonomouscpu",
+              "view_id": "react-fp0q3",
+              "gpu_capable": false,
+              "configuration": {
+                "id": "reserved",
+                "blueprint": {
+                  "conf": {
+                    "disk": null,
+                    "port": 3000,
+                    "ports": [],
+                    "userCode": "export CXX=g++-7\nexport CXXFLAGS=-std=c++17",
+                    "openFiles": [
+                      "/home/workspace/describe_keypoints/src/describe_keypoints.cpp"
+                    ],
+                    "showFiles": true,
+                    "allowClose": true,
+                    "allowSubmit": false,
+                    "terminalTitle": "BASH",
+                    "actionButtonText": "Desktop",
+                    "openTerminalOnStartup": true
+                  },
+                  "kind": "react"
+                },
+                "workspaceId": "reserved"
+              },
+              "starter_files": null
+            },
+            {
+              "id": 844835,
+              "key": "07ca6041-a681-431c-8d5d-a8a6c6b4a029",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "In the next section, we will look at the descriptor part of BRISK in detail. ",
+              "instructor_notes": ""
+            }
+          ]
+        },
+        {
+          "id": 847218,
+          "key": "ccc26fbd-896a-443e-a381-a1ea53695a84",
+          "title": "Descriptor Matching",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "ccc26fbd-896a-443e-a381-a1ea53695a84",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 847219,
+              "key": "fa9dc667-6001-4606-8681-bf676d490252",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "# Descriptor Matching",
+              "instructor_notes": ""
+            },
+            {
+              "id": 847220,
+              "key": "5f83353b-84c8-4415-8bd4-51fccf08b848",
+              "title": "ND313 C03 L03 A10 C35 Intro",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "IGa4AUyl7YQ",
+                "china_cdn_id": "IGa4AUyl7YQ.mp4"
+              }
+            },
+            {
+              "id": 847225,
+              "key": "4b87a0b0-a1cc-42e4-ab86-99ce68217ce0",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## Distance between descriptors\n\nIn the last section, you have learned that keypoints can be described by transforming their local neighborhood into a high-dimensional vector that captures the unique characteristics of the gradient or intensity distribution. In this section, we want to look at several ways to compute the distance between two descriptors such that the differences between them are transformed into a single number which we can use as a simple measure of similarity.\n\nThe first distance function is the \"Sum of Absolute Differences (SAD)\". As you can see in the equation below, the SAD takes as input two descriptor vectors <span class=\"mathquill\">d_a</span> and <span class=\"mathquill\">d_b</span>. The SAD is computed by subtracting from every component in <span class=\"mathquill\">d_a</span> the corresponding component at the same position in <span class=\"mathquill\">d_b</span>. Then, the absolute value of the respective result is summed up. The SAD norm is also referred to as L1-norm in the literature.\n\nThe second distance function is the \"Sum of Squared Differences (SSD)\", which is similar to the SAD in the sense that differences between individual components of two descriptor vectors are computed. However, the key difference between SAD and SSD is that the latter sums the squared differences instead of the absolute differences. In the literature, the SSD norm is also referred to as L2-norm. Both norms are given in the following figure.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 847235,
+              "key": "d8d7bd35-f7ed-4ea4-825f-dab81134a0f0",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/May/5cd31e20_draggedimage/draggedimage.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/d8d7bd35-f7ed-4ea4-825f-dab81134a0f0",
+              "caption": "",
+              "alt": "",
+              "width": 600,
+              "height": 1482,
+              "instructor_notes": null
+            },
+            {
+              "id": 847227,
+              "key": "97a60aec-ee40-45b0-ae00-521cb1de8f1c",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "There are several ways of explaining the differences between SAD and SSD. One helpful approach, as we want to keep this aspect short, is to look at both norms from a geometrical perspective. In the following figure, a two-dimensional feature space is considered. In it, there are two feature vectors d1 and d2, each of which consists of an (a,b) coordinate pair.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 847234,
+              "key": "e7c75fb6-4ebb-4192-b4c7-3b23e9cda9ca",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/May/5cd31e02_draggedimage-1/draggedimage-1.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/e7c75fb6-4ebb-4192-b4c7-3b23e9cda9ca",
+              "caption": "",
+              "alt": "",
+              "width": 600,
+              "height": 1619,
+              "instructor_notes": null
+            },
+            {
+              "id": 847237,
+              "key": "c83ad65f-1b77-461b-a093-6354e0933977",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "The shortest distance between both is a straight line. Given the two components of each vector, the SAD computes the sum of the length differences, which is a one-dimensional process. The SSD on the other hand, computes the sum of squares, which obeys the law of Pythagoras. This law says that In a rectangular triangle, the sum of the cathete squares is equal to the square of the hypotenuse. So in terms of the geometric distance between both vectors, the L2-norm is a more accurate measure. Note that the same rationale applies to higher-dimensional descriptors in the same manner.\n\nIn the case of a binary descriptor who consists only of ones and zeros, the best (and fastest) measure to use is the Hamming distance, which computes the difference between both vectors by using an XOR function, which returns zero if two bits are identical and one if two bits are different. So the sum of all XOR operations is simply the number of differing bits between both descriptors.\n\nThe key takeaway here is that you have to adapt the distance measure to the type of descriptor you are using. In case of gradient-based methods such as SIFT, the L2-norm would be most appropriate. In case of all binary descriptors, the Hamming distance should be used.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 847238,
+              "key": "e1b80462-eb2b-4391-a4c2-7c08b3a9daaf",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## Finding matches\n\nLet us assume we have N keypoints and their associated descriptors in one image and M keypoints in another image. The most obvious method to look for corresponding pairs would be to compare all features with each other, i.e. perform N x M comparisons. For a given keypoint from the first image, it takes every keypoint in the second image and calculates the distance. The keypoint with the smallest distance will be considered its pair. This approach is referred to as Brute Force Matching or Nearest Neighbor Matching and is available in the OpenCV under the name BFMatcher. The output of brute force matching in OpenCV is a list of keypoint pairs sorted by the distance of their descriptors under the chosen distance function. Brute force matching works well for small keypoint numbers but can be computationally expensive as the number of keypoints increases.\n\nIn 2014, David Lowe (the father of SIFT) and Marius Muja released an open-source library called \"fast library for approximate nearest neighbors\" (FLANN). FLANN trains an indexing structure for walking through potential matching candidates that is created using concepts from machine learning. The library builds a very efficient data structure (a KD-tree) to search for matching pairs and avoids the exhaustive search of the brute force approach. It is therefore faster while the results are still very good, depending on the matching parameters. As FLANN-based matching entails a whole new body of knowledge with several concepts that have limited relevancy for this course, there is no detailed description of the method given here. The FLANN-based matching is available in the OpenCV and you will see it again in the code example below. At the time of writing (May 2019), there is a potential bug in the current implementation of the OpenCV, which requires a conversion of the binary descriptors into floating point vectors, which is inefficient. Yet still there is an improvement in speed, albeit not as large as it potentially could be. \n\nBoth BFMatching and FLANN accept a descriptor distance threshold T which is used to limit the number of matches to the ‚good‘ ones and discard matches where the respective pairs are no correspondences. Corresponding ‚good‘ pairs are termed ‚True Positives (TP)‘ whereas mismatches are called ‚False Positives (FP)‘. The task of selecting a suitable value for T is to allow for as many TP matches as possible while FP matches should be avoided as far as possible. Depending on the image content and on the respective detector / descriptor combination, a trade-off between TP and FP has to be found that reasonably balances the ratio between TP and FP. The following figure shows two distributions of TP and of FP over the SSD to illustrate threshold selection.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 847239,
+              "key": "d1041f53-4e0e-4c9a-b08b-772194474783",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/May/5cd31ef3_draggedimage-2/draggedimage-2.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/d1041f53-4e0e-4c9a-b08b-772194474783",
+              "caption": "",
+              "alt": "",
+              "width": 600,
+              "height": 986,
+              "instructor_notes": null
+            },
+            {
+              "id": 847240,
+              "key": "6d4d4605-089e-4da1-9e5e-2c99b554a0c0",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "The first threshold T1 is set to a maximally permissible SSD between two features in a way that some true positive matches are selected, while false positive matches are almost entirely avoided . However, most TP matches are also discarded with this setting. By increasing the matching threshold to T2, more TP matches are selected but the number of FP matches also increases significantly. In practice, a clear and concise separation of TP and FP is almost never found and therefore, setting a matching threshold is always a compromise between balancing 'good' vs. 'bad' matches. While FP matches can not be avoided in most cases, the goal always is to lower their number as much as possible. In the following, two strategies to achieve this are presented.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 847241,
+              "key": "707f6348-196e-4a90-9c1c-3e17f35a4aac",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## Selecting Matches\n\nAs long as the selected threshold T is not exceeded, brute force matching will always return a match for a keypoint in the first image, even if the keypoint is not present in the second image. This inevitably leads to a number of false matches. A strategy to counteract this is called cross check matching, which works by applying the matching procedure in both directions and keeping only those matches whose best match in one direction equals the best match in the other direction. The steps of the cross check approach are:\n\n1. For each descriptor in the source image, find one or more best matches in the reference image.\n2. Switch the order of source and reference image.\n3. Repeat the matching procedure between source and reference image from step 1.\n4. Select those keypoint pairs whose descriptors are best matches in both directions.\n\nAlthough cross check matching increases the processing time, it usually removes a significant number of false matches and should thus always be performed when accuracy is preferred over speed. \n\nA very efficient way of lowering the number of false positives is to compute the _nearest neighbor distance ratio_ for each keypoint. This method has been originally proposed by D. Lowe in the 1999 paper on SIFT. The main idea is to not apply the threshold on the SSD directly. Instead, for each keypoint in the source image, the two best matches are located in the reference image and the ratio between the descriptor distances is computed. Then, a threshold is applied to the ratio to sort out ambiguous matches. The figure below illustrates the principle.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 847243,
+              "key": "4c9b1214-6707-4de8-a3bb-eab8a5c57240",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/May/5cd31f81_draggedimage-3/draggedimage-3.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/4c9b1214-6707-4de8-a3bb-eab8a5c57240",
+              "caption": "",
+              "alt": "",
+              "width": 600,
+              "height": 1180,
+              "instructor_notes": null
+            },
+            {
+              "id": 847242,
+              "key": "9bf8bf46-3502-46d7-8b11-462ec5801691",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "In the example, an image patch with an associated descriptor da is compared to two other image patches with descriptors <span class=\"mathquill\">d_{b_1}</span> and <span class=\"mathquill\">d_{b_2}</span>. As can be seen, the patches look very similar and would result in ambiguous and thus unreliable matches. By computing the SSD ratio between best and second-best match, such weak candidates can be filtered out.\n\nIn practice, a threshold value of 0.8 has proven to provide a good balance between TP and FP. In the image sequences examined in the original SIFT paper, 90% of the false matches were eliminated with this setting while less than 5% of correct matches were lost.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 848946,
+              "key": "4e045549-123e-48b9-bd73-738f4d1974cf",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## Exercise: Distance between descriptors",
+              "instructor_notes": ""
+            },
+            {
+              "id": 848945,
+              "key": "1d66a4c1-8abb-4f66-b262-38b646056559",
+              "title": "ND313 C03 L03 A11 C35 Mid",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "nawEaRwnu2c",
+                "china_cdn_id": "nawEaRwnu2c.mp4"
+              }
+            },
+            {
+              "id": 847244,
+              "key": "4dfc25a6-d767-45aa-b314-6d4c62fbb171",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "In the following code example, a set of binary BRISK descriptors is pre-loaded and matched using the brute force approach described earlier in this section. Note that the number of matches has been limited to the 100 best candidates for educational purposes, as it is much easier to visually spot mismatches when drawing a reduced number of keypoint pairs as an overlay. Note that once the matches have been computed, the function can be set to either nearest-neighbor (keeping only the best match) or k-nearest-neighbor selection (keeping the best k matches per keypoint).\n\nBefore we take a look at how to estimate the performance of keypoints and descriptors further down below in this section, please complete the following tasks using the desktop workspace below:\n\n1. Load the 'BRISK_small' dataset with cross-check first turned off, then on. Look at the visualized keypoint matches and at the number of matched pairs and describe your results.\n2. Add the k-nearest-neighbor matching (using `cv::knnMatch`) with k=2 and implement the above-described descriptor distance ratio to filter out ambiguous matches with the threshold set to 0.8. Visualize the results, count the percentage of discarded matches (for both the 'BRISK_small' and the 'BRISK_large' dataset) and describe your observations.\n3. Use both BF matching and FLANN matching on the 'BRISK_large' dataset and on the SIFT dataset and describe your observations.\n\nThe code for this exercise is in the `descriptor_matching.cpp` file, and after building with `cmake` and `make`, you can run the code using the `descriptor_matching` executable.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 847245,
+              "key": "f6e894a2-54f7-443e-b990-5368f142de1c",
+              "title": null,
+              "semantic_type": "WorkspaceAtom",
+              "is_public": true,
+              "workspace_id": "r831540c847218xREACT1huqoae8",
+              "pool_id": "autonomouscpu",
+              "view_id": "react-39oda",
+              "gpu_capable": false,
+              "configuration": {
+                "id": "reserved",
+                "blueprint": {
+                  "conf": {
+                    "disk": null,
+                    "port": 3000,
+                    "ports": [],
+                    "userCode": "export CXX=g++-7\nexport CXXFLAGS=-std=c++17",
+                    "openFiles": [
+                      "/home/workspace/descriptor_matching/src/descriptor_matching.cpp"
+                    ],
+                    "showFiles": true,
+                    "allowClose": true,
+                    "allowSubmit": false,
+                    "terminalTitle": "BASH",
+                    "actionButtonText": "Desktop",
+                    "openTerminalOnStartup": true
+                  },
+                  "kind": "react"
+                },
+                "workspaceId": "reserved"
+              },
+              "starter_files": null
+            },
+            {
+              "id": 847620,
+              "key": "0e796bcc-c4c4-4032-a6e2-af485419aa36",
+              "title": "Reflect",
+              "semantic_type": "ReflectAtom",
+              "is_public": true,
+              "instructor_notes": null,
+              "user_state": {
+                "node_key": "0e796bcc-c4c4-4032-a6e2-af485419aa36",
+                "completed_at": null,
+                "last_viewed_at": null,
+                "unstructured": null
+              },
+              "question": {
+                "title": null,
+                "semantic_type": "TextQuestion",
+                "evaluation_id": null,
+                "text": "Record your observations from steps 2 and 3 of the above exercise."
+              },
+              "answer": {
+                "text": "Thank you for your response!",
+                "video": null
+              }
+            },
+            {
+              "id": 847246,
+              "key": "08120a2c-762f-4505-b1e7-daf57fe19559",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## Evaluating Matching Performance\n\nThere exists a large number of detector and descriptor types and based on the problem to be solved, a suitable pair of algorithms has to be chosen based on requirements such as the accuracy of keypoints or the number of matched pairs. In the following, an overview of the most common measures is presented.\n\nThe _True Positive Rate (TPR)_ is the ratio between keypoints that have been matched correctly (true positives - TP) and the sum of all potential matches, including ones missed by the detector/descriptor (false negatives - FN). A perfect matcher would have a TPR of 1.0 as there would be no false matches. In the literature, the TPR is also referred to as _recall_ and can be used to quantify how many of the possible correct matches were actually found.\n\nThe _False Positive Rate (FPR)_ is the ratio between keypoints that have been incorrectly matched (false positives - FP) and the sum of all features that should have been without a match. A perfect matcher would have a FPR of 0.0. The FPR is also referred to as _false alarm rate_ and describes how likely it is that a detector / descriptor selects a wrong keypoint pair.\n\nThe _Precision_ of a matcher is the number of correctly matched keypoints (TP) divided by the number of all matches. This measure is also referred to as _inlier ratio_.\n\nThe following table gives an overview of some of the measures just introduced.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 847247,
+              "key": "c2555283-4b45-47c3-a464-a424d9a866e9",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/May/5cd320ed_draggedimage-4/draggedimage-4.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/c2555283-4b45-47c3-a464-a424d9a866e9",
+              "caption": "",
+              "alt": "",
+              "width": 600,
+              "height": 1369,
+              "instructor_notes": null
+            },
+            {
+              "id": 847248,
+              "key": "3e32257e-1955-4a35-90e1-a9303500eacb",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "In order to decide whether a match or non-match is correct, ground-truth information of the image material used for assessment is needed. In many publications, image sequences have been used where all keypoints are located on a planar surface. In such a case, a model-based estimation can be used to differentiate between TP / TN and FP / FN. For the image sequences we use in this course, this approach can not be used as \"our\" keypoints are distributed in a complex three-dimensional scene, in which the objects move dynamically with unknown motion parameters. However, we can use a large number of available comparisons in the literature and transfer the results to our application scenario. At the end of this section, a small selection of such results is shown.\n\nThe _Receiver Operating Characteristic (ROC)_ is a graphical plot that shows how well a detector / descriptor is able to differentiate between true and false matches as its discrimination threshold is varied. The ROC can be used to visually compare different detectors / descriptors and also select a suitable discrimination threshold for each. The name ROC dates back to WW II, where the method has been introduced by radar operators in the context of identifying enemy targets.\n\nThe following figure shows how the ROC is constructed from the distribution of true positives and false positives by varying the discrimination threshold on the SSD. An ideal detector / descriptor would have a TPR of 1.0 while the FPR would be close to 0.0 at the same time.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 847249,
+              "key": "6a819eec-6a2f-4030-8492-2eb305eb3003",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/May/5cd32130_draggedimage-5/draggedimage-5.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/6a819eec-6a2f-4030-8492-2eb305eb3003",
+              "caption": "",
+              "alt": "",
+              "width": 600,
+              "height": 1424,
+              "instructor_notes": null
+            },
+            {
+              "id": 847250,
+              "key": "a57887e4-c6d1-476a-a653-4e9bec51a5bd",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "In the following figure, two examples for good and bad detectors / descriptors are shown. In the first example, there is no way of safely differentiating between TP and FP as both curves match and changes in the discrimination threshold would affect them in the same way. In the second example, the TP and FP curve do not overlap significantly and therefore, a suitable discriminator threshold can be selected.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 847251,
+              "key": "b9f48ec0-32dc-4f0b-9dc8-e6fbd37f4a64",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/May/5cd32172_draggedimage-6/draggedimage-6.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/b9f48ec0-32dc-4f0b-9dc8-e6fbd37f4a64",
+              "caption": "",
+              "alt": "",
+              "width": 2113,
+              "height": 1116,
+              "instructor_notes": null
+            },
+            {
+              "id": 847252,
+              "key": "8e637ab0-0357-4138-b7d5-639a00b2e0bf",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "There are several other ways of assessing detectors and descriptors such as the _Precision-Recall Curve_ which we will not discuss in this course in order to stay focused on the task ahead - which is the development of our collision avoidance system.\n\nTo conclude this section, an overview of results is given, where several descriptors have been compared against each other and which can be used to facilitate the selection process when detectors / descriptors have to be chosen for an application. In the graph, you can see the ROC curves of different descriptors such as SIFT, BRISK and several others and visually compare them against each other. Note that those results are only valid for the image sequences actually used for the comparison - for a different image set, e.g. a traffic scene, results may vary significantly.\n\n",
+              "instructor_notes": ""
+            },
+            {
+              "id": 847253,
+              "key": "62e840f0-f877-464b-8500-25665d1f308d",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/May/5cd321cb_results1/results1.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/62e840f0-f877-464b-8500-25665d1f308d",
+              "caption": "\\[[source](https://cvlab.epfl.ch/research/page-90554-en-html/research-detect-dbrief/)\\]",
+              "alt": "",
+              "width": 1429,
+              "height": 1000,
+              "instructor_notes": null
+            },
+            {
+              "id": 847254,
+              "key": "3be03d2c-5a40-49d9-be06-04b409de3bc8",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## Lesson Summary",
+              "instructor_notes": ""
+            },
+            {
+              "id": 847255,
+              "key": "b972282e-2332-4811-b4b1-264a64366e68",
+              "title": "ND313 C03 L03 A12 C35 Outro",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "vosXnbzD8V8",
+                "china_cdn_id": "vosXnbzD8V8.mp4"
+              }
+            }
+          ]
+        },
+        {
+          "id": 859020,
+          "key": "5e138c20-7a46-4aeb-bb12-12444d9d3288",
+          "title": "Tracking an Object Across Images",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "5e138c20-7a46-4aeb-bb12-12444d9d3288",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 859021,
+              "key": "dd855e0f-a92c-4ffc-be85-0ce36ee0c178",
+              "title": "ND313 Timo Intv 19 How Do You Track An Object Across Multiple Camera Images",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "xuW1xaLYOng",
+                "china_cdn_id": "xuW1xaLYOng.mp4"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "_deprecated": [
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    }
+  ]
+}
