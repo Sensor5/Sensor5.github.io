@@ -1,0 +1,67 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:02.940
+Now welcome back in this section on Detecting Harris Corners.
+
+00:00:02.940 --> 00:00:04.349
+I hope you like the exercise and
+
+00:00:04.349 --> 00:00:07.354
+computing gradients with the Sobel operator in the last section.
+
+00:00:07.355 --> 00:00:08.880
+Now what we want to do here now,
+
+00:00:08.880 --> 00:00:13.440
+is to use those gradients to define a function for uniqueness or columnists,
+
+00:00:13.439 --> 00:00:16.800
+which gives us a set of key points in an image that we can use for tracking.
+
+00:00:16.800 --> 00:00:19.170
+Now one of the most famous methods to detect
+
+00:00:19.170 --> 00:00:21.840
+such points is the so-called Harris Corner Detector,
+
+00:00:21.839 --> 00:00:26.509
+which dates way back to the 1980's but it's still used in many applications today.
+
+00:00:26.510 --> 00:00:30.410
+Now the basic idea of this detector is to look for areas of significant change in
+
+00:00:30.410 --> 00:00:35.329
+the image by evaluating a local neighborhood around each pixel and based on this concept,
+
+00:00:35.329 --> 00:00:37.909
+Harris to find a so-called colonists measure,
+
+00:00:37.909 --> 00:00:41.149
+which takes the image gradients as input and provides a number as
+
+00:00:41.149 --> 00:00:45.500
+output that is high at locations where there is change in all directions.
+
+00:00:45.500 --> 00:00:48.409
+The reason why you should learn how the Harris Detector works is that,
+
+00:00:48.409 --> 00:00:51.109
+it teaches several basic computer vision concepts
+
+00:00:51.109 --> 00:00:53.630
+and gives you an understanding of the concept of key points,
+
+00:00:53.630 --> 00:00:56.225
+and this helps you understand and also appreciate
+
+00:00:56.225 --> 00:00:59.530
+the other concepts which we will take a look at later in this course.
+
+00:00:59.530 --> 00:01:01.064
+Okay, so that's it for the intro,
+
+00:01:01.064 --> 00:01:04.030
+now it's your turn to locate some corners.
+

@@ -1,0 +1,76 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:02.399
+So in this section, we will take a close look at
+
+00:00:02.399 --> 00:00:05.250
+several ways to describe the robustness of keypoint detectors.
+
+00:00:05.250 --> 00:00:08.745
+Imagine, you're detecting some key points on my coffee cup here.
+
+00:00:08.744 --> 00:00:12.629
+Another cup rotates, and you still want to locate and match the key points, for example,
+
+00:00:12.630 --> 00:00:14.040
+the light host corners,
+
+00:00:14.039 --> 00:00:16.934
+after rotation to the ones before the rotation.
+
+00:00:16.934 --> 00:00:19.049
+Now, if your detector is rotation invariant,
+
+00:00:19.050 --> 00:00:20.400
+it will be able to do this.
+
+00:00:20.399 --> 00:00:23.129
+Now, I mention the cup moving away from the camera,
+
+00:00:23.129 --> 00:00:25.250
+and the key points are getting smaller and smaller,
+
+00:00:25.250 --> 00:00:28.184
+and this means they are subject to a scale change.
+
+00:00:28.184 --> 00:00:31.439
+Also, another thing that could happen would be a change in scene illumination.
+
+00:00:31.440 --> 00:00:32.700
+If I block out the light,
+
+00:00:32.700 --> 00:00:35.455
+areas get darker, and we have a change in intensity.
+
+00:00:35.454 --> 00:00:38.429
+Lastly, imagine a perspective transformation that could
+
+00:00:38.429 --> 00:00:41.469
+change the shape of the key points on the image plane.
+
+00:00:41.469 --> 00:00:43.399
+Now, a perfect detector would be able to
+
+00:00:43.399 --> 00:00:45.689
+compensate for all those effects, and in the following,
+
+00:00:45.689 --> 00:00:47.269
+we will take a close look at them,
+
+00:00:47.270 --> 00:00:50.520
+including a way to automatically select the best scale level,
+
+00:00:50.520 --> 00:00:52.785
+that means the size for a key point.
+
+00:00:52.784 --> 00:00:57.454
+Lastly, I will give you an overview of traditional and contemporary key point detectors.
+
+00:00:57.454 --> 00:01:00.949
+Oh, and there will be a coding task for you to complete at the end of this section.
+
+00:01:00.950 --> 00:01:05.280
+So go ahead and we'll meet again at the bottom of this page.
+

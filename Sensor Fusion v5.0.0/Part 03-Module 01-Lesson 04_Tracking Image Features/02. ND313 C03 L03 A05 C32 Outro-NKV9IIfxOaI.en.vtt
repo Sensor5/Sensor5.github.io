@@ -1,0 +1,55 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:01.950
+Now, before we move on to the next section which is
+
+00:00:01.950 --> 00:00:04.110
+about several contemporary key point detectors,
+
+00:00:04.110 --> 00:00:05.355
+I have a task for you here.
+
+00:00:05.355 --> 00:00:07.230
+Now, in the last example, you saw the output of
+
+00:00:07.230 --> 00:00:09.929
+the Harris detector which is basically a collection of bright and dark
+
+00:00:09.929 --> 00:00:12.240
+patches.The next step now is to locate
+
+00:00:12.240 --> 00:00:15.449
+key points in the image which satisfy two important conditions.
+
+00:00:15.449 --> 00:00:19.469
+First, they should give the highest columnist in the local neighborhood and second,
+
+00:00:19.469 --> 00:00:22.619
+they should not overlap too much with other key points around them to
+
+00:00:22.620 --> 00:00:25.980
+avoid too many points clustering in a small neighborhood.
+
+00:00:25.980 --> 00:00:29.850
+Such a technique is called non-maximum suppression or NMS.
+
+00:00:29.850 --> 00:00:32.179
+I want you to find a way to apply this to
+
+00:00:32.179 --> 00:00:34.954
+the Harris response image and locate some key points.
+
+00:00:34.954 --> 00:00:38.644
+When you're finished, please store those key points in a C++ vector.
+
+00:00:38.645 --> 00:00:43.210
+Look up the OpenCV key point data type for some details on the required format.
+
+00:00:43.210 --> 00:00:47.105
+The result of your work should resemble the image which is given below this video.
+
+00:00:47.104 --> 00:00:50.489
+Okay. So see you in the next section once you've finished here.
+

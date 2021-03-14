@@ -1,0 +1,106 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:02.629 --> 00:00:07.320
+So if we want to track an object throughout multiple camera frames,
+
+00:00:07.320 --> 00:00:10.695
+you definitely have to have a central track management system.
+
+00:00:10.695 --> 00:00:16.230
+If you do not have overlap between sensors so you have some blind spot basically,
+
+00:00:16.230 --> 00:00:20.550
+you can also predict your object throughout occlusions for a little bit.
+
+00:00:20.550 --> 00:00:23.789
+That is okay. But if your gap is too large or
+
+00:00:23.789 --> 00:00:26.954
+the object is also included for a longer period of time,
+
+00:00:26.954 --> 00:00:28.919
+then there will be an ID switch,
+
+00:00:28.920 --> 00:00:33.030
+the planner has to properly react on that too.
+
+00:00:35.229 --> 00:00:40.169
+I think consecutive images are extremely correlated,
+
+00:00:40.170 --> 00:00:42.170
+and that is a good thing.
+
+00:00:42.170 --> 00:00:44.100
+It really depends on what you want to do.
+
+00:00:44.100 --> 00:00:48.925
+If you want to find correspondences between consecutive images,
+
+00:00:48.924 --> 00:00:51.739
+you actually make use of the fact that they are so
+
+00:00:51.740 --> 00:00:54.260
+correlated because you can find many correspondences
+
+00:00:54.259 --> 00:01:00.390
+and can compute optical flow which allows you to do many great things.
+
+00:01:02.450 --> 00:01:07.120
+Optical flow is basically the 2D vector field,
+
+00:01:07.120 --> 00:01:12.454
+it's a displacement of every pixel in the previous frame to a pixel in the current frame.
+
+00:01:12.454 --> 00:01:14.519
+So if you have those correspondences,
+
+00:01:14.519 --> 00:01:16.719
+you can do things like structure-from-motion,
+
+00:01:16.719 --> 00:01:18.500
+you can do visual odometry,
+
+00:01:18.500 --> 00:01:21.510
+and you can also do object tracking.
+
+00:01:23.480 --> 00:01:27.275
+Structure-from-motion is basically the process of
+
+00:01:27.275 --> 00:01:31.025
+inferring depth by moving through a scene.
+
+00:01:31.025 --> 00:01:36.260
+You can basically reconstruct the 3D environment by either stereo,
+
+00:01:36.260 --> 00:01:38.105
+or by structure from motion.
+
+00:01:38.105 --> 00:01:41.020
+In stereo you have two images taken at the same time,
+
+00:01:41.019 --> 00:01:45.965
+and there is a difference between the two images positions.
+
+00:01:45.965 --> 00:01:48.710
+In structure-from-motion, you basically take
+
+00:01:48.709 --> 00:01:51.529
+the same camera but take two consecutive images.
+
+00:01:51.530 --> 00:01:55.129
+So the baseline or displacement is basically the time that you traveled,
+
+00:01:55.129 --> 00:01:57.329
+the distance you traveled.
+
+00:01:57.370 --> 00:02:02.120
+The great thing about that is you can extract that from a mono camera,
+
+00:02:02.120 --> 00:02:03.995
+but only as long as you're moving.
+
+00:02:03.995 --> 00:02:08.069
+That's one of the downsides of structure-from-motion.
+

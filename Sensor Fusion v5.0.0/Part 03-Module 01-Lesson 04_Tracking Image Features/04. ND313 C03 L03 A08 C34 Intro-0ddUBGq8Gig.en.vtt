@@ -1,0 +1,106 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:03.225
+Now, welcome to this next section which is really going to be fun for you.
+
+00:00:03.225 --> 00:00:06.599
+I want to introduce you to a new class of algorithms called descriptors,
+
+00:00:06.599 --> 00:00:08.820
+which we can use to uniquely describe key points,
+
+00:00:08.820 --> 00:00:11.384
+so we can easily find them again another images.
+
+00:00:11.384 --> 00:00:12.839
+Now, detectors and descriptors,
+
+00:00:12.839 --> 00:00:14.800
+they are really popular in the research community.
+
+00:00:14.800 --> 00:00:17.594
+One thing you need in order to have a successful descriptor
+
+00:00:17.594 --> 00:00:21.765
+next to super performance is a funny name of some kind.
+
+00:00:21.765 --> 00:00:24.105
+Use fast, or daisy, or sift,
+
+00:00:24.105 --> 00:00:27.030
+or brisk, or even freak, and you'll make the day.
+
+00:00:27.030 --> 00:00:30.005
+Now, in this section, I will introduce you to another classical computer vision,
+
+00:00:30.004 --> 00:00:32.104
+which is called Sift Descriptor.
+
+00:00:32.104 --> 00:00:34.699
+This method has been proposed 20 years ago,
+
+00:00:34.700 --> 00:00:38.510
+and it is still one of the best methods around to locate and describe key points.
+
+00:00:38.509 --> 00:00:41.679
+Sift basically made panoramic image searching possible for example.
+
+00:00:41.679 --> 00:00:43.960
+Now, the family to which sift belongs is called,
+
+00:00:43.960 --> 00:00:47.064
+History of Oriented Gradients or HOG for short.
+
+00:00:47.064 --> 00:00:50.239
+The problem with HOG methods is that they are based on the image gradient,
+
+00:00:50.240 --> 00:00:51.740
+and you know from Zhao and Tomas,
+
+00:00:51.740 --> 00:00:55.109
+that this is slow and not suitable for real-time performance.
+
+00:00:55.109 --> 00:00:57.039
+Now, on the second part of this section,
+
+00:00:57.039 --> 00:01:00.310
+I want to introduce you to another family called Binary Detectors,
+
+00:01:00.310 --> 00:01:03.895
+which avoid gradients completely and others super-fast.
+
+00:01:03.895 --> 00:01:06.329
+One famous family member here is the brisk method.
+
+00:01:06.329 --> 00:01:09.924
+Which we'll take a look at in greater detail further down in this section here.
+
+00:01:09.924 --> 00:01:11.530
+Now, once you understood descriptors,
+
+00:01:11.530 --> 00:01:14.030
+you have two very powerful tools in your hands and you can
+
+00:01:14.030 --> 00:01:17.579
+locate and match high-quality key points really fast.
+
+00:01:17.579 --> 00:01:19.399
+That means there's a large number of
+
+00:01:19.400 --> 00:01:22.205
+cool apps you will be able to develop based on those two concepts.
+
+00:01:22.204 --> 00:01:26.599
+For example, a collision of vital systems as you will see later in the course.
+
+00:01:26.599 --> 00:01:31.354
+Also Binary Detectors make it really possible to run algorithms on your smartphone.
+
+00:01:31.355 --> 00:01:34.250
+So please take a closer look at both methods here;
+
+00:01:34.250 --> 00:01:38.489
+detectors and descriptors, and see you later in this section.
+

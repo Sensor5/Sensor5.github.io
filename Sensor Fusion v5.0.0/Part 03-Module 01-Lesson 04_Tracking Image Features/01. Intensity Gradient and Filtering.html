@@ -1,0 +1,814 @@
+<!-- udacimak v1.4.4 -->
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <meta content="ie=edge" http-equiv="X-UA-Compatible"/>
+  <title>
+   Intensity Gradient and Filtering
+  </title>
+  <link href="../assets/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="../assets/css/plyr.css" rel="stylesheet"/>
+  <link href="../assets/css/katex.min.css" rel="stylesheet"/>
+  <link href="../assets/css/jquery.mCustomScrollbar.min.css" rel="stylesheet"/>
+  <link href="../assets/css/styles.css" rel="stylesheet"/>
+  <link href="../assets/img/udacimak.png" rel="shortcut icon" type="image/png">
+  </link>
+ </head>
+ <body>
+  <div class="wrapper">
+   <nav id="sidebar">
+    <div class="sidebar-header">
+     <h3>
+      Tracking Image Features
+     </h3>
+    </div>
+    <ul class="sidebar-list list-unstyled CTAs">
+     <li>
+      <a class="article" href="../index.html">
+       Back to Home
+      </a>
+     </li>
+    </ul>
+    <ul class="sidebar-list list-unstyled components">
+     <li class="">
+      <a href="01. Intensity Gradient and Filtering.html">
+       01. Intensity Gradient and Filtering
+      </a>
+     </li>
+     <li class="">
+      <a href="02. Haris Corner Detection.html">
+       02. Haris Corner Detection
+      </a>
+     </li>
+     <li class="">
+      <a href="03. Overview of Popular Keypoint Detectors.html">
+       03. Overview of Popular Keypoint Detectors
+      </a>
+     </li>
+     <li class="">
+      <a href="04. Gradient-based vs. Binary Descriptors.html">
+       04. Gradient-based vs. Binary Descriptors
+      </a>
+     </li>
+     <li class="">
+      <a href="05. Descriptor Matching.html">
+       05. Descriptor Matching
+      </a>
+     </li>
+     <li class="">
+      <a href="06. Tracking an Object Across Images.html">
+       06. Tracking an Object Across Images
+      </a>
+     </li>
+    </ul>
+    <ul class="sidebar-list list-unstyled CTAs">
+     <li>
+      <a class="article" href="../index.html">
+       Back to Home
+      </a>
+     </li>
+    </ul>
+   </nav>
+   <div id="content">
+    <header class="container-fluild header">
+     <div class="container">
+      <div class="row">
+       <div class="col-12">
+        <div class="align-items-middle">
+         <button class="btn btn-toggle-sidebar" id="sidebarCollapse" type="button">
+          <div>
+          </div>
+          <div>
+          </div>
+          <div>
+          </div>
+         </button>
+         <h1 style="display: inline-block">
+          01. Intensity Gradient and Filtering
+         </h1>
+        </div>
+       </div>
+      </div>
+     </div>
+    </header>
+    <main class="container">
+     <div class="row">
+      <div class="col-12">
+       <div class="ud-atom">
+        <h3>
+         <p>
+          ND313 C03 L03 A01 C31 Intro
+         </p>
+        </h3>
+        <video controls="">
+         <source src="01. ND313 C03 L03 A01 C31 Intro-2E9TNZlCGX8.mp4" type="video/mp4"/>
+         <track default="true" kind="subtitles" label="en" src="01. ND313 C03 L03 A01 C31 Intro-2E9TNZlCGX8.en.vtt" srclang="en"/>
+        </video>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h2 id="locating-keypoints-in-an-image">
+          Locating Keypoints in an Image
+         </h2>
+         <p>
+          As discussed in the previous lesson, a camera is not able to measure distance to an object directly. However, for our collision avoidance system, we can compute time-to-collision based on relative distance ratios on the image sensor instead. To do so, we need a set of locations on the image plane which can serve as stable anchors to compute relative distances between them. This section discussed how to locate such anchor locations - or
+          <em>
+           keypoints
+          </em>
+          in an image.
+         </p>
+         <p>
+          Take a look at the three patches in the following figure which have been extracted from an image of a highway driving scene. The grid shows the borders of individual pixels. How would you describe meaningful locations within those patches that could be used as keypoints?
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="" class="img img-fluid" src="img/new-group.jpg"/>
+          <figcaption class="figure-caption">
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <p>
+          In the leftmost patch, there is a distinctive contrast between bright and dark pixels which resembles a line from the bottom-left to the upper-right. The patch in the middle resembles a corner formed by a group of very dark pixels in the upper-left. The rightmost patch looks like a bright blob that might be approximated by an ellipse.
+         </p>
+         <p>
+          In order to precisely locate a keypoint in an image, we need a way to assign them a unique coordinate in both x an y. Not all of the above patches lend themselves to this goal. Both the corner as well as the ellipse can be positioned accurately in x and y, the line in the leftmost image can not.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="" class="img img-fluid" src="img/new-group-kopieren.jpg"/>
+          <figcaption class="figure-caption">
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <p>
+          In the following, we will thus concentrate on detecting corners in an image. In a later section, we will also look at detector who are optimized for blob-like structures, such as the
+          <em>
+           SIFT
+          </em>
+          detector.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h2 id="the-intensity-gradient">
+          The Intensity Gradient
+         </h2>
+         <p>
+          In the above examples, the contrast between neighboring pixels contains the information we need : In order to precisely locate e.g. the corner in the middle patch, we do not need to know its color but instead we require the color difference between the pixels that form the corner to be as high as possible. An ideal corner would consist of only black and white pixels.
+         </p>
+         <p>
+          The figure below shows the intensity profile of all pixels along the red line in the image as well as the intensity gradient, which is the derivative of image intensity.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="Adapted from https://cs.brown.edu/courses/cs143/lectures_Fall2017/07_Fall2017_EdgeDetection.pdf" class="img img-fluid" src="img/intensity-and-derivative.jpg"/>
+          <figcaption class="figure-caption">
+           <p>
+            Adapted from
+            <a href="https://cs.brown.edu/courses/cs143/lectures_Fall2017/07_Fall2017_EdgeDetection.pdf" rel="noopener noreferrer" target="_blank">
+             https://cs.brown.edu/courses/cs143/lectures_Fall2017/07_Fall2017_EdgeDetection.pdf
+            </a>
+           </p>
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <p>
+          It can be seen that the intensity profile increases rapidly at positions where the contrast between neighboring pixels changes significantly. The lower part of the street lamp on the left side and the dark door show a distinct intensity difference to the light wall. If we wanted to assign unique coordinates to the pixels where the change occurs, we could do so by looking at the derivative of the intensity, which is the blue gradient profile you can see below the red line. Sudden changes in image intensity are clearly visible as distinct peaks and valleys in the gradient profile. If we were to look for such peaks not only from left to right but also from top to bottom, we could look for points which show a gradient peak both in horizontal and in vertical direction and choose them as keypoints with both x and y coordinates. In the example patches above, this would work best for the corner, whereas an edge-like structure would have more or less identical gradients at all positions with no clear peak in x and y.
+         </p>
+         <p>
+          Based on the above observations, the first step into keypoint detection is thus the computation of a gradient image. Mathematically, the gradient is the partial derivative of the image intensity into both x and y direction. The figure below shows the intensity gradient for three example patches. The gradient direction is represented by the arrow.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="" class="img img-fluid" src="img/draggedimage.png"/>
+          <figcaption class="figure-caption">
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <p>
+          In equations (1) and (2), the intensity gradient is approximated by the intensity differences between neighboring pixels, divided by the distance between those pixels in x- and y-direction. Next, based on the intensity gradient vector, we can compute both the direction as well as the magnitude as given by the following equations:
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="" class="img img-fluid" src="img/draggedimage-1.png"/>
+          <figcaption class="figure-caption">
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <p>
+          There are numerous ways of computing the intensity gradient. The most straightforward approach would be to simply compute the intensity difference between neighboring pixels. This approach however is extremely sensitive to noise and should be avoided in practice. Further down in this section, we will look at a well-proven standard approach, the Sobel operator.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h2 id="image-filters-and-gaussian-smoothing">
+          Image Filters and Gaussian Smoothing
+         </h2>
+         <p>
+          Before we further discuss gradient computation, we need to think about noise, which is present in all images (except artificial ones) and which decreases with increasing light intensity. To counteract noise, especially under low-light conditions, a smoothing operator has to be applied to the image before gradient computation. Usually, a Gaussian filter is used for this purpose which is shifted over the image and combined with the intensity values beneath it. In order to parameterize the filter properly, two parameters have to be adjusted:
+         </p>
+         <ol>
+          <li>
+           The standard deviation, which controls the spatial extension of the filter in the image plane. The larger the standard deviation, the wider the area which is covered by the filter.
+          </li>
+          <li>
+           The kernel size, which defines how many pixels around the center location will contribute to the smoothing operation.
+          </li>
+         </ol>
+         <p>
+          The following figure shows three Gaussian filter kernels with varying standard deviations.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="" class="img img-fluid" src="img/jcuj2.png"/>
+          <figcaption class="figure-caption">
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <p>
+          Gaussian smoothing works by assigning each pixel a weighted sum of the surrounding pixels based on the height of the Gaussian curve at each point. The largest contribution will come from the center pixel itself, whereas the contribution from the pixels surroundings will decrease depending on the height of the Gaussian curve and thus its standard deviation. It can easily be seen that the contribution of the surrounding pixels around the center location increases when the standard deviation is large (left image).
+         </p>
+         <p>
+          Applying the Gaussian filter (or any other filter) works in four successive steps which are illustrated by the figure below:
+         </p>
+         <ol>
+          <li>
+           Create a filter kernel with the desired properties (e.g. Gaussian smoothing or edge detection)
+          </li>
+          <li>
+           Define the anchor point within the kernel (usually the center position) and place it on top of the first pixel of the image.
+          </li>
+          <li>
+           Compute the sum of the products of kernel coefficients with the corresponding image pixel values beneath.
+          </li>
+          <li>
+           Place the result to the location of the kernel anchor in the input image.
+          </li>
+          <li>
+           Repeat the process for all pixels over the entire image.
+          </li>
+         </ol>
+         <p>
+          The following figure illustrates the process of shifting the (yellow) filter kernel over the image row by row and assigning the result of the two-dimensional sum
+          <span class="mathquill ud-math">
+           H(x,y)
+          </span>
+          to every pixel location.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="" class="img img-fluid" src="img/draggedimage-2.png"/>
+          <figcaption class="figure-caption">
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <p>
+          A filter kernel for Gaussian smoothing is shown in the next figure. In (a), a 3D Gaussian curve is shown and in (b), the corresponding discrete filter kernel can be seen with a central anchor point (41) corresponding to the maximum of the Gaussian curve and with decreasing values towards the edges in a (approximately) circular shape.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="https://homepages.inf.ed.ac.uk/rbf/HIPR2/gsmooth.htm" class="img img-fluid" src="img/b-corresponding-discrete-filter-kernel.jpg"/>
+          <figcaption class="figure-caption">
+           <p>
+            <a href="https://homepages.inf.ed.ac.uk/rbf/HIPR2/gsmooth.htm" rel="noopener noreferrer" target="_blank">
+             https://homepages.inf.ed.ac.uk/rbf/HIPR2/gsmooth.htm
+            </a>
+           </p>
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h2 id="exercise">
+          Exercise
+         </h2>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+         <p>
+          ND313 C03 L03 A02 C31 Mid
+         </p>
+        </h3>
+        <video controls="">
+         <source src="01. ND313 C03 L03 A02 C31 Mid-g_sYIKjjdv4.mp4" type="video/mp4"/>
+         <track default="true" kind="subtitles" label="en" src="01. ND313 C03 L03 A02 C31 Mid-g_sYIKjjdv4.en.vtt" srclang="en"/>
+        </video>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <p>
+          The following code uses the function
+          <code>
+           cv::filter2D
+          </code>
+          to apply the filter above to an image. Run the code and figure out why the output image does not look as it is supposed to look after applying the smoothing filter. Once you know why, make the necessary changes and run the code again until you see a slightly blurred image. You can compile using
+          <code>
+           cmake
+          </code>
+          and
+          <code>
+           make
+          </code>
+          as before, and run the code using the generated
+          <code>
+           gaussian_smoothing
+          </code>
+          executable.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div class="jumbotron">
+         <h3>
+          Workspace
+         </h3>
+         <p class="lead">
+          This section contains either a workspace (it can be a
+          <a href="http://jupyter.org/" target="_blank">
+           Jupyter
+      Notebook
+          </a>
+          workspace or an online code editor work space, etc.) and it cannot be automatically downloaded to be
+    generated here. Please access the classroom with your account and manually download the workspace to your local
+    machine. Note that for some courses, Udacity upload the workspace files onto
+          <a href="https://github.com/udacity" target="_blank">
+           https://github.com/udacity
+          </a>
+          , so you may be able to download them there.
+         </p>
+         <h4>
+          Workspace Information:
+         </h4>
+         <ul>
+          <li>
+           <strong>
+            Default file path:
+           </strong>
+          </li>
+          <li>
+           <strong>
+            Workspace type:
+           </strong>
+           react
+          </li>
+          <li>
+           <strong>
+            Opened files (when workspace is loaded):
+           </strong>
+           n/a
+          </li>
+          <li>
+           <strong>
+            userCode:
+           </strong>
+           <br/>
+           <code>
+            <p>
+             export CXX=g++-7
+             <br>
+              export CXXFLAGS=-std=c++17
+             </br>
+            </p>
+           </code>
+          </li>
+         </ul>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <p>
+          The above code is meant to illustrate the principle of filters and of Gaussian blurring. In your projects however, you can (and should) use the function cv::GaussianBlur, which lets you change the standard deviation easily without having to adjust the filter kernel.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h2 id="computing-the-intensity-gradient">
+          Computing the Intensity Gradient
+         </h2>
+         <p>
+          After smoothing the image slightly to reduce the influence of noise, we can now compute the intensity gradient of the image in both x and y direction. In the literature, there are several approaches to gradient computation to be found. Among the most famous it the
+          <code>
+           Sobel
+          </code>
+          operator (proposed in 1968), but there are several others, such as the
+          <code>
+           Scharr
+          </code>
+          operator, which is optimized for rotational symmetry.
+         </p>
+         <p>
+          The Sobel operator is based on applying small integer-valued filters both in horizontal and vertical direction. The operators are 3x3 kernels, one for the gradient in x and one for the gradient in y. Both kernels are shown below.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="" class="img img-fluid" src="img/draggedimage-4.png"/>
+          <figcaption class="figure-caption">
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <p>
+          In the following code, one kernel of the Sobel operator is applied to an image. Note that it has been converted to grayscale to avoid computing the operator on each color channel. This code can be found in the
+          <code>
+           gradient_sobel.cpp
+          </code>
+          file in the desktop workspace above. You can run the code by using the
+          <code>
+           gradient_sobel
+          </code>
+          executable.
+         </p>
+         <pre><code class="cpp language-cpp">    // load image from file
+    cv::Mat img;
+    img = cv::imread("./img1.png");
+
+    // convert image to grayscale
+    cv::Mat imgGray;
+    cv::cvtColor(img, imgGray, cv::COLOR_BGR2GRAY);
+
+    // create filter kernel
+    float sobel_x[9] = {-1, 0, +1,
+                        -2, 0, +2, 
+                        -1, 0, +1};
+    cv::Mat kernel_x = cv::Mat(3, 3, CV_32F, sobel_x);
+
+    // apply filter
+    cv::Mat result_x;
+    cv::filter2D(imgGray, result_x, -1, kernel_x, cv::Point(-1, -1), 0, cv::BORDER_DEFAULT);
+
+    // show result
+    string windowName = "Sobel operator (x-direction)";
+    cv::namedWindow( windowName, 1 ); // create window 
+    cv::imshow(windowName, result_x);
+    cv::waitKey(0); // wait for keyboard input before continuing</code></pre>
+         <p>
+          The resulting gradient image is shown below. It can be seen that areas of strong local contrast such as the cast shadow of the preceding vehicle leads to high values in the filtered image.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="" class="img img-fluid" src="img/draggedimage-6.png"/>
+          <figcaption class="figure-caption">
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <p>
+          Note that in the above code, only the
+          <span class="mathquill ud-math">
+           S_x
+          </span>
+          filter kernel has been applied for now, which is why the cast shadow only shows in x direction. Applying
+          <span class="mathquill ud-math">
+           S_y
+          </span>
+          to the image yields the following result:
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="" class="img img-fluid" src="img/draggedimage-7.png"/>
+          <figcaption class="figure-caption">
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h2 id="exercise">
+          Exercise
+         </h2>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+         <p>
+          ND313 C03 L03 A03 C31 Outro
+         </p>
+        </h3>
+        <video controls="">
+         <source src="01. ND313 C03 L03 A03 C31 Outro-kQNTa0x8CDI.mp4" type="video/mp4"/>
+         <track default="true" kind="subtitles" label="en" src="01. ND313 C03 L03 A03 C31 Outro-kQNTa0x8CDI.en.vtt" srclang="en"/>
+        </video>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <p>
+          Based on the image gradients in both x and y, compute an image which contains the gradient magnitude according to the equation at the beginning of this section for every pixel position. Also, apply different levels of Gaussian blurring before applying the Sobel operator and compare the results.
+         </p>
+         <p>
+          You can use the
+          <code>
+           magnitude_sobel.cpp
+          </code>
+          file in the desktop workspace above for your solution, and after
+          <code>
+           make
+          </code>
+          , you can run the code using the
+          <code>
+           magnitude_sobel
+          </code>
+          executable.
+         </p>
+         <p>
+          The result should look something like this, with the noise in the road surface being almost gone due to smoothing:
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="" class="img img-fluid" src="img/draggedimage-9.png"/>
+          <figcaption class="figure-caption">
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+      </div>
+      <div class="col-12">
+       <p class="text-right">
+        <a class="btn btn-outline-primary mt-4" href="02. Haris Corner Detection.html" role="button">
+         Next Concept
+        </a>
+       </p>
+      </div>
+     </div>
+    </main>
+    <footer class="footer">
+     <div class="container">
+      <div class="row">
+       <div class="col-12">
+        <p class="text-center">
+         udacity2.0 If you need the newest courses Plase add me wechat: udacity6
+        </p>
+       </div>
+      </div>
+     </div>
+    </footer>
+   </div>
+  </div>
+  <script src="../assets/js/jquery-3.3.1.min.js">
+  </script>
+  <script src="../assets/js/plyr.polyfilled.min.js">
+  </script>
+  <script src="../assets/js/bootstrap.min.js">
+  </script>
+  <script src="../assets/js/jquery.mCustomScrollbar.concat.min.js">
+  </script>
+  <script src="../assets/js/katex.min.js">
+  </script>
+  <script>
+   // Initialize Plyr video players
+    const players = Array.from(document.querySelectorAll('video')).map(p => new Plyr(p));
+
+    // render math equations
+    let elMath = document.getElementsByClassName('mathquill');
+    for (let i = 0, len = elMath.length; i < len; i += 1) {
+      const el = elMath[i];
+
+      katex.render(el.textContent, el, {
+        throwOnError: false
+      });
+    }
+
+    // this hack will make sure Bootstrap tabs work when using Handlebars
+    if ($('#question-tabs').length && $('#user-answer-tabs').length) {
+      $("#question-tabs a.nav-link").on('click', function () {
+        $("#question-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+      $("#user-answer-tabs a.nav-link").on('click', function () {
+        $("#user-answer-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    } else {
+      $("a.nav-link").on('click', function () {
+        $(".tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    }
+
+    // side bar events
+    $(document).ready(function () {
+      $("#sidebar").mCustomScrollbar({
+        theme: "minimal"
+      });
+
+      $('#sidebarCollapse').on('click', function () {
+        $('#sidebar, #content').toggleClass('active');
+        $('.collapse.in').toggleClass('in');
+        $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+      });
+
+      // scroll to first video on page loading
+      if ($('video').length) {
+        $('html,body').animate({ scrollTop: $('div.plyr').prev().offset().top});
+      }
+
+      // auto play first video: this may not work with chrome/safari due to autoplay policy
+      if (players && players.length > 0) {
+        players[0].play();
+      }
+
+      // scroll sidebar to current concept
+      const currentInSideBar = $( "ul.sidebar-list.components li a:contains('01. Intensity Gradient and Filtering')" )
+      currentInSideBar.css( "text-decoration", "underline" );
+      $("#sidebar").mCustomScrollbar('scrollTo', currentInSideBar);
+    });
+  </script>
+ </body>
+</html>

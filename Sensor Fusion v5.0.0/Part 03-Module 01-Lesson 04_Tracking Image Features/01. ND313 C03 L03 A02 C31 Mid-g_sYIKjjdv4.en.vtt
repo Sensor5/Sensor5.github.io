@@ -1,0 +1,202 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:01.919
+Now let us check your first exercise.
+
+00:00:01.919 --> 00:00:03.899
+Now that you know how Gaussian smoothing works,
+
+00:00:03.899 --> 00:00:07.560
+I would like you to take a look at this implementation of a smoothing filter.
+
+00:00:07.559 --> 00:00:10.695
+Let's take a look at the Gaussian smoothing in here.
+
+00:00:10.695 --> 00:00:13.679
+The first thing we want to do in the code is we want to load an image from file.
+
+00:00:13.679 --> 00:00:17.984
+We are loading the image into an Open CV matrix structure and as you can see here,
+
+00:00:17.984 --> 00:00:22.439
+every time I'm using Open CV functions or data structures,
+
+00:00:22.449 --> 00:00:26.109
+I have the name space in front of the variable name CV.
+
+00:00:26.109 --> 00:00:28.530
+If you don't want to do this you can simply put using
+
+00:00:28.530 --> 00:00:31.320
+name space as CV at the beginning of your code,
+
+00:00:31.320 --> 00:00:34.585
+and this spares you from writing out CV every time.
+
+00:00:34.585 --> 00:00:38.990
+I'm doing this here for educational purposes so that you can clearly see when I'm using
+
+00:00:38.990 --> 00:00:43.700
+Open CV material or maybe self written functions or functions from other libraries.
+
+00:00:43.700 --> 00:00:46.115
+So if you don't want to do this,
+
+00:00:46.115 --> 00:00:49.170
+simply use name space for this.
+
+00:00:49.170 --> 00:00:51.270
+Now in open imread,
+
+00:00:51.270 --> 00:00:54.950
+I'm inputting string which is the location of the image
+
+00:00:54.950 --> 00:00:59.120
+we will be using to apply the Gaussian smoothing into it's called IMG1gray.
+
+00:00:59.119 --> 00:01:00.919
+Let's take a quick look at this image.
+
+00:01:00.920 --> 00:01:02.420
+It's the one on the bottom.
+
+00:01:02.420 --> 00:01:04.489
+It's highway scenario recorded in
+
+00:01:04.489 --> 00:01:07.250
+Germany with a proceeding vehicle directly in front of us,
+
+00:01:07.250 --> 00:01:08.810
+a car on the left lane,
+
+00:01:08.810 --> 00:01:10.465
+and the truck on the right lane.
+
+00:01:10.465 --> 00:01:15.219
+The image on top is the original image which we will not be using as of now.
+
+00:01:15.219 --> 00:01:17.900
+We will be using the grayscale image and the idea here is
+
+00:01:17.900 --> 00:01:21.290
+to smooth over the grayscale image to remove some noise and also
+
+00:01:21.290 --> 00:01:23.075
+to prepare the image for
+
+00:01:23.075 --> 00:01:25.219
+more advanced computer vision functions which we
+
+00:01:25.219 --> 00:01:27.545
+will see very shortly in this section here.
+
+00:01:27.545 --> 00:01:29.900
+Let's jump back to the code and see how this can be done.
+
+00:01:29.900 --> 00:01:31.250
+Now what we have here is
+
+00:01:31.250 --> 00:01:33.245
+the Gaussian filter kernel and
+
+00:01:33.245 --> 00:01:35.840
+this two geometric structure which you can see here basically
+
+00:01:35.840 --> 00:01:42.380
+reflects the 3D shape of the Gaussian bell curve which you have seen in the section code.
+
+00:01:42.379 --> 00:01:43.640
+We have a maximum in the middle,
+
+00:01:43.640 --> 00:01:44.810
+it's currently at 41.
+
+00:01:44.810 --> 00:01:49.189
+We have smaller values in the outer perimeter and this is
+
+00:01:49.189 --> 00:01:54.140
+the Gaussian curve which we will shift over our image to smooth it over.
+
+00:01:54.140 --> 00:01:56.049
+Now in this line here,
+
+00:01:56.049 --> 00:01:58.000
+we are applying the actual filter,
+
+00:01:58.000 --> 00:02:01.415
+we are using the filter to-do function from Open CV to do this.
+
+00:02:01.415 --> 00:02:03.305
+It takes as input the image,
+
+00:02:03.305 --> 00:02:09.460
+it takes as an input the result image which we wanted to take a look at just now,
+
+00:02:09.460 --> 00:02:11.990
+and also takes some other parameters and I
+
+00:02:11.990 --> 00:02:15.530
+encourage you to read the documentation or filter 2D,
+
+00:02:15.530 --> 00:02:18.229
+and also read about the different argument it takes
+
+00:02:18.229 --> 00:02:21.310
+and maybe you play around with those arguments a little bit.
+
+00:02:21.310 --> 00:02:23.150
+Now once the filtering is performed,
+
+00:02:23.150 --> 00:02:26.224
+we simply show the resulting output here,
+
+00:02:26.224 --> 00:02:29.389
+and we will take a look at it right now.
+
+00:02:29.389 --> 00:02:30.529
+Let's compile the code,
+
+00:02:30.530 --> 00:02:31.925
+see what it does.
+
+00:02:31.925 --> 00:02:35.540
+It compiles okay, so once we have compiled it,
+
+00:02:35.539 --> 00:02:37.234
+let's run the code,
+
+00:02:37.235 --> 00:02:39.830
+and what you can see here is a completely white image,
+
+00:02:39.830 --> 00:02:41.920
+so something didn't work out.
+
+00:02:41.919 --> 00:02:46.009
+Now your job is to find out what has not been done correctly here,
+
+00:02:46.009 --> 00:02:47.959
+correct the error in the code,
+
+00:02:47.960 --> 00:02:49.610
+and then run it again so that
+
+00:02:49.610 --> 00:02:55.315
+the output image looks smoothed over just as we wanted it to be.
+
+00:02:55.314 --> 00:02:57.490
+Okay now when you run the code,
+
+00:02:57.490 --> 00:03:00.170
+you will notice that the result will not look as expected even though
+
+00:03:00.169 --> 00:03:03.604
+the filter kernel just looks like the one you have seen earlier on this section.
+
+00:03:03.604 --> 00:03:06.259
+Your job now is to figure out what's wrong and then
+
+00:03:06.259 --> 00:03:09.840
+correct the mistake by adjusting the code appropriately.
+

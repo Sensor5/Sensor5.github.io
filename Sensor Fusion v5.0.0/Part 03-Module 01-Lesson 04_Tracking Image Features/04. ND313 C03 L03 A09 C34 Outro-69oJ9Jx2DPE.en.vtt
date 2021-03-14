@@ -1,0 +1,256 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:03.075
+Now welcome to the exercise part of this section here.
+
+00:00:03.075 --> 00:00:05.865
+Now that you know about SIFT and about BRISK in theory,
+
+00:00:05.865 --> 00:00:08.664
+let's take a look at how they can be implemented.
+
+00:00:08.664 --> 00:00:12.139
+Now let's take a look at how the BRISK detector and the descriptor work.
+
+00:00:12.140 --> 00:00:15.585
+BRISK offers both the detector part as well as the descriptor part,
+
+00:00:15.585 --> 00:00:18.210
+and in this example we're going to make use of both.
+
+00:00:18.210 --> 00:00:21.839
+Now as the first step, we are going to load the image from file and then convert
+
+00:00:21.839 --> 00:00:25.875
+it to grayscale as before with the last example, it's the same image.
+
+00:00:25.875 --> 00:00:29.699
+Then in the first step, we're going to call the BRISK detector.
+
+00:00:29.699 --> 00:00:31.829
+This data structure on the left side,
+
+00:00:31.829 --> 00:00:33.384
+this data type here,
+
+00:00:33.384 --> 00:00:35.884
+is a very convenient wrapper method offered by
+
+00:00:35.884 --> 00:00:39.320
+the OpenCV which enables us to plug-in on the right side,
+
+00:00:39.320 --> 00:00:40.850
+a whole bunch of different detectors.
+
+00:00:40.850 --> 00:00:46.050
+You can use BRISK, you can use SIFT you can use Shi-Tomasi and many many others.
+
+00:00:46.049 --> 00:00:49.279
+It's very convenient for us because we don't have to change
+
+00:00:49.280 --> 00:00:54.094
+the detected variable type down below when we call the detector function.
+
+00:00:54.094 --> 00:00:56.890
+So what this does here, it only prepares the data structure,
+
+00:00:56.890 --> 00:00:59.660
+it does not execute the detector yet.
+
+00:00:59.659 --> 00:01:03.454
+This here is the resulting output array which later after
+
+00:01:03.454 --> 00:01:07.549
+computing the detectors or after executing the detection function,
+
+00:01:07.549 --> 00:01:09.109
+will hold all the keypoints.
+
+00:01:09.109 --> 00:01:12.290
+Then we have this line here which basically, again,
+
+00:01:12.290 --> 00:01:16.460
+counts the milliseconds which it takes to execute the detector function.
+
+00:01:16.459 --> 00:01:18.469
+It goes together with line 105,
+
+00:01:18.469 --> 00:01:22.299
+here where we compute the difference between time before on time after,
+
+00:01:22.299 --> 00:01:26.509
+and here in between we have the actual call to the detect function,
+
+00:01:26.510 --> 00:01:29.030
+which takes as an input the grayscale image as well as
+
+00:01:29.030 --> 00:01:31.849
+the results structure keypoints BRISK.
+
+00:01:31.849 --> 00:01:33.649
+Now in this line 106,
+
+00:01:33.650 --> 00:01:36.020
+we're going to output the number of
+
+00:01:36.019 --> 00:01:39.099
+keypoints which the detector actually detected in the image,
+
+00:01:39.099 --> 00:01:44.259
+and also how long in milliseconds it took the detector to complete the operation.
+
+00:01:44.260 --> 00:01:47.115
+In the second part of this small example,
+
+00:01:47.114 --> 00:01:48.824
+we see the descriptor part.
+
+00:01:48.825 --> 00:01:51.820
+It is a very similar wrapper structure as before.
+
+00:01:51.819 --> 00:01:54.679
+It's also very convenient to exchange this for
+
+00:01:54.680 --> 00:01:58.039
+any other descriptors function which you might find in OpenCV,
+
+00:01:58.039 --> 00:02:00.515
+be it SIFT, be it ORB or any other one,
+
+00:02:00.515 --> 00:02:03.079
+and this is the output data structure.
+
+00:02:03.079 --> 00:02:07.629
+What you have to look at very closely here with the detector,
+
+00:02:07.629 --> 00:02:09.859
+we had a vector of keypoints,
+
+00:02:09.860 --> 00:02:12.250
+with a descriptor, what we have is a matrix.
+
+00:02:12.250 --> 00:02:15.080
+The matrix is a collection of
+
+00:02:15.080 --> 00:02:19.580
+the different numbers it takes to describe the local vicinity of a keypoint,
+
+00:02:19.580 --> 00:02:21.425
+and this is not stored in the vector,
+
+00:02:21.425 --> 00:02:23.750
+this is stored in a matrix instead.
+
+00:02:23.750 --> 00:02:26.780
+Now again, we have the timer issues which
+
+00:02:26.780 --> 00:02:30.185
+counts the milliseconds for the descriptor to compute.
+
+00:02:30.185 --> 00:02:32.890
+Here in line 111,
+
+00:02:32.889 --> 00:02:35.359
+we execute the actual compute function,
+
+00:02:35.360 --> 00:02:37.820
+which takes as input the grayscale image,
+
+00:02:37.819 --> 00:02:40.219
+the keypoints which we found before and by
+
+00:02:40.219 --> 00:02:42.740
+the way you can simply use any other keypoint detector.
+
+00:02:42.740 --> 00:02:46.790
+You can use Harris, Shi-Tomasi, any other detector.
+
+00:02:46.789 --> 00:02:50.719
+As long as it meets this format of being a vector of keypoints,
+
+00:02:50.719 --> 00:02:53.900
+you do not necessarily have to use the BRISK keypoints here.
+
+00:02:53.900 --> 00:02:56.900
+I am doing this because I want to focus solely on
+
+00:02:56.900 --> 00:03:00.039
+the entire BRISK method here but you can play around a little bit,
+
+00:03:00.039 --> 00:03:01.069
+and if you want,
+
+00:03:01.069 --> 00:03:02.699
+plug-in some other detectors here.
+
+00:03:02.699 --> 00:03:04.429
+This is the resulting data structure,
+
+00:03:04.430 --> 00:03:07.745
+descriptors BRISK and once this line is complete,
+
+00:03:07.745 --> 00:03:11.020
+we have a matrix filled with BRISK descriptors.
+
+00:03:11.020 --> 00:03:13.655
+Here in this section, we simply visualize the results.
+
+00:03:13.655 --> 00:03:14.929
+This is not the descriptors,
+
+00:03:14.929 --> 00:03:18.800
+they will be visualized in the next lesson when we talk about descriptive matching.
+
+00:03:18.800 --> 00:03:22.040
+For now, we only visualize the actual keypoints.
+
+00:03:22.039 --> 00:03:24.370
+Let's take a look at how this looks.
+
+00:03:24.370 --> 00:03:27.379
+As you can see here, we have a large number of keypoints,
+
+00:03:27.379 --> 00:03:31.969
+a total of 2,896 executed in 38 milliseconds,
+
+00:03:31.969 --> 00:03:36.895
+and the descriptor part took 21.446 milliseconds to compute.
+
+00:03:36.895 --> 00:03:40.325
+So now as before, I would like you to add another method to code.
+
+00:03:40.324 --> 00:03:42.979
+Please go ahead and implement the SIFT detector and compare
+
+00:03:42.979 --> 00:03:45.618
+it to BRISK with regard to the number of features,
+
+00:03:45.618 --> 00:03:49.120
+the scale of the features and especially, the runtime.
+
+00:03:49.120 --> 00:03:50.599
+Note that in order to use SIFT,
+
+00:03:50.599 --> 00:03:53.104
+you have to integrate a special header in the OpenCV,
+
+00:03:53.104 --> 00:03:55.159
+which is called non-free.hpp.
+
+00:03:55.159 --> 00:03:57.919
+This shows another drawback of SIFT because it is not
+
+00:03:57.919 --> 00:04:00.474
+free to use in commercial applications.
+
+00:04:00.474 --> 00:04:02.109
+Okay. So once you have finished,
+
+00:04:02.110 --> 00:04:05.180
+please move on to the next section where we discuss ways to match
+
+00:04:05.180 --> 00:04:09.480
+keypoints between images by comparing their descriptors.
+

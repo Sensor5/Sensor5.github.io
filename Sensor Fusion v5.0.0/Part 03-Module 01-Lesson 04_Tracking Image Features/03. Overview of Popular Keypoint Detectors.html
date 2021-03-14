@@ -1,0 +1,652 @@
+<!-- udacimak v1.4.4 -->
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <meta content="ie=edge" http-equiv="X-UA-Compatible"/>
+  <title>
+   Overview of Popular Keypoint Detectors
+  </title>
+  <link href="../assets/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="../assets/css/plyr.css" rel="stylesheet"/>
+  <link href="../assets/css/katex.min.css" rel="stylesheet"/>
+  <link href="../assets/css/jquery.mCustomScrollbar.min.css" rel="stylesheet"/>
+  <link href="../assets/css/styles.css" rel="stylesheet"/>
+  <link href="../assets/img/udacimak.png" rel="shortcut icon" type="image/png">
+  </link>
+ </head>
+ <body>
+  <div class="wrapper">
+   <nav id="sidebar">
+    <div class="sidebar-header">
+     <h3>
+      Tracking Image Features
+     </h3>
+    </div>
+    <ul class="sidebar-list list-unstyled CTAs">
+     <li>
+      <a class="article" href="../index.html">
+       Back to Home
+      </a>
+     </li>
+    </ul>
+    <ul class="sidebar-list list-unstyled components">
+     <li class="">
+      <a href="01. Intensity Gradient and Filtering.html">
+       01. Intensity Gradient and Filtering
+      </a>
+     </li>
+     <li class="">
+      <a href="02. Haris Corner Detection.html">
+       02. Haris Corner Detection
+      </a>
+     </li>
+     <li class="">
+      <a href="03. Overview of Popular Keypoint Detectors.html">
+       03. Overview of Popular Keypoint Detectors
+      </a>
+     </li>
+     <li class="">
+      <a href="04. Gradient-based vs. Binary Descriptors.html">
+       04. Gradient-based vs. Binary Descriptors
+      </a>
+     </li>
+     <li class="">
+      <a href="05. Descriptor Matching.html">
+       05. Descriptor Matching
+      </a>
+     </li>
+     <li class="">
+      <a href="06. Tracking an Object Across Images.html">
+       06. Tracking an Object Across Images
+      </a>
+     </li>
+    </ul>
+    <ul class="sidebar-list list-unstyled CTAs">
+     <li>
+      <a class="article" href="../index.html">
+       Back to Home
+      </a>
+     </li>
+    </ul>
+   </nav>
+   <div id="content">
+    <header class="container-fluild header">
+     <div class="container">
+      <div class="row">
+       <div class="col-12">
+        <div class="align-items-middle">
+         <button class="btn btn-toggle-sidebar" id="sidebarCollapse" type="button">
+          <div>
+          </div>
+          <div>
+          </div>
+          <div>
+          </div>
+         </button>
+         <h1 style="display: inline-block">
+          03. Overview of Popular Keypoint Detectors
+         </h1>
+        </div>
+       </div>
+      </div>
+     </div>
+    </header>
+    <main class="container">
+     <div class="row">
+      <div class="col-12">
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h1 id="overview-of-popular-keypoint-detectors">
+          Overview of Popular Keypoint Detectors
+         </h1>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+         <p>
+          ND313 C03 L03 A06 C33 Intro
+         </p>
+        </h3>
+        <video controls="">
+         <source src="03. ND313 C03 L03 A06 C33 Intro-fqwXIypb6rQ.mp4" type="video/mp4"/>
+         <track default="true" kind="subtitles" label="en" src="03. ND313 C03 L03 A06 C33 Intro-fqwXIypb6rQ.en.vtt" srclang="en"/>
+        </video>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h2 id="invariance-to-photometric-and-geometric-changes">
+          Invariance to Photometric and Geometric Changes
+         </h2>
+         <p>
+          In the literature (and in the OpenCV library), there is a large number of feature detectors (including the Harris detector), we can choose from. Depending on the type of keypoint that shall be detected and based on the properties of the images, the robustness of the respective detector with regard to both photometric and geometric transformations needs to be considered.
+         </p>
+         <p>
+          There are four basic transformation types we need to think about when selecting a suitable keypoint detector:
+         </p>
+         <ol>
+          <li>
+           Rotation
+          </li>
+          <li>
+           Scale change
+          </li>
+          <li>
+           Intensity change
+          </li>
+          <li>
+           Affine transformation
+          </li>
+         </ol>
+         <p>
+          The following figure shows two images in frame i of a video sequence (a) who have been subjected to several transformations in frame i + n (b).
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="" class="img img-fluid" src="img/frame-transformations.jpg"/>
+          <figcaption class="figure-caption">
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <p>
+          For the graffiti sequence, which is one of the standard image sets used in computer vision (also see
+          <a href="http://www.robots.ox.ac.uk/~vgg/research/affine/)" rel="noopener noreferrer" target="_blank">
+           http://www.robots.ox.ac.uk/~vgg/research/affine/)
+          </a>
+          , we can observe all of the transformations listed above whereas for the highway sequence, when focussing on the preceding vehicle, there is only a scale change as well as an intensity change between frames i and i+n.
+         </p>
+         <p>
+          In the following, the above criteria are used to briefly assess the Harris corner detector.
+         </p>
+         <p>
+          Rotation R :
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="" class="img img-fluid" src="img/draggedimage.png"/>
+          <figcaption class="figure-caption">
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <p>
+          Intensity change:
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="" class="img img-fluid" src="img/draggedimage-1.png"/>
+          <figcaption class="figure-caption">
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <p>
+          Scale change:
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="" class="img img-fluid" src="img/draggedimage-2.png"/>
+          <figcaption class="figure-caption">
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <p>
+          Summarizing, the Harris detector is robust under rotation and additive intensity shifts, but sensitive to scale change, multiplicative intensity shifts (i.e. changes in contrast) and affine transformations. However, if it were possible to modify the Harris detector in a way such that it were able to account for changes of the object scale, e.g. when the preceding vehicle approaches, it might be (despite its age), a suitable detector for our purposes.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h2 id="automatic-scale-selection">
+          Automatic Scale Selection
+         </h2>
+         <p>
+          In order to detect keypoints at their ideal scale, we must know (or find) their respective dimensions in the image and adapt the size of the Gaussian window
+          <span class="mathquill ud-math">
+           w(x,y)
+          </span>
+          as introduced earlier in this section. If the keypoint scale is unknown or if keypoints with varying size exist in the image, detection must be performed successively at multiple scale levels.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="" class="img img-fluid" src="img/draggedimage-3.png"/>
+          <figcaption class="figure-caption">
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <p>
+          Based on the increment of the standard deviation between two neighboring levels, the same keypoint might be detected multiple times. This poses the problem of choosing the „correct“ scale which best represents the keypoint.
+         </p>
+         <p>
+          In a landmark paper from 1998, Tony Lindeberg published a method for "Feature detection with automatic scale selection". In this paper, he proposed a function
+          <span class="mathquill ud-math">
+           F(x,y,scale)
+          </span>
+          , which could be used to select those keypoints that showed a stable maximum of
+          <span class="mathquill ud-math">
+           F
+          </span>
+          over scale. The scale for which
+          <span class="mathquill ud-math">
+           F
+          </span>
+          was maximized was termed the "characteristic scale“ of the respective keypoint.
+         </p>
+         <p>
+          The following image shows such a function
+          <span class="mathquill ud-math">
+           F
+          </span>
+          which has been evaluated for several scale levels and exhibits a clear maximum that can be seen as the characteristic scale of the image content within the circular region.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="Adapted from [Feature Detection with Automatic Scale Selection](https://people.kth.se/~tony/papers/cvap198.pdf)." class="img img-fluid" src="img/scale-space-sunflower.jpg"/>
+          <figcaption class="figure-caption">
+           <p>
+            Adapted from
+            <a href="https://people.kth.se/~tony/papers/cvap198.pdf" rel="noopener noreferrer" target="_blank">
+             Feature Detection with Automatic Scale Selection
+            </a>
+            .
+           </p>
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <p>
+          Details of how to properly design a suitable function
+          <span class="mathquill ud-math">
+           F
+          </span>
+          are not in the focus of this course however. The major take-away is the knowledge that a good detector is able to automatically select the characteristic scale of a keypoint based on structural properties of its local neighborhood. Modern keypoint detectors usually possess this ability and are thus robust under changes of the image scale.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h2 id="overview-of-popular-keypoint-detectors">
+          Overview of Popular Keypoint Detectors
+         </h2>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <p>
+          Keypoint detectors are a very popular research area and thus a large number of powerful algorithms have been developed over the years. Applications of keypoint detection include such things as object recognition and tracking, image matching and panoramic stitching as well as robotic mapping and 3D modeling. In addition to invariance under the transformations mentioned above, detectors can be compared for their detection performance and their processing speed.
+         </p>
+         <p>
+          The Harris detector along with several other "classics" belongs to a group of traditional detectors, which aim at maximizing detection accuracy. In this group, computational complexity is not a primary concern. The following list shows a number of popular classic detectors :
+         </p>
+         <ul>
+          <li>
+           1988 Harris Corner Detector (Harris, Stephens)
+          </li>
+          <li>
+           1996 Good Features to Track (Shi, Tomasi)
+          </li>
+          <li>
+           1999 Scale Invariant Feature Transform (Lowe)
+          </li>
+          <li>
+           2006 Speeded Up Robust Features (Bay, Tuytelaars, Van Gool)
+          </li>
+         </ul>
+         <p>
+          In recent years, a number of faster detectors has been developed which aims at real-time applications on smartphones and other portable devices. The following list shows the most popular detectors belonging to this group:
+         </p>
+         <ul>
+          <li>
+           2006 Features from Accelerated Segment Test (FAST) (Rosten, Drummond)
+          </li>
+          <li>
+           2010 Binary Robust Independent Elementary Features (BRIEF) (Calonder, et al.)
+          </li>
+          <li>
+           2011 Oriented FAST and Rotated BRIEF (ORB) (Rublee et al.)
+          </li>
+          <li>
+           2011 Binary Robust Invariant Scalable Keypoints (BRISK) (Leutenegger, Chli, Siegwart)
+          </li>
+          <li>
+           2012 Fast Retina Keypoint (FREAK) (Alahi, Ortiz, Vandergheynst)
+          </li>
+          <li>
+           2012 KAZE (Alcantarilla, Bartoli, Davidson)
+          </li>
+         </ul>
+         <p>
+          In this course, we will be using the Harris detector as well as the Shi-Tomasi detector (which is very similar to Harris) as representatives from the first group of "classic“ detectors. From the second group, we will be leveraging the OpenCV to implement the entire list of detectors.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+         <p>
+          ND313 C03 L03 A07 C33 Outro
+         </p>
+        </h3>
+        <video controls="">
+         <source src="03. ND313 C03 L03 A07 C33 Outro-ybf16ErRqVg.mp4" type="video/mp4"/>
+         <track default="true" kind="subtitles" label="en" src="03. ND313 C03 L03 A07 C33 Outro-ybf16ErRqVg.en.vtt" srclang="en"/>
+        </video>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+         <p>
+          ND313 C03 L03 A07 C33 Outro Pt 2
+         </p>
+        </h3>
+        <video controls="">
+         <source src="03. ND313 C03 L03 A07 C33 Outro Pt 2-Hel5bW4bD4w.mp4" type="video/mp4"/>
+         <track default="true" kind="subtitles" label="en" src="03. ND313 C03 L03 A07 C33 Outro Pt 2-Hel5bW4bD4w.en.vtt" srclang="en"/>
+        </video>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h2 id="exercise">
+          Exercise
+         </h2>
+         <p>
+          Before we go into details on the above-mentioned detectors in the next section, use the OpenCV library to add the FAST detector in addition to the already implemented Shi-Tomasi detector and compare both algorithms with regard to (a) number of keypoints, (b) distribution of keypoints over the image and (c) processing speed. Describe your observations with a special focus on the preceding vehicle.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div class="jumbotron">
+         <h3>
+          Workspace
+         </h3>
+         <p class="lead">
+          This section contains either a workspace (it can be a
+          <a href="http://jupyter.org/" target="_blank">
+           Jupyter
+      Notebook
+          </a>
+          workspace or an online code editor work space, etc.) and it cannot be automatically downloaded to be
+    generated here. Please access the classroom with your account and manually download the workspace to your local
+    machine. Note that for some courses, Udacity upload the workspace files onto
+          <a href="https://github.com/udacity" target="_blank">
+           https://github.com/udacity
+          </a>
+          , so you may be able to download them there.
+         </p>
+         <h4>
+          Workspace Information:
+         </h4>
+         <ul>
+          <li>
+           <strong>
+            Default file path:
+           </strong>
+          </li>
+          <li>
+           <strong>
+            Workspace type:
+           </strong>
+           react
+          </li>
+          <li>
+           <strong>
+            Opened files (when workspace is loaded):
+           </strong>
+           n/a
+          </li>
+          <li>
+           <strong>
+            userCode:
+           </strong>
+           <br/>
+           <code>
+            <p>
+             export CXX=g++-7
+             <br>
+              export CXXFLAGS=-std=c++17
+             </br>
+            </p>
+           </code>
+          </li>
+         </ul>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+         <p>
+          Reflect
+         </p>
+        </h3>
+        <div>
+         <p>
+          <strong>
+           QUESTION:
+          </strong>
+         </p>
+         <p>
+          Describe your observations from the exercise above with a special focus on the preceding vehicle.
+         </p>
+         <details>
+          <summary>
+           <strong>
+            ANSWER:
+           </strong>
+          </summary>
+          <p>
+           <p>
+            Thank you for your reflection!
+           </p>
+          </p>
+         </details>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+      </div>
+      <div class="col-12">
+       <p class="text-right">
+        <a class="btn btn-outline-primary mt-4" href="04. Gradient-based vs. Binary Descriptors.html" role="button">
+         Next Concept
+        </a>
+       </p>
+      </div>
+     </div>
+    </main>
+    <footer class="footer">
+     <div class="container">
+      <div class="row">
+       <div class="col-12">
+        <p class="text-center">
+         udacity2.0 If you need the newest courses Plase add me wechat: udacity6
+        </p>
+       </div>
+      </div>
+     </div>
+    </footer>
+   </div>
+  </div>
+  <script src="../assets/js/jquery-3.3.1.min.js">
+  </script>
+  <script src="../assets/js/plyr.polyfilled.min.js">
+  </script>
+  <script src="../assets/js/bootstrap.min.js">
+  </script>
+  <script src="../assets/js/jquery.mCustomScrollbar.concat.min.js">
+  </script>
+  <script src="../assets/js/katex.min.js">
+  </script>
+  <script>
+   // Initialize Plyr video players
+    const players = Array.from(document.querySelectorAll('video')).map(p => new Plyr(p));
+
+    // render math equations
+    let elMath = document.getElementsByClassName('mathquill');
+    for (let i = 0, len = elMath.length; i < len; i += 1) {
+      const el = elMath[i];
+
+      katex.render(el.textContent, el, {
+        throwOnError: false
+      });
+    }
+
+    // this hack will make sure Bootstrap tabs work when using Handlebars
+    if ($('#question-tabs').length && $('#user-answer-tabs').length) {
+      $("#question-tabs a.nav-link").on('click', function () {
+        $("#question-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+      $("#user-answer-tabs a.nav-link").on('click', function () {
+        $("#user-answer-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    } else {
+      $("a.nav-link").on('click', function () {
+        $(".tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    }
+
+    // side bar events
+    $(document).ready(function () {
+      $("#sidebar").mCustomScrollbar({
+        theme: "minimal"
+      });
+
+      $('#sidebarCollapse').on('click', function () {
+        $('#sidebar, #content').toggleClass('active');
+        $('.collapse.in').toggleClass('in');
+        $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+      });
+
+      // scroll to first video on page loading
+      if ($('video').length) {
+        $('html,body').animate({ scrollTop: $('div.plyr').prev().offset().top});
+      }
+
+      // auto play first video: this may not work with chrome/safari due to autoplay policy
+      if (players && players.length > 0) {
+        players[0].play();
+      }
+
+      // scroll sidebar to current concept
+      const currentInSideBar = $( "ul.sidebar-list.components li a:contains('03. Overview of Popular Keypoint Detectors')" )
+      currentInSideBar.css( "text-decoration", "underline" );
+      $("#sidebar").mCustomScrollbar('scrollTo', currentInSideBar);
+    });
+  </script>
+ </body>
+</html>

@@ -1,0 +1,256 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:03.359
+Now the next parameters are quality level and K. Look
+
+00:00:03.359 --> 00:00:06.689
+those up in the documentation of the Shi-Tomasi detector.
+
+00:00:06.690 --> 00:00:09.390
+Also, we have a flag which is called useHarris.
+
+00:00:09.390 --> 00:00:11.385
+Now, in the lesson,
+
+00:00:11.384 --> 00:00:15.000
+you should have learned that the actual colonist measure used with
+
+00:00:15.000 --> 00:00:19.574
+the good features to track method is very similar to the Harris colonists measure.
+
+00:00:19.574 --> 00:00:21.914
+You can actually use the Harris economists
+
+00:00:21.914 --> 00:00:24.809
+measure in the good features to track implementation.
+
+00:00:24.809 --> 00:00:26.834
+If you want to do this, and gives this a try,
+
+00:00:26.835 --> 00:00:30.060
+simply that this variable to true here
+
+00:00:30.059 --> 00:00:33.689
+and the internal mechanism of good features to track,
+
+00:00:33.689 --> 00:00:36.434
+we'll use the original Harris corners measure.
+
+00:00:36.435 --> 00:00:39.590
+Now, what I'm doing here is in line 166.
+
+00:00:39.590 --> 00:00:44.390
+I'm measuring how long it takes to execute the good features to track function.
+
+00:00:44.390 --> 00:00:51.320
+I am looking at the computer watch here or I'm writing down the ticks
+
+00:00:51.320 --> 00:00:54.950
+into the variable T.
+
+00:00:54.950 --> 00:00:59.540
+Now what I'm doing here is I'm storing the currents tick number into the variable T,
+
+00:00:59.539 --> 00:01:03.229
+and at the end once the processing is complete,
+
+00:01:03.229 --> 00:01:06.364
+I am again writing the current tick number into
+
+00:01:06.364 --> 00:01:11.614
+the variable T minus its previous value before we executed the function.
+
+00:01:11.614 --> 00:01:13.849
+Then I'm dividing this by the tick frequency.
+
+00:01:13.849 --> 00:01:16.969
+So what it gives me is the amount of time it took
+
+00:01:16.969 --> 00:01:21.030
+the system to execute the good features to track function in milliseconds.
+
+00:01:21.030 --> 00:01:23.689
+Which is then output here in line 169.
+
+00:01:23.689 --> 00:01:26.359
+Now what I'm doing then is then I am using
+
+00:01:26.359 --> 00:01:31.519
+an iterator to loop over all the corners the function has provided me with.
+
+00:01:31.519 --> 00:01:36.170
+I'm adding those corners to the result vector which is then getting pushed
+
+00:01:36.170 --> 00:01:38.510
+back to the system later in
+
+00:01:38.510 --> 00:01:41.175
+the code when we look at the midterm project and the final project.
+
+00:01:41.174 --> 00:01:45.379
+What we need is a vector of key points and those key points have to be
+
+00:01:45.379 --> 00:01:47.959
+extracted from the data structure which is
+
+00:01:47.959 --> 00:01:50.989
+used by the Shi-Tomasi original implementation.
+
+00:01:50.989 --> 00:01:52.699
+This is basically done here.
+
+00:01:52.700 --> 00:01:54.665
+Looping over all corners.
+
+00:01:54.665 --> 00:01:59.880
+Then I am taking the corners by using the iterator here,
+
+00:01:59.879 --> 00:02:03.589
+and I'm assigning this corner to the new key point
+
+00:02:03.590 --> 00:02:07.340
+and I'm also assigning the size of the neighborhood around the key points.
+
+00:02:07.340 --> 00:02:12.330
+So when we draw the key point onto the image,
+
+00:02:12.330 --> 00:02:16.820
+a circle can denote or can give you the size of the key point and individualization.
+
+00:02:16.819 --> 00:02:21.430
+It's much easier to see how large the actual key point area around a key point is.
+
+00:02:21.430 --> 00:02:23.885
+So this is reflected here my block size,
+
+00:02:23.884 --> 00:02:27.804
+and then we push back the new key point into the vector.
+
+00:02:27.805 --> 00:02:30.495
+The code here, should already seem familiar.
+
+00:02:30.495 --> 00:02:32.865
+It's simply taking, cloning the image,
+
+00:02:32.865 --> 00:02:34.469
+preparing the visualization image,
+
+00:02:34.469 --> 00:02:37.639
+drawing all the key points with a variety
+
+00:02:37.639 --> 00:02:41.239
+of input parameters which you want to look up eventually,
+
+00:02:41.240 --> 00:02:42.905
+draw which key points,
+
+00:02:42.905 --> 00:02:47.509
+draws the key point including its neighborhood in terms of an ellipse
+
+00:02:47.509 --> 00:02:52.534
+or a circle which would reflects the size and shape of the respective key point.
+
+00:02:52.534 --> 00:02:55.599
+Then we simply show the image.
+
+00:02:55.599 --> 00:02:58.879
+Now, what I forgot to add here is a weight key.
+
+00:02:58.879 --> 00:03:02.719
+So in order for the image to stay open,
+
+00:03:02.719 --> 00:03:05.659
+I have to add this line here and I see the weight key is zero,
+
+00:03:05.659 --> 00:03:07.490
+and if you execute the code now,
+
+00:03:07.490 --> 00:03:09.020
+the image will stay open.
+
+00:03:09.020 --> 00:03:11.939
+So let's compile a code.
+
+00:03:12.020 --> 00:03:14.875
+Let's run the code.
+
+00:03:14.875 --> 00:03:16.419
+Now as you can see here,
+
+00:03:16.419 --> 00:03:20.019
+the entire images clustered with Shi-Tomasi key points.
+
+00:03:20.020 --> 00:03:22.540
+If you focus only on the preceding vehicle,
+
+00:03:22.539 --> 00:03:24.849
+what you can see is that there are key points and
+
+00:03:24.849 --> 00:03:28.000
+the license plate spread over the tail lights.
+
+00:03:28.000 --> 00:03:31.705
+So the VW logo is encircled by a blue circle.
+
+00:03:31.705 --> 00:03:35.290
+We have key points on the real window all over the tail gait.
+
+00:03:35.289 --> 00:03:39.099
+So basically, it's a lot of key points which we can use to track
+
+00:03:39.099 --> 00:03:43.299
+them through the image sequence which is what we will be focusing on in the next lesson.
+
+00:03:43.300 --> 00:03:46.240
+But for now, we want to only focus on the key points.
+
+00:03:46.240 --> 00:03:50.525
+We also want to look at accuracy and processing speed.
+
+00:03:50.525 --> 00:03:54.265
+Now one major drawback of Harris and Shi-Tomasi is a limited speed.
+
+00:03:54.264 --> 00:03:57.379
+It is really expensive to compute the gradient image and this prevents
+
+00:03:57.379 --> 00:04:00.759
+the use of both methods in real-time applications are many mobile devices.
+
+00:04:00.759 --> 00:04:03.109
+But there is another method which is called Features from
+
+00:04:03.110 --> 00:04:05.870
+Accelerated Segment Test or FAST for short.
+
+00:04:05.870 --> 00:04:08.330
+This detected it dates back to 2006,
+
+00:04:08.330 --> 00:04:12.690
+and it finds key points using machine learning and works only on the intensity image.
+
+00:04:12.689 --> 00:04:15.500
+It is therefore, much faster than the classical methods based on gradients.
+
+00:04:15.500 --> 00:04:18.649
+Now your job is to add the fast detector to the following code,
+
+00:04:18.649 --> 00:04:20.734
+and compare it to Shi-Tomasi with regard to.
+
+00:04:20.735 --> 00:04:22.845
+A. The number of key points, B.
+
+00:04:22.845 --> 00:04:26.705
+The distribution of key points over the image and C the processing speed.
+
+00:04:26.704 --> 00:04:28.250
+Please describe your observations with
+
+00:04:28.250 --> 00:04:30.925
+a special focus on the preceding vehicle in the test image.
+
+00:04:30.925 --> 00:04:33.800
+Have fun and see you in the next section.
+

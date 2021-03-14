@@ -1,0 +1,79 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:02.669
+Now here's the place to test your knowledge and match
+
+00:00:02.669 --> 00:00:05.594
+two sets of key points by comparing the descriptors.
+
+00:00:05.594 --> 00:00:08.638
+We'll be focusing on BRISK and on SIFT in this exercise,
+
+00:00:08.638 --> 00:00:11.669
+and also keypoints and descriptors have been precomputed,
+
+00:00:11.669 --> 00:00:14.294
+so you will be working on datasets we load from file.
+
+00:00:14.294 --> 00:00:16.980
+Now the first task for you is know the BRISK small
+
+00:00:16.980 --> 00:00:20.789
+datasets with a cross-check option turned off and then turned on.
+
+00:00:20.789 --> 00:00:23.609
+Look at the visualized key point matches and also at the number of
+
+00:00:23.609 --> 00:00:26.879
+matched pairs and describe your results in a short text to us.
+
+00:00:26.879 --> 00:00:29.699
+Second task, at the K nearest neighbor matching,
+
+00:00:29.699 --> 00:00:33.914
+you should use the kNN match function in OpenCV for this with K set to two.
+
+00:00:33.914 --> 00:00:38.850
+Then, implement the descriptor distance ratio to filter out ambiguous matches.
+
+00:00:38.850 --> 00:00:40.880
+When you're done, visualize the results,
+
+00:00:40.880 --> 00:00:43.160
+count the percentage of discarded matches for
+
+00:00:43.159 --> 00:00:46.654
+both the BRISK small and the BRISK large data set and,
+
+00:00:46.655 --> 00:00:49.689
+again, describe the observations to us in a few sentences.
+
+00:00:49.689 --> 00:00:53.030
+Last task, use both brute force matching and FLANN
+
+00:00:53.030 --> 00:00:56.480
+matching on the BRISK large and on the SIFT data set and also,
+
+00:00:56.479 --> 00:00:58.549
+again, describe your observations to us.
+
+00:00:58.549 --> 00:01:01.759
+Now the idea here is to familiarize you with typical matching results with
+
+00:01:01.759 --> 00:01:05.469
+problems and mismatches that will occur and how to mitigate their influence.
+
+00:01:05.469 --> 00:01:06.920
+By describing your observations,
+
+00:01:06.920 --> 00:01:09.918
+you will be forced to concentrate not only on the obvious,
+
+00:01:09.918 --> 00:01:13.609
+but also on the small stuff that might easily be missed on a quick glance.
+
+00:01:13.609 --> 00:01:18.719
+So look closely when comparing those matches and have fun with it, and see you soon.
+

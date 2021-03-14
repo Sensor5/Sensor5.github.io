@@ -1,0 +1,677 @@
+<!-- udacimak v1.4.4 -->
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <meta content="ie=edge" http-equiv="X-UA-Compatible"/>
+  <title>
+   Haris Corner Detection
+  </title>
+  <link href="../assets/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="../assets/css/plyr.css" rel="stylesheet"/>
+  <link href="../assets/css/katex.min.css" rel="stylesheet"/>
+  <link href="../assets/css/jquery.mCustomScrollbar.min.css" rel="stylesheet"/>
+  <link href="../assets/css/styles.css" rel="stylesheet"/>
+  <link href="../assets/img/udacimak.png" rel="shortcut icon" type="image/png">
+  </link>
+ </head>
+ <body>
+  <div class="wrapper">
+   <nav id="sidebar">
+    <div class="sidebar-header">
+     <h3>
+      Tracking Image Features
+     </h3>
+    </div>
+    <ul class="sidebar-list list-unstyled CTAs">
+     <li>
+      <a class="article" href="../index.html">
+       Back to Home
+      </a>
+     </li>
+    </ul>
+    <ul class="sidebar-list list-unstyled components">
+     <li class="">
+      <a href="01. Intensity Gradient and Filtering.html">
+       01. Intensity Gradient and Filtering
+      </a>
+     </li>
+     <li class="">
+      <a href="02. Haris Corner Detection.html">
+       02. Haris Corner Detection
+      </a>
+     </li>
+     <li class="">
+      <a href="03. Overview of Popular Keypoint Detectors.html">
+       03. Overview of Popular Keypoint Detectors
+      </a>
+     </li>
+     <li class="">
+      <a href="04. Gradient-based vs. Binary Descriptors.html">
+       04. Gradient-based vs. Binary Descriptors
+      </a>
+     </li>
+     <li class="">
+      <a href="05. Descriptor Matching.html">
+       05. Descriptor Matching
+      </a>
+     </li>
+     <li class="">
+      <a href="06. Tracking an Object Across Images.html">
+       06. Tracking an Object Across Images
+      </a>
+     </li>
+    </ul>
+    <ul class="sidebar-list list-unstyled CTAs">
+     <li>
+      <a class="article" href="../index.html">
+       Back to Home
+      </a>
+     </li>
+    </ul>
+   </nav>
+   <div id="content">
+    <header class="container-fluild header">
+     <div class="container">
+      <div class="row">
+       <div class="col-12">
+        <div class="align-items-middle">
+         <button class="btn btn-toggle-sidebar" id="sidebarCollapse" type="button">
+          <div>
+          </div>
+          <div>
+          </div>
+          <div>
+          </div>
+         </button>
+         <h1 style="display: inline-block">
+          02. Haris Corner Detection
+         </h1>
+        </div>
+       </div>
+      </div>
+     </div>
+    </header>
+    <main class="container">
+     <div class="row">
+      <div class="col-12">
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h1 id="harris-corner-detection">
+          Harris Corner Detection
+         </h1>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+         <p>
+          ND313 C03 L03 A04 C32 Intro
+         </p>
+        </h3>
+        <video controls="">
+         <source src="02. ND313 C03 L03 A04 C32 Intro-WL7Ybk5rm30.mp4" type="video/mp4"/>
+         <track default="true" kind="subtitles" label="en" src="02. ND313 C03 L03 A04 C32 Intro-WL7Ybk5rm30.en.vtt" srclang="en"/>
+        </video>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h2 id="local-measures-of-uniqueness">
+          Local Measures of Uniqueness
+         </h2>
+         <p>
+          The idea of keypoint detection is to detect a unique structure in an image that can be precisely located in both coordinate directions. As discussed in the previous section, corners are ideally suited for this purpose. To illustrate this, the following figure shows an image patch which consists of line structures on a homogeneously colored background. A red arrow indicates that no unique position can be found in this direction. The green arrow expresses the opposite. As can be seen, the corner is the only local structure that can be assigned a unique coordinate in x and y.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="" class="img img-fluid" src="img/draggedimage.png"/>
+          <figcaption class="figure-caption">
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <p>
+          In order to locate a corner, we consider how the content of the window would change when shifting it by a small amount. For case (a) in the figure above, there is no measurable change in any coordinate direction at the current location of the red window W whereas for (b), there will be significant change into the direction orthogonal to the edge and no change when moving into the direction of the edge. In case of (c), the window content will change in any coordinate direction.
+         </p>
+         <p>
+          The idea of locating corners by means of an algorithm is to find a way to detect areas with a significant change in the image structure based on a displacement of a local window W. Generally, a suitable measure for describing change mathematically is the sum of squared differences (SSD), which looks at the deviations of all pixels in a local neighborhood before and after performing a coordinate shift. The equation below illustrates the concept.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="" class="img img-fluid" src="img/draggedimage-1.png"/>
+          <figcaption class="figure-caption">
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <p>
+          After shifting the Window W by an amount u in x-direction and v in y-direction the equation sums up the squared differences of all pixels within W at the old and at the new window position. In the following we will use some mathematical transformations to derive a measure for the change of the local environment around a pixel from the general definition of the SSD.
+         </p>
+         <p>
+          In the first step, based on the definition of
+          <span class="mathquill ud-math">
+           E(u,v)
+          </span>
+          above, we will at first make a Taylor series expansion of
+          <span class="mathquill ud-math">
+           I(x+u, y+u)
+          </span>
+          . For small values of u and v, the first-order approximation is sufficient, which leads to the following expression.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="" class="img img-fluid" src="img/taylorseries.png"/>
+          <figcaption class="figure-caption">
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <p>
+          The derivation of the image intensity
+          <span class="mathquill ud-math">
+           I
+          </span>
+          both in x- and y-direction is something you have learned in the previous section already - this is simply the intensity gradient . From this point on, we will use the shorthand notation shown above to express the gradient.
+         </p>
+         <p>
+          In the second step, we will now insert the approximated expression of
+          <span class="mathquill ud-math">
+           I(x+u, y+v)
+          </span>
+          into the SSD equation above, which simplifies to the following form:
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="" class="img img-fluid" src="img/draggedimage-3.png"/>
+          <figcaption class="figure-caption">
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <p>
+          The result of our mathematical transformations is a matrix
+          <span class="mathquill ud-math">
+           H
+          </span>
+          , which can now be conveniently analyzed to locate structural change in a local window
+          <span class="mathquill ud-math">
+           W
+          </span>
+          around every pixel position
+          <span class="mathquill ud-math">
+           u,v
+          </span>
+          in an image. In the literature, the matrix
+          <span class="mathquill ud-math">
+           H
+          </span>
+          is often referred to as covariance matrix.
+         </p>
+         <p>
+          To do this, it helps to visualize the matrix
+          <span class="mathquill ud-math">
+           H
+          </span>
+          as an ellipse, whose axis length and directions are given by its eigenvalues and eigenvectors. As can be seen in the following figure, the larger eigenvector points into the direction of maximal intensity change, whereas the smaller eigenvector points into the direction of minimal change. So in order to identify corners, we need to find positions in the image which have two significantly large eigenvalues of
+          <span class="mathquill ud-math">
+           H
+          </span>
+          .
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="" class="img img-fluid" src="img/draggedimage-4.png"/>
+          <figcaption class="figure-caption">
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <p>
+          Without going into details on eigenvalues in this course, we will look at a simple formula of how they can be computed from
+          <span class="mathquill ud-math">
+           H
+          </span>
+          :
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="" class="img img-fluid" src="img/draggedimage-5.png"/>
+          <figcaption class="figure-caption">
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <p>
+          In addition to the smoothing of the image before gradient computation, the Harris detector uses a Gaussian window
+          <span class="mathquill ud-math">
+           w(x,y)
+          </span>
+          to compute a weighted sum of the intensity gradients around a local neighborhood. The size of this neighborhood is called scale in the context of feature detection and it is controlled by the standard deviation of the Gaussian distribution.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="" class="img img-fluid" src="img/draggedimage-6.png"/>
+          <figcaption class="figure-caption">
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <p>
+          As can be seen, the larger the scale of the Gaussian window, the larger the feature below that contributes to the sum of gradients. By adjusting scale, we can thus control the keypoints we are able to detect.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h2 id="the-harris-corner-detector">
+          The Harris Corner Detector
+         </h2>
+         <p>
+          Based on the eigenvalues of
+          <span class="mathquill ud-math">
+           H
+          </span>
+          , one of the most famous corner detectors is the Harris detector. This method evaluates the following expression to derive a corner response measure at every pixel location with the factor k being an empirical constant which is usually in the range between k = 0.04 - 0.06.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="" class="img img-fluid" src="img/draggedimage-7.png"/>
+          <figcaption class="figure-caption">
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <p>
+          Based on the concepts presented in this section, the following code computes the corner response for a given image and displays the result.
+         </p>
+         <pre><code class="cpp language-cpp">    // load image from file
+    cv::Mat img;
+    img = cv::imread("./img1.png");
+
+    // convert image to grayscale
+    cv::Mat imgGray; 
+    cv::cvtColor(img, imgGray, cv::COLOR_BGR2GRAY);
+
+    // Detector parameters
+    int blockSize = 2; // for every pixel, a blockSize × blockSize neighborhood is considered
+    int apertureSize = 3; // aperture parameter for Sobel operator (must be odd)
+    int minResponse = 100; // minimum value for a corner in the 8bit scaled response matrix
+    double k = 0.04; // Harris parameter (see equation for details)
+
+    // Detect Harris corners and normalize output
+    cv::Mat dst, dst_norm, dst_norm_scaled;
+    dst = cv::Mat::zeros(imgGray.size(), CV_32FC1 );
+    cv::cornerHarris( imgGray, dst, blockSize, apertureSize, k, cv::BORDER_DEFAULT ); 
+    cv::normalize( dst, dst_norm, 0, 255, cv::NORM_MINMAX, CV_32FC1, cv::Mat() );
+    cv::convertScaleAbs( dst_norm, dst_norm_scaled );
+
+    // visualize results
+    string windowName = "Harris Corner Detector Response Matrix";
+    cv::namedWindow( windowName, 4 );
+    cv::imshow( windowName, dst_norm_scaled );
+    cv::waitKey(0);</code></pre>
+         <p>
+          The result can be seen below : The brighter a pixel, the higher the Harris corner response.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="" class="img img-fluid" src="img/draggedimage-9.png"/>
+          <figcaption class="figure-caption">
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h2 id="exercise">
+          Exercise
+         </h2>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+         <p>
+          ND313 C03 L03 A05 C32 Outro
+         </p>
+        </h3>
+        <video controls="">
+         <source src="02. ND313 C03 L03 A05 C32 Outro-NKV9IIfxOaI.mp4" type="video/mp4"/>
+         <track default="true" kind="subtitles" label="en" src="02. ND313 C03 L03 A05 C32 Outro-NKV9IIfxOaI.en.vtt" srclang="en"/>
+        </video>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <p>
+          In order to locate corners, we now have to perform a non-maxima suppression to (a) ensure that we get the pixel with maximum cornerness in a local neighborhood and (b) to prevent corners from being too close to each other as we prefer an even spread of corners throughout the image.
+         </p>
+         <p>
+          Your task is to locate local maxima in the Harris response matrix and perform a non-maximum suppression (NMS) in a local neighborhood around each maximum. The resulting coordinates shall be stored in a list of keypoints of the type
+          <code>
+           vector&lt;cv::KeyPoint&gt;
+          </code>
+          . The result should look like this, with each circle denoting the position of a Harris corner.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="" class="img img-fluid" src="img/draggedimage-10.png"/>
+          <figcaption class="figure-caption">
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <p>
+          You can write your code in the
+          <code>
+           cornerness_harris.cpp
+          </code>
+          file in the desktop workspace below. After building, you can run the code using the generated
+          <code>
+           cornerness_harris
+          </code>
+          executable.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div class="jumbotron">
+         <h3>
+          Workspace
+         </h3>
+         <p class="lead">
+          This section contains either a workspace (it can be a
+          <a href="http://jupyter.org/" target="_blank">
+           Jupyter
+      Notebook
+          </a>
+          workspace or an online code editor work space, etc.) and it cannot be automatically downloaded to be
+    generated here. Please access the classroom with your account and manually download the workspace to your local
+    machine. Note that for some courses, Udacity upload the workspace files onto
+          <a href="https://github.com/udacity" target="_blank">
+           https://github.com/udacity
+          </a>
+          , so you may be able to download them there.
+         </p>
+         <h4>
+          Workspace Information:
+         </h4>
+         <ul>
+          <li>
+           <strong>
+            Default file path:
+           </strong>
+          </li>
+          <li>
+           <strong>
+            Workspace type:
+           </strong>
+           react
+          </li>
+          <li>
+           <strong>
+            Opened files (when workspace is loaded):
+           </strong>
+           n/a
+          </li>
+          <li>
+           <strong>
+            userCode:
+           </strong>
+           <br/>
+           <code>
+            <p>
+             export CXX=g++-7
+             <br>
+              export CXXFLAGS=-std=c++17
+             </br>
+            </p>
+           </code>
+          </li>
+         </ul>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+      </div>
+      <div class="col-12">
+       <p class="text-right">
+        <a class="btn btn-outline-primary mt-4" href="03. Overview of Popular Keypoint Detectors.html" role="button">
+         Next Concept
+        </a>
+       </p>
+      </div>
+     </div>
+    </main>
+    <footer class="footer">
+     <div class="container">
+      <div class="row">
+       <div class="col-12">
+        <p class="text-center">
+         udacity2.0 If you need the newest courses Plase add me wechat: udacity6
+        </p>
+       </div>
+      </div>
+     </div>
+    </footer>
+   </div>
+  </div>
+  <script src="../assets/js/jquery-3.3.1.min.js">
+  </script>
+  <script src="../assets/js/plyr.polyfilled.min.js">
+  </script>
+  <script src="../assets/js/bootstrap.min.js">
+  </script>
+  <script src="../assets/js/jquery.mCustomScrollbar.concat.min.js">
+  </script>
+  <script src="../assets/js/katex.min.js">
+  </script>
+  <script>
+   // Initialize Plyr video players
+    const players = Array.from(document.querySelectorAll('video')).map(p => new Plyr(p));
+
+    // render math equations
+    let elMath = document.getElementsByClassName('mathquill');
+    for (let i = 0, len = elMath.length; i < len; i += 1) {
+      const el = elMath[i];
+
+      katex.render(el.textContent, el, {
+        throwOnError: false
+      });
+    }
+
+    // this hack will make sure Bootstrap tabs work when using Handlebars
+    if ($('#question-tabs').length && $('#user-answer-tabs').length) {
+      $("#question-tabs a.nav-link").on('click', function () {
+        $("#question-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+      $("#user-answer-tabs a.nav-link").on('click', function () {
+        $("#user-answer-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    } else {
+      $("a.nav-link").on('click', function () {
+        $(".tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    }
+
+    // side bar events
+    $(document).ready(function () {
+      $("#sidebar").mCustomScrollbar({
+        theme: "minimal"
+      });
+
+      $('#sidebarCollapse').on('click', function () {
+        $('#sidebar, #content').toggleClass('active');
+        $('.collapse.in').toggleClass('in');
+        $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+      });
+
+      // scroll to first video on page loading
+      if ($('video').length) {
+        $('html,body').animate({ scrollTop: $('div.plyr').prev().offset().top});
+      }
+
+      // auto play first video: this may not work with chrome/safari due to autoplay policy
+      if (players && players.length > 0) {
+        players[0].play();
+      }
+
+      // scroll sidebar to current concept
+      const currentInSideBar = $( "ul.sidebar-list.components li a:contains('02. Haris Corner Detection')" )
+      currentInSideBar.css( "text-decoration", "underline" );
+      $("#sidebar").mCustomScrollbar('scrollTo', currentInSideBar);
+    });
+  </script>
+ </body>
+</html>

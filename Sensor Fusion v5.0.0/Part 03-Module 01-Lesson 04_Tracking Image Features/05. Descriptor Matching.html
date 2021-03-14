@@ -1,0 +1,770 @@
+<!-- udacimak v1.4.4 -->
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <meta content="ie=edge" http-equiv="X-UA-Compatible"/>
+  <title>
+   Descriptor Matching
+  </title>
+  <link href="../assets/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="../assets/css/plyr.css" rel="stylesheet"/>
+  <link href="../assets/css/katex.min.css" rel="stylesheet"/>
+  <link href="../assets/css/jquery.mCustomScrollbar.min.css" rel="stylesheet"/>
+  <link href="../assets/css/styles.css" rel="stylesheet"/>
+  <link href="../assets/img/udacimak.png" rel="shortcut icon" type="image/png">
+  </link>
+ </head>
+ <body>
+  <div class="wrapper">
+   <nav id="sidebar">
+    <div class="sidebar-header">
+     <h3>
+      Tracking Image Features
+     </h3>
+    </div>
+    <ul class="sidebar-list list-unstyled CTAs">
+     <li>
+      <a class="article" href="../index.html">
+       Back to Home
+      </a>
+     </li>
+    </ul>
+    <ul class="sidebar-list list-unstyled components">
+     <li class="">
+      <a href="01. Intensity Gradient and Filtering.html">
+       01. Intensity Gradient and Filtering
+      </a>
+     </li>
+     <li class="">
+      <a href="02. Haris Corner Detection.html">
+       02. Haris Corner Detection
+      </a>
+     </li>
+     <li class="">
+      <a href="03. Overview of Popular Keypoint Detectors.html">
+       03. Overview of Popular Keypoint Detectors
+      </a>
+     </li>
+     <li class="">
+      <a href="04. Gradient-based vs. Binary Descriptors.html">
+       04. Gradient-based vs. Binary Descriptors
+      </a>
+     </li>
+     <li class="">
+      <a href="05. Descriptor Matching.html">
+       05. Descriptor Matching
+      </a>
+     </li>
+     <li class="">
+      <a href="06. Tracking an Object Across Images.html">
+       06. Tracking an Object Across Images
+      </a>
+     </li>
+    </ul>
+    <ul class="sidebar-list list-unstyled CTAs">
+     <li>
+      <a class="article" href="../index.html">
+       Back to Home
+      </a>
+     </li>
+    </ul>
+   </nav>
+   <div id="content">
+    <header class="container-fluild header">
+     <div class="container">
+      <div class="row">
+       <div class="col-12">
+        <div class="align-items-middle">
+         <button class="btn btn-toggle-sidebar" id="sidebarCollapse" type="button">
+          <div>
+          </div>
+          <div>
+          </div>
+          <div>
+          </div>
+         </button>
+         <h1 style="display: inline-block">
+          05. Descriptor Matching
+         </h1>
+        </div>
+       </div>
+      </div>
+     </div>
+    </header>
+    <main class="container">
+     <div class="row">
+      <div class="col-12">
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h1 id="descriptor-matching">
+          Descriptor Matching
+         </h1>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+         <p>
+          ND313 C03 L03 A10 C35 Intro
+         </p>
+        </h3>
+        <video controls="">
+         <source src="05. ND313 C03 L03 A10 C35 Intro-IGa4AUyl7YQ.mp4" type="video/mp4"/>
+         <track default="true" kind="subtitles" label="en" src="05. ND313 C03 L03 A10 C35 Intro-IGa4AUyl7YQ.en.vtt" srclang="en"/>
+        </video>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h2 id="distance-between-descriptors">
+          Distance between descriptors
+         </h2>
+         <p>
+          In the last section, you have learned that keypoints can be described by transforming their local neighborhood into a high-dimensional vector that captures the unique characteristics of the gradient or intensity distribution. In this section, we want to look at several ways to compute the distance between two descriptors such that the differences between them are transformed into a single number which we can use as a simple measure of similarity.
+         </p>
+         <p>
+          The first distance function is the "Sum of Absolute Differences (SAD)". As you can see in the equation below, the SAD takes as input two descriptor vectors
+          <span class="mathquill ud-math">
+           d_a
+          </span>
+          and
+          <span class="mathquill ud-math">
+           d_b
+          </span>
+          . The SAD is computed by subtracting from every component in
+          <span class="mathquill ud-math">
+           d_a
+          </span>
+          the corresponding component at the same position in
+          <span class="mathquill ud-math">
+           d_b
+          </span>
+          . Then, the absolute value of the respective result is summed up. The SAD norm is also referred to as L1-norm in the literature.
+         </p>
+         <p>
+          The second distance function is the "Sum of Squared Differences (SSD)", which is similar to the SAD in the sense that differences between individual components of two descriptor vectors are computed. However, the key difference between SAD and SSD is that the latter sums the squared differences instead of the absolute differences. In the literature, the SSD norm is also referred to as L2-norm. Both norms are given in the following figure.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="" class="img img-fluid" src="img/draggedimage.png"/>
+          <figcaption class="figure-caption">
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <p>
+          There are several ways of explaining the differences between SAD and SSD. One helpful approach, as we want to keep this aspect short, is to look at both norms from a geometrical perspective. In the following figure, a two-dimensional feature space is considered. In it, there are two feature vectors d1 and d2, each of which consists of an (a,b) coordinate pair.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="" class="img img-fluid" src="img/draggedimage-1.png"/>
+          <figcaption class="figure-caption">
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <p>
+          The shortest distance between both is a straight line. Given the two components of each vector, the SAD computes the sum of the length differences, which is a one-dimensional process. The SSD on the other hand, computes the sum of squares, which obeys the law of Pythagoras. This law says that In a rectangular triangle, the sum of the cathete squares is equal to the square of the hypotenuse. So in terms of the geometric distance between both vectors, the L2-norm is a more accurate measure. Note that the same rationale applies to higher-dimensional descriptors in the same manner.
+         </p>
+         <p>
+          In the case of a binary descriptor who consists only of ones and zeros, the best (and fastest) measure to use is the Hamming distance, which computes the difference between both vectors by using an XOR function, which returns zero if two bits are identical and one if two bits are different. So the sum of all XOR operations is simply the number of differing bits between both descriptors.
+         </p>
+         <p>
+          The key takeaway here is that you have to adapt the distance measure to the type of descriptor you are using. In case of gradient-based methods such as SIFT, the L2-norm would be most appropriate. In case of all binary descriptors, the Hamming distance should be used.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h2 id="finding-matches">
+          Finding matches
+         </h2>
+         <p>
+          Let us assume we have N keypoints and their associated descriptors in one image and M keypoints in another image. The most obvious method to look for corresponding pairs would be to compare all features with each other, i.e. perform N x M comparisons. For a given keypoint from the first image, it takes every keypoint in the second image and calculates the distance. The keypoint with the smallest distance will be considered its pair. This approach is referred to as Brute Force Matching or Nearest Neighbor Matching and is available in the OpenCV under the name BFMatcher. The output of brute force matching in OpenCV is a list of keypoint pairs sorted by the distance of their descriptors under the chosen distance function. Brute force matching works well for small keypoint numbers but can be computationally expensive as the number of keypoints increases.
+         </p>
+         <p>
+          In 2014, David Lowe (the father of SIFT) and Marius Muja released an open-source library called "fast library for approximate nearest neighbors" (FLANN). FLANN trains an indexing structure for walking through potential matching candidates that is created using concepts from machine learning. The library builds a very efficient data structure (a KD-tree) to search for matching pairs and avoids the exhaustive search of the brute force approach. It is therefore faster while the results are still very good, depending on the matching parameters. As FLANN-based matching entails a whole new body of knowledge with several concepts that have limited relevancy for this course, there is no detailed description of the method given here. The FLANN-based matching is available in the OpenCV and you will see it again in the code example below. At the time of writing (May 2019), there is a potential bug in the current implementation of the OpenCV, which requires a conversion of the binary descriptors into floating point vectors, which is inefficient. Yet still there is an improvement in speed, albeit not as large as it potentially could be.
+         </p>
+         <p>
+          Both BFMatching and FLANN accept a descriptor distance threshold T which is used to limit the number of matches to the ‚good‘ ones and discard matches where the respective pairs are no correspondences. Corresponding ‚good‘ pairs are termed ‚True Positives (TP)‘ whereas mismatches are called ‚False Positives (FP)‘. The task of selecting a suitable value for T is to allow for as many TP matches as possible while FP matches should be avoided as far as possible. Depending on the image content and on the respective detector / descriptor combination, a trade-off between TP and FP has to be found that reasonably balances the ratio between TP and FP. The following figure shows two distributions of TP and of FP over the SSD to illustrate threshold selection.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="" class="img img-fluid" src="img/draggedimage-2.png"/>
+          <figcaption class="figure-caption">
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <p>
+          The first threshold T1 is set to a maximally permissible SSD between two features in a way that some true positive matches are selected, while false positive matches are almost entirely avoided . However, most TP matches are also discarded with this setting. By increasing the matching threshold to T2, more TP matches are selected but the number of FP matches also increases significantly. In practice, a clear and concise separation of TP and FP is almost never found and therefore, setting a matching threshold is always a compromise between balancing 'good' vs. 'bad' matches. While FP matches can not be avoided in most cases, the goal always is to lower their number as much as possible. In the following, two strategies to achieve this are presented.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h2 id="selecting-matches">
+          Selecting Matches
+         </h2>
+         <p>
+          As long as the selected threshold T is not exceeded, brute force matching will always return a match for a keypoint in the first image, even if the keypoint is not present in the second image. This inevitably leads to a number of false matches. A strategy to counteract this is called cross check matching, which works by applying the matching procedure in both directions and keeping only those matches whose best match in one direction equals the best match in the other direction. The steps of the cross check approach are:
+         </p>
+         <ol>
+          <li>
+           For each descriptor in the source image, find one or more best matches in the reference image.
+          </li>
+          <li>
+           Switch the order of source and reference image.
+          </li>
+          <li>
+           Repeat the matching procedure between source and reference image from step 1.
+          </li>
+          <li>
+           Select those keypoint pairs whose descriptors are best matches in both directions.
+          </li>
+         </ol>
+         <p>
+          Although cross check matching increases the processing time, it usually removes a significant number of false matches and should thus always be performed when accuracy is preferred over speed.
+         </p>
+         <p>
+          A very efficient way of lowering the number of false positives is to compute the
+          <em>
+           nearest neighbor distance ratio
+          </em>
+          for each keypoint. This method has been originally proposed by D. Lowe in the 1999 paper on SIFT. The main idea is to not apply the threshold on the SSD directly. Instead, for each keypoint in the source image, the two best matches are located in the reference image and the ratio between the descriptor distances is computed. Then, a threshold is applied to the ratio to sort out ambiguous matches. The figure below illustrates the principle.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="" class="img img-fluid" src="img/draggedimage-3.png"/>
+          <figcaption class="figure-caption">
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <p>
+          In the example, an image patch with an associated descriptor da is compared to two other image patches with descriptors
+          <span class="mathquill ud-math">
+           d_{b_1}
+          </span>
+          and
+          <span class="mathquill ud-math">
+           d_{b_2}
+          </span>
+          . As can be seen, the patches look very similar and would result in ambiguous and thus unreliable matches. By computing the SSD ratio between best and second-best match, such weak candidates can be filtered out.
+         </p>
+         <p>
+          In practice, a threshold value of 0.8 has proven to provide a good balance between TP and FP. In the image sequences examined in the original SIFT paper, 90% of the false matches were eliminated with this setting while less than 5% of correct matches were lost.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h2 id="exercise-distance-between-descriptors">
+          Exercise: Distance between descriptors
+         </h2>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+         <p>
+          ND313 C03 L03 A11 C35 Mid
+         </p>
+        </h3>
+        <video controls="">
+         <source src="05. ND313 C03 L03 A11 C35 Mid-nawEaRwnu2c.mp4" type="video/mp4"/>
+         <track default="true" kind="subtitles" label="en" src="05. ND313 C03 L03 A11 C35 Mid-nawEaRwnu2c.en.vtt" srclang="en"/>
+        </video>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <p>
+          In the following code example, a set of binary BRISK descriptors is pre-loaded and matched using the brute force approach described earlier in this section. Note that the number of matches has been limited to the 100 best candidates for educational purposes, as it is much easier to visually spot mismatches when drawing a reduced number of keypoint pairs as an overlay. Note that once the matches have been computed, the function can be set to either nearest-neighbor (keeping only the best match) or k-nearest-neighbor selection (keeping the best k matches per keypoint).
+         </p>
+         <p>
+          Before we take a look at how to estimate the performance of keypoints and descriptors further down below in this section, please complete the following tasks using the desktop workspace below:
+         </p>
+         <ol>
+          <li>
+           Load the 'BRISK_small' dataset with cross-check first turned off, then on. Look at the visualized keypoint matches and at the number of matched pairs and describe your results.
+          </li>
+          <li>
+           Add the k-nearest-neighbor matching (using
+           <code>
+            cv::knnMatch
+           </code>
+           ) with k=2 and implement the above-described descriptor distance ratio to filter out ambiguous matches with the threshold set to 0.8. Visualize the results, count the percentage of discarded matches (for both the 'BRISK_small' and the 'BRISK_large' dataset) and describe your observations.
+          </li>
+          <li>
+           Use both BF matching and FLANN matching on the 'BRISK_large' dataset and on the SIFT dataset and describe your observations.
+          </li>
+         </ol>
+         <p>
+          The code for this exercise is in the
+          <code>
+           descriptor_matching.cpp
+          </code>
+          file, and after building with
+          <code>
+           cmake
+          </code>
+          and
+          <code>
+           make
+          </code>
+          , you can run the code using the
+          <code>
+           descriptor_matching
+          </code>
+          executable.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div class="jumbotron">
+         <h3>
+          Workspace
+         </h3>
+         <p class="lead">
+          This section contains either a workspace (it can be a
+          <a href="http://jupyter.org/" target="_blank">
+           Jupyter
+      Notebook
+          </a>
+          workspace or an online code editor work space, etc.) and it cannot be automatically downloaded to be
+    generated here. Please access the classroom with your account and manually download the workspace to your local
+    machine. Note that for some courses, Udacity upload the workspace files onto
+          <a href="https://github.com/udacity" target="_blank">
+           https://github.com/udacity
+          </a>
+          , so you may be able to download them there.
+         </p>
+         <h4>
+          Workspace Information:
+         </h4>
+         <ul>
+          <li>
+           <strong>
+            Default file path:
+           </strong>
+          </li>
+          <li>
+           <strong>
+            Workspace type:
+           </strong>
+           react
+          </li>
+          <li>
+           <strong>
+            Opened files (when workspace is loaded):
+           </strong>
+           n/a
+          </li>
+          <li>
+           <strong>
+            userCode:
+           </strong>
+           <br/>
+           <code>
+            <p>
+             export CXX=g++-7
+             <br>
+              export CXXFLAGS=-std=c++17
+             </br>
+            </p>
+           </code>
+          </li>
+         </ul>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+         <p>
+          Reflect
+         </p>
+        </h3>
+        <div>
+         <p>
+          <strong>
+           QUESTION:
+          </strong>
+         </p>
+         <p>
+          Record your observations from steps 2 and 3 of the above exercise.
+         </p>
+         <details>
+          <summary>
+           <strong>
+            ANSWER:
+           </strong>
+          </summary>
+          <p>
+           <p>
+            Thank you for your response!
+           </p>
+          </p>
+         </details>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h2 id="evaluating-matching-performance">
+          Evaluating Matching Performance
+         </h2>
+         <p>
+          There exists a large number of detector and descriptor types and based on the problem to be solved, a suitable pair of algorithms has to be chosen based on requirements such as the accuracy of keypoints or the number of matched pairs. In the following, an overview of the most common measures is presented.
+         </p>
+         <p>
+          The
+          <em>
+           True Positive Rate (TPR)
+          </em>
+          is the ratio between keypoints that have been matched correctly (true positives - TP) and the sum of all potential matches, including ones missed by the detector/descriptor (false negatives - FN). A perfect matcher would have a TPR of 1.0 as there would be no false matches. In the literature, the TPR is also referred to as
+          <em>
+           recall
+          </em>
+          and can be used to quantify how many of the possible correct matches were actually found.
+         </p>
+         <p>
+          The
+          <em>
+           False Positive Rate (FPR)
+          </em>
+          is the ratio between keypoints that have been incorrectly matched (false positives - FP) and the sum of all features that should have been without a match. A perfect matcher would have a FPR of 0.0. The FPR is also referred to as
+          <em>
+           false alarm rate
+          </em>
+          and describes how likely it is that a detector / descriptor selects a wrong keypoint pair.
+         </p>
+         <p>
+          The
+          <em>
+           Precision
+          </em>
+          of a matcher is the number of correctly matched keypoints (TP) divided by the number of all matches. This measure is also referred to as
+          <em>
+           inlier ratio
+          </em>
+          .
+         </p>
+         <p>
+          The following table gives an overview of some of the measures just introduced.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="" class="img img-fluid" src="img/draggedimage-4.png"/>
+          <figcaption class="figure-caption">
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <p>
+          In order to decide whether a match or non-match is correct, ground-truth information of the image material used for assessment is needed. In many publications, image sequences have been used where all keypoints are located on a planar surface. In such a case, a model-based estimation can be used to differentiate between TP / TN and FP / FN. For the image sequences we use in this course, this approach can not be used as "our" keypoints are distributed in a complex three-dimensional scene, in which the objects move dynamically with unknown motion parameters. However, we can use a large number of available comparisons in the literature and transfer the results to our application scenario. At the end of this section, a small selection of such results is shown.
+         </p>
+         <p>
+          The
+          <em>
+           Receiver Operating Characteristic (ROC)
+          </em>
+          is a graphical plot that shows how well a detector / descriptor is able to differentiate between true and false matches as its discrimination threshold is varied. The ROC can be used to visually compare different detectors / descriptors and also select a suitable discrimination threshold for each. The name ROC dates back to WW II, where the method has been introduced by radar operators in the context of identifying enemy targets.
+         </p>
+         <p>
+          The following figure shows how the ROC is constructed from the distribution of true positives and false positives by varying the discrimination threshold on the SSD. An ideal detector / descriptor would have a TPR of 1.0 while the FPR would be close to 0.0 at the same time.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="" class="img img-fluid" src="img/draggedimage-5.png"/>
+          <figcaption class="figure-caption">
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <p>
+          In the following figure, two examples for good and bad detectors / descriptors are shown. In the first example, there is no way of safely differentiating between TP and FP as both curves match and changes in the discrimination threshold would affect them in the same way. In the second example, the TP and FP curve do not overlap significantly and therefore, a suitable discriminator threshold can be selected.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="" class="img img-fluid" src="img/draggedimage-6.png"/>
+          <figcaption class="figure-caption">
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <p>
+          There are several other ways of assessing detectors and descriptors such as the
+          <em>
+           Precision-Recall Curve
+          </em>
+          which we will not discuss in this course in order to stay focused on the task ahead - which is the development of our collision avoidance system.
+         </p>
+         <p>
+          To conclude this section, an overview of results is given, where several descriptors have been compared against each other and which can be used to facilitate the selection process when detectors / descriptors have to be chosen for an application. In the graph, you can see the ROC curves of different descriptors such as SIFT, BRISK and several others and visually compare them against each other. Note that those results are only valid for the image sequences actually used for the comparison - for a different image set, e.g. a traffic scene, results may vary significantly.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="\[[source](https://cvlab.epfl.ch/research/page-90554-en-html/research-detect-dbrief/)\]" class="img img-fluid" src="img/results1.png"/>
+          <figcaption class="figure-caption">
+           <p>
+            [
+            <a href="https://cvlab.epfl.ch/research/page-90554-en-html/research-detect-dbrief/" rel="noopener noreferrer" target="_blank">
+             source
+            </a>
+            ]
+           </p>
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h2 id="lesson-summary">
+          Lesson Summary
+         </h2>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+         <p>
+          ND313 C03 L03 A12 C35 Outro
+         </p>
+        </h3>
+        <video controls="">
+         <source src="05. ND313 C03 L03 A12 C35 Outro-vosXnbzD8V8.mp4" type="video/mp4"/>
+         <track default="true" kind="subtitles" label="en" src="05. ND313 C03 L03 A12 C35 Outro-vosXnbzD8V8.en.vtt" srclang="en"/>
+        </video>
+       </div>
+       <div class="divider">
+       </div>
+      </div>
+      <div class="col-12">
+       <p class="text-right">
+        <a class="btn btn-outline-primary mt-4" href="06. Tracking an Object Across Images.html" role="button">
+         Next Concept
+        </a>
+       </p>
+      </div>
+     </div>
+    </main>
+    <footer class="footer">
+     <div class="container">
+      <div class="row">
+       <div class="col-12">
+        <p class="text-center">
+         udacity2.0 If you need the newest courses Plase add me wechat: udacity6
+        </p>
+       </div>
+      </div>
+     </div>
+    </footer>
+   </div>
+  </div>
+  <script src="../assets/js/jquery-3.3.1.min.js">
+  </script>
+  <script src="../assets/js/plyr.polyfilled.min.js">
+  </script>
+  <script src="../assets/js/bootstrap.min.js">
+  </script>
+  <script src="../assets/js/jquery.mCustomScrollbar.concat.min.js">
+  </script>
+  <script src="../assets/js/katex.min.js">
+  </script>
+  <script>
+   // Initialize Plyr video players
+    const players = Array.from(document.querySelectorAll('video')).map(p => new Plyr(p));
+
+    // render math equations
+    let elMath = document.getElementsByClassName('mathquill');
+    for (let i = 0, len = elMath.length; i < len; i += 1) {
+      const el = elMath[i];
+
+      katex.render(el.textContent, el, {
+        throwOnError: false
+      });
+    }
+
+    // this hack will make sure Bootstrap tabs work when using Handlebars
+    if ($('#question-tabs').length && $('#user-answer-tabs').length) {
+      $("#question-tabs a.nav-link").on('click', function () {
+        $("#question-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+      $("#user-answer-tabs a.nav-link").on('click', function () {
+        $("#user-answer-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    } else {
+      $("a.nav-link").on('click', function () {
+        $(".tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    }
+
+    // side bar events
+    $(document).ready(function () {
+      $("#sidebar").mCustomScrollbar({
+        theme: "minimal"
+      });
+
+      $('#sidebarCollapse').on('click', function () {
+        $('#sidebar, #content').toggleClass('active');
+        $('.collapse.in').toggleClass('in');
+        $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+      });
+
+      // scroll to first video on page loading
+      if ($('video').length) {
+        $('html,body').animate({ scrollTop: $('div.plyr').prev().offset().top});
+      }
+
+      // auto play first video: this may not work with chrome/safari due to autoplay policy
+      if (players && players.length > 0) {
+        players[0].play();
+      }
+
+      // scroll sidebar to current concept
+      const currentInSideBar = $( "ul.sidebar-list.components li a:contains('05. Descriptor Matching')" )
+      currentInSideBar.css( "text-decoration", "underline" );
+      $("#sidebar").mCustomScrollbar('scrollTo', currentInSideBar);
+    });
+  </script>
+ </body>
+</html>

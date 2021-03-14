@@ -1,0 +1,262 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:02.700
+Now, earlier in the lesson, we discussed the Harris detector
+
+00:00:02.700 --> 00:00:05.070
+which is a classic corner detector in computer vision.
+
+00:00:05.070 --> 00:00:07.860
+Another famous classic is the Shi-Tomasi detector.
+
+00:00:07.860 --> 00:00:10.679
+Now in a landmark paper dating back to 1994,
+
+00:00:10.679 --> 00:00:15.375
+Shi and Tomasi they proposed a method for finding and for tracking image features.
+
+00:00:15.375 --> 00:00:19.199
+The name of the paper was good features to track and it showed how to first locate,
+
+00:00:19.199 --> 00:00:22.439
+and then follow a set of key points through an image sequence.
+
+00:00:22.440 --> 00:00:26.440
+Now the detection step of Shi-Tomasi is very similar to the Harris method,
+
+00:00:26.440 --> 00:00:29.850
+and it's also based on the eigenvalues of a gradient matrix.
+
+00:00:29.850 --> 00:00:31.650
+Let's take a look at the following code,
+
+00:00:31.649 --> 00:00:35.634
+where this detector, the Shi-Tomasi detector has been implemented.
+
+00:00:35.634 --> 00:00:38.710
+So let's take a look at the Shi-Tomasi detected here.
+
+00:00:38.710 --> 00:00:41.810
+Now, what we are doing as the first step is to load
+
+00:00:41.810 --> 00:00:45.650
+the image from file and then instead of loading the grayscale version,
+
+00:00:45.649 --> 00:00:48.545
+here we are loading the color version which you saw in the last example.
+
+00:00:48.545 --> 00:00:52.300
+I am now converting it into grayscale by using a function from the Open CV,
+
+00:00:52.299 --> 00:00:53.799
+which is called convert color.
+
+00:00:53.799 --> 00:00:55.989
+Convert color takes as an input argument,
+
+00:00:55.990 --> 00:00:58.085
+the color image which you want to convert.
+
+00:00:58.085 --> 00:01:01.810
+Img gray is the target image which is going to hold the output,
+
+00:01:01.810 --> 00:01:06.350
+and this key here tells the system that the input image is of BGR4,
+
+00:01:06.349 --> 00:01:11.549
+that's blue, green and red and the output should be monochromatic, that's grayscale.
+
+00:01:11.549 --> 00:01:15.409
+Now, if you want to investigate how color conversion works,
+
+00:01:15.409 --> 00:01:19.609
+it's not simply either select the blue or gray or red channel,
+
+00:01:19.609 --> 00:01:23.519
+but it's a carefully weighed mixture of all the color channels
+
+00:01:23.519 --> 00:01:30.259
+which considers the fact that the green channel is present twice.
+
+00:01:30.260 --> 00:01:35.525
+If you'll recall the buyer pattern which we took a look at in the previous lesson,
+
+00:01:35.525 --> 00:01:41.540
+around each overreach pixel there's an array of color filters.
+
+00:01:41.540 --> 00:01:43.070
+We have blue one time,
+
+00:01:43.069 --> 00:01:44.269
+we have red one time,
+
+00:01:44.269 --> 00:01:48.259
+and we have green two times to make the pattern rectangular.
+
+00:01:48.260 --> 00:01:50.510
+So green is present twice,
+
+00:01:50.510 --> 00:01:52.355
+whereas the other pixels are only present once.
+
+00:01:52.355 --> 00:01:55.399
+That means that when you convert a color image into a grayscale,
+
+00:01:55.399 --> 00:01:57.335
+you have to take this into
+
+00:01:57.334 --> 00:02:01.369
+consideration when computing this merge between all the different colors.
+
+00:02:01.370 --> 00:02:04.939
+So look it up, it's quite interesting how this is done in the open city.
+
+00:02:04.939 --> 00:02:08.629
+Now the next thing which happens is the Shi-Tomasi detector is executed.
+
+00:02:08.629 --> 00:02:12.530
+This actually happens down here in this line 167,
+
+00:02:12.530 --> 00:02:14.465
+the function is called good features to track,
+
+00:02:14.465 --> 00:02:18.200
+and the stuff before is preparing the different parameters.
+
+00:02:18.199 --> 00:02:20.729
+But let's take a look at this row here first.
+
+00:02:20.729 --> 00:02:23.329
+Good features to track takes as input argument,
+
+00:02:23.330 --> 00:02:25.745
+the grayscale image which I just talked about.
+
+00:02:25.745 --> 00:02:28.159
+This is the output data structure,
+
+00:02:28.159 --> 00:02:30.650
+its corners and corners is defined here.
+
+00:02:30.650 --> 00:02:34.400
+It's a vector of an open CV data structure which is called Point2f.
+
+00:02:34.400 --> 00:02:39.710
+2f stands for two-dimensional data structure of type float.
+
+00:02:39.710 --> 00:02:41.500
+So we get x and y,
+
+00:02:41.500 --> 00:02:43.270
+position for a corner,
+
+00:02:43.270 --> 00:02:44.855
+and this is the output.
+
+00:02:44.854 --> 00:02:46.619
+Then we have Max corners,
+
+00:02:46.620 --> 00:02:48.860
+and this is the one which I'd like to point out first.
+
+00:02:48.860 --> 00:02:52.280
+Max corners tells the algorithm what should be
+
+00:02:52.280 --> 00:02:56.000
+the maximum amount of columns it should output in the corner vector.
+
+00:02:56.000 --> 00:02:59.539
+It could be less, but if it's more it cuts
+
+00:02:59.539 --> 00:03:04.389
+the rest and only gives you a vector of size max corners.
+
+00:03:04.389 --> 00:03:07.289
+In order to prepare this variable carefully,
+
+00:03:07.479 --> 00:03:09.649
+I am proposing the following.
+
+00:03:09.650 --> 00:03:12.349
+Let's jump back to line 157.
+
+00:03:12.349 --> 00:03:17.079
+Here I'm defining a variable which is called max overlap.
+
+00:03:17.080 --> 00:03:19.250
+The idea is to look at the block size
+
+00:03:19.250 --> 00:03:22.400
+which is basically the size of the neighborhood around key point,
+
+00:03:22.400 --> 00:03:29.900
+and to ensure that a maximum overlap between two neighboring key points is not exceeded.
+
+00:03:29.900 --> 00:03:31.370
+So if I tell the system
+
+00:03:31.370 --> 00:03:35.955
+the maximum permissible overlap is zero percent as it's done right now,
+
+00:03:35.955 --> 00:03:37.800
+then the system says okay,
+
+00:03:37.800 --> 00:03:43.680
+if the block around two key points is in some way overlapping,
+
+00:03:43.680 --> 00:03:46.400
+we're going to select only one key point from the two.
+
+00:03:46.400 --> 00:03:48.545
+If the two key points are
+
+00:03:48.544 --> 00:03:54.409
+significantly far apart and there is no overlap between the block sizes around them,
+
+00:03:54.409 --> 00:03:56.805
+then we can take both key points.
+
+00:03:56.805 --> 00:04:00.314
+By saying maximum overlap of zero percent,
+
+00:04:00.314 --> 00:04:04.759
+I can now compute the minimum distance between two key points,
+
+00:04:04.759 --> 00:04:07.759
+which in this case is the block size itself.
+
+00:04:07.759 --> 00:04:10.444
+So if I allow for an overlap,
+
+00:04:10.444 --> 00:04:13.579
+what we have here is we have a small overlap between,
+
+00:04:13.580 --> 00:04:16.595
+let's say 25 percent between neighboring blocks,
+
+00:04:16.595 --> 00:04:21.230
+and this would lead to the minimum distance between two key points being
+
+00:04:21.230 --> 00:04:26.460
+set to 75 percent of the block size.
+
+00:04:26.459 --> 00:04:28.419
+Okay. That's mean distance.
+
+00:04:28.420 --> 00:04:31.730
+Now Max corners then is basically the amount of
+
+00:04:31.730 --> 00:04:35.240
+pixels in the image which is IMG rows times IMG calls,
+
+00:04:35.240 --> 00:04:40.415
+divided by the maximum between one and the minimum distance.
+
+00:04:40.415 --> 00:04:45.819
+This maximum operation here is for safety reasons that you don't get a division by zero.
+
+00:04:45.819 --> 00:04:49.730
+So, this is what's happening here.
+

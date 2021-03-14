@@ -1,0 +1,91 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:02.430
+Now, welcome to this section on descriptive matching.
+
+00:00:02.430 --> 00:00:03.900
+You now know what key points are,
+
+00:00:03.899 --> 00:00:06.245
+and how they can be characterized using descriptors.
+
+00:00:06.245 --> 00:00:09.240
+Now, let's assume that we have a set of key points and descriptors in one image,
+
+00:00:09.240 --> 00:00:12.630
+and another set in the second image which shows the same scene content,
+
+00:00:12.630 --> 00:00:13.860
+but later in time.
+
+00:00:13.859 --> 00:00:15.089
+Now, the question is,
+
+00:00:15.089 --> 00:00:18.660
+how can we find the best partners or matches between the two sets?
+
+00:00:18.660 --> 00:00:21.045
+That's what this section is about.
+
+00:00:21.045 --> 00:00:24.015
+Now, the following you will be focusing on three main aspects.
+
+00:00:24.015 --> 00:00:27.480
+The first is how to gauge the similarity between two descriptors.
+
+00:00:27.480 --> 00:00:30.870
+We will look at similarity measures such as the sum of absolute differences,
+
+00:00:30.870 --> 00:00:32.265
+sum of square differences,
+
+00:00:32.265 --> 00:00:33.780
+and the Hamming distance,
+
+00:00:33.780 --> 00:00:36.855
+which is well-suited for binary descriptors and super fast.
+
+00:00:36.854 --> 00:00:39.029
+The second is how to decide whether
+
+00:00:39.030 --> 00:00:42.115
+two descriptors are similar based on the similarity measure.
+
+00:00:42.115 --> 00:00:45.230
+The main question is where to position the selection threshold,
+
+00:00:45.229 --> 00:00:47.869
+and what about unwanted correspondences.
+
+00:00:47.869 --> 00:00:50.509
+Lastly, we will focusing on an overview of methods and
+
+00:00:50.509 --> 00:00:53.299
+concepts for assessing the performance of the type of descriptors,
+
+00:00:53.299 --> 00:00:56.709
+to find out which one is best suited for a particular problem.
+
+00:00:56.710 --> 00:00:59.189
+There's a coding exercise waiting for you down below,
+
+00:00:59.189 --> 00:01:01.519
+where you will be using the brisk binary descriptor and
+
+00:01:01.520 --> 00:01:04.040
+the concept called descriptor distance ratio,
+
+00:01:04.040 --> 00:01:07.790
+which is simple and super effective in removing unwanted correspondences.
+
+00:01:07.790 --> 00:01:09.050
+So don't lose too much time,
+
+00:01:09.049 --> 00:01:10.369
+and start right away with this lesson.
+
+00:01:10.370 --> 00:01:12.540
+See you down below.
+

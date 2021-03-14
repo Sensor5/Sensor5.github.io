@@ -1,0 +1,58 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:02.129
+So welcome to the end of this section.
+
+00:00:02.129 --> 00:00:04.125
+You've made it through, congratulations to this.
+
+00:00:04.125 --> 00:00:07.259
+Now you have a solid understanding about key points, about descriptors,
+
+00:00:07.259 --> 00:00:10.740
+about matching methods, and also about ways to evaluate the results.
+
+00:00:10.740 --> 00:00:12.300
+Now, the figure in the last section showed
+
+00:00:12.300 --> 00:00:15.045
+quite some differences between the various descriptive types;
+
+00:00:15.044 --> 00:00:18.809
+with SIFT on the one hand performing best and Brisk on the other hand showing
+
+00:00:18.809 --> 00:00:19.949
+a very quick increase in
+
+00:00:19.949 --> 00:00:23.265
+the false positive rate and the receiver operating characteristic.
+
+00:00:23.265 --> 00:00:24.615
+Now, the big question is,
+
+00:00:24.614 --> 00:00:26.859
+what are the best methods for our purpose?
+
+00:00:26.859 --> 00:00:29.219
+We want to find matches on the back of the preceding vehicle.
+
+00:00:29.219 --> 00:00:30.299
+That means the tailgate,
+
+00:00:30.300 --> 00:00:31.949
+license plate, lights, etc.
+
+00:00:31.949 --> 00:00:33.929
+Now, which detected a script recombination will
+
+00:00:33.929 --> 00:00:36.225
+perform best in terms of matching quality,
+
+00:00:36.225 --> 00:00:38.370
+accuracy, and also speed?
+
+00:00:38.369 --> 00:00:42.879
+Let's find out together in the Midterm Project which is about to come up.
+

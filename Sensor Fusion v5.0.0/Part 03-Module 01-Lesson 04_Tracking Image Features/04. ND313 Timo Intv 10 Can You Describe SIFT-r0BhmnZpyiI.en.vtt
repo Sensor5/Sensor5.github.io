@@ -1,0 +1,49 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:02.750 --> 00:00:09.419
+So stiffness basically just a way to detect texture patterns that are
+
+00:00:09.419 --> 00:00:12.269
+repetitive that you can basically match against in either in
+
+00:00:12.269 --> 00:00:16.050
+the same image or in another image to build up correspondences,
+
+00:00:16.050 --> 00:00:20.789
+and it works by looking at the orientation of edges,
+
+00:00:20.789 --> 00:00:27.219
+and then looking at those edges basically in a specific special window.
+
+00:00:29.329 --> 00:00:33.570
+Keep on tracking is important if you want to, for instance,
+
+00:00:33.570 --> 00:00:38.308
+reconstruct or do a larger reconstruction based on many images,
+
+00:00:38.308 --> 00:00:40.530
+but it's not important just for self-driving cars,
+
+00:00:40.530 --> 00:00:46.414
+it's also about if you take your cell phone and basically swipe it through the scene,
+
+00:00:46.414 --> 00:00:49.460
+you can basically take snapshots and then stitch them all
+
+00:00:49.460 --> 00:00:52.655
+together and create one panoramic image for instance.
+
+00:00:52.655 --> 00:00:54.530
+For that, you basically need to find
+
+00:00:54.530 --> 00:00:59.399
+the same image part in all the pictures and link them together,
+
+00:00:59.399 --> 00:01:02.269
+and that is basically also what key point tracking does,
+
+00:01:02.270 --> 00:01:10.200
+is basically keeping the same texture structure throughout a sequence of images.
+

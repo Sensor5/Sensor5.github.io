@@ -1,0 +1,94 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:02.580
+Welcome to this lesson on tracking image key points.
+
+00:00:02.580 --> 00:00:05.849
+Now before we start, let's briefly dissect the lesson title.
+
+00:00:05.849 --> 00:00:09.570
+Tracking key points means follow in interesting and unique points we
+
+00:00:09.570 --> 00:00:13.830
+discover in one image through a sequence of images taken by the same camera.
+
+00:00:13.830 --> 00:00:16.714
+Now, imagine we are following another vehicle through traffic.
+
+00:00:16.714 --> 00:00:19.550
+An interesting points on this vehicle could be anything like
+
+00:00:19.550 --> 00:00:23.089
+tay light corners or some letters and numbers on the license plate,
+
+00:00:23.089 --> 00:00:25.160
+and tracking those points means to store
+
+00:00:25.160 --> 00:00:27.769
+their respective pixel locations for all images
+
+00:00:27.769 --> 00:00:30.500
+in the sequence in which they appear in a long list.
+
+00:00:30.500 --> 00:00:33.920
+The reason why we want to do this has been given in the previous lesson when we talked
+
+00:00:33.920 --> 00:00:37.399
+about estimating the time to collision or TTC.
+
+00:00:37.399 --> 00:00:38.929
+Now in order to do this with a camera,
+
+00:00:38.929 --> 00:00:41.570
+we need to compute the distance between pairs of points in
+
+00:00:41.570 --> 00:00:45.460
+one image and between corresponding pairs of points in a subsequent image.
+
+00:00:45.460 --> 00:00:48.480
+Based on the distance ratios between those pair points,
+
+00:00:48.479 --> 00:00:51.069
+we can then compute an estimate of the TTC.
+
+00:00:51.070 --> 00:00:54.875
+Let's get back to the feature tracking again which is actually a three-step process.
+
+00:00:54.875 --> 00:00:57.994
+First, we have to locate some suitable points in an image.
+
+00:00:57.994 --> 00:01:01.134
+Let's refer to those points as key points from now on.
+
+00:01:01.134 --> 00:01:04.159
+Then secondly, we have to find a way to describe those key points
+
+00:01:04.159 --> 00:01:07.295
+so that we can find them again on the next image taken by the same camera.
+
+00:01:07.295 --> 00:01:09.935
+This last step is called key point matching.
+
+00:01:09.935 --> 00:01:12.620
+The goal of this first section is to transform the image in
+
+00:01:12.620 --> 00:01:15.680
+a way that locating suitable key points is easy.
+
+00:01:15.680 --> 00:01:19.085
+To do this, we will use a concept called intensity gradient.
+
+00:01:19.084 --> 00:01:22.009
+At the end of this section, we will have an image where only edges and
+
+00:01:22.010 --> 00:01:25.625
+corners remain and uniform regions have been stripped away.
+
+00:01:25.625 --> 00:01:29.359
+Based on such an image, it is much easier to find interesting locations.
+
+00:01:29.359 --> 00:01:33.179
+So let's take a look at this intensity gradient. Shall we?
+

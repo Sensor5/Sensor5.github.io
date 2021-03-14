@@ -1,0 +1,52 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:02.819
+Okay. So you're at the end of the section and you now know how
+
+00:00:02.819 --> 00:00:05.669
+image gradients look like and what are Sobel operator is,
+
+00:00:05.669 --> 00:00:09.629
+and by applying those to an image you can strip away uniform content and what
+
+00:00:09.630 --> 00:00:13.800
+remains are pixels whose neighborhood changes quickly when moving away from them.
+
+00:00:13.800 --> 00:00:15.000
+In this last quiz,
+
+00:00:15.000 --> 00:00:17.039
+please compute an image matrix which shows
+
+00:00:17.039 --> 00:00:19.419
+the gradient magnitude for each pixel position,
+
+00:00:19.420 --> 00:00:21.300
+and when doing this you will notice that
+
+00:00:21.300 --> 00:00:24.225
+the resulting image contains lots of unwanted noise.
+
+00:00:24.225 --> 00:00:26.010
+So what you also should do is apply
+
+00:00:26.010 --> 00:00:29.190
+some Gaussian smoothing before computing the Sobel operator,
+
+00:00:29.190 --> 00:00:31.530
+an experiment with a degree of smoothing.
+
+00:00:31.530 --> 00:00:35.120
+Visualize the resulting images and describe your observation to us.
+
+00:00:35.119 --> 00:00:38.449
+When you have finished let's move on to the next section which is about using
+
+00:00:38.450 --> 00:00:42.440
+this gradient image to detect corners which will be our first key points.
+
+00:00:42.439 --> 00:00:45.960
+So have fun with the exercise and see you shortly.
+
