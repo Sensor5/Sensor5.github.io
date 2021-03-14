@@ -1,0 +1,37 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:03.955
+Kalman filters, which we'll learn about in this program,
+
+00:00:03.955 --> 00:00:08.090
+operate well when vehicles are exhibiting linear motion,
+
+00:00:08.090 --> 00:00:12.400
+but encountered challenges when vehicles begin to exhibit nonlinear motion,
+
+00:00:12.400 --> 00:00:16.600
+curves or other difficult unpredictable types of motion.
+
+00:00:16.600 --> 00:00:19.540
+You'll learn about ways to overcome
+
+00:00:19.540 --> 00:00:24.370
+those challenges by programming unscented or extended Kalman filters,
+
+00:00:24.370 --> 00:00:29.975
+which linearize nonlinear motion to make it easier for Kalman filters to fuse together.
+
+00:00:29.975 --> 00:00:31.780
+No type of filter is perfect,
+
+00:00:31.780 --> 00:00:35.260
+but by choosing a good filter and implementing it correctly,
+
+00:00:35.260 --> 00:00:37.840
+we can reduce the inherent uncertainty in
+
+00:00:37.840 --> 00:00:43.310
+our sensor measurements and gain a comprehensive understanding of the environment.
+

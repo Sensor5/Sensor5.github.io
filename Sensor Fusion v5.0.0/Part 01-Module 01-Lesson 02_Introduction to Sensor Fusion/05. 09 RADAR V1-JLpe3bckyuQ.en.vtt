@@ -1,0 +1,61 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:04.080
+Radar is an active sensor that sends light waves out into
+
+00:00:04.080 --> 00:00:08.790
+the environment and then receives those waves as they deflect back from objects.
+
+00:00:08.790 --> 00:00:12.705
+We can apply signal processing to those radar wave forms in
+
+00:00:12.705 --> 00:00:17.115
+order to understand the position and velocity of objects in the environment.
+
+00:00:17.115 --> 00:00:21.030
+In particular, we measure position based on how long it takes for
+
+00:00:21.030 --> 00:00:24.960
+a wave to propagate out and then return back to the radar unit.
+
+00:00:24.960 --> 00:00:28.035
+We measure velocity based on the Doppler effect,
+
+00:00:28.035 --> 00:00:30.855
+the shift in frequency that a radar waveform
+
+00:00:30.855 --> 00:00:35.080
+undergoes when it bounces off an object and returns back to the unit.
+
+00:00:35.080 --> 00:00:39.110
+One of the challenges of radar is its low resolution.
+
+00:00:39.110 --> 00:00:42.890
+You basically just get a signal about where an object is and how
+
+00:00:42.890 --> 00:00:46.675
+fast it's moving with very little other information about the object.
+
+00:00:46.675 --> 00:00:48.020
+On the other hand,
+
+00:00:48.020 --> 00:00:52.130
+the benefits of radar are that it's highly reliable and functions in
+
+00:00:52.130 --> 00:00:56.780
+many different types of environments that are challenging for other types of sensors,
+
+00:00:56.780 --> 00:00:59.630
+and that radar is inexpensive and very
+
+00:00:59.630 --> 00:01:03.065
+cost-effective to put on to many different types of robots.
+
+00:01:03.065 --> 00:01:04.580
+Both of these make radar
+
+00:01:04.580 --> 00:01:09.060
+an extremely important sensor for many different types of applications.
+

@@ -1,0 +1,64 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:05.070
+The word lidar is a portmanteau of the two words, light and radar.
+
+00:00:05.070 --> 00:00:10.650
+Like radar, lidar is an active sensor that uses laser beams to
+
+00:00:10.650 --> 00:00:13.020
+measure the world by sending out those beams and
+
+00:00:13.020 --> 00:00:16.620
+measuring the beams as they're deflected back off of objects.
+
+00:00:16.620 --> 00:00:21.240
+Lidar units can have a 360-degree horizontal field
+
+00:00:21.240 --> 00:00:25.575
+of view if they're spinning around and measuring the world in all directions.
+
+00:00:25.575 --> 00:00:28.905
+Lidar beams also have a vertical field of view,
+
+00:00:28.905 --> 00:00:31.455
+which varies depending on the lidar unit,
+
+00:00:31.455 --> 00:00:35.755
+but measures how high and how low the lidar beams can detect.
+
+00:00:35.755 --> 00:00:39.335
+Lidar beams are really good at measuring distance.
+
+00:00:39.335 --> 00:00:41.825
+They also create point clouds,
+
+00:00:41.825 --> 00:00:44.720
+which are points of objects with x, y,
+
+00:00:44.720 --> 00:00:48.350
+and z coordinates and often in intensity coordinate.
+
+00:00:48.350 --> 00:00:51.455
+These points can be clustered together using
+
+00:00:51.455 --> 00:00:54.154
+artificial intelligence and machine learning algorithms,
+
+00:00:54.154 --> 00:00:58.070
+and even sent through a neural network in order to detect
+
+00:00:58.070 --> 00:01:02.555
+objects and draw bounding boxes around obstacles in the environment.
+
+00:01:02.555 --> 00:01:07.085
+One of the drawbacks of lidar is that it can often be expensive,
+
+00:01:07.085 --> 00:01:09.740
+but the performance of lidar units often
+
+00:01:09.740 --> 00:01:13.890
+justifies the high cost of putting the unit on the robot.
+

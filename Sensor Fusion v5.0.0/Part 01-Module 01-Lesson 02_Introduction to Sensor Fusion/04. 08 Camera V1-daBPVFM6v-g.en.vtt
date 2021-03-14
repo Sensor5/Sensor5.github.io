@@ -1,0 +1,67 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:06.525
+Cameras generate images from ambient white which makes cameras passive sensors.
+
+00:00:06.525 --> 00:00:11.520
+However, cameras are getting increasingly effective at understanding
+
+00:00:11.520 --> 00:00:14.070
+night vision and generating data from
+
+00:00:14.070 --> 00:00:17.625
+the little bit of light they're able to perceive in a dark environment.
+
+00:00:17.625 --> 00:00:22.800
+One of the chief benefits of camera images is their high resolution.
+
+00:00:22.800 --> 00:00:25.275
+Something like reading a sign or
+
+00:00:25.275 --> 00:00:29.010
+a traffic signal is only really possible with a camera image.
+
+00:00:29.010 --> 00:00:31.830
+No other sensor provides that level of resolution
+
+00:00:31.830 --> 00:00:36.280
+necessary in order to perceive the environment at that level of detail.
+
+00:00:36.280 --> 00:00:38.750
+In recent years, neural networks have become
+
+00:00:38.750 --> 00:00:41.075
+increasingly effective tools for
+
+00:00:41.075 --> 00:00:45.355
+understanding camera images and making sense of what's in the image.
+
+00:00:45.355 --> 00:00:49.130
+Some of the disadvantages of camera images are measuring
+
+00:00:49.130 --> 00:00:52.985
+distance and understanding how fast things are going.
+
+00:00:52.985 --> 00:00:54.245
+On the other hand,
+
+00:00:54.245 --> 00:00:56.780
+cameras are very inexpensive and we have
+
+00:00:56.780 --> 00:01:01.810
+terrific tools in order to understand the images that cameras provide us.
+
+00:01:01.810 --> 00:01:05.629
+The world is often made in ways that correspond
+
+00:01:05.629 --> 00:01:09.230
+to the eyes that human beings have in order to sense the environment,
+
+00:01:09.230 --> 00:01:12.035
+which make cameras a particularly effective sensor
+
+00:01:12.035 --> 00:01:16.140
+for vehicles that are trying to understand the existing world.
+

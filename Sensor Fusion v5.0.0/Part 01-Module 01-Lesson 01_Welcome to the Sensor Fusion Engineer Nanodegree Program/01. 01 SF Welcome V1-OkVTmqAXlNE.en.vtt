@@ -1,0 +1,85 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:04.019
+Welcome to the Sensor Fusion Engineer Nanodegree program.
+
+00:00:04.019 --> 00:00:10.094
+Computers use sensors in order to perceive the world around them, and in particular,
+
+00:00:10.095 --> 00:00:13.380
+robots use many different types of sensors in order
+
+00:00:13.380 --> 00:00:16.995
+to understand and build a model of their environment.
+
+00:00:16.995 --> 00:00:20.400
+Perception, as this task is called,
+
+00:00:20.399 --> 00:00:23.774
+allows the robot to navigate through the environment and
+
+00:00:23.774 --> 00:00:27.614
+update its understanding of its surroundings as it goes.
+
+00:00:27.614 --> 00:00:30.989
+Different sensors and different sensor modalities,
+
+00:00:30.989 --> 00:00:33.494
+as they're called, have different strengths and weaknesses,
+
+00:00:33.494 --> 00:00:35.709
+which you'll learn about in this program.
+
+00:00:35.710 --> 00:00:39.439
+Some sensors like cameras are passive sensors that
+
+00:00:39.439 --> 00:00:44.019
+accept sunlight or other information from the world and try to interpret it.
+
+00:00:44.020 --> 00:00:49.070
+Other sensors like radar are active sensors that send data
+
+00:00:49.070 --> 00:00:51.350
+out into the world and then receive that data
+
+00:00:51.350 --> 00:00:54.594
+back in order to build a model of the environment.
+
+00:00:54.594 --> 00:00:57.664
+Other sensors have their own strengths and weaknesses.
+
+00:00:57.664 --> 00:00:59.840
+Some sensors have a very far range,
+
+00:00:59.840 --> 00:01:03.439
+and some sensors can only see the immediate surroundings.
+
+00:01:03.439 --> 00:01:07.954
+Some sensors can see in 360 degrees or more up and down.
+
+00:01:07.954 --> 00:01:11.230
+Some sensors can only see a straight line out and back.
+
+00:01:11.230 --> 00:01:17.450
+Fusing together all of this data from all of these different sensors enables a robot or
+
+00:01:17.450 --> 00:01:20.659
+a computer to understand the world more fully
+
+00:01:20.659 --> 00:01:24.379
+and build a complete picture of the environment in which it's operating.
+
+00:01:24.379 --> 00:01:28.009
+This technique called sensor fusion is critical to
+
+00:01:28.010 --> 00:01:31.700
+the success of any robot that operates in the world,
+
+00:01:31.700 --> 00:01:35.240
+and is an important component of building autonomous systems.
+
+00:01:35.239 --> 00:01:39.179
+You're going to learn how to do just that in this program.
+

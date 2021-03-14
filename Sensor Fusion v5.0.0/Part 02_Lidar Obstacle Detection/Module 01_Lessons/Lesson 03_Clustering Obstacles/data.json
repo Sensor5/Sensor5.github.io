@@ -1,0 +1,1143 @@
+{
+  "data": {
+    "lesson": {
+      "id": 837725,
+      "key": "eb621b0c-c8e3-402a-a078-734111199518",
+      "title": "Clustering Obstacles",
+      "semantic_type": "Lesson",
+      "is_public": true,
+      "version": "1.0.0",
+      "locale": "en-us",
+      "summary": "Perform Euclidean clustering, and learn how to build KD-Trees to use them to do efficient nearest neighbor search for clustering.",
+      "lesson_type": "Classroom",
+      "display_workspace_project_only": false,
+      "resources": {
+        "files": [
+          {
+            "name": "Videos Zip File",
+            "uri": "https://zips.udacity-data.com/eb621b0c-c8e3-402a-a078-734111199518/837725/1561072985197/Clustering+Obstacles+Videos.zip"
+          },
+          {
+            "name": "Transcripts Zip File",
+            "uri": "https://zips.udacity-data.com/eb621b0c-c8e3-402a-a078-734111199518/837725/1561072976481/Clustering+Obstacles+Subtitles.zip"
+          }
+        ],
+        "google_plus_link": null,
+        "career_resource_center_link": null,
+        "coaching_appointments_link": null,
+        "office_hours_link": null,
+        "aws_provisioning_link": null
+      },
+      "project": null,
+      "lab": null,
+      "concepts": [
+        {
+          "id": 858891,
+          "key": "ad9a9e6a-3484-4919-98f6-8305f5f488f9",
+          "title": "What is Clustering?",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "ad9a9e6a-3484-4919-98f6-8305f5f488f9",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 858892,
+              "key": "a417e97a-15d4-4798-813e-4da7e91e9546",
+              "title": "ND313 Michael Intv 15 What Is Clustering",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "w7EmEiKPMeQ",
+                "china_cdn_id": "w7EmEiKPMeQ.mp4"
+              }
+            }
+          ]
+        },
+        {
+          "id": 837674,
+          "key": "ed626282-819a-46be-96ea-f2f9e2a7bcfc",
+          "title": "Clustering Obstacles",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "ed626282-819a-46be-96ea-f2f9e2a7bcfc",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 837671,
+              "key": "4b4fc06a-b79b-4b45-b43f-7f54d8d0be0a",
+              "title": "Header Text",
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "# Clustering Obstacles",
+              "instructor_notes": ""
+            },
+            {
+              "id": 837672,
+              "key": "76ab24e4-0dc5-4a20-869e-09671d12e51c",
+              "title": "ND312 C1 L3 A01 Clustering Obstacles - Concept",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "QCb00ohqITw",
+                "china_cdn_id": "QCb00ohqITw.mp4"
+              }
+            },
+            {
+              "id": 837673,
+              "key": "2c95a629-6f98-4aa1-b838-18abb010d9cd",
+              "title": "Overview for Clustering",
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "You have a way to segment points and recognize which ones represent obstacles for your car. It would be great to break up and group those obstacle points, especially if you want to do multiple object tracking with cars, pedestrians, and bicyclists, for instance. One way to do that grouping and cluster point cloud data is called euclidean clustering. \n\n## Euclidean Clustering\n\nThe idea is you associate groups of points by how close together they are. To do a nearest neighbor search efficiently, you use a KD-Tree data structure which, on average, speeds up your look up time from O(n) to O(log(n)). This is because the tree allows you to better break up your search space. By grouping points into regions in a KD-Tree, you can avoid calculating distance for possibly thousands of points just because you know they are not even considered in a close enough region.\n\nIn this lesson, you will begin by seeing how to do Euclidean clustering using built-in PCL functions. Next, you will write your own clustering algorithm using a KD-Tree. ***Your implementation will be used in your project submission, so be sure to complete the implementation in the exercises that follow!***",
+              "instructor_notes": ""
+            }
+          ]
+        },
+        {
+          "id": 837679,
+          "key": "0ff6f0cf-aac3-40e3-acab-9f077cc15016",
+          "title": "Euclidean Clustering with PCL",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "0ff6f0cf-aac3-40e3-acab-9f077cc15016",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 837675,
+              "key": "4c7f8c84-ec32-4a2e-b995-b2618bd435eb",
+              "title": "Header Text",
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "# Euclidean Clustering with PCL",
+              "instructor_notes": ""
+            },
+            {
+              "id": 840838,
+              "key": "1ee77f2f-1ed5-4adf-a883-f17e809defcd",
+              "title": "ND312 C1 L3 A02 Euclidiean Clustering With PCL [LB]",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "LDHO-U4G0k0",
+                "china_cdn_id": "LDHO-U4G0k0.mp4"
+              }
+            },
+            {
+              "id": 840840,
+              "key": "25557a3b-a6db-49f0-b5ba-4b5593038980",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "Inside `pointProcessor`, the `Clustering` function is located right under the `SegmentPlane` function that you previously were working on. \n\nPCL provides some documentation for using its built in [euclidean clustering](http://pointclouds.org/documentation/tutorials/cluster_extraction.php) functions. In particular check out lines 71-82.  \n\n## Euclidean Clustering Arguments\n\nThe euclidean clustering object `ec` takes in a distance tolerance. Any points within that distance will be grouped together. It also has min and max arguments for the number of points to represent as clusters. The idea is: if a cluster is really small, it’s probably just noise and we are not concerned with it. Also a max number of points allows us to better break up very large clusters. If a cluster is very large it might just be that many other clusters are overlapping, and a max tolerance can help us better resolve the object detections. The last argument to the euclidean cluster object is the Kd-Tree. The tree is created and built using the input cloud points, which in this case are going to be the obstacle cloud points.  \n\nBack in environment.cpp let's see how to render the different clusters.\n\n```cpp\nstd::vector<pcl::PointCloud<pcl::PointXYZ>::Ptr> cloudClusters = pointProcessor->Clustering(segmentCloud.first, 1.0, 3, 30);\n\t\nint clusterId = 0;\nstd::vector<Color> colors = {Color(1,0,0), Color(0,1,0), Color(0,0,1)};\n  \nfor(pcl::PointCloud<pcl::PointXYZ>::Ptr cluster : cloudClusters)\n{\n  \tstd::cout << \"cluster size \";\n  \tpointProcessor->numPoints(cluster);\n  \trenderPointCloud(viewer,cluster,\"obstCloud\"+std::to_string(clusterId),colors[clusterId]);\n  \t++clusterId;\n}\n```\nIn the code above, the `Clustering` method is called and then there is a loop to iterate through each cluster and call `renderPointCloud` on each cluster. The renderPointCloud is expecting each pcl viewer point cloud to have a unique identifier, so clusters are counted with `clusterId` and appended to the `obstCloud` string. \nTo get different colors for each of the clusters, a list of colors is defined. Here we simply use red, blue and green.\n\nAs a bonus the number of points for each cluster is logged. This can be a helpful debugging tool later when trying to pick good min and max point values. \n\nIn this example the min points for a cluster are set to 3, and the max set to 30. The distance tolerance is also set to 1. Some time and effort will be needed to pick good hyperparameters, but many cases actually there won't be a perfect combination to always get perfect results. ",
+              "instructor_notes": ""
+            },
+            {
+              "id": 837676,
+              "key": "d9077e1a-e410-4852-b5f4-fdf6b4ccd8c9",
+              "title": "Cluster Results",
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/March/5c84a20a_clusters1/clusters1.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/d9077e1a-e410-4852-b5f4-fdf6b4ccd8c9",
+              "caption": "Clusters shown in different colors, red, green, and blue.",
+              "alt": "Clusters shown in different colors, red, green, and blue.",
+              "width": 952,
+              "height": 535,
+              "instructor_notes": null
+            },
+            {
+              "id": 840839,
+              "key": "8697374c-09f5-4c2f-b424-aa9b9a925ba7",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## Instructions\n- Define the function clusters in `pointProcessor` using the pcl document guide above for reference.\n- Experiment with different hyperparameters for the clustering algorithm.\n- In `environment.cpp` render the different clusters using the code sample above.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 837834,
+              "key": "3382f71e-4e7a-48ab-ae47-37c0aae36641",
+              "title": null,
+              "semantic_type": "WorkspaceAtom",
+              "is_public": true,
+              "workspace_id": "r831540c837485xREACTy8c3xugx",
+              "pool_id": "autonomousgpu",
+              "view_id": "react-4fxxf",
+              "gpu_capable": true,
+              "configuration": {
+                "id": "reserved",
+                "blueprint": {
+                  "conf": {
+                    "disk": null,
+                    "port": 3000,
+                    "ports": [],
+                    "userCode": "",
+                    "openFiles": [],
+                    "showFiles": true,
+                    "allowClose": true,
+                    "allowSubmit": false,
+                    "terminalTitle": "BASH",
+                    "actionButtonText": "Desktop",
+                    "openTerminalOnStartup": true
+                  },
+                  "kind": "react"
+                },
+                "workspaceId": "reserved"
+              },
+              "starter_files": null
+            },
+            {
+              "id": 837833,
+              "key": "5b015bd7-c495-44b4-b80d-42e74921d316",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## Solution",
+              "instructor_notes": ""
+            },
+            {
+              "id": 837678,
+              "key": "191f15bd-ec7d-44bc-b6df-83a1c1417b75",
+              "title": "ND312 C1 L3 A10 Euclidean Clustering With PCL - Solution",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "4fX2d-7Ym-c",
+                "china_cdn_id": "4fX2d-7Ym-c.mp4"
+              }
+            }
+          ]
+        },
+        {
+          "id": 837685,
+          "key": "95f772d5-8fdf-4ba5-9082-f3b89d50af29",
+          "title": "Implementing KD-Tree",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "95f772d5-8fdf-4ba5-9082-f3b89d50af29",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 837680,
+              "key": "5436c655-6314-49cf-93eb-e6d76892e51d",
+              "title": "Header Text",
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "# Implementing KD-Tree",
+              "instructor_notes": ""
+            },
+            {
+              "id": 840841,
+              "key": "c11b733c-9076-40f5-90ab-2695ad6df773",
+              "title": "ND312 C1 L3 A11 Implementing KD-Tree [LB]",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "OG49SnS9URs",
+                "china_cdn_id": "OG49SnS9URs.mp4"
+              }
+            },
+            {
+              "id": 837681,
+              "key": "ad8d010c-16bb-40d5-816d-7c65419f9d37",
+              "title": "Implementing KD Tree",
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "A KD-Tree is a binary tree that splits points between alternating axes. By separating space by splitting regions, nearest neighbor search can be made much faster when using an algorithm like euclidean clustering. In this quiz you will be looking at a 2D example, so the the tree will be a 2D-Tree. In the first part of the quiz you will be working from `src/quiz/cluster/kdtree.h` and filling in the function `insert` which takes a 2D point represented by a vector containing two floats, and a point ID. The ID is a way to uniquely identify points and a way to tell which index the point is referenced from on the overall point cloud. To complete the `insert` function let's first talk about how a KD-Tree splits information.\n\n## Inserting Points into the Tree",
+              "instructor_notes": ""
+            },
+            {
+              "id": 837682,
+              "key": "f6c57fe6-0c0a-48c3-a965-ae2ed5d1dbdc",
+              "title": "Data",
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/March/5c84a228_2dpoints/2dpoints.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/f6c57fe6-0c0a-48c3-a965-ae2ed5d1dbdc",
+              "caption": "2D points to cluster",
+              "alt": "2D points to cluster",
+              "width": 948,
+              "height": 513,
+              "instructor_notes": null
+            },
+            {
+              "id": 837683,
+              "key": "13ab6828-e6f9-49ca-b4cd-2b4fca01f9a2",
+              "title": "Building KD-Tree",
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "The image above shows what the 2D points look like. In this simple example there are only 11 points, and there are three clusters where points are in close proximity to each other. You will be finding these clusters later. \n\nIn `src/quiz/cluster/cluster.cpp` there is a function for rendering the tree after points have been inserted into it. The image below shows line separations, with blue lines splitting x regions and red lines splitting y regions. The image shows what the tree looks like after all 11 points have been inserted, and you will be writing the code to do this over the next concepts.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 837684,
+              "key": "01254759-7bf4-4e08-89ae-1dfb07e43419",
+              "title": "Built KD-Tree",
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/March/5c84a240_kdtree/kdtree.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/01254759-7bf4-4e08-89ae-1dfb07e43419",
+              "caption": "Tree separating x and y regions.",
+              "alt": "Tree separating x and y regions.",
+              "width": 946,
+              "height": 515,
+              "instructor_notes": null
+            }
+          ]
+        },
+        {
+          "id": 837697,
+          "key": "acc20ee5-3911-4700-8ba4-cafb76875213",
+          "title": "Inserting Points into KD-Tree",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "acc20ee5-3911-4700-8ba4-cafb76875213",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 837686,
+              "key": "f20a3415-7995-4d72-9859-4d680452286a",
+              "title": "Header Text",
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "# Inserting Points into KD-Tree",
+              "instructor_notes": ""
+            },
+            {
+              "id": 840842,
+              "key": "4109772c-e31d-4ee7-ab20-01c3ab692dea",
+              "title": "ND312 C1 L3 A17 Inserting Points Into KD-Tree Without Quiz [LB]",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "Va2NBXOTNlY",
+                "china_cdn_id": "Va2NBXOTNlY.mp4"
+              }
+            },
+            {
+              "id": 837687,
+              "key": "b4c42a88-5dc0-4899-923b-c94f22cbc03b",
+              "title": "Inserting Points into KD-Tree",
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "Now let’s talk about how exactly the tree is created. At the very beginning when the tree is empty, root is NULL. The point inserted becomes the root, and splits the x region. Here is what this visually looks like, after inserting the first point (-6.2, 7).",
+              "instructor_notes": ""
+            },
+            {
+              "id": 837688,
+              "key": "621bd01d-0d8f-4236-b947-c9b5b2fdf211",
+              "title": "First Point",
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/March/5c84a25d_kdtree1/kdtree1.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/621bd01d-0d8f-4236-b947-c9b5b2fdf211",
+              "caption": "Insert first point, and split x region.",
+              "alt": "Insert first point, and split x region.",
+              "width": 938,
+              "height": 511,
+              "instructor_notes": null
+            },
+            {
+              "id": 837689,
+              "key": "86f451d7-82aa-42f6-8b2b-c2ab96f8962b",
+              "title": "Second Point",
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "The next point is (-6.3, 8.4). Since we previously split in the x-dimension, and -6.3 is less than -6.2. This Node will be created and be a part of root's left node. The point (-6.3, 8.4) will split the region in the y dimension. \n\nTo recap, the root was at depth 0, and split the x region. The next point became the left child of root and had a depth of 1, and split the y region. \n\nA point at depth 2 will split the x region again, so the split dimension number can actually be calculated as depth % 2, where 2 is the number of dimensions we are working with. The image below shows how the tree looks after inserting the second point.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 837690,
+              "key": "b3cf21e1-574b-493d-a8df-cdbad234c726",
+              "title": "Second Point",
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/March/5c84a269_kdtree2/kdtree2.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/b3cf21e1-574b-493d-a8df-cdbad234c726",
+              "caption": "Inserting second point, splitting y region this time.",
+              "alt": "Inserting second point, splitting y region this time.",
+              "width": 936,
+              "height": 514,
+              "instructor_notes": null
+            },
+            {
+              "id": 837691,
+              "key": "0a8e3bc6-1c7f-409b-a6db-2f07c0fc0cfd",
+              "title": "Two More Points",
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "Then here is what the tree looks like after inserting two more points (-5.2, 7.1) and (-5.7, 6.3), and having another x split division from point (-5.7, 6.3). The tree is now at depth 2.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 837692,
+              "key": "74c030b5-e234-41bd-8b0e-aafd376e8a3a",
+              "title": "Two More Points",
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/March/5c84a273_kdtree4/kdtree4.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/74c030b5-e234-41bd-8b0e-aafd376e8a3a",
+              "caption": "Inserting two more points, splitting x region again.",
+              "alt": "Inserting two more points, splitting x region again.",
+              "width": 936,
+              "height": 515,
+              "instructor_notes": null
+            },
+            {
+              "id": 837693,
+              "key": "d626893b-a6e5-4492-9640-254eb9d03d2b",
+              "title": "Tree Structure",
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "The image below shows so far what the tree looks like after inserting those 4 points. The labeled nodes A, B, C, D, and E are all NULL but if the next point (7.2, 6.1) is inserted, which of those 5 nodes will the new point node be assigned to? Remember to traverse the tree starting at the root. The depth tells you which dimension (x or y) you should use for comparison.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 837694,
+              "key": "49b9de69-6c0f-40c3-8b19-9427b582347b",
+              "title": "Tree Structure",
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/March/5c84a282_kdtree5/kdtree5.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/49b9de69-6c0f-40c3-8b19-9427b582347b",
+              "caption": "Tree structure from first four points.",
+              "alt": "Tree structure from first four points.",
+              "width": 617,
+              "height": 385,
+              "instructor_notes": null
+            },
+            {
+              "id": 837695,
+              "key": "ed933a65-543e-4426-8e53-0b0a04883fcb",
+              "title": "Placing New Point",
+              "semantic_type": "RadioQuizAtom",
+              "is_public": true,
+              "instructor_notes": null,
+              "user_state": {
+                "node_key": "ed933a65-543e-4426-8e53-0b0a04883fcb",
+                "completed_at": null,
+                "last_viewed_at": null,
+                "unstructured": null
+              },
+              "question": {
+                "prompt": "Which node should the point (7.2, 6.1) be inserted to?",
+                "answers": [
+                  {
+                    "id": "rbk1",
+                    "text": "A",
+                    "is_correct": false
+                  },
+                  {
+                    "id": "rbk2",
+                    "text": "B",
+                    "is_correct": false
+                  },
+                  {
+                    "id": "rbk3",
+                    "text": "C",
+                    "is_correct": false
+                  },
+                  {
+                    "id": "rbk4",
+                    "text": "D",
+                    "is_correct": true
+                  },
+                  {
+                    "id": "rbk5",
+                    "text": "E",
+                    "is_correct": false
+                  }
+                ]
+              }
+            },
+            {
+              "id": 840917,
+              "key": "c9513cf0-290b-4606-bc2e-ed4d28787b7c",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## Solution",
+              "instructor_notes": ""
+            },
+            {
+              "id": 840918,
+              "key": "29ec7fd1-594b-4ddd-bc6a-1882689ccf25",
+              "title": "ND312 C1 L3 A18 Inserting Points Into KD-Tree Solution [LB]",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "Cah22dr0KWg",
+                "china_cdn_id": "Cah22dr0KWg.mp4"
+              }
+            },
+            {
+              "id": 840922,
+              "key": "ced6fb44-d37c-4b9c-a34b-3a36bfe8f69a",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## Improving the Tree",
+              "instructor_notes": ""
+            },
+            {
+              "id": 840923,
+              "key": "2d757f25-2e38-4855-bfb3-1ff6a5bb4545",
+              "title": "ND312 C1 L3 A28 Improving The Tree [LB]",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "9rL2pQLAk4o",
+                "china_cdn_id": "9rL2pQLAk4o.mp4"
+              }
+            },
+            {
+              "id": 837696,
+              "key": "a862eeb0-9625-471e-9090-5173bc80780a",
+              "title": "Improving the Tree",
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "Having a balanced tree that evenly splits regions improves the search time for finding points later. To improve the tree, insert points that alternate between splitting the x region and the y region evenly. To do this pick the median of sorted x and y points. For instance if you are inserting the first four points that we used above (-6.3, 8.4), (-6.2, 7), (-5.2, 7.1), (-5.7, 6.3) we would first insert (-5.2,7.1) since it is the median along the x axis. If there is an even number of elements the lower median is chosen. The next point to be inserted would be (-6.2, 7), the median of the three points for y. This would be followed by (-5.7,6.3) the lower median between the two for x, and then finally (-6.3,8.4). This ordering will allow the tree to more evenly split the region space and improve search time later.",
+              "instructor_notes": ""
+            }
+          ]
+        },
+        {
+          "id": 837701,
+          "key": "5425fdc9-7ffe-4b9d-a4f0-94e9a359fedc",
+          "title": "Insert Points",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "5425fdc9-7ffe-4b9d-a4f0-94e9a359fedc",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 837698,
+              "key": "a3b29748-5f90-4078-8d1e-f1cd048199b5",
+              "title": "Header Text",
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "# Insert Points",
+              "instructor_notes": ""
+            },
+            {
+              "id": 837838,
+              "key": "1ac3f501-c5aa-48fc-9d1d-3c521172d24b",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## Starter Code Walkthrough",
+              "instructor_notes": ""
+            },
+            {
+              "id": 837839,
+              "key": "86b4025c-41ad-4d48-a498-1585c9fc3d2c",
+              "title": "ND312 C1 L3 A29 Insert Points - Concept [LB]",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "kYhS20w1Bnk",
+                "china_cdn_id": "kYhS20w1Bnk.mp4"
+              }
+            },
+            {
+              "id": 837699,
+              "key": "f31df700-c770-4082-89d0-70b31d1d1d9f",
+              "title": "Insert Points",
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "The previous concept showed how points are inserted into the tree. How about doing this in C++? Implementing a recursive helper function to insert points can be a very nice way to update Nodes. The basic idea is that the tree is traversed until the Node it arrives at is NULL, in which case a new Node is created and replaces the NULL Node. For assigning a Node, one way is to use a double pointer. You could pass in a pointer to the node, starting at root, and then when you want to replace a node you can dereference the double pointer and assign it to the newly created Node. Another way of achieving this is by using a pointer reference as well. For references, check out the code below for doing insertion in C++ but with a binary tree. The insertion for a KD-Tree will be very similar to this.\n\n## Example of Insertion for Binary Tree\n\n#### Double Pointer\n```cpp\nvoid insert(BinaryTreeNode **node, int data)\n   {\n      if(*node == NULL)\n      {\n        *node = getNewNode(data);\n      }\n      else if(data < (*node)->data)\n      {\n        insert(&(*node)->left, data);\n      }\n      else\n      {\n        insert(&(*node)->right, data);\n      }\n   }\n```\n\n#### Pointer Reference\n```cpp\nvoid insert(BinaryTreeNode *&node, int data)\n   {\n      if(node == NULL)\n      {\n        node = getNewNode(data);\n      }\n      else if(data < node->data)\n      {\n        insert(node->left, data);\n      }\n      else\n      {\n        insert(node->right, data);\n      }\n   }\n```\n\n\n## Instructions\nCheck out the quiz and try getting the resulting image from the previous concept, visually showing how each point is separating the x/y regions.\n\n- In `src/quiz/cluster/kdtree.h` fill in the `insert` function.\n\n## Compile/Run\n\n- In `src/quiz/cluster`, `mkdir build`\n- `cd build`\n- `cmake ..`\n- `make`\n- `./quizCluster`\n",
+              "instructor_notes": ""
+            },
+            {
+              "id": 837837,
+              "key": "6ef55c16-9539-44ce-a382-6cff900419f6",
+              "title": null,
+              "semantic_type": "WorkspaceAtom",
+              "is_public": true,
+              "workspace_id": "r831540c837485xREACTy8c3xugx",
+              "pool_id": "autonomousgpu",
+              "view_id": "react-4pxhb",
+              "gpu_capable": true,
+              "configuration": {
+                "id": "reserved",
+                "blueprint": {
+                  "conf": {
+                    "disk": null,
+                    "port": 3000,
+                    "ports": [],
+                    "userCode": "",
+                    "openFiles": [],
+                    "showFiles": true,
+                    "allowClose": true,
+                    "allowSubmit": false,
+                    "terminalTitle": "BASH",
+                    "actionButtonText": "Desktop",
+                    "openTerminalOnStartup": true
+                  },
+                  "kind": "react"
+                },
+                "workspaceId": "reserved"
+              },
+              "starter_files": null
+            },
+            {
+              "id": 837835,
+              "key": "a5b8abcd-56b0-44d1-a895-3a3ba1badce8",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## Solution",
+              "instructor_notes": ""
+            },
+            {
+              "id": 837700,
+              "key": "a406bc70-40d8-497b-8667-adeec89cbebb",
+              "title": "ND313 C1 L3 A33 Insert Points - Solution",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "CAG021S8Mco",
+                "china_cdn_id": "CAG021S8Mco.mp4"
+              }
+            }
+          ]
+        },
+        {
+          "id": 837705,
+          "key": "18ee9d8d-4cc8-45c2-97d1-1b87cf435b12",
+          "title": "Searching Points in a KD-Tree",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "18ee9d8d-4cc8-45c2-97d1-1b87cf435b12",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 837702,
+              "key": "079a2af1-77e9-41df-80df-4ba02b6b41fd",
+              "title": "Header Text",
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "# Searching Points in a KD-Tree",
+              "instructor_notes": ""
+            },
+            {
+              "id": 841149,
+              "key": "0fc7b556-9810-438e-a210-85b2f77390dc",
+              "title": "ND313 C01 L03 Searching In A KD Tree",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "4luIWnHiEJQ",
+                "china_cdn_id": "4luIWnHiEJQ.mp4"
+              }
+            },
+            {
+              "id": 837703,
+              "key": "eb06000f-823b-4cb4-8737-11cd93374bce",
+              "title": "Searching Points in KD-Tree",
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "Once points are able to be inserted into the tree, the next step is being able to search for nearby points inside the tree compared to a given target point. Points within a distance of `distanceTol` are considered to be nearby.  The KD-Tree is able to split regions and allows certain regions to be completely ruled out, speeding up the process of finding nearby neighbors. \n\nThe naive approach of finding nearby neighbors is to go through every single point in the tree and compare their distances with the target, selecting point indices that fall within the distance tolerance of the target. Instead with the KD-Tree you can compare distance within a boxed square that is 2 x `distanceTol` for length, centered around the target point. If the current node point is within this box then you can directly calculate the distance and see if the point id should be added to the list of nearby ids. Then you see if your box crosses over the node division region and if it does compare that next node. You do this recursively, with the advantage being that if the box region is not inside some division region you completely skip that branch.\n\n## Instructions\n\n- In `src/quiz/cluster/kdtree.h` fill in the `search` function.\n- Verify that when the code is run, line 115 of `cluster.cpp` produces the following output:\n```\nTest Search\n0,1,2,3,\n```\n- Experiment by using different point values in the call to `search` in line 115 of `cluster.cpp`. Use target points that are close to points in the tree. If the distance tolerance is large enough then those expected nearby point ids should be returned.\n\n## Compile/Run\n\n- In `src/quiz/cluster`, `mkdir build`\n- `cd build`\n- `cmake ..`\n- `make`\n- `./quizCluster`\n\n",
+              "instructor_notes": ""
+            },
+            {
+              "id": 837841,
+              "key": "5598ed24-64c2-4ead-abed-2b0194330945",
+              "title": null,
+              "semantic_type": "WorkspaceAtom",
+              "is_public": true,
+              "workspace_id": "r831540c837485xREACTy8c3xugx",
+              "pool_id": "autonomousgpu",
+              "view_id": "react-6vcgp",
+              "gpu_capable": true,
+              "configuration": {
+                "id": "reserved",
+                "blueprint": {
+                  "conf": {
+                    "disk": null,
+                    "port": 3000,
+                    "ports": [],
+                    "userCode": "",
+                    "openFiles": [],
+                    "showFiles": true,
+                    "allowClose": true,
+                    "allowSubmit": false,
+                    "terminalTitle": "BASH",
+                    "actionButtonText": "Desktop",
+                    "openTerminalOnStartup": true
+                  },
+                  "kind": "react"
+                },
+                "workspaceId": "reserved"
+              },
+              "starter_files": null
+            },
+            {
+              "id": 837840,
+              "key": "a29182a6-65af-4a1f-9b1b-99357dd1fdf2",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## Solution",
+              "instructor_notes": ""
+            },
+            {
+              "id": 837704,
+              "key": "172b0825-7ca2-4298-823f-caf155747dbd",
+              "title": "ND313 C01 L03  Searching For A Point In A KD Tree Code",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "EFgF_C_tOkw",
+                "china_cdn_id": "EFgF_C_tOkw.mp4"
+              }
+            }
+          ]
+        },
+        {
+          "id": 837711,
+          "key": "ce91f5de-1446-49e3-9805-23dcc5690ec4",
+          "title": "Euclidean Clustering",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "ce91f5de-1446-49e3-9805-23dcc5690ec4",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 837706,
+              "key": "57efe0f8-f20b-410f-ba2c-3537baa5320c",
+              "title": "Header Text",
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "# Euclidean Clustering",
+              "instructor_notes": ""
+            },
+            {
+              "id": 841174,
+              "key": "a514e58f-9624-4bdd-83d2-f71b7a61d185",
+              "title": "ND312 C1 L3 A39 Euclidean Clustering - Concept [LB]",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "MnN9-_vUz2g",
+                "china_cdn_id": "MnN9-_vUz2g.mp4"
+              }
+            },
+            {
+              "id": 837707,
+              "key": "b707f2d4-fdda-4374-9c63-4ea3a59c9725",
+              "title": "Clustering using KD Tree",
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "Once the KD-Tree method for searching for nearby points is implemented, its not difficult to implement a euclidean clustering method that groups individual cluster indices based on their proximity. Inside `cluster.cpp` there is a function called `euclideanCluster` which returns a vector of vector ints, this is the list of cluster indices. \n\nTo perform the clustering, iterate through each point in the cloud and keep track of which points have been processed already. For each point add it to a list of points defined as a cluster, then get a list of all the points in close proximity to that point by using the `search` function from the previous exercise. For each point in close proximity that hasn't already been processed, add it to the cluster and repeat the process of calling proximity points. Once the recursion stops for the first cluster, create a new cluster and move through the point list, repeating the above process for the new cluster. Once all the points have been processed, there will be a certain number of clusters found, return as a list of clusters.\n\n## Pseudocode\n\n```python\n\n\nProximity(point,cluster):\n    mark point as processed\n    add point to cluster\n    nearby points = tree(point)\n    Iterate through each nearby point\n        If point has not been processed\n            Proximity(cluster)\n\nEuclideanCluster():\n    list of clusters \n    Iterate through each point\n        If point has not been processed\n            Create cluster\n            Proximity(point, cluster)\n            cluster add clusters\n    return clusters\n```\n\nThe `EuclideanCluster` is called in `cluster.cpp` line 123:\n\n```\nstd::vector<std::vector<int>> clusters = euclideanCluster(points, tree, 3.0);\n```\n\n The image below shows the expected output results.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 837708,
+              "key": "cca8df84-fc16-4ac6-a71c-9da2dbb42536",
+              "title": "Euclidean Clusters",
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/March/5c84a2b1_clusterkdtree/clusterkdtree.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/cca8df84-fc16-4ac6-a71c-9da2dbb42536",
+              "caption": "Each of the three nearby clusters is colored differently, red, blue, and green.",
+              "alt": "Each of the three nearby clusters is colored differently, red, blue, and green.",
+              "width": 937,
+              "height": 514,
+              "instructor_notes": null
+            },
+            {
+              "id": 837709,
+              "key": "c417bab4-716d-4a23-a2cd-36ebe8e5ec9f",
+              "title": "Instructions",
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## Instructions\n\n- In `src/quiz/cluster/cluster.cpp` fill in the `euclideanCluster` function.\n\n- Once the method is working for the 2D point example, try extending it to work with 3D point clouds by doing the same logic but including the extra third dimension.\n\n## Compile/Run\n\n- In `src/quiz/cluster`, `mkdir build`\n- `cd build`\n- `cmake ..`\n- `make`\n- `./quizCluster`\n",
+              "instructor_notes": ""
+            },
+            {
+              "id": 837945,
+              "key": "053333b9-d004-4177-ba9c-913cb8e9bd2e",
+              "title": null,
+              "semantic_type": "WorkspaceAtom",
+              "is_public": true,
+              "workspace_id": "r831540c837485xREACTy8c3xugx",
+              "pool_id": "autonomousgpu",
+              "view_id": "react-1zpyf",
+              "gpu_capable": true,
+              "configuration": {
+                "id": "reserved",
+                "blueprint": {
+                  "conf": {
+                    "disk": null,
+                    "port": 3000,
+                    "ports": [],
+                    "userCode": "",
+                    "openFiles": [],
+                    "showFiles": true,
+                    "allowClose": true,
+                    "allowSubmit": false,
+                    "terminalTitle": "BASH",
+                    "actionButtonText": "Desktop",
+                    "openTerminalOnStartup": true
+                  },
+                  "kind": "react"
+                },
+                "workspaceId": "reserved"
+              },
+              "starter_files": null
+            },
+            {
+              "id": 1007918,
+              "key": "aaad5897-19cb-4186-8a0f-8835bd8179ef",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## Solution",
+              "instructor_notes": ""
+            },
+            {
+              "id": 837710,
+              "key": "170a3c4b-4745-4d87-99f2-5f5c11dab325",
+              "title": "ND312 C1 L3 A43 Euclidean Clustering - Solution",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "M08ohGZFdbY",
+                "china_cdn_id": "M08ohGZFdbY.mp4"
+              }
+            }
+          ]
+        },
+        {
+          "id": 837716,
+          "key": "c06014ca-5db9-4f06-a091-5ae16cc3004e",
+          "title": "Bounding Boxes",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "c06014ca-5db9-4f06-a091-5ae16cc3004e",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 837712,
+              "key": "e134d157-19b8-4ad9-b8c7-63a641bdfc10",
+              "title": "Header Text",
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "# Bounding Boxes",
+              "instructor_notes": ""
+            },
+            {
+              "id": 837842,
+              "key": "1fa252d5-8add-4b1f-bade-f8d82cc71ed7",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "Now that you know how point cloud clustering works, we will return to the main project code. In this next exercise, you will add bounding boxes to the point cloud clusters that you previously found.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 837713,
+              "key": "1f6b3204-58e0-4247-aa1e-273ba23a4ae1",
+              "title": "Boxing Clusters",
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/March/5c84a2bd_box1/box1.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/1f6b3204-58e0-4247-aa1e-273ba23a4ae1",
+              "caption": "Bounding boxes around clusters.",
+              "alt": "Bounding boxes around clusters.",
+              "width": 952,
+              "height": 535,
+              "instructor_notes": null
+            },
+            {
+              "id": 837714,
+              "key": "57b3f206-0c78-43b9-b91a-48dc731b27e1",
+              "title": "Bounding Boxes",
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "As a final touch, you can add bounding boxes around the clusters. The bounding box volume could also be thought of as space the car is not allowed to enter, or it would result in a collision. Your point processor already has a bounding box function all set up. This function is already predefined since it’s doing a very simple technique for generating a box. The function `BoundingBox` looks at the min and max point values of an input cloud and stores those parameters in a box struct container. To render bounding boxes around your clusters you can can add the following code inside the loop that renders clusters in `environment.cpp`.\n\n```cpp\nBox box = pointProcessor->BoundingBox(cluster);\nrenderBox(viewer,box,clusterId);\n```\nThe results of doing this are shown in the image above.\n## Instructions\n\n- In `src/environment.cpp` add the renderBox function to render boxes around clusters\n",
+              "instructor_notes": ""
+            },
+            {
+              "id": 837947,
+              "key": "72cc186d-e0b1-4a59-9bfd-e6fb8fcee88a",
+              "title": null,
+              "semantic_type": "WorkspaceAtom",
+              "is_public": true,
+              "workspace_id": "r831540c837485xREACTy8c3xugx",
+              "pool_id": "autonomousgpu",
+              "view_id": "react-cjdcy",
+              "gpu_capable": true,
+              "configuration": {
+                "id": "reserved",
+                "blueprint": {
+                  "conf": {
+                    "disk": null,
+                    "port": 3000,
+                    "ports": [],
+                    "userCode": "",
+                    "openFiles": [],
+                    "showFiles": true,
+                    "allowClose": true,
+                    "allowSubmit": false,
+                    "terminalTitle": "BASH",
+                    "actionButtonText": "Desktop",
+                    "openTerminalOnStartup": true
+                  },
+                  "kind": "react"
+                },
+                "workspaceId": "reserved"
+              },
+              "starter_files": null
+            },
+            {
+              "id": 850822,
+              "key": "701857ac-b553-4d54-b1e8-d522abba4c05",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## Solution",
+              "instructor_notes": ""
+            },
+            {
+              "id": 850823,
+              "key": "8804b2e9-066b-468a-be8b-210569f5538f",
+              "title": "ND313 C01 L03 Rendering  Bounding Boxes",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "p-_WzLpKJj4",
+                "china_cdn_id": "p-_WzLpKJj4.mp4"
+              }
+            }
+          ]
+        },
+        {
+          "id": 858913,
+          "key": "9a2d8813-db28-47e1-9057-8361cf30373e",
+          "title": "Michael on Bounding Boxes",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "9a2d8813-db28-47e1-9057-8361cf30373e",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 858914,
+              "key": "4394cb14-7fdd-41c4-add1-6d9480f24c2a",
+              "title": "ND313 Michael Intv 16 Are Bounding Boxes Best Way To Track Objects In Point Cloud V2",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "kk39stQPG84",
+                "china_cdn_id": "kk39stQPG84.mp4"
+              }
+            }
+          ]
+        },
+        {
+          "id": 837721,
+          "key": "b294e77a-87ec-4ac8-8a4b-16b96887dcba",
+          "title": "Extra Challenge: PCA Boxes",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "b294e77a-87ec-4ac8-8a4b-16b96887dcba",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 837717,
+              "key": "bbfa7424-34fd-4ba8-b8f9-46fdf8f3ed2f",
+              "title": "Header Text",
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "# Extra Challenge: PCA Boxes",
+              "instructor_notes": ""
+            },
+            {
+              "id": 837718,
+              "key": "b7fc7d73-d139-4b1d-8fc5-dd831afd2787",
+              "title": "# Extra Challenge: PCA Boxes",
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "Some comments from the previous concept about the way bounding boxes are calculated. That method of generating bounding boxes the  boxes are always oriented along the X and Y axis. This is ok if the cluster that you are looking at has its majority of points orientated along these axes , but what if the cluster was a very long rectangular object at a 45 degree angle to the X axis. The resulting bounding box would be a unnecessarily large, and would constrain your car's available space to move around. See the image below for reference.\n",
+              "instructor_notes": ""
+            },
+            {
+              "id": 837719,
+              "key": "849565eb-8fc0-477d-87ad-14d59d60e995",
+              "title": "PCA box",
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/March/5c9ab4c6_boxexample2/boxexample2.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/849565eb-8fc0-477d-87ad-14d59d60e995",
+              "caption": "PCA fitted box",
+              "alt": "PCA fitted Box",
+              "width": 997,
+              "height": 523,
+              "instructor_notes": null
+            },
+            {
+              "id": 837720,
+              "key": "f57b772b-e61c-4182-835d-62563c650ec6",
+              "title": "PCA Discussion",
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "In the above image, the bounding box on the right is more efficient, containing all the points with the minimum area required. It would be nice to take into account box rotation in the XY plane, about the Z axis. Rotation about the X or Y axes would yield weird results, since the car in the majority of situations is not concerned with the Z dimension, or has any control over Z movement. \n\nThe file containing the box struct is located in `src/render/box.h` and contains an additional struct called `BoxQ`. This struct has a quaternion member that allows rotations. Also there is an additional `renderBox` function in render.cpp that takes a BoxQ argument and renders the rotational box. There is a blog post about fitting the smallest possible 3D box around a 3D point cloud [here](http://codextechnicanum.blogspot.com/2015/04/find-minimum-oriented-bounding-box-of.html). The solution in the post uses [PCA](https://en.wikipedia.org/wiki/Principal_component_analysis), principal component analysis and includes Z axis rotations as well. A challenge problem is then to find the smallest fitting box but which is oriented flat with the XY plane.",
+              "instructor_notes": ""
+            }
+          ]
+        },
+        {
+          "id": 837724,
+          "key": "b5b4c9f7-876f-48fb-835a-d9cce8aee534",
+          "title": "Outro",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "b5b4c9f7-876f-48fb-835a-d9cce8aee534",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 837722,
+              "key": "fba52431-1da9-4b9d-8344-7e91a884a227",
+              "title": "Header Text",
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "# Outro",
+              "instructor_notes": ""
+            },
+            {
+              "id": 837723,
+              "key": "5c0f3fea-aca5-4e04-9922-177c2f1efe45",
+              "title": "ND312 C1 L3 A53 Outro - Headshot",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "sToq6R1iqtQ",
+                "china_cdn_id": "sToq6R1iqtQ.mp4"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "_deprecated": [
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    }
+  ]
+}

@@ -1,0 +1,233 @@
+{
+  "data": {
+    "lesson": {
+      "id": 860698,
+      "key": "3eccbcf2-1055-400a-b692-b224724b115a",
+      "title": "Introduction to Sensor Fusion",
+      "semantic_type": "Lesson",
+      "is_public": true,
+      "version": "1.0.0",
+      "locale": "en-us",
+      "summary": null,
+      "lesson_type": "Classroom",
+      "display_workspace_project_only": false,
+      "resources": {
+        "files": [
+          {
+            "name": "Videos Zip File",
+            "uri": "https://zips.udacity-data.com/3eccbcf2-1055-400a-b692-b224724b115a/860698/1581173557513/Introduction+to+Sensor+Fusion+Videos.zip"
+          },
+          {
+            "name": "Transcripts Zip File",
+            "uri": "https://zips.udacity-data.com/3eccbcf2-1055-400a-b692-b224724b115a/860698/1581173554685/Introduction+to+Sensor+Fusion+Subtitles.zip"
+          }
+        ],
+        "google_plus_link": null,
+        "career_resource_center_link": null,
+        "coaching_appointments_link": null,
+        "office_hours_link": null,
+        "aws_provisioning_link": null
+      },
+      "project": null,
+      "lab": null,
+      "concepts": [
+        {
+          "id": 860708,
+          "key": "35496aa9-9fe5-4462-a0b6-7186e1bcb6d9",
+          "title": "Sensor Fusion",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "35496aa9-9fe5-4462-a0b6-7186e1bcb6d9",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 900179,
+              "key": "28d7e8ab-ec30-4a27-98b3-47c1e0f9cc20",
+              "title": "05 Sensor Fusion Intro V1",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "EyTyFl9sSLs",
+                "china_cdn_id": "EyTyFl9sSLs.mp4"
+              }
+            }
+          ]
+        },
+        {
+          "id": 860709,
+          "key": "54d2f1f3-cb91-4fb9-8817-555f0c0251cc",
+          "title": "Sensors",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "54d2f1f3-cb91-4fb9-8817-555f0c0251cc",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 900180,
+              "key": "36f745de-a7e2-445a-bda1-cabade5f1f58",
+              "title": "06 Sensors V1",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "Y_jzq22_2Rw",
+                "china_cdn_id": "Y_jzq22_2Rw.mp4"
+              }
+            }
+          ]
+        },
+        {
+          "id": 860710,
+          "key": "13ff1cb4-836a-4343-8108-d80b33be9a22",
+          "title": "Lidar",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "13ff1cb4-836a-4343-8108-d80b33be9a22",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 900181,
+              "key": "af62eee7-133d-4d51-8776-2caf3ac7c143",
+              "title": "07 LIDAR V1",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "GdwO2JnEapQ",
+                "china_cdn_id": "GdwO2JnEapQ.mp4"
+              }
+            }
+          ]
+        },
+        {
+          "id": 860711,
+          "key": "4eec172b-86ff-422a-8dc9-c56bd5d3b6c3",
+          "title": "Camera",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "4eec172b-86ff-422a-8dc9-c56bd5d3b6c3",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 900182,
+              "key": "34dc6689-d37f-4d54-b4b4-74464bfc1499",
+              "title": "08 Camera V1",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "daBPVFM6v-g",
+                "china_cdn_id": "daBPVFM6v-g.mp4"
+              }
+            }
+          ]
+        },
+        {
+          "id": 860712,
+          "key": "68b6c811-9475-44c0-8902-a47d1585996c",
+          "title": "Radar",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "68b6c811-9475-44c0-8902-a47d1585996c",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 900183,
+              "key": "f7ef8ce9-f920-497b-991b-87202ff5e137",
+              "title": "09 RADAR V1",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "JLpe3bckyuQ",
+                "china_cdn_id": "JLpe3bckyuQ.mp4"
+              }
+            }
+          ]
+        },
+        {
+          "id": 860713,
+          "key": "00ded289-13b5-44ae-9799-92d7b0418fc3",
+          "title": "Fusion",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "00ded289-13b5-44ae-9799-92d7b0418fc3",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 900184,
+              "key": "9e2b8466-e7e5-47b4-b9db-3ef3539e73e4",
+              "title": "10 Fusion V1",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "pKkpmCakIg8",
+                "china_cdn_id": "pKkpmCakIg8.mp4"
+              }
+            }
+          ]
+        },
+        {
+          "id": 860714,
+          "key": "0d79dda4-402d-40c8-805d-c37be3a4f34a",
+          "title": "Kalman Filters",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "0d79dda4-402d-40c8-805d-c37be3a4f34a",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 900185,
+              "key": "d0dc8a82-49eb-42e3-8c2c-eb80dc1cae11",
+              "title": "11 Kalman Filters V1",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "yTbRCpijHDE",
+                "china_cdn_id": "yTbRCpijHDE.mp4"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

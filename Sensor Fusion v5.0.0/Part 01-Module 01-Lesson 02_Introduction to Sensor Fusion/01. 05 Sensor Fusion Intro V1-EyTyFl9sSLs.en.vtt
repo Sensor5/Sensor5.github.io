@@ -1,0 +1,73 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:03.810
+Sensor fusion is part of the perception stack.
+
+00:00:03.810 --> 00:00:09.060
+In particular, sensor fusion involves many different sensor modalities
+
+00:00:09.060 --> 00:00:14.519
+or types of sensors that help a robot or a computer perceive its surrounding environment.
+
+00:00:14.519 --> 00:00:17.829
+Different sensors have their own strengths and weaknesses.
+
+00:00:17.829 --> 00:00:22.439
+In this program, you'll learn about the strengths and weaknesses of LiDAR,
+
+00:00:22.440 --> 00:00:24.615
+camera and radar sensors.
+
+00:00:24.614 --> 00:00:28.604
+But all sensors have their own different types of strengths and weaknesses.
+
+00:00:28.605 --> 00:00:32.535
+You'll also learn how to fuse together sensor data.
+
+00:00:32.534 --> 00:00:35.744
+If a camera sees an object in the distance
+
+00:00:35.744 --> 00:00:38.625
+and a radar also sees an object in the distance,
+
+00:00:38.625 --> 00:00:43.990
+it can be difficult to know if that's the same object or two different objects.
+
+00:00:43.990 --> 00:00:46.910
+That's why we fuse together sensor data
+
+00:00:46.909 --> 00:00:50.134
+in order to gain a cohesive understanding of the world.
+
+00:00:50.134 --> 00:00:53.479
+This fusion involves uncertainty.
+
+00:00:53.479 --> 00:00:57.640
+It's impossible to know exactly what the world around us looks like.
+
+00:00:57.640 --> 00:00:59.145
+Even with my own eyes,
+
+00:00:59.145 --> 00:01:01.505
+if I see an object in the distance,
+
+00:01:01.505 --> 00:01:05.165
+I have a sense of how far away it is but I don't know for certain.
+
+00:01:05.165 --> 00:01:10.115
+I have an uncertainty bound around my perception of the distance of that object.
+
+00:01:10.114 --> 00:01:12.744
+Over the course of this Nanodegree Program,
+
+00:01:12.745 --> 00:01:17.689
+you'll learn how to work with many different types of sensors and how to fuse that data
+
+00:01:17.689 --> 00:01:20.420
+together and how to account for the uncertainty that's
+
+00:01:20.420 --> 00:01:24.540
+inherent in perception in sensor fusion in particular.
+

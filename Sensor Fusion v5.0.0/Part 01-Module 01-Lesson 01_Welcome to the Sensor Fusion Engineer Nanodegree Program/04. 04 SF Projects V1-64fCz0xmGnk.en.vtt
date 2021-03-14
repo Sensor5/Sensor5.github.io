@@ -1,0 +1,76 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:04.440
+Each course in this Nanodegree program concludes in a project.
+
+00:00:04.440 --> 00:00:07.200
+At the end of the Lidar course,
+
+00:00:07.200 --> 00:00:10.425
+you'll build the Obstacle Detection project in which
+
+00:00:10.425 --> 00:00:13.845
+you'll detect objects from 3D lidar point clouds.
+
+00:00:13.845 --> 00:00:16.470
+This is real point cloud data that you'll be
+
+00:00:16.470 --> 00:00:20.025
+segmenting and clustering in order to detect objects.
+
+00:00:20.025 --> 00:00:22.230
+In particular, you'll apply
+
+00:00:22.230 --> 00:00:25.110
+the k-d trees machine learning algorithm to
+
+00:00:25.110 --> 00:00:30.015
+group points together in order to draw bounding boxes around objects.
+
+00:00:30.015 --> 00:00:32.925
+At the conclusion of the camera course,
+
+00:00:32.925 --> 00:00:36.795
+you'll build the track and object in 3D space project.
+
+00:00:36.795 --> 00:00:42.240
+In this project, you'll fuse together data from both cameras and lidars.
+
+00:00:42.240 --> 00:00:46.255
+First, you'll apply neural networks to camera images.
+
+00:00:46.255 --> 00:00:52.210
+Then you'll identify where objects are in the same environment using lidar point clouds.
+
+00:00:52.210 --> 00:00:56.770
+Then you'll fuse this data together using back projection to project
+
+00:00:56.770 --> 00:01:02.705
+the data from 3D lidar point clouds into the two-dimensional space of a camera image.
+
+00:01:02.705 --> 00:01:05.935
+At the conclusion of the common filter course,
+
+00:01:05.935 --> 00:01:09.250
+you'll build the Unscented Kalman Filter Highway project.
+
+00:01:09.250 --> 00:01:12.040
+In this project, you'll fuse together data from
+
+00:01:12.040 --> 00:01:16.340
+radar and lidar units in order to track vehicles on a highway.
+
+00:01:16.340 --> 00:01:18.400
+In particular, you'll build
+
+00:01:18.400 --> 00:01:23.710
+an Unscented Kalman Filter in order to track vehicles engaged in nonlinear motion,
+
+00:01:23.710 --> 00:01:25.790
+so for example, vehicles that might be
+
+00:01:25.790 --> 00:01:29.460
+changing lanes back and forth as they drive down the highway.
+

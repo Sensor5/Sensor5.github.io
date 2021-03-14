@@ -1,0 +1,735 @@
+{
+  "data": {
+    "lesson": {
+      "id": 860697,
+      "key": "c3c2e176-405a-4239-8ea3-e09dba21b180",
+      "title": "Welcome to the Sensor Fusion Engineer Nanodegree Program",
+      "semantic_type": "Lesson",
+      "is_public": true,
+      "version": "1.0.0",
+      "locale": "en-us",
+      "summary": "Welcome to the Sensor Fusion Engineer Nanodegree Program! In this lesson, you will learn more about the structure of the program and meet the team.",
+      "lesson_type": "Classroom",
+      "display_workspace_project_only": false,
+      "resources": {
+        "files": [
+          {
+            "name": "Videos Zip File",
+            "uri": "https://zips.udacity-data.com/c3c2e176-405a-4239-8ea3-e09dba21b180/860697/1581173570822/Welcome+to+the+Sensor+Fusion+Engineer+Nanodegree+Program+Videos.zip"
+          },
+          {
+            "name": "Transcripts Zip File",
+            "uri": "https://zips.udacity-data.com/c3c2e176-405a-4239-8ea3-e09dba21b180/860697/1581173567905/Welcome+to+the+Sensor+Fusion+Engineer+Nanodegree+Program+Subtitles.zip"
+          }
+        ],
+        "google_plus_link": null,
+        "career_resource_center_link": null,
+        "coaching_appointments_link": null,
+        "office_hours_link": null,
+        "aws_provisioning_link": null
+      },
+      "project": null,
+      "lab": null,
+      "concepts": [
+        {
+          "id": 860699,
+          "key": "96f5e46b-350d-461d-a83f-62e613056889",
+          "title": "Introduction",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "96f5e46b-350d-461d-a83f-62e613056889",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 900175,
+              "key": "a2d28c26-8e90-472f-a6ca-bc0396915a60",
+              "title": "01 SF Welcome V1",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "OkVTmqAXlNE",
+                "china_cdn_id": "OkVTmqAXlNE.mp4"
+              }
+            },
+            {
+              "id": 860716,
+              "key": "56c024de-2178-4f36-9457-513fbc8c4bc9",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## Welcome To The Udacity Sensor Fusion Nanodegree Program!\n\nWe are excited that you are here to learn about sensor fusion with Udacity! Sensor fusion is one of the most exciting fields in robotics. Industries as diverse as automobiles, surgical robots, agriculture, and atmospheric science all collect data from many different sensors. The engineers working in these fields have to \"fuse\" this data together to estimate and understand the state of the environment.\n  \n## Sensor Fusion Examples\n\n* [Self-driving cars](https://blogs.nvidia.com/blog/2019/04/15/how-does-a-self-driving-car-see/) fuse together data from lidar, camera, and radar sensors to understand the driving environment.\n* [Satellites fuse](https://pdfs.semanticscholar.org/0624/c839bc0f8e2a2a9818997e2850d591591b41.pdf) together data from gyroscopes and positioning messages from other sensors in order to estimate their location\n* [Medical devices](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5087358/) fuse together data from different sensors and monitors to understand the health of an individual\n\n**The Sensor Fusion Engineer Nanodegree Program** teaches the skills necessary to work as a sensor fusion engineer. The focus of this program will be on autonomous vehicles, which is a particularly exciting area for sensor fusion. As such, we will focus on how to work with lidar, camera, and radar sensors, which are three of the most important automotive perception sensors. However, skills from this program are applicable in a wide variety of domains.",
+              "instructor_notes": ""
+            }
+          ]
+        },
+        {
+          "id": 860701,
+          "key": "c07ce14c-e9c4-4bf7-9c8d-264df742452f",
+          "title": "Prerequisites",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "c07ce14c-e9c4-4bf7-9c8d-264df742452f",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 900176,
+              "key": "2107e05e-b40d-4506-92c8-5e4fe3e9d6bc",
+              "title": "02 SF PreReqs V1",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "a8aQR0MvnZI",
+                "china_cdn_id": "a8aQR0MvnZI.mp4"
+              }
+            },
+            {
+              "id": 860721,
+              "key": "4629e9fc-ebb5-4e79-b5a3-18c24db7aa3c",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "# Prerequisites\nThis program assumes that you are proficient with C++, linear algebra, calculus, and statistics.\n\nIf you have a limited background in programming or math, we've created the [Intro to Self-Driving Cars Nanodegree Program](https://www.udacity.com/course/intro-to-self-driving-cars--nd113) to help you prepare. \n\nIf you have a limited background in programming, we’ve created the [C++ Developer Nanodegree Program](https://www.udacity.com/course/c-plus-plus-nanodegree--nd213) to help you prepare for the software engineering required in this program.",
+              "instructor_notes": ""
+            }
+          ]
+        },
+        {
+          "id": 860718,
+          "key": "bc2951ec-ac61-460a-9612-7bd8feea6ac4",
+          "title": "Courses",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "bc2951ec-ac61-460a-9612-7bd8feea6ac4",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 900177,
+              "key": "c5da5b33-713c-43e2-b248-43adf3c14c3e",
+              "title": "03 SF Courses V1",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "JrLLGlIjYQA",
+                "china_cdn_id": "JrLLGlIjYQA.mp4"
+              }
+            },
+            {
+              "id": 860720,
+              "key": "c1b7b75b-8cbb-4bec-b113-10e683d3eb00",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "# Courses\n\nFour courses comprise the Sensor Fusion Engineer Nanodegree Program.\n* Lidar\n* Camera\n* Radar\n* Kalman Filters\n\nThe first three courses focus on different [sensor modalities](https://en.wikipedia.org/wiki/Stimulus_modality), and the final course focuses on how to fuse together data from these different sensors to develop a synthesized understanding of the world.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 860985,
+              "key": "4a971124-7a76-48bd-b56e-f132381a666b",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## Lidar",
+              "instructor_notes": ""
+            },
+            {
+              "id": 860993,
+              "key": "84856c78-6d32-4454-a4bb-43072f362b45",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/March/5c8599be_pcd2/pcd2.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/84856c78-6d32-4454-a4bb-43072f362b45",
+              "caption": "",
+              "alt": "Lidar Point Cloud",
+              "width": 300,
+              "height": 168,
+              "instructor_notes": null
+            },
+            {
+              "id": 860989,
+              "key": "8c934fe2-ac31-4291-b20e-4fe0f1460b82",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "Process raw lidar data with filtering, segmentation, and clustering to detect other vehicles on the road. Understand how to implement Ransac with planar model fitting to segment point clouds. Also implement Euclidean clustering with a KD-Tree to cluster and distinguish vehicles and obstacles.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 860986,
+              "key": "5c605896-0174-4bc4-9e15-37638599401a",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## Camera",
+              "instructor_notes": ""
+            },
+            {
+              "id": 860994,
+              "key": "399b03fa-a453-4360-8e17-b2ce41770df8",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/May/5ce5ae4d_camera/camera.jpeg",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/399b03fa-a453-4360-8e17-b2ce41770df8",
+              "caption": "",
+              "alt": "Camera",
+              "width": 300,
+              "height": 208,
+              "instructor_notes": null
+            },
+            {
+              "id": 860990,
+              "key": "0eaf505a-35b9-46ea-a160-ebb4aaf63471",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "Fuse camera images together with lidar point cloud data. Extract object features from camera images in order to estimate object motion and orientation. Classify objects from camera images in order to apply a motion model. Project the camera image into three dimensions. Fuse this projection into three dimensions to fuse with lidar data.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 860987,
+              "key": "15a0e95b-dd89-4686-a702-890f7c3af74f",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## Radar",
+              "instructor_notes": ""
+            },
+            {
+              "id": 860995,
+              "key": "4a8d29f0-acad-451e-9a92-bbacfede11a8",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/May/5ce5ab84_waves/waves.jpg",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/4a8d29f0-acad-451e-9a92-bbacfede11a8",
+              "caption": "",
+              "alt": "Waves",
+              "width": 300,
+              "height": 300,
+              "instructor_notes": null
+            },
+            {
+              "id": 860991,
+              "key": "db5d9521-44c3-4857-a41d-d034a434b9c4",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "Analyze radar signatures to detect and track objects. Calculate velocity and orientation by correcting for radial velocity distortions, noise, and occlusions. Apply thresholds to identify and eliminate false positives. Filter data to track moving objects over time.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 860988,
+              "key": "44cd4079-389c-4bf9-b5b7-c8d6a1dd79e0",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## Kalman Filters",
+              "instructor_notes": ""
+            },
+            {
+              "id": 860996,
+              "key": "90db9532-5cfa-4696-8f68-f81b54236823",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2018/August/5b73331a_2-2-introduction-and-sensors2x/2-2-introduction-and-sensors2x.jpg",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/90db9532-5cfa-4696-8f68-f81b54236823",
+              "caption": "",
+              "alt": "Automotive Sensors",
+              "width": 300,
+              "height": 300,
+              "instructor_notes": null
+            },
+            {
+              "id": 860992,
+              "key": "e185af26-f598-403c-bb9b-c0a7cf366e84",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "Fuse data from multiple sources using Kalman filters. Merge data together using the prediction-update cycle of Kalman filters, which accurately track object moving along straight lines. Then build extended and unscented Kalman filters for tracking nonlinear movement.",
+              "instructor_notes": ""
+            }
+          ]
+        },
+        {
+          "id": 860700,
+          "key": "31df7122-828b-4b95-930f-3361cf55f572",
+          "title": "Projects",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "31df7122-828b-4b95-930f-3361cf55f572",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 900178,
+              "key": "b99ae552-ef4a-4958-a555-e956293cf52d",
+              "title": "04 SF Projects V1",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "64fCz0xmGnk",
+                "china_cdn_id": "64fCz0xmGnk.mp4"
+              }
+            },
+            {
+              "id": 860717,
+              "key": "e11570fe-0c36-4033-b130-c3ece0dc42d1",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "# Projects\nEach course in this program concludes with a project. These are portfolio projects that are exciting to share with the world!",
+              "instructor_notes": ""
+            },
+            {
+              "id": 860747,
+              "key": "91eb8936-114e-4f17-bb67-12f4fe6579b6",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## Lidar Obstacle Detection",
+              "instructor_notes": ""
+            },
+            {
+              "id": 860804,
+              "key": "9f2caddd-a307-4709-8109-fe5bd5a70baa",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/March/5c85991d_pcdstream/pcdstream.gif",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/9f2caddd-a307-4709-8109-fe5bd5a70baa",
+              "caption": "",
+              "alt": "Lidar",
+              "width": 300,
+              "height": 168,
+              "instructor_notes": null
+            },
+            {
+              "id": 860806,
+              "key": "e15df90a-d22e-4b00-a5a0-9f98fba23e46",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "Detect other cars on the road using raw lidar data from Udacity’s real self-driving car, Carla! Implement custom RANSAC and euclidean clustering algorithms.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 860807,
+              "key": "6bffad18-a6fa-48dc-b049-6bd8bb8083e8",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## Track An Object In 3D Space",
+              "instructor_notes": ""
+            },
+            {
+              "id": 860813,
+              "key": "a7cf05b1-fc88-46e6-ba5f-2c1b61f3fcd2",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/May/5ce5b23f_3dobjects/3dobjects.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/a7cf05b1-fc88-46e6-ba5f-2c1b61f3fcd2",
+              "caption": "",
+              "alt": "Tracking an object in a camera image",
+              "width": 300,
+              "height": 300,
+              "instructor_notes": null
+            },
+            {
+              "id": 860808,
+              "key": "b7f9190c-cb15-47f8-bf7e-14c77b5719ec",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "Detect and track objects from the benchmark KITTI dataset. Classify those objects and project them into three dimensions. Fuse those projections together with lidar data to create 3D objects to track over time.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 860809,
+              "key": "4f721b57-97a1-4a53-84da-b086eea3b691",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## Radar Target Generation And Detection",
+              "instructor_notes": ""
+            },
+            {
+              "id": 860814,
+              "key": "6f38fcac-0dec-46cf-9253-2e9fa9d5b2aa",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/May/5ce5a837_radar/radar.jpg",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/6f38fcac-0dec-46cf-9253-2e9fa9d5b2aa",
+              "caption": "",
+              "alt": "Radar signal visualization in Matlab",
+              "width": 300,
+              "height": 300,
+              "instructor_notes": null
+            },
+            {
+              "id": 860810,
+              "key": "be10eb88-5600-4039-88a2-c96f0ae7dd28",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "Calibrate, threshold, and filter radar data to detect obstacles in real radar data.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 860811,
+              "key": "ce013309-b4e0-48ee-bbde-7158c99ef3c7",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## Unscented Kalman Filter Highway Project",
+              "instructor_notes": ""
+            },
+            {
+              "id": 860815,
+              "key": "8828a963-64a1-4918-b593-a8f56b7f060c",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/April/5cb7bd91_ukf-highway-tracked/ukf-highway-tracked.gif",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/8828a963-64a1-4918-b593-a8f56b7f060c",
+              "caption": "",
+              "alt": "Highway simulation",
+              "width": 300,
+              "height": 168,
+              "instructor_notes": null
+            },
+            {
+              "id": 860812,
+              "key": "425a5db0-0ea3-482d-9bfb-23bf11414b4c",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "Put your skills to the test! Code an Unscented Kalman Filter in C++ to track highly non-linear pedestrian and bicycle motion.",
+              "instructor_notes": ""
+            }
+          ]
+        },
+        {
+          "id": 860702,
+          "key": "e7aeec07-fd60-4aab-86d1-b7342cc1a488",
+          "title": "Aaron Brown",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "e7aeec07-fd60-4aab-86d1-b7342cc1a488",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 860733,
+              "key": "492d7236-4bf5-457f-824d-d0abbc54c4d4",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "# Aaron Brown",
+              "instructor_notes": ""
+            },
+            {
+              "id": 860722,
+              "key": "bf349723-c44e-4d5b-b253-32be7fc9beaa",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/June/5d13e572_aaron-brown-480/aaron-brown-480.jpg",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/bf349723-c44e-4d5b-b253-32be7fc9beaa",
+              "caption": "",
+              "alt": "Aaron Brown",
+              "width": 480,
+              "height": 480,
+              "instructor_notes": null
+            },
+            {
+              "id": 860723,
+              "key": "e8255f90-feda-4b03-8a93-ffbc0db4bf2d",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "Aaron Brown teaches the Lidar Course in the Udacity Sensor Fusion Nanodegree Program.\n\nAaron has a background in electrical engineering, robotics and deep learning. He now works on autonomous vehicles as a software engineer at [Mercedes-Benz Research & Development North America](https://mbrdna.com). Aaron has worked as a Content Developer and Simulation Engineer at Udacity focusing on developing projects for self-driving cars.",
+              "instructor_notes": ""
+            }
+          ]
+        },
+        {
+          "id": 860703,
+          "key": "47644542-4ad0-435d-aa53-5e83215e4b2d",
+          "title": "Andreas Haja",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "47644542-4ad0-435d-aa53-5e83215e4b2d",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 860734,
+              "key": "c01d3b79-1dca-428b-8928-ec279bd2368b",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "# Andreas Haja",
+              "instructor_notes": ""
+            },
+            {
+              "id": 860735,
+              "key": "f2371784-0009-4ee6-b8f5-133c314bcf67",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/May/5ce5adac_andreas-1/andreas-1.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/f2371784-0009-4ee6-b8f5-133c314bcf67",
+              "caption": "",
+              "alt": "Andreas Haja",
+              "width": 480,
+              "height": 480,
+              "instructor_notes": null
+            },
+            {
+              "id": 860736,
+              "key": "ee65243d-af66-4c9f-be2b-f868a0f9aa63",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "Andreas Haja teaches the Lidar Course in the Udacity Sensor Fusion Nanodegree Program.\n\nProf. Dr. Haja is a technology expert for autonomous driving, advanced driver assistance systems (ADAS) and computer vision with more than 10 years of professional experience. Since 2014, he is working as a full Professor at the University of Applied Sciences in Emden Germany, where he researches and teaches at the faculty of technology.\n\nFrom 2008 until 2013, Dr. Haja was a Project Manager for ADAS with Volkswagen AG. In addition to the development and testing of new ADAS systems, Dr. Haja has been responsible for strategic advice on camera technology as well as for supplier assessment, innovation management and for supporting procurement procedures in the ADAS space. \n\nFrom 2005 until 2008, Dr. Haja was a Computer Vision Expert with Robert Bosch GmbH. He was responsible for developing stereo camera algorithms for the automotive aftermarket division.\n\nHis experience is based on positions in corporate research and in advance development with Bosch and VW, on current research at university and on several years of technology consulting (including in-depth written reports and keynote talks) in the driverless car space. ",
+              "instructor_notes": ""
+            }
+          ]
+        },
+        {
+          "id": 860705,
+          "key": "9737a7e2-2ef1-4d75-877d-8e29e6644361",
+          "title": "Abdullah Zaidi",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "9737a7e2-2ef1-4d75-877d-8e29e6644361",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 860737,
+              "key": "480f5841-6f12-40aa-ad66-a34a57edb1cd",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "# Abdullah Zaidi",
+              "instructor_notes": ""
+            },
+            {
+              "id": 860738,
+              "key": "457dc839-107c-4ce3-a25b-48fb3de04824",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/June/5d13e5c5_abdullah/abdullah.jpg",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/457dc839-107c-4ce3-a25b-48fb3de04824",
+              "caption": "",
+              "alt": "Abdullah Zaidi",
+              "width": 480,
+              "height": 480,
+              "instructor_notes": null
+            },
+            {
+              "id": 860739,
+              "key": "9e6ded73-d27c-40b1-b639-d922de29aee1",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "Abdullah holds his M.S from the University of Maryland and is an expert in the field of Radio Frequency Design and Digital Signal processing. After spending several years at Qualcomm, Abdullah joined Metawave, where he now leads Radar development for autonomous driving.",
+              "instructor_notes": ""
+            }
+          ]
+        },
+        {
+          "id": 860706,
+          "key": "49a1e9c1-cf47-4934-b077-ca12943de78f",
+          "title": "Dominik Nuss",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "49a1e9c1-cf47-4934-b077-ca12943de78f",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 860744,
+              "key": "01f547c2-7247-43fa-871a-3098f5780e28",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "# Dominik Nuss",
+              "instructor_notes": ""
+            },
+            {
+              "id": 860745,
+              "key": "9912d4f3-fc40-45f9-902f-006add59ad62",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/June/5d13bb1c_dominik/dominik.jpeg",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/9912d4f3-fc40-45f9-902f-006add59ad62",
+              "caption": "",
+              "alt": "Dominik Nuss",
+              "width": 300,
+              "height": 300,
+              "instructor_notes": null
+            },
+            {
+              "id": 860746,
+              "key": "d1098418-98cf-451a-88aa-c4a6949d78f5",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "Dominik Nuss teaches the Kalman Filters Course in the Sensor Fusion Engineer Nanodegree Program.\n\nDominik manages the Vehicle Intelligence Team at [Mercedes-Benz Research & Development North America](https://mbrdna.com/).",
+              "instructor_notes": ""
+            }
+          ]
+        },
+        {
+          "id": 860707,
+          "key": "e6badedf-2dcb-4e10-83e1-ffe2e9f944d6",
+          "title": "Andrei Vatavu",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "e6badedf-2dcb-4e10-83e1-ffe2e9f944d6",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 860731,
+              "key": "175cf7d2-f170-48c4-baef-76f7adcde46a",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "# Andrei Vatavu",
+              "instructor_notes": ""
+            },
+            {
+              "id": 860730,
+              "key": "e42a8fbd-71ba-4595-a682-e108ac3d3e4e",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/June/5d13bfd4_andrei/andrei.jpeg",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/e42a8fbd-71ba-4595-a682-e108ac3d3e4e",
+              "caption": "",
+              "alt": "Andrei Vatavu",
+              "width": 300,
+              "height": 300,
+              "instructor_notes": null
+            },
+            {
+              "id": 860732,
+              "key": "b7ccd303-3546-4ce1-a438-7df4c1043204",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "Andrei Vatavu teaches the Kalman Filters course in the Udacity Self-Driving Car Engineer Nanodegree Program.\n\nAndrei is a sensor fusion engineer at [Mercedes-Benz Research & Development North America](https://mbrdna.com/).",
+              "instructor_notes": ""
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "_deprecated": [
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    }
+  ]
+}

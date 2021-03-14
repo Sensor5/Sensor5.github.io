@@ -1,0 +1,941 @@
+{
+  "data": {
+    "lesson": {
+      "id": 837809,
+      "key": "34d27167-284f-4aa7-a0c4-3dc7944cba1e",
+      "title": "Working with Real PCD",
+      "semantic_type": "Lesson",
+      "is_public": true,
+      "version": "1.0.0",
+      "locale": "en-us",
+      "summary": "Take what you have learned in the previous lessons and apply it to real pcd being played back in a video.",
+      "lesson_type": "Classroom",
+      "display_workspace_project_only": false,
+      "resources": {
+        "files": [
+          {
+            "name": "Videos Zip File",
+            "uri": "https://zips.udacity-data.com/34d27167-284f-4aa7-a0c4-3dc7944cba1e/837809/1561073010287/Working+with+Real+PCD+Videos.zip"
+          },
+          {
+            "name": "Transcripts Zip File",
+            "uri": "https://zips.udacity-data.com/34d27167-284f-4aa7-a0c4-3dc7944cba1e/837809/1561073005673/Working+with+Real+PCD+Subtitles.zip"
+          }
+        ],
+        "google_plus_link": null,
+        "career_resource_center_link": null,
+        "coaching_appointments_link": null,
+        "office_hours_link": null,
+        "aws_provisioning_link": null
+      },
+      "project": null,
+      "lab": null,
+      "concepts": [
+        {
+          "id": 837770,
+          "key": "2f343428-5c13-4cb6-a132-81ea5e43d4ef",
+          "title": "Load Real PCD",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "2f343428-5c13-4cb6-a132-81ea5e43d4ef",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 837767,
+              "key": "c392b0fd-b4b1-453a-868e-53e3cebfaf1a",
+              "title": "Header Text",
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "# Load Real PCD",
+              "instructor_notes": ""
+            },
+            {
+              "id": 837768,
+              "key": "2c7cbf9c-6d6f-44c8-ac50-d1f0a851ad61",
+              "title": "ND313 C1 L4 A01 Intro Working With Real PCD-",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "cfbvWL3q86Q",
+                "china_cdn_id": "cfbvWL3q86Q.mp4"
+              }
+            },
+            {
+              "id": 837769,
+              "key": "da7d0910-9174-4183-becb-ea2638f670c7",
+              "title": "Overview",
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "In the previous lessons you learned how to segment and cluster simple simulated point clouds. Now you will learn how to apply these same skills to actual point cloud data from a self-driving car. You will also learn how to do additional filtering techniques and create a pipeline to perform obstacle detection across multiple streaming pcd files. So let’s get started by loading up some actual point cloud data from a self-driving car.",
+              "instructor_notes": ""
+            }
+          ]
+        },
+        {
+          "id": 837775,
+          "key": "5daa9f77-4295-413e-a2f7-2c3cf4bff9ac",
+          "title": "Load PCD",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "5daa9f77-4295-413e-a2f7-2c3cf4bff9ac",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 837771,
+              "key": "3d8caeb0-765f-4de3-a343-6fec02234163",
+              "title": "Header Text",
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "# Load PCD",
+              "instructor_notes": ""
+            },
+            {
+              "id": 841537,
+              "key": "d547505a-83e6-492b-9887-444eace5e3a2",
+              "title": "ND313 C1 L4 A03 Load PCD - Concept",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "Mecr0DuuwTY",
+                "china_cdn_id": "Mecr0DuuwTY.mp4"
+              }
+            },
+            {
+              "id": 841539,
+              "key": "ee6d2684-9462-4909-8c9e-14b4ac8d3239",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "To first load up one of the car’s recorded pcd files, you will want to create a new point processor, similar to the one we created before in the `simpleHighway` function. This time however you will be using the pcl `PointXYZI` type, the \"I\" stands for intensity, which will now be an additional feature for each point in the cloud. \nIn `environment.cpp` you should create a new function called `CityBlock` that will be the same layout as the `simpleHighway` function. The arguments for `CityBlock` will be the same as `simpleHighway`, a reference to the pcl viewer. \nInside the new `CityBlock` function you will create a new point processor using a `PointXYZI` template argument. You will use the point processor to load one of the car’s point clouds and then use the `renderPointCloud` function to view it. Don't forget to call cityBlock now instead of `simpleHighway` in the `main` function. Check out the code below for reference.\nAll of the car’s pcd files are located in `src/sensors/data/pcd/data_1/`\n```cpp\nvoid cityBlock(pcl::visualization::PCLVisualizer::Ptr& viewer)\n{\n  // ----------------------------------------------------\n  // -----Open 3D viewer and display City Block     -----\n  // ----------------------------------------------------\n  \n  ProcessPointClouds<pcl::PointXYZI>* pointProcessorI = new ProcessPointClouds<pcl::PointXYZI>();\n  pcl::PointCloud<pcl::PointXYZI>::Ptr inputCloud = pointProcessorI->loadPcd(\"../src/sensors/data/pcd/data_1/0000000000.pcd\");\n  renderPointCloud(viewer,inputCloud,\"inputCloud\");\n}\n```\nThe image below is what the results of loading and running this look like, if the color is not specified in the `renderPointCloud` function argument, it will default to using the intensity color coding.\nLooking around the pcd, you can see several cars parked along the sides of the road and a truck approaching to pass the ego car on the left side. Your goal will be to fit bounding boxes around these cars and the passing truck, so then your system could later use that information in its path planner, trying to avoid any collisions with those obstacles.\n",
+              "instructor_notes": ""
+            },
+            {
+              "id": 837772,
+              "key": "6491a44a-7015-4d0a-8ca6-b78004c7b7a8",
+              "title": "Load PCD",
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/March/5c8598b6_pcd2/pcd2.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/6491a44a-7015-4d0a-8ca6-b78004c7b7a8",
+              "caption": "Loading pcd from from a self-driving car. ",
+              "alt": "Loading pcd from from a self-driving car. ",
+              "width": 950,
+              "height": 533,
+              "instructor_notes": null
+            },
+            {
+              "id": 841538,
+              "key": "6328f047-2f41-41ed-bc4b-fac515da571e",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## Instructions \n- Create cityBlock function as shown above\n- Replace the `simpleHighway`call in `main` with `cityBlock`\n- Compile/Run, The output will look like the image above\n- Orbit and Zoom around the point cloud",
+              "instructor_notes": ""
+            },
+            {
+              "id": 837811,
+              "key": "2e000e4e-9fff-441c-a2dc-fa387d65babe",
+              "title": null,
+              "semantic_type": "WorkspaceAtom",
+              "is_public": true,
+              "workspace_id": "r831540c837485xREACTy8c3xugx",
+              "pool_id": "autonomousgpu",
+              "view_id": "react-s9de7",
+              "gpu_capable": true,
+              "configuration": {
+                "id": "reserved",
+                "blueprint": {
+                  "conf": {
+                    "disk": null,
+                    "port": 3000,
+                    "ports": [],
+                    "userCode": "",
+                    "openFiles": [],
+                    "showFiles": true,
+                    "allowClose": true,
+                    "allowSubmit": false,
+                    "terminalTitle": "BASH",
+                    "actionButtonText": "Desktop",
+                    "openTerminalOnStartup": true
+                  },
+                  "kind": "react"
+                },
+                "workspaceId": "reserved"
+              },
+              "starter_files": null
+            },
+            {
+              "id": 837774,
+              "key": "1861d009-cb63-452f-9d47-51b16a4007b6",
+              "title": "ND313 C1 L4 A06 Load PCD - Solution",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "Y7kFT1dW6iQ",
+                "china_cdn_id": "Y7kFT1dW6iQ.mp4"
+              }
+            }
+          ]
+        },
+        {
+          "id": 858893,
+          "key": "0e63c70e-0f20-4607-a664-7d351964e25c",
+          "title": "Challenges with Real World Lidar",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "0e63c70e-0f20-4607-a664-7d351964e25c",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 858894,
+              "key": "36c88141-725a-45ce-9ac1-5135e6c1dfe6",
+              "title": "ND313 Michael Intv 17 What Challenges Emerge When Using Lidar In Real World",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "3WXluu7PyTA",
+                "china_cdn_id": "3WXluu7PyTA.mp4"
+              }
+            }
+          ]
+        },
+        {
+          "id": 858895,
+          "key": "9ad2c7ed-d1e2-4eaf-9961-b2774e95d622",
+          "title": "Downsampling",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "9ad2c7ed-d1e2-4eaf-9961-b2774e95d622",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 858896,
+              "key": "8beba609-e5c4-48d9-bf8c-31b2c89b57d3",
+              "title": "ND313 Michael Intv 21 Do You Ever Downsample Lidar Data",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "ry17-7srqlE",
+                "china_cdn_id": "ry17-7srqlE.mp4"
+              }
+            }
+          ]
+        },
+        {
+          "id": 837780,
+          "key": "3b47e199-5932-4998-b897-9a2ab6188344",
+          "title": "Filtering with PCL",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "3b47e199-5932-4998-b897-9a2ab6188344",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 837776,
+              "key": "b0ff4612-933c-46eb-9c95-ec534d5ad975",
+              "title": "Header Text",
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "# Filtering with PCL",
+              "instructor_notes": ""
+            },
+            {
+              "id": 841550,
+              "key": "ea723f58-af1b-49e8-abe9-023e2bf96934",
+              "title": "ND313 C1 L4 A07 Filtering With PCL",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "yLG_OKDW9Fs",
+                "china_cdn_id": "yLG_OKDW9Fs.mp4"
+              }
+            },
+            {
+              "id": 858980,
+              "key": "fb31cb79-fcad-4f9f-9664-1fab17fb6868",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "The first thing you might notice when looking at the previous loaded point cloud is it’s quite high resolution and spans a pretty far distance. You want your processor pipeline to be able to digest point cloud as quickly as possible, so you will want to filter the cloud down. Here are the two methods that will be used to do this.\n\n## Voxel Grid \nVoxel grid filtering will create a cubic grid and will filter the cloud by only leaving a single point per voxel cube, so the larger the cube length the lower the resolution of the point cloud.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 858981,
+              "key": "795aa07c-3e22-4819-aff7-c850daedff7f",
+              "title": "ND313 Michael Intv 22 What Is A Voxel",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "NxdZAcDhfVQ",
+                "china_cdn_id": "NxdZAcDhfVQ.mp4"
+              }
+            },
+            {
+              "id": 841553,
+              "key": "26ab0ee5-98ba-4dfc-a069-c3b711c6e017",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## Region of Interest\nA boxed region is defined and any points outside that box are removed.\n\nTo apply these methods you will fill in the point process function `FilterCloud`. The arguments to this function will be your input cloud, voxel grid size, and min/max points representing your region of interest. The function will return the downsampled cloud with only points that were inside the region specified. To get started check out the documentation from PCL for [voxel grid filtering](http://pointclouds.org/documentation/tutorials/voxel_grid.php) and [region of interest](http://docs.pointclouds.org/trunk/classpcl_1_1_crop_box.html).",
+              "instructor_notes": ""
+            },
+            {
+              "id": 841554,
+              "key": "3272996c-36b9-418b-a9e7-7357c8d3666f",
+              "title": "ND313 C1 L4 A08 Filtering With PCL Pt 2",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "FRIm7Ya8Xy8",
+                "china_cdn_id": "FRIm7Ya8Xy8.mp4"
+              }
+            },
+            {
+              "id": 841552,
+              "key": "5163fec2-1e9a-48f1-a4f2-c822c75b325e",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## Results\n\nTo apply the filtering function, back in `cityBlock` call the pointProcessor `FilterCloud`function with the loaded pcd.\n\n```cpp\n// Experiment with the ? values and find what works best\nfilterCloud = pointProcessorI->FilterCloud(inputCloud, ? , Eigen::Vector4f (?, ?, ?, 1), Eigen::Vector4f ( ?, ?, ?, 1));\nrenderPointCloud(viewer,filterCloud,\"filterCloud\");\n```\n\nIn the filter cloud image below you can now see that the point resolution is much lower than the original, and it cropped everything inside the box points that were specified. It’s important to experiment and play around with the filter input hyper parameters. voxel size should be large enough to help speed up the processing but not so large that object definition is completely lost. For picking a good region, try having a good amount of space in front of the car so it could react quickly in time to any obstacles moving towards it. Also for the sides try to cover at least the width of the road. What’s most important is obstacles that we want to detect are inside the region. Also setting camera angles in `environment.cpp`can help pick a good region of interests. This way you can easily set the  camera to have a top down overview or a side overview. One last thing is it would be beneficial to remove points that are hitting the roof of the ego car. You can use a pcl CropBox to find the roof point indices and then feed those indices to a pcl ExtractIndices object to remove them (similar to what your segmentation algorithm used to extract points). The `renderBox` function can be really helpful as well for figuring out how big boxes will look in the scene.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 837777,
+              "key": "945b0c6e-e298-4907-9d0a-e91f1d5bf859",
+              "title": "Filtered PCD",
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/March/5c8598cc_filtered/filtered.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/945b0c6e-e298-4907-9d0a-e91f1d5bf859",
+              "caption": "Region and voxel grid filtering.",
+              "alt": "Region and voxel grid filtering.",
+              "width": 946,
+              "height": 528,
+              "instructor_notes": null
+            },
+            {
+              "id": 841551,
+              "key": "c993f5e5-0e6c-4753-a822-7ae0c83d5ca7",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## Instructions \n\n- Fill in the `FilterCloud` function in `pointProcessor`\n- Call `FilterCloud` from `cityBlock` and experiment with hyperparameters\n- (Optional) Remove ego car roof points\n- Observe the results",
+              "instructor_notes": ""
+            },
+            {
+              "id": 837812,
+              "key": "8d527481-5e06-4139-ad8c-a6ff84cf925f",
+              "title": null,
+              "semantic_type": "WorkspaceAtom",
+              "is_public": true,
+              "workspace_id": "r831540c837485xREACTy8c3xugx",
+              "pool_id": "autonomousgpu",
+              "view_id": "react-mx4w6",
+              "gpu_capable": true,
+              "configuration": {
+                "id": "reserved",
+                "blueprint": {
+                  "conf": {
+                    "disk": null,
+                    "port": 3000,
+                    "ports": [],
+                    "userCode": "",
+                    "openFiles": [],
+                    "showFiles": true,
+                    "allowClose": true,
+                    "allowSubmit": false,
+                    "terminalTitle": "BASH",
+                    "actionButtonText": "Desktop",
+                    "openTerminalOnStartup": true
+                  },
+                  "kind": "react"
+                },
+                "workspaceId": "reserved"
+              },
+              "starter_files": null
+            },
+            {
+              "id": 837779,
+              "key": "03a5762f-339b-4220-9283-5ef25fa1d52f",
+              "title": "ND313 C01 L01 Filtering Using PCL",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "62Bk64oquzY",
+                "china_cdn_id": "62Bk64oquzY.mp4"
+              }
+            }
+          ]
+        },
+        {
+          "id": 837789,
+          "key": "813e459c-c4f8-4a3f-a57a-c9778fbc465a",
+          "title": "Steps For Obstacle Detection",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "813e459c-c4f8-4a3f-a57a-c9778fbc465a",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 837781,
+              "key": "a947f18d-3d8f-4ab6-892a-133383dc5125",
+              "title": "Header Text",
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "# Steps For Obstacle Detection",
+              "instructor_notes": ""
+            },
+            {
+              "id": 837782,
+              "key": "3954e68d-de5f-463c-a26b-3e9a36db370e",
+              "title": "Overview of Detection Pipeline",
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "Now that the pcd is filtered you are ready to deploy the same segmentation and clustering techniques that we applied before in the previous lessons, now using the new intensity point processor inside `cityBlock`.\n\n## Step 1. Segment the filtered cloud into two parts, road and obstacles.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 841556,
+              "key": "ec599ab2-7917-40df-9d8b-ff8ba6b181ca",
+              "title": "ND313 C1 L4 A21 Segmented PCD [LB]",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "CRvOO45z-1I",
+                "china_cdn_id": "CRvOO45z-1I.mp4"
+              }
+            },
+            {
+              "id": 841557,
+              "key": "deff6658-6eb5-48d3-96e0-1d0092043c3b",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "After you filter the point cloud the next step is to segment it. The image below shows the filtered point cloud segmented (road in green), (obstacles in red), with points only in the filtered region of interest. The image also displays a purple box showing the space where the car's roof points were contained, and removed.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 837783,
+              "key": "28eb11e7-3d0a-4eb3-98f9-c25a8c9b99eb",
+              "title": "Segmented PCD",
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/March/5c8598e5_seg2/seg2.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/28eb11e7-3d0a-4eb3-98f9-c25a8c9b99eb",
+              "caption": "Segmented point clouds. The purple box shows where ego car roof point were removed.",
+              "alt": "Segmented point clouds. The purple box shows where ego car roof point were removed.",
+              "width": 948,
+              "height": 530,
+              "instructor_notes": null
+            },
+            {
+              "id": 837784,
+              "key": "15328a17-7995-4ab9-8402-f59e27960b0d",
+              "title": "Segmentation",
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## Step 2. Cluster the obstacle cloud",
+              "instructor_notes": ""
+            },
+            {
+              "id": 841558,
+              "key": "b65bd0dd-803f-4f65-ad34-5d48bbd5d302",
+              "title": "ND313 C1 L4 A25 Clustering PCD [LB]",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "Ge0262WG8Kg",
+                "china_cdn_id": "Ge0262WG8Kg.mp4"
+              }
+            },
+            {
+              "id": 841559,
+              "key": "c841cfd3-0bc1-4a31-bbcb-d6f3b734e487",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "Next you cluster the obstacle cloud based on the proximity of neighboring points. The image below shows the clusters in cycled colors of red, yellow, and blue. In that image we see that the oncoming truck is actually broken up into two colors, front and back. This illustrates the challenges with clustering based on proximity, the gap between the front of the truck and the back of the truck is large enough so that they look separate. You might think to fix this by increasing the distance tolerance, but you can also see that the truck is getting really close to one of the side parked cars. Increasing the distance tolerance would run the risk of the truck and parked car being grouped together.\n",
+              "instructor_notes": ""
+            },
+            {
+              "id": 837785,
+              "key": "b8c24ad9-b601-464e-a0b3-d6d5c00a5d78",
+              "title": "Clustering PCD",
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/March/5c8598f5_cluster2/cluster2.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/b8c24ad9-b601-464e-a0b3-d6d5c00a5d78",
+              "caption": "Clustering the point cloud. Different cluster shown in cycled colors, red, yellow, and blue.",
+              "alt": "Clustering the point cloud. Different cluster shown in cycled colors, red, yellow, and blue.",
+              "width": 948,
+              "height": 529,
+              "instructor_notes": null
+            },
+            {
+              "id": 837786,
+              "key": "f5d18f78-fb61-40e1-8951-214409f8b146",
+              "title": "Clustering",
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## Step 3. Find bounding boxes for the clusters",
+              "instructor_notes": ""
+            },
+            {
+              "id": 841560,
+              "key": "4d8b838c-df93-48d5-8236-e6df646b5ea4",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "Finally you place bounding boxes around the individual clusters. Since all the detectable vehicles in this scene are along the same axis as our car, the simple already set up bounding box function in point processor should yield good results.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 837787,
+              "key": "f831185b-6a20-4ae3-a455-992e1f9c951b",
+              "title": "Bounding Box PCD",
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/March/5c859900_box2/box2.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/f831185b-6a20-4ae3-a455-992e1f9c951b",
+              "caption": "Bounding boxes around cluster obstacles.",
+              "alt": "Bounding boxes around cluster obstacles.",
+              "width": 947,
+              "height": 528,
+              "instructor_notes": null
+            },
+            {
+              "id": 837788,
+              "key": "4bc9d416-0d54-47f5-98bb-85e227d6a629",
+              "title": "Bounding Boxes",
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "Awesome! Congratulations for making it through the point process pipeline on a real pcd file. Once you are happy with your results from a single frame, let's look at processing a stream of frames.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 837813,
+              "key": "37d70d25-7a3d-4758-a3a0-2c00d1cd396f",
+              "title": null,
+              "semantic_type": "WorkspaceAtom",
+              "is_public": true,
+              "workspace_id": "r831540c837485xREACTy8c3xugx",
+              "pool_id": "autonomousgpu",
+              "view_id": "react-0gszt",
+              "gpu_capable": true,
+              "configuration": {
+                "id": "reserved",
+                "blueprint": {
+                  "conf": {
+                    "disk": null,
+                    "port": 3000,
+                    "ports": [],
+                    "userCode": "",
+                    "openFiles": [],
+                    "showFiles": true,
+                    "allowClose": true,
+                    "allowSubmit": false,
+                    "terminalTitle": "BASH",
+                    "actionButtonText": "Desktop",
+                    "openTerminalOnStartup": true
+                  },
+                  "kind": "react"
+                },
+                "workspaceId": "reserved"
+              },
+              "starter_files": null
+            }
+          ]
+        },
+        {
+          "id": 837796,
+          "key": "23ce25d8-c01b-4d29-992a-79b4559282ff",
+          "title": "Stream PCD",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "23ce25d8-c01b-4d29-992a-79b4559282ff",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 837790,
+              "key": "b378c233-ce3c-453d-87b5-99308db634f9",
+              "title": "Header Text",
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "# Stream PCD",
+              "instructor_notes": ""
+            },
+            {
+              "id": 837791,
+              "key": "e8182bf7-b34a-47a4-a1de-3d972566813d",
+              "title": "Streamed PCD",
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/March/5c85991d_pcdstream/pcdstream.gif",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/e8182bf7-b34a-47a4-a1de-3d972566813d",
+              "caption": "Playing back the pcd files.",
+              "alt": "Playing back the pcd files.",
+              "width": 948,
+              "height": 532,
+              "instructor_notes": null
+            },
+            {
+              "id": 837792,
+              "key": "80ad3b2e-deb2-4a48-869e-a171d756752b",
+              "title": "Stream PCD with PCL",
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "In the previous concept you were able to process obstacle detections on a single pcd file, now you are going to be using that same processing pipeline on multiple pcd files. To do this you can slightly modify the previous used `cityBlock` function from `environment.cpp` to support some additional arguments. Now, you will be passing in the point processor to the `cityBlock` function, this is because you don't want to have to recreate this object at every frame. Also the point cloud input will vary from frame to frame, so input point cloud will now become an input argument for `cityBlock`. The `cityBlock` function header should now look like this, and you no longer create the point processor or load a point cloud from inside the function.\n\n## cityBlock new Function Signature\n\n```cpp\nvoid cityBlock(pcl::visualization::PCLVisualizer::Ptr& viewer, ProcessPointClouds<pcl::PointXYZI>* pointProcessorI, const pcl::PointCloud<pcl::PointXYZI>::Ptr& inputCloud)\n```\n\nNotice that in the function header you can optionally make `inputCloud` a constant reference by doing `const` and `&` at the end of the variable definition. You don't have to do this but you are not actually changing the `inputCloud` at all, just using it as an input for your point processor function. The benefit of using a constant reference is better memory efficiency, since you don't have to write to that variable's memory, just read from it, so it's a slight performance increase. If you do make this a const reference though, make sure not to modify it, or else you will get a compile error.\n\n## Code inside main\n\nSo now instead of creating your point processor, and loading pcl files from inside `cityBlock` you will do this inside the `main` function in `environment.cpp` right after where the pcl viewer camera position is set up.\n\n```cpp\nProcessPointClouds<pcl::PointXYZI>* pointProcessorI = new ProcessPointClouds<pcl::PointXYZI>();\nstd::vector<boost::filesystem::path> stream = pointProcessorI->streamPcd(\"../src/sensors/data/pcd/data_1\");\nauto streamIterator = stream.begin();\npcl::PointCloud<pcl::PointXYZI>::Ptr inputCloudI;\n```\n\nIn the code above, you are making use of a new method from point processor called, `streamPcd`. You tell `streamPcd` a folder directory that contains all the sequentially ordered pcd files you want to process, and it returns a chronologically ordered vector of all those file names, called `stream`. You can then go through the `stream` vector in a couple of ways, one option is to use an iterator. At the end of the above code block, a variable for the input point cloud is also set up.\n\n## PCL Viewer Update Loop\n\nThe final thing to look at is the  pcl viewer run cycle which is down at the bottom of `envrionment.cpp`. while the pcl viewer hasn't stopped, you want to process a new frame, do obstacle detection on it, and then view the results. Let's see how to set up this pcl viewer run cycle method below.\n\n```cpp\nwhile (!viewer->wasStopped ())\n{\n\n  // Clear viewer\n  viewer->removeAllPointClouds();\n  viewer->removeAllShapes();\n\n  // Load pcd and run obstacle detection process\n  inputCloudI = pointProcessorI->loadPcd((*streamIterator).string());\n  cityBlock(viewer, pointProcessorI, inputCloudI);\n    \n  streamIterator++;\n  if(streamIterator == stream.end())\n    streamIterator = stream.begin();\n\n  viewer->spinOnce ();\n}\n```\n\nThe first thing the above method does is clear any previous rendered point clouds or shapes. Next it loads up your point cloud using your point processor and stream iterator. Then it calls your `cityBlock` function, and updates the iterator. If the iterator hits the end of the vector it simply sets it back to the beginning and that's it. The `viewer->spinOnce()` call controls the frame rate, by default it waits 1 time step, which would make it run as fast as possible. Depending on how timing efficient your obstacle detection functions were set up the faster the viewer's frame rate will be. If you want to check out the input pcd data at the fastest rate then run the code above and only run a single `renderPointCloud` on the input cloud inside `cityBlock`. Let's check out the results of the streaming pcd viewer below.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 837793,
+              "key": "0869d179-fae7-4d8e-8a1a-8ae9cd6c24af",
+              "title": "Streamed Obstacle Detection",
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/March/5c85992d_pcdstreamdetection/pcdstreamdetection.gif",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/0869d179-fae7-4d8e-8a1a-8ae9cd6c24af",
+              "caption": "",
+              "alt": "",
+              "width": 948,
+              "height": 532,
+              "instructor_notes": null
+            },
+            {
+              "id": 837794,
+              "key": "5ff0e352-d7a2-4bde-a847-2f87e25ac153",
+              "title": "Instructions",
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## Instructions\n\n- Modify `environment.cpp` with the above changes\n- Call `cityBlock` to perform obstacle detection on each frame",
+              "instructor_notes": ""
+            },
+            {
+              "id": 837814,
+              "key": "cab4ad80-c66c-47f4-a653-31aaac3f86db",
+              "title": null,
+              "semantic_type": "WorkspaceAtom",
+              "is_public": true,
+              "workspace_id": "r831540c837485xREACTy8c3xugx",
+              "pool_id": "autonomousgpu",
+              "view_id": "react-8p6u2",
+              "gpu_capable": true,
+              "configuration": {
+                "id": "reserved",
+                "blueprint": {
+                  "conf": {
+                    "disk": null,
+                    "port": 3000,
+                    "ports": [],
+                    "userCode": "",
+                    "openFiles": [],
+                    "showFiles": true,
+                    "allowClose": true,
+                    "allowSubmit": false,
+                    "terminalTitle": "BASH",
+                    "actionButtonText": "Desktop",
+                    "openTerminalOnStartup": true
+                  },
+                  "kind": "react"
+                },
+                "workspaceId": "reserved"
+              },
+              "starter_files": null
+            },
+            {
+              "id": 1007921,
+              "key": "7c70e8b1-0611-4d3c-8f38-eca63036e0ec",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## Solution",
+              "instructor_notes": ""
+            },
+            {
+              "id": 837795,
+              "key": "f44ae9da-0987-47c8-9ac0-623c9eb87882",
+              "title": "ND313 C1 L4 A20 Stream PCD - Solution",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "gycfszhCttY",
+                "china_cdn_id": "gycfszhCttY.mp4"
+              }
+            }
+          ]
+        },
+        {
+          "id": 837800,
+          "key": "c8ccdf35-3501-4709-92d9-e867581298fb",
+          "title": "Lidar Obstacle Detection Project",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "c8ccdf35-3501-4709-92d9-e867581298fb",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 837797,
+              "key": "f302ec3e-cb95-4f72-b81c-4ca1526af587",
+              "title": "Header Text",
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "# Lidar Obstacle Detection Project",
+              "instructor_notes": ""
+            },
+            {
+              "id": 841562,
+              "key": "61fff0c9-6b77-490c-9980-2e0f87900d22",
+              "title": "ND313 C1 L4 A30 Lidar Obstacle Detection Project [LB]",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "lGbHW8SMu24",
+                "china_cdn_id": "lGbHW8SMu24.mp4"
+              }
+            },
+            {
+              "id": 837798,
+              "key": "fe8910c6-fc1f-4e80-88f6-e8035deccd5a",
+              "title": "Project Details",
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "In this project you will take everything that you have learned for processing point clouds, and use it to detect car and trucks on a narrow street using lidar. The detection pipeline should follow the covered methods, filtering, segmentation, clustering, and bounding boxes. Also the segmentation, and clustering methods should be created from scratch using the previous lesson’s guidelines for reference. The finished result will look like the image below, placing bounding boxes around all obstacles on the road.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 837799,
+              "key": "04d94bca-1c6b-47cf-9e52-f5bf8463c162",
+              "title": "Project Results",
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/March/5c859943_obstacledetectionfps/obstacledetectionfps.gif",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/04d94bca-1c6b-47cf-9e52-f5bf8463c162",
+              "caption": "Lidar Obstacle Detection.",
+              "alt": "Lidar Obstacle Detection.",
+              "width": 948,
+              "height": 532,
+              "instructor_notes": null
+            },
+            {
+              "id": 837815,
+              "key": "2af5dfb9-24ae-4450-8779-c27cfddce239",
+              "title": null,
+              "semantic_type": "WorkspaceAtom",
+              "is_public": true,
+              "workspace_id": "r831540c837485xREACTy8c3xugx",
+              "pool_id": "autonomousgpu",
+              "view_id": "react-uh74w",
+              "gpu_capable": true,
+              "configuration": {
+                "id": "reserved",
+                "blueprint": {
+                  "conf": {
+                    "disk": null,
+                    "port": 3000,
+                    "ports": [],
+                    "userCode": "",
+                    "openFiles": [],
+                    "showFiles": true,
+                    "allowClose": true,
+                    "allowSubmit": false,
+                    "terminalTitle": "BASH",
+                    "actionButtonText": "Desktop",
+                    "openTerminalOnStartup": true
+                  },
+                  "kind": "react"
+                },
+                "workspaceId": "reserved"
+              },
+              "starter_files": null
+            }
+          ]
+        },
+        {
+          "id": 837805,
+          "key": "633002e0-4e82-446a-b1a1-8b04837163b4",
+          "title": "Tracking and Challenge Problem",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "633002e0-4e82-446a-b1a1-8b04837163b4",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 837801,
+              "key": "b73cab4a-ff75-43aa-a125-91ca35c3f45c",
+              "title": "Header Text",
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## Tracking Discussion",
+              "instructor_notes": ""
+            },
+            {
+              "id": 837802,
+              "key": "891e7ec5-e118-4c35-a225-aaea77240373",
+              "title": "Discussion on Tracking",
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "You have made it through the entire lidar obstacle detection process. You are able to stream back multiple pcd files and perform filtering, segmentation, clustering, and bounding box detection. Now that you are able to detect obstacles in single frames, you can make your pipeline even more robust by tracking detections over the history of frames. You can create associations between detections in frames and use that to track objects. \n\nOne way to create associations between two different frames is by how close in proximity two detections are to each other and how similar they look. There are also a lot more filtering procedures that you can explore, such as looking at detection that are seen in consecutive frames before they are considered. You could also filter based on bounding boxes, their volume and shapes. By deploying tracking methods and associations you could try to dynamically build the shapes of obstacles. Examples of this might be, maybe you see the backside of a long truck, the lidar only first sees the back of the truck. Then later you drive past the truck. letting the lidar see the trucks side. There are many ways to keep exploring and making the detection process more robust. ",
+              "instructor_notes": ""
+            },
+            {
+              "id": 837803,
+              "key": "057c171b-a725-4a8c-ae25-1e99a5ad7096",
+              "title": "Challenge set",
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/March/5c859977_challengeset/challengeset.gif",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/057c171b-a725-4a8c-ae25-1e99a5ad7096",
+              "caption": "Challenge problem: Track a bicyclist riding in front of the car.",
+              "alt": "Challenge problem: Track a bicyclist riding in front of the car.",
+              "width": 948,
+              "height": 532,
+              "instructor_notes": null
+            },
+            {
+              "id": 837804,
+              "key": "002537d8-d996-4926-a377-9e75df57a7b7",
+              "title": "Challenge PCD Set",
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## Challenge Problem\n\nIf you are up for an additional challenge check out `src/sensors/data/pcd/data_2` to see how well you can detect/track a bicyclist riding in front of the car, along with detecting/tracking the other surrounding obstacles in the scene.",
+              "instructor_notes": ""
+            }
+          ]
+        },
+        {
+          "id": 837808,
+          "key": "cc3edd6d-9332-4bf7-a979-856c10cba6bb",
+          "title": "Outro",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "cc3edd6d-9332-4bf7-a979-856c10cba6bb",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 837806,
+              "key": "1670bddf-fdb8-430d-9a00-9f09e35383ec",
+              "title": "Header Text",
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "# Outro",
+              "instructor_notes": ""
+            },
+            {
+              "id": 837807,
+              "key": "80b61ea7-14f8-4534-a9ee-9a0faed7ecd0",
+              "title": "ND313 C1 L4 A40 Outro",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "1_kZ0lgWy5U",
+                "china_cdn_id": "1_kZ0lgWy5U.mp4"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "_deprecated": [
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    }
+  ]
+}

@@ -1,0 +1,94 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:03.330
+Fusion is how we merge together data from
+
+00:00:03.330 --> 00:00:07.965
+different sensors in order to gain a comprehensive understanding of the environment.
+
+00:00:07.965 --> 00:00:12.780
+In particular, sensor fusion relies on the notion of uncertainty.
+
+00:00:12.780 --> 00:00:17.970
+We can't ever be completely certain about the state of any object in our environment.
+
+00:00:17.970 --> 00:00:23.460
+However, we can use mathematical filters to fuse together data from different types of
+
+00:00:23.460 --> 00:00:29.325
+sensors in order to reduce our uncertainty and increase the accuracy of our estimates.
+
+00:00:29.325 --> 00:00:36.195
+Most filters rely on a prediction update cycle in which we first predict or estimate
+
+00:00:36.195 --> 00:00:39.420
+the position of different objects in our environment and then we
+
+00:00:39.420 --> 00:00:43.265
+update those predictions using actual sensor measurements.
+
+00:00:43.265 --> 00:00:45.350
+We continue this cycle forever,
+
+00:00:45.350 --> 00:00:46.880
+predicting and then updating,
+
+00:00:46.880 --> 00:00:49.430
+predicting and the updating in order to gain in
+
+00:00:49.430 --> 00:00:53.080
+increasingly accurate picture of our surrounding environment.
+
+00:00:53.080 --> 00:00:55.715
+Some of the factors to consider when selecting
+
+00:00:55.715 --> 00:00:59.180
+a filter for sensor fusion include whether that
+
+00:00:59.180 --> 00:01:03.350
+filter operates in continuous or discrete measurement space
+
+00:01:03.350 --> 00:01:06.205
+and how that filter handles linearity.
+
+00:01:06.205 --> 00:01:09.935
+Sensors often provide us data in continuous form,
+
+00:01:09.935 --> 00:01:14.590
+but it can often be easier for filters to process data in discrete form.
+
+00:01:14.590 --> 00:01:17.960
+That conversion from continuous measurements to discrete measurements
+
+00:01:17.960 --> 00:01:22.055
+can often introduce its own type of uncertainty and imprecision.
+
+00:01:22.055 --> 00:01:25.700
+Linearity means whether an object is
+
+00:01:25.700 --> 00:01:29.945
+moving in a straight line or whether it's moving in a non-linear fashion.
+
+00:01:29.945 --> 00:01:33.335
+Kalman filters, which will study in this program,
+
+00:01:33.335 --> 00:01:37.595
+operate effectively on vehicles that are moving in a straight line,
+
+00:01:37.595 --> 00:01:43.165
+but encounter problems when vehicles begin to exhibit non-linear curved motion.
+
+00:01:43.165 --> 00:01:45.360
+No type of filter is perfect,
+
+00:01:45.360 --> 00:01:48.665
+but by choosing a good filter and implementing it correctly,
+
+00:01:48.665 --> 00:01:51.890
+we can reduce the amount of uncertainty in our sensor measurements
+
+00:01:51.890 --> 00:01:56.190
+and gain a more complete understanding of our surrounding environment.
+

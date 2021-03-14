@@ -1,0 +1,1531 @@
+{
+  "data": {
+    "lesson": {
+      "id": 837522,
+      "key": "964836d9-27f2-4c72-b1c4-458b0549d23f",
+      "title": "Introduction to Lidar and Point Clouds",
+      "semantic_type": "Lesson",
+      "is_public": true,
+      "version": "1.0.0",
+      "locale": "en-us",
+      "summary": "Learn about lidar and point clouds. Use a simulation highway environment to explore lidar sensing and generate point clouds.",
+      "lesson_type": "Classroom",
+      "display_workspace_project_only": false,
+      "resources": {
+        "files": [
+          {
+            "name": "Videos Zip File",
+            "uri": "https://zips.udacity-data.com/964836d9-27f2-4c72-b1c4-458b0549d23f/837522/1561072837993/Introduction+to+Lidar+and+Point+Clouds+Videos.zip"
+          },
+          {
+            "name": "Transcripts Zip File",
+            "uri": "https://zips.udacity-data.com/964836d9-27f2-4c72-b1c4-458b0549d23f/837522/1561072831135/Introduction+to+Lidar+and+Point+Clouds+Subtitles.zip"
+          }
+        ],
+        "google_plus_link": null,
+        "career_resource_center_link": null,
+        "coaching_appointments_link": null,
+        "office_hours_link": null,
+        "aws_provisioning_link": null
+      },
+      "project": null,
+      "lab": null,
+      "concepts": [
+        {
+          "id": 837459,
+          "key": "fcf98c60-c68c-483a-b845-ea5a3a36e58b",
+          "title": "Welcome!",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "fcf98c60-c68c-483a-b845-ea5a3a36e58b",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 837456,
+              "key": "d91ae862-07c6-4b3a-a170-cd1e763f8e1e",
+              "title": "Welcome Header",
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "# Welcome",
+              "instructor_notes": ""
+            },
+            {
+              "id": 837457,
+              "key": "22bd19a8-2632-4f29-b374-c72bc8f132f3",
+              "title": "ND313 C1 L1 A01 Welcome!",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "f4bx0tzpBBU",
+                "china_cdn_id": "f4bx0tzpBBU.mp4"
+              }
+            },
+            {
+              "id": 837458,
+              "key": "89c443a2-42e9-418a-9a46-fc309721d0ad",
+              "title": "Introduction",
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "In this course we will be talking about sensor fusion, which is the process of taking data from multiple sensors and combining it to give us a better understanding of the world around us. We will mostly be focusing on two sensors, lidar, and radar. By the end you will be fusing the data from these two sensors to track multiple cars on the road, estimating their positions and speed.\n\nIn Sensor Fusion, by combining lidar’s high resolution imaging with radar's ability to measure velocity of objects we can get a better understanding of the surrounding environment than we could using one of the sensors alone.\nBefore starting to fuse multiple sensor information together though, you will first go through the process of getting obstacle positions from raw lidar data. So to get started let’s check out lidar sensors and the high resolution point clouds they generate.",
+              "instructor_notes": ""
+            }
+          ]
+        },
+        {
+          "id": 858868,
+          "key": "d33e8710-ed95-433e-8353-eb657b6fd090",
+          "title": "MBRDNA Introduction",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "d33e8710-ed95-433e-8353-eb657b6fd090",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 858871,
+              "key": "38147bdd-3ae6-4f37-bd8f-2e95290ed03c",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "# MBRDNA Introduction\n\nThroughout the Lidar course, you will have perspectives about Lidar from Michael Maile. Michael manages the sensor fusion team at [MBRDNA](https://mbrdna.com/). In the next video, Michael will tell you a little bit about himself and his role at MBRDNA.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 858870,
+              "key": "f560e3c1-b21c-4590-b668-1e2f2284edb6",
+              "title": "ND313 Michael Intv 01 And 02 Who Are You And Role",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "UkDzLSIVQ0U",
+                "china_cdn_id": "UkDzLSIVQ0U.mp4"
+              }
+            }
+          ]
+        },
+        {
+          "id": 858905,
+          "key": "2168785c-2420-487e-8a6d-577e5f0894dc",
+          "title": "What is Lidar?",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "2168785c-2420-487e-8a6d-577e5f0894dc",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 858906,
+              "key": "a70f89a9-5e34-418c-b3e0-3be7d0662f50",
+              "title": "ND313 Michael Intv 04 What Is Lidar V2",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "IGODQteik6M",
+                "china_cdn_id": "IGODQteik6M.mp4"
+              }
+            }
+          ]
+        },
+        {
+          "id": 837466,
+          "key": "9fd537cc-92d3-4550-9741-990cbad10dc3",
+          "title": "Lidar Sensors",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "9fd537cc-92d3-4550-9741-990cbad10dc3",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 837460,
+              "key": "4c387222-acd9-40ef-98d4-1aa8229eaf53",
+              "title": "Header Text",
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "# Lidar Sensors",
+              "instructor_notes": ""
+            },
+            {
+              "id": 858904,
+              "key": "343b3092-3c0b-4125-95d7-61f0680658e8",
+              "title": "ND313 Michael Intv 06 Lidar For Autonomous Vehicles V2",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "JoD31NDeDYA",
+                "china_cdn_id": "JoD31NDeDYA.mp4"
+              }
+            },
+            {
+              "id": 837461,
+              "key": "871f4897-4990-46c9-ae24-52a4071dcc50",
+              "title": "Lidar",
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "Lidar sensing gives us high resolution data by sending out thousands of laser signals. These lasers bounce off objects, returning to the sensor where we can then determine how far away objects are by timing how long it takes for the signal to return. Also we can tell a little bit about the object that was hit by measuring the intensity of the returned signal. Each laser ray is in the infrared spectrum, and is sent out at many different angles, usually in a 360 degree range. While lidar sensors gives us very high accurate models for the world around us in 3D, they are currently very expensive, upwards of $60,000 for a standard unit.\n\n\n- The Lidar sends thousands of laser rays at different angles.\n- Laser gets emitted, reflected off of obstacles, and then detected using a receiver.\n- Based on the time difference between the laser being emitted and received, distance is calculated.\n- Laser intensity value is also received and can be used to evaluate material properties of the object the laser reflects off of.\n",
+              "instructor_notes": ""
+            },
+            {
+              "id": 837462,
+              "key": "8a40f24e-bedb-4091-8412-46a5d23494d7",
+              "title": "Lidar Sensors",
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/March/5c81e202_lidar-velodyne/lidar-velodyne.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/8a40f24e-bedb-4091-8412-46a5d23494d7",
+              "caption": "Velodyne lidar sensors, with HDL 64, HDL 32, VLP 16 from left to right. The larger the sensor, the higher the resolution.",
+              "alt": "Velodyne lidar sensors.",
+              "width": 1135,
+              "height": 709,
+              "instructor_notes": null
+            },
+            {
+              "id": 837463,
+              "key": "4d0816ac-372b-49cd-a446-fb075431a091",
+              "title": "Lidar Schematic",
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "Here are the specs for a HDL 64 lidar. The lidar has 64 layers, where each layer is sent out at a different angle from the z axis, so different inclines. Each layer covers a 360 degree view and has an angular resolution of 0.08 degrees. On average the lidar scans ten times a second. The lidar can pick out objects up to 120M for cars and foliage, and can sense pavement up to 50M. ",
+              "instructor_notes": ""
+            },
+            {
+              "id": 837542,
+              "key": "70e2a891-357f-4d44-acef-8371da370d87",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/March/5c82b49a_hdl-64e/hdl-64e.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/70e2a891-357f-4d44-acef-8371da370d87",
+              "caption": "VLP 64 schematic, showing lidar emitters, receivers, and housing.",
+              "alt": "VLP 64 schematic",
+              "width": 668,
+              "height": 435,
+              "instructor_notes": null
+            },
+            {
+              "id": 837464,
+              "key": "79a67073-b83c-4cf2-9246-5fdff8ff7bb9",
+              "title": "Lidar Schematic",
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/March/5c82b609_vlp-sensor-specs/vlp-sensor-specs.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/79a67073-b83c-4cf2-9246-5fdff8ff7bb9",
+              "caption": "VLP Sensor Specifications",
+              "alt": "VLP 64 Sensor Specifications",
+              "width": 739,
+              "height": 356,
+              "instructor_notes": null
+            },
+            {
+              "id": 837465,
+              "key": "b87689c6-493b-471c-9bd0-ec7c40dd476e",
+              "title": "How many Lidar Points?",
+              "semantic_type": "RadioQuizAtom",
+              "is_public": true,
+              "instructor_notes": null,
+              "user_state": {
+                "node_key": "b87689c6-493b-471c-9bd0-ec7c40dd476e",
+                "completed_at": null,
+                "last_viewed_at": null,
+                "unstructured": null
+              },
+              "question": {
+                "prompt": "Approximately how many points does an HDL 64 collect every second given these specs? Assume an average update rate of 10Hz.",
+                "answers": [
+                  {
+                    "id": "rbk1",
+                    "text": "256,000",
+                    "is_correct": false
+                  },
+                  {
+                    "id": "rbk2",
+                    "text": "2,880,000",
+                    "is_correct": true
+                  },
+                  {
+                    "id": "rbk3",
+                    "text": "2,560",
+                    "is_correct": false
+                  },
+                  {
+                    "id": "rbk4",
+                    "text": "5,120,000",
+                    "is_correct": false
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "id": 858907,
+          "key": "3cf1a7f9-b20f-4606-99ce-4115343297ea",
+          "title": "What is a Point Cloud?",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "3cf1a7f9-b20f-4606-99ce-4115343297ea",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 858908,
+              "key": "d5d2a77f-cb85-4ce3-bc16-07ddf115c975",
+              "title": "ND313 Michael Intv 09 What Is A Point Cloud V2",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "OD45m2YFsU0",
+                "china_cdn_id": "OD45m2YFsU0.mp4"
+              }
+            }
+          ]
+        },
+        {
+          "id": 837473,
+          "key": "1a604431-c122-46f9-9802-7269f1b88e5e",
+          "title": "Point Clouds",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "1a604431-c122-46f9-9802-7269f1b88e5e",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 837467,
+              "key": "ad884710-517e-48fb-a843-12a2d1cd6f8d",
+              "title": "Header Text",
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "# Point Clouds ",
+              "instructor_notes": ""
+            },
+            {
+              "id": 840200,
+              "key": "b80e45bf-3ee7-4b45-bd60-7ef95076177e",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## PCD Files",
+              "instructor_notes": ""
+            },
+            {
+              "id": 840187,
+              "key": "23409773-4df2-4f5d-9ff1-94e1c715baef",
+              "title": "ND313 C1 L1 A03 Point Cloud Data [LB]",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "ptExV1DFIbo",
+                "china_cdn_id": "ptExV1DFIbo.mp4"
+              }
+            },
+            {
+              "id": 837468,
+              "key": "a95ab65b-3884-4bf6-8259-8c266424f903",
+              "title": "Point Cloud Data",
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "Let’s dive into how lidar data is stored. Lidar data is stored in a format called Point Cloud Data (PCD for short). A .pcd file is a list of (x,y,z) cartesian coordinates along with intensity values, it’s a single snapshot of the environment, so after a single scan. That means with a VLP 64 lidar, a pcd file would have around 256,000 (x,y,z,i) values.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 837469,
+              "key": "76c5b17c-2ed0-4181-8cfb-20abab41309a",
+              "title": "Point cloud",
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/March/5c82b6ce_pcd2/pcd2.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/76c5b17c-2ed0-4181-8cfb-20abab41309a",
+              "caption": "PCD of a city block with parked cars, and a passing van. Intensity values are being shown as different colors. The big black spot is where the car with the lidar sensor is located.",
+              "alt": "Point Cloud Data",
+              "width": 950,
+              "height": 533,
+              "instructor_notes": null
+            },
+            {
+              "id": 840199,
+              "key": "44ce5b1c-16f0-4b5d-a524-509eee329e76",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## PCD Coordinates",
+              "instructor_notes": ""
+            },
+            {
+              "id": 840198,
+              "key": "319e190c-efd7-4d53-a2f5-a945896e9ab3",
+              "title": "ND313 C1 L1 A04 PCD Coordinates [LB]",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "nRjGYqhl9JU",
+                "china_cdn_id": "nRjGYqhl9JU.mp4"
+              }
+            },
+            {
+              "id": 837470,
+              "key": "61e10952-ca80-415f-be13-10a898e7a039",
+              "title": "PCD Coordinate System",
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "The coordinate system for point cloud data is the same as the car’s local coordinate system. In this coordinate system the x axis is pointing towards the front of the car, and the y axis is pointing to the left of the car. Also since this coordinate system is right-handed the z axis points up above the car. ",
+              "instructor_notes": ""
+            },
+            {
+              "id": 837471,
+              "key": "5a17a41d-d586-4474-b31b-9d35bc81a8e3",
+              "title": "Coordinates",
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/March/5c8fd89d_pcd-coordinates/pcd-coordinates.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/5a17a41d-d586-4474-b31b-9d35bc81a8e3",
+              "caption": "PCD Coordinate System",
+              "alt": "PCD Coordinate System",
+              "width": 1029,
+              "height": 474,
+              "instructor_notes": null
+            },
+            {
+              "id": 837472,
+              "key": "80cc0b23-b18c-4fe1-ba62-452d6c7f92a5",
+              "title": "Point coordinates",
+              "semantic_type": "RadioQuizAtom",
+              "is_public": true,
+              "instructor_notes": null,
+              "user_state": {
+                "node_key": "80cc0b23-b18c-4fe1-ba62-452d6c7f92a5",
+                "completed_at": null,
+                "last_viewed_at": null,
+                "unstructured": null
+              },
+              "question": {
+                "prompt": "While scanning with a VLP 64, a laser signal from the top layer takes 66.7 ns to be emitted and received again. The laser is emitted at a -24.8 degree incline from the X axis and horizontally travels along the X axis. Knowing that the speed of light is 299792458 m/s, what would be the coordinates of this laser point  (X,Y,Z) in meters?",
+                "answers": [
+                  {
+                    "id": "rbk1",
+                    "text": "(9.08, 0, -4.19)",
+                    "is_correct": true
+                  },
+                  {
+                    "id": "rbk2",
+                    "text": "(18.16, 0, -8.38)",
+                    "is_correct": false
+                  },
+                  {
+                    "id": "rbk3",
+                    "text": "(4.2, 9.8, -4.0)",
+                    "is_correct": false
+                  },
+                  {
+                    "id": "rbk4",
+                    "text": "(9.08, 0, 4.19)",
+                    "is_correct": false
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "id": 858881,
+          "key": "4b82e102-4e66-4b26-870b-8deedb015047",
+          "title": "Point Cloud Tools",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "4b82e102-4e66-4b26-870b-8deedb015047",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 858886,
+              "key": "33690833-a768-42fc-bd26-cd18533a97fb",
+              "title": "ND313 Michael Intv 10 MB Point Cloud Tools",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "JrqJ2ZO3agY",
+                "china_cdn_id": "JrqJ2ZO3agY.mp4"
+              }
+            }
+          ]
+        },
+        {
+          "id": 837477,
+          "key": "0913460f-9118-4fc8-b926-68dcf9ef4043",
+          "title": "The Point Cloud Library (PCL)",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "0913460f-9118-4fc8-b926-68dcf9ef4043",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 837474,
+              "key": "081838a1-ca3d-4569-9869-24c88c51c125",
+              "title": "Header Text",
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "# The PCL Library",
+              "instructor_notes": ""
+            },
+            {
+              "id": 840204,
+              "key": "e9087218-aacc-46c6-a8ba-80fb13cdc2c9",
+              "title": "ND313 C1 L1 A06 PCL Library [LB]",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "Krl-LJi3Sis",
+                "china_cdn_id": "Krl-LJi3Sis.mp4"
+              }
+            },
+            {
+              "id": 837476,
+              "key": "9c9c2c67-d31b-4973-ae79-42d1428ca35c",
+              "title": "The PCL Library",
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "In this module you will be working on processing point cloud data to find obstacles. All the code will be done in a  C++ environment, so some familiarity with C++ will definitely be helpful. PCL is an open source C++ library for working with point clouds. You will be using it to visualize data, render shapes, and become familiar with some of its built in processing functions. Some documentation for PCL can be found [here](http://pointclouds.org/).",
+              "instructor_notes": ""
+            },
+            {
+              "id": 840206,
+              "key": "4961235b-5d40-4385-a5ff-1198102d1fe9",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/March/5c82b724_pcl-logo/pcl-logo.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/4961235b-5d40-4385-a5ff-1198102d1fe9",
+              "caption": "",
+              "alt": "",
+              "width": 400,
+              "height": 309,
+              "instructor_notes": null
+            },
+            {
+              "id": 840205,
+              "key": "c95d106f-005d-4a67-a61b-2113a76921f0",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "PCL is widely used in the robotics community for working with point cloud data, and there are many tutorials available online for using it. There are a lot of built in functions in PCL that can help to detect obstacles. Built in PCL functions that will be used later in this module are Segmentation, Extraction, and Clustering.  ",
+              "instructor_notes": ""
+            }
+          ]
+        },
+        {
+          "id": 858909,
+          "key": "164a5c0f-2f40-4b5b-8c5e-1a2d34c53329",
+          "title": "Using Lidar on an Autonomous Vehicle",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "164a5c0f-2f40-4b5b-8c5e-1a2d34c53329",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 858910,
+              "key": "982c2c3a-06a5-4851-b863-b8f66300dd11",
+              "title": "ND313 Michael Intv 12 Where Should You Mount A Lidar On Robot Or Vehicle V2",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "i1C58WbWufY",
+                "china_cdn_id": "i1C58WbWufY.mp4"
+              }
+            }
+          ]
+        },
+        {
+          "id": 837481,
+          "key": "2825eade-10dd-4f32-ad1a-bc2d8b0e6b9d",
+          "title": "The Course Starter Code",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "2825eade-10dd-4f32-ad1a-bc2d8b0e6b9d",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 837478,
+              "key": "3d6c36d6-af44-4816-bf2c-1c43c680dcf9",
+              "title": "Header Text",
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "# The Course Starter Code",
+              "instructor_notes": ""
+            },
+            {
+              "id": 840208,
+              "key": "36b5f06c-fcb0-4226-8eca-a36bdaa65cf3",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## Starter Repo Structure",
+              "instructor_notes": ""
+            },
+            {
+              "id": 840209,
+              "key": "1fcc7782-e938-49c0-ac29-4eba576cc217",
+              "title": "ND313 C1 L1 A07 The Course Starter Code [LB]",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "yVdyzmStvFI",
+                "china_cdn_id": "yVdyzmStvFI.mp4"
+              }
+            },
+            {
+              "id": 837479,
+              "key": "9a66ed02-b807-4bbd-862e-9c94c2b038fe",
+              "title": "The Starter Code Structure",
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "\n\nAll the code for doing lidar obstacle detection is contained in a GitHub repository. The classroom has workspace environments that already include all the dependencies for getting started right way. You can also clone the repo, and use the README to get started on your own machine as well. Here is the [link](https://github.com/udacity/SFND_Lidar_Obstacle_Detection)\n\nYou will mostly be working out of two main files, which are `environment.cpp` and `processPointClouds.cpp`. The `environment.cpp` file contains the `main` function and will generate the runnable executable. The `processPointClouds.cpp` file will contain all your function placeholders to process the pcd. \n\nThere are some other files worth mentioning, like `sensors/lidar.h`, which simulates lidar sensing and creates point cloud data. Also `render.cpp` and `render.h` which have functions for rendering objects onto the screen.\n\n## Code Structure \n\n- Top-level CMakeLists.txt\n- Readme\n- src\n  - render\n    - box.h - this file has the struct definitions for box objects\n    - render.h\n    - render.cpp - this file, along with the header, define the classes and methods for rendering objects. \n  - sensors\n    - data - this directory contains pcd data used in the course.\n    - lidar.h - has functions using ray casting for creating pcd.\n  - environment.cpp - the main file for using pcl viewer and processing and visualizing pcd.\n  - processPointClouds.h\n  - processPointClouds.cpp - Functions for filtering, segmenting, clustering, boxing, loading, and saving pcd.\n\n\n## Starter Repo Walkthrough",
+              "instructor_notes": ""
+            },
+            {
+              "id": 837480,
+              "key": "0cb26d64-20f1-4684-80d8-6fc7ca91cc19",
+              "title": "ND313 C1 L1 A08 Starter Repo Walkthrough",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "LgoJWYESisI",
+                "china_cdn_id": "LgoJWYESisI.mp4"
+              }
+            }
+          ]
+        },
+        {
+          "id": 837485,
+          "key": "99dd222f-a9d2-4723-9461-9bf92267c5df",
+          "title": "Compiling the Lidar Simulator",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "99dd222f-a9d2-4723-9461-9bf92267c5df",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 837482,
+              "key": "6ce7a1fb-d435-471b-817b-5709873b8b09",
+              "title": "Header Text",
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "# Compiling the Lidar Simulator",
+              "instructor_notes": ""
+            },
+            {
+              "id": 837483,
+              "key": "dc7d9b43-358e-4dcc-ab81-e78cae39b0b4",
+              "title": "Compilation Instructions",
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## Compilation Instructions\n- In the terminal workspace below, **make sure that GPU is enabled**.\n- Click on `Desktop` button on lower right.\n- Click on `Terminator` to load up work space desktop terminal.\n- From the terminal, go to the project root directory, `cd /home/workspace/SFND-Lidar-Obstacle-Detection`.\n- Create a new directory from the project root named `build` with the following command: `mkdir build`.\n- Then go into the build directory: `cd build`.\n- Run cmake pointing to the CMakeLists.txt in the root: `cmake ..`.\nIf everything went well you should see something like\n```bash\n-- Configuring done\n-- Generating done\n-- Build files have been written to: /your directory/simple_highway/build\n```\n- If cmake was successful, then from inside build run make: `make`\n- If make built target environment 100%, it will have generated an executable called `environment`. This build process is defined from the CMakeLists.txt file.\n\n## Compilation Walkthrough",
+              "instructor_notes": ""
+            },
+            {
+              "id": 837484,
+              "key": "75ee3878-d7e0-4903-ad0c-f2166c6db7f4",
+              "title": "ND313 C1 L1 A09 Compilation Walkthrough",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "kj3PLhCVuPg",
+                "china_cdn_id": "kj3PLhCVuPg.mp4"
+              }
+            },
+            {
+              "id": 837556,
+              "key": "37109e06-4fa5-433e-be14-b7ba20c8c2fc",
+              "title": null,
+              "semantic_type": "WorkspaceAtom",
+              "is_public": true,
+              "workspace_id": "r831540c837485xREACTy8c3xugx",
+              "pool_id": "autonomousgpu",
+              "view_id": "react-41ab9",
+              "gpu_capable": true,
+              "configuration": {
+                "id": "reserved",
+                "blueprint": {
+                  "conf": {
+                    "disk": null,
+                    "port": 3000,
+                    "ports": [],
+                    "userCode": "",
+                    "openFiles": [],
+                    "showFiles": true,
+                    "allowClose": true,
+                    "allowSubmit": false,
+                    "terminalTitle": "BASH",
+                    "actionButtonText": "Desktop",
+                    "openTerminalOnStartup": true
+                  },
+                  "kind": "react"
+                },
+                "workspaceId": "reserved"
+              },
+              "starter_files": null
+            }
+          ]
+        },
+        {
+          "id": 837490,
+          "key": "0f0a7623-f419-4dc7-b37f-6e73f11d41c1",
+          "title": "Running the Simulator",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "0f0a7623-f419-4dc7-b37f-6e73f11d41c1",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 837486,
+              "key": "9783ba88-7ac6-4457-ae33-829ad929169d",
+              "title": "Header Text",
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "# Running the Simulator",
+              "instructor_notes": ""
+            },
+            {
+              "id": 840249,
+              "key": "dc517360-e592-4025-b414-127f188e57f8",
+              "title": "ND313 C1 L1 A10 Running The Simulator Yourself",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "PBNYLldDV3w",
+                "china_cdn_id": "PBNYLldDV3w.mp4"
+              }
+            },
+            {
+              "id": 837488,
+              "key": "11219407-3bea-4deb-bf06-2f5f0b7659ef",
+              "title": "Running the Simulator",
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## Instructions\n\nOnce you have built an executable file, you can launch it by doing `./environment`.\nNow you should see a window popping up that looks like the image above.\n\nHere you have a simple highway simulator environment with the ego car in green in the center lane (thats your car), and the other traffic cars in blue. Everything is rendered using PCL with simple boxes, lines, and colors.\nYou can move around your environment with the mouse. Try holding the left mouse button to orbit around the scene. You can also pan around the scene by holding the middle mouse button and moving. To zoom, use the middle scroll mouse button or the right mouse button while moving.\n### Recap\n\n- Using terminator in the virtual desktop, run the executable from the build directory using ./environment.\n- You should see a 3D popup window with the road and cars.\n- You can move around the environment.\n- Zoom: hold the right mouse key and move the mouse forward/backwards, or use your mouse scroller.\n- Pan: Hold down the middle mouse button (the scroller) and move the mouse.\n- Rotate: Hold the left mouse button and move the mouse.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 840251,
+              "key": "9206a1a3-8ddf-4a7f-b473-0696b409953f",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/March/5c82b74b_environment/environment.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/9206a1a3-8ddf-4a7f-b473-0696b409953f",
+              "caption": "",
+              "alt": "",
+              "width": 958,
+              "height": 578,
+              "instructor_notes": null
+            },
+            {
+              "id": 840250,
+              "key": "7a21db17-3a1a-4677-b8a8-32a36e4fbc17",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "\n## Try Running the Simulator Yourself",
+              "instructor_notes": ""
+            },
+            {
+              "id": 837557,
+              "key": "7ed043e1-dab3-4471-ac5c-d62ed8ae7700",
+              "title": null,
+              "semantic_type": "WorkspaceAtom",
+              "is_public": true,
+              "workspace_id": "r831540c837485xREACTy8c3xugx",
+              "pool_id": "autonomousgpu",
+              "view_id": "react-ldb1u",
+              "gpu_capable": true,
+              "configuration": {
+                "id": "reserved",
+                "blueprint": {
+                  "conf": {
+                    "disk": null,
+                    "port": 3000,
+                    "ports": [],
+                    "userCode": "",
+                    "openFiles": [],
+                    "showFiles": true,
+                    "allowClose": true,
+                    "allowSubmit": false,
+                    "terminalTitle": "BASH",
+                    "actionButtonText": "Desktop",
+                    "openTerminalOnStartup": true
+                  },
+                  "kind": "react"
+                },
+                "workspaceId": "reserved"
+              },
+              "starter_files": null
+            }
+          ]
+        },
+        {
+          "id": 837494,
+          "key": "247f2f13-aa95-49b4-88f8-06c649103894",
+          "title": "The PCL Viewer",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "247f2f13-aa95-49b4-88f8-06c649103894",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 837491,
+              "key": "fb2d7d79-1d93-4336-bb3f-b6b79a92c6c9",
+              "title": "Header Text",
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "# The PCL Viewer",
+              "instructor_notes": ""
+            },
+            {
+              "id": 837492,
+              "key": "5d76bcfc-9ff1-40b3-ac97-53469e2b5725",
+              "title": "Overview",
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## PCL Viewer Overview\n\nIn `environment.cpp` a pcl viewer is created. The viewer is used to handle all your visualization of objects on the screen. Some functions that use the pcl viewer inside `environment.cpp` are `initCamera` and `initHighway`. The `initCamera` function helps you set up different viewing angles in your window. There are five different options: XY, TopDown, Side, and FPS. XY gives a 45 degree angle view, while FPS is First Person Sense and gives the sensation of being in the car’s driver seat.\n\nAlso, the functions from `render` heavily use the `viewer` as well. You might notice that `viewer` is usually passed in as a reference. That way the process is more streamlined because something doesn't need to get returned. \n\n## Walkthrough of PCL Viewer Code",
+              "instructor_notes": ""
+            },
+            {
+              "id": 837493,
+              "key": "a7af7827-8803-49ef-9728-d753783a3d13",
+              "title": "ND313 C1 L1 A11 Walkthrough Of PCL Viewer Code",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "KrfNvS0mKuE",
+                "china_cdn_id": "KrfNvS0mKuE.mp4"
+              }
+            }
+          ]
+        },
+        {
+          "id": 858888,
+          "key": "94adcfac-8999-4f5b-b9e2-8f2a016e9476",
+          "title": "Representing Lidar in a Simulator",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "94adcfac-8999-4f5b-b9e2-8f2a016e9476",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 858890,
+              "key": "f6c8c0b0-94f7-4684-b920-591d8ae3fd3b",
+              "title": "ND313 Michael Intv 28 How Do You Represent A Lidar Unit In A Simulator",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "qKSaMjvJ7Lc",
+                "china_cdn_id": "qKSaMjvJ7Lc.mp4"
+              }
+            }
+          ]
+        },
+        {
+          "id": 837498,
+          "key": "28908b6e-e9f6-4bf8-99a5-8e80d9d1881f",
+          "title": "Creating the Lidar Object",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "28908b6e-e9f6-4bf8-99a5-8e80d9d1881f",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 837495,
+              "key": "29e6eddd-804a-47c2-a45c-da34676781e2",
+              "title": "Header Text",
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "# Creating the Lidar Object",
+              "instructor_notes": ""
+            },
+            {
+              "id": 841536,
+              "key": "31b5d8b0-ab61-46d4-9a6a-491a7f7b8d78",
+              "title": "ND313 C1 L1 A12 Create Lidar",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "mU1kp4FXdVg",
+                "china_cdn_id": "mU1kp4FXdVg.mp4"
+              }
+            },
+            {
+              "id": 837496,
+              "key": "7f9d1b8f-c06e-48d7-b146-18cff9399b30",
+              "title": "Adding Lidar",
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "The first thing you are going to do is create a lidar object. The lidar object is defined by the `src/sensors/lidar.h` header file which is included at the top of environment.cpp. Also in `environment.cpp` is the `simpleHighway` function, which takes a reference argument for the PCL visualizer `viewer` that was discussed previously.\n\n## Exercise Instructions\n\nYou will instantiate a pointer to a `Lidar` object in the `simpleHighway` function.\nYou should create the `Lidar` pointer object on the heap, using the `new` keyword.\nThe `Lidar` constructor takes two arguments: cars and the slope of the ground - these arguments are necessary for modeling ray collisions. The `Lidar` object should be created with a slope of 0.\n\n### Note\n\nThe lidar  arguments are necessary for modeling ray collisions.\nThe Lidar object is going to be holding point cloud data which could be very large. By instatinating on the heap, we have more memory to work with than the 2MB on the stack. However, it takes longer to look up objects on the heap, while stack lookup is very fast.\n",
+              "instructor_notes": ""
+            },
+            {
+              "id": 837558,
+              "key": "f858fc77-a4ab-4db2-94a3-79ef19da88ac",
+              "title": null,
+              "semantic_type": "WorkspaceAtom",
+              "is_public": true,
+              "workspace_id": "r831540c837485xREACTy8c3xugx",
+              "pool_id": "autonomousgpu",
+              "view_id": "react-shflk",
+              "gpu_capable": true,
+              "configuration": {
+                "id": "reserved",
+                "blueprint": {
+                  "conf": {
+                    "disk": null,
+                    "port": 3000,
+                    "ports": [],
+                    "userCode": "",
+                    "openFiles": [],
+                    "showFiles": true,
+                    "allowClose": true,
+                    "allowSubmit": false,
+                    "terminalTitle": "BASH",
+                    "actionButtonText": "Desktop",
+                    "openTerminalOnStartup": true
+                  },
+                  "kind": "react"
+                },
+                "workspaceId": "reserved"
+              },
+              "starter_files": null
+            },
+            {
+              "id": 837559,
+              "key": "56478cf6-8f4e-41cb-83f2-7c0dacd187c5",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## Solution",
+              "instructor_notes": ""
+            },
+            {
+              "id": 837497,
+              "key": "f5ec0aa4-7055-4365-9b96-691db067c836",
+              "title": "ND313 C1 L1 A12 Creating The Lidar Object Solution [LB]",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "pvs3t0jtc7U",
+                "china_cdn_id": "pvs3t0jtc7U.mp4"
+              }
+            }
+          ]
+        },
+        {
+          "id": 837504,
+          "key": "d8aec433-0c15-4c4f-8b0b-8c06491099d7",
+          "title": "Using the Lidar Object",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "d8aec433-0c15-4c4f-8b0b-8c06491099d7",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 840215,
+              "key": "b92235a9-84a3-41b6-b748-04f826a3d2ac",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "# Using the Lidar Object",
+              "instructor_notes": ""
+            },
+            {
+              "id": 840210,
+              "key": "1aae2071-9f44-424d-8a82-8221461f0ac7",
+              "title": "ND313 C1 L1 A13 Using The Lidar Object",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "auAPb-NC2Xo",
+                "china_cdn_id": "auAPb-NC2Xo.mp4"
+              }
+            },
+            {
+              "id": 837500,
+              "key": "59a2349a-a52a-4b52-910c-48266c207b54",
+              "title": "Lidar Sensing",
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "To go further with your newly created `Lidar` object, check out `src/sensors/lidar.h` to see how everything is defined. In this header file, you can see the ray object being defined. Lidar will use these rays to sense its surrounding by doing ray casting. The `scan` function from the lidar struct will be what is doing the ray casting.\n\nNow let's call the lidar scan function and see how lidar rays look. Back in your environment file, right after the call to the Lidar constructor, you can use the scan function and then render the lidar rays. ",
+              "instructor_notes": ""
+            },
+            {
+              "id": 837501,
+              "key": "eb3c3300-bb65-4698-9ee4-6029687f0169",
+              "title": "Simulated Lidar Rays",
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/March/5c82b786_rays/rays.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/eb3c3300-bb65-4698-9ee4-6029687f0169",
+              "caption": "Lidar Sensing",
+              "alt": "Lidar Sensing",
+              "width": 952,
+              "height": 535,
+              "instructor_notes": null
+            },
+            {
+              "id": 837502,
+              "key": "77b68f9f-6291-4929-8abe-7c7c23e0c990",
+              "title": "Instructions for Using the Lidar Object",
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## Exercise\n\n- To create a point cloud, call the lidar `scan()` method on your lidar object.\n- You will store results in a PointCloud pointer object, `pcl::PointCloud<pcl::PointXYZ>::Ptr`\n- The type of point for the PointCloud will be `pcl::PointXYZ`.\n- Call the `renderRays` function with generated PointCloud pointer.\n\n### Note\n\nThe syntax of PointCloud with the [template](http://www.cplusplus.com/doc/oldtutorial/templates/) is similar to the syntax of vectors or other std container libraries: `ContainerName<ObjectName>`. \n\nThe Ptr type from PointCloud indicates that the object is actually a pointer - a 32 bit integer that contains the memory address of your point cloud object. Many functions in pcl use point cloud pointers as arguments, so it's convenient to return the inputCloud in this form. \n\nThe renderRays function is defined in `src/render`. It contains functions that allow us to render points and shapes to the pcl viewer. You will be using it to render your lidar rays as line segments in the viewer.\n\nThe arguments for the renderRays function is viewer, which gets passed in by reference. This means that any changes to the viewer in the body of the renderRays function directly affect the viewer outside the function scope. The lidar position also gets passed in, as well as the point cloud that your scan function generated. The type of point for the PointCloud will be `pcl::PointXYZ`. We will talk about some other different types of point clouds in a bit.\n",
+              "instructor_notes": ""
+            },
+            {
+              "id": 837560,
+              "key": "d142e97f-bb03-4c69-b2cd-9bb589d3d7d0",
+              "title": null,
+              "semantic_type": "WorkspaceAtom",
+              "is_public": true,
+              "workspace_id": "r831540c837485xREACTy8c3xugx",
+              "pool_id": "autonomousgpu",
+              "view_id": "react-u5uk4",
+              "gpu_capable": true,
+              "configuration": {
+                "id": "reserved",
+                "blueprint": {
+                  "conf": {
+                    "disk": null,
+                    "port": 3000,
+                    "ports": [],
+                    "userCode": "",
+                    "openFiles": [],
+                    "showFiles": true,
+                    "allowClose": true,
+                    "allowSubmit": false,
+                    "terminalTitle": "BASH",
+                    "actionButtonText": "Desktop",
+                    "openTerminalOnStartup": true
+                  },
+                  "kind": "react"
+                },
+                "workspaceId": "reserved"
+              },
+              "starter_files": null
+            },
+            {
+              "id": 837561,
+              "key": "c5871d23-8324-4e10-b5fd-df726139a357",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## Solution",
+              "instructor_notes": ""
+            },
+            {
+              "id": 837503,
+              "key": "031da057-9394-4e70-b32b-d970bb78f591",
+              "title": "ND313 C1 L1 A14 Using The Lidar Object Solution",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "mTPYYSfzvek",
+                "china_cdn_id": "mTPYYSfzvek.mp4"
+              }
+            }
+          ]
+        },
+        {
+          "id": 837508,
+          "key": "9a0ce14b-a30a-43c9-9919-baa5e8eaf8d6",
+          "title": "Templates and Different Point Cloud Data",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "9a0ce14b-a30a-43c9-9919-baa5e8eaf8d6",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 837505,
+              "key": "fcab4df0-f32b-40a9-97a4-c22c999f28d2",
+              "title": "Header Text",
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "# Templates and Different Point Cloud Data",
+              "instructor_notes": ""
+            },
+            {
+              "id": 840213,
+              "key": "69e4b238-9514-472e-adc0-197ae7a21fb2",
+              "title": "ND313 C1 L1 A15 Overview On PCD Types Quiz [LB]",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "3Hws520ZZGw",
+                "china_cdn_id": "3Hws520ZZGw.mp4"
+              }
+            },
+            {
+              "id": 837506,
+              "key": "10f6fec1-9484-4e6b-9e05-8a1099d6720d",
+              "title": "Overview of PCD types",
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## Why Use Templates?\n\nThe lidar scan function used previously produced a pcl PointCloud object with pcl::PointXYZ points. The object uses a [template](http://www.cplusplus.com/doc/oldtutorial/templates/) because there are many different types of point clouds: some that are 3D, some that are 2D, some that include color and intensity. Here you are working with plain 3D point clouds so PointXYZ is used. However, later in the course you will have points with an intensity component as well.\n\nInstead of defining two separate functions one with an argument for PointXYZ and the other for PointXYZI, templates can automate this process. With templates, you only have to write the function once and use the template like an argument to specify the point type. \n\n## Templates and Pointers\n\nIf you haven’t used templates with pointers before, you may have noticed in the code that `typename` is used whenever a pointer is used that depends on a template. For example in the function signature here: \n\n```cpp\ntypename pcl::PointCloud<PointT>::Ptr ProcessPointClouds<PointT>::FilterCloud(typename pcl::PointCloud<PointT>::Ptr cloud, float filterRes, Eigen::Vector4f minPoint, Eigen::Vector4f maxPoint)\n``` \n\nThe reason for this is the following: Given a piece of code with a type name parameter, like `pcl::PointCloud<PointT>::Ptr`, the compiler is unable to determine if the code is a value or a type without knowing the value for the type name parameter. The compiler will assume that the code represents a value. If the code actually represents a typename, you will need to specify that.\n\nTest your own intuition with the quiz below. You can use this [documentation](http://docs.pointclouds.org/1.8.1/classpcl_1_1_point_cloud.html#a86473dec40d705190c6b2c2f795b9f15) for help.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 837507,
+              "key": "e88bcd6b-e938-4f2f-81fd-a2bbbec4cd53",
+              "title": "Using Templates",
+              "semantic_type": "RadioQuizAtom",
+              "is_public": true,
+              "instructor_notes": null,
+              "user_state": {
+                "node_key": "e88bcd6b-e938-4f2f-81fd-a2bbbec4cd53",
+                "completed_at": null,
+                "last_viewed_at": null,
+                "unstructured": null
+              },
+              "question": {
+                "prompt": "Is `pcl::PointCloud<PointT>::Ptr` a value or a type? ",
+                "answers": [
+                  {
+                    "id": "rbk1",
+                    "text": "value",
+                    "is_correct": false
+                  },
+                  {
+                    "id": "rbk2",
+                    "text": "type",
+                    "is_correct": true
+                  }
+                ]
+              }
+            },
+            {
+              "id": 840211,
+              "key": "a7fdb0ee-0f0c-4986-983f-e34d8d9cf9c2",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## Explanation",
+              "instructor_notes": ""
+            },
+            {
+              "id": 840212,
+              "key": "5333da6d-59e0-42a0-9a0a-344073ca98b1",
+              "title": "ND313 C1 L1 A16 Using Templates Solution [LB]",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "OiSh6DBynL0",
+                "china_cdn_id": "OiSh6DBynL0.mp4"
+              }
+            }
+          ]
+        },
+        {
+          "id": 837513,
+          "key": "19607be4-431a-4236-b9e7-cfdf234eec4e",
+          "title": "Adjusting Lidar Parameters",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "19607be4-431a-4236-b9e7-cfdf234eec4e",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 837509,
+              "key": "56f921ba-aee4-45e0-8bff-54b5dca9776d",
+              "title": "Header Text",
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "# Adjusting Lidar Parameters",
+              "instructor_notes": ""
+            },
+            {
+              "id": 840217,
+              "key": "0348bde7-5985-47a6-aba2-19ec15053af0",
+              "title": "ND313 C1 L1 A17 Lidar Paramaters [LB]",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "TwySby8ZZ3k",
+                "china_cdn_id": "TwySby8ZZ3k.mp4"
+              }
+            },
+            {
+              "id": 837511,
+              "key": "b0642f42-cfee-4263-b2b6-9357f32fcf33",
+              "title": "Lidar Parameters",
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "You can orbit and move around the scene to see the different rays that are being cast. The current lidar settings will limit what you can do, however. The resolution is low, and as you can see from the scene, only one of the rays is touching a car. So The next task for you will be to increase your lidar's resolution so you can clearly see the other cars around. To do this, follow the instructions from the TODO statements in lidar.h. \n\nThe changes include increasing the minimum distance so you don't include contact points from the roof of your car, increasing both the horizontal and vertical angle resolution, and finally, adding noise. The noise you will be adding is actually quite high since units are meters, but it will yield more interesting and realistic point data in the scene. Also feel completely free to experiment and play around with these lidar hyper parameters!\n\n## Exercise \n\n- Now you will increase lidar resolution by increasing the number of vertical layers and the angular resolution around the z-axis.\n  - `numLayers` should change from 3 to 8.\n  - `horizontalLayerIncrement` should change from pi/6 to pi/64.\n- Set `minDistance` to 5 (meters) to remove points from your vehicle's roof.\n- Add noise, around 0.2 to get a more interesting pcd.\n\nWhen you are finished with the exercise, your output should look like the image below.\n",
+              "instructor_notes": ""
+            },
+            {
+              "id": 837510,
+              "key": "163a0f9a-6adb-4269-98ed-a46a74a1ead6",
+              "title": "Lidar with Adjusted Parameters",
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/March/5c82b7c4_fulllidar/fulllidar.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/163a0f9a-6adb-4269-98ed-a46a74a1ead6",
+              "caption": "Increasing Lidar Range",
+              "alt": "Increasing Lidar Range",
+              "width": 938,
+              "height": 514,
+              "instructor_notes": null
+            },
+            {
+              "id": 837562,
+              "key": "45bda3bc-07ce-48ba-bfbd-8011b9bea312",
+              "title": null,
+              "semantic_type": "WorkspaceAtom",
+              "is_public": true,
+              "workspace_id": "r831540c837485xREACTy8c3xugx",
+              "pool_id": "autonomousgpu",
+              "view_id": "react-8cuf2",
+              "gpu_capable": true,
+              "configuration": {
+                "id": "reserved",
+                "blueprint": {
+                  "conf": {
+                    "disk": null,
+                    "port": 3000,
+                    "ports": [],
+                    "userCode": "",
+                    "openFiles": [],
+                    "showFiles": true,
+                    "allowClose": true,
+                    "allowSubmit": false,
+                    "terminalTitle": "BASH",
+                    "actionButtonText": "Desktop",
+                    "openTerminalOnStartup": true
+                  },
+                  "kind": "react"
+                },
+                "workspaceId": "reserved"
+              },
+              "starter_files": null
+            },
+            {
+              "id": 837563,
+              "key": "8c84ee35-0293-4ebe-aba4-3e4f103303ef",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## Solution",
+              "instructor_notes": ""
+            },
+            {
+              "id": 837512,
+              "key": "eb27ffbf-bea3-4ebf-a1d9-1451dcbcaef8",
+              "title": "ND313 C1 L1 A18 Update Lidar Parameters Solution",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "tkLrkRrLsDQ",
+                "china_cdn_id": "tkLrkRrLsDQ.mp4"
+              }
+            }
+          ]
+        },
+        {
+          "id": 837518,
+          "key": "8c51e67c-ef6e-4441-9ba2-81cc52149b52",
+          "title": "Examining the Point Cloud",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "8c51e67c-ef6e-4441-9ba2-81cc52149b52",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 837514,
+              "key": "bf3a6f68-1f0f-44ff-a806-96bcaf4dd776",
+              "title": "Header Text",
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "# Examining the Point Cloud",
+              "instructor_notes": ""
+            },
+            {
+              "id": 840247,
+              "key": "ce67659c-8101-42b2-8212-3544f5f1ca81",
+              "title": "ND313 C1 L1 A20 Examining The Point Cloud [LB]",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "_soZXKanuBk",
+                "china_cdn_id": "_soZXKanuBk.mp4"
+              }
+            },
+            {
+              "id": 840248,
+              "key": "b3f63208-045b-4e43-9c21-6e2b04f3b277",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "Now that you can see what the lidar rays look like, what about the actual point cloud data that you will be using and processing? You can view the point cloud data using the `renderPointCloud` function in render. You can also choose to turn off the rendering for the highway scene so you can see what the point cloud looks like by itself.\n\nThe result in the image above is without noise and with lidar `minDistance` set to zero. With a high lidar `minDistance`, you can remove the points above that are hitting the roof of your car, since these won't help you detect other cars. Also, some noise variance helps to create more interesting looking point clouds. Additionally, adding noise will help you to develop more robust point processing functions.\n\n## Exercise\n\nNow you will view the lidar's point cloud by itself, without the rays.\n\n- To do this, call `renderPointCloud` instead of `renderRays` in the `simpleHighway` function. \n- You can also view the point cloud without obstacles by setting `renderScene` to `false` in `environment.cpp`.\n\nWhen you are finished, your output should look like the image below.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 837515,
+              "key": "419e25c9-2807-4295-b3f3-6a8a4bafe1e2",
+              "title": "Simulation Point Cloud Image",
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/March/5c82b7e2_pcd1/pcd1.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/419e25c9-2807-4295-b3f3-6a8a4bafe1e2",
+              "caption": "Simulated PCD",
+              "alt": "Simulated PCD",
+              "width": 952,
+              "height": 535,
+              "instructor_notes": null
+            },
+            {
+              "id": 837564,
+              "key": "f4b9a1e6-3045-48af-b03a-e59923cf3606",
+              "title": null,
+              "semantic_type": "WorkspaceAtom",
+              "is_public": true,
+              "workspace_id": "r831540c837485xREACTy8c3xugx",
+              "pool_id": "autonomousgpu",
+              "view_id": "react-tce26",
+              "gpu_capable": true,
+              "configuration": {
+                "id": "reserved",
+                "blueprint": {
+                  "conf": {
+                    "disk": null,
+                    "port": 3000,
+                    "ports": [],
+                    "userCode": "",
+                    "openFiles": [],
+                    "showFiles": true,
+                    "allowClose": true,
+                    "allowSubmit": false,
+                    "terminalTitle": "BASH",
+                    "actionButtonText": "Desktop",
+                    "openTerminalOnStartup": true
+                  },
+                  "kind": "react"
+                },
+                "workspaceId": "reserved"
+              },
+              "starter_files": null
+            },
+            {
+              "id": 837565,
+              "key": "723343f4-eb18-47a0-bf60-4df1a5a71088",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## Solution",
+              "instructor_notes": ""
+            },
+            {
+              "id": 837517,
+              "key": "ccc0223f-8fe6-4d5e-b48f-d8d935596a72",
+              "title": "ND313 C1 L1 A21 Simulater PCD Solution",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "l_rQIPlnyUg",
+                "china_cdn_id": "l_rQIPlnyUg.mp4"
+              }
+            }
+          ]
+        },
+        {
+          "id": 837521,
+          "key": "758ca494-b763-4527-9001-80da0d6ab452",
+          "title": "Outro",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "758ca494-b763-4527-9001-80da0d6ab452",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 837519,
+              "key": "5426b856-6be1-4e56-9c84-05c5b7b7697e",
+              "title": "Header Text",
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "# Outro",
+              "instructor_notes": ""
+            },
+            {
+              "id": 837520,
+              "key": "dcdb71a4-25d4-4f40-b46f-a55d560d3cb7",
+              "title": "ND313 C1 L1 A22 Outro",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "2HmbIJNMkHk",
+                "china_cdn_id": "2HmbIJNMkHk.mp4"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "_deprecated": [
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    }
+  ]
+}

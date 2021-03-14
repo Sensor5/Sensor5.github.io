@@ -1,0 +1,100 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:04.094
+This nanodegree program consists of four courses,
+
+00:00:04.094 --> 00:00:08.910
+lidar, camera, radar, and Kalman filters.
+
+00:00:08.910 --> 00:00:10.920
+In the lidar project,
+
+00:00:10.920 --> 00:00:13.470
+you'll learn how to work with point clouds,
+
+00:00:13.470 --> 00:00:17.355
+which is the data representation that lidar units provide.
+
+00:00:17.355 --> 00:00:20.640
+You'll learn how to segment point Clouds and how to
+
+00:00:20.640 --> 00:00:24.825
+cluster points within a point Cloud in order to detect objects.
+
+00:00:24.825 --> 00:00:26.790
+In the camera course,
+
+00:00:26.790 --> 00:00:30.315
+you'll learn how to detect objects using camera images.
+
+00:00:30.315 --> 00:00:33.900
+You'll also learn how to fuse that data together with
+
+00:00:33.900 --> 00:00:39.750
+a lidar point Cloud data by projecting lidar point Cloud data into the camera image.
+
+00:00:39.750 --> 00:00:41.945
+In the radar course,
+
+00:00:41.945 --> 00:00:46.090
+you'll learn about both the physics in design of radar systems.
+
+00:00:46.090 --> 00:00:48.800
+In particular, you'll learn about frequency
+
+00:00:48.800 --> 00:00:52.070
+modulated continuous wave radar systems and how
+
+00:00:52.070 --> 00:00:56.855
+to apply signal processing like fast fourier transforms,
+
+00:00:56.855 --> 00:00:59.405
+to the data that comes back from these systems.
+
+00:00:59.405 --> 00:01:02.570
+You'll learn about the doppler effect and how that allows
+
+00:01:02.570 --> 00:01:06.010
+us to infer velocity from radar data,
+
+00:01:06.010 --> 00:01:09.965
+and about CFAR, constant false alarm rate and clustering,
+
+00:01:09.965 --> 00:01:14.905
+which are two different techniques that help us to identify objects from radar data.
+
+00:01:14.905 --> 00:01:17.165
+In the Kalman filters course,
+
+00:01:17.165 --> 00:01:22.000
+you'll learn how to fuse together data from a wide variety of sensor modalities,
+
+00:01:22.000 --> 00:01:28.040
+Kalman filters are a probabilistic tracking tool that utilize a measurement update cycle,
+
+00:01:28.040 --> 00:01:30.740
+in which we first take measurements and then
+
+00:01:30.740 --> 00:01:34.270
+update our beliefs about the world using those measurements,
+
+00:01:34.270 --> 00:01:35.600
+and then we repeat that cycle,
+
+00:01:35.600 --> 00:01:37.705
+measurement update, measurement update.
+
+00:01:37.705 --> 00:01:41.520
+You'll also learn how to extend Kalman filters into
+
+00:01:41.520 --> 00:01:46.400
+extended Kalman filters and how to build unscented Kalman filters.
+
+00:01:46.400 --> 00:01:49.580
+Both of these two tools are extensions of
+
+00:01:49.580 --> 00:01:54.690
+a vanilla Kalman filter that help account for nonlinear motion data.
+

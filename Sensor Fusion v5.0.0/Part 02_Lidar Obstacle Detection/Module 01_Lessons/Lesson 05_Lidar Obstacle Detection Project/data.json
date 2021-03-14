@@ -1,0 +1,126 @@
+{
+  "data": {
+    "lesson": {
+      "id": 839820,
+      "key": "19b0135d-efa7-464a-bc84-aee03b51b50b",
+      "title": "Lidar Obstacle Detection Project",
+      "semantic_type": "Lesson",
+      "is_public": true,
+      "version": "1.0.0",
+      "locale": "en-us",
+      "summary": "In this lesson, students will submit the project that they have developed over the previous lessons.",
+      "lesson_type": "Classroom",
+      "display_workspace_project_only": false,
+      "resources": null,
+      "project": {
+        "key": "407d1146-93c4-46f2-8395-200dc23e1a8d",
+        "version": "1.0.0",
+        "locale": "en-us",
+        "duration": 30240,
+        "semantic_type": "Project",
+        "title": "Lidar Obstacle Detection",
+        "description": "Check your project carefully against the rubric [here](https://review.udacity.com/#!/rubrics/2529/view). When you feel like your project meets all of the criteria listed there, you are ready to submit! \n\nYou can submit your project directly from the workspace in the previous concept, or if you have developed your code locally, you can submit using a .zip file or Github repo.\n\n## Project Submission Checklist\n\n**Before submitting your project, please review and confirm the following items.** \n<input type=\"checkbox\"> I am confident all rubric items have been met and my project will pass as submitted. \n<input type=\"checkbox\"> Project builds correctly without errors and runs.\n<input type=\"checkbox\"> All required functionality exists and my project behaves as expected per the project's specifications.\n\n**Once you have checked all these items, you are ready to submit!**\n",
+        "is_public": true,
+        "summary": null,
+        "forum_path": "",
+        "rubric_id": "2529",
+        "terminal_project_id": null,
+        "resources": null,
+        "image": {
+          "url": "https://s3.amazonaws.com/video.udacity-data.com/topher/2019/March/5c8c47d1_pcdhero/pcdhero.png",
+          "width": 1200,
+          "height": 900
+        }
+      },
+      "lab": null,
+      "concepts": [
+        {
+          "id": 839822,
+          "key": "87863354-fec4-4081-b51c-ef5e247cd361",
+          "title": "Submitting Your Project",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "87863354-fec4-4081-b51c-ef5e247cd361",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 839835,
+              "key": "93cefd72-6c38-452e-890b-a23633cb431c",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "# Submitting Your Project",
+              "instructor_notes": ""
+            },
+            {
+              "id": 839836,
+              "key": "03da2acb-3e3a-4af8-8914-6058aed83bf1",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/March/5c8599e3_obstacledetectionfps/obstacledetectionfps.gif",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/03da2acb-3e3a-4af8-8914-6058aed83bf1",
+              "caption": "",
+              "alt": "Obstacle detection gif",
+              "width": 948,
+              "height": 532,
+              "instructor_notes": null
+            },
+            {
+              "id": 839834,
+              "key": "dcfea8ea-97ef-480d-b3c7-d88c2a84b7d8",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "Below is the workspace with your code from the previous lessons. At this point, you should be just about ready to submit the project! ***Be sure that you have implemented your own RANSAC, KD-Tree, and Euclidean clustering algorithms, as these are required as part of your processing pipeline.*** The quizzes in the previous lessons are a great resource for doing this! ***A project that uses PCL's built in segmentation and clustering functions will not pass, although those PCL functions can be useful for testing***.\n\n## Testing Your Project Before Submission\n\nBefore you submit the project, compile and run the project once more to ensure that everything is working correctly. You should see results that are similar to the .gif above: the road should be segmented from the vehicles, and there should boxes placed around the detected obstacles. \n\n## Checking the Rubric\n\nIf your project works correctly and you are happy with the results, carefully look at the [project rubric](https://review.udacity.com/#!/rubrics/2529/view). If you feel like all the criteria from the rubric are met, you are ready to submit!\n\n## Submitting the Project\n\nYou can submit your project using the \"SUBMIT PROJECT\" button in the terminal below. If you are developing the project locally, and you would prefer to submit using a .zip file or Github repo, proceed to the next concept.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 839837,
+              "key": "1620b519-7baa-4e08-a37f-1b9dbf81af16",
+              "title": null,
+              "semantic_type": "WorkspaceAtom",
+              "is_public": true,
+              "workspace_id": "r831540c837485xREACTy8c3xugx",
+              "pool_id": "autonomousgpu",
+              "view_id": "react-zit1w",
+              "gpu_capable": true,
+              "configuration": {
+                "id": "reserved",
+                "blueprint": {
+                  "conf": {
+                    "disk": null,
+                    "port": 3000,
+                    "ports": [],
+                    "userCode": "",
+                    "openFiles": [],
+                    "showFiles": true,
+                    "allowClose": true,
+                    "allowSubmit": true,
+                    "terminalTitle": "BASH",
+                    "actionButtonText": "Desktop",
+                    "openTerminalOnStartup": true
+                  },
+                  "kind": "react"
+                },
+                "workspaceId": "reserved"
+              },
+              "starter_files": null
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "_deprecated": [
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    }
+  ]
+}

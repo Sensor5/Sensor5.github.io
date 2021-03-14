@@ -1,0 +1,4136 @@
+{
+  "data": {
+    "nanodegree": {
+      "id": 845226,
+      "key": "nd313",
+      "title": "Sensor Fusion",
+      "semantic_type": "Degree",
+      "is_public": true,
+      "cohorts": [
+        {
+          "id": 14775,
+          "part_keys": [
+            "2687ae8f-4136-40a7-9ddf-dfd3eed71562",
+            "0701cbc4-73a7-4e19-895a-0bd0695f0365",
+            "386c7b3a-e84c-4cb7-a4b5-5532181d5dda",
+            "1971021c-523b-414c-93a3-2c6297cf4771",
+            "da5e72fc-972d-42ae-bb76-fca3d3b2db06",
+            "1e9a9ed0-7f7e-44cc-81ac-e8b2475faa29",
+            "f5c28b19-8d2c-48a2-8095-7829ff14f6d9"
+          ],
+          "start_at": "2020-06-09T19:00:00.000Z",
+          "due_at": "2020-09-17T19:00:00.000Z",
+          "end_at": "2020-10-15T19:00:00.000Z"
+        }
+      ],
+      "version": "2.0.0",
+      "locale": "en-us",
+      "color_scheme": "color_scheme1",
+      "enrollment": {
+        "product_variant": "STANDARD",
+        "variant": "STANDARD",
+        "free_preview_status": "NONE",
+        "free_preview_expires_at": null,
+        "static_access": null
+      },
+      "nd_units": [
+        {
+          "id": 10191,
+          "part_keys": [
+            "2687ae8f-4136-40a7-9ddf-dfd3eed71562",
+            "0701cbc4-73a7-4e19-895a-0bd0695f0365",
+            "386c7b3a-e84c-4cb7-a4b5-5532181d5dda",
+            "1971021c-523b-414c-93a3-2c6297cf4771",
+            "da5e72fc-972d-42ae-bb76-fca3d3b2db06",
+            "1e9a9ed0-7f7e-44cc-81ac-e8b2475faa29",
+            "f5c28b19-8d2c-48a2-8095-7829ff14f6d9"
+          ]
+        }
+      ],
+      "hero_image": null,
+      "forum_path": "",
+      "summary": "This course trains the learner to be a sensor fusion engineer focusing on Lidar, Radar technologies.",
+      "is_graduated": false,
+      "is_term_based": true,
+      "is_default": true,
+      "project_deadlines": [
+        {
+          "due_at": "2020-06-30T19:00:00.000Z",
+          "node_key": "407d1146-93c4-46f2-8395-200dc23e1a8d"
+        },
+        {
+          "due_at": "2020-07-07T19:00:00.000Z",
+          "node_key": "b22f25e9-0b43-4854-bdf2-185791009878"
+        },
+        {
+          "due_at": "2020-07-21T19:00:00.000Z",
+          "node_key": "7079689a-7970-401b-add2-be8a83843f2e"
+        },
+        {
+          "due_at": "2020-08-04T19:00:00.000Z",
+          "node_key": "f7f13a97-19f6-449b-a019-8dff1b00d2a5"
+        },
+        {
+          "due_at": "2020-09-01T19:00:00.000Z",
+          "node_key": "d8a12afe-b96b-4d38-96c2-66ff6371c72c"
+        },
+        {
+          "due_at": "2020-09-02T19:00:00.000Z",
+          "node_key": "0051a3da-930f-47a1-bd41-d7fe3bd324f4"
+        },
+        {
+          "due_at": "2020-09-03T19:00:00.000Z",
+          "node_key": "4180859007"
+        },
+        {
+          "due_at": "2020-09-03T19:00:00.000Z",
+          "node_key": "feee7390-c9aa-400b-9829-4a93322008ff"
+        }
+      ],
+      "user_state": {
+        "node_key": "nd313",
+        "completed_at": "2020-06-01T22:21:17.480Z",
+        "last_viewed_at": "2020-06-01T22:21:15.660Z",
+        "unstructured": null
+      },
+      "aggregated_state": {
+        "node_key": "nd313",
+        "completion_amount": 0,
+        "completed_count": 0,
+        "concept_count": 277,
+        "last_viewed_child_key": "2687ae8f-4136-40a7-9ddf-dfd3eed71562",
+        "part_aggregated_states": [
+          {
+            "node_key": "2687ae8f-4136-40a7-9ddf-dfd3eed71562",
+            "completed_at": null,
+            "completion_amount": 0,
+            "completed_count": 0,
+            "concept_count": 23,
+            "last_viewed_child_key": "b59cfa64-5237-4e38-bfa0-0b18acea8750",
+            "module_aggregated_states": [
+              {
+                "node_key": "b59cfa64-5237-4e38-bfa0-0b18acea8750",
+                "completed_at": null,
+                "completion_amount": 0,
+                "completed_count": 0,
+                "concept_count": 16,
+                "last_viewed_child_key": "c3c2e176-405a-4239-8ea3-e09dba21b180",
+                "lesson_aggregated_states": [
+                  {
+                    "node_key": "c3c2e176-405a-4239-8ea3-e09dba21b180",
+                    "completed_at": null,
+                    "completed_count": 0,
+                    "concept_count": 9,
+                    "completion_amount": 0,
+                    "last_viewed_child_key": "96f5e46b-350d-461d-a83f-62e613056889"
+                  },
+                  {
+                    "node_key": "3eccbcf2-1055-400a-b692-b224724b115a",
+                    "completed_at": null,
+                    "completed_count": 0,
+                    "concept_count": 7,
+                    "completion_amount": 0,
+                    "last_viewed_child_key": "35496aa9-9fe5-4462-a0b6-7186e1bcb6d9"
+                  }
+                ]
+              },
+              {
+                "node_key": "35f1ebc2-aa55-4a3c-acd0-79e5009a71fd",
+                "completed_at": null,
+                "completion_amount": 0,
+                "completed_count": 0,
+                "concept_count": 7,
+                "last_viewed_child_key": "2f7e83a4-b637-4df1-a795-4cbfb5d8cd93",
+                "lesson_aggregated_states": [
+                  {
+                    "node_key": "2f7e83a4-b637-4df1-a795-4cbfb5d8cd93",
+                    "completed_at": null,
+                    "completed_count": 0,
+                    "concept_count": 2,
+                    "completion_amount": 0,
+                    "last_viewed_child_key": "82499d32-744d-4c12-98b2-52bd3936f4b1"
+                  },
+                  {
+                    "node_key": "d03deb6d-3aee-4331-b4ed-67b8cd2ec8bb",
+                    "completed_at": null,
+                    "completed_count": 0,
+                    "concept_count": 5,
+                    "completion_amount": 0,
+                    "last_viewed_child_key": "ce0fb21a-73a5-4f9b-8ffa-0335059917a7"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "node_key": "386c7b3a-e84c-4cb7-a4b5-5532181d5dda",
+            "completed_at": null,
+            "completion_amount": 0,
+            "completed_count": 0,
+            "concept_count": 53,
+            "last_viewed_child_key": "fd81827a-2ad3-461f-a113-1120d20e75b4",
+            "module_aggregated_states": [
+              {
+                "node_key": "fd81827a-2ad3-461f-a113-1120d20e75b4",
+                "completed_at": null,
+                "completion_amount": 0,
+                "completed_count": 0,
+                "concept_count": 53,
+                "last_viewed_child_key": "964836d9-27f2-4c72-b1c4-458b0549d23f",
+                "lesson_aggregated_states": [
+                  {
+                    "node_key": "964836d9-27f2-4c72-b1c4-458b0549d23f",
+                    "completed_at": null,
+                    "completed_count": 0,
+                    "concept_count": 20,
+                    "completion_amount": 0,
+                    "last_viewed_child_key": "fcf98c60-c68c-483a-b845-ea5a3a36e58b"
+                  },
+                  {
+                    "node_key": "1c1ef843-6cc1-4ce4-b597-fe99158f7fc0",
+                    "completed_at": null,
+                    "completed_count": 0,
+                    "concept_count": 10,
+                    "completion_amount": 0,
+                    "last_viewed_child_key": "20d3c1d9-3d76-4917-b83d-1f4bc8b62d41"
+                  },
+                  {
+                    "node_key": "eb621b0c-c8e3-402a-a078-734111199518",
+                    "completed_at": null,
+                    "completed_count": 0,
+                    "concept_count": 12,
+                    "completion_amount": 0,
+                    "last_viewed_child_key": "ad9a9e6a-3484-4919-98f6-8305f5f488f9"
+                  },
+                  {
+                    "node_key": "34d27167-284f-4aa7-a0c4-3dc7944cba1e",
+                    "completed_at": null,
+                    "completed_count": 0,
+                    "concept_count": 10,
+                    "completion_amount": 0,
+                    "last_viewed_child_key": "2f343428-5c13-4cb6-a132-81ea5e43d4ef"
+                  },
+                  {
+                    "node_key": "19b0135d-efa7-464a-bc84-aee03b51b50b",
+                    "completed_at": null,
+                    "completed_count": 0,
+                    "concept_count": 1,
+                    "completion_amount": 0,
+                    "last_viewed_child_key": "87863354-fec4-4081-b51c-ef5e247cd361"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "node_key": "1971021c-523b-414c-93a3-2c6297cf4771",
+            "completed_at": null,
+            "completion_amount": 0,
+            "completed_count": 0,
+            "concept_count": 36,
+            "last_viewed_child_key": "0a71c48d-96ab-4d3a-be96-3ea1e64cf773",
+            "module_aggregated_states": [
+              {
+                "node_key": "0a71c48d-96ab-4d3a-be96-3ea1e64cf773",
+                "completed_at": null,
+                "completion_amount": 0,
+                "completed_count": 0,
+                "concept_count": 36,
+                "last_viewed_child_key": "b6c72849-6474-4d04-a117-db48da3066de",
+                "lesson_aggregated_states": [
+                  {
+                    "node_key": "b6c72849-6474-4d04-a117-db48da3066de",
+                    "completed_at": null,
+                    "completed_count": 0,
+                    "concept_count": 2,
+                    "completion_amount": 0,
+                    "last_viewed_child_key": "bfa78f6a-0a0c-41f7-b51e-fdf71dabfa9c"
+                  },
+                  {
+                    "node_key": "5996c9de-1a94-47ac-87d8-67842ad60beb",
+                    "completed_at": null,
+                    "completed_count": 0,
+                    "concept_count": 5,
+                    "completion_amount": 0,
+                    "last_viewed_child_key": "9c7c5278-b2d9-4163-9607-43abfc14de43"
+                  },
+                  {
+                    "node_key": "dfe71db5-4233-4e4f-b33f-40cb9899dc13",
+                    "completed_at": null,
+                    "completed_count": 0,
+                    "concept_count": 5,
+                    "completion_amount": 0,
+                    "last_viewed_child_key": "be934900-efc9-4f0b-83e9-aa1fcc596888"
+                  },
+                  {
+                    "node_key": "53855af9-95ad-41f6-bb0f-7e5464baa34b",
+                    "completed_at": null,
+                    "completed_count": 0,
+                    "concept_count": 6,
+                    "completion_amount": 0,
+                    "last_viewed_child_key": "393aeaa5-b65e-4b33-a6fc-35a6de215313"
+                  },
+                  {
+                    "node_key": "4b340bfe-c1be-400d-b64f-ecbaf51c6fb8",
+                    "completed_at": null,
+                    "completed_count": 0,
+                    "concept_count": 6,
+                    "completion_amount": 0,
+                    "last_viewed_child_key": "95ebe4cd-2c42-4c7c-8048-b6f95c98a813"
+                  },
+                  {
+                    "node_key": "fb74bfb2-bfe1-4d86-a997-320ab71c0dbd",
+                    "completed_at": null,
+                    "completed_count": 0,
+                    "concept_count": 4,
+                    "completion_amount": 0,
+                    "last_viewed_child_key": "93e3b893-f874-477f-8f02-1ff465c160de"
+                  },
+                  {
+                    "node_key": "7d861c32-dbbf-4222-b000-87bbd9f3e07a",
+                    "completed_at": null,
+                    "completed_count": 0,
+                    "concept_count": 7,
+                    "completion_amount": 0,
+                    "last_viewed_child_key": "9fbbff06-8a08-4932-9775-350a2a3946b6"
+                  },
+                  {
+                    "node_key": "be6a4694-8583-4bcc-8a7a-1c7cf397444e",
+                    "completed_at": null,
+                    "completed_count": 0,
+                    "concept_count": 1,
+                    "completion_amount": 0,
+                    "last_viewed_child_key": "46f0340d-0a99-42dd-8bbb-977be9b00b3e"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "node_key": "0701cbc4-73a7-4e19-895a-0bd0695f0365",
+            "completed_at": null,
+            "completion_amount": 0,
+            "completed_count": 0,
+            "concept_count": 31,
+            "last_viewed_child_key": "b52e21b1-f7ef-434a-9378-58b75dfa6800",
+            "module_aggregated_states": [
+              {
+                "node_key": "b52e21b1-f7ef-434a-9378-58b75dfa6800",
+                "completed_at": null,
+                "completion_amount": 0,
+                "completed_count": 0,
+                "concept_count": 31,
+                "last_viewed_child_key": "19ce2a5b-8fab-4ff2-8c80-bf6854840f11",
+                "lesson_aggregated_states": [
+                  {
+                    "node_key": "19ce2a5b-8fab-4ff2-8c80-bf6854840f11",
+                    "completed_at": null,
+                    "completed_count": 0,
+                    "concept_count": 3,
+                    "completion_amount": 0,
+                    "last_viewed_child_key": "74d5a50f-8d14-4208-8bc2-6eb7382ba4e1"
+                  },
+                  {
+                    "node_key": "7fb8e8ec-0246-4e1e-9d12-e3cdf11391b7",
+                    "completed_at": null,
+                    "completed_count": 0,
+                    "concept_count": 8,
+                    "completion_amount": 0,
+                    "last_viewed_child_key": "82031ce1-be64-4a82-ae2f-fa236f7343eb"
+                  },
+                  {
+                    "node_key": "f48cb6e7-1bf7-4ffb-81fa-48ad13531ff8",
+                    "completed_at": null,
+                    "completed_count": 0,
+                    "concept_count": 6,
+                    "completion_amount": 0,
+                    "last_viewed_child_key": "a76ea229-c9a2-4bf7-900f-d4c07e753184"
+                  },
+                  {
+                    "node_key": "ceac76ed-eb0e-4fb0-a7ce-0434f6e524cd",
+                    "completed_at": null,
+                    "completed_count": 0,
+                    "concept_count": 6,
+                    "completion_amount": 0,
+                    "last_viewed_child_key": "5d30f4fd-ba99-4d3c-8594-e88a3a6c1937"
+                  },
+                  {
+                    "node_key": "76adf90e-aa59-49b0-8f90-63e19050dccc",
+                    "completed_at": null,
+                    "completed_count": 0,
+                    "concept_count": 4,
+                    "completion_amount": 0,
+                    "last_viewed_child_key": "e64b8019-f46f-4c0d-acb3-c28ca0f7f4aa"
+                  },
+                  {
+                    "node_key": "c65e6b8a-1bcf-4b13-a451-d2d6ac2a4f98",
+                    "completed_at": null,
+                    "completed_count": 0,
+                    "concept_count": 4,
+                    "completion_amount": 0,
+                    "last_viewed_child_key": "8997122c-174d-4b8b-b672-7ee3d47bb7ff"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "node_key": "da5e72fc-972d-42ae-bb76-fca3d3b2db06",
+            "completed_at": null,
+            "completion_amount": 0,
+            "completed_count": 0,
+            "concept_count": 94,
+            "last_viewed_child_key": "c32eb575-0080-4a25-a087-98ab84cb3092",
+            "module_aggregated_states": [
+              {
+                "node_key": "c32eb575-0080-4a25-a087-98ab84cb3092",
+                "completed_at": null,
+                "completion_amount": 0,
+                "completed_count": 0,
+                "concept_count": 94,
+                "last_viewed_child_key": "6ff21566-90b5-4cd7-b13d-95c1a6d46c87",
+                "lesson_aggregated_states": [
+                  {
+                    "node_key": "6ff21566-90b5-4cd7-b13d-95c1a6d46c87",
+                    "completed_at": null,
+                    "completed_count": 0,
+                    "concept_count": 6,
+                    "completion_amount": 0,
+                    "last_viewed_child_key": "bcb321e1-f6fd-49ab-9d2a-b8f2f8d84e1d"
+                  },
+                  {
+                    "node_key": "b3ebef23-64b7-4821-8809-05705165f829",
+                    "completed_at": null,
+                    "completed_count": 0,
+                    "concept_count": 26,
+                    "completion_amount": 0,
+                    "last_viewed_child_key": "17b33b33-e1a1-4e0d-8a8b-0ef183e485e0"
+                  },
+                  {
+                    "node_key": "3612b91d-9c33-47ad-8067-a572a6c93837",
+                    "completed_at": null,
+                    "completed_count": 0,
+                    "concept_count": 25,
+                    "completion_amount": 0,
+                    "last_viewed_child_key": "14d8924e-a34a-4687-b73c-2f06c758e034"
+                  },
+                  {
+                    "node_key": "daf3dee8-7117-48e8-a27a-fc4769d2b954",
+                    "completed_at": null,
+                    "completed_count": 0,
+                    "concept_count": 35,
+                    "completion_amount": 0,
+                    "last_viewed_child_key": "94ffc96e-d013-41db-9211-ffee6bd6e6e0"
+                  },
+                  {
+                    "node_key": "493be691-f4f2-43bb-a412-3454656b48ab",
+                    "completed_at": null,
+                    "completed_count": 0,
+                    "concept_count": 2,
+                    "completion_amount": 0,
+                    "last_viewed_child_key": "fb9d4925-ba9d-4008-949a-096a8fabed50"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "node_key": "1e9a9ed0-7f7e-44cc-81ac-e8b2475faa29",
+            "completed_at": null,
+            "completion_amount": 0,
+            "completed_count": 0,
+            "concept_count": 40,
+            "last_viewed_child_key": "97c40fd0-5f40-45fc-997f-6d25ed8cc1c9",
+            "module_aggregated_states": [
+              {
+                "node_key": "97c40fd0-5f40-45fc-997f-6d25ed8cc1c9",
+                "completed_at": null,
+                "completion_amount": 0,
+                "completed_count": 0,
+                "concept_count": 40,
+                "last_viewed_child_key": "b01370f1-8760-45f0-b243-dea6d8fd524d",
+                "lesson_aggregated_states": [
+                  {
+                    "node_key": "b01370f1-8760-45f0-b243-dea6d8fd524d",
+                    "completed_at": null,
+                    "completed_count": 0,
+                    "concept_count": 11,
+                    "completion_amount": 0,
+                    "last_viewed_child_key": "0c5d9ad2-f611-43c9-a92c-b614a15c9000"
+                  },
+                  {
+                    "node_key": "20707806-8f14-420f-b613-4196199a88c1",
+                    "completed_at": null,
+                    "completed_count": 0,
+                    "concept_count": 12,
+                    "completion_amount": 0,
+                    "last_viewed_child_key": "c8c3fbd0-b7ba-471e-85b7-eb2b1c3820c0"
+                  },
+                  {
+                    "node_key": "de38d0de-afac-4d34-a339-25c2519cf9f9",
+                    "completed_at": null,
+                    "completed_count": 0,
+                    "concept_count": 17,
+                    "completion_amount": 0,
+                    "last_viewed_child_key": "00b53aa6-a4a0-4eee-a034-39915c379b68"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "node_key": "f5c28b19-8d2c-48a2-8095-7829ff14f6d9",
+            "completed_at": null,
+            "completion_amount": 0,
+            "completed_count": 0,
+            "concept_count": 28,
+            "last_viewed_child_key": "4b21d31b-d7f9-4635-8e5b-e9a4b67f5a5b",
+            "module_aggregated_states": [
+              {
+                "node_key": "4b21d31b-d7f9-4635-8e5b-e9a4b67f5a5b",
+                "completed_at": null,
+                "completion_amount": 0,
+                "completed_count": 0,
+                "concept_count": 28,
+                "last_viewed_child_key": "16d404e8-4cb4-4180-996b-50b29f7e3bbd",
+                "lesson_aggregated_states": [
+                  {
+                    "node_key": "16d404e8-4cb4-4180-996b-50b29f7e3bbd",
+                    "completed_at": null,
+                    "completed_count": 0,
+                    "concept_count": 28,
+                    "completion_amount": 0,
+                    "last_viewed_child_key": "acd59300-d439-4bad-a42c-061f382213a8"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "resources": null,
+      "specializations": [],
+      "parts": [
+        {
+          "id": 841310,
+          "key": "2687ae8f-4136-40a7-9ddf-dfd3eed71562",
+          "title": "Welcome",
+          "semantic_type": "Part",
+          "is_public": true,
+          "version": "1.0.0",
+          "locale": "en-us",
+          "summary": null,
+          "part_type": "Core",
+          "locked_reason": "not_locked",
+          "locked_until": null,
+          "content_ready_date_ms": null,
+          "resources": null,
+          "image": null,
+          "specialization": null,
+          "modules": [
+            {
+              "id": 841312,
+              "key": "b59cfa64-5237-4e38-bfa0-0b18acea8750",
+              "title": "Orientation",
+              "semantic_type": "Module",
+              "is_public": true,
+              "version": "1.0.0",
+              "locale": "en-us",
+              "is_project_module": null,
+              "forum_path": "",
+              "lessons": [
+                {
+                  "id": 860697,
+                  "key": "c3c2e176-405a-4239-8ea3-e09dba21b180",
+                  "version": "1.0.0",
+                  "locale": "en-us",
+                  "semantic_type": "Lesson",
+                  "summary": "Welcome to the Sensor Fusion Engineer Nanodegree Program! In this lesson, you will learn more about the structure of the program and meet the team.",
+                  "title": "Welcome to the Sensor Fusion Engineer Nanodegree Program",
+                  "duration": 30,
+                  "is_public": true,
+                  "is_project_lesson": false,
+                  "display_workspace_project_only": false,
+                  "lesson_type": "Classroom",
+                  "image": {
+                    "url": "https://s3.amazonaws.com/video.udacity-data.com/topher/2018/February/5a7920bb_1-13-udacity-explores-human-robot-interaction-robot-ethics1x/1-13-udacity-explores-human-robot-interaction-robot-ethics1x.png",
+                    "width": 500,
+                    "height": 500
+                  },
+                  "video": null,
+                  "lab": null,
+                  "project": null,
+                  "concepts": [
+                    {
+                      "id": 860699,
+                      "key": "96f5e46b-350d-461d-a83f-62e613056889",
+                      "title": "Introduction",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 860701,
+                      "key": "c07ce14c-e9c4-4bf7-9c8d-264df742452f",
+                      "title": "Prerequisites",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 860718,
+                      "key": "bc2951ec-ac61-460a-9612-7bd8feea6ac4",
+                      "title": "Courses",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 860700,
+                      "key": "31df7122-828b-4b95-930f-3361cf55f572",
+                      "title": "Projects",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 860702,
+                      "key": "e7aeec07-fd60-4aab-86d1-b7342cc1a488",
+                      "title": "Aaron Brown",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 860703,
+                      "key": "47644542-4ad0-435d-aa53-5e83215e4b2d",
+                      "title": "Andreas Haja",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 860705,
+                      "key": "9737a7e2-2ef1-4d75-877d-8e29e6644361",
+                      "title": "Abdullah Zaidi",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 860706,
+                      "key": "49a1e9c1-cf47-4934-b077-ca12943de78f",
+                      "title": "Dominik Nuss",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 860707,
+                      "key": "e6badedf-2dcb-4e10-83e1-ffe2e9f944d6",
+                      "title": "Andrei Vatavu",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    }
+                  ]
+                },
+                {
+                  "id": 860698,
+                  "key": "3eccbcf2-1055-400a-b692-b224724b115a",
+                  "version": "1.0.0",
+                  "locale": "en-us",
+                  "semantic_type": "Lesson",
+                  "summary": null,
+                  "title": "Introduction to Sensor Fusion",
+                  "duration": 15,
+                  "is_public": true,
+                  "is_project_lesson": false,
+                  "display_workspace_project_only": false,
+                  "lesson_type": "Classroom",
+                  "image": {
+                    "url": "https://s3.amazonaws.com/video.udacity-data.com/topher/2018/August/5b73331a_2-2-introduction-and-sensors2x/2-2-introduction-and-sensors2x.jpg",
+                    "width": 500,
+                    "height": 500
+                  },
+                  "video": null,
+                  "lab": null,
+                  "project": null,
+                  "concepts": [
+                    {
+                      "id": 860708,
+                      "key": "35496aa9-9fe5-4462-a0b6-7186e1bcb6d9",
+                      "title": "Sensor Fusion",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 860709,
+                      "key": "54d2f1f3-cb91-4fb9-8817-555f0c0251cc",
+                      "title": "Sensors",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 860710,
+                      "key": "13ff1cb4-836a-4343-8108-d80b33be9a22",
+                      "title": "Lidar",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 860711,
+                      "key": "4eec172b-86ff-422a-8dc9-c56bd5d3b6c3",
+                      "title": "Camera",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 860712,
+                      "key": "68b6c811-9475-44c0-8902-a47d1585996c",
+                      "title": "Radar",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 860713,
+                      "key": "00ded289-13b5-44ae-9799-92d7b0418fc3",
+                      "title": "Fusion",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 860714,
+                      "key": "0d79dda4-402d-40c8-805d-c37be3a4f34a",
+                      "title": "Kalman Filters",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": 718654,
+              "key": "35f1ebc2-aa55-4a3c-acd0-79e5009a71fd",
+              "title": "Career Support",
+              "semantic_type": "Module",
+              "is_public": true,
+              "version": "1.0.0",
+              "locale": "en-us",
+              "is_project_module": null,
+              "forum_path": "",
+              "lessons": [
+                {
+                  "id": 782138,
+                  "key": "2f7e83a4-b637-4df1-a795-4cbfb5d8cd93",
+                  "version": "1.0.0",
+                  "locale": "en-us",
+                  "semantic_type": "Lesson",
+                  "summary": "What to do if you have questions about your account or general questions about the program.",
+                  "title": "Get Help with Your Account",
+                  "duration": 2,
+                  "is_public": true,
+                  "is_project_lesson": false,
+                  "display_workspace_project_only": false,
+                  "lesson_type": "Classroom",
+                  "image": {
+                    "url": "https://s3.amazonaws.com/video.udacity-data.com/topher/2018/July/5b4f698c_student/student.jpg",
+                    "width": 592,
+                    "height": 640
+                  },
+                  "video": null,
+                  "lab": null,
+                  "project": null,
+                  "concepts": [
+                    {
+                      "id": 782164,
+                      "key": "82499d32-744d-4c12-98b2-52bd3936f4b1",
+                      "title": "FAQ",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 782165,
+                      "key": "d57a2ff1-a4cf-49f7-b7fd-9ffddf0bf122",
+                      "title": "Support",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    }
+                  ]
+                },
+                {
+                  "id": 718657,
+                  "key": "d03deb6d-3aee-4331-b4ed-67b8cd2ec8bb",
+                  "version": "1.0.0",
+                  "locale": "en-us",
+                  "semantic_type": "Lesson",
+                  "summary": "You are starting a challenging but rewarding journey! Take 5 minutes to read how to get help with projects and content.",
+                  "title": "Knowledge, Community, and Careers",
+                  "duration": 5,
+                  "is_public": true,
+                  "is_project_lesson": false,
+                  "display_workspace_project_only": false,
+                  "lesson_type": "Classroom",
+                  "image": {
+                    "url": "https://s3.amazonaws.com/video.udacity-data.com/topher/2018/July/5b39acdb_1-3-learning-online-getting-help2x/1-3-learning-online-getting-help2x.jpg",
+                    "width": 592,
+                    "height": 640
+                  },
+                  "video": null,
+                  "lab": null,
+                  "project": null,
+                  "concepts": [
+                    {
+                      "id": 1021285,
+                      "key": "ce0fb21a-73a5-4f9b-8ffa-0335059917a7",
+                      "title": "Getting Help",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 782140,
+                      "key": "6324e0bb-4deb-41b3-b605-99e07af894cc",
+                      "title": "Knowledge",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 848438,
+                      "key": "748b10d8-862a-4358-b086-3e23c60f6303",
+                      "title": "Student Hub",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 908233,
+                      "key": "6f52a708-af17-4b67-bff0-b487b048bc93",
+                      "title": "Community Initiatives",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 831981,
+                      "key": "99232e4b-299c-40f5-a985-3162da96288e",
+                      "title": "Access the Career Portal",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 837555,
+          "key": "386c7b3a-e84c-4cb7-a4b5-5532181d5dda",
+          "title": "Lidar Obstacle Detection",
+          "semantic_type": "Part",
+          "is_public": true,
+          "version": "1.0.0",
+          "locale": "en-us",
+          "summary": null,
+          "part_type": "Core",
+          "locked_reason": "not_locked",
+          "locked_until": null,
+          "content_ready_date_ms": null,
+          "resources": null,
+          "image": null,
+          "specialization": null,
+          "modules": [
+            {
+              "id": 832796,
+              "key": "fd81827a-2ad3-461f-a113-1120d20e75b4",
+              "title": "Lessons",
+              "semantic_type": "Module",
+              "is_public": true,
+              "version": "1.0.0",
+              "locale": "en-us",
+              "is_project_module": null,
+              "forum_path": "",
+              "lessons": [
+                {
+                  "id": 837522,
+                  "key": "964836d9-27f2-4c72-b1c4-458b0549d23f",
+                  "version": "1.0.0",
+                  "locale": "en-us",
+                  "semantic_type": "Lesson",
+                  "summary": "Learn about lidar and point clouds. Use a simulation highway environment to explore lidar sensing and generate point clouds.",
+                  "title": "Introduction to Lidar and Point Clouds",
+                  "duration": 300,
+                  "is_public": true,
+                  "is_project_lesson": false,
+                  "display_workspace_project_only": false,
+                  "lesson_type": "Classroom",
+                  "image": {
+                    "url": "https://s3.amazonaws.com/video.udacity-data.com/topher/2019/March/5c840151_pcd2/pcd2.png",
+                    "width": 950,
+                    "height": 533
+                  },
+                  "video": null,
+                  "lab": null,
+                  "project": null,
+                  "concepts": [
+                    {
+                      "id": 837459,
+                      "key": "fcf98c60-c68c-483a-b845-ea5a3a36e58b",
+                      "title": "Welcome!",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 858868,
+                      "key": "d33e8710-ed95-433e-8353-eb657b6fd090",
+                      "title": "MBRDNA Introduction",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 858905,
+                      "key": "2168785c-2420-487e-8a6d-577e5f0894dc",
+                      "title": "What is Lidar?",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 837466,
+                      "key": "9fd537cc-92d3-4550-9741-990cbad10dc3",
+                      "title": "Lidar Sensors",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 858907,
+                      "key": "3cf1a7f9-b20f-4606-99ce-4115343297ea",
+                      "title": "What is a Point Cloud?",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 837473,
+                      "key": "1a604431-c122-46f9-9802-7269f1b88e5e",
+                      "title": "Point Clouds",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 858881,
+                      "key": "4b82e102-4e66-4b26-870b-8deedb015047",
+                      "title": "Point Cloud Tools",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 837477,
+                      "key": "0913460f-9118-4fc8-b926-68dcf9ef4043",
+                      "title": "The Point Cloud Library (PCL)",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 858909,
+                      "key": "164a5c0f-2f40-4b5b-8c5e-1a2d34c53329",
+                      "title": "Using Lidar on an Autonomous Vehicle",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 837481,
+                      "key": "2825eade-10dd-4f32-ad1a-bc2d8b0e6b9d",
+                      "title": "The Course Starter Code",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 837485,
+                      "key": "99dd222f-a9d2-4723-9461-9bf92267c5df",
+                      "title": "Compiling the Lidar Simulator",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 837490,
+                      "key": "0f0a7623-f419-4dc7-b37f-6e73f11d41c1",
+                      "title": "Running the Simulator",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 837494,
+                      "key": "247f2f13-aa95-49b4-88f8-06c649103894",
+                      "title": "The PCL Viewer",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 858888,
+                      "key": "94adcfac-8999-4f5b-b9e2-8f2a016e9476",
+                      "title": "Representing Lidar in a Simulator",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 837498,
+                      "key": "28908b6e-e9f6-4bf8-99a5-8e80d9d1881f",
+                      "title": "Creating the Lidar Object",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 837504,
+                      "key": "d8aec433-0c15-4c4f-8b0b-8c06491099d7",
+                      "title": "Using the Lidar Object",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 837508,
+                      "key": "9a0ce14b-a30a-43c9-9919-baa5e8eaf8d6",
+                      "title": "Templates and Different Point Cloud Data",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 837513,
+                      "key": "19607be4-431a-4236-b9e7-cfdf234eec4e",
+                      "title": "Adjusting Lidar Parameters",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 837518,
+                      "key": "8c51e67c-ef6e-4441-9ba2-81cc52149b52",
+                      "title": "Examining the Point Cloud",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 837521,
+                      "key": "758ca494-b763-4527-9001-80da0d6ab452",
+                      "title": "Outro",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    }
+                  ]
+                },
+                {
+                  "id": 837626,
+                  "key": "1c1ef843-6cc1-4ce4-b597-fe99158f7fc0",
+                  "version": "1.0.0",
+                  "locale": "en-us",
+                  "semantic_type": "Lesson",
+                  "summary": "In this lesson, you will be using Ransac with a plane model to segment point cloud data and separate it into points that are part of the road and points that are not.",
+                  "title": "Point Cloud Segmentation",
+                  "duration": 300,
+                  "is_public": true,
+                  "is_project_lesson": false,
+                  "display_workspace_project_only": false,
+                  "lesson_type": "Classroom",
+                  "image": {
+                    "url": "https://s3.amazonaws.com/video.udacity-data.com/topher/2019/March/5c859a14_seg1/seg1.png",
+                    "width": 953,
+                    "height": 537
+                  },
+                  "video": null,
+                  "lab": null,
+                  "project": null,
+                  "concepts": [
+                    {
+                      "id": 837589,
+                      "key": "20d3c1d9-3d76-4917-b83d-1f4bc8b62d41",
+                      "title": "Segmentation",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 858911,
+                      "key": "90639c75-36ad-4b48-8021-ae8ceeb7483e",
+                      "title": "Michael on Detection and Segmentation",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 837594,
+                      "key": "bd90c93f-ff68-4945-94c2-dd9917738924",
+                      "title": "Point Processing",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 837601,
+                      "key": "ddf60438-64d4-4de5-a432-0ecae0c4634c",
+                      "title": "Segmenting the Plane with PCL",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 837607,
+                      "key": "23dee5bb-6b5c-49a6-90d9-93c154e0fdfa",
+                      "title": "Separating Point Clouds",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 837611,
+                      "key": "3bb8391a-dda3-4077-93f0-3cfb0f62ffe7",
+                      "title": "RANSAC",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 837619,
+                      "key": "1d97aa5f-1d6b-48a8-866c-023f191dcc0c",
+                      "title": "Implementing RANSAC for Lines",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 837622,
+                      "key": "00360234-41c4-4ff7-aeb2-1ee2918db24d",
+                      "title": "Extending RANSAC to Planes",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 858915,
+                      "key": "077821f9-1c58-4c2f-928c-75ef4e5056ac",
+                      "title": "Michael on Segmenting the Plane",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 837625,
+                      "key": "d34841d8-d211-4dd1-a068-5fdbf4cfc00d",
+                      "title": "Outro",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    }
+                  ]
+                },
+                {
+                  "id": 837725,
+                  "key": "eb621b0c-c8e3-402a-a078-734111199518",
+                  "version": "1.0.0",
+                  "locale": "en-us",
+                  "semantic_type": "Lesson",
+                  "summary": "Perform Euclidean clustering, and learn how to build KD-Trees to use them to do efficient nearest neighbor search for clustering.",
+                  "title": "Clustering Obstacles",
+                  "duration": 300,
+                  "is_public": true,
+                  "is_project_lesson": false,
+                  "display_workspace_project_only": false,
+                  "lesson_type": "Classroom",
+                  "image": {
+                    "url": "https://s3.amazonaws.com/video.udacity-data.com/topher/2019/March/5c859877_cluster2/cluster2.png",
+                    "width": 948,
+                    "height": 529
+                  },
+                  "video": null,
+                  "lab": null,
+                  "project": null,
+                  "concepts": [
+                    {
+                      "id": 858891,
+                      "key": "ad9a9e6a-3484-4919-98f6-8305f5f488f9",
+                      "title": "What is Clustering?",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 837674,
+                      "key": "ed626282-819a-46be-96ea-f2f9e2a7bcfc",
+                      "title": "Clustering Obstacles",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 837679,
+                      "key": "0ff6f0cf-aac3-40e3-acab-9f077cc15016",
+                      "title": "Euclidean Clustering with PCL",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 837685,
+                      "key": "95f772d5-8fdf-4ba5-9082-f3b89d50af29",
+                      "title": "Implementing KD-Tree",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 837697,
+                      "key": "acc20ee5-3911-4700-8ba4-cafb76875213",
+                      "title": "Inserting Points into KD-Tree",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 837701,
+                      "key": "5425fdc9-7ffe-4b9d-a4f0-94e9a359fedc",
+                      "title": "Insert Points",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 837705,
+                      "key": "18ee9d8d-4cc8-45c2-97d1-1b87cf435b12",
+                      "title": "Searching Points in a KD-Tree",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 837711,
+                      "key": "ce91f5de-1446-49e3-9805-23dcc5690ec4",
+                      "title": "Euclidean Clustering",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 837716,
+                      "key": "c06014ca-5db9-4f06-a091-5ae16cc3004e",
+                      "title": "Bounding Boxes",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 858913,
+                      "key": "9a2d8813-db28-47e1-9057-8361cf30373e",
+                      "title": "Michael on Bounding Boxes",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 837721,
+                      "key": "b294e77a-87ec-4ac8-8a4b-16b96887dcba",
+                      "title": "Extra Challenge: PCA Boxes",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 837724,
+                      "key": "b5b4c9f7-876f-48fb-835a-d9cce8aee534",
+                      "title": "Outro",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    }
+                  ]
+                },
+                {
+                  "id": 837809,
+                  "key": "34d27167-284f-4aa7-a0c4-3dc7944cba1e",
+                  "version": "1.0.0",
+                  "locale": "en-us",
+                  "semantic_type": "Lesson",
+                  "summary": "Take what you have learned in the previous lessons and apply it to real pcd being played back in a video.",
+                  "title": "Working with Real PCD",
+                  "duration": 300,
+                  "is_public": true,
+                  "is_project_lesson": false,
+                  "display_workspace_project_only": false,
+                  "lesson_type": "Classroom",
+                  "image": {
+                    "url": "https://s3.amazonaws.com/video.udacity-data.com/topher/2019/March/5c8599e3_obstacledetectionfps/obstacledetectionfps.gif",
+                    "width": 948,
+                    "height": 532
+                  },
+                  "video": null,
+                  "lab": null,
+                  "project": null,
+                  "concepts": [
+                    {
+                      "id": 837770,
+                      "key": "2f343428-5c13-4cb6-a132-81ea5e43d4ef",
+                      "title": "Load Real PCD",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 837775,
+                      "key": "5daa9f77-4295-413e-a2f7-2c3cf4bff9ac",
+                      "title": "Load PCD",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 858893,
+                      "key": "0e63c70e-0f20-4607-a664-7d351964e25c",
+                      "title": "Challenges with Real World Lidar",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 858895,
+                      "key": "9ad2c7ed-d1e2-4eaf-9961-b2774e95d622",
+                      "title": "Downsampling",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 837780,
+                      "key": "3b47e199-5932-4998-b897-9a2ab6188344",
+                      "title": "Filtering with PCL",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 837789,
+                      "key": "813e459c-c4f8-4a3f-a57a-c9778fbc465a",
+                      "title": "Steps For Obstacle Detection",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 837796,
+                      "key": "23ce25d8-c01b-4d29-992a-79b4559282ff",
+                      "title": "Stream PCD",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 837800,
+                      "key": "c8ccdf35-3501-4709-92d9-e867581298fb",
+                      "title": "Lidar Obstacle Detection Project",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 837805,
+                      "key": "633002e0-4e82-446a-b1a1-8b04837163b4",
+                      "title": "Tracking and Challenge Problem",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 837808,
+                      "key": "cc3edd6d-9332-4bf7-a979-856c10cba6bb",
+                      "title": "Outro",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    }
+                  ]
+                },
+                {
+                  "id": 839820,
+                  "key": "19b0135d-efa7-464a-bc84-aee03b51b50b",
+                  "version": "1.0.0",
+                  "locale": "en-us",
+                  "semantic_type": "Lesson",
+                  "summary": "In this lesson, students will submit the project that they have developed over the previous lessons.",
+                  "title": "Lidar Obstacle Detection Project",
+                  "duration": 240,
+                  "is_public": true,
+                  "is_project_lesson": true,
+                  "display_workspace_project_only": false,
+                  "lesson_type": "Classroom",
+                  "image": {
+                    "url": "https://s3.amazonaws.com/video.udacity-data.com/topher/2019/March/5c85992d_pcdstreamdetection/pcdstreamdetection.gif",
+                    "width": 948,
+                    "height": 532
+                  },
+                  "video": null,
+                  "lab": null,
+                  "project": {
+                    "key": "407d1146-93c4-46f2-8395-200dc23e1a8d",
+                    "version": "1.0.0",
+                    "locale": "en-us",
+                    "duration": 30240,
+                    "semantic_type": "Project",
+                    "title": "Lidar Obstacle Detection",
+                    "description": "Check your project carefully against the rubric [here](https://review.udacity.com/#!/rubrics/2529/view). When you feel like your project meets all of the criteria listed there, you are ready to submit! \n\nYou can submit your project directly from the workspace in the previous concept, or if you have developed your code locally, you can submit using a .zip file or Github repo.\n\n## Project Submission Checklist\n\n**Before submitting your project, please review and confirm the following items.** \n<input type=\"checkbox\"> I am confident all rubric items have been met and my project will pass as submitted. \n<input type=\"checkbox\"> Project builds correctly without errors and runs.\n<input type=\"checkbox\"> All required functionality exists and my project behaves as expected per the project's specifications.\n\n**Once you have checked all these items, you are ready to submit!**\n",
+                    "is_public": true,
+                    "summary": null,
+                    "forum_path": "",
+                    "rubric_id": "2529",
+                    "terminal_project_id": null,
+                    "resources": null,
+                    "image": {
+                      "url": "https://s3.amazonaws.com/video.udacity-data.com/topher/2019/March/5c8c47d1_pcdhero/pcdhero.png",
+                      "width": 1200,
+                      "height": 900
+                    }
+                  },
+                  "concepts": [
+                    {
+                      "id": 839822,
+                      "key": "87863354-fec4-4081-b51c-ef5e247cd361",
+                      "title": "Submitting Your Project",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 842244,
+          "key": "1971021c-523b-414c-93a3-2c6297cf4771",
+          "title": "Camera",
+          "semantic_type": "Part",
+          "is_public": true,
+          "version": "1.0.0",
+          "locale": "en-us",
+          "summary": null,
+          "part_type": "Core",
+          "locked_reason": "not_locked",
+          "locked_until": null,
+          "content_ready_date_ms": null,
+          "resources": null,
+          "image": null,
+          "specialization": null,
+          "modules": [
+            {
+              "id": 842247,
+              "key": "0a71c48d-96ab-4d3a-be96-3ea1e64cf773",
+              "title": "Lessons",
+              "semantic_type": "Module",
+              "is_public": true,
+              "version": "1.0.0",
+              "locale": "en-us",
+              "is_project_module": null,
+              "forum_path": "",
+              "lessons": [
+                {
+                  "id": 847256,
+                  "key": "b6c72849-6474-4d04-a117-db48da3066de",
+                  "version": "1.0.0",
+                  "locale": "en-us",
+                  "semantic_type": "Lesson",
+                  "summary": null,
+                  "title": "Introduction",
+                  "duration": 10,
+                  "is_public": true,
+                  "is_project_lesson": false,
+                  "display_workspace_project_only": false,
+                  "lesson_type": "Classroom",
+                  "image": {
+                    "url": "https://s3.amazonaws.com/video.udacity-data.com/topher/2019/May/5ce5adac_andreas-1/andreas-1.png",
+                    "width": 1038,
+                    "height": 1038
+                  },
+                  "video": null,
+                  "lab": null,
+                  "project": null,
+                  "concepts": [
+                    {
+                      "id": 847257,
+                      "key": "bfa78f6a-0a0c-41f7-b51e-fdf71dabfa9c",
+                      "title": "Welcome",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 858976,
+                      "key": "f8e7493a-976b-4796-bf57-b4411841764f",
+                      "title": "Introduction to Timo",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    }
+                  ]
+                },
+                {
+                  "id": 843586,
+                  "key": "5996c9de-1a94-47ac-87d8-67842ad60beb",
+                  "version": "1.0.0",
+                  "locale": "en-us",
+                  "semantic_type": "Lesson",
+                  "summary": null,
+                  "title": "Autonomous Vehicles and Computer Vision",
+                  "duration": 90,
+                  "is_public": true,
+                  "is_project_lesson": false,
+                  "display_workspace_project_only": false,
+                  "lesson_type": "Classroom",
+                  "image": {
+                    "url": "https://s3.amazonaws.com/video.udacity-data.com/topher/2019/May/5ce5ae4d_camera/camera.jpeg",
+                    "width": 1600,
+                    "height": 1111
+                  },
+                  "video": null,
+                  "lab": null,
+                  "project": null,
+                  "concepts": [
+                    {
+                      "id": 843587,
+                      "key": "9c7c5278-b2d9-4163-9607-43abfc14de43",
+                      "title": "Levels of Autonomous Driving",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 843666,
+                      "key": "6e147e48-5f9f-4a86-b920-c07e11f67f81",
+                      "title": "Autonomous Vehicle Sensor Sets",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 843728,
+                      "key": "efceb298-8539-4f5d-aa0d-0e2e3f2ddc80",
+                      "title": "Camera Technology Overview",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 858987,
+                      "key": "e7578cec-3fc8-4503-ad6c-29684552fb49",
+                      "title": "Camera Technology at MBRDNA",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 843928,
+                      "key": "01268b34-4499-4d3a-8fc1-c7bdd22c1bf7",
+                      "title": "The OpenCV Computer Vision Library",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    }
+                  ]
+                },
+                {
+                  "id": 844609,
+                  "key": "dfe71db5-4233-4e4f-b33f-40cb9899dc13",
+                  "version": "1.0.0",
+                  "locale": "en-us",
+                  "semantic_type": "Lesson",
+                  "summary": null,
+                  "title": "Engineering a Collision Detection System",
+                  "duration": 90,
+                  "is_public": true,
+                  "is_project_lesson": false,
+                  "display_workspace_project_only": false,
+                  "lesson_type": "Classroom",
+                  "image": {
+                    "url": "https://s3.amazonaws.com/video.udacity-data.com/topher/2019/May/5ce5aede_coll-detect/coll-detect.jpg",
+                    "width": 1029,
+                    "height": 1023
+                  },
+                  "video": null,
+                  "lab": null,
+                  "project": null,
+                  "concepts": [
+                    {
+                      "id": 844610,
+                      "key": "be934900-efc9-4f0b-83e9-aa1fcc596888",
+                      "title": "Collision Detection Basics",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": {
+                        "files": [
+                          {
+                            "name": "Exercise-Solutions",
+                            "uri": "https://video.udacity-data.com/topher/2019/May/5ceddbb5_exercise-solutions/exercise-solutions.jpg"
+                          }
+                        ],
+                        "google_plus_link": null,
+                        "career_resource_center_link": null,
+                        "coaching_appointments_link": null,
+                        "office_hours_link": null,
+                        "aws_provisioning_link": null
+                      }
+                    },
+                    {
+                      "id": 844657,
+                      "key": "c78c2068-ff3b-4146-9f1f-77ea44188ef2",
+                      "title": "Estimating TTC with Lidar",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 844700,
+                      "key": "daceaff3-1519-4f4c-82ff-16e02b5c2e8f",
+                      "title": "Estimating TTC with a Camera",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 850792,
+                      "key": "7e308cb6-49b9-4079-9ff8-7ad1640b8d8a",
+                      "title": "Course Structure",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 858992,
+                      "key": "be27ac68-64b1-46a1-bea0-161ad46b90e7",
+                      "title": "Early Fusion vs. Late Fusion",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    }
+                  ]
+                },
+                {
+                  "id": 844730,
+                  "key": "53855af9-95ad-41f6-bb0f-7e5464baa34b",
+                  "version": "1.0.0",
+                  "locale": "en-us",
+                  "semantic_type": "Lesson",
+                  "summary": null,
+                  "title": "Tracking Image Features",
+                  "duration": 90,
+                  "is_public": true,
+                  "is_project_lesson": false,
+                  "display_workspace_project_only": false,
+                  "lesson_type": "Classroom",
+                  "image": {
+                    "url": "https://s3.amazonaws.com/video.udacity-data.com/topher/2019/May/5ce5b125_matching/matching.jpg",
+                    "width": 450,
+                    "height": 450
+                  },
+                  "video": null,
+                  "lab": null,
+                  "project": null,
+                  "concepts": [
+                    {
+                      "id": 844731,
+                      "key": "393aeaa5-b65e-4b33-a6fc-35a6de215313",
+                      "title": "Intensity Gradient and Filtering",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 844765,
+                      "key": "d9b6ff38-e9d3-4723-b598-be901d061f81",
+                      "title": "Haris Corner Detection",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 844792,
+                      "key": "e76a7615-5e3a-441d-a015-b7190ce1b621",
+                      "title": "Overview of Popular Keypoint Detectors",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 844815,
+                      "key": "6958e5a8-7ef9-4417-b522-3add2c626513",
+                      "title": "Gradient-based vs. Binary Descriptors",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 847218,
+                      "key": "ccc26fbd-896a-443e-a381-a1ea53695a84",
+                      "title": "Descriptor Matching",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 859020,
+                      "key": "5e138c20-7a46-4aeb-bb12-12444d9d3288",
+                      "title": "Tracking an Object Across Images",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    }
+                  ]
+                },
+                {
+                  "id": 842250,
+                  "key": "4b340bfe-c1be-400d-b64f-ecbaf51c6fb8",
+                  "version": "1.0.0",
+                  "locale": "en-us",
+                  "semantic_type": "Lesson",
+                  "summary": null,
+                  "title": "Camera Based 2D Feature Tracking",
+                  "duration": 240,
+                  "is_public": true,
+                  "is_project_lesson": true,
+                  "display_workspace_project_only": true,
+                  "lesson_type": "Classroom",
+                  "image": {
+                    "url": "https://s3.amazonaws.com/video.udacity-data.com/topher/2019/May/5ce5b14c_keypoints/keypoints.png",
+                    "width": 743,
+                    "height": 743
+                  },
+                  "video": null,
+                  "lab": null,
+                  "project": {
+                    "key": "b22f25e9-0b43-4854-bdf2-185791009878",
+                    "version": "1.0.0",
+                    "locale": "en-us",
+                    "duration": 10080,
+                    "semantic_type": "Project",
+                    "title": "Camera Based 2D Feature Tracking",
+                    "description": "* Clone the Github Repo for the code [here](https://github.com/udacity/SFND_2D_Feature_Tracking) to work locally, or use the starter code provided in the workspace.\n* Complete the project according to the instructions on the previous page.\n* When you have finished working on your project, check that all rubric points are met before submitting.\n* Submit your project using the workspace.",
+                    "is_public": true,
+                    "summary": null,
+                    "forum_path": "",
+                    "rubric_id": "2549",
+                    "terminal_project_id": null,
+                    "resources": null,
+                    "image": null
+                  },
+                  "concepts": [
+                    {
+                      "id": 847621,
+                      "key": "95ebe4cd-2c42-4c7c-8048-b6f95c98a813",
+                      "title": "Mid-Term Project Introduction",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 848236,
+                      "key": "141829c4-dec6-4694-afa9-c7de75f734d3",
+                      "title": "The Data Buffer",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 848237,
+                      "key": "cf9dd808-3d9c-4895-9c1b-64d02a625023",
+                      "title": "Keypoint Detection",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 848239,
+                      "key": "bdcf470c-e4eb-4a4b-a107-abf39dd6b6df",
+                      "title": "Descriptor Extraction & Matching",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 848241,
+                      "key": "fda6fbe9-b3be-43d1-8ef1-cb89a4130481",
+                      "title": "Performance Evaluation",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 848203,
+                      "key": "81f0b3f7-8811-42a2-9f70-94ba1a00b968",
+                      "title": "Mid-Term Project Workspace and Submission",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    }
+                  ]
+                },
+                {
+                  "id": 847900,
+                  "key": "fb74bfb2-bfe1-4d86-a997-320ab71c0dbd",
+                  "version": "1.0.0",
+                  "locale": "en-us",
+                  "semantic_type": "Lesson",
+                  "summary": null,
+                  "title": "Combining Camera and Lidar",
+                  "duration": 90,
+                  "is_public": true,
+                  "is_project_lesson": false,
+                  "display_workspace_project_only": false,
+                  "lesson_type": "Classroom",
+                  "image": {
+                    "url": "https://s3.amazonaws.com/video.udacity-data.com/topher/2019/May/5ce5b258_3d-objects-2/3d-objects-2.png",
+                    "width": 984,
+                    "height": 984
+                  },
+                  "video": null,
+                  "lab": null,
+                  "project": null,
+                  "concepts": [
+                    {
+                      "id": 847901,
+                      "key": "93e3b893-f874-477f-8f02-1ff465c160de",
+                      "title": "Lidar-to-Camera Point Projection",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 848012,
+                      "key": "77657b72-080f-4d93-b9d7-a6abf3b2e92b",
+                      "title": "Object Detection with YOLO",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 858994,
+                      "key": "63180eea-a420-4052-869b-3a17f5c7b002",
+                      "title": "Standard CV vs Deep Learning",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 848048,
+                      "key": "287ac53f-9169-411d-b125-41e500aa4043",
+                      "title": "Creating 3D-Objects",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    }
+                  ]
+                },
+                {
+                  "id": 842256,
+                  "key": "7d861c32-dbbf-4222-b000-87bbd9f3e07a",
+                  "version": "1.0.0",
+                  "locale": "en-us",
+                  "semantic_type": "Lesson",
+                  "summary": null,
+                  "title": "Track an Object in 3D Space",
+                  "duration": 90,
+                  "is_public": true,
+                  "is_project_lesson": true,
+                  "display_workspace_project_only": true,
+                  "lesson_type": "Classroom",
+                  "image": {
+                    "url": "https://s3.amazonaws.com/video.udacity-data.com/topher/2019/May/5ce5b23f_3dobjects/3dobjects.png",
+                    "width": 544,
+                    "height": 544
+                  },
+                  "video": null,
+                  "lab": null,
+                  "project": {
+                    "key": "7079689a-7970-401b-add2-be8a83843f2e",
+                    "version": "1.0.0",
+                    "locale": "en-us",
+                    "duration": 20160,
+                    "semantic_type": "Project",
+                    "title": "Track an Object in 3D Space",
+                    "description": "You can find the code for this project [here](https://github.com/udacity/SFND_3D_Object_Tracking) and in the project workspace. The grading rubric can be found Check the [project rubric](https://review.udacity.com/#!/rubrics/2550/view) to ensure that all criteria are met. \n\n## Project Submission Checklist\n\n**Before submitting your project, please review and confirm the following items.** \n<input type=\"checkbox\"> I am confident all rubric items have been met and my project will pass as submitted.\n<input type=\"checkbox\"> Project builds correctly without errors and runs.\n<input type=\"checkbox\"> All required functionality exists and my project behaves as expected per the project's specifications.\n\n**Once you have checked all these items, you are ready to submit!**\n",
+                    "is_public": true,
+                    "summary": null,
+                    "forum_path": "",
+                    "rubric_id": "2550",
+                    "terminal_project_id": null,
+                    "resources": null,
+                    "image": null
+                  },
+                  "concepts": [
+                    {
+                      "id": 850399,
+                      "key": "9fbbff06-8a08-4932-9775-350a2a3946b6",
+                      "title": "Overview",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 850401,
+                      "key": "d028ec61-38c7-4bf4-9e6c-b31b6343e7ed",
+                      "title": "Code Overview",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 850403,
+                      "key": "815f9bde-7cd0-4914-85b7-682488cb7f3a",
+                      "title": "Match 3D Objects",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 850405,
+                      "key": "ad5f2275-a6ce-4659-9b8c-771916885999",
+                      "title": "Compute Lidar-based TTC",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 850407,
+                      "key": "0cb5c04d-4dfa-4f62-9e9d-0344b927f1a9",
+                      "title": "Compute Camera-based TTC",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 850409,
+                      "key": "0cfcf44c-21e5-4fd6-a1c7-58b29a3d2f39",
+                      "title": "Performance Evaluation",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 850439,
+                      "key": "76048fcb-37fc-46ca-93ec-598f659746a1",
+                      "title": "Final Project Workspace",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    }
+                  ]
+                },
+                {
+                  "id": 859017,
+                  "key": "be6a4694-8583-4bcc-8a7a-1c7cf397444e",
+                  "version": "1.0.0",
+                  "locale": "en-us",
+                  "semantic_type": "Lesson",
+                  "summary": null,
+                  "title": "Final Thoughts from Timo",
+                  "duration": 5,
+                  "is_public": true,
+                  "is_project_lesson": false,
+                  "display_workspace_project_only": false,
+                  "lesson_type": "Classroom",
+                  "image": null,
+                  "video": null,
+                  "lab": null,
+                  "project": null,
+                  "concepts": [
+                    {
+                      "id": 859018,
+                      "key": "46f0340d-0a99-42dd-8bbb-977be9b00b3e",
+                      "title": "Final Thoughts",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 842243,
+          "key": "0701cbc4-73a7-4e19-895a-0bd0695f0365",
+          "title": "Radar",
+          "semantic_type": "Part",
+          "is_public": true,
+          "version": "1.0.0",
+          "locale": "en-us",
+          "summary": null,
+          "part_type": "Core",
+          "locked_reason": "not_locked",
+          "locked_until": null,
+          "content_ready_date_ms": null,
+          "resources": null,
+          "image": null,
+          "specialization": null,
+          "modules": [
+            {
+              "id": 842246,
+              "key": "b52e21b1-f7ef-434a-9378-58b75dfa6800",
+              "title": "Lessons",
+              "semantic_type": "Module",
+              "is_public": true,
+              "version": "1.0.0",
+              "locale": "en-us",
+              "is_project_module": null,
+              "forum_path": "",
+              "lessons": [
+                {
+                  "id": 846549,
+                  "key": "19ce2a5b-8fab-4ff2-8c80-bf6854840f11",
+                  "version": "1.0.0",
+                  "locale": "en-us",
+                  "semantic_type": "Lesson",
+                  "summary": null,
+                  "title": "Introduction",
+                  "duration": 20,
+                  "is_public": true,
+                  "is_project_lesson": false,
+                  "display_workspace_project_only": false,
+                  "lesson_type": "Classroom",
+                  "image": {
+                    "url": "https://s3.amazonaws.com/video.udacity-data.com/topher/2019/May/5ce5ac81_zaidi-2/zaidi-2.jpg",
+                    "width": 500,
+                    "height": 500
+                  },
+                  "video": null,
+                  "lab": null,
+                  "project": null,
+                  "concepts": [
+                    {
+                      "id": 848303,
+                      "key": "74d5a50f-8d14-4208-8bc2-6eb7382ba4e1",
+                      "title": "Welcome!",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 858996,
+                      "key": "4eb479fd-476d-48cf-bcbb-49b0f58579bb",
+                      "title": "Introduction to Andrei",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 848306,
+                      "key": "f402fe8d-54af-488f-9356-034ad431a45f",
+                      "title": "MATLAB",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    }
+                  ]
+                },
+                {
+                  "id": 843807,
+                  "key": "7fb8e8ec-0246-4e1e-9d12-e3cdf11391b7",
+                  "version": "1.0.0",
+                  "locale": "en-us",
+                  "semantic_type": "Lesson",
+                  "summary": "Review Radar functionality, FMCW waveform, Radar Hardware, Schematic and the Radar Equation",
+                  "title": "Radar Principles ",
+                  "duration": 90,
+                  "is_public": true,
+                  "is_project_lesson": false,
+                  "display_workspace_project_only": false,
+                  "lesson_type": "Classroom",
+                  "image": {
+                    "url": "https://s3.amazonaws.com/video.udacity-data.com/topher/2019/May/5ce5ab84_waves/waves.jpg",
+                    "width": 500,
+                    "height": 500
+                  },
+                  "video": null,
+                  "lab": null,
+                  "project": null,
+                  "concepts": [
+                    {
+                      "id": 858998,
+                      "key": "82031ce1-be64-4a82-ae2f-fa236f7343eb",
+                      "title": "Why Use Radar?",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 843649,
+                      "key": "38df3cda-6708-40e8-b9e0-347d02339007",
+                      "title": "The Radar Sensor",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 843651,
+                      "key": "4af87947-67d4-4b6d-9176-87413df06c1b",
+                      "title": "Signal Properties",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 843654,
+                      "key": "9ca63838-9e9f-4028-832a-e1597ac033a5",
+                      "title": "FMCW",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 843652,
+                      "key": "5ecc4f80-5ba0-4bb4-9351-0557fd03e279",
+                      "title": "FMCW Hardware and Antenna",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 843653,
+                      "key": "4d8b1499-97c9-43af-9bd0-6bd9e4a942fc",
+                      "title": "Radar Cross Section",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 843650,
+                      "key": "c5919bac-18d8-44a6-8aba-4d0296b5f415",
+                      "title": "Radar Range Equation",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 859041,
+                      "key": "aafca927-cc3d-4e47-bce6-34d422a3af90",
+                      "title": "What Does a Sensor Fusion Engineer Need to Know?",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    }
+                  ]
+                },
+                {
+                  "id": 843871,
+                  "key": "f48cb6e7-1bf7-4ffb-81fa-48ad13531ff8",
+                  "version": "1.0.0",
+                  "locale": "en-us",
+                  "semantic_type": "Lesson",
+                  "summary": "Estimate the range and velocity of the target using the FMCW radar",
+                  "title": "Range-Doppler Estimation",
+                  "duration": 90,
+                  "is_public": true,
+                  "is_project_lesson": false,
+                  "display_workspace_project_only": false,
+                  "lesson_type": "Classroom",
+                  "image": {
+                    "url": "https://s3.amazonaws.com/video.udacity-data.com/topher/2019/May/5ce5aab3_doppler/doppler.jpg",
+                    "width": 500,
+                    "height": 500
+                  },
+                  "video": null,
+                  "lab": null,
+                  "project": null,
+                  "concepts": [
+                    {
+                      "id": 846500,
+                      "key": "a76ea229-c9a2-4bf7-900f-d4c07e753184",
+                      "title": "Range, Velocity, and Angle Resolution",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 843868,
+                      "key": "deb02bd8-0da3-4781-91e4-2d89f3031da3",
+                      "title": "Range Estimation",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 843865,
+                      "key": "07e7b5a8-16ad-4b45-a04c-b98c9fa7a12d",
+                      "title": "Doppler Estimation",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 843866,
+                      "key": "42ca6a51-af66-4e63-86b3-7081492ce566",
+                      "title": "Fast Fourier Transform (FFT)",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 843867,
+                      "key": "72479361-51ae-477a-9144-be432709a531",
+                      "title": "The 2D FFT",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 859036,
+                      "key": "c58d17ce-dd96-4aa3-a247-57a2fdec12eb",
+                      "title": "What Kind of Math Do Radar Engineers Use?",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    }
+                  ]
+                },
+                {
+                  "id": 848503,
+                  "key": "ceac76ed-eb0e-4fb0-a7ce-0434f6e524cd",
+                  "version": "1.0.0",
+                  "locale": "en-us",
+                  "semantic_type": "Lesson",
+                  "summary": "Discuss - Clutter formation and then its removal using CFAR technique. After that ",
+                  "title": "Clutter, CFAR, AoA",
+                  "duration": 90,
+                  "is_public": true,
+                  "is_project_lesson": false,
+                  "display_workspace_project_only": false,
+                  "lesson_type": "Classroom",
+                  "image": {
+                    "url": "https://s3.amazonaws.com/video.udacity-data.com/topher/2019/May/5ce5a98d_cfar-2/cfar-2.jpg",
+                    "width": 500,
+                    "height": 500
+                  },
+                  "video": null,
+                  "lab": null,
+                  "project": null,
+                  "concepts": [
+                    {
+                      "id": 848884,
+                      "key": "5d30f4fd-ba99-4d3c-8594-e88a3a6c1937",
+                      "title": "Clutter, CFAR, AoA",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 848497,
+                      "key": "3e714386-23f5-4096-b2ad-fb11bbcfd039",
+                      "title": "Clutter",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 848501,
+                      "key": "33847fdb-3e88-4852-a446-b1c6270a3c10",
+                      "title": "CFAR",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 848500,
+                      "key": "4cc44303-4b7e-45d5-9287-79f155ad9c26",
+                      "title": "CA-CFAR",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 848502,
+                      "key": "2552350a-2fec-4ed7-94a0-0d7a9724afe0",
+                      "title": "CFAR 2D",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 848498,
+                      "key": "c35d4582-bd60-4742-be32-9030250c7bf7",
+                      "title": "Angle of Arrival Introduction",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    }
+                  ]
+                },
+                {
+                  "id": 849097,
+                  "key": "76adf90e-aa59-49b0-8f90-63e19050dccc",
+                  "version": "1.0.0",
+                  "locale": "en-us",
+                  "semantic_type": "Lesson",
+                  "summary": "",
+                  "title": "Clustering and Tracking",
+                  "duration": 90,
+                  "is_public": true,
+                  "is_project_lesson": false,
+                  "display_workspace_project_only": false,
+                  "lesson_type": "Classroom",
+                  "image": {
+                    "url": "https://s3.amazonaws.com/video.udacity-data.com/topher/2019/May/5ce5a911_clustering/clustering.jpg",
+                    "width": 500,
+                    "height": 500
+                  },
+                  "video": null,
+                  "lab": null,
+                  "project": null,
+                  "concepts": [
+                    {
+                      "id": 849749,
+                      "key": "e64b8019-f46f-4c0d-acb3-c28ca0f7f4aa",
+                      "title": "Clustering and Tracking",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 849096,
+                      "key": "7f656e20-1732-4055-81b0-83d3936c642e",
+                      "title": "Clustering",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 849093,
+                      "key": "a3234412-d743-45f9-b91a-0f2cc36914ae",
+                      "title": "Kalman Tracking",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 849094,
+                      "key": "0b993bfd-4429-49eb-bbf7-d1ac4c0d783d",
+                      "title": "MATLAB Sensor Fusion Guided Walkthrough",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    }
+                  ]
+                },
+                {
+                  "id": 842253,
+                  "key": "c65e6b8a-1bcf-4b13-a451-d2d6ac2a4f98",
+                  "version": "1.0.0",
+                  "locale": "en-us",
+                  "semantic_type": "Lesson",
+                  "summary": null,
+                  "title": "Radar Target Generation and Detection",
+                  "duration": 90,
+                  "is_public": true,
+                  "is_project_lesson": true,
+                  "display_workspace_project_only": false,
+                  "lesson_type": "Classroom",
+                  "image": {
+                    "url": "https://s3.amazonaws.com/video.udacity-data.com/topher/2019/May/5ce5a837_radar/radar.jpg",
+                    "width": 500,
+                    "height": 500
+                  },
+                  "video": null,
+                  "lab": null,
+                  "project": {
+                    "key": "f7f13a97-19f6-449b-a019-8dff1b00d2a5",
+                    "version": "1.0.0",
+                    "locale": "en-us",
+                    "duration": 20160,
+                    "semantic_type": "Project",
+                    "title": "Radar Target Generation and Detection",
+                    "description": "To complete this project, you can download the `Radar_Target_Generation_and_Detection.m` starter file from the **Supporting Materials** section below. \n- Follow the steps in the previous concepts to complete your code.\n- Write a README outlining the following:\n  - Implementation steps for the 2D CFAR process. \n  - Selection of Training, Guard cells and offset.\n  - Steps taken to suppress the non-thresholded cells at the edges.\n- Check the [project rubric](https://review.udacity.com/#!/rubrics/2548/view) to ensure that all criteria are met.\n\nWhen you are finished, you can zip your code and README and submit, or submit using a Github repo.\n\n\n## Matlab Download\n\nTo complete the project, you will need to download MATLAB on your computer, if you haven't already. To get started, you can follow these steps:\n\n1. If you do not already have a MathWorks account, create one [here](https://www.mathworks.com/mwaccount/register). Be sure to verify your email (check your Junk/Spam folders) before moving on to step 2.\n2. Download the installer [here](https://www.mathworks.com/licensecenter/classroom/udacity_sf_radar/).\n3. Run the installer – it will guide you through the steps for your OS.",
+                    "is_public": true,
+                    "summary": null,
+                    "forum_path": "",
+                    "rubric_id": "2548",
+                    "terminal_project_id": null,
+                    "resources": {
+                      "files": [
+                        {
+                          "name": "Radar_Target_Generation_and_Detection.m",
+                          "uri": "https://video.udacity-data.com/topher/2019/May/5ce36479_radar-target-generation-and-detection/radar-target-generation-and-detection.m"
+                        }
+                      ],
+                      "google_plus_link": null,
+                      "career_resource_center_link": null,
+                      "coaching_appointments_link": null,
+                      "office_hours_link": null,
+                      "aws_provisioning_link": null
+                    },
+                    "image": {
+                      "url": "https://s3.amazonaws.com/video.udacity-data.com/topher/2019/June/5cfabf14_radar-hero/radar-hero.jpg",
+                      "width": 1200,
+                      "height": 900
+                    }
+                  },
+                  "concepts": [
+                    {
+                      "id": 850295,
+                      "key": "8997122c-174d-4b8b-b672-7ee3d47bb7ff",
+                      "title": "Project Overview",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 850296,
+                      "key": "d1f5fdad-feb7-478a-b0d6-3931dc9d633a",
+                      "title": "Target Generation and Detection",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 850297,
+                      "key": "86d3783c-7c3c-465e-ad67-4a646d9af262",
+                      "title": "FFT Operation",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 850298,
+                      "key": "e1271dc2-7ffb-4e5e-9082-d259a824e00c",
+                      "title": "2D CFAR",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 842245,
+          "key": "da5e72fc-972d-42ae-bb76-fca3d3b2db06",
+          "title": "Kalman Filters",
+          "semantic_type": "Part",
+          "is_public": true,
+          "version": "1.0.0",
+          "locale": "en-us",
+          "summary": null,
+          "part_type": "Core",
+          "locked_reason": "not_locked",
+          "locked_until": null,
+          "content_ready_date_ms": null,
+          "resources": null,
+          "image": null,
+          "specialization": null,
+          "modules": [
+            {
+              "id": 842248,
+              "key": "c32eb575-0080-4a25-a087-98ab84cb3092",
+              "title": "Lessons",
+              "semantic_type": "Module",
+              "is_public": true,
+              "version": "1.0.0",
+              "locale": "en-us",
+              "is_project_module": null,
+              "forum_path": "",
+              "lessons": [
+                {
+                  "id": 168614,
+                  "key": "6ff21566-90b5-4cd7-b13d-95c1a6d46c87",
+                  "version": "1.0.0",
+                  "locale": "en-us",
+                  "semantic_type": "Lesson",
+                  "summary": "Meet the team at Mercedes who will help you track objects in real-time with Sensor Fusion.",
+                  "title": "Introduction and Sensors",
+                  "duration": 30,
+                  "is_public": true,
+                  "is_project_lesson": false,
+                  "display_workspace_project_only": null,
+                  "lesson_type": "Classroom",
+                  "image": {
+                    "url": "https://s3.amazonaws.com/video.udacity-data.com/topher/2018/February/5a822712_2-2-introduction-and-sensors2x/2-2-introduction-and-sensors2x.jpg",
+                    "width": 500,
+                    "height": 500
+                  },
+                  "video": null,
+                  "lab": null,
+                  "project": null,
+                  "concepts": [
+                    {
+                      "id": 663238,
+                      "key": "bcb321e1-f6fd-49ab-9d2a-b8f2f8d84e1d",
+                      "title": "The Benefits of Sensors",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 268273,
+                      "key": "e83c8b9c-a8b9-4bdb-9366-e333aa20dfab",
+                      "title": "Introduction",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 268275,
+                      "key": "bca7ac4e-2beb-416b-b677-ade8dc5664df",
+                      "title": "Radar Strengths and Weaknesses",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 268277,
+                      "key": "4fc84d42-3563-4ba4-93b3-a563833ce252",
+                      "title": "Lidar Strengths and Weaknesses",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 268279,
+                      "key": "3c89640f-da15-4d87-aa6d-95835a33168c",
+                      "title": "Live Data Walkthrough",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 269214,
+                      "key": "d7d3e00f-92bd-4e03-9bc8-d912b309ef07",
+                      "title": "Outro",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    }
+                  ]
+                },
+                {
+                  "id": 278771,
+                  "key": "b3ebef23-64b7-4821-8809-05705165f829",
+                  "version": "1.0.0",
+                  "locale": "en-us",
+                  "semantic_type": "Lesson",
+                  "summary": "Learn from the best! Sebastian Thrun will walk you through the usage and concepts of a Kalman Filter using Python. ",
+                  "title": "Kalman Filters ",
+                  "duration": 120,
+                  "is_public": true,
+                  "is_project_lesson": false,
+                  "display_workspace_project_only": null,
+                  "lesson_type": "Classroom",
+                  "image": {
+                    "url": "https://s3.amazonaws.com/video.udacity-data.com/topher/2018/February/5a822723_2-3-kalman-filters2x/2-3-kalman-filters2x.jpg",
+                    "width": 500,
+                    "height": 500
+                  },
+                  "video": null,
+                  "lab": null,
+                  "project": null,
+                  "concepts": [
+                    {
+                      "id": 278774,
+                      "key": "17b33b33-e1a1-4e0d-8a8b-0ef183e485e0",
+                      "title": "Introduction",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 278777,
+                      "key": "7d2aa768-693f-4438-987e-f8dfe0aaa3e8",
+                      "title": "Tracking Intro",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 278864,
+                      "key": "1154c2c8-55e3-42d6-81d5-24211cceee66",
+                      "title": "Gaussian Intro",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 86397,
+                      "key": "484805880923",
+                      "title": "Variance Comparison",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 24235,
+                      "key": "484529600923",
+                      "title": "Preferred Gaussian",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 30486,
+                      "key": "483118610923",
+                      "title": "Evaluate Gaussian",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 19601,
+                      "key": "484805890923",
+                      "title": "Maximize Gaussian",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 278971,
+                      "key": "08c5d7f0-cc4a-4ceb-9ee8-6424d19e0d25",
+                      "title": "Measurement and Motion",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 29847,
+                      "key": "486867600923",
+                      "title": "Shifting the Mean",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 4036,
+                      "key": "483118630923",
+                      "title": "Predicting the Peak",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 29952,
+                      "key": "486867610923",
+                      "title": "Parameter Update",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 11476,
+                      "key": "487244930923",
+                      "title": "Parameter Update 2",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 35238,
+                      "key": "486058520923",
+                      "title": "Separated Gaussians",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 2465,
+                      "key": "487033390923",
+                      "title": "Separated Gaussians 2",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 995,
+                      "key": "487244940923",
+                      "title": "New Mean and Variance",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 15522,
+                      "key": "486058530923",
+                      "title": "Gaussian Motion",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 2284,
+                      "key": "484529620923",
+                      "title": "Predict Function",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 24437,
+                      "key": "487236030923",
+                      "title": "Kalman Filter Code",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 20569,
+                      "key": "487550350923",
+                      "title": "Kalman Prediction",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 17321,
+                      "key": "486659230923",
+                      "title": "Kalman Filter Land",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 18757,
+                      "key": "483118640923",
+                      "title": "Kalman Filter Prediction",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 136371,
+                      "key": "484805900923",
+                      "title": "Another Prediction",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 29292,
+                      "key": "487380450923",
+                      "title": "More Kalman Filters",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 22717,
+                      "key": "486836600923",
+                      "title": "Kalman Filter Design",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 90841,
+                      "key": "487244950923",
+                      "title": "Kalman Matrices",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 32160,
+                      "key": "487410280923",
+                      "title": "Conclusion",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    }
+                  ]
+                },
+                {
+                  "id": 220632,
+                  "key": "3612b91d-9c33-47ad-8067-a572a6c93837",
+                  "version": "1.0.0",
+                  "locale": "en-us",
+                  "semantic_type": "Lesson",
+                  "summary": "In this lesson, you'll build a Kalman Filter in C++ that's capable of handling data from multiple sources. Why C++? Its performance enables the application of object tracking with a Kalman Filter in real-time.",
+                  "title": "Lidar and Radar Fusion with Kalman Filters in C++",
+                  "duration": 240,
+                  "is_public": true,
+                  "is_project_lesson": false,
+                  "display_workspace_project_only": null,
+                  "lesson_type": "Classroom",
+                  "image": {
+                    "url": "https://s3.amazonaws.com/video.udacity-data.com/topher/2018/February/5a8227b4_2-5-lidar-and-radar-fusion-with-kalman-filers-in-c-2x/2-5-lidar-and-radar-fusion-with-kalman-filers-in-c-2x.jpg",
+                    "width": 500,
+                    "height": 500
+                  },
+                  "video": null,
+                  "lab": null,
+                  "project": null,
+                  "concepts": [
+                    {
+                      "id": 663242,
+                      "key": "14d8924e-a34a-4687-b73c-2f06c758e034",
+                      "title": "Kalman Filters in C++",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 220633,
+                      "key": "fae32644-361b-4a0f-86af-b40ebb3f3bca",
+                      "title": "Intro",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 229650,
+                      "key": "a2a6c61f-afdd-47ae-9e9f-dcbe9916e772",
+                      "title": "Lesson Map and Fusion Flow",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 229654,
+                      "key": "af06ec7e-e32a-441a-b39f-6a3f5c3bcf85",
+                      "title": "Lesson Variables and Equations",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 220636,
+                      "key": "81d536e6-4f6f-4970-94a2-eec7f0a20595",
+                      "title": "Estimation Problem Refresh",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 289292,
+                      "key": "df73ce8f-f476-49ed-a7d0-b67a657616fa",
+                      "title": "Kalman Filter Intuition",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 220638,
+                      "key": "f2081cbe-559a-4671-a8b4-04452531b875",
+                      "title": "Kalman Filter Equations in C++ Part 1",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 229299,
+                      "key": "a0604e14-2832-4646-835a-05f972453f3d",
+                      "title": "Kalman Filter Equations in C++ Part 2",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 229303,
+                      "key": "49cd09a0-08b0-4123-9843-560098e6b219",
+                      "title": "State Prediction",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 229312,
+                      "key": "1ac6e0ac-1809-4864-b58f-870d6bda9b25",
+                      "title": "Process Covariance Matrix",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 229317,
+                      "key": "bb0346e8-a281-44b8-8122-908ea10c28c5",
+                      "title": "Laser Measurements Part 1",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 229527,
+                      "key": "37c38067-012e-49b4-bced-5ad6bd13b001",
+                      "title": "Laser Measurements Part 2",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 229555,
+                      "key": "f1cef488-6a2d-484d-a30d-8caa4fd082fd",
+                      "title": "Laser Measurements Part 3",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 229563,
+                      "key": "252f0093-48ac-4122-aaae-f10214d30320",
+                      "title": "Laser Measurements Part 4",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 229597,
+                      "key": "f4a8731d-ed4e-4f54-9ca4-6c5a5b9b3d34",
+                      "title": "Radar Measurements",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 229607,
+                      "key": "52440212-45a3-4e42-83f3-8e94557a8939",
+                      "title": "Mapping with a Nonlinear Function",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 229611,
+                      "key": "062212bf-bf84-4975-a59c-80b1149d0174",
+                      "title": "Extended Kalman Filter",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 282694,
+                      "key": "d954aaaa-b820-4d82-8282-c0a975ba75b0",
+                      "title": "Multivariate Taylor Series Expansion",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 229621,
+                      "key": "ad446f45-d757-41b0-be5d-3f0a28d3dfd1",
+                      "title": "Jacobian Matrix Part 1",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 229721,
+                      "key": "08fc65c1-04d9-45d3-8a98-abf7bb072dc2",
+                      "title": "Jacobian Matrix Part 2",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 229723,
+                      "key": "f3b2b918-00d5-4af0-9363-410d01b0a1a7",
+                      "title": "EKF Algorithm Generalization",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 229727,
+                      "key": "2e8d701b-1cac-4ec9-926a-246468df593c",
+                      "title": "Sensor Fusion General Flow",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 268182,
+                      "key": "257edb7a-b99f-4942-85ef-5aee48dcd5e2",
+                      "title": "Evaluating KF Performance Part 1",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 268184,
+                      "key": "c46a47f0-7cdc-4e49-b225-5134b438255a",
+                      "title": "Evaluating KF Performance 2",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 229729,
+                      "key": "3a1f24af-a505-4390-86b7-b46460e84635",
+                      "title": "Outro",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    }
+                  ]
+                },
+                {
+                  "id": 266866,
+                  "key": "daf3dee8-7117-48e8-a27a-fc4769d2b954",
+                  "version": "1.0.0",
+                  "locale": "en-us",
+                  "semantic_type": "Lesson",
+                  "summary": "While Extended Kalman Filters work great for linear motion, real objects rarely move linearly. With Unscented Kalman Filters, you'll be able to accurately track non-linear motion!",
+                  "title": "Unscented Kalman Filters",
+                  "duration": 360,
+                  "is_public": true,
+                  "is_project_lesson": false,
+                  "display_workspace_project_only": null,
+                  "lesson_type": "Classroom",
+                  "image": {
+                    "url": "https://s3.amazonaws.com/video.udacity-data.com/topher/2018/February/5a8227dc_2-7-unscented-kalman-filters2x/2-7-unscented-kalman-filters2x.jpg",
+                    "width": 500,
+                    "height": 500
+                  },
+                  "video": null,
+                  "lab": null,
+                  "project": null,
+                  "concepts": [
+                    {
+                      "id": 266867,
+                      "key": "94ffc96e-d013-41db-9211-ffee6bd6e6e0",
+                      "title": "Introduction",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 268190,
+                      "key": "37e2e1bd-9264-4383-b648-57caafab765b",
+                      "title": "The CTRV Model",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 268192,
+                      "key": "a104551c-4b77-4cb6-9cb8-3fb1ddad8b97",
+                      "title": "The CTRV Model State Vector",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 268195,
+                      "key": "ec188154-36ef-4f3c-bdd4-6eccf48181bf",
+                      "title": "CTRV Differential Equation",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 268198,
+                      "key": "8887cb6e-fd20-488d-9f1a-460d6028583e",
+                      "title": "CTRV Integral 1",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 268202,
+                      "key": "6eacabfa-d0df-411e-9f3a-5a6d4ab68637",
+                      "title": "CTRV Integral 2",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 268205,
+                      "key": "2a4a2f24-fbf0-4457-a2fd-124269f8f5b8",
+                      "title": "CTRV Zero Yaw Rate",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 268208,
+                      "key": "e8eaeb90-9588-4662-9b84-6928e31516cf",
+                      "title": "CTRV Process Noise Vector",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 268212,
+                      "key": "510295ae-5ede-47f5-b3aa-fafb997df074",
+                      "title": "CTRV Process Noise Position",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 268217,
+                      "key": "6e56cc5c-4c9c-4714-afe2-caed23feb1b5",
+                      "title": "UKF Process Chain",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 268219,
+                      "key": "7beebd13-bbe2-489b-ad0e-fd6fb159f905",
+                      "title": "What Problem Does the UKF Solve?",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 268221,
+                      "key": "0f791b8c-1d91-44d1-be81-9c15e4d2ea6b",
+                      "title": "UKF Basics Unscented Transformation",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 268224,
+                      "key": "194af2ea-e304-4f35-ac6c-50a6b89c7986",
+                      "title": "Generating Sigma Points",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 268227,
+                      "key": "0b64ec4f-eea0-47b5-9111-365eb7f71f89",
+                      "title": "Generating Sigma Points Assignment 1",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 268230,
+                      "key": "a01da3d5-9c21-409a-b775-9b237987df46",
+                      "title": "Generating Sigma Points Assignment 2",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 268233,
+                      "key": "684424d0-4d25-4aab-8d1c-cf4869fe5f6e",
+                      "title": "UKF Augmentation",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 268235,
+                      "key": "0f72fd3e-b8d2-4e00-abaf-8723b774064a",
+                      "title": "Augmentation Assignment 1",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 268238,
+                      "key": "07444c9b-b4be-4615-96e1-e1b221a9add6",
+                      "title": "Augmentation Assignment 2",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 268241,
+                      "key": "0d0dc68e-f2db-4e23-8576-37f1186775ca",
+                      "title": "Sigma Point Prediction",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 268243,
+                      "key": "63674ce2-43ed-418c-bf8b-d16ae73dffc0",
+                      "title": "Sigma Point Prediction Assignment 1",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 268245,
+                      "key": "19ab81df-0719-4e9c-8c04-236f7449261a",
+                      "title": "Sigma Point Prediction Assignment 2",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 268248,
+                      "key": "a54c336a-9004-4006-b6b5-3f3959f203fc",
+                      "title": "Predicted Mean and Covariance",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 268250,
+                      "key": "bf42ab6c-89db-4459-898f-4f270162edc0",
+                      "title": "Predicted Mean and Covariance Assignment 1",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 268252,
+                      "key": "07b59fdd-adb3-479b-8566-336332cf5f09",
+                      "title": "Predicted Mean and Covariance Assignment 2",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 268254,
+                      "key": "3f67dc00-84f0-442b-88bc-1edf7b69caa7",
+                      "title": "Measurement Prediction",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 268256,
+                      "key": "8ee06b1e-8fb8-4f96-a139-fcd80ed25e51",
+                      "title": "Predict Radar Measurement Assignment 1",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 268258,
+                      "key": "d1a4ce03-73aa-4653-b216-1c6d965fc216",
+                      "title": "Predict Radar Measurement Assignment 2",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 268261,
+                      "key": "01af358d-e74e-4477-8cf0-4de1c451a053",
+                      "title": "UKF Update",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 268263,
+                      "key": "12428648-2b2f-4a41-9bc6-ac3465c023a2",
+                      "title": "UKF Update Assignment 1",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 268265,
+                      "key": "e19bc36c-a671-4799-8c63-cec40544c2aa",
+                      "title": "UKF Update Assignment 2",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 268267,
+                      "key": "f3ba9445-452d-4727-8209-b317d44ff1f1",
+                      "title": "Parameters and Consistency",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 268269,
+                      "key": "b9251b43-1412-4c2b-8a0b-6ef3f1eb729a",
+                      "title": "What to Expect from the Project",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 286170,
+                      "key": "f645ea5b-caeb-467f-ac45-3f7f835c38fc",
+                      "title": "Story Time",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 268271,
+                      "key": "bbeb991a-bebd-4c1f-a590-0ef0ccdd48d6",
+                      "title": "Outro",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 783188,
+                      "key": "ede5392b-72e0-4b46-b920-ef65b34b96bf",
+                      "title": "Bonus Round: Sensor Fusion [Optional]",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    }
+                  ]
+                },
+                {
+                  "id": 842251,
+                  "key": "493be691-f4f2-43bb-a412-3454656b48ab",
+                  "version": "1.0.0",
+                  "locale": "en-us",
+                  "semantic_type": "Lesson",
+                  "summary": "In this lesson, students will submit the project that they have developed over the previous lessons.",
+                  "title": "Unscented Kalman Filter Highway Project",
+                  "duration": 300,
+                  "is_public": true,
+                  "is_project_lesson": true,
+                  "display_workspace_project_only": false,
+                  "lesson_type": "Classroom",
+                  "image": {
+                    "url": "https://s3.amazonaws.com/video.udacity-data.com/topher/2019/April/5cb7bd91_ukf-highway-tracked/ukf-highway-tracked.gif",
+                    "width": 984,
+                    "height": 552
+                  },
+                  "video": null,
+                  "lab": null,
+                  "project": {
+                    "key": "d8a12afe-b96b-4d38-96c2-66ff6371c72c",
+                    "version": "1.0.0",
+                    "locale": "en-us",
+                    "duration": 40320,
+                    "semantic_type": "Project",
+                    "title": "Unscented Kalman Filter Highway Project",
+                    "description": "Check your project carefully against the rubric [here](https://review.udacity.com/#!/rubrics/2551/view). When you feel like your project meets all of the criteria listed there, you are ready to submit! \n\nYou can submit your project directly from the workspace in the previous concept, or if you have developed your code locally, you can submit using a .zip file or Github repo.",
+                    "is_public": true,
+                    "summary": null,
+                    "forum_path": "",
+                    "rubric_id": "2551",
+                    "terminal_project_id": null,
+                    "resources": null,
+                    "image": {
+                      "url": "https://s3.amazonaws.com/video.udacity-data.com/topher/2019/April/5cb7c6f7_ukf-highway/ukf-highway.png",
+                      "width": 973,
+                      "height": 523
+                    }
+                  },
+                  "concepts": [
+                    {
+                      "id": 843736,
+                      "key": "fb9d4925-ba9d-4008-949a-096a8fabed50",
+                      "title": "Submitting Your Project",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 843945,
+                      "key": "ff9e46de-cb72-4217-b965-c13b00633eee",
+                      "title": "Additional Project Details",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 842229,
+          "key": "1e9a9ed0-7f7e-44cc-81ac-e8b2475faa29",
+          "title": "Career Services",
+          "semantic_type": "Part",
+          "is_public": true,
+          "version": "1.0.0",
+          "locale": "en-us",
+          "summary": "These Career Services will ensure you make meaningful connections with industry professionals to accelerate your career growth - whether looking for a job or opportunities to collaborate with your peers. Unlike your Nanodegree projects, you do not need to meet specifications on these Services to progress in your program. Submit these Career Services once, and get honest, personalized feedback and next steps from Udacity Career Coaches!",
+          "part_type": "Core",
+          "locked_reason": "not_locked",
+          "locked_until": null,
+          "content_ready_date_ms": null,
+          "resources": null,
+          "image": {
+            "url": "https://s3.amazonaws.com/video.udacity-data.com/topher/2018/July/5b3a82a4_careers/careers.jpg",
+            "width": 500,
+            "height": 500
+          },
+          "specialization": null,
+          "modules": [
+            {
+              "id": 842230,
+              "key": "97c40fd0-5f40-45fc-997f-6d25ed8cc1c9",
+              "title": "Career Services",
+              "semantic_type": "Module",
+              "is_public": true,
+              "version": "1.0.0",
+              "locale": "en-us",
+              "is_project_module": null,
+              "forum_path": "",
+              "lessons": [
+                {
+                  "id": 831099,
+                  "key": "b01370f1-8760-45f0-b243-dea6d8fd524d",
+                  "version": "1.0.0",
+                  "locale": "en-us",
+                  "semantic_type": "Lesson",
+                  "summary": "You're building your online presence. Now learn how to share your story, understand the tech landscape better, and meet industry professionals.",
+                  "title": "Industry Research",
+                  "duration": 60,
+                  "is_public": true,
+                  "is_project_lesson": false,
+                  "display_workspace_project_only": false,
+                  "lesson_type": "Classroom",
+                  "image": {
+                    "url": "https://s3.amazonaws.com/video.udacity-data.com/topher/2018/July/5b39a9e4_1-2-career-services-available-to-you2x/1-2-career-services-available-to-you2x.jpg",
+                    "width": 500,
+                    "height": 500
+                  },
+                  "video": null,
+                  "lab": null,
+                  "project": null,
+                  "concepts": [
+                    {
+                      "id": 553107,
+                      "key": "0c5d9ad2-f611-43c9-a92c-b614a15c9000",
+                      "title": "Self-Reflection: Design Your Blueprint for Success",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 553118,
+                      "key": "9147099c-a893-49a7-a9ce-80ff17737bb0",
+                      "title": "Debrief: Self-Reflection Exercise Part 1",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 559745,
+                      "key": "70f1ae14-eaa5-474e-b100-a576398731df",
+                      "title": "Debrief: Self-Reflection Exercise Part 2",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 553121,
+                      "key": "cae4d4d0-f3c2-4cd5-a00c-85df2defcf71",
+                      "title": "Map Your Career Journey",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 553138,
+                      "key": "735a7e19-7d3d-46d2-90f0-4af22b5e0dea",
+                      "title": "Debrief: Map Your Career Journey",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 552666,
+                      "key": "68c53736-2d64-41a2-9ddc-8c1c18e7b960",
+                      "title": "Conduct an Informational Interview",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 552673,
+                      "key": "630098fa-ac4b-47ca-811d-eecffdb3b97d",
+                      "title": "How to Request an Informational Interview",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 552717,
+                      "key": "bdc08981-f0f9-425e-8086-4f68bbaf3432",
+                      "title": "Ways to Connect",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 552670,
+                      "key": "922bb7b1-7b36-4940-b9a7-9e5ef84dea72",
+                      "title": "Ask Good Questions",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 552710,
+                      "key": "8d6a9e51-574c-4864-8ad0-b80d17559f48",
+                      "title": "Debrief: Sample Questions Quiz",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 556130,
+                      "key": "ed2f1a7e-3ecd-4ac0-937e-f0a335d5a73b",
+                      "title": "Keep the Conversation Going",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    }
+                  ]
+                },
+                {
+                  "id": 631083,
+                  "key": "20707806-8f14-420f-b613-4196199a88c1",
+                  "version": "1.0.0",
+                  "locale": "en-us",
+                  "semantic_type": "Lesson",
+                  "summary": "Find your next job or connect with industry peers on LinkedIn. Ensure your profile attracts relevant leads that will grow your professional network.",
+                  "title": "Take 30 Min to Improve your LinkedIn",
+                  "duration": 30,
+                  "is_public": true,
+                  "is_project_lesson": true,
+                  "display_workspace_project_only": false,
+                  "lesson_type": "Classroom",
+                  "image": {
+                    "url": "https://s3.amazonaws.com/video.udacity-data.com/topher/2018/February/5a8222c0_1-3-career-services-available-to-you2x/1-3-career-services-available-to-you2x.jpg",
+                    "width": 500,
+                    "height": 500
+                  },
+                  "video": null,
+                  "lab": null,
+                  "project": {
+                    "key": "0051a3da-930f-47a1-bd41-d7fe3bd324f4",
+                    "version": "1.0.0",
+                    "locale": "en-us",
+                    "duration": 1440,
+                    "semantic_type": "Project",
+                    "title": "Improve Your LinkedIn Profile",
+                    "description": "Have job opportunities come to you by optimizing your LinkedIn profile! Complete this simple process to get personalized tips from a career mentor. \n\nHere’s how to submit your LinkedIn profile for feedback now:\n* Check out this [checklist](https://docs.google.com/document/d/1BZMxuKnBNovOyMelEx7d8ktbsWGj0EJ9KaD81dVC1TE/pub?embedded=true) for tips on optimizing your LinkedIn profile (optional).\n* **Make sure your profile is in English.** If you do not have an English profile yet, check out LinkedIn's [advice](https://www.linkedin.com/help/linkedin/answer/1717/creating-or-deleting-a-profile-in-another-language?lang=en) on how to create a secondary language profile.\n* Make your profile publicly visible. Scroll down and set the profile section toggles to `Show` under the “Edit Visibility” section of  [your public profile edit page](https://www.linkedin.com/public-profile/settings?trk=nprofile-public-profile-settings-redirect).\n * ![Edit Visibility](http://lh3.googleusercontent.com/R0A5rnKYyzLPZJ8B_pkyxdKkvab5qQi2LnEpFq2L-F33TSgzmjduHuUyDi-Z_ka2L7oU50UYqQTeU1n8VcM=s0#w=400&h=333 \"Edit Visibility\")\n* Create a custom profile URL in the “Edit URL” section of [your public profile edit page](https://www.linkedin.com/public-profile/settings?trk=nprofile-public-profile-settings-redirect).\n * ![Edit URL](http://lh3.googleusercontent.com/SGdIHFzKav0QZmOSrrP69xch_F0Ufhu9pLy-nDXYDArHUyzAen7ewoLakVOKn3KvX_CVgJjBWkl_FmPTPqM=s0#w=250&h=120 \"Edit URL\")\n* Submit your public profile URL (such as `www.linkedin.com/in/udacitystudent`) for guidance from a career mentor by clicking “Submit Project” below.",
+                    "is_public": true,
+                    "summary": null,
+                    "forum_path": "",
+                    "rubric_id": "1910",
+                    "terminal_project_id": null,
+                    "resources": null,
+                    "image": null
+                  },
+                  "concepts": [
+                    {
+                      "id": 704348,
+                      "key": "c8c3fbd0-b7ba-471e-85b7-eb2b1c3820c0",
+                      "title": "Get Opportunities with LinkedIn",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 703862,
+                      "key": "20efad1e-c7b3-432d-86ad-0e798c795d49",
+                      "title": "Use Your Story to Stand Out",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 703860,
+                      "key": "a891296f-46ea-457c-89d9-f4ec96a40cae",
+                      "title": "Why Use an Elevator Pitch",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 703864,
+                      "key": "0c1acad0-cb41-4260-bd5c-6df07f1b2778",
+                      "title": "Create Your Elevator Pitch",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 708825,
+                      "key": "36e84f5b-204e-48c4-8071-293f49886a85",
+                      "title": "Use Your Elevator Pitch on LinkedIn",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 729380,
+                      "key": "a7deba78-27c8-4735-ad9c-7ab2b2b1ad91",
+                      "title": "Create Your Profile With SEO In Mind",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 728573,
+                      "key": "6ed9b5b0-43cf-4b65-b01d-345e44dfd765",
+                      "title": "Profile Essentials",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 728593,
+                      "key": "d3f369bb-78d7-478a-a909-c6e13683cc18",
+                      "title": "Work Experiences & Accomplishments",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 708828,
+                      "key": "eb90e45b-5d77-458b-af34-0f8eaecd45a8",
+                      "title": "Build and Strengthen Your Network",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 617430,
+                      "key": "64ed9954-b423-4a75-ad70-b2a1fbaa3a6d",
+                      "title": "Reaching Out on LinkedIn",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 728591,
+                      "key": "1d61fe7d-02e6-4376-a0c5-e01e26969d63",
+                      "title": "Boost Your Visibility",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 708834,
+                      "key": "2da1cc73-72cb-4678-b84d-1ab91798e8b3",
+                      "title": "Up Next",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    }
+                  ]
+                },
+                {
+                  "id": 594372,
+                  "key": "de38d0de-afac-4d34-a339-25c2519cf9f9",
+                  "version": "1.0.0",
+                  "locale": "en-us",
+                  "semantic_type": "Lesson",
+                  "summary": "Other professionals are collaborating on GitHub and growing their network. Submit your profile to ensure your profile is on par with leaders in your field.",
+                  "title": "Optimize Your GitHub Profile",
+                  "duration": 75,
+                  "is_public": true,
+                  "is_project_lesson": true,
+                  "display_workspace_project_only": false,
+                  "lesson_type": "Classroom",
+                  "image": {
+                    "url": "https://s3.amazonaws.com/video.udacity-data.com/topher/2018/August/5b7218b9_2-5-add-commits-to-a-repo2x-1/2-5-add-commits-to-a-repo2x-1.jpg",
+                    "width": 592,
+                    "height": 640
+                  },
+                  "video": null,
+                  "lab": null,
+                  "project": {
+                    "key": "4180859007",
+                    "version": "1.0.0",
+                    "locale": "en-us",
+                    "duration": 1440,
+                    "semantic_type": "Project",
+                    "title": "Optimize Your GitHub Profile",
+                    "description": "GitHub Profiles are a key piece of \"evidence\" to an employer that you'd be a good job candidate, because they can see the details of your work. Recruiters use GitHub as a way to find job candidates, and many Nanodegree alumni have received work opportunities from their activity on GitHub. In addition, using GitHub is a way for you to collaborate on projects with other programmers - this will show that you are able to work well with others on an engineering team on the job.\n\n## Submission Instructions\n1. Submit this project after you've done some continuous coding for two weeks, so the reviewer will be able to comment on trends.\n2. Submit your GitHub profile URL as your project.\n3. If you'd like to **opt-out** of this project, please read the instructions underneath the divider line, below.\n\n## Project Resources\n1. [Project Rubric](https://review.udacity.com/#!/rubrics/52/view). *Your project will be reviewed by a Udacity Career Reviewer against this rubric.*\n2. [Project checklist](https://docs.google.com/document/d/1a9AKnNyqfGgdQV5ohPCN5H9ntnEUhMptWMwVBWURCN0/pub?embedded=true). *Based on the project rubric, this is a handy checklist on GitHub best practices.*\n3. [Career Resource Center](https://career-resource-center.udacity.com/linkedin-github-profiles). *Find additional tips and guides on developing your GitHub Profile.*\n\n## Up Next\nContinue developing on GitHub! For project ideas, consider [contributing to open source](https://career-resource-center.udacity.com/contributing-to-open-source).\n\n---\n\n### *Career Review Requirement*\n\n*Your Nanodegree program was designed to ensure your long-term success in the field, and to pursue a successful career you must showcase the skills you’ve learned to employers effectively. **Therefore, this is a requirement for graduation, unless you opt-out.*** \n\n#### Opting Out\n\nIf improving your GitHub profile does not align with your Nanodegree goals, **you may opt-out of this graduation requirement**.\n\nWhen you opt-out:\n\n* *You will no longer be able to submit the GitHub Review from this Nanodegree program and all other Nanodegree programs.*\n* *Your decision to opt-out is final and future access to GitHub Review will need to be purchased separately.*\n\n*If you would like to opt-out, please click [here](https://forms.udacity.com/forms/career-opt-out).*",
+                    "is_public": true,
+                    "summary": "GitHub is a great way for employers to get a sense of how you code. Learn what your GitHub profile says about you and how to improve it to impress employers.",
+                    "forum_path": "c/careers-github-profile-review",
+                    "rubric_id": "52",
+                    "terminal_project_id": "",
+                    "resources": {
+                      "files": [],
+                      "google_plus_link": null,
+                      "career_resource_center_link": null,
+                      "coaching_appointments_link": null,
+                      "office_hours_link": null,
+                      "aws_provisioning_link": null
+                    },
+                    "image": null
+                  },
+                  "concepts": [
+                    {
+                      "id": 653724,
+                      "key": "00b53aa6-a4a0-4eee-a034-39915c379b68",
+                      "title": "Prove Your Skills With GitHub",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 25024,
+                      "key": "58316191600923",
+                      "title": "Introduction",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 41373,
+                      "key": "58492985590923",
+                      "title": "GitHub profile important items",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 19532,
+                      "key": "58315398190923",
+                      "title": "Good GitHub repository",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 21541,
+                      "key": "58503485550923",
+                      "title": "Interview with Art - Part 1",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 44395,
+                      "key": "58334298230923",
+                      "title": "Identify fixes for example “bad” profile",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 5637,
+                      "key": "64958716790923",
+                      "title": "Quick Fixes #1",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 23053,
+                      "key": "64786551490923",
+                      "title": "Quick Fixes #2",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 67965,
+                      "key": "65214390560923",
+                      "title": "Writing READMEs with Walter",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 16617,
+                      "key": "64423071120923",
+                      "title": "Interview with Art - Part 2",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 55196,
+                      "key": "65265285770923",
+                      "title": "Commit messages best practices",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 41944,
+                      "key": "64804050710923",
+                      "title": "Reflect on your commit messages",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 91571,
+                      "key": "65053008530923",
+                      "title": "Participating in open source projects",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 56941,
+                      "key": "64818045500923",
+                      "title": "Interview with Art - Part 3",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 5694,
+                      "key": "65019290470923",
+                      "title": "Participating in open source projects 2",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 22046,
+                      "key": "64858046490923",
+                      "title": "Starring interesting repositories",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 594373,
+                      "key": "156ac946-5ac9-45e8-9ca4-7523e6af7234",
+                      "title": "Next Steps",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": {
+                        "files": [],
+                        "google_plus_link": null,
+                        "career_resource_center_link": null,
+                        "coaching_appointments_link": null,
+                        "office_hours_link": null,
+                        "aws_provisioning_link": null
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 850470,
+          "key": "f5c28b19-8d2c-48a2-8095-7829ff14f6d9",
+          "title": "Autonomous Systems Interview",
+          "semantic_type": "Part",
+          "is_public": true,
+          "version": "1.0.0",
+          "locale": "en-us",
+          "summary": "Start off with some tips on interviewing for an autonomous systems role, then watch how candidates approach their interview questions. Finish off by practicing some questions of your own!",
+          "part_type": "Elective",
+          "locked_reason": "not_locked",
+          "locked_until": null,
+          "content_ready_date_ms": null,
+          "resources": null,
+          "image": null,
+          "specialization": null,
+          "modules": [
+            {
+              "id": 771547,
+              "key": "4b21d31b-d7f9-4635-8e5b-e9a4b67f5a5b",
+              "title": "Autonomous Systems Interview",
+              "semantic_type": "Module",
+              "is_public": true,
+              "version": "1.0.0",
+              "locale": "en-us",
+              "is_project_module": null,
+              "forum_path": "",
+              "lessons": [
+                {
+                  "id": 693192,
+                  "key": "16d404e8-4cb4-4180-996b-50b29f7e3bbd",
+                  "version": "1.0.0",
+                  "locale": "en-us",
+                  "semantic_type": "Lesson",
+                  "summary": "Start off with some tips on interviewing for an autonomous systems role, then watch how candidates approach their interview questions. Finish off by practicing some questions of your own!",
+                  "title": "Autonomous Systems Interview Practice",
+                  "duration": 240,
+                  "is_public": true,
+                  "is_project_lesson": true,
+                  "display_workspace_project_only": false,
+                  "lesson_type": "Classroom",
+                  "image": {
+                    "url": "https://s3.amazonaws.com/video.udacity-data.com/topher/2018/June/5b2c1cee_interview-adobestock-116043939/interview-adobestock-116043939.jpeg",
+                    "width": 500,
+                    "height": 500
+                  },
+                  "video": null,
+                  "lab": null,
+                  "project": {
+                    "key": "feee7390-c9aa-400b-9829-4a93322008ff",
+                    "version": "1.0.0",
+                    "locale": "en-us",
+                    "duration": 0,
+                    "semantic_type": "Project",
+                    "title": "Autonomous Systems Interview Practice Project",
+                    "description": "Once you have completed your project, use the [Project Rubric](https://review.udacity.com/#!/rubrics/2285/view) to review the project. If you have covered all of the points in the rubric, then you are ready to submit! If you see room for improvement in any category in which you do not meet specifications, keep working!",
+                    "is_public": true,
+                    "summary": null,
+                    "forum_path": "",
+                    "rubric_id": "2285",
+                    "terminal_project_id": null,
+                    "resources": null,
+                    "image": {
+                      "url": "https://s3.amazonaws.com/video.udacity-data.com/topher/2018/November/5beb4f47_autonomous-header1200x900/autonomous-header1200x900.png",
+                      "width": 1200,
+                      "height": 900
+                    }
+                  },
+                  "concepts": [
+                    {
+                      "id": 693193,
+                      "key": "acd59300-d439-4bad-a42c-061f382213a8",
+                      "title": "Welcome to the Course!",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 693197,
+                      "key": "f4ae9f88-4d46-469f-b5dd-8078224bdec0",
+                      "title": "Job Titles",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 693198,
+                      "key": "711c1c3a-ddec-4a3a-a7aa-34be804c5c1b",
+                      "title": "Your Part",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 693199,
+                      "key": "b6f70c94-4b70-42d1-ab1c-666159e16e93",
+                      "title": "One Piece of the Puzzle",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 693200,
+                      "key": "61441527-0154-4ad3-adaa-bdfe7fe522d0",
+                      "title": "Job Descriptions",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 693201,
+                      "key": "79334995-669a-4ba3-b510-55f195d2c8e6",
+                      "title": "Research the Company",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 693202,
+                      "key": "a8f57efe-acd8-4029-8cd8-a5f8e17ec415",
+                      "title": "Let's Get Started",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 693203,
+                      "key": "1801e992-85f4-470f-bc5a-24f5f63c08ad",
+                      "title": "Perception Engineer",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 693204,
+                      "key": "20edef40-80ce-48e6-a7c6-80f96817b4e5",
+                      "title": "Perception Engineer Reflection",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 693206,
+                      "key": "1b16830a-8a7e-4122-8eb3-ff1bb1c4341e",
+                      "title": "Deep Learning Engineer",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 693207,
+                      "key": "2ec129d5-5e82-4228-81c0-3a0101d4a998",
+                      "title": "Deep Learning Engineer Reflection",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 693208,
+                      "key": "9d889d94-ee5a-4f85-8e9d-c1384fd25480",
+                      "title": "Motion Planning Engineer",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 693209,
+                      "key": "221a48ad-006b-4211-8c96-65c249390aa6",
+                      "title": "Motion Planning Engineer Reflection",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 693210,
+                      "key": "e21ff13c-a113-4e65-862e-781f36de896d",
+                      "title": "Mapping/Localization Engineer",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 693211,
+                      "key": "e90bb4e3-c1ec-4629-aeea-29619f0620f0",
+                      "title": "Mapping/Localization Engineer Reflection",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 693212,
+                      "key": "15ea4989-651c-4696-aefa-894eb0c4419e",
+                      "title": "Control Engineer",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 693213,
+                      "key": "15b747cf-6b57-4832-933b-32c118773f6d",
+                      "title": "Control Engineer Reflection",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 693214,
+                      "key": "aeb13c1c-e573-4db1-94f4-3afc57c3bc2f",
+                      "title": "My Own Project",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 693215,
+                      "key": "a4d2c07f-7f2b-4577-8430-7dbe17e16b63",
+                      "title": "My Own Project Reflection",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 693220,
+                      "key": "8ee142df-b6ae-4af9-8240-70fa3105bf82",
+                      "title": "Additional Resources to Consider",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 693221,
+                      "key": "78696f6d-1d54-45c8-abd2-0f049c1dab12",
+                      "title": "Final Thoughts",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 693222,
+                      "key": "b5142216-1987-4acb-9545-c5945d95cc81",
+                      "title": "Project Instructions",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 704282,
+                      "key": "8bb966bb-cdee-4275-9a8e-646661779847",
+                      "title": "Perception/Sensor Questions",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 704287,
+                      "key": "7ff562a6-167e-47d9-bdc7-559799bc1528",
+                      "title": "Deep Learning Questions",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 704291,
+                      "key": "d6595086-fa2c-4aa1-8988-def3e7a3b0bc",
+                      "title": "Motion Planning Questions",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 704295,
+                      "key": "065ccecb-42ab-43d5-87c5-7956544b024a",
+                      "title": "Mapping/Localization Questions",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 704298,
+                      "key": "b88e0d95-841f-4d21-9a12-218233acaaaa",
+                      "title": "Control Questions",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    },
+                    {
+                      "id": 693223,
+                      "key": "e9d1a579-8768-417b-95cf-ef5b56f9060c",
+                      "title": "General Questions",
+                      "semantic_type": "Concept",
+                      "is_public": true,
+                      "resources": null
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
