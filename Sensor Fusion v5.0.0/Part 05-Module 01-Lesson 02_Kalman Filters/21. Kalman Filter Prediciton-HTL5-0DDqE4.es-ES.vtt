@@ -1,0 +1,73 @@
+WEBVTT
+Kind: captions
+Language: es-ES
+
+00:00:00.000 --> 00:00:05.000
+En el terreno del filtro de Kalman, vamos a construir un estimador de 2 dimensiones.
+
+00:00:05.000 --> 00:00:12.000
+1 para la ubicación, y 1 para la velocidad denotado por dot x.
+
+00:00:12.000 --> 00:00:18.000
+La velocidad puede ser cero. Puede ser negativa, o puede ser positiva.
+
+00:00:18.000 --> 00:00:22.000
+Si inicialmente sé mi localización, pero no se mi velocidad,
+
+00:00:22.000 --> 00:00:28.000
+entonces lo represento con una gaussiana que se alarga alrededor de la ubicación correcta,
+
+00:00:28.000 --> 00:00:32.000
+pero muy, muy amplia en el espacio de velocidades.
+
+00:00:32.000 --> 00:00:34.000
+Ahora echemos un vistazo a la etapa de predicción.
+
+00:00:34.000 --> 00:00:37.000
+En la etapa de predicción, yo no sé cuál es mi velocidad,
+
+00:00:37.000 --> 00:00:41.000
+por lo que no puedo predecir la localización. Voy a suponerla.
+
+00:00:41.000 --> 00:00:46.000
+Pero milagrosamente, van a tener alguna correlación interesante.
+
+00:00:46.000 --> 00:00:50.000
+por un segundo, sólo debes elegir un punto de esta distribución por aquí.
+
+00:00:50.000 --> 00:00:53.000
+Déjame asumir que mi velocidad es 0.
+
+00:00:53.000 --> 00:00:55.000
+Por supuesto, en la práctica, no sé la velocidad,
+
+00:00:55.000 --> 00:00:58.000
+pero permítanme suponer por un momento que la velocidad es 0.
+
+00:00:58.000 --> 00:01:01.000
+¿Dónde estaría mi posterior después de la predicción?
+
+00:01:01.000 --> 00:01:04.000
+Bueno, sabemos que empezamos en la posición 1.
+
+00:01:04.000 --> 00:01:09.000
+La velocidad es 0, por lo que mi situación probablemente estaría aquí.
+
+00:01:09.000 --> 00:01:12.000
+Ahora vamos a cambiar mi creencia de la velocidad y escoger una diferente.
+
+00:01:12.000 --> 00:01:14.000
+Digamos que la velocidad es 1.
+
+00:01:14.000 --> 00:01:23.000
+¿Dónde estaría mi predicción un paso después a partir de la posición 1 y a velocidad 1?
+
+00:01:23.000 --> 00:01:26.000
+Te voy a dar tres opciones.
+
+00:01:26.000 --> 00:01:30.000
+aquí? aquí? o aquí?
+
+00:01:30.000 --> 00:01:32.000
+Por favor, elija la que tenga más sentido.
+

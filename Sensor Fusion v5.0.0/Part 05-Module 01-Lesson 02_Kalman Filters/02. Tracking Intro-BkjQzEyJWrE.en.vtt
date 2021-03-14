@@ -1,0 +1,100 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:05.490
+So I'd like to take my students onto a little journey to Stanford and show them
+
+00:00:05.490 --> 00:00:10.734
+our self-driving car that uses sensors to sense the environment.
+
+00:00:10.734 --> 00:00:14.934
+So let me dive into the class very much right now.
+
+00:00:14.935 --> 00:00:19.880
+So here you can see the Google self-driving car using a road map,
+
+00:00:19.879 --> 00:00:22.559
+localizing itself, but in
+
+00:00:22.559 --> 00:00:26.109
+addition what's shown here in red are measurements of other vehicles.
+
+00:00:26.109 --> 00:00:31.869
+The car uses lasers and radars to track other vehicles.
+
+00:00:31.870 --> 00:00:35.505
+And today, we're going to talk about how to find other cars.
+
+00:00:35.505 --> 00:00:37.170
+The reason why we'd like to find
+
+00:00:37.170 --> 00:00:40.100
+other cars is because you wouldn't want to run into them.
+
+00:00:40.100 --> 00:00:41.880
+So we have to understand how to interpret
+
+00:00:41.880 --> 00:00:45.825
+sensor data to make assessments not just where these other cars are,
+
+00:00:45.825 --> 00:00:47.595
+as in the localization case,
+
+00:00:47.594 --> 00:00:51.125
+but also how fast they're moving.
+
+00:00:51.125 --> 00:00:55.005
+So if you can drive in a way that avoids collisions with them in the future,
+
+00:00:55.005 --> 00:00:59.910
+it's important not just for cars and for pedestrians and for bicyclists,
+
+00:00:59.909 --> 00:01:04.709
+and understanding where the cars are and making predictions where they're going to
+
+00:01:04.709 --> 00:01:10.304
+move is absolutely essential for safe driving in the Google car project.
+
+00:01:10.305 --> 00:01:13.075
+So in this class we will talk about tracking,
+
+00:01:13.075 --> 00:01:16.600
+and the technique I like to teach you is called a Kalman Filter.
+
+00:01:16.599 --> 00:01:21.640
+This is an insanely popular technique for estimating the state of a system.
+
+00:01:21.640 --> 00:01:24.670
+Kalman Filters estimate a continuous state.
+
+00:01:24.670 --> 00:01:26.019
+And as a result,
+
+00:01:26.019 --> 00:01:29.109
+the Kalman Filter happens to give us a uni-modal distribution,
+
+00:01:29.109 --> 00:01:32.545
+and I'll tell you in a second what that means.
+
+00:01:32.545 --> 00:01:34.430
+Let me start with an example.
+
+00:01:34.430 --> 00:01:36.280
+Consider the car down here.
+
+00:01:36.280 --> 00:01:40.515
+Let's assume it senses this measurement: an object here,
+
+00:01:40.515 --> 00:01:47.965
+here, here, and here at the times t equals 0,
+
+00:01:47.965 --> 00:01:50.215
+t equals 1, 2 and 3.
+
+00:01:50.215 --> 00:01:54.420
+Where would you assume the object would be at t equals four?
+
+00:01:54.420 --> 00:01:56.000
+Check one of those three boxes.
+

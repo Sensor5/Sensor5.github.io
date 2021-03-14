@@ -1,0 +1,31 @@
+WEBVTT
+Kind: captions
+Language: es-ES
+
+00:00:00.000 --> 00:00:02.000
+Así que vamos a programar esto.
+
+00:00:02.000 --> 00:00:04.000
+Te voy a dar el esqueleto de un código.
+
+00:00:04.000 --> 00:00:06.000
+Esta es la misma función de actualización que antes.
+
+00:00:06.000 --> 00:00:08.000
+Y ahora me gustaría que usted haga la función de predecir,
+
+00:00:08.000 --> 00:00:11.000
+que toma nuestra estimación actual y su varianza
+
+00:00:11.000 --> 00:00:15.000
+y el movimiento y su incertidumbre
+
+00:00:15.000 --> 00:00:19.000
+y calcula la nueva actualización de predicción, la media y la varianza.
+
+00:00:19.000 --> 00:00:24.000
+Así por ejemplo, si nuestra prior es 10 y 4, nuestro movimiento es 12 y 4,
+
+00:00:24.000 --> 00:00:28.000
+Me gustaría obtener 22 y 8 de acuerdo a las fórmulas que le acabo de dar.
+

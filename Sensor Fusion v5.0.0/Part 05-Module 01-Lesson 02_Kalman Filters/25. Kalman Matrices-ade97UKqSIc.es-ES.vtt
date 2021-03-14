@@ -1,0 +1,316 @@
+WEBVTT
+Kind: captions
+Language: es-ES
+
+00:00:00.000 --> 00:00:07.871
+Tengo un nuevo reto de programación para usted que le llevará un tiempo,
+
+00:00:08.000 --> 00:00:13.000
+me gustaría que implementara un filtro de Kalman multidimensional para el ejemplo
+
+00:00:13.000 --> 00:00:14.117
+que le acabo de dar.
+
+00:00:14.300 --> 00:00:20.410
+La clase matrix es una clase para la manipulación de matrices que hará que le sea muy fácil.
+
+00:00:20.500 --> 00:00:26.354
+Tiene una función que inicializa matrices. Te voy a mostrar un ejemplo en un segundo.
+
+00:00:27.000 --> 00:00:28.000
+Se puede ajustar a 0.
+
+00:00:28.100 --> 00:00:31.000
+Se puede calcular una matriz de identidad.
+
+00:00:31.000 --> 00:00:33.483
+Puede imprimir una matriz para mostrarla.
+
+00:00:33.600 --> 00:00:38.545
+Sobrecarga de operadores como la suma, la resta,
+
+00:00:39.000 --> 00:00:44.350
+la multiplicación, e incluso calcula la transpuesta de una matriz,
+
+00:00:45.557 --> 00:00:49.086
+y en algo más de código, puede invertir una matriz
+
+00:00:49.435 --> 00:00:51.223
+usando factorización de Cholesky.
+
+00:00:51.989 --> 00:00:53.080
+Aquí hay una función llamada inverse.
+
+00:00:54.079 --> 00:00:56.238
+Esta clase matriz está disponible.
+
+00:00:57.300 --> 00:00:59.476
+Se trata de una versión reducida de lo que se encuentra en las librerias típicas.
+
+00:01:00.116 --> 00:01:02.043
+Y quiero demostrarselo en sólo un segundo.
+
+00:01:03.371 --> 00:01:07.755
+Usted puede hacer una matriz con un comando como este con el argumento entre paréntesis.
+
+00:01:08.731 --> 00:01:09.706
+Es una matriz de 2 dimensiones.
+
+00:01:10.000 --> 00:01:11.865
+En este caso se trata de un vector vertical.
+
+00:01:12.701 --> 00:01:17.043
+Y con el comando show, puede imprimir el resultado del vector vertical.
+
+00:01:17.995 --> 00:01:19.900
+Puede calcular la transpuesta de la siguiente manera.
+
+00:01:20.000 --> 00:01:23.289
+Si ejecutas esto, verás el vector horizontal.
+
+00:01:24.500 --> 00:01:27.700
+Y decir que si desea multiplicar una matriz por un vector,
+
+00:01:27.841 --> 00:01:31.161
+entonces podemos hacer una matriz 2 x 2 con esta inicialización de aquí,
+
+00:01:31.900 --> 00:01:33.762
+una matriz de [12., 8.] y [6., 2.].
+
+00:01:34.435 --> 00:01:35.387
+Podemos imprimir esta matriz.
+
+00:01:36.386 --> 00:01:38.475
+Aquí esta: [12, 8, 6, 2].
+
+00:01:38.870 --> 00:01:39.776
+Estos son los valores de aquí.
+
+00:01:40.472 --> 00:01:42.376
+Y podemos multiplicar F y a.
+
+00:01:43.677 --> 00:01:45.418
+Así que aquí b = F * a.
+
+00:01:46.951 --> 00:01:50.201
+Y si mostramos el resultado, obtenemos el vector 200 80.
+
+00:01:51.246 --> 00:01:55.542
+Eso se obtiene 10 * 12 + 10 * 8 es 200.
+
+00:01:56.099 --> 00:01:59.257
+10 * 6 + 10 * 2 es 80.
+
+00:02:02.206 --> 00:02:05.410
+Así que usando mi libreria matriz, puse un estado inicial.
+
+00:02:06.641 --> 00:02:10.937
+Se trata de un sistema de seguimiento en 1D, donde el estado es la posición
+
+00:02:11.819 --> 00:02:12.609
+y la velocidad.
+
+00:02:13.305 --> 00:02:17.253
+Yo he inicializado ambos a 0 porque no sé la ubicación real y ni la velocidad.
+
+00:02:18.019 --> 00:02:19.482
+Le doy una matriz de incertidumbre
+
+00:02:20.736 --> 00:02:23.220
+donde tengo una incertidumbre muy alta en la posición
+
+00:02:23.731 --> 00:02:26.030
+y una incertidumbre muy alta en la velocidad,
+
+00:02:27.075 --> 00:02:28.000
+y ambas están correlacionados.
+
+00:02:28.200 --> 00:02:30.302
+Esa es la matriz de 1000, 0, 0, 1000.
+
+00:02:31.695 --> 00:02:34.853
+Puedo especificar un movimiento externo, pero es 0, 0, por lo que no tiene ningún efecto,
+
+00:02:35.441 --> 00:02:36.038
+así que ignore esto.
+
+00:02:37.106 --> 00:02:39.474
+Puedo construir la siguiente función de estado, que es la que acabamos de
+
+00:02:39.500 --> 00:02:41.925
+estudiar, [[1., 1] [0, 1].].
+
+00:02:42.818 --> 00:02:47.346
+Que supone que la velocidad está siendo sumada a la posición,
+
+00:02:47.857 --> 00:02:49.946
+y la velocidad sigue siendo la mismo.
+
+00:02:51.177 --> 00:02:53.300
+Puedo construir una función de medición que extrae sólo el primero
+
+00:02:53.400 --> 00:02:54.915
+de 2 valores, 1 y 0,
+
+00:02:55.867 --> 00:02:57.888
+por lo que puedo observar la ubicación, pero no la velocidad.
+
+00:02:58.886 --> 00:02:59.884
+Tengo una incertidumbre de medición.
+
+00:03:00.581 --> 00:03:01.835
+que pasa a ser 1 en este ejemplo.
+
+00:03:02.555 --> 00:03:05.248
+Y tengo una matriz de identidad, [[1., 0.] [0., 1.]].
+
+00:03:06.247 --> 00:03:09.172
+Y luego ejecuto el filtro con estas 3 medidas de aquí,
+
+00:03:09.846 --> 00:03:12.400
+y lo que debe salir es que al ejecutar el filtro,
+
+00:03:12.911 --> 00:03:14.536
+puedo estimar la velocidad
+
+00:03:15.976 --> 00:03:17.207
+y por lo tanto tomar mejores predicciones.
+
+00:03:18.507 --> 00:03:20.411
+En el filtro que quiero que programe,
+
+00:03:21.038 --> 00:03:25.171
+Quiero primero la actualización de la medición, y después la actualización del movimiento.
+
+00:03:25.984 --> 00:03:27.772
+Así que cada vez que ejecute el filtro,
+
+00:03:28.886 --> 00:03:31.440
+Quiero que primero se actualice la medición y después el movimiento.
+
+00:03:33.832 --> 00:03:37.199
+Este es el procedimiento de mi filtro que está vacio y que hay que rellenar
+
+00:03:37.803 --> 00:03:38.848
+donde voy recorriendo todas las medidas,
+
+00:03:40.078 --> 00:03:42.544
+y luego construyo la actualización de la medida y la actualización de movimiento,
+
+00:03:43.143 --> 00:03:45.767
+la predicción, y luego imprimo las estimaciones resultantes.
+
+00:03:46.742 --> 00:03:48.762
+Puedo hacer esto varias veces, 3 veces en este caso.
+
+00:03:50.272 --> 00:03:52.083
+Una vez que he rellenado esto y pulso el botón Run,
+
+00:03:52.965 --> 00:03:53.987
+Me da la siguiente salida.
+
+00:03:54.614 --> 00:03:56.007
+Después de la actualización de la primera medición,
+
+00:03:57.331 --> 00:04:01.800
+Observé la posición 1, la cual aparece copiada aquí
+
+00:04:01.900 --> 00:04:04.041
+esencialmente es 0.999 por aquí.
+
+00:04:05.572 --> 00:04:09.126
+No me entero de nada de la velocidad, por lo que sigue siendo 0, tal y como yo lo inicialice.
+
+00:04:10.125 --> 00:04:13.283
+Y luego hay una matriz de incertidumbre actualizada
+
+00:04:14.095 --> 00:04:17.253
+que ahora muestra lo que sucede hay una correlación fuerte,
+
+00:04:17.973 --> 00:04:19.800
+1000, 1000, 1000, 1000.
+
+00:04:19.900 --> 00:04:22.524
+Que difiere de la inicial sólo en los elementos que habíamos
+
+00:04:22.965 --> 00:04:23.755
+rellenado fuera de la diagonal.
+
+00:04:24.150 --> 00:04:26.216
+Sucede exactamente lo que hace el filtro de Kalman.
+
+00:04:27.145 --> 00:04:28.561
+Y luego observo de nuevo el 2.
+
+00:04:29.630 --> 00:04:33.786
+Quiero que la salida ahora me diga que mi predicción siguiente es: 3.
+
+00:04:34.274 --> 00:04:35.945
+Es la observación más la predicción.
+
+00:04:36.619 --> 00:04:38.778
+Pero ahora tengo una estimación muy buena
+
+00:04:39.777 --> 00:04:40.798
+de lo que es la velocidad.
+
+00:04:42.099 --> 00:04:45.024
+Básicamente es 1, y la razón es que
+
+00:04:45.651 --> 00:04:47.602
+mi filtro de Kalman fue capaz de utilizar
+
+00:04:48.113 --> 00:04:49.970
+las ecuaciones de filtro de Kalman para encontrar este valor.
+
+00:04:51.224 --> 00:04:53.639
+Hay una nueva matriz de covarianza,
+
+00:04:55.032 --> 00:04:58.028
+y para la tercera observación siguiendo con la predicción,
+
+00:04:58.771 --> 00:05:02.463
+la predicción es eficazmente correcta 4, 3.999.
+
+00:05:03.066 --> 00:05:06.991
+La velocidad estimada 1 es correta, que es 0.99999,
+
+00:05:07.501 --> 00:05:10.427
+y todavía tengo otra matriz que ilustra la incertidumbre
+
+00:05:10.500 --> 00:05:13.515
+donde tengo una alta certeza en la estimación de la velocidad,
+
+00:05:13.887 --> 00:05:16.186
+y también una seguridad relativamente alta en la estimación de la posición
+
+00:05:16.300 --> 00:05:17.416
+en comparación con mis dudas iniciales.
+
+00:05:18.670 --> 00:05:20.388
+Así que, ¿puedes escribir el algoritmo de filtro
+
+00:05:21.085 --> 00:05:24.498
+que da salida a los valores exactos de aquí?
+
+00:05:25.729 --> 00:05:27.958
+Esta es una tarea de programación complicada.
+
+00:05:28.000 --> 00:05:30.628
+Lo que tienes que hacer esencialmente es
+
+00:05:30.977 --> 00:05:32.486
+aplicar las ecuaciones que te di.
+
+00:05:32.600 --> 00:05:35.110
+Tienes que familiarizarte con la clase matrix
+
+00:05:36.015 --> 00:05:39.476
+y luego ir a rellenar el código del filtro
+
+00:05:39.986 --> 00:05:42.749
+de acuerdo a las cosas que te mostré
+
+00:05:42.900 --> 00:05:44.282
+para el filtro de Kalman multivariante.
+

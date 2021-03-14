@@ -1,0 +1,22 @@
+WEBVTT
+Kind: captions
+Language: es-ES
+
+00:00:00.000 --> 00:00:02.000
+Vamos a hacer esto de nuevo.
+
+00:00:02.000 --> 00:00:12.000
+Supongamos que nuestras medias son 10 y 13, y las varianzas están desequilibradas, 8 y 2,
+
+00:00:12.000 --> 00:00:15.000
+que se corresponde con la imagen siguiente.
+
+00:00:15.000 --> 00:00:19.000
+Hay una distribución relativamente poco profunda centrada en 10
+
+00:00:19.000 --> 00:00:24.000
+y una distribución mucho más estrecha centrada en 13.
+
+00:00:24.000 --> 00:00:30.000
+Calcule para mí el resultado de μ' y σ²'.
+

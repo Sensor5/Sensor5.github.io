@@ -1,0 +1,67 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:03.900
+Welcome to my second class on common filters.
+
+00:00:03.900 --> 00:00:08.005
+I want to take you on a little tour to where it all began, Stanford University.
+
+00:00:08.005 --> 00:00:10.790
+Behind me is VAIL, Stanford's Automotive Resource Center,
+
+00:00:10.790 --> 00:00:13.050
+and let's go inside.
+
+00:00:13.050 --> 00:00:15.035
+So, this is junior,
+
+00:00:15.035 --> 00:00:17.250
+a Stanford's most recent self-driving car,
+
+00:00:17.250 --> 00:00:19.620
+is the child of Stanley whom you can
+
+00:00:19.620 --> 00:00:23.175
+find in the National Museum of American History in Washington DC.
+
+00:00:23.175 --> 00:00:25.200
+Let me tell you something about the equipment that is
+
+00:00:25.200 --> 00:00:27.175
+on this car that makes it self-driving.
+
+00:00:27.175 --> 00:00:29.100
+So, this rotating thing over here is
+
+00:00:29.100 --> 00:00:32.530
+a laser range finder that takes distance scans 10 times a
+
+00:00:32.530 --> 00:00:35.310
+second about a million data points will be really important
+
+00:00:35.310 --> 00:00:38.550
+for the common filter class I'm teaching you today.
+
+00:00:38.550 --> 00:00:41.810
+Its major function is to spot other cars so you don't run into them.
+
+00:00:41.810 --> 00:00:43.885
+This is the data that comes from the laser.
+
+00:00:43.885 --> 00:00:45.950
+You can see the car parked in the garage right now,
+
+00:00:45.950 --> 00:00:47.210
+you see the back wall.
+
+00:00:47.210 --> 00:00:50.900
+These are all range measurements that tell you how far things are away,
+
+00:00:50.900 --> 00:00:52.910
+and they're essential as the input to
+
+00:00:52.910 --> 00:00:56.350
+the common filter that you're going to learn about today.
+

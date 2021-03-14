@@ -1,0 +1,124 @@
+WEBVTT
+Kind: captions
+Language: es-ES
+
+00:00:00.000 --> 00:00:06.000
+Así que cuando se diseña un filtro Kalman, se necesitan efectivamente dos cosas.
+
+00:00:06.000 --> 00:00:10.000
+Para el estado, se necesita una función de transición de estado,
+
+00:00:10.000 --> 00:00:15.000
+y por lo general es una matriz, por lo que ahora estamos en el mundo del álgebra lineal.
+
+00:00:15.000 --> 00:00:18.000
+Y para las mediciones, se necesita una función de medición.
+
+00:00:18.000 --> 00:00:24.000
+Así que te las voy a dar para nuestro ejemplo del movimiento de un objeto en 1D
+
+00:00:24.000 --> 00:00:31.000
+Sabemos que la nueva ubicación es la ubicación antigua más la velocidad.
+
+00:00:31.000 --> 00:00:35.000
+Convertir esto en esta matriz, tiene un 1 por aquí y un 1 por aquí.
+
+00:00:35.000 --> 00:00:41.000
+La nueva velocidad debe ser sólo la velocidad antigua, lo que nos da 0 por aquí y un 1 por aquí.
+
+00:00:41.000 --> 00:00:46.000
+Si se multiplica esta matriz por este vector, esto es exactamente lo que está consiguiendo.
+
+00:00:46.000 --> 00:00:51.000
+Y para la medición, solamente observamos el primer componente, el lugar, no la velocidad,
+
+00:00:51.000 --> 00:00:55.000
+y que utiliza un vector, una matriz como ésta.
+
+00:00:55.000 --> 00:01:02.000
+Así esta matriz se llama F y esta H.
+
+00:01:02.000 --> 00:01:07.000
+Las verdaderas ecuaciónes de actualización para un filtro de Kalman que están implicadas,
+
+00:01:07.000 --> 00:01:14.000
+yo se las doy, pero por favor, no las memorice, y no voy a demostrarselas.
+
+00:01:14.000 --> 00:01:16.000
+Incluso la demostración es muy complicada.
+
+00:01:16.000 --> 00:01:21.000
+Cada vez que las utilice, solo búsquelas.
+
+00:01:21.000 --> 00:01:27.000
+Hay un paso de predicción donde cojo mi mejor estimación x,
+
+00:01:27.000 --> 00:01:32.000
+se multiplica con una matriz de transición de estado, la matriz F,
+
+00:01:32.000 --> 00:01:37.000
+y sumo lo que sé del movimiento, u.
+
+00:01:37.000 --> 00:01:39.000
+Eso me da mi nueva x.
+
+00:01:39.000 --> 00:01:43.000
+También tengo una covarianza que caracteriza mi incertidumbre,
+
+00:01:43.000 --> 00:01:48.000
+y que se actualiza como sigue, donde T es la transpuesta.
+
+00:01:48.000 --> 00:01:53.000
+También hay un paso actualización de la medida en el que se utiliza la medición Z.
+
+00:01:53.000 --> 00:02:01.000
+Se compara la medición con nuestra predicción, donde H es la función de medición
+
+00:02:01.000 --> 00:02:04.000
+que asigna el estado a las mediciones.
+
+00:02:04.000 --> 00:02:07.000
+A esto le llamamos el error.
+
+00:02:07.000 --> 00:02:15.000
+El error se asigna en una matriz S, que se obtiene mediante la proyección de la incertidumbre del sistema
+
+00:02:15.000 --> 00:02:19.000
+en el espacio de medición usando la función de proyección de la medición
+
+00:02:19.000 --> 00:02:23.000
+más la matriz R, que caracteriza el ruido de la medición.
+
+00:02:23.000 --> 00:02:27.000
+Esto después se proyecta en una variable llamada K, que a menudo se denomina ganancia de Kalman,
+
+00:02:27.000 --> 00:02:30.000
+donde invertimos la matriz S,
+
+00:02:30.000 --> 00:02:36.000
+y, por último, es donde en realidad actualizamos nuestra estimación y nuestra incertidumbre
+
+00:02:36.000 --> 00:02:41.000
+debe ser la ecuación más críptica que he visto en mucho tiempo.
+
+00:02:41.000 --> 00:02:46.000
+Ahora escribí esto para que tenga una definición completa,
+
+00:02:46.000 --> 00:02:49.000
+pero esto es algo que no debe memorizar.
+
+00:02:49.000 --> 00:02:54.000
+Si usted realmente desea entender estas matemáticas, pasa a ser sólo una generalización de las matemáticas
+
+00:02:54.000 --> 00:02:57.000
+Yo te las di para espacios con varias dimensiones,
+
+00:02:57.000 --> 00:03:00.000
+pero te recomendaría que no te precocupes por esto.
+
+00:03:00.000 --> 00:03:06.000
+Hay un conjunto de ecuaciones de álgebra lineal que implementan el filtro de Kalman
+
+00:03:06.000 --> 00:03:07.000
+en las dimensiones superiores.
+

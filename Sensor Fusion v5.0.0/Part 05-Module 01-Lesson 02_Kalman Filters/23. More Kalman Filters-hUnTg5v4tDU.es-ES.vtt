@@ -1,0 +1,160 @@
+WEBVTT
+Kind: captions
+Language: es-ES
+
+00:00:00.000 --> 00:00:07.000
+Cuando usted pone todo esto junto, encontrará que todas estas posibilidades en la gaussiana de aquí,
+
+00:00:07.000 --> 00:00:10.000
+se enlaza con una gaussiana parecida a esta.
+
+00:00:10.000 --> 00:00:16.000
+Y esta es una gaussiana de dos dimensiones muy interesante, que realmente debería pensar en ello.
+
+00:00:16.000 --> 00:00:22.000
+Es evidente que si usted fuera a proyectar esta incertidumbre gaussiana en el espacio de posibles ubicaciones,
+
+00:00:22.000 --> 00:00:27.000
+no podría predecir nada. Es imposible predecir dónde está el objeto.
+
+00:00:27.000 --> 00:00:29.000
+Y la razón es que no sé la velocidad.
+
+00:00:29.000 --> 00:00:34.000
+Además, claramente si proyecta esta gaussiana en el espacio de dot x,
+
+00:00:34.000 --> 00:00:36.000
+es imposible decir cuál es la velocidad.
+
+00:00:36.000 --> 00:00:41.000
+Una sola observación o una única predicción no es suficiente para hacer esta observación.
+
+00:00:41.000 --> 00:00:47.000
+Sin embargo, lo que sabemos es que nuestra localización se correlaciona con la velocidad.
+
+00:00:47.000 --> 00:00:51.000
+Cuanto más rápido me muevo, más a la derecha es la ubicación.
+
+00:00:51.000 --> 00:00:54.000
+Y esto es lo que expresa gaussiana.
+
+00:00:54.000 --> 00:00:59.000
+Si yo, por ejemplo, calculo que mi velocidad era de 2, fui capaz, bajo esta gaussiana,
+
+00:00:59.000 --> 00:01:03.000
+para precisar que realmente mi posición es 3.
+
+00:01:03.000 --> 00:01:05.000
+Eso es realmente notable.
+
+00:01:05.000 --> 00:01:08.000
+Todavía no he descubierto dónde se encuentra, y no hemos descubierto qué tan rápido se está moviendo,
+
+00:01:08.000 --> 00:01:12.000
+pero hemos aprendido mucho sobre la relación de estas dos cosas con esta gaussiana.
+
+00:01:12.000 --> 00:01:20.000
+Para comprender lo poderoso que es esto, ahora vamos a doblar la segunda observación en el instante t = 2.
+
+00:01:20.000 --> 00:01:26.000
+Esta observación no nos dice nada acerca de la velocidad y sólo algo sobre la ubicación.
+
+00:01:26.000 --> 00:01:31.000
+Así que si yo fuera a sacar esto como una gaussiana, --es una gaussiana como esta--,
+
+00:01:31.000 --> 00:01:34.000
+que dice algo acerca de la ubicación, pero no trata sobre la velocidad.
+
+00:01:34.000 --> 00:01:41.000
+Pero si ahora multiplicamos por la priori de la etapa de predicción con la probabilidad de medición,
+
+00:01:41.000 --> 00:01:45.000
+entonces milagrosamente, me sale una gaussiana que se encuentra justo por aquí.
+
+00:01:45.000 --> 00:01:50.000
+Y esta gaussiana ahora tiene una muy buena estimación de cual es mi velocidad
+
+00:01:50.000 --> 00:01:53.000
+y una muy buena estimación de donde estoy.
+
+00:01:53.000 --> 00:02:00.000
+Si tomo esta gaussiana, y predigo un paso adelante, entonces me encuentro por aquí.
+
+00:02:00.000 --> 00:02:03.000
+Ese es exactamente el efecto que tenemos por aquí.
+
+00:02:03.000 --> 00:02:08.000
+Como puedo actualizar esto obtengo una gaussiana como esta, predigo que por aquí.
+
+00:02:08.000 --> 00:02:13.000
+Piense en esto. Esto es realmente un profundo conocimiento acerca de cómo funcionan los filtros de Kalman.
+
+00:02:13.000 --> 00:02:18.000
+En particular, sólo hemos podido observar una variable.
+
+00:02:18.000 --> 00:02:23.000
+Hemos sido capaces de medir la observación para deducir esta otra variable,
+
+00:02:23.000 --> 00:02:27.000
+y la forma en que hemos sido capaces de inferir es que hay un conjunto de ecuaciones físicas
+
+00:02:27.000 --> 00:02:34.000
+que dicen que mi posición, después de un intervalo de tiempo, es mi antigua ubicación más mi velocidad.
+
+00:02:34.000 --> 00:02:40.000
+Y este conjunto de ecuaciones ha sido capaz de propagar las restricciones de las siguientes mediciones
+
+00:02:40.000 --> 00:02:46.000
+volver a esta variable no observable, la velocidad, por lo que además somos capaces de estimar la velocidad.
+
+00:02:46.000 --> 00:02:49.000
+Esto es realmente la clave para entender el filtro de Kalman.
+
+00:02:49.000 --> 00:02:53.000
+Es la clave para entender cómo el coche de Google
+
+00:02:53.000 --> 00:02:57.000
+estima la ubicación de otros coches, y es capaz de hacer predicciones
+
+00:02:57.000 --> 00:03:01.000
+incluso si no es capaz de medir la velocidad directamente.
+
+00:03:01.000 --> 00:03:03.000
+Este es una gran lección.
+
+00:03:03.000 --> 00:03:08.000
+Las variables de un filtro de Kalman, a menudo se llaman estados, ya que reflejan los estados
+
+00:03:08.000 --> 00:03:13.000
+del mundo físico como el del otro coche y la rapidez de su movimiento.
+
+00:03:13.000 --> 00:03:18.000
+Se separan en dos subgrupos: los observables, como la ubicación momentánea,
+
+00:03:18.000 --> 00:03:24.000
+y los ocultos, que en nuestro ejemplo es la velocidad, que nunca pude observar directamente.
+
+00:03:24.000 --> 00:03:30.000
+Pero debido a que esas 2 cosas interactúan, las observaciones posteriores de las variables observables
+
+00:03:30.000 --> 00:03:37.000
+nos dan información acerca de estas variables ocultas, por lo que también se puede estimar
+
+00:03:37.000 --> 00:03:39.000
+lo que son estas variables ocultas.
+
+00:03:39.000 --> 00:03:44.000
+Así que a partir de múltiples observaciones de los lugares del objeto, la ubicación,
+
+00:03:44.000 --> 00:03:47.000
+podemos estimar como de rápido se está moviendo.
+
+00:03:47.000 --> 00:03:52.000
+Que en realidad es el caso de todos los diferentes filtros, pero debido a que los filtros de Kalman resultan ser
+
+00:03:52.000 --> 00:03:55.000
+muy eficientes de calcular, cuando tenemos un problema como este,
+
+00:03:55.000 --> 00:03:58.000
+se tiende a utilizar a menudo sólo un filtro de Kalman.
+

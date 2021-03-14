@@ -1,0 +1,46 @@
+WEBVTT
+Kind: captions
+Language: es-ES
+
+00:00:00.000 --> 00:00:03.000
+Así que ahora vamos a volver y escribir un programa
+
+00:00:03.000 --> 00:00:09.000
+en el que se calcula la nueva media y el nuevo término de la varianza.
+
+00:00:09.000 --> 00:00:13.000
+Así que realmente sólo quiero que escribas un programa Python
+
+00:00:13.000 --> 00:00:16.000
+que implemente las ecuaciones para que podamos probarlas.
+
+00:00:16.000 --> 00:00:20.000
+Te voy a dar un esqueloeto del programa, que tiene una función "update",
+
+00:00:20.000 --> 00:00:24.000
+que coge como entrada una media y una varianza de la distribución priori
+
+00:00:24.000 --> 00:00:27.000
+y una media y una varianza de la segunda distribución
+
+00:00:27.000 --> 00:00:33.000
+y devuelve la nueva media y la nueva varianza del producto de ellas.
+
+00:00:33.000 --> 00:00:38.000
+Y aquí estoy probando con una media de 10 y una varianza de 8,
+
+00:00:38.000 --> 00:00:43.000
+y una media de 13 y una varianza de 2, que fue uno de los ejemplos.
+
+00:00:43.000 --> 00:00:48.000
+La respuesta debe aparecer por aquí -- 12.4 y 1.6.
+
+00:00:48.000 --> 00:00:52.000
+Por supuesto, Python tiende a no darle la salida exacta,
+
+00:00:52.000 --> 00:00:55.000
+así que hay un par de ceros más aquí, pero ignoralos.
+
+00:00:55.000 --> 00:01:01.000
+La respuesta es efectivamente 12.4 y 1.6. ¿Se puede llenar esos vacíos?
+

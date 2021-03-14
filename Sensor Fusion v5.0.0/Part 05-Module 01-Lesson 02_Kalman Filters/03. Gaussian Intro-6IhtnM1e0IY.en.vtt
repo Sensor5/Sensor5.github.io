@@ -1,0 +1,85 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:05.610
+In common features the distribution is given by what's called a Gaussian.
+
+00:00:05.610 --> 00:00:08.250
+Gaussian is a continuous function over the space of
+
+00:00:08.250 --> 00:00:13.285
+locations in the area underneath sums up to one.
+
+00:00:13.285 --> 00:00:17.280
+So use our Gaussian again and if we call
+
+00:00:17.280 --> 00:00:23.310
+the space X then the Gaussian is characterized by two parameters.
+
+00:00:23.309 --> 00:00:27.604
+The mean, often abbreviated with the Greek letter Mu,
+
+00:00:27.605 --> 00:00:29.865
+and the width of the Gaussian,
+
+00:00:29.864 --> 00:00:31.754
+often called the variance.
+
+00:00:31.754 --> 00:00:33.920
+And for reasons that I don't want to go into,
+
+00:00:33.920 --> 00:00:36.980
+it's often written as a quadratic variable,
+
+00:00:36.979 --> 00:00:41.469
+Sigma square so any Gaussian is 1-D,
+
+00:00:41.469 --> 00:00:44.784
+which means the parameter space of a year is one dimensional,
+
+00:00:44.784 --> 00:00:48.569
+is characterized by Mu and Sigma squared.
+
+00:00:48.570 --> 00:00:53.259
+Our task in common spaces is to maintain a Mu and a Sigma squared
+
+00:00:53.259 --> 00:00:58.704
+as our best estimate of the location of the option we are trying to find.
+
+00:00:58.704 --> 00:01:04.609
+The exact formula is an exponential of a quadratic function.
+
+00:01:04.609 --> 00:01:09.269
+If we take the exponent of this complicated expression over here,
+
+00:01:09.269 --> 00:01:14.310
+the quadratic difference of our query point X relative to
+
+00:01:14.310 --> 00:01:20.144
+the mean Mu divided by Sigma square by [inaudible] minus a half.
+
+00:01:20.144 --> 00:01:29.780
+Now if X equals Mu then the enumerator becomes 0 and we have exp of zero which is one.
+
+00:01:29.780 --> 00:01:33.549
+It turns out we have to normalize this by a constant,
+
+00:01:33.549 --> 00:01:36.774
+one over the squared root of two Pi Sigma squared.
+
+00:01:36.775 --> 00:01:41.675
+But for every thing we talked about today this constant won't matter so ignore it.
+
+00:01:41.674 --> 00:01:46.140
+What matters is we have an exponential of a quadratic function over here.
+
+00:01:46.140 --> 00:01:50.974
+So let me draw you a couple of functions and you tell me
+
+00:01:50.974 --> 00:01:57.114
+which one you believe are Gaussian by checking the box on the right side.
+
+00:01:57.114 --> 00:02:00.299
+And please excuse my poor drawing skills here.
+

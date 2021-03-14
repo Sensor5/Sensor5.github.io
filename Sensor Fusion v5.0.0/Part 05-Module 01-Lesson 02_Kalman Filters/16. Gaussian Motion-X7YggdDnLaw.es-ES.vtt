@@ -1,0 +1,136 @@
+WEBVTT
+Kind: captions
+Language: es-ES
+
+00:00:00.000 --> 00:00:04.000
+Así que vamos a dar un paso un paso atrás y mirar lo que hemos logrado.
+
+00:00:04.000 --> 00:00:09.000
+Sabíamos que había una actualización de la medida y una actualización del movimiento,
+
+00:00:09.000 --> 00:00:11.000
+que también se denomina predicción.
+
+00:00:11.000 --> 00:00:14.000
+Y sabemos que la actualización de la medida se lleva a cabo mediante la multiplicación,
+
+00:00:14.000 --> 00:00:17.000
+que es lo mismo que la regla de Bayes,
+
+00:00:17.000 --> 00:00:23.000
+y la actualización del movimiento se realiza por probabilidad total o una suma.
+
+00:00:23.000 --> 00:00:26.000
+Abordordamos el caso más complicado.
+
+00:00:26.000 --> 00:00:28.000
+Esto es en realidad la parte más difícil matemáticamente.
+
+00:00:28.000 --> 00:00:30.000
+Y lo hemos resuelto esto. Con una expresión exacta.
+
+00:00:30.000 --> 00:00:33.000
+que derivamos matemáticamente,
+
+00:00:33.000 --> 00:00:37.000
+y fuiste capaz de escribir un programa informático que implementa este paso del filtro de Kalman.
+
+00:00:37.000 --> 00:00:40.000
+No quiero entrar en demasiada profundidad aquí.
+
+00:00:40.000 --> 00:00:44.000
+Este es un paso muy, muy fácil. Déjame escribirlo para usted.
+
+00:00:44.000 --> 00:00:47.000
+Supongamos que vivimos en un mundo como este.
+
+00:00:47.000 --> 00:00:49.000
+Esta es su mejor estimación actual de donde se encuentre,
+
+00:00:49.000 --> 00:00:51.000
+y esta es su incertidumbre.
+
+00:00:51.000 --> 00:00:55.000
+Y ahora decimos que se mueve hacia el lado derecho a una cierta distancia
+
+00:00:55.000 --> 00:00:59.000
+y que el propia de movimiento tiene su propio conjunto de incertidumbre.
+
+00:00:59.000 --> 00:01:03.000
+Luego se llega a la predicción que suma el movimiento del comando a la media,
+
+00:01:03.000 --> 00:01:08.000
+y esto tiene una mayor incertidumbre sobre la incertidumbre inicial.
+
+00:01:08.000 --> 00:01:10.000
+Intuitivamente esto tiene sentido.
+
+00:01:10.000 --> 00:01:12.000
+Si se mueve a la derecha esta distancia,
+
+00:01:12.000 --> 00:01:15.000
+en expectativa estás exactamente donde usted desea estar
+
+00:01:15.000 --> 00:01:19.000
+pero has perdido información debido a que el movimiento tiende a perder información
+
+00:01:19.000 --> 00:01:22.000
+que se manifiesta en esta incertidumbre de aquí.
+
+00:01:22.000 --> 00:01:25.000
+Las matemáticas de esto son muy, muy fáciles.
+
+00:01:25.000 --> 00:01:30.000
+Su nueva media es la media anterior más el movimiento, a menudo llamado U.
+
+00:01:30.000 --> 00:01:34.000
+Así que si usted se mueve 10 metros, esta será 10 metros.
+
+00:01:34.000 --> 00:01:38.000
+Y su nueva σ² es la antigua σ²
+
+00:01:38.000 --> 00:01:42.000
+más la varianza de la gaussiana del moviento.
+
+00:01:42.000 --> 00:01:45.000
+Esto es todo lo que necesitas saber. Es sólo una suma.
+
+00:01:45.000 --> 00:01:49.000
+Y no se lo voy a demostrar a usted porque es realmente trivial.
+
+00:01:49.000 --> 00:01:52.000
+Pero, en resumen, tenemos una gaussiana por aquí,
+
+00:01:52.000 --> 00:01:57.000
+que tienen una distribución gaussiana para el movimiento, con U como la media
+
+00:01:57.000 --> 00:02:01.000
+y r² como su incertidumbre del movimiento,
+
+00:02:01.000 --> 00:02:06.000
+y la gaussiana resultante en el paso de predicción sólo suma estas 2 cosas:
+
+00:02:06.000 --> 00:02:13.000
+μ más U y σ² más r².
+
+00:02:13.000 --> 00:02:16.000
+Puesto que esto es tán simple, dejeme hacerle una pregunta.
+
+00:02:16.000 --> 00:02:20.000
+Tenemos una gaussiana antes de la etapa de predicción
+
+00:02:20.000 --> 00:02:24.000
+donde mu es igual a 8 y σ² es igual a 4.
+
+00:02:24.000 --> 00:02:29.000
+Entonces nos movemos hacia la derecha un total de 10,
+
+00:02:29.000 --> 00:02:33.000
+con una incertidumbre de movimiento de 6.
+
+00:02:33.000 --> 00:02:37.000
+Traza la gaussiana de la predicción
+
+00:02:37.000 --> 00:02:42.000
+y dame la nueva μ y la nueva σ².
+

@@ -1,0 +1,64 @@
+WEBVTT
+Kind: captions
+Language: es-ES
+
+00:00:00.000 --> 00:00:05.000
+En filtros de Kalman iteramos entre medición y movimiento.
+
+00:00:05.000 --> 00:00:08.000
+Esto a menudo se llama "actualización de la medida",
+
+00:00:08.000 --> 00:00:10.000
+y esto a menudo se llama "predicción".
+
+00:00:10.000 --> 00:00:17.000
+Y esta actualización va a utilizar la regla de Bayes, que no es otra cosa que un producto o una multiplicación.
+
+00:00:17.000 --> 00:00:24.000
+Y esta actualización usará la probabilidad total, que es la convolución,
+
+00:00:24.000 --> 00:00:27.000
+o simplemente una suma.
+
+00:00:27.000 --> 00:00:35.000
+Hablemos primero sobre el ciclo de medición y el ciclo predicción,
+
+00:00:35.000 --> 00:00:44.000
+utilizando nuestra gran gaussiana, para la aplicación de estos pasos.
+
+00:00:44.000 --> 00:00:47.000
+Así que supongamos que usted está localizando a otro vehículo,
+
+00:00:47.000 --> 00:00:50.000
+y tiene una distribución a priori que se ve de la siguiente manera.
+
+00:00:50.000 --> 00:00:55.000
+Es un gaussiana muy amplia con la media aquí.
+
+00:00:55.000 --> 00:00:58.000
+Y ahora, digamos que obtiene una medición que nos dice algo acerca de
+
+00:00:58.000 --> 00:01:03.000
+la localización del vehículo, como esta.
+
+00:01:03.000 --> 00:01:07.000
+Tiene una media por aquí llamada ν,
+
+00:01:07.000 --> 00:01:11.000
+y en este ejemplo tiene una covarianza mucho menor para la medición.
+
+00:01:11.000 --> 00:01:16.000
+Este es un ejemplo en el que nuestra priori era bastante incierta acerca de la localización,
+
+00:01:16.000 --> 00:01:21.000
+pero la medida nos contó un poco acerca de dónde está el vehículo.
+
+00:01:21.000 --> 00:01:23.000
+Así que aquí está la pregunta para ti.
+
+00:01:23.000 --> 00:01:36.000
+¿Dónde estará la nueva media de la gaussiana posterior aquí, por aquí, o aquí?
+
+00:01:36.000 --> 00:01:39.000
+Marque una de las tres casillas.
+

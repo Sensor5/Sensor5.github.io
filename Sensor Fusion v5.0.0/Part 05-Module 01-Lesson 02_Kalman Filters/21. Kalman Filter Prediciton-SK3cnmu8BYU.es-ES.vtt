@@ -1,0 +1,22 @@
+WEBVTT
+Kind: captions
+Language: es-ES
+
+00:00:00.000 --> 00:00:04.000
+Y la respuesta es que está justo aquí. ¿Por qué?
+
+00:00:04.000 --> 00:00:11.000
+Si un coche empieza en este punto de aquí, por lo que conocemos que la ubicación es 1,
+
+00:00:11.000 --> 00:00:15.000
+y la velocidad es 1, y, si predecimos 1 paso de tiempo en el futuro
+
+00:00:15.000 --> 00:00:20.000
+entonces, sabemos que para la predicción la ubicación será 2,
+
+00:00:20.000 --> 00:00:24.000
+y la velocidad podría ser un poco incierta, pero se mantiene casi igual.
+
+00:00:24.000 --> 00:00:27.000
+Así que terminamos con el punto aquí. Vamos a hacer esto de nuevo.
+

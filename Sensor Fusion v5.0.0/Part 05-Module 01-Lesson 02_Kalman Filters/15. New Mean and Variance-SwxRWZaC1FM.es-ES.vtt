@@ -1,0 +1,37 @@
+WEBVTT
+Kind: captions
+Language: es-ES
+
+00:00:00.000 --> 00:00:04.000
+Está es mi respuesta. Esta es la expresión para la media.
+
+00:00:04.000 --> 00:00:07.000
+Esta es la de la varianza.
+
+00:00:07.000 --> 00:00:10.000
+Lo ejecuto, y me da la misma respuesta exacta.
+
+00:00:10.000 --> 00:00:15.000
+Lo ejecuto de nuevo para mi otro ejemplo de con las varianzas iguales y 10 y 12 como medias,
+
+00:00:15.000 --> 00:00:18.000
+y, milagrosamente, sale la respuesta correcta:
+
+00:00:18.000 --> 00:00:22.000
+11 para la nueva media y 2 para la nueva varianza.
+
+00:00:22.000 --> 00:00:25.000
+Si esta programado correctamente, entonces felicidades!
+
+00:00:25.000 --> 00:00:28.000
+Usted acaba de programar un paso esencial en la actualización del filtro de Kalman:
+
+00:00:28.000 --> 00:00:30.000
+la etapa de actualización de la medida.
+
+00:00:30.000 --> 00:00:33.000
+Esto es un paso muy difícil en el filtrado de Kalman.
+
+00:00:33.000 --> 00:00:39.000
+El otro, el paso de predicción o la etapa de movimiento, es mucho, mucho más fácil de programar.
+

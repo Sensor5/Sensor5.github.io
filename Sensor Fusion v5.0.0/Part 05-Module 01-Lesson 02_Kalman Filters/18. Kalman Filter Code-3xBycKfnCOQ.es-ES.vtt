@@ -1,0 +1,76 @@
+WEBVTT
+Kind: captions
+Language: es-ES
+
+00:00:00.000 --> 00:00:02.000
+Así que ahora vamos a poner todo junto.
+
+00:00:02.000 --> 00:00:08.000
+Vamos a escribir un programa principal que coge estas 2 funciones, update y predict,
+
+00:00:08.000 --> 00:00:12.000
+e introducimos una secuencia de mediciones y movimientos.
+
+00:00:12.000 --> 00:00:17.000
+En el ejemplo que he escogido son las medidas 5., 6., 7., 9., y 10.
+
+00:00:17.000 --> 00:00:21.000
+Los movimientos son 1., 1., 2., 1., 1.
+
+00:00:21.000 --> 00:00:25.000
+Todo esto funcionaría muy bien si la estimación inicial era de 5,
+
+00:00:25.000 --> 00:00:31.000
+pero lo estamos estableciendo a 0 con una incertidumbre muy grande de 10.000.
+
+00:00:31.000 --> 00:00:33.000
+Supongamos que la incertidumbre de la medición es constante 4,
+
+00:00:33.000 --> 00:00:36.000
+y la incertidumbre movimiento es constante 2.
+
+00:00:36.000 --> 00:00:41.000
+Cuando ejecute esto, su primera estimación para la posición, básicamente, debe convertirse en 5,
+
+00:00:41.000 --> 00:00:46.000
+4.99, y la razón es que la incertidumbre inicial es muy grande,
+
+00:00:46.000 --> 00:00:49.000
+la estimación está dominada por la primera medición.
+
+00:00:49.000 --> 00:00:52.000
+Su incertidumbre se reduce a 3.99, que es un poco mejor que
+
+00:00:52.000 --> 00:00:54.000
+la incertidumbre de la medición.
+
+00:00:54.000 --> 00:01:00.000
+Entonces, predices que hay que sumar 1, pero la incertidumbre aumenta a 5.99,
+
+00:01:00.000 --> 00:01:02.000
+que es la incertidumbre del movimiento 2.
+
+00:01:02.000 --> 00:01:07.000
+Se actualiza de nuevo basado en la medición 6, se obtiene la estimación 5.99,
+
+00:01:07.000 --> 00:01:08.000
+que es casi 6.
+
+00:01:08.000 --> 00:01:15.000
+Te mueves 1 de nuevo. Mides 7. Te mueves 2. Mides 9. Te mueves 1.
+
+00:01:15.000 --> 00:01:17.000
+Mides 10, y finalmente te mueves 1.
+
+00:01:17.000 --> 00:01:22.000
+Y aparece como resultado final, una predicción de 10.99 para la posición,
+
+00:01:22.000 --> 00:01:25.000
+que es tu posición 10 más un movimiento de 1,
+
+00:01:25.000 --> 00:01:30.000
+y la incertidumbre -- la incertidumbre residual, es 4.
+
+00:01:30.000 --> 00:01:34.000
+¿Puede implementar esto para que pueda obtener exactamente el mismo resultado que he conseguido aquí?
+

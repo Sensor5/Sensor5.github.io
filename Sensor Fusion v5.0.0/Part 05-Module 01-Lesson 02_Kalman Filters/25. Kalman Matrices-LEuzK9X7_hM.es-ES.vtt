@@ -1,0 +1,238 @@
+WEBVTT
+Kind: captions
+Language: es-ES
+
+00:00:00.000 --> 00:00:02.000
+Y aquí está mi código.
+
+00:00:02.000 --> 00:00:04.000
+Si tienes esto correcto,
+
+00:00:04.000 --> 00:00:09.000
+entonces estaré muy impresionado con lo que has hecho porque
+
+00:00:09.000 --> 00:00:12.000
+has hecho algo que a menudo necesita muchas, muchas clases
+
+00:00:12.000 --> 00:00:16.000
+para explicarselo a los estudiantes, y dentro de una misma clase,
+
+00:00:16.000 --> 00:00:19.000
+Has comprendido la esencia de la misma y has escrito un trozo de código
+
+00:00:19.000 --> 00:00:23.000
+que en realidad no es fácil, puedes reutilizarlo muchas veces,
+
+00:00:23.000 --> 00:00:27.000
+y es el nucleo de la capacidad del coche de Google para detectar a otros vehículos.
+
+00:00:27.000 --> 00:00:30.000
+Aquí está la implementación línea a línea
+
+00:00:30.000 --> 00:00:33.000
+de lo que te he mostrado antes para la actualización de la medida
+
+00:00:33.000 --> 00:00:36.000
+y la predicción. Y verá
+
+00:00:36.000 --> 00:00:39.000
+que estoy usando mi clase matrix para implementar
+
+00:00:39.000 --> 00:00:42.000
+paso a paso, exactamente lo que te he mostrado.
+
+00:00:42.000 --> 00:00:44.000
+Es un poco no-trivial.
+
+00:00:44.000 --> 00:00:47.000
+Tenemos que hacer una matriz de medición para la n-ésima medición.
+
+00:00:47.000 --> 00:00:50.000
+Si resolvio el problema, probablemente tenga algo como esto.
+
+00:00:50.000 --> 00:00:52.000
+El cálculo del error,
+
+00:00:52.000 --> 00:00:55.000
+la matriz S con la transpuesta,
+
+00:00:55.000 --> 00:00:58.000
+la ganancia de Kalman K con la inversa,
+
+00:00:58.000 --> 00:01:03.000
+Volvemos a mi siguiente predicción y mi actualización de la medida.
+
+00:01:03.000 --> 00:01:05.000
+Y este es el paso de predicción.
+
+00:01:05.000 --> 00:01:09.000
+Se puede ver que implementa exactamente lo que te enseñé
+
+00:01:09.000 --> 00:01:12.000
+son estas dos ecuaciones de aquí.
+
+00:01:12.000 --> 00:01:16.000
+Ahora que conozco la programación que esto implica,
+
+00:01:16.000 --> 00:01:18.000
+estoy realmente impresionado si fue capaz de hacer esto.
+
+00:01:18.000 --> 00:01:22.000
+Si has hecho esto, usted ha logrado algo muy, muy importante.
+
+00:01:22.000 --> 00:01:25.000
+Ahora entiende los filtros de Kalman.
+
+00:01:25.000 --> 00:01:28.000
+Y usted ha implementado un filtro Kalman multidimensional
+
+00:01:28.000 --> 00:01:33.000
+todos por su cuenta usando una clase matrix
+
+00:01:33.000 --> 00:01:35.000
+bastante mecánica que escribí para ti.
+
+00:01:35.000 --> 00:01:38.000
+Lo ejecutó, y ha obtenido muy buenos resultados
+
+00:01:38.000 --> 00:01:44.000
+en donde con una secuencia de estimaciones de posición, 1, 2, 3,
+
+00:01:44.000 --> 00:01:47.000
+le llevó a hacer una predicción
+
+00:01:47.000 --> 00:01:51.000
+y captar la velocidad del objeto en movimiento.
+
+00:01:51.000 --> 00:01:54.000
+Así que estas son las ecuaciones que acaba de implementar.
+
+00:01:54.000 --> 00:01:56.000
+¡Felicidades!
+
+00:01:56.000 --> 00:01:59.000
+Usted realmente entiende los fundamentos
+
+00:01:59.000 --> 00:02:02.000
+que creo que son realmente esenciales para la inteligencia artificial
+
+00:02:02.000 --> 00:02:05.000
+y para construir coches que se conducen sólos.
+
+00:02:05.000 --> 00:02:09.000
+Ha implementado eficazmente nuestro método para encontrar otros coches.
+
+00:02:09.000 --> 00:02:12.000
+Déjame poner esto en contexto.
+
+00:02:12.000 --> 00:02:14.000
+He aquí el coche de Google.
+
+00:02:14.000 --> 00:02:16.000
+Aquí hay otro coche.
+
+00:02:16.000 --> 00:02:21.000
+Nuestro coche de Google tiene un radar en el parachoques delantero
+
+00:02:21.000 --> 00:02:24.000
+que mide la distancia a los vehículos
+
+00:02:24.000 --> 00:02:27.000
+y también proporciona una estimación ruidosa de la velocidad.
+
+00:02:27.000 --> 00:02:30.000
+Y también utiliza su láser,
+
+00:02:30.000 --> 00:02:33.000
+y de nuevo, mide la distancia con el vehículo pero no las velocidades.
+
+00:02:33.000 --> 00:02:36.000
+Si pinta la misma situación desde arriba,
+
+00:02:36.000 --> 00:02:38.000
+aquí está el coche de Google.
+
+00:02:38.000 --> 00:02:40.000
+está localizado en el mapa.
+
+00:02:40.000 --> 00:02:45.000
+Aquí hay otro vehículo, y otro más.
+
+00:02:45.000 --> 00:02:51.000
+Usando los radares y los láseres, el coche de Google calcula la distancia
+
+00:02:51.000 --> 00:02:54.000
+y la velocidad de todos estos vehículos,
+
+00:02:54.000 --> 00:02:58.000
+y lo hace utilizando un filtro de Kalman,
+
+00:02:58.000 --> 00:03:00.000
+donde se alimenta de los datos del láser,
+
+00:03:00.000 --> 00:03:07.000
+y utiliza el espacio de estados como éste de la distancia relativa en x e y
+
+00:03:07.000 --> 00:03:11.000
+y la velocidad relativa en X e Y junto con las matrices de transición de estado
+
+00:03:11.000 --> 00:03:15.000
+del tipo de las que te acabo de mostrar
+
+00:03:15.000 --> 00:03:18.000
+esto es donde están los otros coches, y esto es exactamente lo que usted acaba de aprender
+
+00:03:18.000 --> 00:03:21.000
+y usted mismo ha programado.
+
+00:03:21.000 --> 00:03:24.000
+Yo no te he dicho cómo extraer la ubicación de otros coches desde radar y el láser.
+
+00:03:24.000 --> 00:03:26.000
+Hay algo que se llama el problema de correspondencia.
+
+00:03:26.000 --> 00:03:28.000
+A veces uno no sabe cuál es cada vehículo,
+
+00:03:28.000 --> 00:03:31.000
+y no voy a hablar en profundidad mucho al respecto.
+
+00:03:31.000 --> 00:03:34.000
+Pero usted entiende la ensencia de la solución,
+
+00:03:34.000 --> 00:03:36.000
+y has sido capaz de programarlo.
+
+00:03:36.000 --> 00:03:38.000
+Así que si usted estuviera en una situación como ésta,
+
+00:03:38.000 --> 00:03:42.000
+puede utilizar los datos del láser y los datos del radar
+
+00:03:42.000 --> 00:03:44.000
+y llegar a un algoritmo razonable que tome
+
+00:03:44.000 --> 00:03:47.000
+medidas momentáneas de otros coches
+
+00:03:47.000 --> 00:03:51.000
+y no sólo cálculos aproximados de donde están, sino también la rapidez con que se están moviendo.
+
+00:03:51.000 --> 00:03:53.000
+Eso es realmente una hazaña tremenda.
+
+00:03:53.000 --> 00:03:55.000
+Felicidades por haber llegado hasta aquí.
+
+00:03:55.000 --> 00:03:57.000
+Si has llegado hasta aquí en mi clase,
+
+00:03:57.000 --> 00:04:01.000
+Te prometo que acaba de digerir lo más difícil que
+
+00:04:01.000 --> 00:04:03.000
+Tengo que enseñarte en toda la clase entera.
+
+00:04:03.000 --> 00:04:05.000
+¡Felicidades!
+

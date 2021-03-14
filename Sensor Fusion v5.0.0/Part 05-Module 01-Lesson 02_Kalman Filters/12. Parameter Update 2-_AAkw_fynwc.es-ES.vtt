@@ -1,0 +1,37 @@
+WEBVTT
+Kind: captions
+Language: es-ES
+
+00:00:00.000 --> 00:00:06.000
+Y con un poco de matemáticas nos encontramos con que la nueva media es de 12.4,
+
+00:00:06.000 --> 00:00:09.000
+y la nueva σ² es 1.6.
+
+00:00:09.000 --> 00:00:16.000
+12.4 es mucho más cercano a 13 que 10, y eso es porque la gaussiana centrada en 13
+
+00:00:16.000 --> 00:00:19.000
+tiene una variación mucho más estrecha que la de 10.
+
+00:00:19.000 --> 00:00:25.000
+Y encontramos que la variación resultante es más pequeña que cada una de las dos varianzas de aquí.
+
+00:00:25.000 --> 00:00:28.000
+En particular, vamos a empezar con la varianza.
+
+00:00:28.000 --> 00:00:39.000
+1 sobre 1/8 más 1/2 es lo mismo que 1 sobre 5/8, que da lugar a 8/5 o 1.6.
+
+00:00:39.000 --> 00:00:42.000
+Esto es sólo la aplicación de esta fórmula de aquí.
+
+00:00:42.000 --> 00:00:48.000
+Para el promedio ponderado tenemos 2 por 10 más 8 por 13.
+
+00:00:48.000 --> 00:00:53.000
+Y luego se normaliza con la suma de esats dos cosas de aquí.
+
+00:00:53.000 --> 00:00:58.000
+Así que esto es 124 dividido por 10, nos da 12.4.
+

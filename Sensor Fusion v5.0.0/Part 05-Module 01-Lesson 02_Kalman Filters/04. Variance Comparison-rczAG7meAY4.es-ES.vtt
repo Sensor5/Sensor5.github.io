@@ -1,0 +1,40 @@
+WEBVTT
+Kind: captions
+Language: es-ES
+
+00:00:01.000 --> 00:00:05.000
+Y la respuesta es que esta es la covarianza más grande. Es la más amplia.
+
+00:00:05.000 --> 00:00:10.000
+Esta es la más pequeña, y esta la mediana.
+
+00:00:10.000 --> 00:00:14.000
+Observa cómo las he encontrado en la fórmula de aquí,
+
+00:00:14.000 --> 00:00:19.000
+la diferencia entre x e y está siendo normalizado por la covarianza.
+
+00:00:19.000 --> 00:00:24.000
+Así que cuanto mayor sea este valor, menor es la diferencia aquí,
+
+00:00:24.000 --> 00:00:27.000
+y, como resultado, la función es más extensa.
+
+00:00:27.000 --> 00:00:31.000
+Si la función es muy extensa tiene una mayor covarianza,
+
+00:00:31.000 --> 00:00:35.000
+mientras que las funciones menos extensas tiene menor covarianza.
+
+00:00:35.000 --> 00:00:40.000
+En otras palabras, la covarianza σ² es una medida de la incertidumbre.
+
+00:00:40.000 --> 00:00:45.000
+Cuanto mayor sea σ², más incierto es el estado actual.
+
+00:00:45.000 --> 00:00:49.000
+Esta es una distribución muy certera donde la desviación prevista es pequeña.
+
+00:00:49.000 --> 00:00:53.000
+Esta es una distribución relativamente incierta de la que sabemos muy poco.
+

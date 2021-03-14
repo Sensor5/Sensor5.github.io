@@ -1,0 +1,64 @@
+WEBVTT
+Kind: captions
+Language: es-ES
+
+00:00:00.000 --> 00:00:04.000
+Así que ahora sabemos mucho acerca del filtro de Kalman para 1D.
+
+00:00:04.000 --> 00:00:08.000
+Has programado uno. Entiendes cómo incorporar mediciones.
+
+00:00:08.000 --> 00:00:11.000
+Entiendes cómo incorporar el movimiento,
+
+00:00:11.000 --> 00:00:14.000
+y realmente has implementado algo que es realmente genial,
+
+00:00:14.000 --> 00:00:18.000
+que es un completo filtro de Kalman para el caso de 1D.
+
+00:00:18.000 --> 00:00:21.000
+Ahora bien, en realidad, a menudo tenemos muchas dimensiones,
+
+00:00:21.000 --> 00:00:25.000
+y entonces las cosas se vuelven más complicadas, así que voy a decirte exactamente cómo funcionan las cosas
+
+00:00:25.000 --> 00:00:31.000
+con un ejemplo, y este es genial para estimar en mayores espacios de dimensiones.
+
+00:00:31.000 --> 00:00:37.000
+Suponga que tiene un espacio de estados de 2 dimensiones x e y, como la imagen de una cámara,
+
+00:00:37.000 --> 00:00:43.000
+o en nuestro caso, podríamos tener un coche que utiliza un radar para detectar la ubicación
+
+00:00:43.000 --> 00:00:46.000
+de un vehículo a lo largo del tiempo.
+
+00:00:46.000 --> 00:00:51.000
+Entonces, lo que produce el filtro de kalman de 2D es algo realmente increíble,
+
+00:00:51.000 --> 00:00:53.000
+y así es cómo va.
+
+00:00:53.000 --> 00:01:00.000
+Supongamos que en el instante t = 0, se observa que el objeto de interés esta en esta coordenada.
+
+00:01:00.000 --> 00:01:04.000
+Este podría ser otro coche en el tráfico para el coche de Google.
+
+00:01:04.000 --> 00:01:08.000
+Un paso más adelante, lo veo por aquí.
+
+00:01:08.000 --> 00:01:11.000
+Otro paso más adelante, lo veo por aquí.
+
+00:01:11.000 --> 00:01:17.000
+¿Dónde se puede esperar que este ahora el objeto en el instante t=3?
+
+00:01:17.000 --> 00:01:22.000
+Te voy a dar tres lugares diferentes.
+
+00:01:22.000 --> 00:01:24.000
+Haga clic en la ubicación más probable.
+

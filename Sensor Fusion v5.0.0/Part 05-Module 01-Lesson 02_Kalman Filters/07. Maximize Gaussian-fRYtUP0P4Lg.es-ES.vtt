@@ -1,0 +1,31 @@
+WEBVTT
+Kind: captions
+Language: es-ES
+
+00:00:00.000 --> 00:00:03.000
+A partir del siguiente código fuente,
+
+00:00:03.000 --> 00:00:09.000
+Estoy buscando completar esta línea de aquí que devuelve la función de Gauss
+
+00:00:09.000 --> 00:00:15.000
+con argumentos mu = 10, sigma2 = 4, y x = 8,
+
+00:00:15.000 --> 00:00:18.000
+y quiero que la salida sea aproximadamente 0,12.
+
+00:00:21.000 --> 00:00:29.000
+Está mi solución. Esta es la constante: 1/sqrt (2 * pi * sigma2).
+
+00:00:29.000 --> 00:00:37.000
+Y entonces lo multiplico por la exponencial de (-0,5 * (x-mu) ** 2/sigma2).
+
+00:00:37.000 --> 00:00:43.000
+Aplicando esto a los siguientes números de aquí me da 0.12.
+
+00:00:43.000 --> 00:00:45.000
+Ahora, tengo una pregunta para usted.
+
+00:00:45.000 --> 00:00:53.000
+¿Cómo tengo que modificar x=8, para obtener el máximo valor de retorno de esta función f?
+

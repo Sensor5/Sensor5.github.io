@@ -1,0 +1,34 @@
+WEBVTT
+Kind: captions
+Language: es-ES
+
+00:00:00.000 --> 00:00:04.000
+Así que aquí termina la unidad de filtros de Kalman. Usted en realidad ha aprendido bastante.
+
+00:00:04.000 --> 00:00:08.000
+Ha aprendido sobre gaussianas, la forma de hacer las actualizaciones de medición utilizando la multiplicación,
+
+00:00:08.000 --> 00:00:14.000
+como hacer predicciones o transición de estado usando la convolución,
+
+00:00:14.000 --> 00:00:18.000
+e incluso implementó su primer filtro de Kalman, que es realmente super interesante.
+
+00:00:18.000 --> 00:00:20.000
+Usted lo ha implementado en el contexto de seguimiento de vehículos,
+
+00:00:20.000 --> 00:00:25.000
+y lo utilizó para estimar una velocidad no observable para los datos de medición.
+
+00:00:25.000 --> 00:00:27.000
+Ahora, los siguiente es la tarea para casa.
+
+00:00:27.000 --> 00:00:30.000
+Espero que puedan demostrar lo que ha aprendido.
+
+00:00:30.000 --> 00:00:35.000
+Y luego, la próxima semana, vamos a pasar a los filtros de partículas, el cual es un tercer método interesante para la estimación del estado.
+
+00:00:35.000 --> 00:00:40.000
+Así que mirate la tarea, y luego te veré en clase de los filtros de partículas.
+

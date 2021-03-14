@@ -1,0 +1,523 @@
+<!-- udacimak v1.4.4 -->
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <meta content="ie=edge" http-equiv="X-UA-Compatible"/>
+  <title>
+   Kalman Matrices
+  </title>
+  <link href="../assets/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="../assets/css/plyr.css" rel="stylesheet"/>
+  <link href="../assets/css/katex.min.css" rel="stylesheet"/>
+  <link href="../assets/css/jquery.mCustomScrollbar.min.css" rel="stylesheet"/>
+  <link href="../assets/css/styles.css" rel="stylesheet"/>
+  <link href="../assets/img/udacimak.png" rel="shortcut icon" type="image/png">
+  </link>
+ </head>
+ <body>
+  <div class="wrapper">
+   <nav id="sidebar">
+    <div class="sidebar-header">
+     <h3>
+      Kalman Filters
+     </h3>
+    </div>
+    <ul class="sidebar-list list-unstyled CTAs">
+     <li>
+      <a class="article" href="../index.html">
+       Back to Home
+      </a>
+     </li>
+    </ul>
+    <ul class="sidebar-list list-unstyled components">
+     <li class="">
+      <a href="01. Introduction.html">
+       01. Introduction
+      </a>
+     </li>
+     <li class="">
+      <a href="02. Tracking Intro.html">
+       02. Tracking Intro
+      </a>
+     </li>
+     <li class="">
+      <a href="03. Gaussian Intro.html">
+       03. Gaussian Intro
+      </a>
+     </li>
+     <li class="">
+      <a href="04. Variance Comparison.html">
+       04. Variance Comparison
+      </a>
+     </li>
+     <li class="">
+      <a href="05. Preferred Gaussian.html">
+       05. Preferred Gaussian
+      </a>
+     </li>
+     <li class="">
+      <a href="06. Evaluate Gaussian.html">
+       06. Evaluate Gaussian
+      </a>
+     </li>
+     <li class="">
+      <a href="07. Maximize Gaussian.html">
+       07. Maximize Gaussian
+      </a>
+     </li>
+     <li class="">
+      <a href="08. Measurement and Motion.html">
+       08. Measurement and Motion
+      </a>
+     </li>
+     <li class="">
+      <a href="09. Shifting the Mean.html">
+       09. Shifting the Mean
+      </a>
+     </li>
+     <li class="">
+      <a href="10. Predicting the Peak.html">
+       10. Predicting the Peak
+      </a>
+     </li>
+     <li class="">
+      <a href="11. Parameter Update.html">
+       11. Parameter Update
+      </a>
+     </li>
+     <li class="">
+      <a href="12. Parameter Update 2.html">
+       12. Parameter Update 2
+      </a>
+     </li>
+     <li class="">
+      <a href="13. Separated Gaussians.html">
+       13. Separated Gaussians
+      </a>
+     </li>
+     <li class="">
+      <a href="14. Separated Gaussians 2.html">
+       14. Separated Gaussians 2
+      </a>
+     </li>
+     <li class="">
+      <a href="15. New Mean and Variance.html">
+       15. New Mean and Variance
+      </a>
+     </li>
+     <li class="">
+      <a href="16. Gaussian Motion.html">
+       16. Gaussian Motion
+      </a>
+     </li>
+     <li class="">
+      <a href="17. Predict Function.html">
+       17. Predict Function
+      </a>
+     </li>
+     <li class="">
+      <a href="18. Kalman Filter Code.html">
+       18. Kalman Filter Code
+      </a>
+     </li>
+     <li class="">
+      <a href="19. Kalman Prediction.html">
+       19. Kalman Prediction
+      </a>
+     </li>
+     <li class="">
+      <a href="20. Kalman Filter Land.html">
+       20. Kalman Filter Land
+      </a>
+     </li>
+     <li class="">
+      <a href="21. Kalman Filter Prediction.html">
+       21. Kalman Filter Prediction
+      </a>
+     </li>
+     <li class="">
+      <a href="22. Another Prediction.html">
+       22. Another Prediction
+      </a>
+     </li>
+     <li class="">
+      <a href="23. More Kalman Filters.html">
+       23. More Kalman Filters
+      </a>
+     </li>
+     <li class="">
+      <a href="24. Kalman Filter Design.html">
+       24. Kalman Filter Design
+      </a>
+     </li>
+     <li class="">
+      <a href="25. Kalman Matrices.html">
+       25. Kalman Matrices
+      </a>
+     </li>
+     <li class="">
+      <a href="26. Conclusion.html">
+       26. Conclusion
+      </a>
+     </li>
+    </ul>
+    <ul class="sidebar-list list-unstyled CTAs">
+     <li>
+      <a class="article" href="../index.html">
+       Back to Home
+      </a>
+     </li>
+    </ul>
+   </nav>
+   <div id="content">
+    <header class="container-fluild header">
+     <div class="container">
+      <div class="row">
+       <div class="col-12">
+        <div class="align-items-middle">
+         <button class="btn btn-toggle-sidebar" id="sidebarCollapse" type="button">
+          <div>
+          </div>
+          <div>
+          </div>
+          <div>
+          </div>
+         </button>
+         <h1 style="display: inline-block">
+          25. Kalman Matrices
+         </h1>
+        </div>
+       </div>
+      </div>
+     </div>
+    </header>
+    <main class="container">
+     <div class="row">
+      <div class="col-12">
+       <div class="ud-atom">
+        <h3>
+         <p>
+          Kalman Matrices
+         </p>
+        </h3>
+        <div>
+         <div>
+          <h4>
+           Question:
+          </h4>
+          <video controls="">
+           <source src="25. Kalman Matrices-ade97UKqSIc.mp4" type="video/mp4"/>
+           <track default="false" kind="subtitles" label="es-ES" src="25. Kalman Matrices-ade97UKqSIc.es-ES.vtt" srclang="es-ES"/>
+           <track default="false" kind="subtitles" label="ja-JP" src="25. Kalman Matrices-ade97UKqSIc.ja-JP.vtt" srclang="ja-JP"/>
+           <track default="false" kind="subtitles" label="ja" src="25. Kalman Matrices-ade97UKqSIc.ja.vtt" srclang="ja"/>
+           <track default="true" kind="subtitles" label="en" src="25. Kalman Matrices-ade97UKqSIc.en.vtt" srclang="en"/>
+           <track default="false" kind="subtitles" label="zh-CN" src="25. Kalman Matrices-ade97UKqSIc.zh-CN.vtt" srclang="zh-CN"/>
+          </video>
+         </div>
+         <h4>
+          Start Quiz:
+         </h4>
+         <div>
+          <div class="nav nav-tabs nav-fill" id="question-tabs" role="tablist">
+           <a aria-controls="110490-studentMain-py" aria-selected="true" class="nav-item nav-link active show" data-toggle="tab" href="#110490-studentMain-py" id="tab-110490-studentMain-py" role="tab">
+            studentMain.py
+           </a>
+          </div>
+          <div class="tab-content" id="question-tab-contents" style="padding: 20px 0;">
+           <div aria-labelledby="tab-110490-studentMain-py" class="tab-pane active show" id="110490-studentMain-py" role="tabpanel">
+            <pre><code></code># Write a function 'kalman_filter' that implements a multi-
+# dimensional Kalman Filter for the example given
+
+from math import *
+
+
+class matrix:
+    
+    # implements basic operations of a matrix class
+    
+    def __init__(self, value):
+        self.value = value
+        self.dimx = len(value)
+        self.dimy = len(value[0])
+        if value == [[]]:
+            self.dimx = 0
+    
+    def zero(self, dimx, dimy):
+        # check if valid dimensions
+        if dimx &lt; 1 or dimy &lt; 1:
+            raise ValueError, "Invalid size of matrix"
+        else:
+            self.dimx = dimx
+            self.dimy = dimy
+            self.value = [[0 for row in range(dimy)] for col in range(dimx)]
+    
+    def identity(self, dim):
+        # check if valid dimension
+        if dim &lt; 1:
+            raise ValueError, "Invalid size of matrix"
+        else:
+            self.dimx = dim
+            self.dimy = dim
+            self.value = [[0 for row in range(dim)] for col in range(dim)]
+            for i in range(dim):
+                self.value[i][i] = 1
+    
+    def show(self):
+        for i in range(self.dimx):
+            print(self.value[i])
+        print(' ')
+    
+    def __add__(self, other):
+        # check if correct dimensions
+        if self.dimx != other.dimx or self.dimy != other.dimy:
+            raise ValueError, "Matrices must be of equal dimensions to add"
+        else:
+            # add if correct dimensions
+            res = matrix([[]])
+            res.zero(self.dimx, self.dimy)
+            for i in range(self.dimx):
+                for j in range(self.dimy):
+                    res.value[i][j] = self.value[i][j] + other.value[i][j]
+            return res
+    
+    def __sub__(self, other):
+        # check if correct dimensions
+        if self.dimx != other.dimx or self.dimy != other.dimy:
+            raise ValueError, "Matrices must be of equal dimensions to subtract"
+        else:
+            # subtract if correct dimensions
+            res = matrix([[]])
+            res.zero(self.dimx, self.dimy)
+            for i in range(self.dimx):
+                for j in range(self.dimy):
+                    res.value[i][j] = self.value[i][j] - other.value[i][j]
+            return res
+    
+    def __mul__(self, other):
+        # check if correct dimensions
+        if self.dimy != other.dimx:
+            raise ValueError, "Matrices must be m*n and n*p to multiply"
+        else:
+            # multiply if correct dimensions
+            res = matrix([[]])
+            res.zero(self.dimx, other.dimy)
+            for i in range(self.dimx):
+                for j in range(other.dimy):
+                    for k in range(self.dimy):
+                        res.value[i][j] += self.value[i][k] * other.value[k][j]
+            return res
+    
+    def transpose(self):
+        # compute transpose
+        res = matrix([[]])
+        res.zero(self.dimy, self.dimx)
+        for i in range(self.dimx):
+            for j in range(self.dimy):
+                res.value[j][i] = self.value[i][j]
+        return res
+    
+    # Thanks to Ernesto P. Adorio for use of Cholesky and CholeskyInverse functions
+    
+    def Cholesky(self, ztol=1.0e-5):
+        # Computes the upper triangular Cholesky factorization of
+        # a positive definite matrix.
+        res = matrix([[]])
+        res.zero(self.dimx, self.dimx)
+        
+        for i in range(self.dimx):
+            S = sum([(res.value[k][i])**2 for k in range(i)])
+            d = self.value[i][i] - S
+            if abs(d) &lt; ztol:
+                res.value[i][i] = 0.0
+            else:
+                if d &lt; 0.0:
+                    raise ValueError, "Matrix not positive-definite"
+                res.value[i][i] = sqrt(d)
+            for j in range(i+1, self.dimx):
+                S = sum([res.value[k][i] * res.value[k][j] for k in range(self.dimx)])
+                if abs(S) &lt; ztol:
+                    S = 0.0
+                try:
+                   res.value[i][j] = (self.value[i][j] - S)/res.value[i][i]
+                except:
+                   raise ValueError, "Zero diagonal"
+        return res
+    
+    def CholeskyInverse(self):
+        # Computes inverse of matrix given its Cholesky upper Triangular
+        # decomposition of matrix.
+        res = matrix([[]])
+        res.zero(self.dimx, self.dimx)
+        
+        # Backward step for inverse.
+        for j in reversed(range(self.dimx)):
+            tjj = self.value[j][j]
+            S = sum([self.value[j][k]*res.value[j][k] for k in range(j+1, self.dimx)])
+            res.value[j][j] = 1.0/tjj**2 - S/tjj
+            for i in reversed(range(j)):
+                res.value[j][i] = res.value[i][j] = -sum([self.value[i][k]*res.value[k][j] for k in range(i+1, self.dimx)])/self.value[i][i]
+        return res
+    
+    def inverse(self):
+        aux = self.Cholesky()
+        res = aux.CholeskyInverse()
+        return res
+    
+    def __repr__(self):
+        return repr(self.value)
+
+
+########################################
+
+# Implement the filter function below
+
+def kalman_filter(x, P):
+    for n in range(len(measurements)):
+        
+        # measurement update
+
+        # prediction
+        
+    return x,P
+
+############################################
+### use the code below to test your filter!
+############################################
+
+measurements = [1, 2, 3]
+
+x = matrix([[0.], [0.]]) # initial state (location and velocity)
+P = matrix([[1000., 0.], [0., 1000.]]) # initial uncertainty
+u = matrix([[0.], [0.]]) # external motion
+F = matrix([[1., 1.], [0, 1.]]) # next state function
+H = matrix([[1., 0.]]) # measurement function
+R = matrix([[1.]]) # measurement uncertainty
+I = matrix([[1., 0.], [0., 1.]]) # identity matrix
+
+print(kalman_filter(x, P))
+# output should be:
+# x: [[3.9996664447958645], [0.9999998335552873]]
+# P: [[2.3318904241194827, 0.9991676099921091], [0.9991676099921067, 0.49950058263974184]]
+</pre>
+           </div>
+          </div>
+         </div>
+         <div>
+          <details>
+           <summary>
+            <strong>
+             Solution:
+            </strong>
+           </summary>
+           <div>
+            <video controls="">
+             <source src="25. Kalman Matrices-LEuzK9X7_hM.mp4" type="video/mp4"/>
+             <track default="false" kind="subtitles" label="ja-JP" src="25. Kalman Matrices-LEuzK9X7_hM.ja-JP.vtt" srclang="ja-JP"/>
+             <track default="true" kind="subtitles" label="en" src="25. Kalman Matrices-LEuzK9X7_hM.en.vtt" srclang="en"/>
+             <track default="false" kind="subtitles" label="zh-CN" src="25. Kalman Matrices-LEuzK9X7_hM.zh-CN.vtt" srclang="zh-CN"/>
+             <track default="false" kind="subtitles" label="ja" src="25. Kalman Matrices-LEuzK9X7_hM.ja.vtt" srclang="ja"/>
+             <track default="false" kind="subtitles" label="es-ES" src="25. Kalman Matrices-LEuzK9X7_hM.es-ES.vtt" srclang="es-ES"/>
+            </video>
+           </div>
+          </details>
+         </div>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+      </div>
+      <div class="col-12">
+       <p class="text-right">
+        <a class="btn btn-outline-primary mt-4" href="26. Conclusion.html" role="button">
+         Next Concept
+        </a>
+       </p>
+      </div>
+     </div>
+    </main>
+    <footer class="footer">
+     <div class="container">
+      <div class="row">
+       <div class="col-12">
+        <p class="text-center">
+         udacity2.0 If you need the newest courses Plase add me wechat: udacity6
+        </p>
+       </div>
+      </div>
+     </div>
+    </footer>
+   </div>
+  </div>
+  <script src="../assets/js/jquery-3.3.1.min.js">
+  </script>
+  <script src="../assets/js/plyr.polyfilled.min.js">
+  </script>
+  <script src="../assets/js/bootstrap.min.js">
+  </script>
+  <script src="../assets/js/jquery.mCustomScrollbar.concat.min.js">
+  </script>
+  <script src="../assets/js/katex.min.js">
+  </script>
+  <script>
+   // Initialize Plyr video players
+    const players = Array.from(document.querySelectorAll('video')).map(p => new Plyr(p));
+
+    // render math equations
+    let elMath = document.getElementsByClassName('mathquill');
+    for (let i = 0, len = elMath.length; i < len; i += 1) {
+      const el = elMath[i];
+
+      katex.render(el.textContent, el, {
+        throwOnError: false
+      });
+    }
+
+    // this hack will make sure Bootstrap tabs work when using Handlebars
+    if ($('#question-tabs').length && $('#user-answer-tabs').length) {
+      $("#question-tabs a.nav-link").on('click', function () {
+        $("#question-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+      $("#user-answer-tabs a.nav-link").on('click', function () {
+        $("#user-answer-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    } else {
+      $("a.nav-link").on('click', function () {
+        $(".tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    }
+
+    // side bar events
+    $(document).ready(function () {
+      $("#sidebar").mCustomScrollbar({
+        theme: "minimal"
+      });
+
+      $('#sidebarCollapse').on('click', function () {
+        $('#sidebar, #content').toggleClass('active');
+        $('.collapse.in').toggleClass('in');
+        $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+      });
+
+      // scroll to first video on page loading
+      if ($('video').length) {
+        $('html,body').animate({ scrollTop: $('div.plyr').prev().offset().top});
+      }
+
+      // auto play first video: this may not work with chrome/safari due to autoplay policy
+      if (players && players.length > 0) {
+        players[0].play();
+      }
+
+      // scroll sidebar to current concept
+      const currentInSideBar = $( "ul.sidebar-list.components li a:contains('25. Kalman Matrices')" )
+      currentInSideBar.css( "text-decoration", "underline" );
+      $("#sidebar").mCustomScrollbar('scrollTo', currentInSideBar);
+    });
+  </script>
+ </body>
+</html>

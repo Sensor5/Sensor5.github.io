@@ -1,0 +1,82 @@
+WEBVTT
+Kind: captions
+Language: es-ES
+
+00:00:00.000 --> 00:00:05.000
+Suponga que multiplicamos dos gaussianas como en la regla de Bayes,
+
+00:00:05.000 --> 00:00:09.000
+una priori y una probabilidad de medición.
+
+00:00:09.000 --> 00:00:12.000
+Y la priori tiene una media μ y una varianza σ².
+
+00:00:12.000 --> 00:00:18.000
+La de medición tiene una media ν y una covarianza r².
+
+00:00:18.000 --> 00:00:23.000
+Entonces, la nueva media, μ', es la suma ponderada de las medias anteriores
+
+00:00:23.000 --> 00:00:29.000
+donde μ es ponderada por r², ν es ponderada por σ²
+
+00:00:29.000 --> 00:00:33.000
+normalizado por la suma de los factores de ponderación.
+
+00:00:33.000 --> 00:00:38.000
+Y el nuevo término de varianza, σ²' lo voy a escribir aquí
+
+00:00:38.000 --> 00:00:46.000
+para la nueva después de la actualización, está dada por la ecuación de aquí.
+
+00:00:46.000 --> 00:00:48.000
+Así que vamos a poner esto en acción.
+
+00:00:48.000 --> 00:00:50.000
+Tenemos una media ponderada por aquí.
+
+00:00:50.000 --> 00:00:55.000
+Claramente, la guassiana priori tiene una incertidumbre mucho mayor.
+
+00:00:55.000 --> 00:00:57.000
+Por lo tanto σ² es mayor.
+
+00:00:57.000 --> 00:01:01.000
+Y esto significa que ν esta ponderada mucho, mucho más que μ.
+
+00:01:01.000 --> 00:01:05.000
+Así que la media estará más cerca de la ν que de la μ,
+
+00:01:05.000 --> 00:01:08.000
+lo que significa que va a estar en algún lugar de por aquí.
+
+00:01:08.000 --> 00:01:12.000
+Curiosamente, el término varianza no se ve afectado por las medias actuales.
+
+00:01:12.000 --> 00:01:18.000
+Simplemente utiliza las varianzas anteriores y sube con una nueva incluso más estrecha
+
+00:01:18.000 --> 00:01:21.000
+Así, el resultado podría ser así.
+
+00:01:21.000 --> 00:01:24.000
+Esta es la situación común para el paso de actualización de la medida
+
+00:01:24.000 --> 00:01:31.000
+donde esta es la prior, esta es la probabilidad de medición, y esta es la posterior.
+
+00:01:31.000 --> 00:01:36.000
+Así que vamos a practicar estas ecuaciones con un simple cuestionario.
+
+00:01:36.000 --> 00:01:40.000
+Aquí están nuestras ecuaciones de nuevo.
+
+00:01:40.000 --> 00:01:44.000
+Y suponga que uso las siguientes gaussianas:
+
+00:01:44.000 --> 00:01:49.000
+Estos son gaussianas con varianzas iguales pero diferentes medias que podrían tener el siguiente aspecto.
+
+00:01:49.000 --> 00:01:56.000
+Calcule para mí la nueva media después de la actualización y la nueva σ².
+

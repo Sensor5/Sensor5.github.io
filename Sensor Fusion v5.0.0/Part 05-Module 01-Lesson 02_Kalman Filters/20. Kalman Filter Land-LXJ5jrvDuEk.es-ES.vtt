@@ -1,0 +1,118 @@
+WEBVTT
+Kind: captions
+Language: es-ES
+
+00:00:00.000 --> 00:00:08.000
+Para explicar cómo funciona esto, tengo que hablar sobre las gaussianas de varias dimensiones.
+
+00:00:08.000 --> 00:00:13.000
+A menudo se llaman Gaussianas multivariante.
+
+00:00:13.000 --> 00:00:20.000
+La media es ahora un vector con 1 elemento para cada una de las dimensiones.
+
+00:00:20.000 --> 00:00:23.000
+La varianza es reemplazada por lo que se llama co-varianza,
+
+00:00:23.000 --> 00:00:27.000
+y es una matriz con D filas y D columnas,
+
+00:00:27.000 --> 00:00:30.000
+si la dimensionalidad de la estimación es D.
+
+00:00:30.000 --> 00:00:36.000
+Y la fórmula es algo que hay que acostumbrarse.
+
+00:00:36.000 --> 00:00:41.000
+Lo estoy escribiendo para ti, pero nunca lo verás otra vez.
+
+00:00:41.000 --> 00:00:44.000
+A decir verdad, he tenido que buscar la fórmula para esta clase,
+
+00:00:44.000 --> 00:00:48.000
+así que no la tengo en mi cabeza, y por favor, no se confunda.
+
+00:00:48.000 --> 00:00:52.000
+Déjame explicartelo de una forma más intuitiva.
+
+00:00:52.000 --> 00:00:55.000
+Aquí hay un espacio de 2 dimensiones.
+
+00:00:55.000 --> 00:01:00.000
+Una gaussiana de 2 dimensiones se define sobre ese espacio,
+
+00:01:00.000 --> 00:01:05.000
+y es posible dibujar las curvas de nivel de la gaussiana. Puede verse así.
+
+00:01:05.000 --> 00:01:10.000
+La media de esta gaussiana es este par x0, y0,
+
+00:01:10.000 --> 00:01:14.000
+y la co-varianza se define ahora como la extensión de la gaussiana
+
+00:01:14.000 --> 00:01:17.000
+como se indica por estas líneas de contorno.
+
+00:01:17.000 --> 00:01:21.000
+Una gaussiana con pequeñas cantidades de incertidumbre podría tener este aspecto.
+
+00:01:21.000 --> 00:01:25.000
+Puede ser posible tener una incertidumbre bastante pequeña en 1 dimensión,
+
+00:01:25.000 --> 00:01:28.000
+pero tener una gran incertidumbre en la otra.
+
+00:01:28.000 --> 00:01:32.000
+La incertidumbre en la dimensión X es pequeña, y la dimensión y es grande.
+
+00:01:32.000 --> 00:01:36.000
+Cuando la gaussiana está inclinada como se muestra aquí,
+
+00:01:36.000 --> 00:01:41.000
+la incertidumbre de x e y se correlaciona, lo que significa que si puedo obtener información acerca de x,
+
+00:01:41.000 --> 00:01:46.000
+-- que en realidad se asienta aquí --, que me haga creer que y probablemente se asiente
+
+00:01:46.000 --> 00:01:50.000
+en algún lugar de por aquí. Eso se llama correlación.
+
+00:01:50.000 --> 00:01:57.000
+Yo te puedo explicar todo el efecto de la estimación de la velocidad y su uso en la filtración
+
+00:01:57.000 --> 00:01:59.000
+mediante gaussianas como estas,
+
+00:01:59.000 --> 00:02:01.000
+y es realmente simple.
+
+00:02:01.000 --> 00:02:05.000
+El problema que voy a elegir es un ejemplo de movimiento en 1 dimensión.
+
+00:02:05.000 --> 00:02:09.000
+Supongamos que en el instante t = 1, vemos nuestro objeto aquí.
+
+00:02:09.000 --> 00:02:11.000
+en t = 2 por aquí.
+
+00:02:11.000 --> 00:02:14.000
+en t = 3 por aquí.
+
+00:02:14.000 --> 00:02:20.000
+De allí tendría que asumir que en t = 4, el objeto se encuentra aquí,
+
+00:02:20.000 --> 00:02:24.000
+y la razón por la que asumiría esto es, -- a pesar de que acabamos de ver estas diferentes
+
+00:02:24.000 --> 00:02:29.000
+ubicaciones discretas--, es que se puede deducir de ella que en realidad la velocidad es la que acciona el objeto
+
+00:02:29.000 --> 00:02:32.000
+a la derecha hasta el punto aquí.
+
+00:02:32.000 --> 00:02:35.000
+Ahora, ¿cómo trata esto el filtro de Kalman?
+
+00:02:35.000 --> 00:02:37.000
+Esta es la verdadera belleza del filtro de Kalman.
+

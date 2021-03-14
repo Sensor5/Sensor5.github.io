@@ -1,0 +1,238 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:02.000
+[Thrun] Here's my code:
+
+00:00:02.000 --> 00:00:04.000
+If you've got this correct,
+
+00:00:04.000 --> 00:00:09.000
+then I'm mightily impressed with what you've done because
+
+00:00:09.000 --> 00:00:12.000
+you've taken something that often takes many, many classes
+
+00:00:12.000 --> 00:00:16.000
+to explain to students, and within a single class,
+
+00:00:16.000 --> 00:00:19.000
+you understood the gist of it and you wrote a piece of code
+
+00:00:19.000 --> 00:00:23.000
+that is really non-trivial, that you can reuse many times,
+
+00:00:23.000 --> 00:00:27.000
+and that's the core of the Google self-driving cars' ability to check other vehicles.
+
+00:00:27.000 --> 00:00:30.000
+Here is the line by line implementation
+
+00:00:30.000 --> 00:00:33.000
+of what I've shown you before for the measurement update
+
+00:00:33.000 --> 00:00:36.000
+and the prediction, and you'll find
+
+00:00:36.000 --> 00:00:39.000
+using my matrix class that it implements
+
+00:00:39.000 --> 00:00:42.000
+step after step exactly what I've shown you.
+
+00:00:42.000 --> 00:00:44.000
+A little non-triviality.
+
+00:00:44.000 --> 00:00:47.000
+We have to make a measurement matrix of the nth measurement.
+
+00:00:47.000 --> 00:00:50.000
+If you solve the problem, you have probably something like this.
+
+00:00:50.000 --> 00:00:52.000
+The error calculation,
+
+00:00:52.000 --> 00:00:55.000
+the matrix S with a transpose,
+
+00:00:55.000 --> 00:00:58.000
+the Kalman gain K with the inverse,
+
+00:00:58.000 --> 00:01:03.000
+back to my next prediction and my measurement update,
+
+00:01:03.000 --> 00:01:05.000
+and this is the prediction step.
+
+00:01:05.000 --> 00:01:09.000
+You can see it implements exactly what I showed you
+
+00:01:09.000 --> 00:01:12.000
+in these two equations over here.
+
+00:01:12.000 --> 00:01:16.000
+Now I know programming with this is involved,
+
+00:01:16.000 --> 00:01:18.000
+and I'm really impressed if you were able to do this.
+
+00:01:18.000 --> 00:01:22.000
+If you've done this, you've achieved something really, really major.
+
+00:01:22.000 --> 00:01:25.000
+You now understand Kalman filters,
+
+00:01:25.000 --> 00:01:28.000
+and you've implemented a multidimensional Kalman filter
+
+00:01:28.000 --> 00:01:33.000
+all on your own using a fairly mechanical
+
+00:01:33.000 --> 00:01:35.000
+matrix class that I wrote for you.
+
+00:01:35.000 --> 00:01:38.000
+You ran it, and it's gotten really good results
+
+00:01:38.000 --> 00:01:44.000
+in which a sequence of position estimates: 1, 2, 3,
+
+00:01:44.000 --> 00:01:47.000
+led you to make a prediction
+
+00:01:47.000 --> 00:01:51.000
+and understand the velocity of the moving object.
+
+00:01:51.000 --> 00:01:54.000
+These are the equations you just implemented.
+
+00:01:54.000 --> 00:01:56.000
+Congratulations.
+
+00:01:56.000 --> 00:01:59.000
+You really understood something fundamental here
+
+00:01:59.000 --> 00:02:02.000
+that I believe is really essential to artificial intelligence
+
+00:02:02.000 --> 00:02:05.000
+and to building self-driving cars.
+
+00:02:05.000 --> 00:02:09.000
+You implemented effectively our method for finding other cars.
+
+00:02:09.000 --> 00:02:12.000
+Let me put this in context.
+
+00:02:12.000 --> 00:02:14.000
+Here's a Google self-driving car.
+
+00:02:14.000 --> 00:02:16.000
+Here's another car.
+
+00:02:16.000 --> 00:02:21.000
+Our Google self-driving car uses radar on the front bumper
+
+00:02:21.000 --> 00:02:24.000
+that measures the distance to vehicles
+
+00:02:24.000 --> 00:02:27.000
+and also gives a noisy estimate of the velocity.
+
+00:02:27.000 --> 00:02:30.000
+And it also uses its lasers,
+
+00:02:30.000 --> 00:02:33.000
+and again, it measures the distance to other cars but no velocities.
+
+00:02:33.000 --> 00:02:36.000
+If you take the same situation from above,
+
+00:02:36.000 --> 00:02:38.000
+here is the Google car.
+
+00:02:38.000 --> 00:02:40.000
+It is localized on a map.
+
+00:02:40.000 --> 00:02:45.000
+Here is another vehicle, and another one.
+
+00:02:45.000 --> 00:02:51.000
+Using radars and lasers, the Google car estimates the distance
+
+00:02:51.000 --> 00:02:54.000
+and the velocity of all these vehicles,
+
+00:02:54.000 --> 00:02:58.000
+and it does so using a Kalman filter.
+
+00:02:58.000 --> 00:03:00.000
+Where it feeds in range data from the laser,
+
+00:03:00.000 --> 00:03:07.000
+and it uses state spaces like this one of the relative distance in x and y
+
+00:03:07.000 --> 00:03:11.000
+and the relative velocity in x and y to get state transition matrices
+
+00:03:11.000 --> 00:03:15.000
+of the type I've just shown you to find out
+
+00:03:15.000 --> 00:03:18.000
+where these other cars are, and this is exactly what you've just learned
+
+00:03:18.000 --> 00:03:21.000
+and programmed yourself.
+
+00:03:21.000 --> 00:03:24.000
+I didn't tell you how to extract the location of other cars from radar and laser.
+
+00:03:24.000 --> 00:03:26.000
+There's something called a correspondence problem.
+
+00:03:26.000 --> 00:03:28.000
+Sometimes you don't know which one each car is,
+
+00:03:28.000 --> 00:03:31.000
+and I won't talk in much depth about it.
+
+00:03:31.000 --> 00:03:34.000
+But you understand the gist of the solution now,
+
+00:03:34.000 --> 00:03:36.000
+and you've been able to program it.
+
+00:03:36.000 --> 00:03:38.000
+If you were in a situation like this,
+
+00:03:38.000 --> 00:03:42.000
+you can use range data like laser data and radar data
+
+00:03:42.000 --> 00:03:44.000
+and come up with a rational algorithm that takes
+
+00:03:44.000 --> 00:03:47.000
+momentary measurements of other cars
+
+00:03:47.000 --> 00:03:51.000
+and not just estimates where they are but also how fast they're moving.
+
+00:03:51.000 --> 00:03:53.000
+That's really a tremendous feat.
+
+00:03:53.000 --> 00:03:55.000
+Congratulations on getting this far.
+
+00:03:55.000 --> 00:03:57.000
+If you got this far in my class,
+
+00:03:57.000 --> 00:04:01.000
+I promise you you've just digested the most difficult thing
+
+00:04:01.000 --> 00:04:03.000
+I have to teach you in this entire class.
+
+00:04:03.000 --> 00:04:05.241
+Congratulations.
+

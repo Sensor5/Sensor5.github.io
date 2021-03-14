@@ -1,0 +1,46 @@
+WEBVTT
+Kind: captions
+Language: es-ES
+
+00:00:00.000 --> 00:00:03.000
+Y la respuesta es que es la gaussiana más estrecha.
+
+00:00:03.000 --> 00:00:06.000
+Eso es algo contra-intuitivo.
+
+00:00:06.000 --> 00:00:10.000
+Uno pensaría que si se trataba de su suposicién inicial, -- ésta es su probabilidad de medición --,
+
+00:00:10.000 --> 00:00:14.000
+usted realmente no sabría dónde está, y usted debería elegir un gaussiana muy amplia.
+
+00:00:14.000 --> 00:00:20.000
+Pero la verdad es que nuestra nueva σ² se obtiene independientemente de las medias.
+
+00:00:20.000 --> 00:00:22.000
+Es esta fórmula por aquí.
+
+00:00:22.000 --> 00:00:30.000
+Ahora debido a que ambas medias son iguales, esto se resuelve con 1 sobre 2/σ².
+
+00:00:30.000 --> 00:00:33.000
+Eso es lo mismo que σ²/2,
+
+00:00:33.000 --> 00:00:38.000
+lo que significa que la nueva varianza es la mitad de la anterior.
+
+00:00:38.000 --> 00:00:40.000
+Eso hace que sea una gaussiana más estrecha,
+
+00:00:40.000 --> 00:00:45.000
+así la verde de aquí que es la más estrecha es la respuesta correcta.
+
+00:00:45.000 --> 00:00:49.000
+Esto es muy contrario a la intuición, pero ahora ha entiendo por qué.
+
+00:00:49.000 --> 00:00:54.000
+Espero que te sientas cómodo con el hecho de que hayamos conseguido realmente
+
+00:00:54.000 --> 00:01:00.000
+más información acerca de la ubicación, que se manifiesta por una estimación más centrada.
+
