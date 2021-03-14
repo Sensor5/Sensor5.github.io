@@ -1,0 +1,2797 @@
+{
+  "data": {
+    "lesson": {
+      "id": 266866,
+      "key": "daf3dee8-7117-48e8-a27a-fc4769d2b954",
+      "title": "Unscented Kalman Filters",
+      "semantic_type": "Lesson",
+      "is_public": true,
+      "version": "1.0.0",
+      "locale": "en-us",
+      "summary": "While Extended Kalman Filters work great for linear motion, real objects rarely move linearly. With Unscented Kalman Filters, you'll be able to accurately track non-linear motion!",
+      "lesson_type": "Classroom",
+      "display_workspace_project_only": null,
+      "resources": {
+        "files": [
+          {
+            "name": "Videos Zip File",
+            "uri": "https://zips.udacity-data.com/daf3dee8-7117-48e8-a27a-fc4769d2b954/266866/1545146756154/Unscented+Kalman+Filters+Videos.zip"
+          },
+          {
+            "name": "Transcripts Zip File",
+            "uri": "https://zips.udacity-data.com/daf3dee8-7117-48e8-a27a-fc4769d2b954/266866/1545146751111/Unscented+Kalman+Filters+Subtitles.zip"
+          }
+        ],
+        "google_plus_link": null,
+        "career_resource_center_link": null,
+        "coaching_appointments_link": null,
+        "office_hours_link": null,
+        "aws_provisioning_link": null
+      },
+      "project": null,
+      "lab": null,
+      "concepts": [
+        {
+          "id": 266867,
+          "key": "94ffc96e-d013-41db-9211-ffee6bd6e6e0",
+          "title": "Introduction",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "94ffc96e-d013-41db-9211-ffee6bd6e6e0",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 269982,
+              "key": "85c21f86-10ab-4111-8712-b3bf387692aa",
+              "title": "Intro",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "HbPxeJ3onmI",
+                "china_cdn_id": "HbPxeJ3onmI.mp4"
+              }
+            }
+          ]
+        },
+        {
+          "id": 268190,
+          "key": "37e2e1bd-9264-4383-b648-57caafab765b",
+          "title": "The CTRV Model",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "37e2e1bd-9264-4383-b648-57caafab765b",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 289347,
+              "key": "1b34b4a2-ac98-46cf-a0fb-18e436588208",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "### Motion Models and Kalman Filters\n\nIn the extended kalman filter lesson, we used a *constant velocity*  model (CV). A constant velocity model is one of the most basic motion models used with object tracking. \n\nBut there are many other models including:\n- constant turn rate and velocity magnitude model (CTRV)\n- constant turn rate and acceleration (CTRA)\n- constant steering angle and velocity (CSAV)\n- constant curvature and acceleration (CCA)\n\nEach model makes different assumptions about an object's motion. In this lesson, you will work with the CTRV model.\n\nKeep in mind that you can use any of these motion models with either the extended Kalman filter or the unscented Kalman filter, but we wanted to expose you to more than one motion model.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 559814,
+              "key": "f460b296-b324-4e2f-b034-ac4b9b9a3c2d",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## Robot Motion and Trigonometry\nMotion model development relies on some essential concepts of trigonometry.  As a trigonometry refresher in the context of robot motion,  we have created [this optional content](https://classroom.udacity.com/nanodegrees/nd013/parts/40f38239-66b6-46ec-ae68-03afd8a601c8/modules/87f3782a-0a5b-4568-bcf2-edad2f5fdd76/lessons/60367cb6-526f-4255-a92a-c850038c4675/concepts/3d7a14af-6afa-446e-9399-622360eddd6c).\n",
+              "instructor_notes": ""
+            },
+            {
+              "id": 289348,
+              "key": "a38f710f-e413-48ed-a1be-3123985fd5a4",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "### Limitations of the Constant Velocity (CV) Model",
+              "instructor_notes": ""
+            },
+            {
+              "id": 269984,
+              "key": "b7c83fd7-1a5c-4fce-abab-736a2c60623c",
+              "title": "CTRV",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "g72HXEcSQHU",
+                "china_cdn_id": "g72HXEcSQHU.mp4"
+              }
+            },
+            {
+              "id": 268712,
+              "key": "66d48470-0d88-446d-b58f-ed305843b7d5",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2017/February/58b4e215_screenshot-from-2017-02-27-20-35-58/screenshot-from-2017-02-27-20-35-58.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/66d48470-0d88-446d-b58f-ed305843b7d5",
+              "caption": "",
+              "alt": null,
+              "width": 696,
+              "height": 436,
+              "instructor_notes": null
+            },
+            {
+              "id": 268717,
+              "key": "91885032-6be3-4bad-8251-a34d6b441af6",
+              "title": "",
+              "semantic_type": "RadioQuizAtom",
+              "is_public": true,
+              "instructor_notes": null,
+              "user_state": {
+                "node_key": "91885032-6be3-4bad-8251-a34d6b441af6",
+                "completed_at": null,
+                "last_viewed_at": null,
+                "unstructured": null
+              },
+              "question": {
+                "prompt": "Assume a vehicle drives straight at first and then goes into a turn. If we apply a Kalman Filter to track the vehicle (using the process model from the last lesson, which assumes constant velocity), what do you expect to happen with our estimation result for the vehicle position?",
+                "answers": [
+                  {
+                    "id": "a1488249379615",
+                    "text": "The position estimation would tend to result outside of the actually driven circle.",
+                    "is_correct": true
+                  },
+                  {
+                    "id": "a1488249502498",
+                    "text": "The position estimation would tend to result inside of the actually driven circle",
+                    "is_correct": false
+                  },
+                  {
+                    "id": "a1488249511908",
+                    "text": "The position estimation would result correctly on the actually driven circle",
+                    "is_correct": false
+                  },
+                  {
+                    "id": "a1488249517540",
+                    "text": "It is impossible to say what would happen in this case.",
+                    "is_correct": false
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "id": 268192,
+          "key": "a104551c-4b77-4cb6-9cb8-3fb1ddad8b97",
+          "title": "The CTRV Model State Vector",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "a104551c-4b77-4cb6-9cb8-3fb1ddad8b97",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 269985,
+              "key": "b3f26571-4170-43a5-b89d-f6aec16ab3fd",
+              "title": "State Vector Introduction",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "hLVz0YOhntA",
+                "china_cdn_id": "hLVz0YOhntA.mp4"
+              }
+            },
+            {
+              "id": 268718,
+              "key": "c066117b-3e2e-4167-90ea-4bd38c3516dc",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2017/February/58b4e465_screenshot-from-2017-02-27-20-45-49/screenshot-from-2017-02-27-20-45-49.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/c066117b-3e2e-4167-90ea-4bd38c3516dc",
+              "caption": "A diagram of the CTRV model.",
+              "alt": null,
+              "width": 1178,
+              "height": 1038,
+              "instructor_notes": null
+            },
+            {
+              "id": 268719,
+              "key": "84af6219-9989-40dc-9a3f-4838daa39582",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "In the following quizzes, you'll be using state vectors to draw qualitative observations about the motion of turning objects.\n\n### General State Vector\n\n<div class=\"mathquill\">\nx = \\begin{bmatrix}\np_x\\\\\np_y\\\\\nv\\\\\n\\psi\\\\\n\\dot{\\psi}\n\\end{bmatrix}\n</div>\n\n### State Vector 1\n\n<div class=\"mathquill\">\nx = \\begin{bmatrix}\n2 \\space m\\\\\n4 \\space m\\\\\n7 \\space m/s\\\\\n0.5 \\space rad\\\\\n0.6 \\space rad/s\n\\end{bmatrix}\n</div>\n\n### State Vector 2\n\n<div class=\"mathquill\">\nx = \\begin{bmatrix}\n2 \\space m\\\\\n4 \\space m\\\\\n7 \\space m/s\\\\\n0.5 \\space rad\\\\\n0 \\space rad/s\n\\end{bmatrix}\n</div>\n\n### State Vector 3\n\n<div class=\"mathquill\">\nx = \\begin{bmatrix}\n2 \\space m\\\\\n4 \\space m\\\\\n9 \\space m/s\\\\\n0.5 \\space rad\\\\\n0.6 \\space rad/s\n\\end{bmatrix}\n</div>",
+              "instructor_notes": ""
+            },
+            {
+              "id": 268720,
+              "key": "8e29d3d3-bcdb-4ba5-84f2-31e68399fa02",
+              "title": "",
+              "semantic_type": "CheckboxQuizAtom",
+              "is_public": true,
+              "instructor_notes": null,
+              "user_state": {
+                "node_key": "8e29d3d3-bcdb-4ba5-84f2-31e68399fa02",
+                "completed_at": null,
+                "last_viewed_at": null,
+                "unstructured": null
+              },
+              "question": {
+                "prompt": "Which of the above (☝) state vector(s) represent(s) a car driving on a straight path?",
+                "answers": [
+                  {
+                    "id": "a1488251589028",
+                    "text": "1",
+                    "is_correct": false
+                  },
+                  {
+                    "id": "a1488251631059",
+                    "text": "2",
+                    "is_correct": true
+                  },
+                  {
+                    "id": "a1488251632063",
+                    "text": "3",
+                    "is_correct": false
+                  }
+                ]
+              }
+            },
+            {
+              "id": 268721,
+              "key": "f8f7cefb-5c70-4a57-8634-06cf105c8279",
+              "title": "",
+              "semantic_type": "RadioQuizAtom",
+              "is_public": true,
+              "instructor_notes": null,
+              "user_state": {
+                "node_key": "f8f7cefb-5c70-4a57-8634-06cf105c8279",
+                "completed_at": null,
+                "last_viewed_at": null,
+                "unstructured": null
+              },
+              "question": {
+                "prompt": "Which of the above state vectors has the smallest turning radius?",
+                "answers": [
+                  {
+                    "id": "a1488252067691",
+                    "text": "1",
+                    "is_correct": true
+                  },
+                  {
+                    "id": "a1488252095167",
+                    "text": "2",
+                    "is_correct": false
+                  },
+                  {
+                    "id": "a1488252096314",
+                    "text": "3",
+                    "is_correct": false
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "id": 268195,
+          "key": "ec188154-36ef-4f3c-bdd4-6eccf48181bf",
+          "title": "CTRV Differential Equation",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "ec188154-36ef-4f3c-bdd4-6eccf48181bf",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 269986,
+              "key": "b66da12b-3d8b-49e3-a3b7-850f401106a5",
+              "title": "CTRV",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "o2HVZFSH1Fs",
+                "china_cdn_id": "o2HVZFSH1Fs.mp4"
+              }
+            },
+            {
+              "id": 268723,
+              "key": "2e1ec78a-e5a9-474a-ba4f-80ef236ee95b",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2017/February/58b4ef34_screenshot-from-2017-02-27-20-45-49/screenshot-from-2017-02-27-20-45-49.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/2e1ec78a-e5a9-474a-ba4f-80ef236ee95b",
+              "caption": "The CTRV model.",
+              "alt": null,
+              "width": 1178,
+              "height": 1038,
+              "instructor_notes": null
+            },
+            {
+              "id": 268722,
+              "key": "66cf5b21-f5ab-460b-89a9-4e34cc131dc8",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "In the following quizzes, you'll need to pick the correct terms for the change rates of the state using the diagram above and some calculus! We started with:\n\n<div class=\"mathquill\">\n\\dot{p_x} = cos(\\psi) \\cdot v\n</div>\n\nNow, pick the correct terms for <span class=\"mathquill\">\\dot{p_y}</span>, <span class=\"mathquill\">\\dot{v}</span>, <span class=\"mathquill\">\\dot{\\psi}</span> and <span class=\"mathquill\">\\ddot{\\psi}</span>.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 268724,
+              "key": "a68a7c53-dfb8-4104-bc88-d12b67a5e093",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "### Question 1: <span class=\"mathquill\">\\dot{p_y}</span> = ???\n\nA. <span class=\"mathquill\">sin(\\psi) \\cdot v</span>\n\nB. <span class=\"mathquill\">cos(\\psi) \\cdot v</span>\n\nC. <span class=\"mathquill\">tan(\\psi) \\cdot v</span>",
+              "instructor_notes": ""
+            },
+            {
+              "id": 268197,
+              "key": "f40c16c0-53cf-45cd-927f-c86ce3d471d6",
+              "title": "",
+              "semantic_type": "RadioQuizAtom",
+              "is_public": true,
+              "instructor_notes": null,
+              "user_state": {
+                "node_key": "f40c16c0-53cf-45cd-927f-c86ce3d471d6",
+                "completed_at": null,
+                "last_viewed_at": null,
+                "unstructured": null
+              },
+              "question": {
+                "prompt": "1) Which of the above (☝) options represents the change in rate of the y-position?",
+                "answers": [
+                  {
+                    "id": "a1487894101419",
+                    "text": "A",
+                    "is_correct": true
+                  },
+                  {
+                    "id": "a1488253104063",
+                    "text": "B",
+                    "is_correct": false
+                  },
+                  {
+                    "id": "a1488253105549",
+                    "text": "C",
+                    "is_correct": false
+                  }
+                ]
+              }
+            },
+            {
+              "id": 268725,
+              "key": "8e0296dd-a011-4bbc-a3ce-05425b88f6fb",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "### Question 2: <span class=\"mathquill\">\\dot{v}</span> = ???\n\nA. <span class=\"mathquill\">0</span>\n\nB. <span class=\"mathquill\">v</span>\n\nC. <span class=\"mathquill\">\\psi</span>",
+              "instructor_notes": ""
+            },
+            {
+              "id": 268726,
+              "key": "ab853a33-946e-4104-ade9-7bec8e77c746",
+              "title": "",
+              "semantic_type": "RadioQuizAtom",
+              "is_public": true,
+              "instructor_notes": null,
+              "user_state": {
+                "node_key": "ab853a33-946e-4104-ade9-7bec8e77c746",
+                "completed_at": null,
+                "last_viewed_at": null,
+                "unstructured": null
+              },
+              "question": {
+                "prompt": "2) Which of the above (☝) options represents the change in rate of the velocity?",
+                "answers": [
+                  {
+                    "id": "a1488253271505",
+                    "text": "A",
+                    "is_correct": true
+                  },
+                  {
+                    "id": "a1488253286003",
+                    "text": "B",
+                    "is_correct": false
+                  },
+                  {
+                    "id": "a1488253287520",
+                    "text": "C",
+                    "is_correct": false
+                  }
+                ]
+              }
+            },
+            {
+              "id": 268727,
+              "key": "df1b8340-6c0e-4ce8-b31a-fabb63a04ab5",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "### Question 3: <span class=\"mathquill\">\\dot{\\psi}</span> = ???\n\nA. <span class=\"mathquill\">0</span>\n\nB. <span class=\"mathquill\">\\dot{\\psi}</span>\n\nC. <span class=\"mathquill\">\\psi</span>",
+              "instructor_notes": ""
+            },
+            {
+              "id": 268728,
+              "key": "0e22155d-afe7-48c1-a8d7-942e426c90b4",
+              "title": "",
+              "semantic_type": "RadioQuizAtom",
+              "is_public": true,
+              "instructor_notes": null,
+              "user_state": {
+                "node_key": "0e22155d-afe7-48c1-a8d7-942e426c90b4",
+                "completed_at": null,
+                "last_viewed_at": null,
+                "unstructured": null
+              },
+              "question": {
+                "prompt": "3) Which of the above (☝) options represents the change in the yaw?",
+                "answers": [
+                  {
+                    "id": "a1488253492742",
+                    "text": "A",
+                    "is_correct": false
+                  },
+                  {
+                    "id": "a1488253510131",
+                    "text": "B",
+                    "is_correct": true
+                  },
+                  {
+                    "id": "a1488253511972",
+                    "text": "C",
+                    "is_correct": false
+                  }
+                ]
+              }
+            },
+            {
+              "id": 268729,
+              "key": "e3490693-1bf6-405b-8650-a124dfe5c181",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "### Question 4: <span class=\"mathquill\">\\ddot{\\psi}</span> = ???\n\nA. <span class=\"mathquill\">0</span>\n\nB. <span class=\"mathquill\">v</span>\n\nC. <span class=\"mathquill\">\\psi</span>",
+              "instructor_notes": ""
+            },
+            {
+              "id": 268730,
+              "key": "afd04623-e3c7-49bc-ab48-fc13c007ce31",
+              "title": "",
+              "semantic_type": "RadioQuizAtom",
+              "is_public": true,
+              "instructor_notes": null,
+              "user_state": {
+                "node_key": "afd04623-e3c7-49bc-ab48-fc13c007ce31",
+                "completed_at": null,
+                "last_viewed_at": null,
+                "unstructured": null
+              },
+              "question": {
+                "prompt": "4) Which of the above (☝) options represents the rate of change of the yaw rate?",
+                "answers": [
+                  {
+                    "id": "a1488253596859",
+                    "text": "A",
+                    "is_correct": true
+                  },
+                  {
+                    "id": "a1488253607928",
+                    "text": "B",
+                    "is_correct": false
+                  },
+                  {
+                    "id": "a1488253609026",
+                    "text": "C",
+                    "is_correct": false
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "id": 268198,
+          "key": "8887cb6e-fd20-488d-9f1a-460d6028583e",
+          "title": "CTRV Integral 1",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "8887cb6e-fd20-488d-9f1a-460d6028583e",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 269987,
+              "key": "1926fec8-3bbb-43d9-87c5-f8cfb95922b2",
+              "title": "CTRV Integral Last 3",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "dcR9RtwJ6yk",
+                "china_cdn_id": "dcR9RtwJ6yk.mp4"
+              }
+            },
+            {
+              "id": 269082,
+              "key": "35b92a22-76e6-4107-b96f-0c724e693bd4",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "### Question 1: <span class=\"mathquill\">\\int_{t_k}^{t_{k+1}} \\dot{v}(t) \\space dt</span> = ???\n\nA. <span class=\"mathquill\">0</span>\n\nB. <span class=\"mathquill\">v_k \\cdot \\Delta t</span>",
+              "instructor_notes": ""
+            },
+            {
+              "id": 268201,
+              "key": "bcb03a48-69af-453d-9783-47cfd7a93a82",
+              "title": "",
+              "semantic_type": "RadioQuizAtom",
+              "is_public": true,
+              "instructor_notes": null,
+              "user_state": {
+                "node_key": "bcb03a48-69af-453d-9783-47cfd7a93a82",
+                "completed_at": null,
+                "last_viewed_at": null,
+                "unstructured": null
+              },
+              "question": {
+                "prompt": "1) Which of the above (☝) options equals the integral of the change in velocity from time k to k+1?",
+                "answers": [
+                  {
+                    "id": "a1487897478392",
+                    "text": "A",
+                    "is_correct": true
+                  },
+                  {
+                    "id": "a1488324045422",
+                    "text": "B",
+                    "is_correct": false
+                  }
+                ]
+              }
+            },
+            {
+              "id": 269083,
+              "key": "45c97643-fc81-4a4b-b897-6e68d533b3dc",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "### Question 2: <span class=\"mathquill\">\\int_{t_k}^{t_{k+1}} \\dot{\\psi}(t) \\space dt</span> = ???\n\nA. <span class=\"mathquill\">0</span>\n\nB. <span class=\"mathquill\">\\dot{\\psi}_k \\cdot \\Delta t</span>",
+              "instructor_notes": ""
+            },
+            {
+              "id": 269085,
+              "key": "2c8c2113-4a34-4b2c-8b9a-57bce564aa17",
+              "title": "",
+              "semantic_type": "RadioQuizAtom",
+              "is_public": true,
+              "instructor_notes": null,
+              "user_state": {
+                "node_key": "2c8c2113-4a34-4b2c-8b9a-57bce564aa17",
+                "completed_at": null,
+                "last_viewed_at": null,
+                "unstructured": null
+              },
+              "question": {
+                "prompt": "2) Which of the above (☝) options equals the integral of the yaw rate from time k to k+1?",
+                "answers": [
+                  {
+                    "id": "a1488324317068",
+                    "text": "A",
+                    "is_correct": false
+                  },
+                  {
+                    "id": "a1488324345788",
+                    "text": "B",
+                    "is_correct": true
+                  }
+                ]
+              }
+            },
+            {
+              "id": 269084,
+              "key": "9d324b17-4103-4490-906f-15c62f168c6d",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "### Question 3: <span class=\"mathquill\">\\int_{t_k}^{t_{k+1}} \\ddot{\\psi}(t) \\space dt</span> = ???\n\nA. <span class=\"mathquill\">0</span>\n\nB. <span class=\"mathquill\">\\dot{\\psi}_k \\cdot \\Delta t</span>",
+              "instructor_notes": ""
+            },
+            {
+              "id": 269086,
+              "key": "ef3daa67-fbf6-40ae-942c-0dda274d7fd7",
+              "title": "",
+              "semantic_type": "RadioQuizAtom",
+              "is_public": true,
+              "instructor_notes": null,
+              "user_state": {
+                "node_key": "ef3daa67-fbf6-40ae-942c-0dda274d7fd7",
+                "completed_at": null,
+                "last_viewed_at": null,
+                "unstructured": null
+              },
+              "question": {
+                "prompt": "3) Which of the above (☝) options equals the integral of the change in yaw rate from time k to k+1?",
+                "answers": [
+                  {
+                    "id": "a1488324405513",
+                    "text": "A",
+                    "is_correct": true
+                  },
+                  {
+                    "id": "a1488324434053",
+                    "text": "B",
+                    "is_correct": false
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "id": 268202,
+          "key": "6eacabfa-d0df-411e-9f3a-5a6d4ab68637",
+          "title": "CTRV Integral 2",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "6eacabfa-d0df-411e-9f3a-5a6d4ab68637",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 269988,
+              "key": "c0cfb754-8334-450e-a9ee-9ecbe1258545",
+              "title": "CTRV Integral Position",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "9E6K4Aw_MaI",
+                "china_cdn_id": "9E6K4Aw_MaI.mp4"
+              }
+            },
+            {
+              "id": 322513,
+              "key": "939fb552-a5e1-449e-b4d8-bf823abd5804",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "The general form of the solved integral can be found <a href=\"http://www.wolframalpha.com/input/?i=v+int+cos(a+%2B+b+*+(t+-+c+))+dt,++t+%3D+c+to+d\">here</a>.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 269087,
+              "key": "6d292b8f-2c32-4c83-bf5d-2e14d259416e",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "### Question 1: <span class=\"mathquill\">v_k \\int_{t_k}^{t_{k+1}} cos(\\psi_k + \\dot{\\psi_k} \\cdot (t - t_k)) \\space dt</span> = ???\n\nA. <span class=\"mathquill\">\\Large \\frac{\\psi_k}{\\dot{v_k}}(cos(\\psi_k) - sin(\\psi_k))</span>\n\nB. <span class=\"mathquill\">\\Large \\frac{v_k}{\\dot{\\psi_k}}(sin(\\psi_k + \\dot{\\psi_k}\\Delta t) - sin(\\psi_k))</span>",
+              "instructor_notes": ""
+            },
+            {
+              "id": 268204,
+              "key": "015100a5-9df3-488f-aa47-db99032f3bbb",
+              "title": "",
+              "semantic_type": "RadioQuizAtom",
+              "is_public": true,
+              "instructor_notes": null,
+              "user_state": {
+                "node_key": "015100a5-9df3-488f-aa47-db99032f3bbb",
+                "completed_at": null,
+                "last_viewed_at": null,
+                "unstructured": null
+              },
+              "question": {
+                "prompt": "1) Which of the above (☝) options solves the given integral?",
+                "answers": [
+                  {
+                    "id": "a1487897543139",
+                    "text": "A",
+                    "is_correct": false
+                  },
+                  {
+                    "id": "a1488330546720",
+                    "text": "B",
+                    "is_correct": true
+                  }
+                ]
+              }
+            },
+            {
+              "id": 269090,
+              "key": "743203c1-4ace-4a6d-bf7c-48d8e9ed8f7c",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "### Question 2: <span class=\"mathquill\">v_k \\int_{t_k}^{t_{k+1}} sin(\\psi_k + \\dot{\\psi_k} \\cdot (t - t_k)) \\space dt</span> = ???\n\nA. <span class=\"mathquill\">\\Large \\frac{v_k}{\\dot{\\psi_k}}(-cos(\\psi_k + \\dot{\\psi_k}\\Delta t) + cos(\\psi_k))</span>\n\nB. <span class=\"mathquill\">\\Large \\frac{\\psi_k}{\\Delta t}(tan(\\psi_k) - sin(\\psi_k))</span>",
+              "instructor_notes": ""
+            },
+            {
+              "id": 269094,
+              "key": "55f704b5-bcc3-4821-8a5b-0a9ee0edc27e",
+              "title": "",
+              "semantic_type": "RadioQuizAtom",
+              "is_public": true,
+              "instructor_notes": null,
+              "user_state": {
+                "node_key": "55f704b5-bcc3-4821-8a5b-0a9ee0edc27e",
+                "completed_at": null,
+                "last_viewed_at": null,
+                "unstructured": null
+              },
+              "question": {
+                "prompt": "2) Which of the above (☝) options solves the given integral?",
+                "answers": [
+                  {
+                    "id": "a1488332613532",
+                    "text": "A",
+                    "is_correct": true
+                  },
+                  {
+                    "id": "a1488332640316",
+                    "text": "B",
+                    "is_correct": false
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "id": 268205,
+          "key": "2a4a2f24-fbf0-4457-a2fd-124269f8f5b8",
+          "title": "CTRV Zero Yaw Rate",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "2a4a2f24-fbf0-4457-a2fd-124269f8f5b8",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 269990,
+              "key": "7949e093-7ca5-4ce3-ada6-3807b90e02df",
+              "title": "CTRV Zero Yaw Rate",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "8gAsx7OAH6c",
+                "china_cdn_id": "8gAsx7OAH6c.mp4"
+              }
+            },
+            {
+              "id": 269098,
+              "key": "38486757-f599-4202-949c-c2ff611e51b6",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2017/March/58b62cea_screenshot-from-2017-02-27-20-45-49/screenshot-from-2017-02-27-20-45-49.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/38486757-f599-4202-949c-c2ff611e51b6",
+              "caption": "The CTRV model for your reference.",
+              "alt": null,
+              "width": 1178,
+              "height": 1038,
+              "instructor_notes": null
+            },
+            {
+              "id": 269095,
+              "key": "84b51aa7-c842-49eb-81de-f648360f77b2",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "How should the process model change if the yaw rate, <span class=\"mathquill\">\\dot{\\psi_k}</span>, is 0? Think it through for the first two components of the process model. (Why not the last three components? They all have the trivial solution of 0 when <span class=\"mathquill\">\\dot{\\psi_k}</span> is 0.)",
+              "instructor_notes": ""
+            },
+            {
+              "id": 269096,
+              "key": "4a39e4f7-dcc3-475a-9e2a-ed1c37c53987",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "### Question 1: How should we calculate the change in the x-position over time when <span class=\"mathquill\">\\dot{\\psi_k} = 0</span>?\n\nA. <span class=\"mathquill\">v_k cos(\\psi_k) \\Delta t</span>\n\nB. <span class=\"mathquill\">v_k tan(\\psi_k) \\Delta t</span>",
+              "instructor_notes": ""
+            },
+            {
+              "id": 268207,
+              "key": "53dd8549-bf2c-4e85-ba73-d29b82234a4b",
+              "title": "",
+              "semantic_type": "RadioQuizAtom",
+              "is_public": true,
+              "instructor_notes": null,
+              "user_state": {
+                "node_key": "53dd8549-bf2c-4e85-ba73-d29b82234a4b",
+                "completed_at": null,
+                "last_viewed_at": null,
+                "unstructured": null
+              },
+              "question": {
+                "prompt": "1) Which of the above (☝) options gives the change in x-position over time when the yaw rate is 0?",
+                "answers": [
+                  {
+                    "id": "a1487897929875",
+                    "text": "A",
+                    "is_correct": true
+                  },
+                  {
+                    "id": "a1488333431881",
+                    "text": "B",
+                    "is_correct": false
+                  }
+                ]
+              }
+            },
+            {
+              "id": 269097,
+              "key": "c5c7b580-e807-479f-9ba2-f02a04fc2171",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "### Question 2: How should we calculate the change in the y-position over time when <span class=\"mathquill\">\\dot{\\psi_k} = 0</span>?\n\nA. <span class=\"mathquill\">v_k sin(\\psi_k) \\Delta t</span>\n\nB. <span class=\"mathquill\">v_k tan(\\psi_k) \\Delta t</span>",
+              "instructor_notes": ""
+            },
+            {
+              "id": 269099,
+              "key": "384e1179-9cff-4bbc-b76c-985f209f4d4a",
+              "title": "",
+              "semantic_type": "RadioQuizAtom",
+              "is_public": true,
+              "instructor_notes": null,
+              "user_state": {
+                "node_key": "384e1179-9cff-4bbc-b76c-985f209f4d4a",
+                "completed_at": null,
+                "last_viewed_at": null,
+                "unstructured": null
+              },
+              "question": {
+                "prompt": "2) Which of the above (☝) options gives the change in y-position over time when the yaw rate is 0?",
+                "answers": [
+                  {
+                    "id": "a1488334127375",
+                    "text": "A",
+                    "is_correct": true
+                  },
+                  {
+                    "id": "a1488334136737",
+                    "text": "B",
+                    "is_correct": false
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "id": 268208,
+          "key": "e8eaeb90-9588-4662-9b84-6928e31516cf",
+          "title": "CTRV Process Noise Vector",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "e8eaeb90-9588-4662-9b84-6928e31516cf",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 269992,
+              "key": "3d493720-d873-4162-96d6-1bf181454227",
+              "title": "CTRV Process Noise Vector",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "Qr99RXys-G0",
+                "china_cdn_id": "Qr99RXys-G0.mp4"
+              }
+            },
+            {
+              "id": 269993,
+              "key": "29b4fb62-e39a-4517-aaeb-702dd182878b",
+              "title": "CTRV Process Noise Effect Last 3",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "DUm8e7K8qZ8",
+                "china_cdn_id": "DUm8e7K8qZ8.mp4"
+              }
+            },
+            {
+              "id": 269100,
+              "key": "a28bd700-7d2e-4081-9af9-bf9b3d4ba4c2",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "### 1) What is the influence of <span class=\"mathquill\">\\nu_{a,k_{}}</span> and <span class=\"mathquill\">\\nu_{\\ddot{\\psi},k}</span> on the velocity?\n\nIn other words, what is <span class=\"mathquill\">c</span> in the process model?\n\nA. <span class=\"mathquill\">\\Large \\Delta t \\cdot \\nu_{\\ddot{\\psi},k}</span>\n\nB. <span class=\"mathquill\">\\Large \\Delta t \\cdot \\nu_{a,k}</span>",
+              "instructor_notes": ""
+            },
+            {
+              "id": 268211,
+              "key": "5ca2439d-e49d-426d-9b75-0d91c4d6d6c1",
+              "title": "",
+              "semantic_type": "RadioQuizAtom",
+              "is_public": true,
+              "instructor_notes": null,
+              "user_state": {
+                "node_key": "5ca2439d-e49d-426d-9b75-0d91c4d6d6c1",
+                "completed_at": null,
+                "last_viewed_at": null,
+                "unstructured": null
+              },
+              "question": {
+                "prompt": "1) How will the noise processes influence the velocity? Select one of the options from above (👆).",
+                "answers": [
+                  {
+                    "id": "a1487898010663",
+                    "text": "A",
+                    "is_correct": false
+                  },
+                  {
+                    "id": "a1488334727277",
+                    "text": "B",
+                    "is_correct": true
+                  }
+                ]
+              }
+            },
+            {
+              "id": 269101,
+              "key": "f8b883ba-79cd-4822-a5e7-4d8366b9ed9d",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "### 2) What is the influence of <span class=\"mathquill\">\\nu_{a,k_{}}</span> and <span class=\"mathquill\">\\nu_{\\ddot{\\psi},k}</span> on the yaw angle?\n\nIn other words, what is <span class=\"mathquill\">d</span> in the process model?\n\nA. <span class=\"mathquill\">\\Large \\frac{1}{2}(\\Delta t)^2 \\cdot \\nu_{\\ddot{\\psi},k}</span>\n\nB. <span class=\"mathquill\">\\Large \\Delta t \\cdot \\nu_{\\ddot{\\psi},k}</span>",
+              "instructor_notes": ""
+            },
+            {
+              "id": 269147,
+              "key": "9cd41d3f-46fc-46c3-8363-a848fd70be94",
+              "title": "",
+              "semantic_type": "RadioQuizAtom",
+              "is_public": true,
+              "instructor_notes": null,
+              "user_state": {
+                "node_key": "9cd41d3f-46fc-46c3-8363-a848fd70be94",
+                "completed_at": null,
+                "last_viewed_at": null,
+                "unstructured": null
+              },
+              "question": {
+                "prompt": "2) How will the noise processes influence the yaw angle? Select one of the options from above (👆).",
+                "answers": [
+                  {
+                    "id": "a1488384484903",
+                    "text": "A",
+                    "is_correct": true
+                  },
+                  {
+                    "id": "a1488384589790",
+                    "text": "B",
+                    "is_correct": false
+                  }
+                ]
+              }
+            },
+            {
+              "id": 269148,
+              "key": "d6fc0286-856b-4811-b47e-835a8222df5e",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "### 3) What is the influence of <span class=\"mathquill\">\\nu_{a,k_{}}</span> and <span class=\"mathquill\">\\nu_{\\ddot{\\psi},k}</span> on the yaw rate?\n\nIn other words, what is <span class=\"mathquill\">\\large e</span> in the process model?\n\nA. <span class=\"mathquill\">\\Large \\Delta t \\cdot \\nu_{a,k}</span>\n\nB. <span class=\"mathquill\">\\Large \\Delta t \\cdot \\nu_{\\ddot{\\psi},k}</span>",
+              "instructor_notes": ""
+            },
+            {
+              "id": 269149,
+              "key": "981b78a3-0a49-42ef-a8a9-46d2c95489bb",
+              "title": "",
+              "semantic_type": "RadioQuizAtom",
+              "is_public": true,
+              "instructor_notes": null,
+              "user_state": {
+                "node_key": "981b78a3-0a49-42ef-a8a9-46d2c95489bb",
+                "completed_at": null,
+                "last_viewed_at": null,
+                "unstructured": null
+              },
+              "question": {
+                "prompt": "3) How will the noise processes influence the yaw rate? Select one of the options from above (👆).",
+                "answers": [
+                  {
+                    "id": "a1488384847483",
+                    "text": "A",
+                    "is_correct": false
+                  },
+                  {
+                    "id": "a1488384858106",
+                    "text": "B",
+                    "is_correct": true
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "id": 268212,
+          "key": "510295ae-5ede-47f5-b3aa-fafb997df074",
+          "title": "CTRV Process Noise Position",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "510295ae-5ede-47f5-b3aa-fafb997df074",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 269994,
+              "key": "b6bba632-49fd-426c-99ea-f24e240be52a",
+              "title": "13 Q CTRV Process Noise Position",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "DJ_K1udemNk",
+                "china_cdn_id": "DJ_K1udemNk.mp4"
+              }
+            },
+            {
+              "id": 269150,
+              "key": "0b45bb0a-b22b-44e0-b3f0-1b770f6f6676",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "### 1) What would the x acceleration offset be if the car were driving perfectly straight? In other words, what is <span class=\"mathquill\">a</span>?\n\nA. <span class=\"mathquill\">\\frac{1}{2}(\\Delta t)^2 cos(\\psi_k) \\cdot \\nu_{a,k}</span>\n\nB. <span class=\"mathquill\">\\frac{1}{2}(\\Delta t)^2 sin(\\psi_k) \\cdot \\nu_{a,k}</span>",
+              "instructor_notes": ""
+            },
+            {
+              "id": 268214,
+              "key": "c89fe5ee-b3b2-4cfb-ac46-0c668faa706c",
+              "title": "",
+              "semantic_type": "RadioQuizAtom",
+              "is_public": true,
+              "instructor_notes": null,
+              "user_state": {
+                "node_key": "c89fe5ee-b3b2-4cfb-ac46-0c668faa706c",
+                "completed_at": null,
+                "last_viewed_at": null,
+                "unstructured": null
+              },
+              "question": {
+                "prompt": "1) Which of the above (👆) options represents the acceleration x offset of a car driving straight at time k+1?",
+                "answers": [
+                  {
+                    "id": "a1487898076745",
+                    "text": "A",
+                    "is_correct": true
+                  },
+                  {
+                    "id": "a1488386977464",
+                    "text": "B",
+                    "is_correct": false
+                  }
+                ]
+              }
+            },
+            {
+              "id": 269151,
+              "key": "26100e87-ce1c-41cd-b5fd-40026bbc9257",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "### 1) What would the y acceleration offset be if the car were driving perfectly straight? In other words, what is <span class=\"mathquill\">b</span>?\n\nA. <span class=\"mathquill\">\\frac{1}{2}(\\Delta t)^2 cos(\\psi_k) \\cdot \\nu_{a,k}</span>\n\nB. <span class=\"mathquill\">\\frac{1}{2}(\\Delta t)^2 sin(\\psi_k) \\cdot \\nu_{a,k}</span>",
+              "instructor_notes": ""
+            },
+            {
+              "id": 269152,
+              "key": "192c8e5b-b27c-44d3-a26b-e15f22ba0315",
+              "title": "",
+              "semantic_type": "RadioQuizAtom",
+              "is_public": true,
+              "instructor_notes": null,
+              "user_state": {
+                "node_key": "192c8e5b-b27c-44d3-a26b-e15f22ba0315",
+                "completed_at": null,
+                "last_viewed_at": null,
+                "unstructured": null
+              },
+              "question": {
+                "prompt": "2) Which of the above (👆) options represents the acceleration y offset of a car driving straight at time k+1?",
+                "answers": [
+                  {
+                    "id": "a1488387055322",
+                    "text": "A",
+                    "is_correct": false
+                  },
+                  {
+                    "id": "a1488387061759",
+                    "text": "B",
+                    "is_correct": true
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "id": 268217,
+          "key": "6e56cc5c-4c9c-4714-afe2-caed23feb1b5",
+          "title": "UKF Process Chain",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "6e56cc5c-4c9c-4714-afe2-caed23feb1b5",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 289638,
+              "key": "7747e384-0844-426d-a9d9-6f6c1dff0c9d",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "### Unscented Kalman Filter Introduction\n\nNow that you have learned the CTRV motion model equations, we will discuss how the unscented Kalman filter works. As you go through the lectures, recall that the extended Kalman filter uses the Jacobian matrix to linearize non-linear functions. \n\nThe unscented Kalman filter, on the other hand, does not need to linearize non-linear functions; instead, the unscented Kalman filter takes representative points from a Gaussian distribution. These points will be plugged into the non-linear equations as you'll see in the lectures.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 268218,
+              "key": "a435c6fb-954a-4f4f-bd92-7a4d418870d2",
+              "title": "UKF Process Chain",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "sU7ifLgxxas",
+                "china_cdn_id": "sU7ifLgxxas.mp4"
+              }
+            }
+          ]
+        },
+        {
+          "id": 268219,
+          "key": "7beebd13-bbe2-489b-ad0e-fd6fb159f905",
+          "title": "What Problem Does the UKF Solve?",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "7beebd13-bbe2-489b-ad0e-fd6fb159f905",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 269995,
+              "key": "af5de758-97df-46ab-a636-b237e4412870",
+              "title": "UKF What's the Problem",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "OFb47Lu9JfM",
+                "china_cdn_id": "OFb47Lu9JfM.mp4"
+              }
+            }
+          ]
+        },
+        {
+          "id": 268221,
+          "key": "0f791b8c-1d91-44d1-be81-9c15e4d2ea6b",
+          "title": "UKF Basics Unscented Transformation",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "0f791b8c-1d91-44d1-be81-9c15e4d2ea6b",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 269996,
+              "key": "b43ddb41-bf16-4657-aecc-aa067c22ac8b",
+              "title": "UKF Basics Unscented Transformation",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "8jbckHQDl4A",
+                "china_cdn_id": "8jbckHQDl4A.mp4"
+              }
+            },
+            {
+              "id": 268223,
+              "key": "d46fd0f6-194d-4039-b190-b04e002db18f",
+              "title": "UKF Basic Unscented Transformation",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "r594P0XjKa4",
+                "china_cdn_id": "r594P0XjKa4.mp4"
+              }
+            }
+          ]
+        },
+        {
+          "id": 268224,
+          "key": "194af2ea-e304-4f35-ac6c-50a6b89c7986",
+          "title": "Generating Sigma Points",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "194af2ea-e304-4f35-ac6c-50a6b89c7986",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 269997,
+              "key": "e69df144-a5cb-4513-a36d-783070cb9c97",
+              "title": "19 UKF Generate Sigma Points",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "t7YJJpEzTX4",
+                "china_cdn_id": "t7YJJpEzTX4.mp4"
+              }
+            }
+          ]
+        },
+        {
+          "id": 268227,
+          "key": "0b64ec4f-eea0-47b5-9111-365eb7f71f89",
+          "title": "Generating Sigma Points Assignment 1",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "0b64ec4f-eea0-47b5-9111-365eb7f71f89",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 268228,
+              "key": "68e85fe7-3ce0-4b14-99e6-0e1e699641d0",
+              "title": "Assignment Sigma Point Generation",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "TIc3n-cxTqc",
+                "china_cdn_id": "TIc3n-cxTqc.mp4"
+              }
+            },
+            {
+              "id": 419939,
+              "key": "d5c9572e-c101-4a0c-8b75-50fa3a1c163c",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## Instructor Notes:\nIn the video, the upper left value of <span class=\"mathquill\">sqrt(P_k|k)</span> is 0.00656.  It should actually be  0.0656",
+              "instructor_notes": ""
+            },
+            {
+              "id": 269308,
+              "key": "afd5f53d-e13b-467a-b5af-6073435c8ab9",
+              "title": "Generating Sigma Points Assignment",
+              "semantic_type": "TaskListAtom",
+              "is_public": true,
+              "instructor_notes": null,
+              "user_state": {
+                "node_key": "afd5f53d-e13b-467a-b5af-6073435c8ab9",
+                "completed_at": null,
+                "last_viewed_at": null,
+                "unstructured": null
+              },
+              "tasks": [
+                "Calculate the sigma points and store them in the input reference matrix"
+              ],
+              "positive_feedback": "Nice! Have you tested your code below?",
+              "video_feedback": null,
+              "description": "You will be completing the missing code in ukf.cpp, GenerateSigmaPoints() function."
+            },
+            {
+              "id": 269370,
+              "key": "c1763d23-2563-492d-9234-520720bc2f2b",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "### Helpful Equations and Resources\n\n<div class=\"mathquill\">\nX_{k|k} = \\Bigg [  x_{k|k} \\qquad x_{k|k}+\\sqrt{(\\lambda+n_x)P_{k|k}} \\qquad x_{k|k}-\\sqrt{(\\lambda+n_x)P_{k|k}} \\Bigg]\n</div>\n\nremember that <span class=\"mathquill\">\\large x_{k|k}</span> is the first column of the Sigma matrix.\n \n<span class=\"mathquill\">\\large x_{k|k}+\\sqrt{(\\lambda+n_x)P_{k|k}}</span> is the second through <span class=\"mathquill\">\\large n_x +1</span> column.\n\n<span class=\"mathquill\">\\large x_{k|k}-\\sqrt{(\\lambda+n_x)P_{k|k}}</span> is the <span class=\"mathquill\">\\large n_x +2</span> column through <span class=\"mathquill\">\\large 2n_x +1</span> column.\n\nand you can set columns easily in a matrix using the `.col()` function.\n\n- [Eigen Quick Reference Guide](https://eigen.tuxfamily.org/dox/group__QuickRefPage.html)\n- [Eigen Documentation of Cholesky Decomposition](https://eigen.tuxfamily.org/dox/classEigen_1_1LLT.html)\n\nPlease note that the algorithm used in the quiz ```(P.llt().matrixL())```produces the lower triangular matrix ```L``` of the matrix ```P``` such that `P = L*L^`. \n\n",
+              "instructor_notes": ""
+            },
+            {
+              "id": 268229,
+              "key": "4468ab1f-f2a2-40ec-9c07-96d0896e2e5b",
+              "title": "",
+              "semantic_type": "QuizAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "user_state": {
+                "node_key": "4468ab1f-f2a2-40ec-9c07-96d0896e2e5b",
+                "completed_at": null,
+                "last_viewed_at": null,
+                "unstructured": null
+              },
+              "instruction": null,
+              "question": {
+                "title": "",
+                "semantic_type": "ProgrammingQuestion",
+                "evaluation_id": "4651060745601024",
+                "initial_code_files": [
+                  {
+                    "text": "#include <iostream>\n#include \"Dense\"\n#include \"ukf.h\"\n\nusing Eigen::MatrixXd;\n\nint main() {\n\n  // Create a UKF instance\n  UKF ukf;\n\n  /**\n   * Programming assignment calls\n   */\n  MatrixXd Xsig = MatrixXd(5, 11);\n  ukf.GenerateSigmaPoints(&Xsig);\n\n  // print result\n  std::cout << \"Xsig = \" << std::endl << Xsig << std::endl;\n\n  return 0;\n}",
+                    "name": "main.cpp"
+                  },
+                  {
+                    "text": "#include \"ukf.h\"\n#include <iostream>\n\nusing Eigen::MatrixXd;\nusing Eigen::VectorXd;\n\nUKF::UKF() {\n  Init();\n}\n\nUKF::~UKF() {\n\n}\n\nvoid UKF::Init() {\n\n}\n\n/**\n * Programming assignment functions: \n */\nvoid UKF::GenerateSigmaPoints(MatrixXd* Xsig_out) {\n\n  // set state dimension\n  int n_x = 5;\n\n  // define spreading parameter\n  double lambda = 3 - n_x;\n\n  // set example state\n  VectorXd x = VectorXd(n_x);\n  x <<   5.7441,\n         1.3800,\n         2.2049,\n         0.5015,\n         0.3528;\n\n  // set example covariance matrix\n  MatrixXd P = MatrixXd(n_x, n_x);\n  P <<     0.0043,   -0.0013,    0.0030,   -0.0022,   -0.0020,\n          -0.0013,    0.0077,    0.0011,    0.0071,    0.0060,\n           0.0030,    0.0011,    0.0054,    0.0007,    0.0008,\n          -0.0022,    0.0071,    0.0007,    0.0098,    0.0100,\n          -0.0020,    0.0060,    0.0008,    0.0100,    0.0123;\n\n  // create sigma point matrix\n  MatrixXd Xsig = MatrixXd(n_x, 2 * n_x + 1);\n\n  // calculate square root of P\n  MatrixXd A = P.llt().matrixL();\n\n  /**\n   * Student part begin\n   */\n\n  // your code goes here \n  // calculate sigma points ...\n\n  // set sigma points as columns of matrix Xsig\n\n  /**\n   * Student part end\n   */\n\n  // print result\n  // std::cout << \"Xsig = \" << std::endl << Xsig << std::endl;\n\n  // write result\n  *Xsig_out = Xsig;\n}\n\n/**\n * expected result:\n * Xsig =\n *  5.7441  5.85768   5.7441   5.7441   5.7441   5.7441  5.63052   5.7441   5.7441   5.7441   5.7441\n *    1.38  1.34566  1.52806     1.38     1.38     1.38  1.41434  1.23194     1.38     1.38     1.38\n *  2.2049  2.28414  2.24557  2.29582   2.2049   2.2049  2.12566  2.16423  2.11398   2.2049   2.2049\n *  0.5015  0.44339 0.631886 0.516923 0.595227   0.5015  0.55961 0.371114 0.486077 0.407773   0.5015\n *  0.3528 0.299973 0.462123 0.376339  0.48417 0.418721 0.405627 0.243477 0.329261  0.22143 0.286879\n */",
+                    "name": "ukf.cpp"
+                  },
+                  {
+                    "text": "#ifndef UKF_H\n#define UKF_H\n\n#include \"Dense\"\n\nclass UKF {\n public:\n  /**\n   * Constructor\n   */\n  UKF();\n\n  /**\n   * Destructor\n   */\n  virtual ~UKF();\n\n  /**\n   * Init Initializes Unscented Kalman filter\n   */\n  void Init();\n\n  /**\n   * Student assignment functions\n   */\n  void GenerateSigmaPoints(Eigen::MatrixXd* Xsig_out);\n  void AugmentedSigmaPoints(Eigen::MatrixXd* Xsig_out);\n  void SigmaPointPrediction(Eigen::MatrixXd* Xsig_out);\n  void PredictMeanAndCovariance(Eigen::VectorXd* x_pred, \n                                Eigen::MatrixXd* P_pred);\n  void PredictRadarMeasurement(Eigen::VectorXd* z_out, \n                               Eigen::MatrixXd* S_out);\n  void UpdateState(Eigen::VectorXd* x_out, \n                   Eigen::MatrixXd* P_out);\n};\n\n#endif  // UKF_H",
+                    "name": "ukf.h"
+                  }
+                ]
+              },
+              "answer": null
+            },
+            {
+              "id": 269366,
+              "key": "842a431f-b330-43c3-b9b6-3f3657b416f9",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "### expected result:\n   Xsig =\n    \n5.7441  5.85768   5.7441   5.7441   5.7441   5.7441  5.63052   5.7441   5.7441   5.7441   5.7441\n\n1.38  1.34566  1.52806     1.38     1.38     1.38  1.41434  1.23194     1.38     1.38     1.38\n\n2.2049  2.28414  2.24557  2.29582   2.2049   2.2049  2.12566  2.16423  2.11398   2.2049   2.2049\n\n0.5015  0.44339 0.631886 0.516923 0.595227   0.5015  0.55961 0.371114 0.486077 0.407773   0.5015\n\n0.3528 0.299973 0.462123 0.376339  0.48417 0.418721 0.405627 0.243477 0.329261  0.22143 0.286879\n",
+              "instructor_notes": ""
+            }
+          ]
+        },
+        {
+          "id": 268230,
+          "key": "a01da3d5-9c21-409a-b775-9b237987df46",
+          "title": "Generating Sigma Points Assignment 2",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "a01da3d5-9c21-409a-b775-9b237987df46",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 268231,
+              "key": "d2ee56c4-b17e-4755-9188-0ef071446337",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "### Solution\n\nThe two remaining sigma points are calculated by subtracting each column times the spreading factor from the mean state estimate, <span class=\"mathquill\">x</span>.\n\nIn the code editor below, you can find my solution. Feel free to play with it!",
+              "instructor_notes": ""
+            },
+            {
+              "id": 268232,
+              "key": "2740c4cd-d534-46a2-9258-fcbf858468ed",
+              "title": "",
+              "semantic_type": "QuizAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "user_state": {
+                "node_key": "2740c4cd-d534-46a2-9258-fcbf858468ed",
+                "completed_at": null,
+                "last_viewed_at": null,
+                "unstructured": null
+              },
+              "instruction": null,
+              "question": {
+                "title": "",
+                "semantic_type": "ProgrammingQuestion",
+                "evaluation_id": "6745477254086656",
+                "initial_code_files": [
+                  {
+                    "text": "#include <iostream>\n#include \"Dense\"\n#include \"ukf.h\"\n\nusing Eigen::MatrixXd;\n\nint main() {\n\n  // Create a UKF instance\n  UKF ukf;\n\n  /**\n   * Programming assignment calls\n   */\n  MatrixXd Xsig = MatrixXd(5, 11);\n  ukf.GenerateSigmaPoints(&Xsig);\n\n  // print result\n  std::cout << \"Xsig = \" << std::endl << Xsig << std::endl;\n\n  return 0;\n}",
+                    "name": "main.cpp"
+                  },
+                  {
+                    "text": "#include \"ukf.h\"\n#include <iostream>\n\nusing Eigen::MatrixXd;\nusing Eigen::VectorXd;\n\nUKF::UKF() {\n  Init();\n}\n\nUKF::~UKF() {\n\n}\n\nvoid UKF::Init() {\n\n}\n\n/**\n * Programming assignment functions: \n */\nvoid UKF::GenerateSigmaPoints(MatrixXd* Xsig_out) {\n\n  // set state dimension\n  int n_x = 5;\n\n  // define spreading parameter\n  double lambda = 3 - n_x;\n\n  // set example state\n  VectorXd x = VectorXd(n_x);\n  x <<   5.7441,\n         1.3800,\n         2.2049,\n         0.5015,\n         0.3528;\n\n  // set example covariance matrix\n  MatrixXd P = MatrixXd(n_x, n_x);\n  P <<     0.0043,   -0.0013,    0.0030,   -0.0022,   -0.0020,\n          -0.0013,    0.0077,    0.0011,    0.0071,    0.0060,\n           0.0030,    0.0011,    0.0054,    0.0007,    0.0008,\n          -0.0022,    0.0071,    0.0007,    0.0098,    0.0100,\n          -0.0020,    0.0060,    0.0008,    0.0100,    0.0123;\n\n  // create sigma point matrix\n  MatrixXd Xsig = MatrixXd(n_x, 2 * n_x + 1);\n\n  // calculate square root of P\n  MatrixXd A = P.llt().matrixL();\n\n  /**\n   * Student part begin\n   */\n   \n  // set first column of sigma point matrix\n  Xsig.col(0) = x;\n\n  // set remaining sigma points\n  for (int i = 0; i < n_x; ++i) {\n    Xsig.col(i+1)     = x + sqrt(lambda+n_x) * A.col(i);\n    Xsig.col(i+1+n_x) = x - sqrt(lambda+n_x) * A.col(i);\n  }\n  \n  /**\n   * Student part end\n   */\n\n  // print result\n  // std::cout << \"Xsig = \" << std::endl << Xsig << std::endl;\n\n  // write result\n  *Xsig_out = Xsig;\n}\n\n/**\n * expected result:\n * Xsig =\n *  5.7441  5.85768   5.7441   5.7441   5.7441   5.7441  5.63052   5.7441   5.7441   5.7441   5.7441\n *    1.38  1.34566  1.52806     1.38     1.38     1.38  1.41434  1.23194     1.38     1.38     1.38\n *  2.2049  2.28414  2.24557  2.29582   2.2049   2.2049  2.12566  2.16423  2.11398   2.2049   2.2049\n *  0.5015  0.44339 0.631886 0.516923 0.595227   0.5015  0.55961 0.371114 0.486077 0.407773   0.5015\n *  0.3528 0.299973 0.462123 0.376339  0.48417 0.418721 0.405627 0.243477 0.329261  0.22143 0.286879\n */",
+                    "name": "ukf.cpp"
+                  },
+                  {
+                    "text": "#ifndef UKF_H\n#define UKF_H\n\n#include \"Dense\"\n\nclass UKF {\n public:\n  /**\n   * Constructor\n   */\n  UKF();\n\n  /**\n   * Destructor\n   */\n  virtual ~UKF();\n\n  /**\n   * Init Initializes Unscented Kalman filter\n   */\n  void Init();\n\n  /**\n   * Student assignment functions\n   */\n  void GenerateSigmaPoints(Eigen::MatrixXd* Xsig_out);\n  void AugmentedSigmaPoints(Eigen::MatrixXd* Xsig_out);\n  void SigmaPointPrediction(Eigen::MatrixXd* Xsig_out);\n  void PredictMeanAndCovariance(Eigen::VectorXd* x_pred, \n                                Eigen::MatrixXd* P_pred);\n  void PredictRadarMeasurement(Eigen::VectorXd* z_out, \n                               Eigen::MatrixXd* S_out);\n  void UpdateState(Eigen::VectorXd* x_out, \n                   Eigen::MatrixXd* P_out);\n};\n\n#endif  // UKF_H",
+                    "name": "ukf.h"
+                  }
+                ]
+              },
+              "answer": null
+            },
+            {
+              "id": 269371,
+              "key": "ea48ae21-7226-4178-ac1b-887eb7026ce3",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "### expected result:\n   Xsig =\n    \n5.7441  5.85768   5.7441   5.7441   5.7441   5.7441  5.63052   5.7441   5.7441   5.7441   5.7441\n\n1.38  1.34566  1.52806     1.38     1.38     1.38  1.41434  1.23194     1.38     1.38     1.38\n\n2.2049  2.28414  2.24557  2.29582   2.2049   2.2049  2.12566  2.16423  2.11398   2.2049   2.2049\n\n0.5015  0.44339 0.631886 0.516923 0.595227   0.5015  0.55961 0.371114 0.486077 0.407773   0.5015\n\n0.3528 0.299973 0.462123 0.376339  0.48417 0.418721 0.405627 0.243477 0.329261  0.22143 0.286879\n",
+              "instructor_notes": ""
+            }
+          ]
+        },
+        {
+          "id": 268233,
+          "key": "684424d0-4d25-4aab-8d1c-cf4869fe5f6e",
+          "title": "UKF Augmentation",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "684424d0-4d25-4aab-8d1c-cf4869fe5f6e",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 269998,
+              "key": "4d550d94-852c-49f1-a7f1-ca34905b4a73",
+              "title": "22 L UKF Augmentation",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "G-kdutCM1RQ",
+                "china_cdn_id": "G-kdutCM1RQ.mp4"
+              }
+            }
+          ]
+        },
+        {
+          "id": 268235,
+          "key": "0f72fd3e-b8d2-4e00-abaf-8723b774064a",
+          "title": "Augmentation Assignment 1",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "0f72fd3e-b8d2-4e00-abaf-8723b774064a",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 268236,
+              "key": "ddd12c82-7986-4b72-b412-49583b485c6a",
+              "title": "Assignment Augmentation",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "5p-PqtxQeM8",
+                "china_cdn_id": "5p-PqtxQeM8.mp4"
+              }
+            },
+            {
+              "id": 269376,
+              "key": "632ce1ef-319b-4bd1-a041-66e5fde318b0",
+              "title": "Augmentation Assignment",
+              "semantic_type": "TaskListAtom",
+              "is_public": true,
+              "instructor_notes": null,
+              "user_state": {
+                "node_key": "632ce1ef-319b-4bd1-a041-66e5fde318b0",
+                "completed_at": null,
+                "last_viewed_at": null,
+                "unstructured": null
+              },
+              "tasks": [
+                "create augmented mean state, remember mean of noise is zero",
+                "create augmented covariance matrix",
+                "create square root matrix",
+                "create augmented sigma points"
+              ],
+              "positive_feedback": "Nice! Have you tested your code below?",
+              "video_feedback": null,
+              "description": "Fill in the missing code in ukf.cpp, AugmentedSigmaPoints()."
+            },
+            {
+              "id": 269394,
+              "key": "6b6a19cc-0296-47bd-9960-2069650f3516",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "### Cheat Sheet\n\nAugmented State = \n<div class=\"mathquill\">\\large\nx_{a,k} = \\begin{bmatrix}\np_x\\\\\np_y\\\\\nv\\\\\n\\psi\\\\\n\\dot{\\psi}\\\\\n\\nu_a\\\\\n\\nu_{\\ddot{\\psi}}\n\\end{bmatrix}\n</div>\n\nNote: The mean of the process noise is zero.\n\nAugmented Covariance Matrix =\n<div class=\"mathquill\">\\large\nP_{a,k|k} = \\begin{bmatrix}\n P_{k|k} \\quad 0 \\\\\n0 \\qquad Q\n\\end{bmatrix}\n</div>\n\n### Helpful Matrix and Vector Functions:\nQuickly set `vector y` as first `n` elements of `vector x`.\n\n`x.head(n) = y`, where `n` is the number of elements from first element, and `y` is an input vector of that size.\n\nQuickly set `matrix y` to top left corner of `matrix x`.\n\n`x.topLeftCorner(y_size, y_size)`\n\nReminder of what function to use to take the square root of a `matrix x`,\n\n`x.llt().matrixL()`;\n\n\n",
+              "instructor_notes": ""
+            },
+            {
+              "id": 268237,
+              "key": "4a2876e2-7776-40e6-8185-58a352bb27a9",
+              "title": "",
+              "semantic_type": "QuizAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "user_state": {
+                "node_key": "4a2876e2-7776-40e6-8185-58a352bb27a9",
+                "completed_at": null,
+                "last_viewed_at": null,
+                "unstructured": null
+              },
+              "instruction": null,
+              "question": {
+                "title": "",
+                "semantic_type": "ProgrammingQuestion",
+                "evaluation_id": "5036332331171840",
+                "initial_code_files": [
+                  {
+                    "text": "#include \"Dense\"\n#include \"ukf.h\"\n\nusing Eigen::MatrixXd;\n\nint main() {\n\n  // Create a UKF instance\n  UKF ukf;\n\n  /**\n   * Programming assignment calls\n   */\n  MatrixXd Xsig_aug = MatrixXd(7, 15);\n  ukf.AugmentedSigmaPoints(&Xsig_aug);\n\n  return 0;\n}",
+                    "name": "main.cpp"
+                  },
+                  {
+                    "text": "#include <iostream>\n#include \"ukf.h\"\n\nusing Eigen::MatrixXd;\nusing Eigen::VectorXd;\n\nUKF::UKF() {\n  Init();\n}\n\nUKF::~UKF() {\n\n}\n\nvoid UKF::Init() {\n\n}\n\n\n/**\n * Programming assignment functions: \n */\n\nvoid UKF::AugmentedSigmaPoints(MatrixXd* Xsig_out) {\n\n  // set state dimension\n  int n_x = 5;\n\n  // set augmented dimension\n  int n_aug = 7;\n\n  // Process noise standard deviation longitudinal acceleration in m/s^2\n  double std_a = 0.2;\n\n  // Process noise standard deviation yaw acceleration in rad/s^2\n  double std_yawdd = 0.2;\n\n  // define spreading parameter\n  double lambda = 3 - n_aug;\n\n  // set example state\n  VectorXd x = VectorXd(n_x);\n  x <<   5.7441,\n         1.3800,\n         2.2049,\n         0.5015,\n         0.3528;\n\n  // create example covariance matrix\n  MatrixXd P = MatrixXd(n_x, n_x);\n  P <<     0.0043,   -0.0013,    0.0030,   -0.0022,   -0.0020,\n          -0.0013,    0.0077,    0.0011,    0.0071,    0.0060,\n           0.0030,    0.0011,    0.0054,    0.0007,    0.0008,\n          -0.0022,    0.0071,    0.0007,    0.0098,    0.0100,\n          -0.0020,    0.0060,    0.0008,    0.0100,    0.0123;\n\n  // create augmented mean vector\n  VectorXd x_aug = VectorXd(7);\n\n  // create augmented state covariance\n  MatrixXd P_aug = MatrixXd(7, 7);\n\n  // create sigma point matrix\n  MatrixXd Xsig_aug = MatrixXd(n_aug, 2 * n_aug + 1);\n\n  /**\n   * Student part begin\n   */\n \n  // create augmented mean state\n\n  // create augmented covariance matrix\n\n  // create square root matrix\n\n  // create augmented sigma points\n  \n  /**\n   * Student part end\n   */\n\n  // print result\n  std::cout << \"Xsig_aug = \" << std::endl << Xsig_aug << std::endl;\n\n  // write result\n  *Xsig_out = Xsig_aug;\n}\n\n/** \n * expected result:\n *  Xsig_aug =\n * 5.7441  5.85768   5.7441   5.7441   5.7441   5.7441   5.7441   5.7441  5.63052   5.7441   5.7441   5.7441   5.7441   5.7441   5.7441\n *   1.38  1.34566  1.52806     1.38     1.38     1.38     1.38     1.38  1.41434  1.23194     1.38     1.38     1.38     1.38     1.38\n * 2.2049  2.28414  2.24557  2.29582   2.2049   2.2049   2.2049   2.2049  2.12566  2.16423  2.11398   2.2049   2.2049   2.2049   2.2049\n * 0.5015  0.44339 0.631886 0.516923 0.595227   0.5015   0.5015   0.5015  0.55961 0.371114 0.486077 0.407773   0.5015   0.5015   0.5015\n * 0.3528 0.299973 0.462123 0.376339  0.48417 0.418721   0.3528   0.3528 0.405627 0.243477 0.329261  0.22143 0.286879   0.3528   0.3528\n *      0        0        0        0        0        0  0.34641        0        0        0        0        0        0 -0.34641        0\n *      0        0        0        0        0        0        0  0.34641        0        0        0        0        0        0 -0.34641\n */",
+                    "name": "ukf.cpp"
+                  },
+                  {
+                    "text": "#ifndef UKF_H\n#define UKF_H\n\n#include \"Dense\"\n\nclass UKF {\n public:\n  /**\n   * Constructor\n   */\n  UKF();\n\n  /**\n   * Destructor\n   */\n  virtual ~UKF();\n\n  /**\n   * Init Initializes Unscented Kalman filter\n   */\n  void Init();\n\n  /**\n   * Student assignment functions\n   */\n  void GenerateSigmaPoints(Eigen::MatrixXd* Xsig_out);\n  void AugmentedSigmaPoints(Eigen::MatrixXd* Xsig_out);\n  void SigmaPointPrediction(Eigen::MatrixXd* Xsig_out);\n  void PredictMeanAndCovariance(Eigen::VectorXd* x_pred, \n                                Eigen::MatrixXd* P_pred);\n  void PredictRadarMeasurement(Eigen::VectorXd* z_out, \n                               Eigen::MatrixXd* S_out);\n  void UpdateState(Eigen::VectorXd* x_out, \n                   Eigen::MatrixXd* P_out);\n};\n\n#endif  // UKF_H",
+                    "name": "ukf.h"
+                  }
+                ]
+              },
+              "answer": null
+            },
+            {
+              "id": 269378,
+              "key": "52741cbd-473b-49a9-877d-6a4cefaac06a",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "### expected result:\n \nXsig_aug = \n  5.7441  5.85768   5.7441   5.7441   5.7441   5.7441   5.7441   5.7441  5.63052   5.7441   5.7441   5.7441   5.7441   5.7441   5.7441\n    1.38  1.34566  1.52806     1.38     1.38     1.38     1.38     1.38  1.41434  1.23194     1.38     1.38     1.38     1.38     1.38\n  2.2049  2.28414  2.24557  2.29582   2.2049   2.2049   2.2049   2.2049  2.12566  2.16423  2.11398   2.2049   2.2049   2.2049   2.2049\n  0.5015  0.44339 0.631886 0.516923 0.595227   0.5015   0.5015   0.5015  0.55961 0.371114 0.486077 0.407773   0.5015   0.5015   0.5015\n  0.3528 0.299973 0.462123 0.376339  0.48417 0.418721   0.3528   0.3528 0.405627 0.243477 0.329261  0.22143 0.286879   0.3528   0.3528\n       0        0        0        0        0        0  0.34641        0        0        0        0        0        0 -0.34641        0\n       0        0        0        0        0        0        0  0.34641        0        0        0        0        0        0 -0.34641",
+              "instructor_notes": ""
+            }
+          ]
+        },
+        {
+          "id": 268238,
+          "key": "07444c9b-b4be-4615-96e1-e1b221a9add6",
+          "title": "Augmentation Assignment 2",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "07444c9b-b4be-4615-96e1-e1b221a9add6",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 268239,
+              "key": "cc82bddb-fe05-448a-ab4b-c298fdee96c4",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "### Solution\n\nHere's my process:\n\n1. I added two noise values to the mean of the augmented state. The mean of the noise values is zero, so I set these numbers to zero.\n2. I filled the augmented covariance matrix with zeros.\n3. Then I set the top left block of the augmented covariance matrix using the function `topLeftcorner` from the cheat sheet.\n4.I manually put the variances into the lower right block of the augmented matrix. This 2x2 block corresponds to the matrix <span class=\"mathquill\">Q</span>.\n\nThe rest is exactly the same as before, except that I created more sigma points this time.\n\nYou can find my solution in the code editor below. Feel free to play with it!",
+              "instructor_notes": ""
+            },
+            {
+              "id": 268240,
+              "key": "400dfb69-980e-42db-beb7-8dd658abffb8",
+              "title": "",
+              "semantic_type": "QuizAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "user_state": {
+                "node_key": "400dfb69-980e-42db-beb7-8dd658abffb8",
+                "completed_at": null,
+                "last_viewed_at": null,
+                "unstructured": null
+              },
+              "instruction": null,
+              "question": {
+                "title": "",
+                "semantic_type": "ProgrammingQuestion",
+                "evaluation_id": "4570404615225344",
+                "initial_code_files": [
+                  {
+                    "text": "#include \"Dense\"\n#include \"ukf.h\"\n\nusing Eigen::MatrixXd;\n\nint main() {\n\n  // Create a UKF instance\n  UKF ukf;\n\n  /**\n   * Programming assignment calls\n   */\n  MatrixXd Xsig_aug = MatrixXd(7, 15);\n  ukf.AugmentedSigmaPoints(&Xsig_aug);\n\n  return 0;\n}",
+                    "name": "main.cpp"
+                  },
+                  {
+                    "text": "#include <iostream>\n#include \"ukf.h\"\n\nusing Eigen::MatrixXd;\nusing Eigen::VectorXd;\n\nUKF::UKF() {\n  Init();\n}\n\nUKF::~UKF() {\n\n}\n\nvoid UKF::Init() {\n\n}\n\n\n/**\n * Programming assignment functions: \n */\n\nvoid UKF::AugmentedSigmaPoints(MatrixXd* Xsig_out) {\n\n  // set state dimension\n  int n_x = 5;\n\n  // set augmented dimension\n  int n_aug = 7;\n\n  // Process noise standard deviation longitudinal acceleration in m/s^2\n  double std_a = 0.2;\n\n  // Process noise standard deviation yaw acceleration in rad/s^2\n  double std_yawdd = 0.2;\n\n  // define spreading parameter\n  double lambda = 3 - n_aug;\n\n  // set example state\n  VectorXd x = VectorXd(n_x);\n  x <<   5.7441,\n         1.3800,\n         2.2049,\n         0.5015,\n         0.3528;\n\n  // create example covariance matrix\n  MatrixXd P = MatrixXd(n_x, n_x);\n  P <<     0.0043,   -0.0013,    0.0030,   -0.0022,   -0.0020,\n          -0.0013,    0.0077,    0.0011,    0.0071,    0.0060,\n           0.0030,    0.0011,    0.0054,    0.0007,    0.0008,\n          -0.0022,    0.0071,    0.0007,    0.0098,    0.0100,\n          -0.0020,    0.0060,    0.0008,    0.0100,    0.0123;\n\n  // create augmented mean vector\n  VectorXd x_aug = VectorXd(7);\n\n  // create augmented state covariance\n  MatrixXd P_aug = MatrixXd(7, 7);\n\n  // create sigma point matrix\n  MatrixXd Xsig_aug = MatrixXd(n_aug, 2 * n_aug + 1);\n\n  /**\n   * Student part begin\n   */\n \n  // create augmented mean state\n  x_aug.head(5) = x;\n  x_aug(5) = 0;\n  x_aug(6) = 0;\n\n  // create augmented covariance matrix\n  P_aug.fill(0.0);\n  P_aug.topLeftCorner(5,5) = P;\n  P_aug(5,5) = std_a*std_a;\n  P_aug(6,6) = std_yawdd*std_yawdd;\n\n  // create square root matrix\n  MatrixXd L = P_aug.llt().matrixL();\n\n  // create augmented sigma points\n  Xsig_aug.col(0)  = x_aug;\n  for (int i = 0; i< n_aug; ++i) {\n    Xsig_aug.col(i+1)       = x_aug + sqrt(lambda+n_aug) * L.col(i);\n    Xsig_aug.col(i+1+n_aug) = x_aug - sqrt(lambda+n_aug) * L.col(i);\n  }\n  \n  /**\n   * Student part end\n   */\n\n  // print result\n  std::cout << \"Xsig_aug = \" << std::endl << Xsig_aug << std::endl;\n\n  // write result\n  *Xsig_out = Xsig_aug;\n}\n\n/** \n * expected result:\n *  Xsig_aug =\n * 5.7441  5.85768   5.7441   5.7441   5.7441   5.7441   5.7441   5.7441  5.63052   5.7441   5.7441   5.7441   5.7441   5.7441   5.7441\n *   1.38  1.34566  1.52806     1.38     1.38     1.38     1.38     1.38  1.41434  1.23194     1.38     1.38     1.38     1.38     1.38\n * 2.2049  2.28414  2.24557  2.29582   2.2049   2.2049   2.2049   2.2049  2.12566  2.16423  2.11398   2.2049   2.2049   2.2049   2.2049\n * 0.5015  0.44339 0.631886 0.516923 0.595227   0.5015   0.5015   0.5015  0.55961 0.371114 0.486077 0.407773   0.5015   0.5015   0.5015\n * 0.3528 0.299973 0.462123 0.376339  0.48417 0.418721   0.3528   0.3528 0.405627 0.243477 0.329261  0.22143 0.286879   0.3528   0.3528\n *      0        0        0        0        0        0  0.34641        0        0        0        0        0        0 -0.34641        0\n *      0        0        0        0        0        0        0  0.34641        0        0        0        0        0        0 -0.34641\n */",
+                    "name": "ukf.cpp"
+                  },
+                  {
+                    "text": "#ifndef UKF_H\n#define UKF_H\n\n#include \"Dense\"\n\nclass UKF {\n public:\n  /**\n   * Constructor\n   */\n  UKF();\n\n  /**\n   * Destructor\n   */\n  virtual ~UKF();\n\n  /**\n   * Init Initializes Unscented Kalman filter\n   */\n  void Init();\n\n  /**\n   * Student assignment functions\n   */\n  void GenerateSigmaPoints(Eigen::MatrixXd* Xsig_out);\n  void AugmentedSigmaPoints(Eigen::MatrixXd* Xsig_out);\n  void SigmaPointPrediction(Eigen::MatrixXd* Xsig_out);\n  void PredictMeanAndCovariance(Eigen::VectorXd* x_pred, \n                                Eigen::MatrixXd* P_pred);\n  void PredictRadarMeasurement(Eigen::VectorXd* z_out, \n                               Eigen::MatrixXd* S_out);\n  void UpdateState(Eigen::VectorXd* x_out, \n                   Eigen::MatrixXd* P_out);\n};\n\n#endif  // UKF_H",
+                    "name": "ukf.h"
+                  }
+                ]
+              },
+              "answer": null
+            },
+            {
+              "id": 269384,
+              "key": "d1b90e50-7555-458c-bad6-df8ce6c79869",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "### expected result:\n   Xsig_aug =\n\n5.7441  5.85768   5.7441   5.7441   5.7441   5.7441   5.7441   5.7441  5.63052   5.7441   5.7441   5.7441  5.7441 5.7441   5.7441\n\n1.38  1.34566  1.52806     1.38     1.38     1.38     1.38     1.38  1.41434  1.23194     1.38     1.38     1.38     1.38  1.38\n\n2.2049  2.28414  2.24557  2.29582   2.2049   2.2049   2.2049   2.2049  2.12566  2.16423  2.11398   2.2049  2.2049   2.2049   2.2049\n\n0.5015  0.44339 0.631886 0.516923 0.595227   0.5015   0.5015   0.5015  0.55961 0.371114 0.486077 0.407773   0.5015   0.5015   0.5015\n\n0.3528 0.299973 0.462123 0.376339  0.48417 0.418721   0.3528   0.3528 0.405627 0.243477 0.329261  0.22143 0.286879   0.3528   0.3528\n\n0        0        0        0        0        0  0.34641        0        0        0        0        0        0 -0.34641        0\n\n0        0        0        0        0        0        0  0.34641        0        0        0        0        0        0 -0.34641\n",
+              "instructor_notes": ""
+            }
+          ]
+        },
+        {
+          "id": 268241,
+          "key": "0d0dc68e-f2db-4e23-8576-37f1186775ca",
+          "title": "Sigma Point Prediction",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "0d0dc68e-f2db-4e23-8576-37f1186775ca",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 498863,
+              "key": "8e4be13e-2e09-493b-8a7f-554268a73a07",
+              "title": "Sigma Point Prediction",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "zeMy0dth3yI",
+                "china_cdn_id": "zeMy0dth3yI.mp4"
+              }
+            }
+          ]
+        },
+        {
+          "id": 268243,
+          "key": "63674ce2-43ed-418c-bf8b-d16ae73dffc0",
+          "title": "Sigma Point Prediction Assignment 1",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "63674ce2-43ed-418c-bf8b-d16ae73dffc0",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 268244,
+              "key": "2ff941ad-1494-42d8-a679-46f87bee8832",
+              "title": "Assignment Sigma Point Prediction",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "RQvnRpSPUak",
+                "china_cdn_id": "RQvnRpSPUak.mp4"
+              }
+            },
+            {
+              "id": 269412,
+              "key": "7354635c-3b46-40a7-b84b-443abe2699d7",
+              "title": "Sigma Point Prediction",
+              "semantic_type": "TaskListAtom",
+              "is_public": true,
+              "instructor_notes": null,
+              "user_state": {
+                "node_key": "7354635c-3b46-40a7-b84b-443abe2699d7",
+                "completed_at": null,
+                "last_viewed_at": null,
+                "unstructured": null
+              },
+              "tasks": [
+                "predict sigma points",
+                "avoid division by zero",
+                "write predicted sigma points into right column"
+              ],
+              "positive_feedback": "Nice! Have you tested your code below?",
+              "video_feedback": null,
+              "description": "You will be completing the missing code in ukf.cpp, SigmaPointPrediction() function."
+            },
+            {
+              "id": 270012,
+              "key": "b1d5b5f8-c989-449f-b684-de1834b76242",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "### Helpful Equations\n<div class=\"mathquill\">\nx = \\begin{bmatrix}\np_x \\\\\np_y \\\\\nv \\\\\n\\psi \\\\\n\\dot{\\psi}\n\\end{bmatrix}\n</div>\n\n#####  If <span class=\"mathquill\">\\large \\dot{\\psi}_k</span> is not zero:\n\n<div class=\"mathquill\">\n\\text{State}= x_{k+1} = x_k + \\begin{bmatrix}\n\\frac{v_k}{\\dot{\\psi}_k}(sin(\\psi_k+\\dot{\\psi}_k\\Delta t )-sin(\\psi_k))\\\\\n\\frac{v_k}{\\dot{\\psi}_k}(-cos(\\psi_k+\\dot{\\psi}_k\\Delta t )+cos(\\psi_k))\\\\\n0\\\\\n\\dot{\\psi}_k\\Delta t\\\\\n0\n\\end{bmatrix} \n+\\begin{bmatrix}\n\\frac{1}{2}(\\Delta t)^2cos(\\psi_k)\\nu_{a,k}\\\\\n\\frac{1}{2}(\\Delta t)^2sin(\\psi_k)\\nu_{a,k}\\\\\n\\Delta t\\cdot\\nu_{a,k}\\\\\n\\frac{1}{2}(\\Delta t)^2\\nu_{\\ddot{\\psi},k}\\\\\n\\Delta t\\cdot\\nu_{\\ddot{\\psi},k}\n\\end{bmatrix}\n</div>\n\n#####  If <span class=\"mathquill\">\\large \\dot{\\psi}_k</span> is zero:\n\n<div class=\"mathquill\">\n\\text{State} =x_{k+1} = x_k + \\begin{bmatrix}\nv_kcos(\\psi_k)\\Delta t\\\\\nv_ksin(\\psi_k)\\Delta t\\\\\n0\\\\\n\\dot{\\psi}_k\\Delta t\\\\\n0\n\\end{bmatrix}\n+\\begin{bmatrix}\n\\frac{1}{2}(\\Delta t)^2cos(\\psi_k)\\nu_{a,k}\\\\\n\\frac{1}{2}(\\Delta t)^2sin(\\psi_k)\\nu_{a,k}\\\\\n\\Delta t\\cdot\\nu_{a,k}\\\\\n\\frac{1}{2}(\\Delta t)^2\\nu_{\\ddot{\\psi},k}\\\\\n\\Delta t\\cdot\\nu_{\\ddot{\\psi},k}\n\\end{bmatrix}\n</div>",
+              "instructor_notes": ""
+            },
+            {
+              "id": 289270,
+              "key": "bac80609-8925-4129-a6af-7af4810c22b0",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "Notice that when <span class=\"mathquill\">\\large \\dot{\\psi_k} = 0,</span>\n\nthe term <span class=\"mathquill\">\\large \\dot{\\psi_k}\\Delta{t}</span> would also equal zero.\n",
+              "instructor_notes": ""
+            },
+            {
+              "id": 268246,
+              "key": "c7f41371-7f07-44cb-86ed-e51009b3568d",
+              "title": "",
+              "semantic_type": "QuizAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "user_state": {
+                "node_key": "c7f41371-7f07-44cb-86ed-e51009b3568d",
+                "completed_at": null,
+                "last_viewed_at": null,
+                "unstructured": null
+              },
+              "instruction": null,
+              "question": {
+                "title": "",
+                "semantic_type": "ProgrammingQuestion",
+                "evaluation_id": "4586670193246208",
+                "initial_code_files": [
+                  {
+                    "text": "#include \"Dense\"\n#include \"ukf.h\"\n\nusing Eigen::MatrixXd;\n\nint main() {\n\n  // Create a UKF instance\n  UKF ukf;\n\n  /**\n   * Programming assignment calls\n   */\n  MatrixXd Xsig_pred = MatrixXd(15, 5);\n  ukf.SigmaPointPrediction(&Xsig_pred);\n\n  return 0;\n}",
+                    "name": "main.cpp"
+                  },
+                  {
+                    "text": "#include <iostream>\n#include \"ukf.h\"\n\nusing Eigen::MatrixXd;\nusing Eigen::VectorXd;\n\nUKF::UKF() {\n  Init();\n}\n\nUKF::~UKF() {\n\n}\n\nvoid UKF::Init() {\n\n}\n\n\n/**\n * Programming assignment functions: \n */\n\nvoid UKF::SigmaPointPrediction(MatrixXd* Xsig_out) {\n\n  // set state dimension\n  int n_x = 5;\n\n  // set augmented dimension\n  int n_aug = 7;\n\n  // create example sigma point matrix\n  MatrixXd Xsig_aug = MatrixXd(n_aug, 2 * n_aug + 1);\n  Xsig_aug <<\n    5.7441,  5.85768,   5.7441,   5.7441,   5.7441,   5.7441,   5.7441,   5.7441,   5.63052,   5.7441,   5.7441,   5.7441,   5.7441,   5.7441,   5.7441,\n      1.38,  1.34566,  1.52806,     1.38,     1.38,     1.38,     1.38,     1.38,   1.41434,  1.23194,     1.38,     1.38,     1.38,     1.38,     1.38,\n    2.2049,  2.28414,  2.24557,  2.29582,   2.2049,   2.2049,   2.2049,   2.2049,   2.12566,  2.16423,  2.11398,   2.2049,   2.2049,   2.2049,   2.2049,\n    0.5015,  0.44339, 0.631886, 0.516923, 0.595227,   0.5015,   0.5015,   0.5015,   0.55961, 0.371114, 0.486077, 0.407773,   0.5015,   0.5015,   0.5015,\n    0.3528, 0.299973, 0.462123, 0.376339,  0.48417, 0.418721,   0.3528,   0.3528,  0.405627, 0.243477, 0.329261,  0.22143, 0.286879,   0.3528,   0.3528,\n         0,        0,        0,        0,        0,        0,  0.34641,        0,         0,        0,        0,        0,        0, -0.34641,        0,\n         0,        0,        0,        0,        0,        0,        0,  0.34641,         0,        0,        0,        0,        0,        0, -0.34641;\n\n  // create matrix with predicted sigma points as columns\n  MatrixXd Xsig_pred = MatrixXd(n_x, 2 * n_aug + 1);\n\n  double delta_t = 0.1; // time diff in sec\n\n  /**\n   * Student part begin\n   */\n\n  // predict sigma points\n\n  // avoid division by zero\n\n  // write predicted sigma points into right column\n\n  /**\n   * Student part end\n   */\n\n  // print result\n  std::cout << \"Xsig_pred = \" << std::endl << Xsig_pred << std::endl;\n\n  // write result\n  *Xsig_out = Xsig_pred;\n}",
+                    "name": "ukf.cpp"
+                  },
+                  {
+                    "text": "#ifndef UKF_H\n#define UKF_H\n\n#include \"Dense\"\n\nclass UKF {\n public:\n  /**\n   * Constructor\n   */\n  UKF();\n\n  /**\n   * Destructor\n   */\n  virtual ~UKF();\n\n  /**\n   * Init Initializes Unscented Kalman filter\n   */\n  void Init();\n\n  /**\n   * Student assignment functions\n   */\n  void GenerateSigmaPoints(Eigen::MatrixXd* Xsig_out);\n  void AugmentedSigmaPoints(Eigen::MatrixXd* Xsig_out);\n  void SigmaPointPrediction(Eigen::MatrixXd* Xsig_out);\n  void PredictMeanAndCovariance(Eigen::VectorXd* x_pred, \n                                Eigen::MatrixXd* P_pred);\n  void PredictRadarMeasurement(Eigen::VectorXd* z_out, \n                               Eigen::MatrixXd* S_out);\n  void UpdateState(Eigen::VectorXd* x_out, \n                   Eigen::MatrixXd* P_out);\n};\n\n#endif  // UKF_H",
+                    "name": "ukf.h"
+                  }
+                ]
+              },
+              "answer": null
+            },
+            {
+              "id": 269415,
+              "key": "9b667247-591e-4274-93c4-882b90dabab8",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "### expected result:\nXsig_pred =\n\n5.93553 6.06251 5.92217 5.9415 5.92361 5.93516 5.93705 5.93553 5.80832 5.94481 5.92935 5.94553 5.93589 5.93401 5.93553 \n\n1.48939 1.44673 1.66484 1.49719 1.508 1.49001 1.49022 1.48939 1.5308 1.31287 1.48182 1.46967 1.48876 1.48855 1.48939 \n\n2.2049 2.28414 2.24557 2.29582 2.2049 2.2049 2.23954 2.2049 2.12566 2.16423 2.11398 2.2049 2.2049 2.17026 2.2049\n\n0.53678 0.473387 0.678098 0.554557 0.643644 0.543372 0.53678 0.538512 0.600173 0.395462 0.519003 0.429916 0.530188 0.53678 0.535048 \n\n0.3528 0.299973 0.462123 0.376339 0.48417 0.418721 0.3528 0.387441 0.405627 0.243477 0.329261 0.22143 0.286879 0.3528 0.318159\n\n\n  ",
+              "instructor_notes": ""
+            }
+          ]
+        },
+        {
+          "id": 268245,
+          "key": "19ab81df-0719-4e9c-8c04-236f7449261a",
+          "title": "Sigma Point Prediction Assignment 2",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "19ab81df-0719-4e9c-8c04-236f7449261a",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 268247,
+              "key": "01e5d209-1042-4e33-9c69-bd363bf87abf",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "### Solution\n\nIn this case, the solution is the CTRV process model implemented with C++. The solution is in the code editor below. Feel free to play with it!",
+              "instructor_notes": ""
+            },
+            {
+              "id": 268692,
+              "key": "a5842a27-c68c-4810-91c9-de4768760d55",
+              "title": "",
+              "semantic_type": "QuizAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "user_state": {
+                "node_key": "a5842a27-c68c-4810-91c9-de4768760d55",
+                "completed_at": null,
+                "last_viewed_at": null,
+                "unstructured": null
+              },
+              "instruction": null,
+              "question": {
+                "title": "",
+                "semantic_type": "ProgrammingQuestion",
+                "evaluation_id": "5061323147837440",
+                "initial_code_files": [
+                  {
+                    "text": "#include \"Dense\"\n#include \"ukf.h\"\n\nusing Eigen::MatrixXd;\n\nint main() {\n\n  // Create a UKF instance\n  UKF ukf;\n\n  /**\n   * Programming assignment calls\n   */\n  MatrixXd Xsig_pred = MatrixXd(15, 5);\n  ukf.SigmaPointPrediction(&Xsig_pred);\n\n  return 0;\n}",
+                    "name": "main.cpp"
+                  },
+                  {
+                    "text": "#include <iostream>\n#include \"ukf.h\"\n\nusing Eigen::MatrixXd;\nusing Eigen::VectorXd;\n\nUKF::UKF() {\n  Init();\n}\n\nUKF::~UKF() {\n\n}\n\nvoid UKF::Init() {\n\n}\n\n\n/**\n * Programming assignment functions: \n */\n\nvoid UKF::SigmaPointPrediction(MatrixXd* Xsig_out) {\n\n  // set state dimension\n  int n_x = 5;\n\n  // set augmented dimension\n  int n_aug = 7;\n\n  // create example sigma point matrix\n  MatrixXd Xsig_aug = MatrixXd(n_aug, 2 * n_aug + 1);\n  Xsig_aug <<\n    5.7441,  5.85768,   5.7441,   5.7441,   5.7441,   5.7441,   5.7441,   5.7441,   5.63052,   5.7441,   5.7441,   5.7441,   5.7441,   5.7441,   5.7441,\n      1.38,  1.34566,  1.52806,     1.38,     1.38,     1.38,     1.38,     1.38,   1.41434,  1.23194,     1.38,     1.38,     1.38,     1.38,     1.38,\n    2.2049,  2.28414,  2.24557,  2.29582,   2.2049,   2.2049,   2.2049,   2.2049,   2.12566,  2.16423,  2.11398,   2.2049,   2.2049,   2.2049,   2.2049,\n    0.5015,  0.44339, 0.631886, 0.516923, 0.595227,   0.5015,   0.5015,   0.5015,   0.55961, 0.371114, 0.486077, 0.407773,   0.5015,   0.5015,   0.5015,\n    0.3528, 0.299973, 0.462123, 0.376339,  0.48417, 0.418721,   0.3528,   0.3528,  0.405627, 0.243477, 0.329261,  0.22143, 0.286879,   0.3528,   0.3528,\n         0,        0,        0,        0,        0,        0,  0.34641,        0,         0,        0,        0,        0,        0, -0.34641,        0,\n         0,        0,        0,        0,        0,        0,        0,  0.34641,         0,        0,        0,        0,        0,        0, -0.34641;\n\n  // create matrix with predicted sigma points as columns\n  MatrixXd Xsig_pred = MatrixXd(n_x, 2 * n_aug + 1);\n\n  double delta_t = 0.1; // time diff in sec\n\n  /**\n   * Student part begin\n   */\n\n  // predict sigma points\n  for (int i = 0; i< 2*n_aug+1; ++i) {\n    // extract values for better readability\n    double p_x = Xsig_aug(0,i);\n    double p_y = Xsig_aug(1,i);\n    double v = Xsig_aug(2,i);\n    double yaw = Xsig_aug(3,i);\n    double yawd = Xsig_aug(4,i);\n    double nu_a = Xsig_aug(5,i);\n    double nu_yawdd = Xsig_aug(6,i);\n\n    // predicted state values\n    double px_p, py_p;\n\n    // avoid division by zero\n    if (fabs(yawd) > 0.001) {\n        px_p = p_x + v/yawd * ( sin (yaw + yawd*delta_t) - sin(yaw));\n        py_p = p_y + v/yawd * ( cos(yaw) - cos(yaw+yawd*delta_t) );\n    } else {\n        px_p = p_x + v*delta_t*cos(yaw);\n        py_p = p_y + v*delta_t*sin(yaw);\n    }\n\n    double v_p = v;\n    double yaw_p = yaw + yawd*delta_t;\n    double yawd_p = yawd;\n\n    // add noise\n    px_p = px_p + 0.5*nu_a*delta_t*delta_t * cos(yaw);\n    py_p = py_p + 0.5*nu_a*delta_t*delta_t * sin(yaw);\n    v_p = v_p + nu_a*delta_t;\n\n    yaw_p = yaw_p + 0.5*nu_yawdd*delta_t*delta_t;\n    yawd_p = yawd_p + nu_yawdd*delta_t;\n\n    // write predicted sigma point into right column\n    Xsig_pred(0,i) = px_p;\n    Xsig_pred(1,i) = py_p;\n    Xsig_pred(2,i) = v_p;\n    Xsig_pred(3,i) = yaw_p;\n    Xsig_pred(4,i) = yawd_p;\n  }\n\n  /**\n   * Student part end\n   */\n\n  // print result\n  std::cout << \"Xsig_pred = \" << std::endl << Xsig_pred << std::endl;\n\n  // write result\n  *Xsig_out = Xsig_pred;\n}",
+                    "name": "ukf.cpp"
+                  },
+                  {
+                    "text": "#ifndef UKF_H\n#define UKF_H\n\n#include \"Dense\"\n\nclass UKF {\n public:\n  /**\n   * Constructor\n   */\n  UKF();\n\n  /**\n   * Destructor\n   */\n  virtual ~UKF();\n\n  /**\n   * Init Initializes Unscented Kalman filter\n   */\n  void Init();\n\n  /**\n   * Student assignment functions\n   */\n  void GenerateSigmaPoints(Eigen::MatrixXd* Xsig_out);\n  void AugmentedSigmaPoints(Eigen::MatrixXd* Xsig_out);\n  void SigmaPointPrediction(Eigen::MatrixXd* Xsig_out);\n  void PredictMeanAndCovariance(Eigen::VectorXd* x_pred, \n                                Eigen::MatrixXd* P_pred);\n  void PredictRadarMeasurement(Eigen::VectorXd* z_out, \n                               Eigen::MatrixXd* S_out);\n  void UpdateState(Eigen::VectorXd* x_out, \n                   Eigen::MatrixXd* P_out);\n};\n\n#endif  // UKF_H",
+                    "name": "ukf.h"
+                  }
+                ]
+              },
+              "answer": null
+            },
+            {
+              "id": 473960,
+              "key": "7f68f469-69ab-47e3-a8da-67eb13d1befc",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "### Note:\n\nSome students have noticed that transposing initialized dimensions for `MatrixXd(15, 5)` produces the same result.  This is due to the manner in which arguments are passed.\n\nIn `ukf.cpp`, a pointer is being passed as a function argument not as a reference:\n\n```\nvoid UKF::GenerateSigmaPoints(MatrixXd* Xsig_out) {\n     ..... other code ...\n\n    //write result\n    *Xsig_out = Xsig;\n```\n\nUltimately, we change the contents of the memory location which points to `Xsig_out`. That is why in this case the initialized dimensions are interchangeable.\n\n\nSee [this post](https://s3-us-west-1.amazonaws.com/udacity-selfdrivingcar/forum_archive/Sigma+Point+post.pdf) for more detail.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 270018,
+              "key": "1a612e99-9b08-4aab-969c-9018abd4a9dd",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "### expected result:\n Xsig_pred = \n\n5.93553  6.06251  5.92217   5.9415  5.92361  5.93516  5.93705  5.93553  5.80832  5.94481  5.92935  5.94553  5.93589  5.93401  5.93553\n\n1.48939  1.44673  1.66484  1.49719    1.508  1.49001  1.49022  1.48939   1.5308  1.31287  1.48182  1.46967  1.48876  1.48855  1.48939\n\n2.2049  2.28414  2.24557  2.29582   2.2049   2.2049  2.23954   2.2049  2.12566  2.16423  2.11398   2.2049   2.2049  2.17026   2.2049\n\n0.53678 0.473387 0.678098 0.554557 0.643644 0.543372  0.53678 0.538512 0.600173 0.395462 0.519003 0.429916 0.530188  0.53678 0.535048\n\n0.3528 0.299973 0.462123 0.376339  0.48417 0.418721   0.3528 0.387441 0.405627 0.243477 0.329261  0.22143 0.286879   0.3528 0.318159\n  ",
+              "instructor_notes": ""
+            }
+          ]
+        },
+        {
+          "id": 268248,
+          "key": "a54c336a-9004-4006-b6b5-3f3959f203fc",
+          "title": "Predicted Mean and Covariance",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "a54c336a-9004-4006-b6b5-3f3959f203fc",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 425349,
+              "key": "4552eeda-4ce7-4028-85e7-8e169391ee85",
+              "title": "26 L Predict Mean And Covar",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "6DELFN7Fz4c",
+                "china_cdn_id": "6DELFN7Fz4c.mp4"
+              }
+            },
+            {
+              "id": 463863,
+              "key": "924ed20e-5695-48c0-872b-60ef6946e7e1",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## Note Regarding Sigma Point Generation and Prediction Steps\n- **Sigma Point Generation:** Sigma points are generated using ```Calligraphic-X(k)```, followed by a nonlinear transformation ```f(x_k,nu_k)```.\n- **Sigma Point Prediction:** The generated Sigma points are propagated to obtain the state of the system at time k+1.  These predicted points are denoted ```Calligraphic-X(k+1)```.",
+              "instructor_notes": ""
+            }
+          ]
+        },
+        {
+          "id": 268250,
+          "key": "bf42ab6c-89db-4459-898f-4f270162edc0",
+          "title": "Predicted Mean and Covariance Assignment 1",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "bf42ab6c-89db-4459-898f-4f270162edc0",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 268251,
+              "key": "bbb696a9-ae99-4b8d-a95a-3054d9c5b21f",
+              "title": "Assignement Predicted Mean And Covariance",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "0vl_wfDpVec",
+                "china_cdn_id": "0vl_wfDpVec.mp4"
+              }
+            },
+            {
+              "id": 270021,
+              "key": "68d15309-ba86-4143-9fbb-42ddb556ed5b",
+              "title": "Predicted Mean and Covariance Assingment",
+              "semantic_type": "TaskListAtom",
+              "is_public": true,
+              "instructor_notes": null,
+              "user_state": {
+                "node_key": "68d15309-ba86-4143-9fbb-42ddb556ed5b",
+                "completed_at": null,
+                "last_viewed_at": null,
+                "unstructured": null
+              },
+              "tasks": [
+                "set weights",
+                "predict state mean",
+                "predict state covariance matrix"
+              ],
+              "positive_feedback": "Nice! Have you tested your code below?",
+              "video_feedback": null,
+              "description": "You will be completing the missing code in ukf.cpp, PredictMeanAndCovariance() function."
+            },
+            {
+              "id": 270023,
+              "key": "089e7e7c-78a8-4b9c-8c18-48c70312d965",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "### Helpful Equations\n\n#### Weights\n\n<span class=\"mathquill\">\\Large w_i =\\frac{\\lambda}{\\lambda+n_{a}}, i =1 </span>\n\n<span class=\"mathquill\">\\Large w_i =\\frac{1}{2(\\lambda+n_{a})}, i =2...n_{a} </span>\n\n#### Predicted Mean\n\n<span class=\"mathquill\">\\Large x_{k+1|k} = \\sum_{i=1}^{n_\\sigma} w_i X_{k+1|k,i} </span>\n\n#### Predicted Covariance\n\n<span class=\"mathquill\">\\Large P_{k+1|k} = \\sum_{i=1}^{n_\\sigma} w_i( X_{k+1|k,i} - x_{k+1|k})(X_{k+1|k,i} - x_{k+1|k})^T</span>\n\n\n",
+              "instructor_notes": ""
+            },
+            {
+              "id": 268693,
+              "key": "dcfddbf9-856e-4087-b0aa-debe28a716a6",
+              "title": "",
+              "semantic_type": "QuizAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "user_state": {
+                "node_key": "dcfddbf9-856e-4087-b0aa-debe28a716a6",
+                "completed_at": null,
+                "last_viewed_at": null,
+                "unstructured": null
+              },
+              "instruction": null,
+              "question": {
+                "title": "",
+                "semantic_type": "ProgrammingQuestion",
+                "evaluation_id": "6367356935864320",
+                "initial_code_files": [
+                  {
+                    "text": "#include \"Dense\"\n#include \"ukf.h\"\n\nusing Eigen::MatrixXd;\nusing Eigen::VectorXd;\n\nint main() {\n\n  // Create a UKF instance\n  UKF ukf;\n\n  /**\n   * Programming assignment calls\n   */\n  VectorXd x_pred = VectorXd(5);\n  MatrixXd P_pred = MatrixXd(5, 5);\n  ukf.PredictMeanAndCovariance(&x_pred, &P_pred);\n\n  return 0;\n}",
+                    "name": "main.cpp"
+                  },
+                  {
+                    "text": "#include <iostream>\n#include \"ukf.h\"\n\nusing Eigen::MatrixXd;\nusing Eigen::VectorXd;\n\nUKF::UKF() {\n  Init();\n}\n\nUKF::~UKF() {\n\n}\n\nvoid UKF::Init() {\n\n}\n\n\n/**\n * Programming assignment functions: \n */\n\nvoid UKF::PredictMeanAndCovariance(VectorXd* x_out, MatrixXd* P_out) {\n\n  // set state dimension\n  int n_x = 5;\n\n  // set augmented dimension\n  int n_aug = 7;\n\n  // define spreading parameter\n  double lambda = 3 - n_aug;\n\n  // create example matrix with predicted sigma points\n  MatrixXd Xsig_pred = MatrixXd(n_x, 2 * n_aug + 1);\n  Xsig_pred <<\n         5.9374,  6.0640,   5.925,  5.9436,  5.9266,  5.9374,  5.9389,  5.9374,  5.8106,  5.9457,  5.9310,  5.9465,  5.9374,  5.9359,  5.93744,\n           1.48,  1.4436,   1.660,  1.4934,  1.5036,    1.48,  1.4868,    1.48,  1.5271,  1.3104,  1.4787,  1.4674,    1.48,  1.4851,    1.486,\n          2.204,  2.2841,  2.2455,  2.2958,   2.204,   2.204,  2.2395,   2.204,  2.1256,  2.1642,  2.1139,   2.204,   2.204,  2.1702,   2.2049,\n         0.5367, 0.47338, 0.67809, 0.55455, 0.64364, 0.54337,  0.5367, 0.53851, 0.60017, 0.39546, 0.51900, 0.42991, 0.530188,  0.5367, 0.535048,\n          0.352, 0.29997, 0.46212, 0.37633,  0.4841, 0.41872,   0.352, 0.38744, 0.40562, 0.24347, 0.32926,  0.2214, 0.28687,   0.352, 0.318159;\n\n  // create vector for weights\n  VectorXd weights = VectorXd(2*n_aug+1);\n  \n  // create vector for predicted state\n  VectorXd x = VectorXd(n_x);\n\n  // create covariance matrix for prediction\n  MatrixXd P = MatrixXd(n_x, n_x);\n\n\n  /**\n   * Student part begin\n   */\n\n  // set weights\n\n  // predict state mean\n\n  // predict state covariance matrix\n\n  /**\n   * Student part end\n   */\n\n  // print result\n  std::cout << \"Predicted state\" << std::endl;\n  std::cout << x << std::endl;\n  std::cout << \"Predicted covariance matrix\" << std::endl;\n  std::cout << P << std::endl;\n\n  // write result\n  *x_out = x;\n  *P_out = P;\n}",
+                    "name": "ukf.cpp"
+                  },
+                  {
+                    "text": "#ifndef UKF_H\n#define UKF_H\n\n#include \"Dense\"\n\nclass UKF {\n public:\n  /**\n   * Constructor\n   */\n  UKF();\n\n  /**\n   * Destructor\n   */\n  virtual ~UKF();\n\n  /**\n   * Init Initializes Unscented Kalman filter\n   */\n  void Init();\n\n  /**\n   * Student assignment functions\n   */\n  void GenerateSigmaPoints(Eigen::MatrixXd* Xsig_out);\n  void AugmentedSigmaPoints(Eigen::MatrixXd* Xsig_out);\n  void SigmaPointPrediction(Eigen::MatrixXd* Xsig_out);\n  void PredictMeanAndCovariance(Eigen::VectorXd* x_pred, \n                                Eigen::MatrixXd* P_pred);\n  void PredictRadarMeasurement(Eigen::VectorXd* z_out, \n                               Eigen::MatrixXd* S_out);\n  void UpdateState(Eigen::VectorXd* x_out, \n                   Eigen::MatrixXd* P_out);\n};\n\n#endif  // UKF_H",
+                    "name": "ukf.h"
+                  }
+                ]
+              },
+              "answer": null
+            },
+            {
+              "id": 270019,
+              "key": "eb5bf154-c3a3-4801-96e3-11cbc2bfd1a2",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "### expected result x:\nx =\n\n 5.93637\n\n 1.49035\n\n 2.20528\n\n0.536853\n\n0.353577\n\n### expected result p:\nP =\n\n 0.00543425  -0.0024053  0.00341576 -0.00348196 -0.00299378\n\n -0.0024053    0.010845   0.0014923  0.00980182  0.00791091\n\n 0.00341576   0.0014923  0.00580129 0.000778632 0.000792973\n\n-0.00348196  0.00980182 0.000778632   0.0119238   0.0112491\n\n-0.00299378  0.00791091 0.000792973   0.0112491   0.0126972\n ",
+              "instructor_notes": ""
+            }
+          ]
+        },
+        {
+          "id": 268252,
+          "key": "07b59fdd-adb3-479b-8566-336332cf5f09",
+          "title": "Predicted Mean and Covariance Assignment 2",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "07b59fdd-adb3-479b-8566-336332cf5f09",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 268253,
+              "key": "9885758f-11ad-4dfb-81fb-c6aa4e7a380c",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "### Solution\n\nThe first part of my solution is setting a vector of weights as we discussed in the last video. \n\nThe predicted state mean is just the implementation of the corresponding equation. \n\nWhen calculating the predicted state covariance matrix, I did something you might not have done. In the equation we always need the difference between the mean predicted state and a sigma points. The problem here is that the state contains an angle. As you have learned before, subtracting angles is a problem for Kalman filters, because the result might be <span class=\"mathquill\">2\\pi</span> plus a small angle, instead of just a small angle. That’s why I normalize the angle here.\n\nMake sure you always normalize when you calculate the difference between angles. ",
+              "instructor_notes": ""
+            },
+            {
+              "id": 268694,
+              "key": "5e6a8d3f-3111-4443-aa05-340a8f9da7a6",
+              "title": "",
+              "semantic_type": "QuizAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "user_state": {
+                "node_key": "5e6a8d3f-3111-4443-aa05-340a8f9da7a6",
+                "completed_at": null,
+                "last_viewed_at": null,
+                "unstructured": null
+              },
+              "instruction": null,
+              "question": {
+                "title": "",
+                "semantic_type": "ProgrammingQuestion",
+                "evaluation_id": "4917468586967040",
+                "initial_code_files": [
+                  {
+                    "text": "#include \"Dense\"\n#include \"ukf.h\"\n\nusing Eigen::MatrixXd;\nusing Eigen::VectorXd;\n\nint main() {\n\n  // Create a UKF instance\n  UKF ukf;\n\n  /**\n   * Programming assignment calls\n   */\n  VectorXd x_pred = VectorXd(5);\n  MatrixXd P_pred = MatrixXd(5, 5);\n  ukf.PredictMeanAndCovariance(&x_pred, &P_pred);\n\n  return 0;\n}",
+                    "name": "main.cpp"
+                  },
+                  {
+                    "text": "#include <iostream>\n#include \"ukf.h\"\n\nusing Eigen::MatrixXd;\nusing Eigen::VectorXd;\n\nUKF::UKF() {\n  Init();\n}\n\nUKF::~UKF() {\n\n}\n\nvoid UKF::Init() {\n\n}\n\n\n/**\n * Programming assignment functions: \n */\n\nvoid UKF::PredictMeanAndCovariance(VectorXd* x_out, MatrixXd* P_out) {\n\n  // set state dimension\n  int n_x = 5;\n\n  // set augmented dimension\n  int n_aug = 7;\n\n  // define spreading parameter\n  double lambda = 3 - n_aug;\n\n  // create example matrix with predicted sigma points\n  MatrixXd Xsig_pred = MatrixXd(n_x, 2 * n_aug + 1);\n  Xsig_pred <<\n         5.9374,  6.0640,   5.925,  5.9436,  5.9266,  5.9374,  5.9389,  5.9374,  5.8106,  5.9457,  5.9310,  5.9465,  5.9374,  5.9359,  5.93744,\n           1.48,  1.4436,   1.660,  1.4934,  1.5036,    1.48,  1.4868,    1.48,  1.5271,  1.3104,  1.4787,  1.4674,    1.48,  1.4851,    1.486,\n          2.204,  2.2841,  2.2455,  2.2958,   2.204,   2.204,  2.2395,   2.204,  2.1256,  2.1642,  2.1139,   2.204,   2.204,  2.1702,   2.2049,\n         0.5367, 0.47338, 0.67809, 0.55455, 0.64364, 0.54337,  0.5367, 0.53851, 0.60017, 0.39546, 0.51900, 0.42991, 0.530188,  0.5367, 0.535048,\n          0.352, 0.29997, 0.46212, 0.37633,  0.4841, 0.41872,   0.352, 0.38744, 0.40562, 0.24347, 0.32926,  0.2214, 0.28687,   0.352, 0.318159;\n\n  // create vector for weights\n  VectorXd weights = VectorXd(2*n_aug+1);\n  \n  // create vector for predicted state\n  VectorXd x = VectorXd(n_x);\n\n  // create covariance matrix for prediction\n  MatrixXd P = MatrixXd(n_x, n_x);\n\n\n  /**\n   * Student part begin\n   */\n\n  // set weights\n  double weight_0 = lambda/(lambda+n_aug);\n  weights(0) = weight_0;\n  for (int i=1; i<2*n_aug+1; ++i) {  // 2n+1 weights\n    double weight = 0.5/(n_aug+lambda);\n    weights(i) = weight;\n  }\n\n  // predicted state mean\n  x.fill(0.0);\n  for (int i = 0; i < 2 * n_aug + 1; ++i) {  // iterate over sigma points\n    x = x + weights(i) * Xsig_pred.col(i);\n  }\n\n  // predicted state covariance matrix\n  P.fill(0.0);\n  for (int i = 0; i < 2 * n_aug + 1; ++i) {  // iterate over sigma points\n    // state difference\n    VectorXd x_diff = Xsig_pred.col(i) - x;\n    // angle normalization\n    while (x_diff(3)> M_PI) x_diff(3)-=2.*M_PI;\n    while (x_diff(3)<-M_PI) x_diff(3)+=2.*M_PI;\n\n    P = P + weights(i) * x_diff * x_diff.transpose() ;\n  }\n\n  /**\n   * Student part end\n   */\n\n  // print result\n  std::cout << \"Predicted state\" << std::endl;\n  std::cout << x << std::endl;\n  std::cout << \"Predicted covariance matrix\" << std::endl;\n  std::cout << P << std::endl;\n\n  // write result\n  *x_out = x;\n  *P_out = P;\n}",
+                    "name": "ukf.cpp"
+                  },
+                  {
+                    "text": "#ifndef UKF_H\n#define UKF_H\n\n#include \"Dense\"\n\nclass UKF {\n public:\n  /**\n   * Constructor\n   */\n  UKF();\n\n  /**\n   * Destructor\n   */\n  virtual ~UKF();\n\n  /**\n   * Init Initializes Unscented Kalman filter\n   */\n  void Init();\n\n  /**\n   * Student assignment functions\n   */\n  void GenerateSigmaPoints(Eigen::MatrixXd* Xsig_out);\n  void AugmentedSigmaPoints(Eigen::MatrixXd* Xsig_out);\n  void SigmaPointPrediction(Eigen::MatrixXd* Xsig_out);\n  void PredictMeanAndCovariance(Eigen::VectorXd* x_pred, \n                                Eigen::MatrixXd* P_pred);\n  void PredictRadarMeasurement(Eigen::VectorXd* z_out, \n                               Eigen::MatrixXd* S_out);\n  void UpdateState(Eigen::VectorXd* x_out, \n                   Eigen::MatrixXd* P_out);\n};\n\n#endif  // UKF_H",
+                    "name": "ukf.h"
+                  }
+                ]
+              },
+              "answer": null
+            },
+            {
+              "id": 270029,
+              "key": "bc2e4202-5456-4988-a768-17fa199b73ea",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "### expected result x:\nx =\n\n 5.93637\n\n 1.49035\n\n 2.20528\n\n0.536853\n\n0.353577\n\n### expected result p:\nP =\n\n 0.00543425  -0.0024053  0.00341576 -0.00348196 -0.00299378\n\n -0.0024053    0.010845   0.0014923  0.00980182  0.00791091\n\n 0.00341576   0.0014923  0.00580129 0.000778632 0.000792973\n\n-0.00348196  0.00980182 0.000778632   0.0119238   0.0112491\n\n-0.00299378  0.00791091 0.000792973   0.0112491   0.0126972\n ",
+              "instructor_notes": ""
+            }
+          ]
+        },
+        {
+          "id": 268254,
+          "key": "3f67dc00-84f0-442b-88bc-1edf7b69caa7",
+          "title": "Measurement Prediction",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "3f67dc00-84f0-442b-88bc-1edf7b69caa7",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 302628,
+              "key": "604d24e6-d015-4109-8f36-ec796ae9c2e2",
+              "title": "Measurement Prediction",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "qDX8nL_OT60",
+                "china_cdn_id": "qDX8nL_OT60.mp4"
+              }
+            }
+          ]
+        },
+        {
+          "id": 268256,
+          "key": "8ee06b1e-8fb8-4f96-a139-fcd80ed25e51",
+          "title": "Predict Radar Measurement Assignment 1",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "8ee06b1e-8fb8-4f96-a139-fcd80ed25e51",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 268257,
+              "key": "2cbb4b93-53d7-431f-8fed-f3cad30e2d0c",
+              "title": "Assignment Predict Radar Measurement",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "GYQeizoj09E",
+                "china_cdn_id": "GYQeizoj09E.mp4"
+              }
+            },
+            {
+              "id": 270031,
+              "key": "eb4e6721-116b-4275-9f55-305154da9d2e",
+              "title": "Predict Radar Measurements Assignment",
+              "semantic_type": "TaskListAtom",
+              "is_public": true,
+              "instructor_notes": null,
+              "user_state": {
+                "node_key": "eb4e6721-116b-4275-9f55-305154da9d2e",
+                "completed_at": null,
+                "last_viewed_at": null,
+                "unstructured": null
+              },
+              "tasks": [
+                "transform sigma points into measurement space",
+                "calculate mean predicted measurement",
+                "calculate measurement covariance matrix S"
+              ],
+              "positive_feedback": "Nice! Have you tested your code below?",
+              "video_feedback": null,
+              "description": "You will be completing the missing code in ukf.cpp, PredictRadarMeasurement() function."
+            },
+            {
+              "id": 270033,
+              "key": "7caf5a40-a509-4bbc-9894-79f16d6f6184",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "### Helpful Equations\n\n#### State Vector\n\n<div class=\"mathquill\">\nx_{k+1|k}=\\begin{bmatrix}\np_x\\\\\np_y\\\\\nv\\\\\n\\psi\\\\\n\\dot{\\psi}\n\\end{bmatrix}\n</div>\n\n#### Measurement Vector\n\n<div class=\"mathquill\">\nz_{k+1|k}=\\begin{bmatrix}\n\\rho\\\\\n\\varphi\\\\\n\\dot{\\rho}\n\\end{bmatrix}\n</div>\n\n#### Measurement Model\n\n<div class=\"mathquill\"> \nz_{k+1|k}=h(x_{k+1}) + w_{k+1}  \n</div>\n\n<div class=\"mathquill\"> \n\\rho = \\sqrt{p_x^2+p_y^2}\n</div>\n\n<div class=\"mathquill\"> \n\\varphi =arctan(\\frac{p_y}{p_x})\n</div>\n\n<div class=\"mathquill\"> \n\\dot{\\rho}=\\frac{p_xcos(\\psi)v+p_ysin(\\psi)v}{\\sqrt{p_x^2+p_y^2}}\n</div>\n\n#### Predicted Measurement Mean\n\n<div class=\"mathquill\">\\large  \nz_{k+1|k} = \\sum_{i=1}^{n_\\sigma} w_i Z_{k+1|k,i}  \n</div>\n\n#### Predicted Covariance\n\n<div class=\"mathquill\">\\large \nS_{k+1|k} = \\sum_{i=1}^{n_\\sigma} w_i( Z_{k+1|k,i} - z_{k+1|k})(Z_{k+1|k,i} - z_{k+1|k})^T + R\n</div>\n\n<div class=\"mathquill\">\\large\nR = E(w_k\\cdot w_k^T) = \\begin{bmatrix}\n\\sigma_{\\rho}^2 \\qquad 0\\qquad0\\\\\n0\\qquad\\sigma_{\\varphi}^2 \\qquad 0\\\\\n0\\qquad0\\qquad\\sigma_{\\dot{\\rho}}^2 \n\\end{bmatrix}\n</div>",
+              "instructor_notes": ""
+            },
+            {
+              "id": 268695,
+              "key": "4eb9bbec-3d6f-486b-bb3b-b0e660fc83f2",
+              "title": "",
+              "semantic_type": "QuizAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "user_state": {
+                "node_key": "4eb9bbec-3d6f-486b-bb3b-b0e660fc83f2",
+                "completed_at": null,
+                "last_viewed_at": null,
+                "unstructured": null
+              },
+              "instruction": null,
+              "question": {
+                "title": "",
+                "semantic_type": "ProgrammingQuestion",
+                "evaluation_id": "4513674820714496",
+                "initial_code_files": [
+                  {
+                    "text": "#include \"Dense\"\n#include \"ukf.h\"\n\nusing Eigen::MatrixXd;\nusing Eigen::VectorXd;\n\nint main() {\n\n  // Create a UKF instance\n  UKF ukf;\n\n  /**\n   * Programming assignment calls\n   */  \n  VectorXd z_out = VectorXd(3);\n  MatrixXd S_out = MatrixXd(3, 3);\n  ukf.PredictRadarMeasurement(&z_out, &S_out);\n\n  return 0;\n}",
+                    "name": "main.cpp"
+                  },
+                  {
+                    "text": "#include <iostream>\n#include \"ukf.h\"\n\nusing Eigen::MatrixXd;\nusing Eigen::VectorXd;\n\nUKF::UKF() {\n  Init();\n}\n\nUKF::~UKF() {\n\n}\n\nvoid UKF::Init() {\n\n}\n\n/**\n * Programming assignment functions: \n */\n\nvoid UKF::PredictRadarMeasurement(VectorXd* z_out, MatrixXd* S_out) {\n\n  // set state dimension\n  int n_x = 5;\n\n  // set augmented dimension\n  int n_aug = 7;\n\n  // set measurement dimension, radar can measure r, phi, and r_dot\n  int n_z = 3;\n\n  // define spreading parameter\n  double lambda = 3 - n_aug;\n\n  // set vector for weights\n  VectorXd weights = VectorXd(2*n_aug+1);\n  double weight_0 = lambda/(lambda+n_aug);\n  double weight = 0.5/(lambda+n_aug);\n  weights(0) = weight_0;\n\n  for (int i=1; i<2*n_aug+1; ++i) {  \n    weights(i) = weight;\n  }\n\n  // radar measurement noise standard deviation radius in m\n  double std_radr = 0.3;\n\n  // radar measurement noise standard deviation angle in rad\n  double std_radphi = 0.0175;\n\n  // radar measurement noise standard deviation radius change in m/s\n  double std_radrd = 0.1;\n\n  // create example matrix with predicted sigma points\n  MatrixXd Xsig_pred = MatrixXd(n_x, 2 * n_aug + 1);\n  Xsig_pred <<\n         5.9374,  6.0640,   5.925,  5.9436,  5.9266,  5.9374,  5.9389,  5.9374,  5.8106,  5.9457,  5.9310,  5.9465,  5.9374,  5.9359,  5.93744,\n           1.48,  1.4436,   1.660,  1.4934,  1.5036,    1.48,  1.4868,    1.48,  1.5271,  1.3104,  1.4787,  1.4674,    1.48,  1.4851,    1.486,\n          2.204,  2.2841,  2.2455,  2.2958,   2.204,   2.204,  2.2395,   2.204,  2.1256,  2.1642,  2.1139,   2.204,   2.204,  2.1702,   2.2049,\n         0.5367, 0.47338, 0.67809, 0.55455, 0.64364, 0.54337,  0.5367, 0.53851, 0.60017, 0.39546, 0.51900, 0.42991, 0.530188,  0.5367, 0.535048,\n          0.352, 0.29997, 0.46212, 0.37633,  0.4841, 0.41872,   0.352, 0.38744, 0.40562, 0.24347, 0.32926,  0.2214, 0.28687,   0.352, 0.318159;\n\n  // create matrix for sigma points in measurement space\n  MatrixXd Zsig = MatrixXd(n_z, 2 * n_aug + 1);\n\n  // mean predicted measurement\n  VectorXd z_pred = VectorXd(n_z);\n  \n  // measurement covariance matrix S\n  MatrixXd S = MatrixXd(n_z,n_z);\n\n  /**\n   * Student part begin\n   */\n\n  // transform sigma points into measurement space\n  \n  // calculate mean predicted measurement\n  \n  // calculate innovation covariance matrix S\n\n  /**\n   * Student part end\n   */\n\n  // print result\n  std::cout << \"z_pred: \" << std::endl << z_pred << std::endl;\n  std::cout << \"S: \" << std::endl << S << std::endl;\n\n  // write result\n  *z_out = z_pred;\n  *S_out = S;\n}",
+                    "name": "ukf.cpp"
+                  },
+                  {
+                    "text": "#ifndef UKF_H\n#define UKF_H\n\n#include \"Dense\"\n\nclass UKF {\n public:\n  /**\n   * Constructor\n   */\n  UKF();\n\n  /**\n   * Destructor\n   */\n  virtual ~UKF();\n\n  /**\n   * Init Initializes Unscented Kalman filter\n   */\n  void Init();\n\n  /**\n   * Student assignment functions\n   */\n  void GenerateSigmaPoints(Eigen::MatrixXd* Xsig_out);\n  void AugmentedSigmaPoints(Eigen::MatrixXd* Xsig_out);\n  void SigmaPointPrediction(Eigen::MatrixXd* Xsig_out);\n  void PredictMeanAndCovariance(Eigen::VectorXd* x_pred, \n                                Eigen::MatrixXd* P_pred);\n  void PredictRadarMeasurement(Eigen::VectorXd* z_out, \n                               Eigen::MatrixXd* S_out);\n  void UpdateState(Eigen::VectorXd* x_out, \n                   Eigen::MatrixXd* P_out);\n};\n\n#endif  // UKF_H",
+                    "name": "ukf.h"
+                  }
+                ]
+              },
+              "answer": null
+            },
+            {
+              "id": 270030,
+              "key": "3edb0d61-6a51-4ea8-bd25-8a23d084a89f",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "#### expected result z_out:\nz_pred =\n\n 6.12155\n\n0.245993\n\n 2.10313\n   \n\n#### expected result s_out:\nS =\n\n   0.0946171 -0.000139448   0.00407016\n\n-0.000139448  0.000617548 -0.000770652\n\n  0.00407016 -0.000770652    0.0180917\n    ",
+              "instructor_notes": ""
+            }
+          ]
+        },
+        {
+          "id": 268258,
+          "key": "d1a4ce03-73aa-4653-b216-1c6d965fc216",
+          "title": "Predict Radar Measurement Assignment 2",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "d1a4ce03-73aa-4653-b216-1c6d965fc216",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 268259,
+              "key": "4bacee29-154f-42cb-aa70-82fc41db09c7",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "### Solution\n\nTake a look below for our solution.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 268696,
+              "key": "204290c4-6db1-4bd1-9def-8a3e37a85344",
+              "title": "",
+              "semantic_type": "QuizAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "user_state": {
+                "node_key": "204290c4-6db1-4bd1-9def-8a3e37a85344",
+                "completed_at": null,
+                "last_viewed_at": null,
+                "unstructured": null
+              },
+              "instruction": null,
+              "question": {
+                "title": "",
+                "semantic_type": "ProgrammingQuestion",
+                "evaluation_id": "5790692346560512",
+                "initial_code_files": [
+                  {
+                    "text": "#include \"Dense\"\n#include \"ukf.h\"\n\nusing Eigen::MatrixXd;\nusing Eigen::VectorXd;\n\nint main() {\n\n  // Create a UKF instance\n  UKF ukf;\n\n  /**\n   * Programming assignment calls\n   */  \n  VectorXd z_out = VectorXd(3);\n  MatrixXd S_out = MatrixXd(3, 3);\n  ukf.PredictRadarMeasurement(&z_out, &S_out);\n\n  return 0;\n}",
+                    "name": "main.cpp"
+                  },
+                  {
+                    "text": "#include <iostream>\n#include \"ukf.h\"\n\nusing Eigen::MatrixXd;\nusing Eigen::VectorXd;\n\nUKF::UKF() {\n  Init();\n}\n\nUKF::~UKF() {\n\n}\n\nvoid UKF::Init() {\n\n}\n\n/**\n * Programming assignment functions: \n */\n\nvoid UKF::PredictRadarMeasurement(VectorXd* z_out, MatrixXd* S_out) {\n\n  // set state dimension\n  int n_x = 5;\n\n  // set augmented dimension\n  int n_aug = 7;\n\n  // set measurement dimension, radar can measure r, phi, and r_dot\n  int n_z = 3;\n\n  // define spreading parameter\n  double lambda = 3 - n_aug;\n\n  // set vector for weights\n  VectorXd weights = VectorXd(2*n_aug+1);\n  double weight_0 = lambda/(lambda+n_aug);\n  double weight = 0.5/(lambda+n_aug);\n  weights(0) = weight_0;\n\n  for (int i=1; i<2*n_aug+1; ++i) {  \n    weights(i) = weight;\n  }\n\n  // radar measurement noise standard deviation radius in m\n  double std_radr = 0.3;\n\n  // radar measurement noise standard deviation angle in rad\n  double std_radphi = 0.0175;\n\n  // radar measurement noise standard deviation radius change in m/s\n  double std_radrd = 0.1;\n\n  // create example matrix with predicted sigma points\n  MatrixXd Xsig_pred = MatrixXd(n_x, 2 * n_aug + 1);\n  Xsig_pred <<\n         5.9374,  6.0640,   5.925,  5.9436,  5.9266,  5.9374,  5.9389,  5.9374,  5.8106,  5.9457,  5.9310,  5.9465,  5.9374,  5.9359,  5.93744,\n           1.48,  1.4436,   1.660,  1.4934,  1.5036,    1.48,  1.4868,    1.48,  1.5271,  1.3104,  1.4787,  1.4674,    1.48,  1.4851,    1.486,\n          2.204,  2.2841,  2.2455,  2.2958,   2.204,   2.204,  2.2395,   2.204,  2.1256,  2.1642,  2.1139,   2.204,   2.204,  2.1702,   2.2049,\n         0.5367, 0.47338, 0.67809, 0.55455, 0.64364, 0.54337,  0.5367, 0.53851, 0.60017, 0.39546, 0.51900, 0.42991, 0.530188,  0.5367, 0.535048,\n          0.352, 0.29997, 0.46212, 0.37633,  0.4841, 0.41872,   0.352, 0.38744, 0.40562, 0.24347, 0.32926,  0.2214, 0.28687,   0.352, 0.318159;\n\n  // create matrix for sigma points in measurement space\n  MatrixXd Zsig = MatrixXd(n_z, 2 * n_aug + 1);\n\n  // mean predicted measurement\n  VectorXd z_pred = VectorXd(n_z);\n  \n  // measurement covariance matrix S\n  MatrixXd S = MatrixXd(n_z,n_z);\n\n  /**\n   * Student part begin\n   */\n\n  // transform sigma points into measurement space\n  for (int i = 0; i < 2 * n_aug + 1; ++i) {  // 2n+1 simga points\n    // extract values for better readability\n    double p_x = Xsig_pred(0,i);\n    double p_y = Xsig_pred(1,i);\n    double v  = Xsig_pred(2,i);\n    double yaw = Xsig_pred(3,i);\n\n    double v1 = cos(yaw)*v;\n    double v2 = sin(yaw)*v;\n\n    // measurement model\n    Zsig(0,i) = sqrt(p_x*p_x + p_y*p_y);                       // r\n    Zsig(1,i) = atan2(p_y,p_x);                                // phi\n    Zsig(2,i) = (p_x*v1 + p_y*v2) / sqrt(p_x*p_x + p_y*p_y);   // r_dot\n  }\n\n  // mean predicted measurement\n  z_pred.fill(0.0);\n  for (int i=0; i < 2*n_aug+1; ++i) {\n    z_pred = z_pred + weights(i) * Zsig.col(i);\n  }\n\n  // innovation covariance matrix S\n  S.fill(0.0);\n  for (int i = 0; i < 2 * n_aug + 1; ++i) {  // 2n+1 simga points\n    // residual\n    VectorXd z_diff = Zsig.col(i) - z_pred;\n\n    // angle normalization\n    while (z_diff(1)> M_PI) z_diff(1)-=2.*M_PI;\n    while (z_diff(1)<-M_PI) z_diff(1)+=2.*M_PI;\n\n    S = S + weights(i) * z_diff * z_diff.transpose();\n  }\n\n  // add measurement noise covariance matrix\n  MatrixXd R = MatrixXd(n_z,n_z);\n  R <<  std_radr*std_radr, 0, 0,\n        0, std_radphi*std_radphi, 0,\n        0, 0,std_radrd*std_radrd;\n  S = S + R;\n\n  /**\n   * Student part end\n   */\n\n  // print result\n  std::cout << \"z_pred: \" << std::endl << z_pred << std::endl;\n  std::cout << \"S: \" << std::endl << S << std::endl;\n\n  // write result\n  *z_out = z_pred;\n  *S_out = S;\n}",
+                    "name": "ukf.cpp"
+                  },
+                  {
+                    "text": "#ifndef UKF_H\n#define UKF_H\n\n#include \"Dense\"\n\nclass UKF {\n public:\n  /**\n   * Constructor\n   */\n  UKF();\n\n  /**\n   * Destructor\n   */\n  virtual ~UKF();\n\n  /**\n   * Init Initializes Unscented Kalman filter\n   */\n  void Init();\n\n  /**\n   * Student assignment functions\n   */\n  void GenerateSigmaPoints(Eigen::MatrixXd* Xsig_out);\n  void AugmentedSigmaPoints(Eigen::MatrixXd* Xsig_out);\n  void SigmaPointPrediction(Eigen::MatrixXd* Xsig_out);\n  void PredictMeanAndCovariance(Eigen::VectorXd* x_pred, \n                                Eigen::MatrixXd* P_pred);\n  void PredictRadarMeasurement(Eigen::VectorXd* z_out, \n                               Eigen::MatrixXd* S_out);\n  void UpdateState(Eigen::VectorXd* x_out, \n                   Eigen::MatrixXd* P_out);\n};\n\n#endif  // UKF_H",
+                    "name": "ukf.h"
+                  }
+                ]
+              },
+              "answer": null
+            },
+            {
+              "id": 270032,
+              "key": "57e3bfa7-650c-4e5b-bd1e-94efa88875c7",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "#### expected result z_out:\nz_pred =\n\n 6.12155\n\n0.245993\n\n 2.10313\n   \n\n#### expected result s_out:\nS =\n\n   0.0946171 -0.000139448   0.00407016\n\n-0.000139448  0.000617548 -0.000770652\n\n  0.00407016 -0.000770652    0.0180917\n    ",
+              "instructor_notes": ""
+            }
+          ]
+        },
+        {
+          "id": 268261,
+          "key": "01af358d-e74e-4477-8cf0-4de1c451a053",
+          "title": "UKF Update",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "01af358d-e74e-4477-8cf0-4de1c451a053",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 302630,
+              "key": "ad7f8051-2782-4b75-ae7a-374a5affd5d8",
+              "title": "UKF Update",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "pJ5XauGNclI",
+                "china_cdn_id": "pJ5XauGNclI.mp4"
+              }
+            }
+          ]
+        },
+        {
+          "id": 268263,
+          "key": "12428648-2b2f-4a41-9bc6-ac3465c023a2",
+          "title": "UKF Update Assignment 1",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "12428648-2b2f-4a41-9bc6-ac3465c023a2",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 268264,
+              "key": "57dc83f8-1396-4172-b741-dad5d9d176e1",
+              "title": "Assignment UKF Update",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "f36o4sCEQvY",
+                "china_cdn_id": "f36o4sCEQvY.mp4"
+              }
+            },
+            {
+              "id": 270038,
+              "key": "e16484f1-4302-47d3-ba75-3baa47edbd10",
+              "title": "UKF Update Assignment",
+              "semantic_type": "TaskListAtom",
+              "is_public": true,
+              "instructor_notes": null,
+              "user_state": {
+                "node_key": "e16484f1-4302-47d3-ba75-3baa47edbd10",
+                "completed_at": null,
+                "last_viewed_at": null,
+                "unstructured": null
+              },
+              "tasks": [
+                "calculate cross correlation matrix",
+                "calculate Kalman gain K",
+                "update state mean and covariance matrix"
+              ],
+              "positive_feedback": "Nice! Have you tested your code below?",
+              "video_feedback": null,
+              "description": "You will be completing the missing code in ukf.cpp, UpdateState() function."
+            },
+            {
+              "id": 270042,
+              "key": "48b58af2-2a72-4d2b-954f-4ea6ff3d6cee",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "### Helpful Equations\n\n#### Cross-correlation Matrix\n\n<div class=\"mathquill\"> \nT_{k+1|k} = \\sum_{i=1}^{n_\\sigma} w_i (X_{k+1|k,i} - x_{k+1|k})\\ (Z_{k+1|k,i} - z_{k+1|k})^T\n</div>\n\n#### Kalman gain K\n\n<div class=\"mathquill\"> \nK_{k+1|k} = T_{k+1|k}S^{-1}_{k+1|k}\n</div>\n\n#### Update State\n\n<div class=\"mathquill\"> \nx_{k+1|k+1} = x_{k+1|k}+K_{k+1|k}(z_{k+1}-z_{k+1|k})\n</div>\n\n#### Covariance Matrix Update\n\n<div class=\"mathquill\"> \nP_{k+1|k+1} = P_{k+1|k}-K_{k+1|k}S_{k+1|k}K^T_{k+1|k}\n</div>\n\n",
+              "instructor_notes": ""
+            },
+            {
+              "id": 268698,
+              "key": "a1a30cc9-82fc-42c1-9bd0-1a407a98274e",
+              "title": "",
+              "semantic_type": "QuizAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "user_state": {
+                "node_key": "a1a30cc9-82fc-42c1-9bd0-1a407a98274e",
+                "completed_at": null,
+                "last_viewed_at": null,
+                "unstructured": null
+              },
+              "instruction": null,
+              "question": {
+                "title": "",
+                "semantic_type": "ProgrammingQuestion",
+                "evaluation_id": "6588591359787008",
+                "initial_code_files": [
+                  {
+                    "text": "#include \"Dense\"\n#include \"ukf.h\"\n\nusing Eigen::MatrixXd;\nusing Eigen::VectorXd;\n\nint main() {\n\n  // Create a UKF instance\n  UKF ukf;\n\n  /**\n   * Programming assignment calls\n   */\n  VectorXd x_out = VectorXd(5);\n  MatrixXd P_out = MatrixXd(5, 5);\n  ukf.UpdateState(&x_out, &P_out);\n\n  return 0;\n}",
+                    "name": "main.cpp"
+                  },
+                  {
+                    "text": "#include <iostream>\n#include \"ukf.h\"\n\nusing Eigen::MatrixXd;\nusing Eigen::VectorXd;\n\nUKF::UKF() {\n  Init();\n}\n\nUKF::~UKF() {\n}\n\nvoid UKF::Init() {\n\n}\n\n/**\n * Programming assignment functions: \n */\n\nvoid UKF::UpdateState(VectorXd* x_out, MatrixXd* P_out) {\n\n  // set state dimension\n  int n_x = 5;\n\n  // set augmented dimension\n  int n_aug = 7;\n\n  // set measurement dimension, radar can measure r, phi, and r_dot\n  int n_z = 3;\n\n  // define spreading parameter\n  double lambda = 3 - n_aug;\n\n  // set vector for weights\n  VectorXd weights = VectorXd(2*n_aug+1);\n  double weight_0 = lambda/(lambda+n_aug);\n  double weight = 0.5/(lambda+n_aug);\n  weights(0) = weight_0;\n\n  for (int i=1; i<2*n_aug+1; ++i) {  \n    weights(i) = weight;\n  }\n\n  // create example matrix with predicted sigma points in state space\n  MatrixXd Xsig_pred = MatrixXd(n_x, 2 * n_aug + 1);\n  Xsig_pred <<\n     5.9374,  6.0640,   5.925,  5.9436,  5.9266,  5.9374,  5.9389,  5.9374,  5.8106,  5.9457,  5.9310,  5.9465,  5.9374,  5.9359,  5.93744,\n       1.48,  1.4436,   1.660,  1.4934,  1.5036,    1.48,  1.4868,    1.48,  1.5271,  1.3104,  1.4787,  1.4674,    1.48,  1.4851,    1.486,\n      2.204,  2.2841,  2.2455,  2.2958,   2.204,   2.204,  2.2395,   2.204,  2.1256,  2.1642,  2.1139,   2.204,   2.204,  2.1702,   2.2049,\n     0.5367, 0.47338, 0.67809, 0.55455, 0.64364, 0.54337,  0.5367, 0.53851, 0.60017, 0.39546, 0.51900, 0.42991, 0.530188,  0.5367, 0.535048,\n      0.352, 0.29997, 0.46212, 0.37633,  0.4841, 0.41872,   0.352, 0.38744, 0.40562, 0.24347, 0.32926,  0.2214, 0.28687,   0.352, 0.318159;\n\n  // create example vector for predicted state mean\n  VectorXd x = VectorXd(n_x);\n  x <<\n     5.93637,\n     1.49035,\n     2.20528,\n    0.536853,\n    0.353577;\n\n  // create example matrix for predicted state covariance\n  MatrixXd P = MatrixXd(n_x,n_x);\n  P <<\n    0.0054342,  -0.002405,  0.0034157, -0.0034819, -0.00299378,\n    -0.002405,    0.01084,   0.001492,  0.0098018,  0.00791091,\n    0.0034157,   0.001492,  0.0058012, 0.00077863, 0.000792973,\n   -0.0034819,  0.0098018, 0.00077863,   0.011923,   0.0112491,\n   -0.0029937,  0.0079109, 0.00079297,   0.011249,   0.0126972;\n\n  // create example matrix with sigma points in measurement space\n  MatrixXd Zsig = MatrixXd(n_z, 2 * n_aug + 1);\n  Zsig <<\n    6.1190,  6.2334,  6.1531,  6.1283,  6.1143,  6.1190,  6.1221,  6.1190,  6.0079,  6.0883,  6.1125,  6.1248,  6.1190,  6.1188,  6.12057,\n   0.24428,  0.2337, 0.27316, 0.24616, 0.24846, 0.24428, 0.24530, 0.24428, 0.25700, 0.21692, 0.24433, 0.24193, 0.24428, 0.24515, 0.245239,\n    2.1104,  2.2188,  2.0639,   2.187,  2.0341,  2.1061,  2.1450,  2.1092,  2.0016,   2.129,  2.0346,  2.1651,  2.1145,  2.0786,  2.11295;\n\n  // create example vector for mean predicted measurement\n  VectorXd z_pred = VectorXd(n_z);\n  z_pred <<\n      6.12155,\n     0.245993,\n      2.10313;\n\n  // create example matrix for predicted measurement covariance\n  MatrixXd S = MatrixXd(n_z,n_z);\n  S <<\n      0.0946171, -0.000139448,   0.00407016,\n   -0.000139448,  0.000617548, -0.000770652,\n     0.00407016, -0.000770652,    0.0180917;\n\n  // create example vector for incoming radar measurement\n  VectorXd z = VectorXd(n_z);\n  z <<\n     5.9214,   // rho in m\n     0.2187,   // phi in rad\n     2.0062;   // rho_dot in m/s\n\n  // create matrix for cross correlation Tc\n  MatrixXd Tc = MatrixXd(n_x, n_z);\n\n  /**\n   * Student part begin\n   */\n\n  // calculate cross correlation matrix\n\n  // calculate Kalman gain K;\n\n  // update state mean and covariance matrix\n\n  /**\n   * Student part end\n   */\n\n  // print result\n  std::cout << \"Updated state x: \" << std::endl << x << std::endl;\n  std::cout << \"Updated state covariance P: \" << std::endl << P << std::endl;\n\n  // write result\n  *x_out = x;\n  *P_out = P;\n}",
+                    "name": "ukf.cpp"
+                  },
+                  {
+                    "text": "#ifndef UKF_H\n#define UKF_H\n\n#include \"Dense\"\n\nclass UKF {\n public:\n  /**\n   * Constructor\n   */\n  UKF();\n\n  /**\n   * Destructor\n   */\n  virtual ~UKF();\n\n  /**\n   * Init Initializes Unscented Kalman filter\n   */\n  void Init();\n\n  /**\n   * Student assignment functions\n   */\n  void GenerateSigmaPoints(Eigen::MatrixXd* Xsig_out);\n  void AugmentedSigmaPoints(Eigen::MatrixXd* Xsig_out);\n  void SigmaPointPrediction(Eigen::MatrixXd* Xsig_out);\n  void PredictMeanAndCovariance(Eigen::VectorXd* x_pred, \n                                Eigen::MatrixXd* P_pred);\n  void PredictRadarMeasurement(Eigen::VectorXd* z_out, \n                               Eigen::MatrixXd* S_out);\n  void UpdateState(Eigen::VectorXd* x_out, \n                   Eigen::MatrixXd* P_out);\n};\n\n#endif  // UKF_H",
+                    "name": "ukf.h"
+                  }
+                ]
+              },
+              "answer": null
+            },
+            {
+              "id": 270037,
+              "key": "9e1672cc-5890-4adc-885c-de9526481e4a",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "#### expected result x:\nx =\n\n 5.92276\n\n 1.41823\n\n 2.15593\n\n0.489274\n\n0.321338\n    \n#### expected result P:\nP =\n\n  0.00361579 -0.000357881   0.00208316 -0.000937196  -0.00071727\n\n-0.000357881   0.00539867   0.00156846   0.00455342   0.00358885\n\n  0.00208316   0.00156846   0.00410651   0.00160333   0.00171811\n\n-0.000937196   0.00455342   0.00160333   0.00652634   0.00669436\n\n -0.00071719   0.00358884   0.00171811   0.00669426   0.00881797\n    ",
+              "instructor_notes": ""
+            }
+          ]
+        },
+        {
+          "id": 268265,
+          "key": "e19bc36c-a671-4799-8c63-cec40544c2aa",
+          "title": "UKF Update Assignment 2",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "e19bc36c-a671-4799-8c63-cec40544c2aa",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 268266,
+              "key": "3b7d94a9-110a-4845-9f3a-1bf9bc5681de",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "### Solution\n\nTake a look at our solution below!",
+              "instructor_notes": ""
+            },
+            {
+              "id": 268699,
+              "key": "bbbdbb8f-551e-4198-8c9c-dd3b45fef55b",
+              "title": "",
+              "semantic_type": "QuizAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "user_state": {
+                "node_key": "bbbdbb8f-551e-4198-8c9c-dd3b45fef55b",
+                "completed_at": null,
+                "last_viewed_at": null,
+                "unstructured": null
+              },
+              "instruction": null,
+              "question": {
+                "title": "",
+                "semantic_type": "ProgrammingQuestion",
+                "evaluation_id": "5944257828487168",
+                "initial_code_files": [
+                  {
+                    "text": "#include \"Dense\"\n#include \"ukf.h\"\n\nusing Eigen::MatrixXd;\nusing Eigen::VectorXd;\n\nint main() {\n\n  // Create a UKF instance\n  UKF ukf;\n\n  /**\n   * Programming assignment calls\n   */\n  VectorXd x_out = VectorXd(5);\n  MatrixXd P_out = MatrixXd(5, 5);\n  ukf.UpdateState(&x_out, &P_out);\n\n  return 0;\n}",
+                    "name": "main.cpp"
+                  },
+                  {
+                    "text": "#include <iostream>\n#include \"ukf.h\"\n\nusing Eigen::MatrixXd;\nusing Eigen::VectorXd;\n\nUKF::UKF() {\n  Init();\n}\n\nUKF::~UKF() {\n}\n\nvoid UKF::Init() {\n\n}\n\n/**\n * Programming assignment functions: \n */\n\nvoid UKF::UpdateState(VectorXd* x_out, MatrixXd* P_out) {\n\n  // set state dimension\n  int n_x = 5;\n\n  // set augmented dimension\n  int n_aug = 7;\n\n  // set measurement dimension, radar can measure r, phi, and r_dot\n  int n_z = 3;\n\n  // define spreading parameter\n  double lambda = 3 - n_aug;\n\n  // set vector for weights\n  VectorXd weights = VectorXd(2*n_aug+1);\n  double weight_0 = lambda/(lambda+n_aug);\n  double weight = 0.5/(lambda+n_aug);\n  weights(0) = weight_0;\n\n  for (int i=1; i<2*n_aug+1; ++i) {  \n    weights(i) = weight;\n  }\n\n  // create example matrix with predicted sigma points in state space\n  MatrixXd Xsig_pred = MatrixXd(n_x, 2 * n_aug + 1);\n  Xsig_pred <<\n     5.9374,  6.0640,   5.925,  5.9436,  5.9266,  5.9374,  5.9389,  5.9374,  5.8106,  5.9457,  5.9310,  5.9465,  5.9374,  5.9359,  5.93744,\n       1.48,  1.4436,   1.660,  1.4934,  1.5036,    1.48,  1.4868,    1.48,  1.5271,  1.3104,  1.4787,  1.4674,    1.48,  1.4851,    1.486,\n      2.204,  2.2841,  2.2455,  2.2958,   2.204,   2.204,  2.2395,   2.204,  2.1256,  2.1642,  2.1139,   2.204,   2.204,  2.1702,   2.2049,\n     0.5367, 0.47338, 0.67809, 0.55455, 0.64364, 0.54337,  0.5367, 0.53851, 0.60017, 0.39546, 0.51900, 0.42991, 0.530188,  0.5367, 0.535048,\n      0.352, 0.29997, 0.46212, 0.37633,  0.4841, 0.41872,   0.352, 0.38744, 0.40562, 0.24347, 0.32926,  0.2214, 0.28687,   0.352, 0.318159;\n\n  // create example vector for predicted state mean\n  VectorXd x = VectorXd(n_x);\n  x <<\n     5.93637,\n     1.49035,\n     2.20528,\n    0.536853,\n    0.353577;\n\n  // create example matrix for predicted state covariance\n  MatrixXd P = MatrixXd(n_x,n_x);\n  P <<\n    0.0054342,  -0.002405,  0.0034157, -0.0034819, -0.00299378,\n    -0.002405,    0.01084,   0.001492,  0.0098018,  0.00791091,\n    0.0034157,   0.001492,  0.0058012, 0.00077863, 0.000792973,\n   -0.0034819,  0.0098018, 0.00077863,   0.011923,   0.0112491,\n   -0.0029937,  0.0079109, 0.00079297,   0.011249,   0.0126972;\n\n  // create example matrix with sigma points in measurement space\n  MatrixXd Zsig = MatrixXd(n_z, 2 * n_aug + 1);\n  Zsig <<\n    6.1190,  6.2334,  6.1531,  6.1283,  6.1143,  6.1190,  6.1221,  6.1190,  6.0079,  6.0883,  6.1125,  6.1248,  6.1190,  6.1188,  6.12057,\n   0.24428,  0.2337, 0.27316, 0.24616, 0.24846, 0.24428, 0.24530, 0.24428, 0.25700, 0.21692, 0.24433, 0.24193, 0.24428, 0.24515, 0.245239,\n    2.1104,  2.2188,  2.0639,   2.187,  2.0341,  2.1061,  2.1450,  2.1092,  2.0016,   2.129,  2.0346,  2.1651,  2.1145,  2.0786,  2.11295;\n\n  // create example vector for mean predicted measurement\n  VectorXd z_pred = VectorXd(n_z);\n  z_pred <<\n      6.12155,\n     0.245993,\n      2.10313;\n\n  // create example matrix for predicted measurement covariance\n  MatrixXd S = MatrixXd(n_z,n_z);\n  S <<\n      0.0946171, -0.000139448,   0.00407016,\n   -0.000139448,  0.000617548, -0.000770652,\n     0.00407016, -0.000770652,    0.0180917;\n\n  // create example vector for incoming radar measurement\n  VectorXd z = VectorXd(n_z);\n  z <<\n     5.9214,   // rho in m\n     0.2187,   // phi in rad\n     2.0062;   // rho_dot in m/s\n\n  // create matrix for cross correlation Tc\n  MatrixXd Tc = MatrixXd(n_x, n_z);\n\n  /**\n   * Student part begin\n   */\n\n  // calculate cross correlation matrix\n  Tc.fill(0.0);\n  for (int i = 0; i < 2 * n_aug + 1; ++i) {  // 2n+1 simga points\n    // residual\n    VectorXd z_diff = Zsig.col(i) - z_pred;\n    // angle normalization\n    while (z_diff(1)> M_PI) z_diff(1)-=2.*M_PI;\n    while (z_diff(1)<-M_PI) z_diff(1)+=2.*M_PI;\n\n    // state difference\n    VectorXd x_diff = Xsig_pred.col(i) - x;\n    // angle normalization\n    while (x_diff(3)> M_PI) x_diff(3)-=2.*M_PI;\n    while (x_diff(3)<-M_PI) x_diff(3)+=2.*M_PI;\n\n    Tc = Tc + weights(i) * x_diff * z_diff.transpose();\n  }\n\n  // Kalman gain K;\n  MatrixXd K = Tc * S.inverse();\n\n  // residual\n  VectorXd z_diff = z - z_pred;\n\n  // angle normalization\n  while (z_diff(1)> M_PI) z_diff(1)-=2.*M_PI;\n  while (z_diff(1)<-M_PI) z_diff(1)+=2.*M_PI;\n\n  // update state mean and covariance matrix\n  x = x + K * z_diff;\n  P = P - K*S*K.transpose();\n\n  /**\n   * Student part end\n   */\n\n  // print result\n  std::cout << \"Updated state x: \" << std::endl << x << std::endl;\n  std::cout << \"Updated state covariance P: \" << std::endl << P << std::endl;\n\n  // write result\n  *x_out = x;\n  *P_out = P;\n}\n\n/**\n * expected result x:\n * x =\n *  5.92276\n *  1.41823\n *  2.15593\n * 0.489274\n * 0.321338\n */\n\n/**\n * expected result P:\n * P =\n *   0.00361579 -0.000357881   0.00208316 -0.000937196  -0.00071727\n * -0.000357881   0.00539867   0.00156846   0.00455342   0.00358885\n *   0.00208316   0.00156846   0.00410651   0.00160333   0.00171811\n * -0.000937196   0.00455342   0.00160333   0.00652634   0.00669436\n *  -0.00071719   0.00358884   0.00171811   0.00669426   0.00881797\n */",
+                    "name": "ukf.cpp"
+                  },
+                  {
+                    "text": "#ifndef UKF_H\n#define UKF_H\n\n#include \"Dense\"\n\nclass UKF {\n public:\n  /**\n   * Constructor\n   */\n  UKF();\n\n  /**\n   * Destructor\n   */\n  virtual ~UKF();\n\n  /**\n   * Init Initializes Unscented Kalman filter\n   */\n  void Init();\n\n  /**\n   * Student assignment functions\n   */\n  void GenerateSigmaPoints(Eigen::MatrixXd* Xsig_out);\n  void AugmentedSigmaPoints(Eigen::MatrixXd* Xsig_out);\n  void SigmaPointPrediction(Eigen::MatrixXd* Xsig_out);\n  void PredictMeanAndCovariance(Eigen::VectorXd* x_pred, \n                                Eigen::MatrixXd* P_pred);\n  void PredictRadarMeasurement(Eigen::VectorXd* z_out, \n                               Eigen::MatrixXd* S_out);\n  void UpdateState(Eigen::VectorXd* x_out, \n                   Eigen::MatrixXd* P_out);\n};\n\n#endif  // UKF_H",
+                    "name": "ukf.h"
+                  }
+                ]
+              },
+              "answer": null
+            },
+            {
+              "id": 270044,
+              "key": "028c920a-a3bc-44c4-9753-cf336ad2828c",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "#### expected result x:\nx =\n\n 5.92276\n\n 1.41823\n\n 2.15593\n\n0.489274\n\n0.321338\n    \n#### expected result P:\nP =\n\n  0.00361579 -0.000357881   0.00208316 -0.000937196  -0.00071727\n\n-0.000357881   0.00539867   0.00156846   0.00455342   0.00358885\n\n  0.00208316   0.00156846   0.00410651   0.00160333   0.00171811\n\n-0.000937196   0.00455342   0.00160333   0.00652634   0.00669436\n\n -0.00071719   0.00358884   0.00171811   0.00669426   0.00881797\n    ",
+              "instructor_notes": ""
+            }
+          ]
+        },
+        {
+          "id": 268267,
+          "key": "f3ba9445-452d-4727-8209-b317d44ff1f1",
+          "title": "Parameters and Consistency",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "f3ba9445-452d-4727-8209-b317d44ff1f1",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 270005,
+              "key": "b94660f6-8e78-40d7-b61c-2d4439492147",
+              "title": "Parameters And Consistency",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "S4fX3X_9oik",
+                "china_cdn_id": "S4fX3X_9oik.mp4"
+              }
+            },
+            {
+              "id": 292328,
+              "key": "57b265aa-1b7e-45e3-a919-d4c1c3a41d64",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "### Process Noise and the UKF Project\n\nFor the CTRV model, two parameters define the process noise:\n* <span class=\"mathquill\">\\large \\sigma^2_a</span> representing longitudinal acceleration noise (you might see this referred to as linear acceleration)\n* <span class=\"mathquill\">\\large \\sigma^2_{\\ddot\\psi}</span> representing yaw acceleration noise (this is also called angular acceleration)\n\nIn the project, both of these values will need to be tuned. You will have to test different values in order to get a working solution. In the video, Dominik mentions using <span class=\"mathquill\">\\large \\sigma^2_a = 9 \\frac{m^2}{s^4}</span> as a starting point when tracking a vehicle. In the UKF project, you will be tracking a bicycle rather than a vehicle. So 9 might not be an appropriate acceleration noise parameter. Tuning will involve:\n-  guessing appropriate parameter values\n-  running the UKF filter\n- deciding if the results are good enough\n- tweaking the parameters and repeating the process\n",
+              "instructor_notes": ""
+            },
+            {
+              "id": 292330,
+              "key": "bf7d45c2-ca2a-43af-8f5a-eed8ef0f68b2",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "### Linear Acceleration Noise Parameter Intuition\n\nLet's get some intuition for these noise parameters. The units for the acceleration noise parameter <span class=\"mathquill\">\\large \\sigma^2_a</span> are <span class=\"mathquill\">\\Large\\frac{m^2}{s^4}</span>. Taking the square root, we get <span class=\"mathquill\">\\large \\sigma_a</span> with units <span class=\"mathquill\">\\large \\frac{m}{s^2}</span>. So the square root of the acceleration noise parameter has the same units as acceleration: <span class=\"mathquill\">\\large \\frac{m}{s^2}</span>\n\nThe parameter <span class=\"mathquill\">\\large \\sigma_a</span> is the standard deviation of linear acceleration! Remember from the \"CTRV Process Noise Vector\" lecture that the linear acceleration is being modeled as a Gaussian distribution with mean zero and standard deviation <span class=\"mathquill\">\\large \\sigma_a</span>. In a Gaussian distribution, about 95% of your values are within 2<span class=\"mathquill\">\\large \\sigma_a</span>. \n\nSo if you choose  <span class=\"mathquill\">\\large \\sigma^2_a = 9 \\frac{m^2}{s^4}</span>, then you expect the acceleration to be between <span class=\"mathquill\">\\large -6 \\frac{m}{s^2}</span> and <span class=\"mathquill\">\\large +6 \\frac{m}{s^2}</span> about 95% of the time.\n\nTuning parameters involves some trial and error. Using your intuition can help you find reasonable initial values.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 292331,
+              "key": "cf52d937-cad4-406e-85ee-72195f0929ec",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "### Yaw Acceleration Noise Parameter Intuition\n\nIf yaw acceleration has units of <span class=\"mathquill\">radians/s^2</span>, what are the units of the yaw acceleration noise parameter <span class=\"mathquill\">\\large \\sigma^2_{\\ddot\\psi}</span>?\n\n(A) <span class=\"mathquill\">rad/s^2</span>\n\n(B) <span class=\"mathquill\">rad^2/s^2</span>\n\n(C) <span class=\"mathquill\">rad/s^4</span>\n\n(D) <span class=\"mathquill\">rad^2/s^4</span>",
+              "instructor_notes": ""
+            },
+            {
+              "id": 292332,
+              "key": "74cc8a76-1443-4264-ae06-7d91041b24ad",
+              "title": "Yaw Acceleration Noise Parameter Units",
+              "semantic_type": "RadioQuizAtom",
+              "is_public": true,
+              "instructor_notes": null,
+              "user_state": {
+                "node_key": "74cc8a76-1443-4264-ae06-7d91041b24ad",
+                "completed_at": null,
+                "last_viewed_at": null,
+                "unstructured": null
+              },
+              "question": {
+                "prompt": "What are the units for the yaw acceleration noise parameter?",
+                "answers": [
+                  {
+                    "id": "a1491843710402",
+                    "text": "A",
+                    "is_correct": false
+                  },
+                  {
+                    "id": "a1491843762620",
+                    "text": "B",
+                    "is_correct": false
+                  },
+                  {
+                    "id": "a1491843783876",
+                    "text": "C",
+                    "is_correct": false
+                  },
+                  {
+                    "id": "a1491843928510",
+                    "text": "D",
+                    "is_correct": true
+                  }
+                ]
+              }
+            },
+            {
+              "id": 292334,
+              "key": "b82fc3be-d0a8-48f1-b044-c5f611abdabc",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "Let's think about what values might be reasonable for the yaw acceleration noise parameter.\n\nImagine the bicycle is traveling in a circle with a constant yaw rate (angular velocity) of <span class=\"mathquill\">\\Large \\frac{\\pi}{8} \\frac{rad}{s} </span>. That means the bicycle would complete a full circle in 16 seconds: <span class=\"mathquill\">\\Large\\frac{\\pi}{8} \\frac{rad}{s} \\cdot</span> <span class=\"mathquill\">16 s = 2\\pi</span>. \n\nThat seems reasonable for an average bike rider traveling in a circle with a radius of maybe 16 meters. \n\nThe bike rider would have also have a tangential velocity of 6.28 meters per second because <span class=\"mathquill\">\\Large\\frac{\\pi}{8} \\frac{rad}{s} \\cdot</span> <span class=\"mathquill\">16 \\text{ meters} </span> <span class=\"mathquill\">= 6.28 \\text{ meters per second}</span>.\n\nWhat if the angular acceleration were now <span class=\"mathquill\">\\large -2\\pi \\frac{rad}{s^2}</span> instead of zero? In just one second, the angular velocity would go from <span class=\"mathquill\">\\Large \\frac{\\pi}{8} \\frac{rad}{s}</span> to <span class=\"mathquill\">\\Large -\\frac{15\\pi}{8} \\frac{rad}{s}</span>. This comes from <span class=\"mathquill\">\\Large \\frac{\\pi}{8} \\frac{rad}{s}</span><span class=\"mathquill\"> - 2\\pi</span> <span class=\"mathquill\">\\Large \\frac{rad}{s^2} \\cdot</span><span class=\"mathquill\"> 1 s = -</span><span class=\"mathquill\">\\Large \\frac{15\\pi}{8} \\frac{rad}{s}</span>.\n\nThe bicycle has been completing a complete circle in 16 seconds. But with such a high angular acceleration, then all of a sudden the bicycle is going around the circle in the opposite direction and only takes about 1.1 second to complete the circle. \n\nFrom a bicycle, a setting in the range of <span class=\"mathquill\">\\large \\sigma_{\\ddot\\psi} = 2\\pi \\frac{rad}{s^2}</span> seems too high. In the project, you'll have to experiment with different values to see what works well.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 292333,
+              "key": "e3d8b8bb-b9ca-401b-9b26-7e90a6bfbb79",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "### Measurement Noise Parameters\n\nMeasurement noise parameters represent uncertainty in sensor measurements. In general, the manufacturer will provide these values in the sensor manual. In the UKF project, you will not need to tune these parameters.",
+              "instructor_notes": ""
+            }
+          ]
+        },
+        {
+          "id": 268269,
+          "key": "b9251b43-1412-4c2b-8a0b-6ef3f1eb729a",
+          "title": "What to Expect from the Project",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "b9251b43-1412-4c2b-8a0b-6ef3f1eb729a",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 270006,
+              "key": "29c8ac96-97b3-41f0-9d37-d95f0fcd2279",
+              "title": "What to Expect from the Project",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "WAt_g6HgYvs",
+                "china_cdn_id": "WAt_g6HgYvs.mp4"
+              }
+            },
+            {
+              "id": 292342,
+              "key": "e9706cf1-99c6-4bca-8766-3e01c41db61a",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "### Initializing the Kalman Filter\n\nAs discussed previously, the process noise parameters have an important effect on your Kalman filter; you will need to tune the longitudinal and yaw acceleration noise parameters as part of the project.\n\nThe initial values for your state variables will also affect your Kalman filter's performance. Both the:\n* state vector **x** and the\n* state covariance matrix **P**\n\nneed to be initialized for the unscented Kalman filter to work properly.\n\n#### Initializing the State Vector x\nThe state vector **x** contains <span class=\"mathquill\">x = [p_x,  p_y, v, \\psi, \\dot{\\psi}]</span>. \n\nYou won't know where the bicycle is until you receive the first sensor measurement. Once the first sensor measurement arrives, you can initialize <span class=\"mathquill\">p_x</span> and <span class=\"mathquill\">p_y</span>. \n\nFor the other variables in the state vector **x**, you can try different initialization values to see what works best.\n\nNote that although radar does include velocity information, the radar velocity and the CTRV velocity are not the same. Radar velocity is measured from the autonomous vehicle's perspective. If you drew a straight line from the vehicle to the bicycle, radar measures the velocity along that line. \n\nIn the CTRV model, the velocity is from the object's perspective, which in this case is the bicycle; the CTRV velocity is tangential to the circle along which the bicycle travels. Therefore, you cannot directly use the radar velocity measurement to initialize the state vector.\n\n",
+              "instructor_notes": ""
+            },
+            {
+              "id": 292345,
+              "key": "ccb1ffb3-b3f6-4c1f-9066-a09a0139ba91",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "#### Initializing the State Covariance Matrix P\n\nTo initialize the state covariance matrix **P**, one option is to start with the identity matrix. For the CTRV model, **P** is a 5x5 matrix. The identity matrix would be:\n<div class=\"mathquill\">\nP_{\\text initial} =  \\begin{bmatrix}\n1 \\qquad 0 \\qquad 0 \\qquad 0 \\qquad 0 \\\\\n0 \\qquad 1 \\qquad 0 \\qquad 0 \\qquad 0 \\\\\n0 \\qquad 0 \\qquad 1 \\qquad 0 \\qquad 0 \\\\\n0 \\qquad 0 \\qquad 0 \\qquad 1 \\qquad 0 \\\\\n0 \\qquad 0 \\qquad 0 \\qquad 0 \\qquad 1\n\\end{bmatrix}\n</div>\n\nThink back to what the state covariance matrix represents: take for example the value in the first row, second column. The value at (1, 2) would be the covariance <span class=\"mathquill\">\\large \\sigma_{px, py}</span> measuring the linear relationship between the two variables. \n\nThe diagonal values represent the variances for each of the variables in the **x** state vector: <span class=\"mathquill\">\\large [\\sigma^2_{p_x},  \\sigma^2_{p_y}, \\sigma^2_{v}, \\sigma^2_{\\psi}, \\sigma^2_{\\dot{\\psi}}]</span>. \n\nWhy is the identity matrix a good place to start? Since the non-diagonal values represent the covariances between variables, the **P** matrix is symmetrical. The identity matrix is also symmetrical. The symmetry comes from the fact that the covariance between two variables is the same whether you look at (x, y) or (y, x): <span class=\"mathquill\">\\large \\sigma_{px, py} = \\sigma_{py, px}</span>. If you print out the **P** matrix in your UKF code, you will see that **P** remains symmetrical even after the matrix gets updated. If your solution is working, you will also see that P starts to converge to small values relatively quickly.\n\nInstead of setting each of the diagonal values to 1, you can try setting the diagonal values by how much difference you expect between the true state and the initialized **x** state vector. For example, in the project, we assume the standard deviation of the lidar x and y measurements is 0.15. If we initialized <span class=\"mathquill\">p_x</span> with a lidar measurement, the initial variance or uncertainty in \n<span class=\"mathquill\">p_x</span> would probably be less than 1.\n\nYou will have to experiment with different initialization values to find a working solution.",
+              "instructor_notes": ""
+            }
+          ]
+        },
+        {
+          "id": 286170,
+          "key": "f645ea5b-caeb-467f-ac45-3f7f835c38fc",
+          "title": "Story Time",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "f645ea5b-caeb-467f-ac45-3f7f835c38fc",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 286171,
+              "key": "bccfcae3-529d-4f43-ae0b-9c15da33b9a5",
+              "title": "UKF Story Time",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "gFdT8W1fmf8",
+                "china_cdn_id": "gFdT8W1fmf8.mp4"
+              }
+            }
+          ]
+        },
+        {
+          "id": 268271,
+          "key": "bbeb991a-bebd-4c1f-a590-0ef0ccdd48d6",
+          "title": "Outro",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "bbeb991a-bebd-4c1f-a590-0ef0ccdd48d6",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 270007,
+              "key": "3c6dfc72-f02f-407f-9f80-e3d78531c904",
+              "title": "Outro",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "G3soGuQeHGU",
+                "china_cdn_id": "G3soGuQeHGU.mp4"
+              }
+            }
+          ]
+        },
+        {
+          "id": 783188,
+          "key": "ede5392b-72e0-4b46-b920-ef65b34b96bf",
+          "title": "Bonus Round: Sensor Fusion [Optional]",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "ede5392b-72e0-4b46-b920-ef65b34b96bf",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 783190,
+              "key": "e82874d4-0ccd-4899-9d93-a8d505f1b54c",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## Additional Resources on Sensor Fusion and Object Detection & Tracking\n\nNice work reaching the end of the sensor fusion content! While you still have the project left to do here, we're also providing some additional resources and recent research on the topic that you can come back to if you have time later on.\n\nReading research papers is a great way to get exposure to the latest and greatest in the field, as well as expand your learning. However, just like the project ahead, it's often best to *learn by doing* - if you find a paper that really excites you, try to implement it (or even something better) yourself!",
+              "instructor_notes": ""
+            },
+            {
+              "id": 783191,
+              "key": "aa15aa41-0fc8-462d-82a0-e8c96c1cf8a9",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "##### Optional Reading\n\nAll of these are completely optional reading - you could spend days reading through the entirety of these! We suggest moving onto the project first so you have Kalman Filters fresh on your mind, before coming back to check these out. \n\nWe've categorized these papers to hopefully help you narrow down which ones might be of interest, as well as highlighted a couple key reads by category by including their *Abstract* section, which summarizes the paper. We've also included some additional papers you might consider as well if you want to delve even deeper.\n\n---",
+              "instructor_notes": ""
+            },
+            {
+              "id": 783195,
+              "key": "5453863e-6842-4101-bc1d-c4c14047b975",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "### Tracking Multiple Objects and Sensor Fusion\nThe below papers and resources concern tracking multiple objects, using Kalman Filters as well as other techniques!\n\n[No Blind Spots: Full-Surround Multi-Object Tracking for Autonomous Vehicles using Cameras & LiDARs](https://arxiv.org/pdf/1802.08755.pdf) by A. Rangesh and M. Trivedi\n> **Abstract:** Online multi-object tracking (MOT) is extremely important for high-level spatial reasoning and path planning for autonomous and highly-automated vehicles. In this paper, we present a modular framework for tracking multiple objects (vehicles), capable of accepting object proposals from different\nsensor modalities (vision and range) and a variable number of sensors, to produce continuous object tracks. [...]\nWe demonstrate that our framework is well-suited to track objects through entire maneuvers around the ego-vehicle, some of which take more than a few minutes to complete. We also leverage the modularity of our approach by comparing the effects of including/excluding different sensors, changing the total number of sensors, and the quality of object proposals on the final tracking result.\n\n[Multiple Sensor Fusion and Classification for Moving Object Detection and Tracking](https://hal.archives-ouvertes.fr/hal-01241846/document) by R.O. Chavez-Garcia and O. Aycard\n> **Abstract:** [...] We believe that by including the objects classification from multiple sensors detections as a key component of the object’s representation and the perception process, we can improve the perceived model of the environment. First, we define a composite object representation to\ninclude class information in the core object’s description. Second, we propose a complete perception fusion architecture based on the Evidential framework to solve the Detection and Tracking of Moving Objects (DATMO) problem by integrating the composite representation and uncertainty management. Finally, we integrate our fusion approach in a real-time application inside a vehicle demonstrator from the\ninteractIVe IP European project which includes three main sensors: radar, lidar and camera. [...]\n\n---",
+              "instructor_notes": ""
+            },
+            {
+              "id": 783192,
+              "key": "d3afcaf4-4792-44ce-9d57-ff9b38418a1e",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "### Stereo cameras\n\nThe below papers cover various methods of using stereo camera set-ups for object detection and tracking.\n\n[Robust 3-D Motion Tracking from Stereo Images: A Model-less Method](http://www.cse.cuhk.edu.hk/~khwong/J2008_IEEE_TIM_Stereo%20Kalman%20.pdf) by Y.K. Yu, *et. al.*\n> **Abstract:** Traditional vision-based 3-D motion estimation algorithms require given or calculated 3-D models while the motion is being tracked. We propose a high-speed extended Kalman filter-based approach that recovers camera position and orientation from stereo image sequences without prior knowledge as well as the procedure for the reconstruction of 3-D structures. [...] The proposed method has been applied to recover\nthe motion from stereo image sequences taken by a robot and a hand-held stereo rig. The results are accurate compared to the ground truths. It is shown in the experiment that our algorithm is not susceptible to outlying point features with the application of a validation gate. \n\n[Vehicle Tracking and Motion Estimation Based on Stereo Vision Sequences](http://hss.ulb.uni-bonn.de/2010/2356/2356.pdf) by A. Barth \n(long read)\n> **Abstract:** In this dissertation, a novel approach for estimating trajectories of road vehicles such as\ncars, vans, or motorbikes, based on stereo image sequences is presented. Moving objects\nare detected and reliably tracked in real-time from within a moving car. [...]\nThe focus of this contribution is on oncoming traffic, while most existing work in the literature\naddresses tracking the lead vehicle. The overall approach is generic and scalable\nto a variety of traffic scenes including inner city, country road, and highway scenarios. [...]\nThe key idea is to derive these parameters from a set of tracked 3D points on the\nobject’s surface, which are registered to a time-consistent object coordinate system, by\nmeans of an extended Kalman filter. Combining the rigid 3D point cloud model with\nthe dynamic model of a vehicle is one main contribution of this thesis. [...]\nThe experimental results show the proposed system is able to accurately estimate the\nobject pose and motion parameters in a variety of challenging situations, including night\nscenes, quick turn maneuvers, and partial occlusions.\n\n---",
+              "instructor_notes": ""
+            },
+            {
+              "id": 783196,
+              "key": "2ea140b4-197c-40ae-9078-0612cb13875e",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "### Deep Learning-based approaches\n\nThe below papers include various deep learning-based approaches to 3D object detection and tracking.\n\n[Fast and Furious: Real Time End-to-End 3D Detection, Tracking and Motion Forecasting with a Single Convolutional Net](http://openaccess.thecvf.com/content_cvpr_2018/papers/Luo_Fast_and_Furious_CVPR_2018_paper.pdf) by W. Luo, *et. al.*\n> **Abstract:** In this paper we propose a novel deep neural network that is able to jointly reason about 3D detection, tracking and motion forecasting given data captured by a 3D sensor. By jointly reasoning about these tasks, our holistic approach is more robust to occlusion as well as sparse data at range. Our approach performs 3D convolutions across space and time over a bird’s eye view representation of the 3D world, which is very efficient in terms of both memory and computation. Our experiments on a new very large scale dataset captured in several north american cities, show that we can outperform the state-of-the-art by a\nlarge margin. Importantly, by sharing computation we can perform all tasks in as little as 30 ms.\n\n[VoxelNet: End-to-End Learning for Point Cloud Based 3D Object Detection](https://arxiv.org/abs/1711.06396) by Y. Zhou and O. Tuzel\n> **Abstract:** Accurate detection of objects in 3D point clouds is a central problem in many applications, such as autonomous navigation, housekeeping robots, and augmented/virtual reality. To interface a highly sparse LiDAR point cloud with a region proposal network (RPN), most existing efforts have focused on hand-crafted feature representations, for example, a bird's eye view projection. In this work, we remove the need of manual feature engineering for 3D point clouds and propose VoxelNet, a generic 3D detection network that unifies feature extraction and bounding box prediction into a single stage, end-to-end trainable deep network. [...] Experiments on the KITTI car detection benchmark show that VoxelNet outperforms the state-of-the-art LiDAR based 3D detection methods by a large margin. Furthermore, our network learns an effective discriminative representation of objects with various geometries, leading to encouraging results in 3D detection of pedestrians and cyclists, based on only LiDAR.\n\n---",
+              "instructor_notes": ""
+            },
+            {
+              "id": 783261,
+              "key": "1a09fdd0-7690-4068-9086-b6342549ec9b",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "### Other papers on Tracking Multiple Objects and Sensor Fusion\n\nThe below papers and resources concern tracking multiple objects, using Kalman Filters as well as other techniques! We have not included the abstracts here for brevity, but you should check those out first to see which of these you want to take a look at.\n\n> [Multiple Object Tracking using Kalman Filter and Optical Flow](http://www.ejaet.com/PDF/2-2/EJAET-2-2-34-39.pdf) by S. Shantaiya, *et. al.*\n\n> [Kalman Filter Based Multiple Objects Detection-Tracking Algorithm Robust to Occlusion](https://pdfs.semanticscholar.org/f5a2/bf3df3126d2923a617b977ec2b4e1c829a08.pdf) by J-M Jeong, *et. al.*\n\n> [Tracking Multiple Moving Objects Using Unscented Kalman Filtering Techniques](https://arxiv.org/pdf/1802.01235.pdf) by X. Chen, *et. al.*\n\n> [LIDAR-based 3D Object Perception](https://velodynelidar.com/lidar/hdlpressroom/pdf/Articles/LIDAR-based%203D%20Object%20Perception.pdf) by M. Himmelsbach, *et. al*\n\n> [Fast multiple objects detection and tracking fusing color camera and 3D LIDAR for intelligent vehicles](https://www.researchgate.net/publication/309503024_Fast_multiple_objects_detection_and_tracking_fusing_color_camera_and_3D_LIDAR_for_intelligent_vehicles) by S. Hwang, *et. al.*\n\n> [3D-LIDAR Multi Object Tracking for Autonomous Driving](https://repository.tudelft.nl/islandora/object/uuid%3Af536b829-42ae-41d5-968d-13bbaa4ec736) by A.S. Rachman (long read)",
+              "instructor_notes": ""
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "_deprecated": [
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    }
+  ]
+}

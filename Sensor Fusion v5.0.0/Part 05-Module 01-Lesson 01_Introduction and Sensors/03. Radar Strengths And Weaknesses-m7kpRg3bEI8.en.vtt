@@ -1,0 +1,171 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.510 --> 00:00:03.900
+This is a prototype self-driving
+car that we've been working on.
+
+00:00:03.899 --> 00:00:05.419
+We call it Chewbacca.
+
+00:00:05.419 --> 00:00:09.050
+And all around it, we've embedded
+about 15 different sensors.
+
+00:00:09.050 --> 00:00:10.929
+Let me show you a few.
+
+00:00:10.929 --> 00:00:13.019
+This is a stereo camera.
+
+00:00:13.019 --> 00:00:18.100
+The two cameras together, work just
+like our eyes to form a stereo image
+
+00:00:18.100 --> 00:00:22.679
+that allows us to gather both image
+data, as well as distance information.
+
+00:00:22.679 --> 00:00:26.489
+This is a camera for
+the recognition of traffic signals.
+
+00:00:26.489 --> 00:00:30.570
+Often, traffic signals can be located on
+the other side of an intersection, so
+
+00:00:30.570 --> 00:00:33.920
+we use a special lens to give
+the camera sufficient range
+
+00:00:33.920 --> 00:00:36.679
+to detect the signal from far away.
+
+00:00:36.679 --> 00:00:41.070
+This is a radar, and
+it sits behind the front bumper like so.
+
+00:00:42.310 --> 00:00:45.030
+Radars have in automobiles for years.
+
+00:00:45.030 --> 00:00:48.520
+You can find them in systems
+like adaptive cruise control,
+
+00:00:48.520 --> 00:00:52.600
+blind spot warning, collision
+warning and collision avoidance.
+
+00:00:52.600 --> 00:00:54.590
+Even though radar is
+a mature technology,
+
+00:00:54.590 --> 00:00:59.080
+it still gets improved all the time
+to make it even more powerful.
+
+00:00:59.079 --> 00:01:03.129
+While other sensors measure velocity
+by calculating the difference between
+
+00:01:03.130 --> 00:01:04.450
+two readings,
+
+00:01:04.450 --> 00:01:08.390
+radar uses something called the Doppler
+effect to measure speed directly.
+
+00:01:08.390 --> 00:01:12.510
+The Doppler effect measures the change
+in frequency of the radar waves
+
+00:01:12.510 --> 00:01:16.570
+based on whether the object is
+moving away from you or toward you.
+
+00:01:16.569 --> 00:01:20.429
+This is kind of like how a fire
+engine siren will sound differently
+
+00:01:20.430 --> 00:01:25.110
+depending on whether the fire engine
+is moving away from you or toward you.
+
+00:01:25.109 --> 00:01:26.750
+The Doppler effect is important for
+
+00:01:26.750 --> 00:01:30.930
+sensor fusion because it gives us
+the velocity as an independent measure
+
+00:01:30.930 --> 00:01:35.190
+parameter, and it makes the fusion
+algorithms converge much faster.
+
+00:01:36.260 --> 00:01:37.570
+Radar can also be used for
+
+00:01:37.569 --> 00:01:41.359
+localization by generating
+radar maps of the environment.
+
+00:01:41.359 --> 00:01:44.689
+Because radar waves
+bounce off hard surfaces,
+
+00:01:44.689 --> 00:01:49.149
+they can provide measurements to
+objects without direct line of flight.
+
+00:01:49.150 --> 00:01:51.260
+Radar can see underneath other vehicles,
+
+00:01:51.260 --> 00:01:55.410
+and spot buildings and objects
+that would be obscured otherwise.
+
+00:01:55.409 --> 00:02:00.379
+Of all the sensors on the car, radar is
+the least affected by rain or fog and
+
+00:02:00.379 --> 00:02:04.659
+can have a wide field of view,
+about 150 degrees, or
+
+00:02:04.659 --> 00:02:06.518
+a long range, 200 plus meters.
+
+00:02:06.518 --> 00:02:10.960
+Compared to lidars and cameras,
+radars have a low resolution.
+
+00:02:10.960 --> 00:02:15.210
+Especially in the vertical direction,
+the resolution is very limited.
+
+00:02:15.210 --> 00:02:19.290
+The lower resolution also means that
+reflections from static objects can
+
+00:02:19.289 --> 00:02:20.459
+cause problems.
+
+00:02:20.460 --> 00:02:24.469
+For example, manhole covers or
+a soda can lying on the street
+
+00:02:24.469 --> 00:02:28.740
+can have high radar reflectivity even
+though they are relatively small.
+
+00:02:28.740 --> 00:02:30.730
+This is called radar clutter, and
+
+00:02:30.729 --> 00:02:35.119
+it's why current automotive radars
+usually disregard static objects.
+
+00:02:35.120 --> 00:02:36.900
+Next up, let me show you a lidar.
+

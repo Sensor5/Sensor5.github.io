@@ -1,0 +1,497 @@
+<!-- udacimak v1.4.4 -->
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <meta content="ie=edge" http-equiv="X-UA-Compatible"/>
+  <title>
+   CA-CFAR
+  </title>
+  <link href="../assets/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="../assets/css/plyr.css" rel="stylesheet"/>
+  <link href="../assets/css/katex.min.css" rel="stylesheet"/>
+  <link href="../assets/css/jquery.mCustomScrollbar.min.css" rel="stylesheet"/>
+  <link href="../assets/css/styles.css" rel="stylesheet"/>
+  <link href="../assets/img/udacimak.png" rel="shortcut icon" type="image/png">
+  </link>
+ </head>
+ <body>
+  <div class="wrapper">
+   <nav id="sidebar">
+    <div class="sidebar-header">
+     <h3>
+      Clutter, CFAR, AoA
+     </h3>
+    </div>
+    <ul class="sidebar-list list-unstyled CTAs">
+     <li>
+      <a class="article" href="../index.html">
+       Back to Home
+      </a>
+     </li>
+    </ul>
+    <ul class="sidebar-list list-unstyled components">
+     <li class="">
+      <a href="01. Clutter, CFAR, AoA.html">
+       01. Clutter, CFAR, AoA
+      </a>
+     </li>
+     <li class="">
+      <a href="02. Clutter.html">
+       02. Clutter
+      </a>
+     </li>
+     <li class="">
+      <a href="03. CFAR.html">
+       03. CFAR
+      </a>
+     </li>
+     <li class="">
+      <a href="04. CA-CFAR.html">
+       04. CA-CFAR
+      </a>
+     </li>
+     <li class="">
+      <a href="05. CFAR 2D.html">
+       05. CFAR 2D
+      </a>
+     </li>
+     <li class="">
+      <a href="06. Angle of Arrival Introduction.html">
+       06. Angle of Arrival Introduction
+      </a>
+     </li>
+    </ul>
+    <ul class="sidebar-list list-unstyled CTAs">
+     <li>
+      <a class="article" href="../index.html">
+       Back to Home
+      </a>
+     </li>
+    </ul>
+   </nav>
+   <div id="content">
+    <header class="container-fluild header">
+     <div class="container">
+      <div class="row">
+       <div class="col-12">
+        <div class="align-items-middle">
+         <button class="btn btn-toggle-sidebar" id="sidebarCollapse" type="button">
+          <div>
+          </div>
+          <div>
+          </div>
+          <div>
+          </div>
+         </button>
+         <h1 style="display: inline-block">
+          04. CA-CFAR
+         </h1>
+        </div>
+       </div>
+      </div>
+     </div>
+    </header>
+    <main class="container">
+     <div class="row">
+      <div class="col-12">
+       <div class="ud-atom">
+        <h3>
+         <p>
+          CA-CFAR
+         </p>
+        </h3>
+        <div>
+         <h1 id="ca-cfar">
+          CA-CFAR
+         </h1>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+         <p>
+          L3A79 CA-CFAR
+         </p>
+        </h3>
+        <video controls="">
+         <source src="04. L3A79 CA-CFAR-ptZR6fYqWW4.mp4" type="video/mp4"/>
+         <track default="true" kind="subtitles" label="en" src="04. L3A79 CA-CFAR-ptZR6fYqWW4.en.vtt" srclang="en"/>
+        </video>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+         <p>
+          CA-CFAR
+         </p>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="CA-CFAR
+Training Cells : 3
+Guard Cell : 1" class="img img-fluid" src="img/image5.png"/>
+          <figcaption class="figure-caption">
+           <p>
+            CA-CFAR
+            <br/>
+            Training Cells : 3
+            <br/>
+            Guard Cell : 1
+           </p>
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+         <p>
+          CA-CFAR
+         </p>
+        </h3>
+        <div>
+         <p>
+          CA-CFAR is the most commonly used CFAR detection technique. As seen in the previous lesson, the FFT blocks are generated on implementing range and doppler FFTs across the number of chirps. The CFAR process includes the sliding of a window across the cells in FFT blocks. Each window consists of the following cells.
+         </p>
+         <p>
+          <strong>
+           Cell Under Test
+          </strong>
+          : The cell that is tested to detect the presence of the target by comparing the signal level against the noise estimate (threshold).
+         </p>
+         <p>
+          <strong>
+           Training Cells
+          </strong>
+          : The level of noise is measured over the Training Cells. The Training Cells can be divided into two regions, the cells lagging the CUT, called lagging Training Cells and the cells leading the CUT, called Leading Training Cells. The noise is estimated by averaging the noise under the training cells. In some cases either leading or lagging cell average is taken, while in the other the leading and lagging cell average is combined and the higher of two is considered for noise level estimate.
+         </p>
+         <p>
+          The number of training cells should be decided based on the environment. If a dense traffic scenario then the fewer training cells should be used, as closely spaced targets can impact the noise estimate.
+         </p>
+         <p>
+          <strong>
+           Guard Cells
+          </strong>
+          : The cells just next to CUT are assigned as Guard Cells. The purpose of the Guard Cells is to avoid the target signal from leaking into the training cells that could adversely affect the noise estimate.
+          <br/>
+          The number of guard cells should be decided based on the leakage of the target signal out of the cell under test. If target reflections are strong they often get into surrounding bins.
+         </p>
+         <p>
+          <strong>
+           Threshold Factor (Offset)
+          </strong>
+          : Use an offset value to scale the noise threshold. If the signal strength is defined in logarithmic form then add this offset value to the average noise estimate, else multiply it.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+         <p>
+          CFAR 1D Graphic
+         </p>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="" class="img img-fluid" src="img/image7.png"/>
+          <figcaption class="figure-caption">
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h2 id="1d-cfar-exercise">
+          1D CFAR Exercise
+         </h2>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+         <p>
+          L3A44 CFAR 1D And Big Picture
+         </p>
+        </h3>
+        <video controls="">
+         <source src="04. L3A44 CFAR 1D And Big Picture-h_YPnZ8D5uE.mp4" type="video/mp4"/>
+         <track default="true" kind="subtitles" label="en" src="04. L3A44 CFAR 1D And Big Picture-h_YPnZ8D5uE.en.vtt" srclang="en"/>
+        </video>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+         <p>
+          CFAR 1D Implementation
+         </p>
+        </h3>
+        <div>
+         <p>
+          The following steps here can be used to implement CFAR in the next MATLAB exercise. You can use the code template below to get started as well.
+         </p>
+         <p>
+          <strong>
+           T
+          </strong>
+          : Number of Training Cells
+         </p>
+         <p>
+          <strong>
+           G
+          </strong>
+          : Number of Guard Cells
+         </p>
+         <p>
+          <strong>
+           N
+          </strong>
+          : Total number of Cells
+         </p>
+         <ol>
+          <li>
+           Define the number of training cells and guard cells
+          </li>
+          <li>
+           Start sliding the window one cell at a time across the complete FFT 1D array. Total window size should be: 2(T+G)+CUT
+          </li>
+          <li>
+           For each step, sum the signal (noise) within all the leading or lagging training cells
+          </li>
+          <li>
+           Average the sum to determine the noise threshold
+          </li>
+          <li>
+           Using an appropriate offset value scale the threshold
+          </li>
+          <li>
+           Now, measure the signal in the CUT, which is T+G+1 from the window starting point
+          </li>
+          <li>
+           Compare the signal measured in 5 against the threshold measured in 4
+          </li>
+          <li>
+           If the level of signal measured in CUT is smaller than the threshold measured, then assign                             0 value to the signal within CUT.
+          </li>
+         </ol>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+         <p>
+          CFAR 1D Further Research
+         </p>
+        </h3>
+        <div>
+         <pre><code class="matlab language-matlab">% Implement 1D CFAR using lagging cells on the given noise and target scenario.
+
+% Close and delete all currently open figures
+close all;
+
+% Data_points
+Ns = 1000;
+
+% Generate random noise
+s=randn(Ns,1);
+
+%Targets location. Assigning bin 100, 200, 300 and 700 as Targets with the amplitudes of 8, 9, 4, 11.
+s([100 ,200, 300, 700])=[8 9 4 11];
+
+%plot the output
+plot(s);
+
+% TODO: Apply CFAR to detect the targets by filtering the noise.
+
+% 1. Define the following:
+% 1a. Training Cells
+% 1b. Guard Cells 
+
+% Offset : Adding room above noise threshold for desired SNR 
+offset=3;
+
+% Vector to hold threshold values 
+threshold_cfar = [];
+
+%Vector to hold final signal after thresholding
+signal_cfar = [];
+
+% 2. Slide window across the signal length
+for i = 1:(Ns-(G+T))     
+
+    % 2. - 5. Determine the noise threshold by measuring it within the training cells
+
+    % 6. Measuring the signal within the CUT
+
+    % 8. Filter the signal above the threshold
+
+    signal_cfar = [signal_cfar, {signal}];
+end
+
+
+
+
+% plot the filtered signal
+plot (cell2mat(signal_cfar),'g--');
+
+% plot original sig, threshold and filtered signal within the same figure.
+figure,plot(s);
+hold on,plot(cell2mat(circshift(threshold_cfar,G)),'r--','LineWidth',2)
+hold on, plot (cell2mat(circshift(signal_cfar,(T+G))),'g--','LineWidth',4);
+legend('Signal','CFAR Threshold','detection')</code></pre>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h2 id="solution">
+          Solution
+         </h2>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+         <p>
+          Workspace Lesson 3
+         </p>
+        </h3>
+        <video controls="">
+         <source src="04. Workspace Lesson 3-K2W4eMuWwgk.mp4" type="video/mp4"/>
+         <track default="true" kind="subtitles" label="en" src="04. Workspace Lesson 3-K2W4eMuWwgk.en.vtt" srclang="en"/>
+        </video>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h2 id="further-research">
+          Further Research
+         </h2>
+         <p>
+          For further research, see the articles
+          <a href="http://www.radartutorial.eu/01.basics/False%20Alarm%20Rate.en.html" rel="noopener noreferrer" target="_blank">
+           here
+          </a>
+          and
+          <a href="https://arxiv.org/pdf/1709.09786.pdf" rel="noopener noreferrer" target="_blank">
+           here
+          </a>
+          .
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+      </div>
+      <div class="col-12">
+       <p class="text-right">
+        <a class="btn btn-outline-primary mt-4" href="05. CFAR 2D.html" role="button">
+         Next Concept
+        </a>
+       </p>
+      </div>
+     </div>
+    </main>
+    <footer class="footer">
+     <div class="container">
+      <div class="row">
+       <div class="col-12">
+        <p class="text-center">
+         udacity2.0 If you need the newest courses Plase add me wechat: udacity6
+        </p>
+       </div>
+      </div>
+     </div>
+    </footer>
+   </div>
+  </div>
+  <script src="../assets/js/jquery-3.3.1.min.js">
+  </script>
+  <script src="../assets/js/plyr.polyfilled.min.js">
+  </script>
+  <script src="../assets/js/bootstrap.min.js">
+  </script>
+  <script src="../assets/js/jquery.mCustomScrollbar.concat.min.js">
+  </script>
+  <script src="../assets/js/katex.min.js">
+  </script>
+  <script>
+   // Initialize Plyr video players
+    const players = Array.from(document.querySelectorAll('video')).map(p => new Plyr(p));
+
+    // render math equations
+    let elMath = document.getElementsByClassName('mathquill');
+    for (let i = 0, len = elMath.length; i < len; i += 1) {
+      const el = elMath[i];
+
+      katex.render(el.textContent, el, {
+        throwOnError: false
+      });
+    }
+
+    // this hack will make sure Bootstrap tabs work when using Handlebars
+    if ($('#question-tabs').length && $('#user-answer-tabs').length) {
+      $("#question-tabs a.nav-link").on('click', function () {
+        $("#question-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+      $("#user-answer-tabs a.nav-link").on('click', function () {
+        $("#user-answer-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    } else {
+      $("a.nav-link").on('click', function () {
+        $(".tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    }
+
+    // side bar events
+    $(document).ready(function () {
+      $("#sidebar").mCustomScrollbar({
+        theme: "minimal"
+      });
+
+      $('#sidebarCollapse').on('click', function () {
+        $('#sidebar, #content').toggleClass('active');
+        $('.collapse.in').toggleClass('in');
+        $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+      });
+
+      // scroll to first video on page loading
+      if ($('video').length) {
+        $('html,body').animate({ scrollTop: $('div.plyr').prev().offset().top});
+      }
+
+      // auto play first video: this may not work with chrome/safari due to autoplay policy
+      if (players && players.length > 0) {
+        players[0].play();
+      }
+
+      // scroll sidebar to current concept
+      const currentInSideBar = $( "ul.sidebar-list.components li a:contains('04. CA-CFAR')" )
+      currentInSideBar.css( "text-decoration", "underline" );
+      $("#sidebar").mCustomScrollbar('scrollTo', currentInSideBar);
+    });
+  </script>
+ </body>
+</html>

@@ -1,0 +1,250 @@
+{
+  "data": {
+    "lesson": {
+      "id": 842251,
+      "key": "493be691-f4f2-43bb-a412-3454656b48ab",
+      "title": "Unscented Kalman Filter Highway Project",
+      "semantic_type": "Lesson",
+      "is_public": true,
+      "version": "1.0.0",
+      "locale": "en-us",
+      "summary": "In this lesson, students will submit the project that they have developed over the previous lessons.",
+      "lesson_type": "Classroom",
+      "display_workspace_project_only": false,
+      "resources": null,
+      "project": {
+        "key": "d8a12afe-b96b-4d38-96c2-66ff6371c72c",
+        "version": "1.0.0",
+        "locale": "en-us",
+        "duration": 40320,
+        "semantic_type": "Project",
+        "title": "Unscented Kalman Filter Highway Project",
+        "description": "Check your project carefully against the rubric [here](https://review.udacity.com/#!/rubrics/2551/view). When you feel like your project meets all of the criteria listed there, you are ready to submit! \n\nYou can submit your project directly from the workspace in the previous concept, or if you have developed your code locally, you can submit using a .zip file or Github repo.",
+        "is_public": true,
+        "summary": null,
+        "forum_path": "",
+        "rubric_id": "2551",
+        "terminal_project_id": null,
+        "resources": null,
+        "image": {
+          "url": "https://s3.amazonaws.com/video.udacity-data.com/topher/2019/April/5cb7c6f7_ukf-highway/ukf-highway.png",
+          "width": 973,
+          "height": 523
+        }
+      },
+      "lab": null,
+      "concepts": [
+        {
+          "id": 843736,
+          "key": "fb9d4925-ba9d-4008-949a-096a8fabed50",
+          "title": "Submitting Your Project",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "fb9d4925-ba9d-4008-949a-096a8fabed50",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 843805,
+              "key": "d7095a3d-b567-4474-9644-586baf2031d0",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "# Unscented Kalman Filter Highway Project",
+              "instructor_notes": ""
+            },
+            {
+              "id": 843804,
+              "key": "0becdf80-7b4f-4e2c-93e3-8c26cdb07c04",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/April/5cb7bd1e_ukf-highway-tracked/ukf-highway-tracked.gif",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/0becdf80-7b4f-4e2c-93e3-8c26cdb07c04",
+              "caption": "Tracking multiple cars on the highway using UKF.",
+              "alt": "",
+              "width": 984,
+              "height": 552,
+              "instructor_notes": null
+            },
+            {
+              "id": 843806,
+              "key": "7c4d45cc-ae84-4858-92d0-ef39aa38be2c",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "Below is a workspace with the SFND_Unscented_Kalman project repository cloned over. In this project you will be filling in the function code for `ukf.cpp` and `ukf.h` by using the previous lessons as reference. The results of completing the UKF code can be seen in the animation above, where each of the three traffic cars are tracked using a CTRV motion model. Although the cars have variable acceleration and turning rates the UKF is still able to track the objects quite well with the CTRV model. The accuracy is being calculated by the RMSE, root mean squared error over each time step and for each car. The RMSE is looking at the error difference between the ground truth and estimated position and velocities.  All the cars are considered in the RMSE value so if one car is particularly inaccurate it would affect the overall RMSE in this case. In the animation above the 4 RMSE values are X, Y, Vx, Vy from top to bottom. To pass the project the RMSE values should not exceed the rmse threshold values in the project rubric after the simulator has ran for more than 1 second.\n\n",
+              "instructor_notes": ""
+            },
+            {
+              "id": 843902,
+              "key": "587e8e4e-c6cd-4674-9db7-83eea6257a12",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/April/5cb8bd45_ukf-highway/ukf-highway.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/587e8e4e-c6cd-4674-9db7-83eea6257a12",
+              "caption": "cars without tracking, lidar pings are red spheres and radar is purple lines.",
+              "alt": "",
+              "width": 973,
+              "height": 523,
+              "instructor_notes": null
+            },
+            {
+              "id": 843903,
+              "key": "840fc82c-eb77-4a1a-89ec-41da6b14ee23",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "`main.cpp` is using `highway.h` to create a straight 3 lane highway environment with 3 traffic cars and the main ego car at the center. The viewer scene is centered around the ego car and the coordinate system is relative to the ego car as well. The ego car is green while the other traffic cars are blue. The traffic cars will be accelerating and altering their steering to change lanes. Each of the traffic car's has it's own UKF object generated for it in `highway.h` , and will update each individual one during every time step.\n\nThe red spheres above cars represent the (x,y) lidar detection and the purple lines show the radar measurements with the velocity magnitude along the detected angle. The Z axis is not taken into account for tracking, so you are only tracking along the X/Y axis.\n\n### Working on the Project Locally\n\nThe [Github repository](https://github.com/udacity/SFND_Unscented_Kalman_Filter) can be used to clone over the project locally instead of working on it in the work space. In that situation a zip file containing the root of the compiled project would be uploaded and submitted directly.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 843901,
+              "key": "a54d4da8-c750-404a-b57d-305d5e72f545",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## Testing Your Project Before Submission\n\nBefore you submit the project, compile and run the project once more to ensure that everything is working correctly. You should see results that are similar to the .gif above: each of the three vehicles should be tracked with green spheres indicating estimated position and green magnitude arrows showing estimated velocity value and direction. The RMSE values should also look reasonable.\n\n## Checking the Rubric\n\nIf your project works correctly and you are happy with the results, carefully look at the [project rubric](https://review.udacity.com/#!/rubrics/2551/view). If you feel like all the criteria from the rubric are met, you are ready to submit!\n\n## Submitting the Project\n\nYou can submit your project using the \"SUBMIT PROJECT\" button in the terminal below. If you are developing the project locally, and you would prefer to submit using a .zip file or Github repo, proceed to the next concept.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 843757,
+              "key": "a546cb5a-819b-471f-b213-c1bc725119f9",
+              "title": null,
+              "semantic_type": "WorkspaceAtom",
+              "is_public": true,
+              "workspace_id": "r831540c843736xREACT3ervo7ah",
+              "pool_id": "autonomousgpu",
+              "view_id": "react-jnumq",
+              "gpu_capable": true,
+              "configuration": {
+                "id": "reserved",
+                "blueprint": {
+                  "conf": {
+                    "disk": null,
+                    "port": 3000,
+                    "ports": [],
+                    "userCode": "",
+                    "openFiles": [],
+                    "showFiles": true,
+                    "allowClose": true,
+                    "allowSubmit": true,
+                    "terminalTitle": "BASH",
+                    "actionButtonText": "Desktop",
+                    "openTerminalOnStartup": true
+                  },
+                  "kind": "react"
+                },
+                "workspaceId": "reserved"
+              },
+              "starter_files": null
+            }
+          ]
+        },
+        {
+          "id": 843945,
+          "key": "ff9e46de-cb72-4217-b965-c13b00633eee",
+          "title": "Additional Project Details",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "ff9e46de-cb72-4217-b965-c13b00633eee",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 843946,
+              "key": "eb7c3191-e274-43b2-8d1a-ba61fbfbebfd",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "# Additional Project Details\n",
+              "instructor_notes": ""
+            },
+            {
+              "id": 843948,
+              "key": "c6000aac-0b29-4a4e-b64f-9009bd0f02d2",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "## Highway Parameters\n\nIn `highway.h` there are a number of parameters that can be modified to help with testing and understanding.\n\n```\n// Parameters \n// --------------------------------\n// Set which cars to track with UKF\nstd::vector<bool> trackCars = {true,true,true};\n// Visualize sensor measurements\nbool visualize_lidar = true;\nbool visualize_radar = true;\nbool visualize_pcd = false;\n// Predict path in the future using UKF\ndouble projectedTime = 0;\nint projectedSteps = 0;\n// --------------------------------\n```\n\nThe `trackCars` list can be used to toggle on/off cars for the UKF objects to track. The default is to track all three cars on the road, but for testing it can be nice to toggle to only track one at a time. For instance to only track the first car `{true,false,false}`.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 843947,
+              "key": "144ef44d-4a5e-4065-8f2e-875aea6baf2d",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/April/5cb8ef7d_ukf-highway-projected/ukf-highway-projected.gif",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/144ef44d-4a5e-4065-8f2e-875aea6baf2d",
+              "caption": "Projecting the UKF path 2 seconds into the future.",
+              "alt": "",
+              "width": 984,
+              "height": 552,
+              "instructor_notes": null
+            },
+            {
+              "id": 843951,
+              "key": "dc14e3c7-ab5a-44e1-8c4d-fd9a86573b46",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "The animation above shows what it looks like if the `projectedTime` and `projectedSteps` variables are used. Also in the animation above the visualization for lidar and radar has been set to `false` and `projectedTime = 2` and `projectedSteps = 6`. The green spheres then show the predicted position for the car in the future over a 2 second interval. The number of steps increases the number of positions to interpolate the time interval.\n\nIt's interesting to see the predicted path which is constrained by the motion model. In this project the motion model used is CTRV, which assumes constant velocity and turning rate. Since our cars do not have constant turning rates  you can see the predicted paths swing around and take a while to correct after the car begins moving straight again.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 844007,
+              "key": "fae695e8-4316-4ba8-b0cc-ef91e5094849",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2019/April/5cba2b17_ukf-highway-pcd/ukf-highway-pcd.gif",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/fae695e8-4316-4ba8-b0cc-ef91e5094849",
+              "caption": "Visualizing high resolution point cloud data for traffic.",
+              "alt": "",
+              "width": 984,
+              "height": 552,
+              "instructor_notes": null
+            },
+            {
+              "id": 844008,
+              "key": "baefc41e-da9d-4eae-83dd-6719c6b62ad2",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "The `visualize_pcd` parameter can be set to true to visualize the cars from the lidar's perspective from point clouds. The traffic pcd data is available in `src/sensors/data/pcd` directory. As a bonus assignment this data could be used to cluster the individual cars using techniques from Lidar Obstacle Detection and then bounding boxes could be fitted around the car clusters. The bounding box center (x,y) point could then be used to represent the lidar marker that would be fed into the UKF instead of the project pre-generated lidar marker from `tools.cpp` `lidarSense` function.",
+              "instructor_notes": ""
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "_deprecated": [
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    }
+  ]
+}

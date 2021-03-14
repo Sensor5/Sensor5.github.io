@@ -1,0 +1,1994 @@
+{
+  "data": {
+    "lesson": {
+      "id": 220632,
+      "key": "3612b91d-9c33-47ad-8067-a572a6c93837",
+      "title": "Lidar and Radar Fusion with Kalman Filters in C++",
+      "semantic_type": "Lesson",
+      "is_public": true,
+      "version": "1.0.0",
+      "locale": "en-us",
+      "summary": "In this lesson, you'll build a Kalman Filter in C++ that's capable of handling data from multiple sources. Why C++? Its performance enables the application of object tracking with a Kalman Filter in real-time.",
+      "lesson_type": "Classroom",
+      "display_workspace_project_only": null,
+      "resources": {
+        "files": [
+          {
+            "name": "Videos Zip File",
+            "uri": "https://zips.udacity-data.com/3612b91d-9c33-47ad-8067-a572a6c93837/220632/1585703676700/Lidar+and+Radar+Fusion+with+Kalman+Filters+in+C%2B%2B+Videos.zip"
+          },
+          {
+            "name": "Transcripts Zip File",
+            "uri": "https://zips.udacity-data.com/3612b91d-9c33-47ad-8067-a572a6c93837/220632/1585703667496/Lidar+and+Radar+Fusion+with+Kalman+Filters+in+C%2B%2B+Subtitles.zip"
+          },
+          {
+            "name": "Sensor Fusion EKF Reference",
+            "uri": "https://video.udacity-data.com/topher/2017/February/58b461d5_sensor-fusion-ekf-reference/sensor-fusion-ekf-reference.pdf"
+          },
+          {
+            "name": "Eigen_Lib",
+            "uri": "https://video.udacity-data.com/topher/2017/March/58b7604e_eigen/eigen.zip"
+          },
+          {
+            "name": "EKF_Input_Data",
+            "uri": "https://video.udacity-data.com/topher/2017/March/58bd257a_ekf-data/ekf-data.zip"
+          }
+        ],
+        "google_plus_link": null,
+        "career_resource_center_link": null,
+        "coaching_appointments_link": null,
+        "office_hours_link": null,
+        "aws_provisioning_link": null
+      },
+      "project": null,
+      "lab": null,
+      "concepts": [
+        {
+          "id": 663242,
+          "key": "14d8924e-a34a-4687-b73c-2f06c758e034",
+          "title": "Kalman Filters in C++",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "14d8924e-a34a-4687-b73c-2f06c758e034",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 663244,
+              "key": "e7a0f3fb-f336-480e-ae7e-a0f357f1776f",
+              "title": "04 Sensor Fusion A04 Kalman Filters In C++",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "Hsvzm7zDG_A",
+                "china_cdn_id": "Hsvzm7zDG_A.mp4"
+              }
+            }
+          ]
+        },
+        {
+          "id": 220633,
+          "key": "fae32644-361b-4a0f-86af-b40ebb3f3bca",
+          "title": "Intro",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "fae32644-361b-4a0f-86af-b40ebb3f3bca",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 269181,
+              "key": "33ac6be5-a9dd-435e-958b-2ab44ec64889",
+              "title": "Introduction And Overview",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "G57ZvTBAUL8",
+                "china_cdn_id": "G57ZvTBAUL8.mp4"
+              }
+            },
+            {
+              "id": 531506,
+              "key": "660a1b55-6bd8-48e7-8720-2bbb53c9c24f",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "Before proceeding it may be helpful to review some important geometry concepts, which we recently added to the classroom, [here](https://classroom.udacity.com/nanodegrees/nd013/parts/40f38239-66b6-46ec-ae68-03afd8a601c8/modules/87f3782a-0a5b-4568-bcf2-edad2f5fdd76/lessons/60367cb6-526f-4255-a92a-c850038c4675/concepts/5640101a-453e-444a-ab2e-d0554396e36c).  Another great resource for geometry and trigonometry can be found [here](http://www.mathwarehouse.com/trigonometry/).",
+              "instructor_notes": ""
+            }
+          ]
+        },
+        {
+          "id": 229650,
+          "key": "a2a6c61f-afdd-47ae-9e9f-dcbe9916e772",
+          "title": "Lesson Map and Fusion Flow",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "a2a6c61f-afdd-47ae-9e9f-dcbe9916e772",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 268155,
+              "key": "ba7e8964-702d-4670-b773-3a3083c7be6d",
+              "title": "Lesson Map",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "_u8Vk58VqxY",
+                "china_cdn_id": "_u8Vk58VqxY.mp4"
+              }
+            },
+            {
+              "id": 289289,
+              "key": "5726347e-6546-4d5a-b273-dc6823069198",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "### Overview  of the Kalman Filter Algorithm Map",
+              "instructor_notes": ""
+            },
+            {
+              "id": 268701,
+              "key": "75c63dca-b21e-402e-8dc6-be8846c10b3a",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2017/February/58b4d902_screenshot-from-2017-02-27-19-56-58/screenshot-from-2017-02-27-19-56-58.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/75c63dca-b21e-402e-8dc6-be8846c10b3a",
+              "caption": "For your reference: a map of the Kalman Filter algorithm! Keep an eye out, because we'll add a little bit more detail to this later.",
+              "alt": null,
+              "width": 1828,
+              "height": 1017,
+              "instructor_notes": null
+            },
+            {
+              "id": 289287,
+              "key": "2ee58a05-41d0-47c8-b09b-227db0e042c1",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "Imagine you are in a car equipped with sensors on the outside. The car sensors can detect objects moving around: for example, the sensors might detect a pedestrian, as described in the video, or even a bicycle.  For variety, let's step through the Kalman Filter algorithm using the bicycle example. \n\nThe Kalman Filter algorithm will go through the following steps:\n* **first measurement** - the filter will receive initial measurements of the bicycle's position relative to the car. These measurements will come from a radar or lidar sensor.\n* **initialize state and covariance matrices** - the filter will initialize the bicycle's position based on the first measurement.\n* then the car will receive another sensor measurement after a time period <span class=\"mathquill\">\\Delta{t}</span>.\n* **predict** - the algorithm will predict where the bicycle will be after time <span class=\"mathquill\">\\Delta{t}</span>. One basic way to predict the bicycle location after <span class=\"mathquill\">\\Delta{t}</span> is to assume the bicycle's velocity is constant; thus the bicycle will have moved velocity * <span class=\"mathquill\">\\Delta{t}</span>. In the extended Kalman filter lesson, we will assume the velocity is constant.\n* **update** - the  filter compares the \"predicted\" location with what the sensor measurement says. The predicted location and the measured location are combined to give an updated location. The Kalman filter will put more weight on either the predicted location or the measured location depending on the uncertainty of each value.\n* then the car will receive another sensor measurement after a time period <span class=\"mathquill\">\\Delta{t}</span>. The algorithm then does another **predict** and **update** step.",
+              "instructor_notes": ""
+            }
+          ]
+        },
+        {
+          "id": 229654,
+          "key": "af06ec7e-e32a-441a-b39f-6a3f5c3bcf85",
+          "title": "Lesson Variables and Equations",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "af06ec7e-e32a-441a-b39f-6a3f5c3bcf85",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 229655,
+              "key": "385b0e62-7d60-4110-8ef3-692b7ba2582f",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "> ### There are so many equations!\n\nIn order to help you following along with the derivations of the Kalman Filter equations in this lesson, we're providing a handy dandy cheat sheet (actually \"sheets\", because there are a few pages). I want to call your attention to the resources panel on the left (see the screenshot below) where you can find a PDF copy of this cheat sheet entitled \"Sensor Fusion EKF Reference.pdf.\"\n\nDownload it and keep going with the lesson!",
+              "instructor_notes": ""
+            },
+            {
+              "id": 270013,
+              "key": "6a0e9de2-7bac-48cb-a4b5-8a7caa49855a",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2020/April/5ea1dcf5_screenshot-from-2020-04-23-11-22-07/screenshot-from-2020-04-23-11-22-07.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/6a0e9de2-7bac-48cb-a4b5-8a7caa49855a",
+              "caption": "",
+              "alt": "",
+              "width": 322,
+              "height": 234,
+              "instructor_notes": null
+            }
+          ]
+        },
+        {
+          "id": 220636,
+          "key": "81d536e6-4f6f-4970-94a2-eec7f0a20595",
+          "title": "Estimation Problem Refresh",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "81d536e6-4f6f-4970-94a2-eec7f0a20595",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 269180,
+              "key": "11303a40-3ce3-466d-964c-da030b75e5b4",
+              "title": "Refresh Estimation Problem",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "Uwq7_6slV_M",
+                "china_cdn_id": "Uwq7_6slV_M.mp4"
+              }
+            },
+            {
+              "id": 283713,
+              "key": "fdf8c4b1-e443-450c-ad2a-e14bcfaddd1b",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "### Definition of Variables\n\n* <span class=\"mathquill\">x</span> is the mean state vector. For an extended Kalman filter, the mean state vector contains information about the object's position and velocity that you are tracking. It is called the \"mean\" state vector because position and velocity are represented by a gaussian distribution with mean <span class=\"mathquill\">x</span>.\n* <span class=\"mathquill\">P</span> is the state covariance matrix, which contains information about the uncertainty of the object's position and velocity. You can think of it as containing standard deviations.\n* k represents time steps. So <span class=\"mathquill\">x_k</span> refers to the object's position and velocity vector at time k.\n* The notation <span class=\"mathquill\">k+1|k</span> refers to the prediction step. At time <span class=\"mathquill\">k+1</span>, you receive a sensor measurement. Before taking into account the sensor measurement to update your belief about the object's position and velocity, you predict where you think the object will be at time <span class=\"mathquill\">k+1</span>. You can predict the position of the object at <span class=\"mathquill\">k+1</span> based on its position and velocity at time <span class=\"mathquill\">k</span>. Hence <span class=\"mathquill\">x_{k+1|k}</span> means that you have predicted where the object will be at <span class=\"mathquill\">k+1</span> but have not yet taken the sensor measurement into account. \n* <span class=\"mathquill\">x_{k+1}</span> means that you have now predicted where the object will be at time <span class=\"mathquill\">k+1</span> and then used the sensor measurement to update the object's position and velocity.\n\n",
+              "instructor_notes": ""
+            },
+            {
+              "id": 268671,
+              "key": "6a774881-60f9-45e9-bfc3-01e953b93e37",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2017/February/58b4bc06_screen-shot-2017-02-27-at-17.52.45/screen-shot-2017-02-27-at-17.52.45.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/6a774881-60f9-45e9-bfc3-01e953b93e37",
+              "caption": "",
+              "alt": null,
+              "width": 2690,
+              "height": 1398,
+              "instructor_notes": null
+            },
+            {
+              "id": 220639,
+              "key": "ab39d9a6-0d5c-4422-9ff6-fc7bb036be91",
+              "title": "asdf",
+              "semantic_type": "RadioQuizAtom",
+              "is_public": true,
+              "instructor_notes": null,
+              "user_state": {
+                "node_key": "ab39d9a6-0d5c-4422-9ff6-fc7bb036be91",
+                "completed_at": null,
+                "last_viewed_at": null,
+                "unstructured": null
+              },
+              "question": {
+                "prompt": "What should a Kalman Filter do if both the radar and laser measurements arrive at the same time, **k+3**? Hint: The Kalman filter algorithm predicts -> updates -> predicts -> updates, etc. If two sensor measurements come in simultaneously, the time step between the first measurement and the second measurement would be zero.",
+                "answers": [
+                  {
+                    "id": "a1481313423237",
+                    "text": "Predict the state to k+3, and then update the state with only one of those measurements, either laser or radar.",
+                    "is_correct": false
+                  },
+                  {
+                    "id": "a1481313523542",
+                    "text": "Predict the state to k+3, and then only update with the laser measurement because it is more accurate",
+                    "is_correct": false
+                  },
+                  {
+                    "id": "a1481313541400",
+                    "text": "Predict the state to k+3 then use either one of the sensors to update. Then predict the state to k+3 again and update with the other sensor measurement.",
+                    "is_correct": true
+                  },
+                  {
+                    "id": "a1481313765559",
+                    "text": "Skip the prediction step because we have two measurements. Just update the prior probability distribution twice.",
+                    "is_correct": false
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "id": 289292,
+          "key": "df73ce8f-f476-49ed-a7d0-b67a657616fa",
+          "title": "Kalman Filter Intuition",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "df73ce8f-f476-49ed-a7d0-b67a657616fa",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 289293,
+              "key": "d2f33740-56aa-45e1-b174-aae81407681e",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "### Additional Info about the Last Quiz",
+              "instructor_notes": ""
+            },
+            {
+              "id": 289294,
+              "key": "0c62c649-f357-4720-b4c3-b46405ab3107",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2017/February/58b4bc59_measureupdatequizpost/measureupdatequizpost.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/0c62c649-f357-4720-b4c3-b46405ab3107",
+              "caption": "",
+              "alt": null,
+              "width": 710,
+              "height": 400,
+              "instructor_notes": null
+            },
+            {
+              "id": 289295,
+              "key": "576e9c4d-aeab-4d3a-bcb1-24aed386cb02",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "Because we have already run a prediction-update iteration with the first sensor at time k+3, the output of the second prediction at time k+3 will actually be identical to the output from the update step with the first sensor. So, in theory, you could skip the second prediction step and just run a prediction, update, update iteration.\n\nBut you'll learn more about that later. First, a bit of math.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 300440,
+              "key": "4e056fb0-4426-4c1c-8854-e4c748970dfc",
+              "title": "ND013 M3 L4 05 L Kalman Filter Equations In C++",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "ZG8Ya-mCGhI",
+                "china_cdn_id": "ZG8Ya-mCGhI.mp4"
+              }
+            },
+            {
+              "id": 289296,
+              "key": "a1753ffd-c42d-4e99-96a8-892afd3b26c7",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "### Kalman Filter Intuition\n\nThe Kalman equation contains many variables, so here is a high level overview to get some intuition about what the Kalman filter is doing. \n\n##### Prediction \nLet's say we know an object's current position and velocity , which we keep in the <span class=\"multiquill\">x</span> variable. Now one second has passed. We can predict where the object will be one second later because we knew the object position and velocity one second ago; we'll just assume the object kept going at the same velocity. \n\nThe <span class=\"mathquill\">x' = Fx + \\nu</span> equation does these prediction calculations for us.\n\nBut maybe the object didn't maintain the exact same velocity. Maybe the object changed direction, accelerated or decelerated. So when we predict the position one second later, our uncertainty increases. <span class=\"mathquill\">P' = FPF^T + Q</span> represents this increase in uncertainty.\n\nProcess noise refers to the uncertainty in the prediction step. We assume the object travels at a constant velocity, but in reality, the object might accelerate or decelerate. The notation <span class=\"mathquill\">\\nu \\sim N(0, Q)</span> defines the process noise as a gaussian distribution with mean zero and covariance Q. \n\n##### Update\n\nNow we get some sensor information that tells where the object is relative to the car. First we compare where we think we are with what the sensor data tells us <span class=\"mathquill\">y = z - Hx'</span>. \n\nThe <span class=\"mathquill\">K</span> matrix, often called the Kalman filter gain, combines the uncertainty of where we think we are <span class=\"mathquill\">P'</span> with the uncertainty of our sensor measurement <span class=\"mathquill\">R</span>. If our sensor measurements are very uncertain (R is high relative to P'), then the Kalman filter will give more weight to where we think we are: <span class=\"mathquill\">x'</span>. If where we think we are is uncertain (P' is high relative to R), the Kalman filter will put more weight on the sensor measurement: <span class=\"mathquill\">z</span>. \n \nMeasurement noise refers to uncertainty in sensor measurements. The notation <span class=\"mathquill\">\\omega \\sim N(0, R)</span> defines the measurement noise as a gaussian distribution with mean zero and covariance R. Measurement noise comes from uncertainty in sensor measurements.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 298401,
+              "key": "876a9f08-6714-4c01-b4e1-8848963b81da",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "### A Note About the State Transition Function: Bu\n\nIf you go back to the video, you'll notice that the state transition function was first given as \n<span class=\"mathquill\">x' = Fx + Bu + \\nu</span>.\n\nBut then <span class=\"mathquill\">Bu</span> was crossed out leaving  <span class=\"mathquill\">x' = Fx + \\nu</span>. \n\n<span class=\"mathquill\">B</span> is a matrix called the control input matrix and <span class=\"mathquill\">u</span> is the control vector. \n\nAs an example, let's say we were tracking a car and we knew for certain how much the car's motor was going to accelerate or decelerate over time; in other words, we had an equation to model the exact amount of acceleration at any given moment. <span class=\"mathquill\">Bu</span> would represent the updated position of the car due to the internal force of the motor. We would use <span class=\"mathquill\">\\nu</span> to represent any random noise that we could not precisely predict like if the car slipped on the road or a strong wind moved the car.\n\nFor the Kalman filter lessons, we will assume that there is no way to measure or know the exact acceleration of a tracked object. For example, if we were in an autonomous vehicle tracking a bicycle, pedestrian or another car, we would not be able to model the internal forces of the other object; hence, we do not know for certain what the other object's acceleration is. Instead, we will set <span class=\"mathquill\">Bu = 0</span> and represent acceleration as a random noise with mean <span class=\"mathquill\">\\nu</span>.",
+              "instructor_notes": ""
+            }
+          ]
+        },
+        {
+          "id": 220638,
+          "key": "f2081cbe-559a-4671-a8b4-04452531b875",
+          "title": "Kalman Filter Equations in C++ Part 1",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "f2081cbe-559a-4671-a8b4-04452531b875",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 220645,
+              "key": "91abe206-d32f-421b-82af-9bde0afb3a3c",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "### Kalman Filter Equations in C++\n\nNow, let's do a quick refresher of the Kalman Filter for a simple 1D motion case. Let's say that your goal is to track a pedestrian with state <span class=\"mathquill\">x</span> that is described by a position and velocity. \n\n<div class=\"mathquill\"> \nx = \\begin{pmatrix} \np \\\\ \nv \n\\end{pmatrix}\n</div>\n\n##### Prediction Step\n\nWhen designing the Kalman filter, we have to define the two linear functions: the state transition function and the measurement function. The state transition function is\n\n<span class=\"mathquill\">x' = F*x + noise</span>,\n\nwhere,\n\n<span class=\"mathquill\"> F = \\begin{pmatrix} 1 & \\Delta t \\\\ 0 & 1 \\end{pmatrix}</span>\n\nand <span class=\"mathquill\">x'</span> is where we predict the object to be after time <span class=\"mathquill\">\\Delta t</span>. \n\n<span class=\"mathquill\">F</span> is a matrix that, when multiplied with <span class=\"mathquill\">x</span>, predicts where the object will be after time <span class=\"mathquill\">\\Delta t</span>.\n\nBy using the linear motion model with a constant velocity, the new location, <span class=\"mathquill\">p'</span> is calculated as \n\n<span class=\"mathquill\">p' = p + v * \\Delta t</span>,\n\nwhere <span class=\"mathquill\">p</span> is the old location and <span class=\"mathquill\">v</span>, the velocity, will be the same as the new velocity (<span class=\"mathquill\">v' = v</span>) because the velocity is constant. \n\nWe can express this in a matrix form as follows:\n\n<span class=\"mathquill\">\\begin{pmatrix} p' \\\\ v' \\end{pmatrix} = \\begin{pmatrix}1 & \\Delta t \\\\ 0 & 1 \\end{pmatrix} \\begin{pmatrix} p \\\\ v \\end{pmatrix}</span>\n\nRemember we are representing the object location and velocity as gaussian distributions with mean <span class=\"mathquill\">x</span>. When working with the equation <span class=\"mathquill\">x' = F*x + noise</span>*, we are calculating the mean value of the state vector. The noise is also represented by a gaussian distribution but with mean zero; hence, noise = 0 is saying that the mean noise is zero. The equation then becomes <span class=\"mathquill\">x' = F*x</span>\n\nBut the noise does have uncertainty. The uncertainty shows up in the <span class=\"mathquill\">Q</span> matrix as acceleration noise.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 303802,
+              "key": "2b579bfb-a6ff-4b87-a2bc-6e9a2e8818ff",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "##### Update Step\n\nFor the update step, we use the measurement function to map the state vector into the measurement space of the sensor. To give a concrete example, lidar only measures an object's position. But the extended Kalman filter models an object's position and velocity. So multiplying by the measurement function H matrix will drop the velocity information from the state vector <span class=\"mathquill\">x</span>. Then the lidar measurement position and our belief about the object's position can be compared.\n\n<span class=\"mathquill\">z = H*x + w</span> \n\nwhere <span class=\"mathquill\">w</span> represents sensor measurement noise.\n\nSo for lidar, the measurement function looks like this:\n\n<span class=\"mathquill\">z = p'</span>.\n\n\nIt also can be represented in a matrix form:\n\n<span class=\"mathquill\">z=\\begin{pmatrix} 1 & 0 \\end{pmatrix} \\begin{pmatrix} p' \\\\ v'  \\end{pmatrix}</span>.\n\nAs we already know, the general algorithm is composed of a prediction step where I predict the new state and covariance, <span class=\"mathquill\">P</span>. \n\n\nAnd we also have a measurement update (or also called many times a correction step) where we use the latest measurements to update our estimate and our uncertainty.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 268168,
+              "key": "a5988748-66da-4d1e-9ddf-4bff08427b5a",
+              "title": "Kalman Filter Equations In C++ Programming",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "KV4ZdUnOz9I",
+                "china_cdn_id": "KV4ZdUnOz9I.mp4"
+              }
+            },
+            {
+              "id": 269294,
+              "key": "d42751af-2691-413b-b3cc-9da323d3b97d",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "Here is a download link to the [Eigen Library](https://d17h27t6h515a5.cloudfront.net/topher/2017/March/58b7604e_eigen/eigen.zip) that is being used throughout the programming assignments.  Further details regarding this library can be found [here](http://eigen.tuxfamily.org/).\n\nNote: In the classroom editor we are calling just Dense instead of Eigen/Dense as seen in videos. This is because the Eigen library had to have its folder structure reformatted to work with the programming quiz editor. If you run the code on your own computer you would still use Eigen/Dense.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 796719,
+              "key": "8e779edd-2aea-4672-bc8a-eb57211340b6",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "**Notes for using the Eigen Library:**\n\nYou can create a  vertical vector of two elements with a command like this:\n\n`VectorXd my_vector(2);`\n\nYou can use the so called comma initializer to set all the coefficients to some values:\n\n`my_vector << 10, 20;`\n\nand you can use the cout command to print out the vector:\n\n`cout << my_vector << endl;`\n\nThe matrices can be created in the same way. For example, This is an initialization of a 2 by 2 matrix with the values 1, 2, 3, and 4:\n\n```cpp\nMatrixXd my_matrix(2,2);\nmy_matrix << 1, 2,\n\t\t\t 3, 4;\n```\n\nYou can use the same comma initializer or you can set each matrix value explicitly. For example, that's how we can change the matrix elements in the second row:\n```cpp\nmy_matrix(1,0) = 11;    //second row, first column\nmy_matrix(1,1) = 12;    //second row, second column\n```\n\nAlso, you can compute the transpose of a matrix with the following command:\n\n`MatrixXd my_matrix_t = my_matrix.transpose();`\n\nAnd here is how you can get the matrix inverse:\n\n`MatrixXd my_matrix_i = my_matrix.inverse();`\n\nFor multiplying the matrix m with the vector b you can write this in one line as let’s say matrix c equals m times v:\n\n```cpp\nMatrixXd another_matrix;\nanother_matrix = my_matrix*my_vector;\n```",
+              "instructor_notes": ""
+            },
+            {
+              "id": 229656,
+              "key": "f433a0d6-588c-450a-bbb6-7e4064b400db",
+              "title": "",
+              "semantic_type": "TaskListAtom",
+              "is_public": true,
+              "instructor_notes": null,
+              "user_state": {
+                "node_key": "f433a0d6-588c-450a-bbb6-7e4064b400db",
+                "completed_at": null,
+                "last_viewed_at": null,
+                "unstructured": null
+              },
+              "tasks": [
+                "Implement the prediction step within the loop.",
+                "Implement the measurement update step within the loop."
+              ],
+              "positive_feedback": "Nice! Have you tested your code below?",
+              "video_feedback": null,
+              "description": "Programming Assignment TODOs"
+            },
+            {
+              "id": 785544,
+              "key": "c386ac2e-b01a-46bc-b136-5aaaeed28ec0",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "Note that in the quiz below, in the `filter()` function, we actually do the measurement and then the prediction in the loop. Over time, the order of these doesn't have a huge impact, since it is just a cycle from one to the other. Here, the first thing you need is a measurement because otherwise there is no location information or even information that the object exists unless a sensor picked it up. So, you initialize location values with the measurement.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 220670,
+              "key": "e310ce87-5438-4850-8ff5-ad06b6194646",
+              "title": "",
+              "semantic_type": "QuizAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "user_state": {
+                "node_key": "e310ce87-5438-4850-8ff5-ad06b6194646",
+                "completed_at": null,
+                "last_viewed_at": null,
+                "unstructured": null
+              },
+              "instruction": null,
+              "question": {
+                "title": "",
+                "semantic_type": "ProgrammingQuestion",
+                "evaluation_id": "5033750389981184",
+                "initial_code_files": [
+                  {
+                    "text": "/** \r\n * Write a function 'filter()' that implements a multi-\r\n *   dimensional Kalman Filter for the example given\r\n */\r\n\r\n#include <iostream>\r\n#include <vector>\r\n#include \"Dense\"\r\n\r\nusing std::cout;\r\nusing std::endl;\r\nusing std::vector;\r\nusing Eigen::VectorXd;\r\nusing Eigen::MatrixXd;\r\n\r\n// Kalman Filter variables\r\nVectorXd x;\t// object state\r\nMatrixXd P;\t// object covariance matrix\r\nVectorXd u;\t// external motion\r\nMatrixXd F; // state transition matrix\r\nMatrixXd H;\t// measurement matrix\r\nMatrixXd R;\t// measurement covariance matrix\r\nMatrixXd I; // Identity matrix\r\nMatrixXd Q;\t// process covariance matrix\r\n\r\nvector<VectorXd> measurements;\r\nvoid filter(VectorXd &x, MatrixXd &P);\r\n\r\n\r\nint main() {\r\n  /**\r\n   * Code used as example to work with Eigen matrices\r\n   */\r\n  // design the KF with 1D motion\r\n  x = VectorXd(2);\r\n  x << 0, 0;\r\n\r\n  P = MatrixXd(2, 2);\r\n  P << 1000, 0, 0, 1000;\r\n\r\n  u = VectorXd(2);\r\n  u << 0, 0;\r\n\r\n  F = MatrixXd(2, 2);\r\n  F << 1, 1, 0, 1;\r\n\r\n  H = MatrixXd(1, 2);\r\n  H << 1, 0;\r\n\r\n  R = MatrixXd(1, 1);\r\n  R << 1;\r\n\r\n  I = MatrixXd::Identity(2, 2);\r\n\r\n  Q = MatrixXd(2, 2);\r\n  Q << 0, 0, 0, 0;\r\n\r\n  // create a list of measurements\r\n  VectorXd single_meas(1);\r\n  single_meas << 1;\r\n  measurements.push_back(single_meas);\r\n  single_meas << 2;\r\n  measurements.push_back(single_meas);\r\n  single_meas << 3;\r\n  measurements.push_back(single_meas);\r\n\r\n  // call Kalman filter algorithm\r\n  filter(x, P);\r\n\r\n  return 0;\r\n}\r\n\r\n\r\nvoid filter(VectorXd &x, MatrixXd &P) {\r\n\r\n  for (unsigned int n = 0; n < measurements.size(); ++n) {\r\n\r\n    VectorXd z = measurements[n];\r\n    // TODO: YOUR CODE HERE\r\n\t\t\r\n    // KF Measurement update step\r\n\t\t \r\n    // new state\r\n\t\t\r\n    // KF Prediction step\r\n\t\t\r\n    cout << \"x=\" << endl <<  x << endl;\r\n    cout << \"P=\" << endl <<  P << endl;\r\n  }\r\n}",
+                    "name": "main.cpp"
+                  }
+                ]
+              },
+              "answer": null
+            }
+          ]
+        },
+        {
+          "id": 229299,
+          "key": "a0604e14-2832-4646-835a-05f972453f3d",
+          "title": "Kalman Filter Equations in C++ Part 2",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "a0604e14-2832-4646-835a-05f972453f3d",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 268674,
+              "key": "15b44a3b-be10-40d2-9981-b8fad27606b0",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "### Programming Quiz Solution\n\nBelow, you'll find a video with the solution and another code editor below with Andrei's solution for you to play with.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 268170,
+              "key": "4fa6dac9-a10d-48b9-950f-bac2e54985c0",
+              "title": "Kalman Filter Equations In C++ Programming",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "smRjTGQG2SY",
+                "china_cdn_id": "smRjTGQG2SY.mp4"
+              }
+            },
+            {
+              "id": 796720,
+              "key": "3d2c9d17-986a-4fec-a78d-fb292557b0eb",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "*Note:* Certain small changes have been made between the video and the solution below in order to approve the readability of the code and follow more consistent coding style, but should have no impact on the actual processing and output of the code. For instance, we've only scoped in the functions from the `std` namespace we want to use - you can check out this [StackOverflow post](https://stackoverflow.com/questions/1452721/why-is-using-namespace-std-considered-bad-practice) for why you might want to avoid `using namespace std`.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 229657,
+              "key": "e7251637-0dbe-4579-99e5-a7430ce5a54c",
+              "title": "",
+              "semantic_type": "QuizAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "user_state": {
+                "node_key": "e7251637-0dbe-4579-99e5-a7430ce5a54c",
+                "completed_at": null,
+                "last_viewed_at": null,
+                "unstructured": null
+              },
+              "instruction": null,
+              "question": {
+                "title": "",
+                "semantic_type": "ProgrammingQuestion",
+                "evaluation_id": "5539057993121792",
+                "initial_code_files": [
+                  {
+                    "text": "/** \r\n * Write a function 'filter()' that implements a multi-\r\n *   dimensional Kalman Filter for the example given\r\n */\r\n\r\n#include <iostream>\r\n#include <vector>\r\n#include \"Dense\"\r\n\r\nusing std::cout;\r\nusing std::endl;\r\nusing std::vector;\r\nusing Eigen::VectorXd;\r\nusing Eigen::MatrixXd;\r\n\r\n// Kalman Filter variables\r\nVectorXd x;\t// object state\r\nMatrixXd P;\t// object covariance matrix\r\nVectorXd u;\t// external motion\r\nMatrixXd F; // state transition matrix\r\nMatrixXd H;\t// measurement matrix\r\nMatrixXd R;\t// measurement covariance matrix\r\nMatrixXd I; // Identity matrix\r\nMatrixXd Q;\t// process covariance matrix\r\n\r\nvector<VectorXd> measurements;\r\nvoid filter(VectorXd &x, MatrixXd &P);\r\n\r\n\r\nint main() {\r\n  /**\r\n   * Code used as example to work with Eigen matrices\r\n   */\r\n  // design the KF with 1D motion\r\n  x = VectorXd(2);\r\n  x << 0, 0;\r\n\r\n  P = MatrixXd(2, 2);\r\n  P << 1000, 0, 0, 1000;\r\n\r\n  u = VectorXd(2);\r\n  u << 0, 0;\r\n\r\n  F = MatrixXd(2, 2);\r\n  F << 1, 1, 0, 1;\r\n\r\n  H = MatrixXd(1, 2);\r\n  H << 1, 0;\r\n\r\n  R = MatrixXd(1, 1);\r\n  R << 1;\r\n\r\n  I = MatrixXd::Identity(2, 2);\r\n\r\n  Q = MatrixXd(2, 2);\r\n  Q << 0, 0, 0, 0;\r\n\r\n  // create a list of measurements\r\n  VectorXd single_meas(1);\r\n  single_meas << 1;\r\n  measurements.push_back(single_meas);\r\n  single_meas << 2;\r\n  measurements.push_back(single_meas);\r\n  single_meas << 3;\r\n  measurements.push_back(single_meas);\r\n\r\n  // call Kalman filter algorithm\r\n  filter(x, P);\r\n\r\n  return 0;\r\n}\r\n\r\n\r\nvoid filter(VectorXd &x, MatrixXd &P) {\r\n\r\n  for (unsigned int n = 0; n < measurements.size(); ++n) {\r\n\r\n    VectorXd z = measurements[n];\r\n    // TODO: YOUR CODE HERE\r\n    /**\r\n     * KF Measurement update step\r\n     */\r\n    VectorXd y = z - H * x;\r\n    MatrixXd Ht = H.transpose();\r\n    MatrixXd S = H * P * Ht + R;\r\n    MatrixXd Si = S.inverse();\r\n    MatrixXd K =  P * Ht * Si;\r\n\r\n    // new state\r\n    x = x + (K * y);\r\n    P = (I - K * H) * P;\r\n\r\n    /**\r\n     * KF Prediction step\r\n     */\r\n    x = F * x + u;\r\n    MatrixXd Ft = F.transpose();\r\n    P = F * P * Ft + Q;\r\n\r\n    cout << \"x=\" << endl <<  x << endl;\r\n    cout << \"P=\" << endl <<  P << endl;\r\n  }\r\n}",
+                    "name": "main.cpp"
+                  }
+                ]
+              },
+              "answer": null
+            },
+            {
+              "id": 229302,
+              "key": "ad7b0512-49af-4b38-8c87-c82b194e6ab5",
+              "title": "asdf",
+              "semantic_type": "RadioQuizAtom",
+              "is_public": true,
+              "instructor_notes": null,
+              "user_state": {
+                "node_key": "ad7b0512-49af-4b38-8c87-c82b194e6ab5",
+                "completed_at": null,
+                "last_viewed_at": null,
+                "unstructured": null
+              },
+              "question": {
+                "prompt": "Why do we not use the process noise in the state prediction function, even though the state transition equation has one? In other words, why does the code set u << 0, 0 for the equation x = F * x + u?",
+                "answers": [
+                  {
+                    "id": "a1481649219426",
+                    "text": "Because the process noise is just an approximation and we do not include the noise.",
+                    "is_correct": false
+                  },
+                  {
+                    "id": "a1481649331918",
+                    "text": "The noise mean is zero.",
+                    "is_correct": true
+                  },
+                  {
+                    "id": "a1481649356000",
+                    "text": "We should! There's a bug in the function.",
+                    "is_correct": false
+                  },
+                  {
+                    "id": "a1481649362823",
+                    "text": "The noise mean is too large.",
+                    "is_correct": false
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "id": 229303,
+          "key": "49cd09a0-08b0-4123-9843-560098e6b219",
+          "title": "State Prediction",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "49cd09a0-08b0-4123-9843-560098e6b219",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 287422,
+              "key": "ddd28e42-b79c-44c7-8fe3-8ca58a17d8a5",
+              "title": "State Prediction",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "_A0NRvmgo3w",
+                "china_cdn_id": "_A0NRvmgo3w.mp4"
+              }
+            },
+            {
+              "id": 229658,
+              "key": "b052a7eb-3a3d-4a28-bae0-c2dcb8bae501",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "### The State Transition Matrix\n\n<div class=\"mathquill\"> \n\\begin{pmatrix}\np_x' \\\\\\ \np_y' \\\\\\ \nv_x' \\\\\\ \nv_y' \\\\\\ \n\\end{pmatrix} = \\begin{pmatrix} \n1 & 0 & \\Delta t & 0 \\\\\\ \n0 & 1 & 0 & \\Delta t \\\\\\ \n0 & 0 & 1 & 0 \\\\\\ \n0 & 0 & 0 & 1 \n\\end{pmatrix} \n\\begin{pmatrix} \np_x \\\\\\ \np_y \\\\\\ \nv_x \\\\\\ \nv_y \n\\end{pmatrix} + \\begin{pmatrix} \n\\nu_{px} \\\\\\\\ \n\\nu_{py} \\\\\\\\ \n\\nu_{vx} \\\\\\\\ \n\\nu_{vy} \n\\end{pmatrix}\n</div>",
+              "instructor_notes": ""
+            },
+            {
+              "id": 283719,
+              "key": "4d462fc6-e0cd-485a-b127-de866adebe8b",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "As a reminder, the above equation is <span class=\"mathquill\">x' = Fx + noise</span> \n\nMotion noise and process noise refer to the same case: uncertainty in the object's position when predicting location. The model assumes velocity is constant between time intervals, but in reality we know that an object's velocity can change due to acceleration. The model includes this uncertainty via the process noise.\n\nMeasurement noise refers to uncertainty in sensor measurements, which will be discussed in more detail later.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 229305,
+              "key": "9fbaa41d-0c8b-4910-af87-045d7391f751",
+              "title": "fdsa",
+              "semantic_type": "RadioQuizAtom",
+              "is_public": true,
+              "instructor_notes": null,
+              "user_state": {
+                "node_key": "9fbaa41d-0c8b-4910-af87-045d7391f751",
+                "completed_at": null,
+                "last_viewed_at": null,
+                "unstructured": null
+              },
+              "question": {
+                "prompt": "Suppose you have a pedestrian state X. I want you to compare two scenarios: in the first predict the state 0.1s into the future and in the second 5s into the future. Which of these two scenarios leads to a higher uncertainty? In answering this, consider whether or not random noise has an increasing effect with increasing gaps between prediction times.",
+                "answers": [
+                  {
+                    "id": "a1481650653618",
+                    "text": "A time difference of 0.1s leads to a higher uncertainty.",
+                    "is_correct": false
+                  },
+                  {
+                    "id": "a1481650844228",
+                    "text": "A time difference of 5s leads to a higher uncertainty.",
+                    "is_correct": true
+                  },
+                  {
+                    "id": "a1481650858924",
+                    "text": "Both time differences have the same uncertainty.",
+                    "is_correct": false
+                  }
+                ]
+              }
+            },
+            {
+              "id": 229307,
+              "key": "8ecb9990-0e2f-4e8e-954d-87feede76a3f",
+              "title": "asdf",
+              "semantic_type": "RadioQuizAtom",
+              "is_public": true,
+              "instructor_notes": null,
+              "user_state": {
+                "node_key": "8ecb9990-0e2f-4e8e-954d-87feede76a3f",
+                "completed_at": null,
+                "last_viewed_at": null,
+                "unstructured": null
+              },
+              "question": {
+                "prompt": "Let's say we use our linear motion model with fixed time increments, but the pedestrian is randomly changing her velocity (accelerating), sometimes speeding up, slowing down or changing direction. However, the overall mean change is zero. This introduces a noise in the tracking process - what kind of noise is it?",
+                "answers": [
+                  {
+                    "id": "a1481651321929",
+                    "text": "Measurement noise",
+                    "is_correct": false
+                  },
+                  {
+                    "id": "a1481651534378",
+                    "text": "Process noise",
+                    "is_correct": true
+                  },
+                  {
+                    "id": "a1481651541262",
+                    "text": "Neither!",
+                    "is_correct": false
+                  }
+                ]
+              }
+            },
+            {
+              "id": 229314,
+              "key": "5293ee70-35f0-4d03-b9d1-6917d6094f14",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "From the examples I’ve just showed you we can clearly see that the process noise depends on both: the elapsed time and the uncertainty of acceleration. So, how can we model the process noise by considering both of these factors? Keep going to find out :)",
+              "instructor_notes": ""
+            }
+          ]
+        },
+        {
+          "id": 229312,
+          "key": "1ac6e0ac-1809-4864-b58f-870d6bda9b25",
+          "title": "Process Covariance Matrix",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "1ac6e0ac-1809-4864-b58f-870d6bda9b25",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 287417,
+              "key": "e6a35b14-ff05-447d-be2c-c10e48cad296",
+              "title": "Process Covariance Matrix",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "iFcIiqRGaws",
+                "china_cdn_id": "iFcIiqRGaws.mp4"
+              }
+            },
+            {
+              "id": 280226,
+              "key": "b365bf26-134d-4827-8de0-53ba21c8e8a4",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "### Calculating Acceleration Noise Parameters\n\nBefore we discuss the derivation of the process covariance matrix Q, you might be curious about how to choose values for <span class=\"mathquill\">\\sigma_{ax_{}}^2</span> and <span class=\"mathquill\">\\sigma_{ay}^2</span>.\n\nFor the extended Kalman filter project, you will be given values for both.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 283722,
+              "key": "74b9d6bb-bbe5-4fb0-9cc6-19b0ed49e3b0",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "### Process Covariance Matrix Q - Intuition\n\nAs a reminder, here are the state covariance matrix update equation and the equation for Q.\n\n<span class=\"mathquill\">P' = FPF^T + Q</span>\n\n<span class=\"mathquill\"> Q = \\begin{pmatrix} \\frac{\\Delta t^4}{{4}}\\sigma_{ax}^2\t&\t0\t&\t\\frac{\\Delta t^3}{{2}}\\sigma_{ax}^2\t&\t0 \\\\ 0\t&\t\\frac{\\Delta t^4}{{4}}\\sigma_{ay}^2\t&\t0\t&\t\\frac{\\Delta t^3}{{2}}\\sigma_{ay}^2\t\\\\ \\frac{\\Delta t^3}{{2}}\\sigma_{ax}^2\t&\t0\t&\t\\Delta t^2\\sigma_{ax}^2\t&\t0 \\\\ 0\t&\t\\frac{\\Delta t^3}{{2}}\\sigma_{ay}^2\t&\t0\t&\t\\Delta t^2\\sigma_{ay}^2 \\end{pmatrix} </span>\n\nBecause our state vector only tracks position and velocity, we are modeling acceleration as a random noise. The Q matrix includes time <span class=\"mathquill\">\\Delta t</span> to account for the fact that as more time passes, we become more uncertain about our position and velocity. So as <span class=\"mathquill\">\\Delta t</span> increases, we add more uncertainty to the state covariance matrix <span class=\"mathquill\">P</span>.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 282986,
+              "key": "4c03750b-b801-46f4-9e45-6966f362e098",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "Combining both 2D position and 2D velocity equations previously deducted formulas we have: \n<div class=\"mathquill\">\n\\begin{cases} \np_x' = p_x + v_x \\Delta t  + \\frac{a_x \\Delta t^2}{{2}}\\\\\np_y' = p_y + v_y \\Delta t  + \\frac{a_y \\Delta t^2}{{2}}\\\\\nv_x' = v_x +  a_x \\Delta t\\\\\nv_y' = v_y + a_y \\Delta t\n\\end{cases}\n</div>\n\nSince the acceleration is unknown we can add it to the noise component, and this random noise would be expressed analytically as the last terms in the equation derived above. So, we have a random acceleration vector <span class=\"mathquill\">\\nu</span> in this form:\n\n<div class=\"mathquill\">\n\\nu =\n\\begin{pmatrix}\n\\nu_{px} \\\\\n\\nu_{py} \\\\ \n\\nu_{vx} \\\\ \n\\nu_{vy}\n\\end{pmatrix}\n=\n\\begin{pmatrix}\n \\frac{a_x \\Delta t^2}{{2}}  \\\\\n \\frac{a_y \\Delta t^2}{{2}}  \\\\\n a_x \\Delta t \\\\\n a_y \\Delta t\n\\end{pmatrix}\n</div>\n\nwhich is described by a zero mean and a covariance matrix <span class=\"mathquill\">Q</span>, so <span class=\"mathquill\"> \\nu \\sim N(0,Q)</span>.\n\nThe vector <span class=\"mathquill\">\\nu</span> can be decomposed into two components a 4 by 2 matrix <span class=\"mathquill\">G</span> which does not contain random variables and a 2 by 1 matrix <span class=\"mathquill\">a</span> which contains the random acceleration components:\n\n<div class=\"mathquill\">\n\\nu =\n\\begin{pmatrix}\n \\frac{a_x \\Delta t^2}{{2}} \\\\\n \\frac{a_y \\Delta t^2}{{2}} \\\\\n a_x \\Delta t \\\\\n a_y \\Delta t\n\\end{pmatrix} = \\begin{pmatrix}\n \\frac{\\Delta t^2}{{2}}\t&\t0 \t\\\\\n 0\t&\t\\frac{\\Delta t^2}{{2}}  \\\\\n \\Delta t\t&\t0\t\t\t\t\\\\  \n 0\t&\t\\Delta t\n\\end{pmatrix}\n\\begin{pmatrix}\n a_x\\\\\n a_y\n\\end{pmatrix} = Ga\n</div>\n\n<span class=\"mathquill\">\\Delta t</span> is computed at each Kalman Filter step and the acceleration is a random vector with zero mean and standard deviations <span class=\"mathquill\">\\sigma_{ax_{}}</span> and <span class=\"mathquill\">\\sigma_{ay}</span>.\n\nBased on our noise vector we can define now the new covariance matrix <span class=\"mathquill\">Q</span>.\nThe covariance matrix is defined as the expectation value of the noise vector <span class=\"mathquill\">\\nu</span> times the noise vector <span class=\"mathquill\">\\nu^T</span>. So let’s write this down:\n\n<div class=\"mathquill\">\nQ = E[\\nu \\nu^T] = E[Gaa^TG^T]\n</div>\n\nAs <span class=\"mathquill\">G</span> does not contain random variables, we can put it outside the expectation calculation.\n\n<div class=\"mathquill\">\nQ = G E[aa^T] G^T = G \\begin{pmatrix}\n \\sigma_{ax}^2\t&\t\\sigma_{axy}\t\\\\\n \\sigma_{axy}\t&\t\\sigma_{ay}^2\n\\end{pmatrix}\nG^T = G Q_{\\nu} G^T\n</div>\n\nThis leaves us with three statistical moments: \n* the expectation of ax times ax, which is the variance of ax squared: <span class=\"mathquill\">\\sigma_{ax}^2</span>. \n* the expectation of ay times ay, which is the variance of ay squared: <span class=\"mathquill\">\\sigma_{ay}^2</span>.\n* and the expectation of ax times ay, which is the covariance of <span class=\"mathquill\">ax</span> and <span class=\"mathquill\">ay</span>: <span class=\"mathquill\">\\sigma_{axy}</span>. \n\n<span class=\"mathquill\">a_{x_{}}</span> and <span class=\"mathquill\">a_{y_{}}</span> are assumed uncorrelated noise processes. This means that the covariance <span class=\"mathquill\">\\sigma_{axy_{}}</span> in <span class=\"mathquill\">Q_{\\nu}</span> is zero:\n\n<div class=\"mathquill\">\nQ_{\\nu} = \\begin{pmatrix}\n\\sigma_{ax}^2\t&\t\\sigma_{axy}\t\\\\\n\\sigma_{axy}\t&\t\\sigma_{ay}^2\n\\end{pmatrix}\n=\n\\begin{pmatrix}\n\\sigma_{ax}^2\t&\t0\t\\\\\n 0\t&\t\\sigma_{ay}^2\n\\end{pmatrix}\n</div>\n\nSo after combining everything in one matrix we obtain our 4 by 4 <span class=\"mathquill\">Q</span> matrix:\n\n<div class=\"mathquill\">\nQ = G Q_{\\nu} G^T = \n\\begin{pmatrix}\n \\frac{\\Delta t^4}{{4}}\\sigma_{ax}^2\t&\t0\t&\t\\frac{\\Delta t^3}{{2}}\\sigma_{ax}^2\t&\t0 \\\\\n0\t&\t\\frac{\\Delta t^4}{{4}}\\sigma_{ay}^2\t&\t0\t&\t\\frac{\\Delta t^3}{{2}}\\sigma_{ay}^2\t\\\\\n \\frac{\\Delta t^3}{{2}}\\sigma_{ax}^2\t&\t0\t&\t\\Delta t^2\\sigma_{ax}^2\t&\t0 \\\\\n0\t&\t\\frac{\\Delta t^3}{{2}}\\sigma_{ay}^2\t&\t0\t&\t\\Delta t^2\\sigma_{ay}^2\n\\end{pmatrix}\n</div>",
+              "instructor_notes": ""
+            },
+            {
+              "id": 282987,
+              "key": "6af977a5-0f1a-40db-b60f-d38a4c498ea6",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "### Note on Notation\n\nSome authors describe <span class=\"mathquill\">Q</span> as the complete process noise covariance matrix. And some authors describe <span class=\"mathquill\">Q</span> as the covariance matrix of the individual noise processes. In our case, the covariance matrix of the individual noise processes matrix is called <span class=\"mathquill\">Q_\\nu</span>, which is something to be aware of.",
+              "instructor_notes": ""
+            }
+          ]
+        },
+        {
+          "id": 229317,
+          "key": "bb0346e8-a281-44b8-8122-908ea10c28c5",
+          "title": "Laser Measurements Part 1",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "bb0346e8-a281-44b8-8122-908ea10c28c5",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 268173,
+              "key": "2a700f64-cb79-4a8e-ada6-15fb04842d50",
+              "title": "Laser Measurements",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "drbV05qKV8w",
+                "china_cdn_id": "drbV05qKV8w.mp4"
+              }
+            },
+            {
+              "id": 283725,
+              "key": "5aaffe2a-e27f-4631-8573-61043dd69f29",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "### Variable Definitions\n\nTo reinforce was what discussed in the video, here is an explanation of what each variable represents:\n\n* **z** is the measurement vector. For a lidar sensor, the <span class=\"mathquill\">z</span> vector contains the <span class=\"mathquill\">position-x</span> and <span class=\"mathquill\">position-y</span> measurements. \n* ** H** is the matrix that projects your belief about the object's current state into the measurement space of the sensor. For lidar, this is a fancy way of saying that we discard velocity information from the state variable since the lidar sensor only measures position: The state vector <span class=\"mathquill\">x</span> contains information about <span class=\"mathquill\">[p_x, p_y, v_x, v_y]</span> whereas the <span class=\"mathquill\">z</span> vector will only contain <span class=\"mathquill\">[px, py]</span>. Multiplying Hx allows us to compare x, our belief, with z, the sensor measurement.\n- What does the prime notation in the <span class=\"mathquill\">x</span> vector represent? The prime notation like <span class=\"mathquill\">p_x'</span> means you have already done the prediction step but have not done the measurement step yet. In other words, the object was at <span class=\"mathquill\">p_x</span>. After time <span class=\"mathquill\">\\Delta{t}</span>, you calculate where you believe the object will be based on the motion model and get <span class=\"mathquill\">p_x'</span>.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 229526,
+              "key": "d789abc7-0ae9-41aa-955a-179c6589de5b",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "### H Matrix Quiz\n\nFind the right <span class=\"mathquill\">H</span> matrix to project from  a 4D state to a 2D observation space, as follows:\n\n<div class=\"mathquill\">\n\\begin{pmatrix}\np_x \\\\\np_y\n\\end{pmatrix} = H \\begin{pmatrix}\np_x' \\\\\np_y' \\\\\nv_x' \\\\\nv_y'\n\\end{pmatrix}\n</div>\n\nHere are your options:\n\nA. <span class=\"mathquill\"> H = \\begin{pmatrix} 1 & 0 \\\\ 0 & 1 \\end{pmatrix} </span>\n\nB. <span class=\"mathquill\"> H = \\begin{pmatrix} 1 & 0 \\\\ 0 & 1 \\\\ 0 & 0 \\\\ 0 & 0 \\end{pmatrix} </span>\n\nC. <span class=\"mathquill\"> H = \\begin{pmatrix} 1 & 1 \\end{pmatrix} </span>\n\nD. <span class=\"mathquill\"> H = \\begin{pmatrix} 1 & 0 & 0 & 0 \\\\ 0 & 1 & 0 & 0 \\end{pmatrix}</span>\n\n(Hint: first consider the matrix dimensions, then try to use a 0 or 1 to correctly project the components into the measurement space.)",
+              "instructor_notes": ""
+            },
+            {
+              "id": 229519,
+              "key": "731f6f23-b3d1-4534-8bed-0c571a20ce58",
+              "title": "",
+              "semantic_type": "RadioQuizAtom",
+              "is_public": true,
+              "instructor_notes": null,
+              "user_state": {
+                "node_key": "731f6f23-b3d1-4534-8bed-0c571a20ce58",
+                "completed_at": null,
+                "last_viewed_at": null,
+                "unstructured": null
+              },
+              "question": {
+                "prompt": "Select the correct H matrix given the projection above.",
+                "answers": [
+                  {
+                    "id": "a1481670659671",
+                    "text": "A",
+                    "is_correct": false
+                  },
+                  {
+                    "id": "a1481670731337",
+                    "text": "B",
+                    "is_correct": false
+                  },
+                  {
+                    "id": "a1481670732563",
+                    "text": "C",
+                    "is_correct": false
+                  },
+                  {
+                    "id": "a1481670733813",
+                    "text": "D",
+                    "is_correct": true
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "id": 229527,
+          "key": "37c38067-012e-49b4-bced-5ad6bd13b001",
+          "title": "Laser Measurements Part 2",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "37c38067-012e-49b4-bced-5ad6bd13b001",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 229528,
+              "key": "5f1045b5-7a80-42f1-89d5-0812367a0c71",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "#### H Matrix Quiz Explanation\n\n<div class=\"mathquill\">\nH = \\begin{pmatrix}\n1 & 0 & 0 & 0 \\\\\n0 & 1 & 0 & 0\n\\end{pmatrix}\n</div>\n\nIn order to obtain our measurement (x and y) we need to determine the H matrix. (x and y) is found by multiplying H with the state vector.\n\nSo let’s find out first what is the dimension of our H matrix. Here we have a 2 by 1 matrix, and that came from our m by n H matrix times the four row and one column matrix. Now, from the matrix multiplication we know that the number of columns of the first matrix should be equal with the number of rows of a second matrix, which is 4. And also the number of rows of the first matrix is the same with the number of rows of the result matrix, which is 2. So our H is a matrix of 2 rows and 4 columns. And finally we put ones and zeroes so that the px and py coordinates are propagated to the result Z.\n\n#### Measurement Noise Covariance Matrix R\n\nNow, let's take a look at the covariance matrix, R, which represents the uncertainty in our sensor measurements. The dimensions of the R matrix is square and each side of its matrix is the same length as the number of measurements parameters. Before diving into the details, let's have a quick quiz to test your intuition about what this matrix might look like for the laser sensor.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 229553,
+              "key": "9d3ad3e4-94c8-4434-88f5-5a84097974a5",
+              "title": "",
+              "semantic_type": "RadioQuizAtom",
+              "is_public": true,
+              "instructor_notes": null,
+              "user_state": {
+                "node_key": "9d3ad3e4-94c8-4434-88f5-5a84097974a5",
+                "completed_at": null,
+                "last_viewed_at": null,
+                "unstructured": null
+              },
+              "question": {
+                "prompt": "What is the dimensionality of the noise covariance matrix, <span class=\"mathquill\">R</span>?",
+                "answers": [
+                  {
+                    "id": "a1481672189786",
+                    "text": "1 row by 1 column",
+                    "is_correct": false
+                  },
+                  {
+                    "id": "a1481672335207",
+                    "text": "2 rows by 2 columns",
+                    "is_correct": true
+                  },
+                  {
+                    "id": "a1481672340999",
+                    "text": "4 rows by 4 columns",
+                    "is_correct": false
+                  },
+                  {
+                    "id": "a1481672346672",
+                    "text": "2 rows by 4 columns",
+                    "is_correct": false
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "id": 229555,
+          "key": "f1cef488-6a2d-484d-a30d-8caa4fd082fd",
+          "title": "Laser Measurements Part 3",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "f1cef488-6a2d-484d-a30d-8caa4fd082fd",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 229556,
+              "key": "211b7ceb-4ed7-4488-abdf-0475a2f160af",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "### Measurement Noise Covariance Matrix R continued\n\nFor laser sensors, we have a 2D measurement vector. Each location component px, py are affected by a random noise. So our noise vector <span class=\"mathquill\">\\omega</span> has the same dimension as <span class=\"mathquill\">z</span>. And it is a distribution with zero mean and a 2 x 2 covariance matrix which comes from the product of the vertical vector <span class=\"mathquill\">\\omega</span> and its transpose. \n\n<div class=\"mathquill\">\nR = E[\\omega \\omega^T] = \\begin{pmatrix}\n\\sigma^2_{px} & 0 \\\\\n0 & \\sigma^2_{py}\n\\end{pmatrix}\n</div>\n\nwhere R is the measurement noise covariance matrix; in other words, the matrix R represents the uncertainty in the position measurements we receive from the laser sensor.\n\nGenerally, the parameters for the random noise measurement matrix will be provided by the sensor manufacturer. For the extended Kalman filter project, we have provided <span class=\"mathquill\">R</span> matrices values for both the radar sensor and the lidar sensor.\n\nRemember that the off-diagonal <span class=\"mathquill\">0</span>s in <span class=\"mathquill\">R</span> indicate that the noise processes are uncorrelated.\n\nYou have all you need for laser-only tracking! Now, I want you to apply what you've learned in a programming assignment.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 269175,
+              "key": "f6391338-7a7e-4f19-bf65-32489374b25c",
+              "title": "Programming Assignment",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "gTEQHV_1E2k",
+                "china_cdn_id": "gTEQHV_1E2k.mp4"
+              }
+            },
+            {
+              "id": 269136,
+              "key": "588be580-e0a8-422a-913b-6c9d73a82993",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "### Helpful Equations \nYou will be modifying these matrices in the Kalman Filter with the observed time step, `dt`. \n\n<div class=\"mathquill\">\nF\n=\n\\begin{pmatrix}\n   1 & 0 & \\Delta t & 0 \\\\\n   0 & 1 & 0 & \\Delta t \\\\\n   0 & 0 & 1 & 0 \\\\\n   0 & 0 & 0 & 1\n\\end{pmatrix}\n</div>\n\nIn the tracking class  <span class=\"mathquill\">\\sigma_{ax}^2 </span> = `noise_ax` and <span class=\"mathquill\">\\sigma_{ay}^2 </span> = `noise_ay`\n\n<div class=\"mathquill\">\nQ\n=\n\\begin{pmatrix}\n    \\frac{\\Delta t^4}{4} \\sigma_{ax}^2 & 0 &  \\frac{\\Delta t^3}{2} \\sigma_{ax}^2 & 0\\\\\n   0 &  \\frac{\\Delta t^4}{4} \\sigma_{ay}^2 & 0 &  \\frac{\\Delta t^3}{2} \\sigma_{ay}^2\\\\\n    \\frac{\\Delta t^3}{2}\\sigma_{ax}^2& 0 &  \\Delta t^2 \\sigma_{ax}^2 & 0\\\\\n   0 &  \\frac{\\Delta t^3}{2} \\sigma_{ay}^2 & 0 &  \\Delta t^2 \\sigma_{ay}^2\n\\end{pmatrix}\n</div>",
+              "instructor_notes": ""
+            },
+            {
+              "id": 229559,
+              "key": "366df8ba-cdd4-48e2-8c64-f2bb4e7fcd91",
+              "title": "Laser Measurements Programming Quiz",
+              "semantic_type": "TaskListAtom",
+              "is_public": true,
+              "instructor_notes": null,
+              "user_state": {
+                "node_key": "366df8ba-cdd4-48e2-8c64-f2bb4e7fcd91",
+                "completed_at": null,
+                "last_viewed_at": null,
+                "unstructured": null
+              },
+              "tasks": [
+                "Modify the F matrix so that the time is integrated",
+                "Set the process covariance matrix Q",
+                "Call the Kalman Filter predict() function",
+                "Call the Kalman Filter update() function with the most recent `raw_measurements_`"
+              ],
+              "positive_feedback": "Great! Make sure you test your code below!",
+              "video_feedback": null,
+              "description": "In this programming assignment you will need to fill in the missing code in the `ProcessMeasurement` function in `tracking.cpp`."
+            },
+            {
+              "id": 229560,
+              "key": "f7a06cf4-dcf9-4d1a-9f28-ce067be161ad",
+              "title": "",
+              "semantic_type": "QuizAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "user_state": {
+                "node_key": "f7a06cf4-dcf9-4d1a-9f28-ce067be161ad",
+                "completed_at": null,
+                "last_viewed_at": null,
+                "unstructured": null
+              },
+              "instruction": null,
+              "question": {
+                "title": "",
+                "semantic_type": "ProgrammingQuestion",
+                "evaluation_id": "5057987027795968",
+                "initial_code_files": [
+                  {
+                    "text": "#include <iostream>\n#include <sstream>\n#include <vector>\n#include \"Dense\"\n#include \"measurement_package.h\"\n#include \"tracking.h\"\n\nusing Eigen::MatrixXd;\nusing Eigen::VectorXd;\nusing std::cout;\nusing std::endl;\nusing std::ifstream;\nusing std::istringstream;\nusing std::string;\nusing std::vector;\n\n\nint main() {\n\n  /**\n   * Set Measurements\n   */\n  vector<MeasurementPackage> measurement_pack_list;\n\n  // hardcoded input file with laser and radar measurements\n  string in_file_name_ = \"obj_pose-laser-radar-synthetic-input.txt\";\n  ifstream in_file(in_file_name_.c_str(), ifstream::in);\n\n  if (!in_file.is_open()) {\n    cout << \"Cannot open input file: \" << in_file_name_ << endl;\n  }\n\n  string line;\n  // set i to get only first 3 measurments\n  int i = 0;\n  while (getline(in_file, line) && (i<=3)) {\n\n    MeasurementPackage meas_package;\n\n    istringstream iss(line);\n    string sensor_type;\n    iss >> sensor_type; // reads first element from the current line\n    int64_t timestamp;\n    if (sensor_type.compare(\"L\") == 0) {  // laser measurement\n      // read measurements\n      meas_package.sensor_type_ = MeasurementPackage::LASER;\n      meas_package.raw_measurements_ = VectorXd(2);\n      float x;\n      float y;\n      iss >> x;\n      iss >> y;\n      meas_package.raw_measurements_ << x,y;\n      iss >> timestamp;\n      meas_package.timestamp_ = timestamp;\n      measurement_pack_list.push_back(meas_package);\n\n    } else if (sensor_type.compare(\"R\") == 0) {\n      // Skip Radar measurements\n      continue;\n    }\n    ++i;\n  }\n\n  // Create a Tracking instance\n  Tracking tracking;\n\n  // call the ProcessingMeasurement() function for each measurement\n  size_t N = measurement_pack_list.size();\n  // start filtering from the second frame \n  // (the speed is unknown in the first frame)\n  for (size_t k = 0; k < N; ++k) {\n    tracking.ProcessMeasurement(measurement_pack_list[k]);\n  }\n\n  if (in_file.is_open()) {\n    in_file.close();\n  }\n  return 0;\n}",
+                    "name": "main.cpp"
+                  },
+                  {
+                    "text": "#include \"kalman_filter.h\"\n\nKalmanFilter::KalmanFilter() {\n}\n\nKalmanFilter::~KalmanFilter() {\n}\n\nvoid KalmanFilter::Predict() {\n  x_ = F_ * x_;\n  MatrixXd Ft = F_.transpose();\n  P_ = F_ * P_ * Ft + Q_;\n}\n\nvoid KalmanFilter::Update(const VectorXd &z) {\n  VectorXd z_pred = H_ * x_;\n  VectorXd y = z - z_pred;\n  MatrixXd Ht = H_.transpose();\n  MatrixXd S = H_ * P_ * Ht + R_;\n  MatrixXd Si = S.inverse();\n  MatrixXd PHt = P_ * Ht;\n  MatrixXd K = PHt * Si;\n\n  //new estimate\n  x_ = x_ + (K * y);\n  long x_size = x_.size();\n  MatrixXd I = MatrixXd::Identity(x_size, x_size);\n  P_ = (I - K * H_) * P_;\n}",
+                    "name": "kalman_filter.cpp"
+                  },
+                  {
+                    "text": "#ifndef KALMAN_FILTER_H_\n#define KALMAN_FILTER_H_\n\n#include \"Dense\"\n\nusing Eigen::MatrixXd;\nusing Eigen::VectorXd;\n\nclass KalmanFilter {\n public:\n\n  /**\n   * Constructor\n   */\n  KalmanFilter();\n\n  /**\n   * Destructor\n   */\n  virtual ~KalmanFilter();\n\n  /**\n   * Predict Predicts the state and the state covariance\n   *   using the process model\n   */\n  void Predict();\n\n  /**\n   * Updates the state and\n   * @param z The measurement at k+1\n   */\n  void Update(const VectorXd &z);\n  \n  // state vector\n  VectorXd x_;\n\n  // state covariance matrix\n  MatrixXd P_;\n\n  // state transistion matrix\n  MatrixXd F_;\n\n  // process covariance matrix\n  MatrixXd Q_;\n\n  // measurement matrix\n  MatrixXd H_;\n\n  // measurement covariance matrix\n  MatrixXd R_;\n\n};\n\n#endif  // KALMAN_FILTER_H_",
+                    "name": "kalman_filter.h"
+                  },
+                  {
+                    "text": "#include \"tracking.h\"\n#include <iostream>\n#include \"Dense\"\n\nusing Eigen::MatrixXd;\nusing Eigen::VectorXd;\nusing std::cout;\nusing std::endl;\nusing std::vector;\n\nTracking::Tracking() {\n  is_initialized_ = false;\n  previous_timestamp_ = 0;\n\n  // create a 4D state vector, we don't know yet the values of the x state\n  kf_.x_ = VectorXd(4);\n\n  // state covariance matrix P\n  kf_.P_ = MatrixXd(4, 4);\n  kf_.P_ << 1, 0, 0, 0,\n            0, 1, 0, 0,\n            0, 0, 1000, 0,\n            0, 0, 0, 1000;\n\n\n  // measurement covariance\n  kf_.R_ = MatrixXd(2, 2);\n  kf_.R_ << 0.0225, 0,\n            0, 0.0225;\n\n  // measurement matrix\n  kf_.H_ = MatrixXd(2, 4);\n  kf_.H_ << 1, 0, 0, 0,\n            0, 1, 0, 0;\n\n  // the initial transition matrix F_\n  kf_.F_ = MatrixXd(4, 4);\n  kf_.F_ << 1, 0, 1, 0,\n            0, 1, 0, 1,\n            0, 0, 1, 0,\n            0, 0, 0, 1;\n\n  // set the acceleration noise components\n  noise_ax = 5;\n  noise_ay = 5;\n}\n\nTracking::~Tracking() {\n\n}\n\n// Process a single measurement\nvoid Tracking::ProcessMeasurement(const MeasurementPackage &measurement_pack) {\n  if (!is_initialized_) {\n    //cout << \"Kalman Filter Initialization \" << endl;\n\n    // set the state with the initial location and zero velocity\n    kf_.x_ << measurement_pack.raw_measurements_[0], \n              measurement_pack.raw_measurements_[1], \n              0, \n              0;\n\n    previous_timestamp_ = measurement_pack.timestamp_;\n    is_initialized_ = true;\n    return;\n  }\n\n  // compute the time elapsed between the current and previous measurements\n  // dt - expressed in seconds\n  float dt = (measurement_pack.timestamp_ - previous_timestamp_) / 1000000.0;\n  previous_timestamp_ = measurement_pack.timestamp_;\n  \n  // TODO: YOUR CODE HERE\n  // 1. Modify the F matrix so that the time is integrated\n  // 2. Set the process covariance matrix Q\n  // 3. Call the Kalman Filter predict() function\n  // 4. Call the Kalman Filter update() function\n  //      with the most recent raw measurements_\n  \n  cout << \"x_= \" << kf_.x_ << endl;\n  cout << \"P_= \" << kf_.P_ << endl;\n}",
+                    "name": "tracking.cpp"
+                  },
+                  {
+                    "text": "#ifndef TRACKING_H_\n#define TRACKING_H_\n\n#include <vector>\n#include <string>\n#include <fstream>\n#include \"kalman_filter.h\"\n#include \"measurement_package.h\"\n\nclass Tracking {\n public:\n  Tracking();\n  virtual ~Tracking();\n  void ProcessMeasurement(const MeasurementPackage &measurement_pack);\n  KalmanFilter kf_;\n\n private:\n  bool is_initialized_;\n  int64_t previous_timestamp_;\n\n  //acceleration noise components\n  float noise_ax;\n  float noise_ay;\n\n};\n\n#endif  // TRACKING_H_",
+                    "name": "tracking.h"
+                  },
+                  {
+                    "text": "#ifndef MEASUREMENT_PACKAGE_H_\n#define MEASUREMENT_PACKAGE_H_\n\n#include \"Dense\"\n\nclass MeasurementPackage {\n public:\n\n  enum SensorType {\n    LASER, RADAR\n  } sensor_type_;\n\n  Eigen::VectorXd raw_measurements_;\n  \n  int64_t timestamp_;\n\n};\n\n#endif  // MEASUREMENT_PACKAGE_H_",
+                    "name": "measurement_package.h"
+                  }
+                ]
+              },
+              "answer": null
+            },
+            {
+              "id": 275472,
+              "key": "b571acf2-66a8-4012-8af2-a7b555f2dc5c",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "Input Data Link:\n\nIf you would like to run this coding exercise on your own computer, here is the [input data](https://d17h27t6h515a5.cloudfront.net/topher/2017/March/58bd257a_ekf-data/ekf-data.zip) that is being used.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 230027,
+              "key": "a08e0b40-05df-4012-b1c5-d26591aeaad3",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "### More Info on Timestamps",
+              "instructor_notes": ""
+            },
+            {
+              "id": 230029,
+              "key": "f4387bc1-e15a-4ac0-8b8e-625c20ac782a",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2016/December/5851e28c_lesson4-step8-timestamp/lesson4-step8-timestamp.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/f4387bc1-e15a-4ac0-8b8e-625c20ac782a",
+              "caption": "*Time keeps on tickin', tickin', tickin'...*",
+              "alt": null,
+              "width": 875,
+              "height": 172,
+              "instructor_notes": null
+            },
+            {
+              "id": 230028,
+              "key": "21f864ec-27c3-42bb-8b94-73ce4498c952",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "Timestamps are often used for logging a sequence of events, so that we know exactly, for example, in our case when the measurements were generated.\n\nWe can use the timestamp values to compute the elapsed time between two consecutive observations as:\n\n```cpp\nfloat delta_t = ( timestamp(k+1) - timestamp(k) ) / 1000000.0. \n```\n\nAdditionally we divide the result by 10^6 to transform it from microseconds to seconds.\n\n```cpp\nfloat dt = (measurement_pack.timestamp_ - previous_timestamp_) / 1000000.0;   \n```",
+              "instructor_notes": ""
+            }
+          ]
+        },
+        {
+          "id": 229563,
+          "key": "252f0093-48ac-4122-aaae-f10214d30320",
+          "title": "Laser Measurements Part 4",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "252f0093-48ac-4122-aaae-f10214d30320",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 268677,
+              "key": "ff2140b8-78d2-46ba-93f6-61ac2c28c6e2",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "Here's the solution and a code editor with my solution for you to experiment!",
+              "instructor_notes": ""
+            },
+            {
+              "id": 300465,
+              "key": "5b9e8f63-5e3c-48e5-87ff-24a570a1ee14",
+              "title": "Programming Assignment Solution",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "udsB-13ntY8",
+                "china_cdn_id": "udsB-13ntY8.mp4"
+              }
+            },
+            {
+              "id": 229566,
+              "key": "19e9f2f4-e586-4fff-af98-965ac4d64110",
+              "title": "",
+              "semantic_type": "QuizAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "user_state": {
+                "node_key": "19e9f2f4-e586-4fff-af98-965ac4d64110",
+                "completed_at": null,
+                "last_viewed_at": null,
+                "unstructured": null
+              },
+              "instruction": null,
+              "question": {
+                "title": "",
+                "semantic_type": "ProgrammingQuestion",
+                "evaluation_id": "5573007558967296",
+                "initial_code_files": [
+                  {
+                    "text": "#include <fstream>\n#include <iostream>\n#include <sstream>\n#include <vector>\n#include \"Dense\"\n#include \"measurement_package.h\"\n#include \"tracking.h\"\n\nusing Eigen::MatrixXd;\nusing Eigen::VectorXd;\nusing std::cout;\nusing std::endl;\nusing std::ifstream;\nusing std::istringstream;\nusing std::string;\nusing std::vector;\n\n\nint main() {\n\n  /**\n   * Set Measurements\n   */\n  vector<MeasurementPackage> measurement_pack_list;\n\n  // hardcoded input file with laser and radar measurements\n  string in_file_name_ = \"obj_pose-laser-radar-synthetic-input.txt\";\n  ifstream in_file(in_file_name_.c_str(), ifstream::in);\n\n  if (!in_file.is_open()) {\n    cout << \"Cannot open input file: \" << in_file_name_ << endl;\n  }\n\n  string line;\n  // set i to get only first 3 measurments\n  int i = 0;\n  while (getline(in_file, line) && (i<=3)) {\n\n    MeasurementPackage meas_package;\n\n    istringstream iss(line);\n    string sensor_type;\n    iss >> sensor_type; // reads first element from the current line\n    int64_t timestamp;\n    if (sensor_type.compare(\"L\") == 0) {  // laser measurement\n      // read measurements\n      meas_package.sensor_type_ = MeasurementPackage::LASER;\n      meas_package.raw_measurements_ = VectorXd(2);\n      float x;\n      float y;\n      iss >> x;\n      iss >> y;\n      meas_package.raw_measurements_ << x,y;\n      iss >> timestamp;\n      meas_package.timestamp_ = timestamp;\n      measurement_pack_list.push_back(meas_package);\n\n    } else if (sensor_type.compare(\"R\") == 0) {\n      // Skip Radar measurements\n      continue;\n    }\n    ++i;\n  }\n\n  // Create a Tracking instance\n  Tracking tracking;\n\n  // call the ProcessingMeasurement() function for each measurement\n  size_t N = measurement_pack_list.size();\n  // start filtering from the second frame \n  // (the speed is unknown in the first frame)\n  for (size_t k = 0; k < N; ++k) {\n    tracking.ProcessMeasurement(measurement_pack_list[k]);\n  }\n\n  if (in_file.is_open()) {\n    in_file.close();\n  }\n  return 0;\n}",
+                    "name": "main.cpp"
+                  },
+                  {
+                    "text": "#include \"kalman_filter.h\"\n\nKalmanFilter::KalmanFilter() {\n}\n\nKalmanFilter::~KalmanFilter() {\n}\n\nvoid KalmanFilter::Predict() {\n  x_ = F_ * x_;\n  MatrixXd Ft = F_.transpose();\n  P_ = F_ * P_ * Ft + Q_;\n}\n\nvoid KalmanFilter::Update(const VectorXd &z) {\n  VectorXd z_pred = H_ * x_;\n  VectorXd y = z - z_pred;\n  MatrixXd Ht = H_.transpose();\n  MatrixXd S = H_ * P_ * Ht + R_;\n  MatrixXd Si = S.inverse();\n  MatrixXd PHt = P_ * Ht;\n  MatrixXd K = PHt * Si;\n\n  //new estimate\n  x_ = x_ + (K * y);\n  long x_size = x_.size();\n  MatrixXd I = MatrixXd::Identity(x_size, x_size);\n  P_ = (I - K * H_) * P_;\n}",
+                    "name": "kalman_filter.cpp"
+                  },
+                  {
+                    "text": "#ifndef KALMAN_FILTER_H_\n#define KALMAN_FILTER_H_\n#include \"Dense\"\n\nusing Eigen::MatrixXd;\nusing Eigen::VectorXd;\n\nclass KalmanFilter {\n public:\n  /**\n   * Constructor\n   */\n  KalmanFilter();\n\n  /**\n   * Destructor\n   */\n  virtual ~KalmanFilter();\n\n  /**\n   * Predict Predicts the state and the state covariance\n   *   using the process model\n   */\n  void Predict();\n\n  /**\n   * Updates the state and\n   * @param z The measurement at k+1\n   */\n  void Update(const VectorXd &z);\n  \n  // state vector\n  VectorXd x_;\n\n  // state covariance matrix\n  MatrixXd P_;\n\n  // state transistion matrix\n  MatrixXd F_;\n\n  // process covariance matrix\n  MatrixXd Q_;\n\n  // measurement matrix\n  MatrixXd H_;\n\n  // measurement covariance matrix\n  MatrixXd R_;\n};\n\n#endif  // KALMAN_FILTER_H_",
+                    "name": "kalman_filter.h"
+                  },
+                  {
+                    "text": "#include \"tracking.h\"\n#include <iostream>\n#include \"Dense\"\n\nusing Eigen::MatrixXd;\nusing Eigen::VectorXd;\nusing std::cout;\nusing std::endl;\nusing std::vector;\n\nTracking::Tracking() {\n  is_initialized_ = false;\n  previous_timestamp_ = 0;\n\n  // create a 4D state vector, we don't know yet the values of the x state\n  kf_.x_ = VectorXd(4);\n\n  // state covariance matrix P\n  kf_.P_ = MatrixXd(4, 4);\n  kf_.P_ << 1, 0, 0, 0,\n            0, 1, 0, 0,\n            0, 0, 1000, 0,\n            0, 0, 0, 1000;\n\n\n  // measurement covariance\n  kf_.R_ = MatrixXd(2, 2);\n  kf_.R_ << 0.0225, 0,\n            0, 0.0225;\n\n  // measurement matrix\n  kf_.H_ = MatrixXd(2, 4);\n  kf_.H_ << 1, 0, 0, 0,\n            0, 1, 0, 0;\n\n  // the initial transition matrix F_\n  kf_.F_ = MatrixXd(4, 4);\n  kf_.F_ << 1, 0, 1, 0,\n            0, 1, 0, 1,\n            0, 0, 1, 0,\n            0, 0, 0, 1;\n\n  // set the acceleration noise components\n  noise_ax = 5;\n  noise_ay = 5;\n}\n\nTracking::~Tracking() {\n\n}\n\n// Process a single measurement\nvoid Tracking::ProcessMeasurement(const MeasurementPackage &measurement_pack) {\n  if (!is_initialized_) {\n    //cout << \"Kalman Filter Initialization \" << endl;\n\n    // set the state with the initial location and zero velocity\n    kf_.x_ << measurement_pack.raw_measurements_[0], \n              measurement_pack.raw_measurements_[1], \n              0, \n              0;\n\n    previous_timestamp_ = measurement_pack.timestamp_;\n    is_initialized_ = true;\n    return;\n  }\n\n  // compute the time elapsed between the current and previous measurements\n  // dt - expressed in seconds\n  float dt = (measurement_pack.timestamp_ - previous_timestamp_) / 1000000.0;\n  previous_timestamp_ = measurement_pack.timestamp_;\n  \n    // TODO: YOUR CODE HERE\n  float dt_2 = dt * dt;\n  float dt_3 = dt_2 * dt;\n  float dt_4 = dt_3 * dt;\n\n  // Modify the F matrix so that the time is integrated\n  kf_.F_(0, 2) = dt;\n  kf_.F_(1, 3) = dt;\n\n  // set the process covariance matrix Q\n  kf_.Q_ = MatrixXd(4, 4);\n  kf_.Q_ <<  dt_4/4*noise_ax, 0, dt_3/2*noise_ax, 0,\n         0, dt_4/4*noise_ay, 0, dt_3/2*noise_ay,\n         dt_3/2*noise_ax, 0, dt_2*noise_ax, 0,\n         0, dt_3/2*noise_ay, 0, dt_2*noise_ay;\n\n  // predict\n  kf_.Predict();\n\n  // measurement update\n  kf_.Update(measurement_pack.raw_measurements_);\n  \n  cout << \"x_= \" << kf_.x_ << endl;\n  cout << \"P_= \" << kf_.P_ << endl;\n}",
+                    "name": "tracking.cpp"
+                  },
+                  {
+                    "text": "#ifndef TRACKING_H_\n#define TRACKING_H_\n\n#include <vector>\n#include <string>\n#include <fstream>\n#include \"kalman_filter.h\"\n#include \"measurement_package.h\"\n\nclass Tracking {\n public:\n  Tracking();\n  virtual ~Tracking();\n  void ProcessMeasurement(const MeasurementPackage &measurement_pack);\n  KalmanFilter kf_;\n\n private:\n  bool is_initialized_;\n  int64_t previous_timestamp_;\n\n  //acceleration noise components\n  float noise_ax;\n  float noise_ay;\n};\n\n#endif  // TRACKING_H_",
+                    "name": "tracking.h"
+                  },
+                  {
+                    "text": "#ifndef MEASUREMENT_PACKAGE_H_\n#define MEASUREMENT_PACKAGE_H_\n\n#include \"Dense\"\n\nclass MeasurementPackage {\n public:\n\n  enum SensorType {\n    LASER, RADAR\n  } sensor_type_;\n\n  Eigen::VectorXd raw_measurements_;\n  \n  int64_t timestamp_;\n\n};\n\n#endif  // MEASUREMENT_PACKAGE_H_",
+                    "name": "measurement_package.h"
+                  }
+                ]
+              },
+              "answer": null
+            }
+          ]
+        },
+        {
+          "id": 229597,
+          "key": "f4a8731d-ed4e-4f54-9ca4-6c5a5b9b3d34",
+          "title": "Radar Measurements",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "f4a8731d-ed4e-4f54-9ca4-6c5a5b9b3d34",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 269174,
+              "key": "d4ba540a-de5c-4359-9516-48ab49a4da48",
+              "title": "Radar Measurements",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "LOz9AaHvB8M",
+                "china_cdn_id": "LOz9AaHvB8M.mp4"
+              }
+            },
+            {
+              "id": 298383,
+              "key": "4805d9d4-9ae8-4a21-aea2-7b51758ffa29",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "### H versus h(x)\n\nThe <span class=\"mathquill\">H</span> matrix from the lidar lesson and <span class=\"mathquill\">h(x)</span> equations from the radar lesson are actually accomplishing the same thing; they are both needed to solve <span class=\"mathquill\">y = z - Hx'</span> in the update step. \n\nBut for radar, there is no <span class=\"mathquill\">H</span> matrix that will map the state vector <span class=\"mathquill\">x</span> into polar coordinates; instead, you need to calculate the mapping manually to convert from cartesian coordinates to polar coordinates. \n\nHere is the <span class=\"mathquill\">h</span> function that specifies how the predicted position and speed get mapped to the polar coordinates of range, bearing and range rate.\n\n<div class=\"mathquill\">\nh(x')= \\begin{pmatrix}\n    \\rho\\\\\n    \\phi\\\\\n    \\dot{\\rho}\n\\end{pmatrix} =\n\\begin{pmatrix} \n\\sqrt{ p{'}_x^2 + p{'}_y^2 }\\\\\n\\arctan(p_y' / p_x')\\\\\n\\frac{p_x' v_x' + p_y' v_y'}{\\sqrt{p{'}_x^2 + p{'}_{y}^2}}\n\\end{pmatrix}\n</div>\n\nHence for radar <span class=\"mathquill\">y = z - Hx'</span> becomes <span class=\"mathquill\">y = z - h(x')</span>.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 298387,
+              "key": "19deac92-f527-4f7e-9510-b8c7a7ff795a",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "### Definition of Radar Variables\n\n* The range, (<span class=\"mathquill\">\\rho</span>), is the distance to the pedestrian. The range is basically the magnitude of the position vector <span class=\"mathquill\">\\rho</span> which can be defined as <span class=\"mathquill\">\\rho = sqrt(p_x^2 + p_y^2)</span>.\n* <span class=\"mathquill\">\\varphi = atan(p_y / p_x)</span>. Note that <span class=\"mathquill\">\\varphi </span> is referenced counter-clockwise from the x-axis, so  <span class=\"mathquill\">\\varphi </span> from the video clip above in that situation would actually be negative.\n* The range rate, <span class=\"mathquill\">\\dot{\\rho}</span>, is the projection of the velocity, <span class=\"mathquill\">v</span>, onto the line, <span class=\"mathquill\">L</span>.\n",
+              "instructor_notes": ""
+            },
+            {
+              "id": 276568,
+              "key": "78b905f5-e6a6-4c13-a4a0-8abc16760bcf",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "### Deriving the Radar Measurement Function\n\nThe measurement function is composed of three components that show how the predicted state, <span class=\"mathquill\">x' = (p_x', p_y', v_x', v_y')^T</span>, is mapped into the measurement space, <span class=\"mathquill\">z = (\\rho, \\varphi, \\dot{\\rho})^T</span>:\n\nThe range, <span class=\"mathquill\">\\rho</span>, is the distance to the pedestrian which can be defined as:\n\n <div class=\"mathquill\">\\rho = \\sqrt[]{p_x^2 + p_y^2}</div>\n\n<span class=\"mathquill\">\\varphi</span> is the angle between <span class=\"mathquill\">\\rho</span> and the <span class=\"mathquill\">x</span> direction and can be defined as:\n\n  <div class=\"mathquill\">\\varphi = \\arctan(p_y/p_x)</div>\n\nThere are two ways to do the range rate <span class=\"mathquill\">\\dot{\\rho(t)}</span> derivation:\n \nGenerally we can explicitly describe the range, <span class=\"mathquill\">\\rho</span>, as a function of time:\n\n   <div class=\"mathquill\">\\rho(t) = \\sqrt{p_x(t)^2 + p_y(t)^2}</div>\n\n   ",
+              "instructor_notes": ""
+            },
+            {
+              "id": 502620,
+              "key": "9698b464-4f9b-48c1-8703-26a86f885eee",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": " The range rate, <span class=\"mathquill\">\\dot{\\rho(t)}</span>, is defined as time rate of change of the range, <span class=\"mathquill\">\\rho</span>, and it can be described as the time derivative of <span class=\"mathquill\">\\rho</span>:\n\n<span class=\"mathquill\">\\dot{\\rho} =  \\frac{\\partial \\rho(t)}{\\partial t} = \\frac{ \\partial}{\\partial t}\\sqrt{p_x(t)^2 + p_y(t)^2} = \\frac{1}{2 \\sqrt{p_x(t)^2 + p_y(t)^2}} (\\frac{ \\partial}{\\partial t}p_x(t)^2 + \\frac{ \\partial}{\\partial t}p_y(t)^2)</span>\n\n<span class=\"mathquill\">=\\frac{1}{2 \\sqrt{p_x(t)^2 + p_y(t)^2}} (2 p_x(t) \\frac{ \\partial}{\\partial t} p_x(t) + 2 p_y(t) \\frac{ \\partial}{\\partial t} p_y(t))</span>\n\n<span class=\"mathquill\">\\frac{ \\partial}{\\partial t} p_x(t)</span> is nothing else than <span class=\"mathquill\">v_x(t)</span>, similarly <span class=\"mathquill\">\\frac{ \\partial}{\\partial t} p_y(t)</span> is <span class=\"mathquill\">v_y(t)</span>. So we have:\n\n<span class=\"mathquill\">\\dot{\\rho} = \\frac{\\partial \\rho(t)}{\\partial t} = \\frac{1}{2 \\sqrt{p_x(t)^2 + p_y(t)^2}} (2 p_x(t) v_x(t) + 2 p_y(t) v_y(t)) = \\frac{2( p_x(t) v_x(t) + p_y(t) v_y(t))}{2 \\sqrt{p_x(t)^2 + p_y(t)^2}}</span>\n\n<span class=\"mathquill\">=\\frac{p_x(t) v_x(t) + p_y(t) v_y(t)}{ \\sqrt{p_x(t)^2 + p_y(t)^2}}</span>\n\nFor simplicity we just use the following notation:\n\n<div class=\"mathquill\">\\dot{\\rho} = \\frac{p_x v_x + p_y v_y}{ \\sqrt{p_x^2 + p_y^2}}</div>\n \nThe range rate, <span class=\"mathquill\">\\dot{\\rho}</span>, can be seen as a scalar projection of the velocity vector, <span class=\"mathquill\">\\vec{v}</span>, onto <span class=\"mathquill\">\\vec{\\rho}</span>. Both <span class=\"mathquill\">\\vec{\\rho}</span> and <span class=\"mathquill\">\\vec{v}</span> are 2D vectors defined as:\n\n<div class=\"mathquill\">\\vec{\\rho}=\n\\begin{pmatrix}\n    p_x\\\\\n    p_y\n\\end{pmatrix}, \\space\n\\vec{v}=\\begin{pmatrix}\n    v_x\\\\\n    v_y\n\\end{pmatrix}\n</div>\n\nThe scalar projection of the velocity vector <span class=\"mathquill\">\\vec{v}</span> onto <span class=\"mathquill\">\\vec{\\rho}</span> is defined as:\n\n<div class=\"mathquill\">\\dot{\\rho}=\n\\frac{\\vec{v} \\vec{\\rho}}{\\lvert \\vec{\\rho} \\rvert} = \n\\frac{\n\\begin{pmatrix}\n    v_x &  v_y\n\\end{pmatrix}\n\\begin{pmatrix}\n    p_x\\\\\n    p_y\n\\end{pmatrix}\n}{\n\\sqrt{p_x^2 + p_y^2}\n}\n=\n\\frac{p_x v_x + p_y v_y}{ \\sqrt{p_x^2 + p_y^2}} \n</div>\n\nwhere <span class=\"mathquill\">\\lvert \\vec{\\rho} \\rvert</span> is the length of <span class=\"mathquill\">\\vec{\\rho}</span>. In our case it is actually the range, so <span class=\"mathquill\">\\rho = \\lvert \\vec{\\rho} \\rvert</span>.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 229606,
+              "key": "e4a4ec04-1edb-4b48-80fb-c5e385a9521a",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "### The Next Quiz\n\n<div class=\"mathquill\">\n\\begin{pmatrix}\n    \\rho\\\\\n    \\phi\\\\\n    \\dot{\\rho}\n\\end{pmatrix}\n\\leftarrow h(x)\n\\begin{pmatrix}\n    p_x'\\\\\n    p_y'\\\\\n    v_x'\\\\\n    v_y'\n\\end{pmatrix}\n</div>\n\n<span class=\"mathquill\">h</span> is a nonlinear function. In the next quiz I would like to check your intuition about what that means.",
+              "instructor_notes": ""
+            }
+          ]
+        },
+        {
+          "id": 229607,
+          "key": "52440212-45a3-4e42-83f3-8e94557a8939",
+          "title": "Mapping with a Nonlinear Function",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "52440212-45a3-4e42-83f3-8e94557a8939",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 268679,
+              "key": "82297f93-c33a-46c4-b67d-309f02ff464c",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2017/February/58b4cc34_screenshot-from-2017-02-27-19-02-34/screenshot-from-2017-02-27-19-02-34.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/82297f93-c33a-46c4-b67d-309f02ff464c",
+              "caption": "",
+              "alt": null,
+              "width": 978,
+              "height": 427,
+              "instructor_notes": null
+            },
+            {
+              "id": 229610,
+              "key": "aa290222-3a94-4c56-aa7b-a99ecba5e9e3",
+              "title": "",
+              "semantic_type": "RadioQuizAtom",
+              "is_public": true,
+              "instructor_notes": null,
+              "user_state": {
+                "node_key": "aa290222-3a94-4c56-aa7b-a99ecba5e9e3",
+                "completed_at": null,
+                "last_viewed_at": null,
+                "unstructured": null
+              },
+              "question": {
+                "prompt": "What happens if we have a nonlinear measurement function, h(x). Can we apply the Kalman Filter equations to update the predicted state, X, with new measurements, z?",
+                "answers": [
+                  {
+                    "id": "a1481675804051",
+                    "text": "Yes! We have defined both the motion model and the measurement model so we should be good to go.",
+                    "is_correct": false
+                  },
+                  {
+                    "id": "a1481675852284",
+                    "text": "No! We aren't working with Gaussian distributions after applying a nonlinear measurement function.",
+                    "is_correct": true
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "id": 229611,
+          "key": "062212bf-bf84-4975-a59c-80b1149d0174",
+          "title": "Extended Kalman Filter",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "062212bf-bf84-4975-a59c-80b1149d0174",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 269172,
+              "key": "996e9b53-c5b1-4caa-b0b8-39adc58003e8",
+              "title": "Extended Kalman Filter",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "nMUd_esBMM8",
+                "china_cdn_id": "nMUd_esBMM8.mp4"
+              }
+            },
+            {
+              "id": 268683,
+              "key": "01f18c1f-59d7-4830-aab2-e3c2045b144f",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2017/February/58b4cd25_screenshot-from-2017-02-27-19-06-36/screenshot-from-2017-02-27-19-06-36.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/01f18c1f-59d7-4830-aab2-e3c2045b144f",
+              "caption": "Follow the arrows from top left to bottom to top right: (1) A Gaussian from 10,000 random values in a normal distribution with a mean of 0. (2) Using a nonlinear function, arctan, to transform each value. (3) The resulting distribution.",
+              "alt": null,
+              "width": 1847,
+              "height": 1020,
+              "instructor_notes": null
+            },
+            {
+              "id": 268685,
+              "key": "a16a8bed-cdde-4f33-b214-2eef59609b88",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2017/February/58b4cda2_screenshot-from-2017-02-27-19-08-41/screenshot-from-2017-02-27-19-08-41.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/a16a8bed-cdde-4f33-b214-2eef59609b88",
+              "caption": "This one looks much better! Notice how the blue graph, the output, remains a Gaussian after applying a first order Taylor expansion.",
+              "alt": null,
+              "width": 1839,
+              "height": 1016,
+              "instructor_notes": null
+            },
+            {
+              "id": 229648,
+              "key": "1dceccdd-9da8-4e3e-9652-438394702124",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "### How to Perform a Taylor Expansion\n\nThe general form of a [Taylor series expansion](https://en.wikipedia.org/wiki/Taylor_series) of an equation, <span class=\"mathquill\">f(x)</span>, at point <span class=\"mathquill\">\\mu</span> is as follows:\n\n<span class=\"mathquill\">f(x) \\approx f(\\mu) + \\frac{\\partial f(\\mu)}{\\partial x} ( x - \\mu)</span>\n\nSimply replace <span class=\"mathquill\">f(x)</span> with a given equation, find the partial derivative, and plug in the value <span class=\"mathquill\">\\mu</span> to find the Taylor expansion at that value of <span class=\"mathquill\">\\mu</span>.\n\nSee if you can find the Taylor expansion of <span class=\"mathquill\">arctan(x)</span>.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 229635,
+              "key": "e507dca6-e055-40c7-b538-6fc5f8a28e20",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "Let’s say we have a predicted state density described by\n\n<span class=\"mathquill\">\\mu = 0</span> and <span class=\"mathquill\">\\sigma = 3</span>.\n\nThe function that projects the predicted state, <span class=\"mathquill\">x</span>, to the measurement space <span class=\"mathquill\">z</span> is\n\n<span class=\"mathquill\">h(x) = arctan(x)</span>.\n\nand its partial derivative is\n\n<span class=\"mathquill\">\\partial h = 1/(1+ x^2)</span>.\n\nI want you to use the first order Taylor expansion to construct a linear approximation of <span class=\"mathquill\">h(x)</span> to find the equation of the line that linearizes the function <span class=\"mathquill\">h(x)</span> at the mean location <span class=\"mathquill\">\\mu</span>.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 268688,
+              "key": "f535886f-d8a1-4c86-9f24-cb388e804417",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2017/February/58b4cef1_screenshot-from-2017-02-27-19-14-14/screenshot-from-2017-02-27-19-14-14.png",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/f535886f-d8a1-4c86-9f24-cb388e804417",
+              "caption": "The orange line represents the first order Taylor expansion of arctan(x). What is it?",
+              "alt": null,
+              "width": 1088,
+              "height": 664,
+              "instructor_notes": null
+            },
+            {
+              "id": 229647,
+              "key": "6d166332-4709-4d08-bffe-c0062f3e07c5",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "A) <span class=\"mathquill\">h(x) \\approx x</span>\n\nB) <span class=\"mathquill\">h(x) \\approx 1/(1+x^2)</span>\n\nC) <span class=\"mathquill\">h(x) \\approx x + arctan(x)</span>\n\nD) <span class=\"mathquill\">h(x) \\approx 3 + x</span>",
+              "instructor_notes": ""
+            },
+            {
+              "id": 229646,
+              "key": "be5ab80f-889b-4623-94da-bdd5f64876ae",
+              "title": "",
+              "semantic_type": "RadioQuizAtom",
+              "is_public": true,
+              "instructor_notes": null,
+              "user_state": {
+                "node_key": "be5ab80f-889b-4623-94da-bdd5f64876ae",
+                "completed_at": null,
+                "last_viewed_at": null,
+                "unstructured": null
+              },
+              "question": {
+                "prompt": "Which of the above equations (↑) represents the first order Taylor expansion of arctan(x) around mu = 0?",
+                "answers": [
+                  {
+                    "id": "a1481678469047",
+                    "text": "A",
+                    "is_correct": true
+                  },
+                  {
+                    "id": "a1481678508051",
+                    "text": "B",
+                    "is_correct": false
+                  },
+                  {
+                    "id": "a1481678509259",
+                    "text": "C",
+                    "is_correct": false
+                  },
+                  {
+                    "id": "a1481678510362",
+                    "text": "D",
+                    "is_correct": false
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "id": 282694,
+          "key": "d954aaaa-b820-4d82-8282-c0a975ba75b0",
+          "title": "Multivariate Taylor Series Expansion",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "d954aaaa-b820-4d82-8282-c0a975ba75b0",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 283219,
+              "key": "e6022c8d-8d9f-4cd7-8253-fa99745b096b",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "### Solution to the Previous Quiz\n\n### Solution\n\n<div class=\"mathquill\">h(x) \\approx h(\\mu) + \\frac{\\partial h(\\mu)}{\\partial x}(x-\\mu) = \\arctan(\\mu) + \\frac{1}{1+\\mu^2}(x-\\mu)\n</div>\n\nIn our example <span class=\"mathquill\">\\mu=0</span>, therefore:\n\n<div class=\"mathquill\">\nh(x) \\approx \\arctan(0) + \\frac{1}{1+0}(x-0) = x\n</div>\n\nSo, the function, <span class=\"mathquill\">h(x) = \\arctan(x)</span>, will be approximated by a line:\n<span class=\"mathquill\">h(x) \\approx x</span>.\n\nAnd now, let's keep going!",
+              "instructor_notes": ""
+            },
+            {
+              "id": 282695,
+              "key": "6078ade0-db61-4b0c-8c0b-38ae257ebad6",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "### Multivariate Taylor Series\n\nNow that you’ve seen how to do a Taylor series expansion with a one-dimensional equation, we’ll need to look at the Taylor series expansion for multi-dimensional equations. Recall from the *Radar Measurements* lecture that the h function is composed of three equations that show how the predicted state, <span class=\"mathquill\">x' = (p_x', p_y', v_x', v_y')^T</span>, is mapped into the measurement space, <span class=\"mathquill\">z = (\\rho, \\varphi, \\dot{\\rho})^T</span>:\n\n<div class=\"mathquill\">\nh(x')= \\begin{pmatrix}\n\\sqrt{ p{'}_x^2 + p{'}_y^2 }\\\\\n\\arctan(p_y' / p_x')\\\\\n\\frac{p_x' v_x' + p_y' v_y'}{\\sqrt{p{'}_x^2 + p{'}_{y}^2}}\n\\end{pmatrix}</div>\n\nThese are multi-dimensional equations, so we will need to use a multi-dimensional Taylor series expansion to make a linear approximation of the <span class=\"mathquill\">h</span> function. Here is a general formula for the multi-dimensional Taylor series expansion:\n\n<div class=\"mathquill\">\nT(x) = f(a) + (x - a)^TDf(a) + \\frac 1{2!}(x-a)^T{D^2f(a)}(x - a) + ...\n</div>\n\nwhere <span class=\"mathquill\">Df(a)</span> is called the Jacobian matrix and <span class=\"mathquill\">D^2f(a)</span> is called the [Hessian matrix](https://www.khanacademy.org/math/multivariable-calculus/applications-of-multivariable-derivatives/quadratic-approximations/a/the-hessian). They represent first order and second order derivatives of multi-dimensional equations. A full Taylor series expansion would include higher order terms as well for the third order derivatives, fourth order derivatives, and so on. \n\nNotice the similarities between the multi-dimensional Taylor series expansion and the one-dimensional Taylor series expansion:\n\n<div class=\"mathquill\">\nT(x) = f(a) + \\frac{f'(a)}{1!}(x - a) + \\frac{f''(a)}{2!}(x-a)^2 + \\frac{f'''(a)}{3!}(x - a)^3 + ...\n</div>",
+              "instructor_notes": ""
+            },
+            {
+              "id": 282702,
+              "key": "8efbff35-4e76-4462-942e-4a6a232fedb0",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "To derive a linear approximation for the h function, we will only keep the expansion up to the Jacobian matrix <span class=\"mathquill\">Df(a)</span>. We will ignore the Hessian matrix <span class=\"mathquill\">D^2f(a)</span> and other higher order terms. Assuming <span class=\"mathquill\">(x - a)</span> is small,  <span class=\"mathquill\">(x - a)^2</span> or the multi-dimensional equivalent <span class=\"mathquill\">(x-a)^T (x - a)</span>  will be even smaller; the extended Kalman filter we'll be using assumes that higher order terms beyond the Jacobian are negligible.\n\nLet's first calculate the Jacobian matrix for the extended Kalman filter. Then we'll show the difference between the Kalman filter equations and the extended Kalman filter equations.",
+              "instructor_notes": ""
+            }
+          ]
+        },
+        {
+          "id": 229621,
+          "key": "ad446f45-d757-41b0-be5d-3f0a28d3dfd1",
+          "title": "Jacobian Matrix Part 1",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "ad446f45-d757-41b0-be5d-3f0a28d3dfd1",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 283220,
+              "key": "6f2c2193-d6d8-433b-9173-6938fa892ea7",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "### Jacobian Matrix Part 1",
+              "instructor_notes": ""
+            },
+            {
+              "id": 268178,
+              "key": "edb5741d-82cb-4cca-8216-c04921e25f02",
+              "title": "Jacobian Matrix",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "FeE5cRlMZqU",
+                "china_cdn_id": "FeE5cRlMZqU.mp4"
+              }
+            },
+            {
+              "id": 394108,
+              "key": "ca229ab0-2a4e-4809-b796-4d77658265c2",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "At 1:59 Andrei says, \"you have to check that neither x nor y is zero.\"  What is meant is: \"you have to check that x and y are not both zero\".",
+              "instructor_notes": ""
+            },
+            {
+              "id": 229676,
+              "key": "8166e8a0-8cc2-4e3d-9c6f-9c82f803898f",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "We're going to calculate, step by step, all the partial derivatives in <span class=\"mathquill\">H_j</span>:\n\n<div class=\"mathquill\">\\Large\nH_j = \n\\begin{bmatrix}\n\\frac{\\partial \\rho}{\\partial p_x} & \\frac{\\partial \\rho}{\\partial p_y} & \\frac{\\partial \\rho}{\\partial v_x}  & \\frac{\\partial \\rho}{\\partial v_y}\\\\\n\\frac{\\partial \\varphi}{\\partial p_x} & \\frac{\\partial \\varphi}{\\partial p_y} & \\frac{\\partial \\varphi}{\\partial v_x}  & \\frac{\\partial \\varphi}{\\partial v_y}\\\\\n\\frac{\\partial \\dot{\\rho}}{\\partial p_x} & \\frac{\\partial \\dot{\\rho}}{\\partial p_y} & \\frac{\\partial \\dot{\\rho}}{\\partial v_x}  & \\frac{\\partial \\dot{\\rho}}{\\partial v_y} \\end{bmatrix}\n</div>\n\nSo all of <span class=\"mathquill\">H_j</span>'s elements are calculated as follows:\n\n<div class=\"mathquill\">\n\\frac{\\partial \\rho}{\\partial p_x}=\n\\frac{\\partial}{\\partial p_x}(\\sqrt[]{p_x^2 + p_y^2}) = \n\\frac{2 p_x}{2 \\sqrt[]{p_x^2 + p_y^2}} = \n\\frac{p_x}{\\sqrt[]{p_x^2 + p_y^2}}\n</div>\n\n\n<div class=\"mathquill\">\n\\frac{\\partial \\rho}{\\partial p_y}=\n\\frac{\\partial}{\\partial p_y}(\\sqrt[]{p_x^2 + p_y^2}) = \n\\frac{2 p_y}{2 \\sqrt[]{p_x^2 + p_y^2}} = \n\\frac{p_y}{\\sqrt[]{p_x^2 + p_y^2}}\n</div>\n\n<div class=\"mathquill\">\n\\frac{\\partial \\rho}{\\partial v_x} = \n\\frac{\\partial}{\\partial v_x}(\\sqrt[]{p_x^2 + p_y^2}) =\n0\n</div>\n\n<div class=\"mathquill\">\n\\frac{\\partial \\rho}{\\partial v_y} = \n\\frac{\\partial}{\\partial v_y}(\\sqrt[]{p_x^2 + p_y^2}) =\n0\n</div>\n\n<div class=\"mathquill\">\n\\frac{\\partial \\varphi}{\\partial p_x} =\n\\frac{\\partial}{\\partial p_x}arctan(p_y/p_x) =\n\\frac{1}{(\\frac{p_y}{p_x})^2 + 1} (- \\frac{p_y}{p_x^2}) = -\\frac{p_y}{p_x^2+p_y^2}\n</div>\n\n<div class=\"mathquill\">\n\\frac{\\partial \\varphi}{\\partial p_y} =\n\\frac{\\partial}{\\partial p_y}arctan(p_y/p_x) =\n\\frac{1}{(\\frac{p_y}{p_x})^2 + 1} (\\frac{1}{p_x}) = \\frac{p_x^2}{p_x^2+p_y^2} \\frac{1}{p_x} =\\frac{p_x}{p_x^2+p_y^2}\n</div>\n\n<div class=\"mathquill\">\n\\frac{\\partial \\varphi}{\\partial v_x} =\n\\frac{\\partial}{\\partial v_x}arctan(p_y/p_x) = 0\n</div>\n\n<div class=\"mathquill\">\n\\frac{\\partial \\varphi}{\\partial v_y} =\n\\frac{\\partial}{\\partial v_y}arctan(p_y/p_x) = 0\n</div>\n\n<div class=\"mathquill\">\n\\frac{\\partial \\dot{\\rho}}{\\partial p_x} =\n\\frac{\\partial}{\\partial p_x} \\left( \\frac{p_x v_x + p_y v_y}{\\sqrt[]{p_x^2 + p_y^2}} \\right) \n</div>",
+              "instructor_notes": ""
+            },
+            {
+              "id": 502528,
+              "key": "988b3377-7139-46b7-a37c-9cd541a8ccc7",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "In order to calculate the derivative of this function we use the quotient rule.\n\nGiven a function <span class=\"mathquill\">z</span> that is quotient of two other functions, <span class=\"mathquill\">f</span> and <span class=\"mathquill\">g</span>:\n\n<div class=\"mathquill\">\nz = \\frac{f}{g}\n</div>\n\nits derivative with respect to <span class=\"mathquill\">x</span> is defined as:\n<div class=\"mathquill\">\n\\frac{\\partial z}{\\partial x} =\n\\frac\n{\n\\frac{\\partial f}{\\partial x} g - \n\\frac{\\partial g}{\\partial x} f\n}\n{g^2}\n</div>\n\nin our case:\n<div class=\"mathquill\">\nf = p_x v_x + p_y v_y\n</div>\n\n<div class=\"mathquill\">\ng = \\sqrt[]{p_x^2 + p_y^2}\n</div>\n\nTheir derivatives are:\n<div class=\"mathquill\">\n\\frac{\\partial f}{\\partial p_x} = \\frac{\\partial}{\\partial p_x} (p_x v_x + p_y v_y) = v_x\n</div>\n\n<div class=\"mathquill\">\n\\frac{\\partial g}{\\partial p_x} = \\frac{\\partial}{\\partial p_x} \\left( \\sqrt[]{p_x^2 + p_y^2} \\right) = \\frac{p_x}{\\sqrt[]{p_x^2 + p_y^2}}\n</div>\n\nPutting everything together into the derivative quotient rule we have:\n\n<div class=\"mathquill\">\n\\frac{\\partial \\dot{\\rho}} {\\partial p_x} = \\frac{v_x  \\sqrt[]{p_x^2 + p_y^2} - \\frac{p_x}{\\sqrt[]{p_x^2 + p_y^2}} (p_x v_x + p_y v_y)}\n{p_x^2 + p_y^2}\n=\n\\frac{p_y(v_x p_y - v_y p_x)}{(p_x^2 + p_y^2)^{3/2}}\n</div>\n\nSimilarly,\n<div class=\"mathquill\">\n\\frac{\\partial \\dot{\\rho}}{\\partial p_y} \n= \n\\frac{\\partial}{\\partial p_y} \\left( \\frac{p_x v_x + p_y v_y}{\\sqrt[]{p_x^2 + p_y^2}} \\right)\n=\n\\frac{p_x(v_y p_x - v_x p_y)}{(p_x^2 + p_y^2)^{3/2}}\n</div>\n\n<div class=\"mathquill\">\n\\frac{\\partial \\dot{\\rho}}{\\partial v_x} \n= \n\\frac{\\partial}{\\partial v_x} \\left( \\frac{p_x v_x + p_y v_y}{\\sqrt[]{p_x^2 + p_y^2}} \\right)\n=\n\\frac{p_x}{\\sqrt[]{p_x^2 + p_y^2}}\n</div>\n\n\n<div class=\"mathquill\">\n\\frac{\\partial \\dot{\\rho}}{\\partial v_y} \n= \n\\frac{\\partial}{\\partial v_y} \\left( \\frac{p_x v_x + p_y v_y}{\\sqrt[]{p_x^2 + p_y^2}} \\right)\n=\n\\frac{p_y}{\\sqrt[]{p_x^2 + p_y^2}}\n</div>\n\n\nSo now, after calculating all the partial derivatives, our resulted Jacobian, <span class=\"mathquill\">H_j</span> is:\n\n<div class=\"mathquill\">\\Large\nH_j = \\begin{bmatrix}\n\\frac{p_x}{\\sqrt[]{p_x^2 + p_y^2}} & \\frac{p_y}{\\sqrt[]{p_x^2 + p_y^2}} & 0 & 0\\\\\n-\\frac{p_y}{p_x^2 + p_y^2} & \\frac{p_x}{p_x^2 + p_y^2} & 0 & 0\\\\\n\\frac{p_y(v_x p_y - v_y p_x)}{(p_x^2 + p_y^2)^{3/2}} & \\frac{p_x(v_y p_x - v_x p_y)}{(p_x^2 + p_y^2)^{3/2}} & \\frac{p_x}{\\sqrt[]{p_x^2 + p_y^2}} & \\frac{p_y}{\\sqrt[]{p_x^2 + p_y^2}}\\\\\n\\end{bmatrix}\n</div>",
+              "instructor_notes": ""
+            },
+            {
+              "id": 229719,
+              "key": "eb2821ce-ac8e-402c-b3fd-0c3af586950d",
+              "title": "Jacobian Matrix Programming Quiz",
+              "semantic_type": "TaskListAtom",
+              "is_public": true,
+              "instructor_notes": null,
+              "user_state": {
+                "node_key": "eb2821ce-ac8e-402c-b3fd-0c3af586950d",
+                "completed_at": null,
+                "last_viewed_at": null,
+                "unstructured": null
+              },
+              "tasks": [
+                "Make sure you don't divide by zero, if you do print out an error message and just return Initialized `Hj`",
+                "Calculate the Jacobian matrix `Hj` using the above equation"
+              ],
+              "positive_feedback": "Great! Make sure you test your code below!",
+              "video_feedback": null,
+              "description": "FIll in the missing code in the `CalculateJacobian()` function to return the correct Jacobian matrix."
+            },
+            {
+              "id": 229720,
+              "key": "84a240bc-f8ef-44c0-a98e-720234bad87d",
+              "title": "",
+              "semantic_type": "QuizAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "user_state": {
+                "node_key": "84a240bc-f8ef-44c0-a98e-720234bad87d",
+                "completed_at": null,
+                "last_viewed_at": null,
+                "unstructured": null
+              },
+              "instruction": null,
+              "question": {
+                "title": "",
+                "semantic_type": "ProgrammingQuestion",
+                "evaluation_id": "5643100891512832",
+                "initial_code_files": [
+                  {
+                    "text": "#include <iostream>\n#include <vector>\n#include \"Dense\"\n\nusing Eigen::MatrixXd;\nusing Eigen::VectorXd;\nusing std::cout;\nusing std::endl;\n\nMatrixXd CalculateJacobian(const VectorXd& x_state);\n\nint main() {\n  /**\n   * Compute the Jacobian Matrix\n   */\n\n  // predicted state example\n  // px = 1, py = 2, vx = 0.2, vy = 0.4\n  VectorXd x_predicted(4);\n  x_predicted << 1, 2, 0.2, 0.4;\n\n  MatrixXd Hj = CalculateJacobian(x_predicted);\n\n  cout << \"Hj:\" << endl << Hj << endl;\n\n  return 0;\n}\n\nMatrixXd CalculateJacobian(const VectorXd& x_state) {\n\n  MatrixXd Hj(3,4);\n  // recover state parameters\n  float px = x_state(0);\n  float py = x_state(1);\n  float vx = x_state(2);\n  float vy = x_state(3);\n\n  // TODO: YOUR CODE HERE \n\n  // check division by zero\n  \n  // compute the Jacobian matrix\n\n  return Hj;\n}",
+                    "name": "main.cpp"
+                  }
+                ]
+              },
+              "answer": null
+            }
+          ]
+        },
+        {
+          "id": 229721,
+          "key": "08fc65c1-04d9-45d3-8a98-abf7bb072dc2",
+          "title": "Jacobian Matrix Part 2",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "08fc65c1-04d9-45d3-8a98-abf7bb072dc2",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 268697,
+              "key": "6bf61411-833f-4210-b6c6-f3762d12e090",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "Here's the solution for the quiz followed by a code editor where you'll be able to play with the solution.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 268179,
+              "key": "53199e99-3017-4d7e-a58f-27d7652506e0",
+              "title": "Jacobian Matrix",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "pRhuwlMhG3o",
+                "china_cdn_id": "pRhuwlMhG3o.mp4"
+              }
+            },
+            {
+              "id": 229722,
+              "key": "2d993d11-5d1d-4709-8bf8-05fa2b86751c",
+              "title": "",
+              "semantic_type": "QuizAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "user_state": {
+                "node_key": "2d993d11-5d1d-4709-8bf8-05fa2b86751c",
+                "completed_at": null,
+                "last_viewed_at": null,
+                "unstructured": null
+              },
+              "instruction": null,
+              "question": {
+                "title": "",
+                "semantic_type": "ProgrammingQuestion",
+                "evaluation_id": "6058638440529920",
+                "initial_code_files": [
+                  {
+                    "text": "#include <iostream>\n#include <vector>\n#include \"Dense\"\n\nusing Eigen::MatrixXd;\nusing Eigen::VectorXd;\nusing std::cout;\nusing std::endl;\n\nMatrixXd CalculateJacobian(const VectorXd& x_state);\n\nint main() {\n  /**\n   * Compute the Jacobian Matrix\n   */\n\n  // predicted state example\n  // px = 1, py = 2, vx = 0.2, vy = 0.4\n  VectorXd x_predicted(4);\n  x_predicted << 1, 2, 0.2, 0.4;\n\n  MatrixXd Hj = CalculateJacobian(x_predicted);\n\n  cout << \"Hj:\" << endl << Hj << endl;\n\n  return 0;\n}\n\nMatrixXd CalculateJacobian(const VectorXd& x_state) {\n\n  MatrixXd Hj(3,4);\n  // recover state parameters\n  float px = x_state(0);\n  float py = x_state(1);\n  float vx = x_state(2);\n  float vy = x_state(3);\n\n  // pre-compute a set of terms to avoid repeated calculation\n  float c1 = px*px+py*py;\n  float c2 = sqrt(c1);\n  float c3 = (c1*c2);\n\n  // check division by zero\n  if (fabs(c1) < 0.0001) {\n    cout << \"CalculateJacobian () - Error - Division by Zero\" << endl;\n    return Hj;\n  }\n\n  // compute the Jacobian matrix\n  Hj << (px/c2), (py/c2), 0, 0,\n      -(py/c1), (px/c1), 0, 0,\n      py*(vx*py - vy*px)/c3, px*(px*vy - py*vx)/c3, px/c2, py/c2;\n\n  return Hj;\n}",
+                    "name": "main.cpp"
+                  }
+                ]
+              },
+              "answer": null
+            }
+          ]
+        },
+        {
+          "id": 229723,
+          "key": "f3b2b918-00d5-4af0-9363-410d01b0a1a7",
+          "title": "EKF Algorithm Generalization",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "f3b2b918-00d5-4af0-9363-410d01b0a1a7",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 268180,
+              "key": "ccd9836f-31b4-4c7d-8368-9fcecb9c85ce",
+              "title": "EKF Algortihm Generalization",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "co0ZczAuwdM",
+                "china_cdn_id": "co0ZczAuwdM.mp4"
+              }
+            },
+            {
+              "id": 283221,
+              "key": "3a5e9bfd-7988-43ae-a9c0-abb7468c1b4d",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "### Extended Kalman Filter Equations\n\nAlthough the mathematical proof is somewhat complex, it turns out that the Kalman filter equations and extended Kalman filter equations are very similar. The main differences are: \n- the <span class=\"mathquill\">F</span> matrix will be replaced by <span class=\"mathquill\">F_j</span> when calculating <span class=\"mathquill\">P'</span>.\n- the <span class=\"mathquill\">H</span> matrix in the Kalman filter will be replaced by the Jacobian matrix <span class=\"mathquill\">H_j</span> when calculating <span class=\"mathquill\">S</span>, <span class=\"mathquill\">K</span>, and <span class=\"mathquill\">P</span>.\n- to calculate <span class=\"mathquill\">x'</span>, the prediction update function, <span class=\"mathquill\">f</span>, is used instead of the <span class=\"mathquill\">F</span> matrix.\n- to calculate <span class=\"mathquill\">y</span>, the <span class=\"mathquill\">h</span> function is used instead of the <span class=\"mathquill\">H</span> matrix.\n\nFor this project, however, we do not need to use the <span class=\"mathquill\">f</span> function or <span class=\"mathquill\">F_j</span>. If we had been using a non-linear model in the prediction step, we would need to replace the <span class=\"mathquill\">F</span> matrix with its Jacobian, <span class=\"mathquill\">F_j</span>. However, we are using a linear model for the prediction step. So, for the prediction step, we can still use the regular Kalman filter equations and the <span class=\"mathquill\">F</span> matrix rather than the extended Kalman filter equations. \n\nThe measurement update for lidar will also use the regular Kalman filter equations, since lidar uses linear equations. Only the measurement update for the radar sensor will use the extended Kalman filter equations.\n\n**One important point to reiterate is that the equation <span class=\"mathquill\">y = z - Hx'</span> for the Kalman filter does not become <span class=\"mathquill\">y = z - H_jx</span> for the extended Kalman filter. Instead, for extended Kalman filters, we'll use the h function directly to map predicted locations <span class=\"mathquill\">x'</span> from Cartesian to polar coordinates.**\n",
+              "instructor_notes": ""
+            },
+            {
+              "id": 268700,
+              "key": "2930f37d-5f4a-4dd4-9403-ada33da6df3a",
+              "title": null,
+              "semantic_type": "ImageAtom",
+              "is_public": true,
+              "url": "https://video.udacity-data.com/topher/2017/February/58b4d569_algorithm-generalization-900/algorithm-generalization-900.jpg",
+              "non_google_url": "https://s3.cn-north-1.amazonaws.com.cn/u-img/2930f37d-5f4a-4dd4-9403-ada33da6df3a",
+              "caption": "The comparison for reference.",
+              "alt": null,
+              "width": 1920,
+              "height": 1080,
+              "instructor_notes": null
+            },
+            {
+              "id": 303793,
+              "key": "ffe93070-f3c5-4e31-bed3-9e772f526d0a",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "### Clarification of u = 0\n\nIn the above image, the prediction equation is written as <span class=\"mathquill\">x' = Fx + u</span> and <span class=\"mathquill\">x' = f(x,u)</span>. Previously the equation was written <span class=\"mathquill\">x' = Fx + \\nu</span>. \n\nIt is just a question of notation where <span class=\"mathquill\">\\nu</span> is the greek letter \"nu\" and \"u\" is  used in the code examples. Remember that <span class=\"mathquill\">\\nu</span> is represented by a gaussian distribution with mean zero. The equation <span class=\"mathquill\">x' = Fx + u</span> or the equivalent equation <span class=\"mathquill\">x' = Fx + \\nu</span> calculates the mean value of the state variable <span class=\"mathquill\">x</span>; hence we set u = 0. The uncertainty in the gaussian distribution shows up in the <span class=\"mathquill\">Q</span> matrix.",
+              "instructor_notes": ""
+            },
+            {
+              "id": 280077,
+              "key": "549f4d98-8237-4a36-a68d-6d9568d70758",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "### More Details About Calculations with Radar Versus Lidar\n\nIn the radar update step, the Jacobian matrix <span class=\"mathquill\">H_j</span> is used to calculate <span class=\"mathquill\">S</span>, <span class=\"mathquill\">K</span> and <span class=\"mathquill\">P</span>. To calculate <span class=\"mathquill\">y</span>, we use the equations that map the predicted location <span class=\"mathquill\">x'</span> from Cartesian coordinates to polar coordinates:\n\n<div class=\"mathquill\">\nh(x')= \\begin{pmatrix}\n\\sqrt{ p{'}_{x}^2 + p{'}_{y}^2 }\\\\\n\\arctan(p_y' / p_x')\\\\\n\\frac{p_x' v_x' + p_y' v_y'}{\\sqrt{p{'}_{x}^2 + p{'}_{y}^2}}\n\\end{pmatrix}</div>\n\nThe predicted measurement vector <span class=\"mathquill\">x'</span> is a vector containing values in the form <span class=\"mathquill\">\\begin{bmatrix} p_x,  p_y, v_x, v_y \\end{bmatrix}</span>. The radar sensor will output values in polar coordinates:\n\n<div class=\"mathquill\">\n\\begin{pmatrix}\n    \\rho\\\\\n    \\phi\\\\\n    \\dot{\\rho}\n\\end{pmatrix}\n</div>\n\nIn order to calculate <span class=\"mathquill\">y</span> for the radar sensor, we need to convert <span class=\"mathquill\">x'</span> to polar coordinates. In other words, the function <span class=\"mathquill\">h(x)</span> maps values from Cartesian coordinates to polar coordinates.  So the equation for radar becomes <span class=\"mathquill\">y = z_{radar} - h(x')</span>.\n\nOne other important point when calculating <span class=\"mathquill\">y</span> with radar sensor data: the second value in the polar coordinate vector is the angle <span class=\"mathquill\">\\phi</span>. You'll need to make sure to normalize <span class=\"mathquill\">\\phi</span> in the <span class=\"mathquill\">y</span> vector so that its angle is between <span class=\"mathquill\">-\\pi</span> and <span class=\"mathquill\">\\pi</span>; in other words, add or subtract <span class=\"mathquill\">2\\pi</span> from <span class=\"mathquill\">\\phi</span> until it is between <span class=\"mathquill\">-\\pi</span> and <span class=\"mathquill\">\\pi</span>.\n\nTo summarize: \n- for measurement updates with lidar, we can use the <span class=\"mathquill\">H</span> matrix for calculating <span class=\"mathquill\">y</span>, <span class=\"mathquill\">S</span>, <span class=\"mathquill\">K</span> and <span class=\"mathquill\">P</span>. \n- for radar, <span class=\"mathquill\">H_j</span> is used to calculate <span class=\"mathquill\">S</span>, <span class=\"mathquill\">K</span> and <span class=\"mathquill\">P</span>.\n\n",
+              "instructor_notes": ""
+            },
+            {
+              "id": 229726,
+              "key": "d2b6bb61-2598-4eea-8857-a2e994e5ce08",
+              "title": "",
+              "semantic_type": "RadioQuizAtom",
+              "is_public": true,
+              "instructor_notes": null,
+              "user_state": {
+                "node_key": "d2b6bb61-2598-4eea-8857-a2e994e5ce08",
+                "completed_at": null,
+                "last_viewed_at": null,
+                "unstructured": null
+              },
+              "question": {
+                "prompt": "Compared to Kalman Filters, how would the Extended Kalman Filter result differ when the prediction function and measurement function are both linear?",
+                "answers": [
+                  {
+                    "id": "a1481689158721",
+                    "text": "The Extended Kalman Filter's result would be the same as the standard Kalman Filter's result.",
+                    "is_correct": true
+                  },
+                  {
+                    "id": "a1481689187365",
+                    "text": "The Extended Kalman Filter's result would vary unpredictably compared to the Kalman Filter's result.",
+                    "is_correct": false
+                  },
+                  {
+                    "id": "a1481689196715",
+                    "text": "The Extended Kalman Filter's result would be less accurate than the Kalman Filter's result.",
+                    "is_correct": false
+                  },
+                  {
+                    "id": "a1481689204450",
+                    "text": "The Extended Kalman Filter's result would be more accurate than the Kalman Filter's result.",
+                    "is_correct": false
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "id": 229727,
+          "key": "2e8d701b-1cac-4ec9-926a-246468df593c",
+          "title": "Sensor Fusion General Flow",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "2e8d701b-1cac-4ec9-926a-246468df593c",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 268181,
+              "key": "b8fb8ae6-34a3-4b4c-be8e-68db68ba9547",
+              "title": "Sensor Fusion General Processing Flow",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "dcTY4vRg5vo",
+                "china_cdn_id": "dcTY4vRg5vo.mp4"
+              }
+            }
+          ]
+        },
+        {
+          "id": 268182,
+          "key": "257edb7a-b99f-4942-85ef-5aee48dcd5e2",
+          "title": "Evaluating KF Performance Part 1",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "257edb7a-b99f-4942-85ef-5aee48dcd5e2",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 268183,
+              "key": "c8927751-2bc8-46da-8a9d-bf9cabac27a0",
+              "title": "Evaluating The Performance",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "1HieeV8IUv8",
+                "china_cdn_id": "1HieeV8IUv8.mp4"
+              }
+            },
+            {
+              "id": 268608,
+              "key": "8d39d1d7-3d24-477d-af95-2b45ec2554b3",
+              "title": "",
+              "semantic_type": "QuizAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "user_state": {
+                "node_key": "8d39d1d7-3d24-477d-af95-2b45ec2554b3",
+                "completed_at": null,
+                "last_viewed_at": null,
+                "unstructured": null
+              },
+              "instruction": null,
+              "question": {
+                "title": "",
+                "semantic_type": "ProgrammingQuestion",
+                "evaluation_id": "6062792214970368",
+                "initial_code_files": [
+                  {
+                    "text": "#include <iostream>\r\n#include <vector>\r\n#include \"Dense\"\r\n\r\nusing Eigen::MatrixXd;\r\nusing Eigen::VectorXd;\r\nusing std::cout;\r\nusing std::endl;\r\nusing std::vector;\r\n\r\nVectorXd CalculateRMSE(const vector<VectorXd> &estimations,\r\n    const vector<VectorXd> &ground_truth);\r\n\r\nint main() {\r\n  /**\r\n   * Compute RMSE\r\n   */\r\n  vector<VectorXd> estimations;\r\n  vector<VectorXd> ground_truth;\r\n\r\n  // the input list of estimations\r\n  VectorXd e(4);\r\n  e << 1, 1, 0.2, 0.1;\r\n  estimations.push_back(e);\r\n  e << 2, 2, 0.3, 0.2;\r\n  estimations.push_back(e);\r\n  e << 3, 3, 0.4, 0.3;\r\n  estimations.push_back(e);\r\n\r\n  // the corresponding list of ground truth values\r\n  VectorXd g(4);\r\n  g << 1.1, 1.1, 0.3, 0.2;\r\n  ground_truth.push_back(g);\r\n  g << 2.1, 2.1, 0.4, 0.3;\r\n  ground_truth.push_back(g);\r\n  g << 3.1, 3.1, 0.5, 0.4;\r\n  ground_truth.push_back(g);\r\n\r\n  // call the CalculateRMSE and print out the result\r\n  cout << CalculateRMSE(estimations, ground_truth) << endl;\r\n\r\n  return 0;\r\n}\r\n\r\nVectorXd CalculateRMSE(const vector<VectorXd> &estimations,\r\n    const vector<VectorXd> &ground_truth) {\r\n\r\n  VectorXd rmse(4);\r\n  rmse << 0,0,0,0;\r\n\r\n  // TODO: YOUR CODE HERE\r\n  // check the validity of the following inputs:\r\n  //  * the estimation vector size should not be zero\r\n  //  * the estimation vector size should equal ground truth vector size\r\n\r\n  // TODO: accumulate squared residuals\r\n  for (int i=0; i < estimations.size(); ++i) {\r\n    // ... your code here\r\n    \r\n  }\r\n\r\n  // TODO: calculate the mean\r\n\r\n  // TODO: calculate the squared root\r\n\r\n  // return the result\r\n  return rmse;\r\n}\r\n",
+                    "name": "main.cpp"
+                  }
+                ]
+              },
+              "answer": null
+            }
+          ]
+        },
+        {
+          "id": 268184,
+          "key": "c46a47f0-7cdc-4e49-b225-5134b438255a",
+          "title": "Evaluating KF Performance 2",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "c46a47f0-7cdc-4e49-b225-5134b438255a",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 268185,
+              "key": "ccfc05a0-a0ea-42ae-aafa-fda96eda0f9a",
+              "title": "Evaluating The Performance",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "1iVBYQ_KWXk",
+                "china_cdn_id": "1iVBYQ_KWXk.mp4"
+              }
+            },
+            {
+              "id": 268676,
+              "key": "52ba7f6f-211c-43d5-8507-85ff6497e4cc",
+              "title": "",
+              "semantic_type": "QuizAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "user_state": {
+                "node_key": "52ba7f6f-211c-43d5-8507-85ff6497e4cc",
+                "completed_at": null,
+                "last_viewed_at": null,
+                "unstructured": null
+              },
+              "instruction": null,
+              "question": {
+                "title": "",
+                "semantic_type": "ProgrammingQuestion",
+                "evaluation_id": "5412065478049792",
+                "initial_code_files": [
+                  {
+                    "text": "#include <iostream>\n#include <vector>\n#include \"Dense\"\n\nusing Eigen::MatrixXd;\nusing Eigen::VectorXd;\nusing std::cout;\nusing std::endl;\nusing std::vector;\n\nVectorXd CalculateRMSE(const vector<VectorXd> &estimations,\n    const vector<VectorXd> &ground_truth);\n\nint main() {\n  /**\n   * Compute RMSE\n   */\n  vector<VectorXd> estimations;\n  vector<VectorXd> ground_truth;\n\n  // the input list of estimations\n  VectorXd e(4);\n  e << 1, 1, 0.2, 0.1;\n  estimations.push_back(e);\n  e << 2, 2, 0.3, 0.2;\n  estimations.push_back(e);\n  e << 3, 3, 0.4, 0.3;\n  estimations.push_back(e);\n\n  // the corresponding list of ground truth values\n  VectorXd g(4);\n  g << 1.1, 1.1, 0.3, 0.2;\n  ground_truth.push_back(g);\n  g << 2.1, 2.1, 0.4, 0.3;\n  ground_truth.push_back(g);\n  g << 3.1, 3.1, 0.5, 0.4;\n  ground_truth.push_back(g);\n\n  // call the CalculateRMSE and print out the result\n  cout << CalculateRMSE(estimations, ground_truth) << endl;\n\n\n  return 0;\n}\n\nVectorXd CalculateRMSE(const vector<VectorXd> &estimations,\n    const vector<VectorXd> &ground_truth) {\n\n  VectorXd rmse(4);\n  rmse << 0,0,0,0;\n\n  // check the validity of the following inputs:\n  //  * the estimation vector size should not be zero\n  //  * the estimation vector size should equal ground truth vector size\n  if (estimations.size() != ground_truth.size()\n      || estimations.size() == 0) {\n    cout << \"Invalid estimation or ground_truth data\" << endl;\n    return rmse;\n  }\n\n  // accumulate squared residuals\n  for (unsigned int i=0; i < estimations.size(); ++i) {\n\n    VectorXd residual = estimations[i] - ground_truth[i];\n\n    // coefficient-wise multiplication\n    residual = residual.array()*residual.array();\n    rmse += residual;\n  }\n\n  // calculate the mean\n  rmse = rmse/estimations.size();\n\n  // calculate the squared root\n  rmse = rmse.array().sqrt();\n\n  // return the result\n  return rmse;\n}",
+                    "name": "main.cpp"
+                  }
+                ]
+              },
+              "answer": null
+            }
+          ]
+        },
+        {
+          "id": 229729,
+          "key": "3a1f24af-a505-4390-86b7-b46460e84635",
+          "title": "Outro",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "3a1f24af-a505-4390-86b7-b46460e84635",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 269170,
+              "key": "dbce6bb2-705a-4cc8-ba43-86ebd87636a9",
+              "title": "Outro",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "k5VhLE0OoOM",
+                "china_cdn_id": "k5VhLE0OoOM.mp4"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "_deprecated": [
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    },
+    {
+      "name": "non_google_url",
+      "reason": "(2016/8/18) Not sure, ask i18n team for reason"
+    }
+  ]
+}

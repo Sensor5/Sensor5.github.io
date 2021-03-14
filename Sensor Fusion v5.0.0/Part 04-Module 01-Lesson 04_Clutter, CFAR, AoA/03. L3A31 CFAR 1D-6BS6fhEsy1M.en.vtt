@@ -1,0 +1,55 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:02.220
+As seen in the previous concept,
+
+00:00:02.220 --> 00:00:05.070
+fixed thresholding is not an optimal solution.
+
+00:00:05.070 --> 00:00:07.214
+Hence, we have CFAR,
+
+00:00:07.214 --> 00:00:09.660
+constant false alarm rate, or CFAR,
+
+00:00:09.660 --> 00:00:15.030
+is the solution to keep the false alarm rates lower without missing that valid targets.
+
+00:00:15.029 --> 00:00:16.995
+Let's see how CFAR works.
+
+00:00:16.995 --> 00:00:20.925
+CFAR varies the detection threshold based on the target surroundings.
+
+00:00:20.925 --> 00:00:24.600
+The basis of the processes that when noise is present,
+
+00:00:24.600 --> 00:00:29.179
+the cells around the cell of interest will contain a good estimate of the noise.
+
+00:00:29.179 --> 00:00:31.429
+That is, it assumes that the noise or
+
+00:00:31.429 --> 00:00:34.505
+interference is spatially or temporally homogeneous.
+
+00:00:34.505 --> 00:00:35.960
+Theoretically, it will produce
+
+00:00:35.960 --> 00:00:40.270
+a constant false alarm rate which is independent of the noise at clutter level.
+
+00:00:40.270 --> 00:00:44.895
+In the image, the blue wearing line is a CFAR threshold,
+
+00:00:44.895 --> 00:00:50.025
+where the rest three are the fixed thresholds were different offsets.
+
+00:00:50.024 --> 00:00:53.594
+CFAR allows while the targets should to be detected,
+
+00:00:53.594 --> 00:00:57.729
+and at the same time, suppresses the clutter noise.
+

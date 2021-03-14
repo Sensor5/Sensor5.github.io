@@ -1,0 +1,411 @@
+<!-- udacimak v1.4.4 -->
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <meta content="ie=edge" http-equiv="X-UA-Compatible"/>
+  <title>
+   Angle of Arrival Introduction
+  </title>
+  <link href="../assets/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="../assets/css/plyr.css" rel="stylesheet"/>
+  <link href="../assets/css/katex.min.css" rel="stylesheet"/>
+  <link href="../assets/css/jquery.mCustomScrollbar.min.css" rel="stylesheet"/>
+  <link href="../assets/css/styles.css" rel="stylesheet"/>
+  <link href="../assets/img/udacimak.png" rel="shortcut icon" type="image/png">
+  </link>
+ </head>
+ <body>
+  <div class="wrapper">
+   <nav id="sidebar">
+    <div class="sidebar-header">
+     <h3>
+      Clutter, CFAR, AoA
+     </h3>
+    </div>
+    <ul class="sidebar-list list-unstyled CTAs">
+     <li>
+      <a class="article" href="../index.html">
+       Back to Home
+      </a>
+     </li>
+    </ul>
+    <ul class="sidebar-list list-unstyled components">
+     <li class="">
+      <a href="01. Clutter, CFAR, AoA.html">
+       01. Clutter, CFAR, AoA
+      </a>
+     </li>
+     <li class="">
+      <a href="02. Clutter.html">
+       02. Clutter
+      </a>
+     </li>
+     <li class="">
+      <a href="03. CFAR.html">
+       03. CFAR
+      </a>
+     </li>
+     <li class="">
+      <a href="04. CA-CFAR.html">
+       04. CA-CFAR
+      </a>
+     </li>
+     <li class="">
+      <a href="05. CFAR 2D.html">
+       05. CFAR 2D
+      </a>
+     </li>
+     <li class="">
+      <a href="06. Angle of Arrival Introduction.html">
+       06. Angle of Arrival Introduction
+      </a>
+     </li>
+    </ul>
+    <ul class="sidebar-list list-unstyled CTAs">
+     <li>
+      <a class="article" href="../index.html">
+       Back to Home
+      </a>
+     </li>
+    </ul>
+   </nav>
+   <div id="content">
+    <header class="container-fluild header">
+     <div class="container">
+      <div class="row">
+       <div class="col-12">
+        <div class="align-items-middle">
+         <button class="btn btn-toggle-sidebar" id="sidebarCollapse" type="button">
+          <div>
+          </div>
+          <div>
+          </div>
+          <div>
+          </div>
+         </button>
+         <h1 style="display: inline-block">
+          06. Angle of Arrival Introduction
+         </h1>
+        </div>
+       </div>
+      </div>
+     </div>
+    </header>
+    <main class="container">
+     <div class="row">
+      <div class="col-12">
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h1 id="angle-of-arrival-introduction">
+          Angle of Arrival Introduction
+         </h1>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+         <p>
+          Phased Array Antenna
+         </p>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="Metawave’s Beam Steering Radar" class="img img-fluid" src="img/image6.png"/>
+          <figcaption class="figure-caption">
+           <p>
+            Metawave’s Beam Steering Radar
+           </p>
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+         <p>
+          Phase Array Introduction Heading
+         </p>
+        </h3>
+        <div>
+         <p>
+          A
+          <em>
+           phased array antenna
+          </em>
+          is an antenna array that steers the beam electronically in the desired direction. The array steers the beam if each antenna element in an array is excited by the signal with certain phase values. This phenomenon is referred to as beam scanning.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+         <p>
+          Beam Scanning Radar
+         </p>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt='Beam Steering Design. Here the &lt;span class="mathquill"&gt;\Phi &lt;/span&gt; represents the phase shifters. Phase shifters are the electronic components that changes the phase to make the beam steer in a desired direction.
+
+source : analog.com' class="img img-fluid" src="img/image8.png"/>
+          <figcaption class="figure-caption">
+           <p>
+            Beam Steering Design. Here the
+            <span class="mathquill ud-math">
+             \Phi
+            </span>
+            represents the phase shifters. Phase shifters are the electronic components that changes the phase to make the beam steer in a desired direction.
+           </p>
+           <p>
+            source : analog.com
+           </p>
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+         <p>
+          Beam Steering Radar
+         </p>
+        </h3>
+        <div>
+         <p>
+          For antenna beam to steer in a desired direction, the phase shifters are programmed to have constant phase increments. If an antenna comprises of six radiating elements and the phase delta required to steer a beam in a given direction is 15 degrees, then the following would be the phase value on each element [0,15,30,45,60,75] degrees. The increment phase shift along with the spacing between antenna elements (d) determines the steering angle of an antenna using the following equation
+         </p>
+         <div class="mathquill">
+          \Phi = 360\cdot d \cdot\sin(theta)/λ
+         </div>
+         <ul>
+          <li>
+           <span class="mathquill ud-math">
+            \Phi=
+           </span>
+           incremental phase shift
+          </li>
+          <li>
+           <span class="mathquill ud-math">
+            d =
+           </span>
+           spacing between antenna elements
+          </li>
+          <li>
+           <span class="mathquill ud-math">
+            \theta=
+           </span>
+           steering direction from the normal of the antenna surface
+          </li>
+          <li>
+           <span class="mathquill ud-math">
+            \lambda=
+           </span>
+           wavelength of the signal
+          </li>
+         </ul>
+         <p>
+          As the radar scan the surroundings by steering the beam at the programmed angles, it can sense the angle of the return signal. This helps Radar create a spatial perception of the environment.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+         <p>
+          Phase Array Graphic
+         </p>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="Radar Module for Automotive Applications from D3 Engineering" class="img img-fluid" src="img/image3.png"/>
+          <figcaption class="figure-caption">
+           <p>
+            Radar Module for Automotive Applications from D3 Engineering
+           </p>
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h2 id="angle-of-arrival">
+          Angle of Arrival
+         </h2>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="Road scenario for beam steering radar" class="img img-fluid" src="img/image11.png"/>
+          <figcaption class="figure-caption">
+           <p>
+            Road scenario for beam steering radar
+           </p>
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <p>
+          As the radar scans the surroundings by steering the beam at the programmed angles, it measures the SNR of reflected signals from targets located at different angles spatially. This helps in creating an angle of arrival vs SNR grid for radar’s spatial perception.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="" class="img img-fluid" src="img/image3.png"/>
+          <figcaption class="figure-caption">
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h4>
+          Start Quiz:
+         </h4>
+         Unknown quiz type. Please contact the developer to make it compatible with this atom type!
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h2 id="further-research">
+          Further Research
+         </h2>
+         <p>
+          For more information about phased array antennas see
+          <a href="http://www.radartutorial.eu/06.antennas/Phased%20Array%20Antenna.en.html" rel="noopener noreferrer" target="_blank">
+           here
+          </a>
+          .
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+      </div>
+      <div class="col-12">
+       <p class="text-right">
+       </p>
+      </div>
+     </div>
+    </main>
+    <footer class="footer">
+     <div class="container">
+      <div class="row">
+       <div class="col-12">
+        <p class="text-center">
+         udacity2.0 If you need the newest courses Plase add me wechat: udacity6
+        </p>
+       </div>
+      </div>
+     </div>
+    </footer>
+   </div>
+  </div>
+  <script src="../assets/js/jquery-3.3.1.min.js">
+  </script>
+  <script src="../assets/js/plyr.polyfilled.min.js">
+  </script>
+  <script src="../assets/js/bootstrap.min.js">
+  </script>
+  <script src="../assets/js/jquery.mCustomScrollbar.concat.min.js">
+  </script>
+  <script src="../assets/js/katex.min.js">
+  </script>
+  <script>
+   // Initialize Plyr video players
+    const players = Array.from(document.querySelectorAll('video')).map(p => new Plyr(p));
+
+    // render math equations
+    let elMath = document.getElementsByClassName('mathquill');
+    for (let i = 0, len = elMath.length; i < len; i += 1) {
+      const el = elMath[i];
+
+      katex.render(el.textContent, el, {
+        throwOnError: false
+      });
+    }
+
+    // this hack will make sure Bootstrap tabs work when using Handlebars
+    if ($('#question-tabs').length && $('#user-answer-tabs').length) {
+      $("#question-tabs a.nav-link").on('click', function () {
+        $("#question-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+      $("#user-answer-tabs a.nav-link").on('click', function () {
+        $("#user-answer-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    } else {
+      $("a.nav-link").on('click', function () {
+        $(".tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    }
+
+    // side bar events
+    $(document).ready(function () {
+      $("#sidebar").mCustomScrollbar({
+        theme: "minimal"
+      });
+
+      $('#sidebarCollapse').on('click', function () {
+        $('#sidebar, #content').toggleClass('active');
+        $('.collapse.in').toggleClass('in');
+        $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+      });
+
+      // scroll to first video on page loading
+      if ($('video').length) {
+        $('html,body').animate({ scrollTop: $('div.plyr').prev().offset().top});
+      }
+
+      // auto play first video: this may not work with chrome/safari due to autoplay policy
+      if (players && players.length > 0) {
+        players[0].play();
+      }
+
+      // scroll sidebar to current concept
+      const currentInSideBar = $( "ul.sidebar-list.components li a:contains('06. Angle of Arrival Introduction')" )
+      currentInSideBar.css( "text-decoration", "underline" );
+      $("#sidebar").mCustomScrollbar('scrollTo', currentInSideBar);
+    });
+  </script>
+ </body>
+</html>

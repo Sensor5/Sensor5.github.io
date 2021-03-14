@@ -1,0 +1,46 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:04.245
+Time to try implement the 1D-CFAR in the practice workshop.
+
+00:00:04.245 --> 00:00:05.780
+Once you implement the code,
+
+00:00:05.780 --> 00:00:08.580
+you should be able to see the output in this format.
+
+00:00:08.580 --> 00:00:13.664
+Let's give it a try, and remember the noise samples used here are random.
+
+00:00:13.664 --> 00:00:16.234
+So everyone will have different plot,
+
+00:00:16.234 --> 00:00:20.989
+but the important part is that we should be able to vary the threshold dynamically,
+
+00:00:20.989 --> 00:00:23.419
+and successfully detect the target signals.
+
+00:00:23.420 --> 00:00:24.710
+Once you have the plot,
+
+00:00:24.710 --> 00:00:29.960
+you can closely observe how the Red Sea for our threshold varies along the signal length.
+
+00:00:29.960 --> 00:00:35.314
+It aligns well with the target peaks and suppresses the homogeneously spread noise.
+
+00:00:35.314 --> 00:00:39.199
+There will be cases where you will see false positives in your results.
+
+00:00:39.200 --> 00:00:41.325
+In that case, go back to your code,
+
+00:00:41.325 --> 00:00:43.350
+and try different CNFAR set,
+
+00:00:43.350 --> 00:00:47.820
+or different number of training and guard cell numbers.
+

@@ -1,0 +1,22 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:03.194
+The 2D C4 is similar to 1D C4,
+
+00:00:03.194 --> 00:00:06.554
+but it's implemented in both dimensions of the range Doppler block.
+
+00:00:06.554 --> 00:00:11.894
+The 2D CSV4 implementation involves the training cells surrounding the cell in the test,
+
+00:00:11.894 --> 00:00:17.414
+the guard gradient between to prevent the impact of a target signal on noise estimate.
+
+00:00:17.414 --> 00:00:21.390
+Different number of cells can be assigned for range and Doppler thresholding.
+
+00:00:21.390 --> 00:00:26.740
+We will learn more about the 2D C4 as we implement it in the final project.
+

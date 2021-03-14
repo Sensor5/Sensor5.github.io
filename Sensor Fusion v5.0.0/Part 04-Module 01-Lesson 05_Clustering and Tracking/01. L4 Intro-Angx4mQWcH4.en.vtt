@@ -1,0 +1,28 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:02.024
+Welcome to our last lesson.
+
+00:00:02.024 --> 00:00:05.179
+Here we will go through some more post processing techniques.
+
+00:00:05.179 --> 00:00:07.115
+We will look into clustering algorithm,
+
+00:00:07.115 --> 00:00:10.740
+which is important for our radar to make sense out of its detection.
+
+00:00:10.740 --> 00:00:13.605
+Then we will touch base with common tracking.
+
+00:00:13.605 --> 00:00:15.570
+Later in this lesson's workspace,
+
+00:00:15.570 --> 00:00:20.100
+we'll walk through a MATLAB sensors fusion code and learn how to implement that.
+
+00:00:20.100 --> 00:00:22.330
+Let's get started.
+

@@ -1,0 +1,39 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.130 --> 00:00:03.569
+Let me show you some real measurements,
+so you can get a sense for
+
+00:00:03.569 --> 00:00:05.823
+the way radar and
+LiDAR detect the world.
+
+00:00:05.823 --> 00:00:10.083
+This is a LiDAR point cloud,
+you can see a person over here.
+
+00:00:10.083 --> 00:00:12.766
+&gt;&gt; That's me, that's me.
+
+00:00:12.766 --> 00:00:16.143
+&gt;&gt; This is output from
+our fusion system.
+
+00:00:16.143 --> 00:00:19.653
+You can see how the dots
+capture David's shape.
+
+00:00:19.653 --> 00:00:24.379
+The lines you see are the laser
+scan layers bouncing off his body.
+
+00:00:24.379 --> 00:00:29.064
+The common filters that you will
+build will take light up point clouds
+
+00:00:29.064 --> 00:00:33.109
+like this and use them to track
+objects in the environment.
+

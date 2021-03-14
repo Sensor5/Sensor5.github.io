@@ -1,0 +1,146 @@
+{
+  "id": 2551,
+  "project_id": 623,
+  "upload_types": [
+    "zip",
+    "repo"
+  ],
+  "file_filter_regex": "\\A(?!(((.*/)?(__MACOSX|\\.git|node_modules|bower_components|jspm_packages|\\.idea|build|.ipynb_checkpoints|\\.Trash-0|logs)(\\Z|/))))((.*\\.(cpp|h|hpp)\\Z)|((.*/)?(README|Readme|readme|Makefile)\\Z))",
+  "nomination_eligible": false,
+  "stand_out": "1. While we're giving this project to you with starter code, you are not actually required to use it! If you think you can organize your Kalman Filter better than us, go for it! Also, this project was templatized in an object-oriented style, however it's reasonable to build a Kalman Filter in a functional style. Feel free to start from scratch with a functional algorithm!\r\n  - Keep in mind that your code *must* compile. If your changes necessitate modifying CMakeLists.txt, you are responsible for ensuring that *any* reviewer can still compile your code given the dependencies listed earlier in the instructions - platform specific errors will *not* be debugged by graders.\r\n\r\n2. There is some room for improvement with the Kalman Filter algorithm. Maybe some aspects of the algorithm could be combined? Maybe some could be skipped under certain circumstances? Maybe there are other ways to improve performance? Get creative!\r\n\r\n3. Compare your results when only using radar or only using lidar. Sensor fusion should give better results than using only one sensor type.",
+  "hide_criteria": false,
+  "created_at": "2019-04-08T22:01:07.005Z",
+  "updated_at": "2019-11-27T15:27:28.587Z",
+  "hashtag": "",
+  "max_upload_size_mb": 1000,
+  "estimated_sla": null,
+  "project_assistant_enabled": false,
+  "checkmate_enabled": false,
+  "checkmate_metadata": null,
+  "available_for_cert_project": false,
+  "classroom_node_id": 842258,
+  "classroom_project_key": "d8a12afe-b96b-4d38-96c2-66ff6371c72c",
+  "language": "en-us",
+  "ndkeys": [
+    "nd313",
+    "nd313-cn",
+    "nd313-beta",
+    "nd313-ent"
+  ],
+  "coursekeys": [],
+  "sections": [
+    {
+      "id": 5505,
+      "name": "Compiling and Testing",
+      "created_at": "2019-04-18T00:43:21.345Z",
+      "updated_at": "2019-04-18T00:43:50.907Z",
+      "deleted_at": null,
+      "position": 0,
+      "rubric_id": 2551,
+      "rubric_items": [
+        {
+          "id": 15861,
+          "section_id": 5505,
+          "passed_description": "The project code must compile without errors using `cmake` and `make`.",
+          "exceeded_description": "",
+          "created_at": "2019-04-18T00:43:51.294Z",
+          "updated_at": "2019-06-28T17:22:06.939Z",
+          "deleted_at": null,
+          "optional": false,
+          "position": 0,
+          "criteria": "The submission must compile.",
+          "exceedable": false
+        }
+      ]
+    },
+    {
+      "id": 5506,
+      "name": "Code Efficiency",
+      "created_at": "2019-04-18T00:44:33.000Z",
+      "updated_at": "2019-04-18T00:45:08.227Z",
+      "deleted_at": null,
+      "position": 1,
+      "rubric_id": 2551,
+      "rubric_items": [
+        {
+          "id": 15862,
+          "section_id": 5506,
+          "passed_description": "Your code does not need to sacrifice comprehension, stability, or robustness for speed. However, you should maintain good and efficient coding practices when writing your functions.\r\n\r\nHere are some things to avoid. This is not a complete list, but there are a few examples of inefficiencies.\r\n\r\n* Running the exact same calculation repeatedly when you can run it once, store the value and then reuse the value later.\r\n* Loops that run too many times.\r\n* Creating unnecessarily complex data structures when simpler structures work equivalently.\r\n* Unnecessary control flow checks.",
+          "exceeded_description": "",
+          "created_at": "2019-04-18T00:45:08.444Z",
+          "updated_at": "2019-06-28T17:22:06.944Z",
+          "deleted_at": null,
+          "optional": false,
+          "position": 0,
+          "criteria": "The methods in the code should avoid unnecessary calculations.",
+          "exceedable": false
+        }
+      ]
+    },
+    {
+      "id": 5507,
+      "name": "Accuracy",
+      "created_at": "2019-04-18T00:46:47.691Z",
+      "updated_at": "2019-04-18T00:47:08.851Z",
+      "deleted_at": null,
+      "position": 2,
+      "rubric_id": 2551,
+      "rubric_items": [
+        {
+          "id": 15863,
+          "section_id": 5507,
+          "passed_description": "The simulation collects the position and velocity values that your algorithm outputs and they are compare to the ground truth data. Your px, py, vx, and vy RMSE should be less than or equal to the values [0.30, 0.16, 0.95, 0.70] after the simulator has ran for longer than 1 second. The simulator will also display if RMSE values surpass the threshold.",
+          "exceeded_description": "",
+          "created_at": "2019-04-18T00:47:09.043Z",
+          "updated_at": "2019-06-28T17:22:06.948Z",
+          "deleted_at": null,
+          "optional": false,
+          "position": 0,
+          "criteria": "px, py, vx, vy output coordinates must have an RMSE <= [0.30, 0.16,  0.95, 0.70] after running for longer than 1 second.",
+          "exceedable": false
+        }
+      ]
+    },
+    {
+      "id": 5508,
+      "name": "Follows the Correct Algorithm",
+      "created_at": "2019-04-18T01:29:52.039Z",
+      "updated_at": "2019-04-18T01:30:24.855Z",
+      "deleted_at": null,
+      "position": 3,
+      "rubric_id": 2551,
+      "rubric_items": [
+        {
+          "id": 15864,
+          "section_id": 5508,
+          "passed_description": "While you may be creative with your implementation, there is a well-defined set of steps that must take place in order to successfully build a Kalman Filter. As such, your project should follow the algorithm as described in the preceding lesson.",
+          "exceeded_description": "",
+          "created_at": "2019-04-18T01:30:24.976Z",
+          "updated_at": "2019-06-28T17:22:06.955Z",
+          "deleted_at": null,
+          "optional": false,
+          "position": 0,
+          "criteria": "Your Sensor Fusion algorithm follows the general processing flow as taught in the preceding lessons.",
+          "exceedable": false
+        }
+      ]
+    }
+  ],
+  "project": {
+    "id": 623,
+    "name": "Unscented Kalman Filter Highway Project",
+    "nanodegree_key": "nd313",
+    "is_cert_project": false,
+    "audit_project_id": null,
+    "hashtag": null,
+    "audit_rubric_id": null,
+    "entitlement_required": false,
+    "is_career": false,
+    "recruitment_family_id": 9,
+    "created_at": "2019-06-26T21:17:29.906Z",
+    "updated_at": "2020-06-01T03:18:47.962Z",
+    "price": "12.0",
+    "ungradeable_price": "3.0",
+    "audit_price": null
+  }
+}

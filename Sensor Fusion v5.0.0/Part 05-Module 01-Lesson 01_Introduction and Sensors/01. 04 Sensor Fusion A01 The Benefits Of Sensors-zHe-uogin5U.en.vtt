@@ -1,0 +1,76 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:03.855
+We played a lot with images and camera images.
+
+00:00:03.855 --> 00:00:06.720
+As you might imagine, eyes for
+
+00:00:06.719 --> 00:00:09.460
+the machine are as important as our own eyes when we see the world.
+
+00:00:09.460 --> 00:00:11.040
+But we don't just have eyes,
+
+00:00:11.039 --> 00:00:15.264
+we have noses, we have ears, we have skin,
+
+00:00:15.265 --> 00:00:19.289
+we have built-in sensors that can measure the deflection
+
+00:00:19.289 --> 00:00:23.710
+of our muscles or we can understand the gravity points through our ears.
+
+00:00:23.710 --> 00:00:25.670
+So, these sensors give us, people,
+
+00:00:25.670 --> 00:00:28.679
+the ability to have this kind of amazing image of the world,
+
+00:00:28.679 --> 00:00:30.120
+it goes way beyond computer vision.
+
+00:00:30.120 --> 00:00:33.730
+Now, the same is true for cars.
+
+00:00:33.729 --> 00:00:36.079
+There's sensors called radar,
+
+00:00:36.079 --> 00:00:40.219
+lidar or laser, and many other sensors.
+
+00:00:40.219 --> 00:00:43.850
+A self-driving car expert takes input
+
+00:00:43.850 --> 00:00:47.280
+from all these data sources and turns then into coherent picture.
+
+00:00:47.280 --> 00:00:51.570
+Why say more than one where it's completely obvious like your eyes can't smell and
+
+00:00:51.570 --> 00:00:53.539
+your nose can't hear and
+
+00:00:53.539 --> 00:00:56.579
+these different types of information are still important to live human life.
+
+00:00:56.579 --> 00:00:59.434
+The same is true for car. So, lidar is able to see
+
+00:00:59.435 --> 00:01:02.664
+distances which eyes have a hard time with,
+
+00:01:02.664 --> 00:01:08.280
+and radar can see sometimes through fog where visible lights can't go through.
+
+00:01:08.280 --> 00:01:11.480
+So, now we're going to dive in and talk about two sensors,
+
+00:01:11.480 --> 00:01:15.155
+talking about the math behind it and eventually work on
+
+00:01:15.155 --> 00:01:20.000
+integrating sources from multiple sensors into one singular world picture.
+

@@ -1,0 +1,225 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.360 --> 00:00:02.929
+Welcome to the Sensor Fusion module.
+
+00:00:02.930 --> 00:00:06.189
+Sensor Fusion has a car or
+any sensing robot for
+
+00:00:06.190 --> 00:00:09.620
+that matter, understand and
+track its environment.
+
+00:00:09.619 --> 00:00:13.399
+&gt;&gt; The environment could consist of
+other cars, or barriers on the shoulder
+
+00:00:13.400 --> 00:00:17.190
+of the road, or motorcycles, or
+pedestrians walking across the road.
+
+00:00:17.190 --> 00:00:18.550
+&gt;&gt; Don't hit the pedestrians.
+
+00:00:18.550 --> 00:00:20.280
+&gt;&gt; That's right,
+don't hit the pedestrians.
+
+00:00:20.280 --> 00:00:21.740
+&gt;&gt; We'll get to that.
+
+00:00:21.739 --> 00:00:24.449
+First, I want you all
+to meet a few people.
+
+00:00:24.449 --> 00:00:28.859
+This is Michael Maile, the Director of
+the Sensor Fusion Team at Mercedes-Benz.
+
+00:00:28.859 --> 00:00:29.800
+&gt;&gt; Hello.
+
+00:00:29.800 --> 00:00:31.539
+&gt;&gt; And also from Mercedes-Benz,
+
+00:00:31.539 --> 00:00:35.269
+we're joined by two engineers on
+Michael's team, Andrei Vatavu.
+
+00:00:35.270 --> 00:00:35.691
+&gt;&gt; Hi.
+
+00:00:35.691 --> 00:00:36.945
+&gt;&gt; And Dominik Nuss.
+
+00:00:36.945 --> 00:00:38.060
+&gt;&gt; Welcome.
+
+00:00:38.060 --> 00:00:40.880
+&gt;&gt; By the end of this module,
+you'll implement your own
+
+00:00:40.880 --> 00:00:45.359
+sensor fusion algorithm to track
+a pedestrian relative to a car.
+
+00:00:45.359 --> 00:00:48.700
+To do this you'll need to fuse lidar and
+radar data.
+
+00:00:48.700 --> 00:00:51.790
+You'll be working with a technique
+called a Kalman filter.
+
+00:00:51.789 --> 00:00:55.729
+You'll start with a basic Kalman
+filter and then Andre and
+
+00:00:55.729 --> 00:01:00.009
+Dominic will help you extend
+it to more complex data.
+
+00:01:00.009 --> 00:01:03.000
+&gt;&gt; We're in the first lesson right now,
+in a moment,
+
+00:01:03.000 --> 00:01:06.149
+Micheal will walk you through
+the basics of lidar and radar sensors.
+
+00:01:07.200 --> 00:01:09.590
+&gt;&gt; In the second lesson,
+you'll be with Sebastian.
+
+00:01:09.590 --> 00:01:13.120
+When it comes to the concept of
+Kalman filters, he's the best.
+
+00:01:13.120 --> 00:01:16.141
+You'll work through part of
+Sebastian's AI for robotics course,
+
+00:01:16.141 --> 00:01:19.609
+in which you'll build a simplified
+Kalman filter in Python.
+
+00:01:19.609 --> 00:01:23.099
+If you've already taken Sebastian's
+course, feel free to skip ahead.
+
+00:01:23.099 --> 00:01:24.885
+&gt;&gt; Then we'll come to a big change.
+
+00:01:24.885 --> 00:01:26.856
+&gt;&gt; You mean C++?
+
+00:01:26.856 --> 00:01:28.331
+&gt;&gt; Indeed.
+
+00:01:28.331 --> 00:01:30.466
+&gt;&gt; Sensor fusion needs
+to happen quickly,
+
+00:01:30.466 --> 00:01:33.454
+which means we need to use
+a high performance language.
+
+00:01:33.454 --> 00:01:39.349
+C++ is a critical language for
+performing real-time operations.
+
+00:01:39.349 --> 00:01:44.539
+We use it as Mercedes and you use it
+to build your project in this module.
+
+00:01:44.540 --> 00:01:47.780
+&gt;&gt; So the third lesson is what
+are calling a C++ checkpoint.
+
+00:01:47.780 --> 00:01:52.230
+You'll face some challenges that test
+your ability to apply C++ techniques.
+
+00:01:52.230 --> 00:01:56.950
+Once you complete them, you're ready
+to build basic Kalman filters with C++.
+
+00:01:56.950 --> 00:01:59.909
+&gt;&gt; So,
+what if you don't already know C++?
+
+00:01:59.909 --> 00:02:00.939
+In that case,
+
+00:02:00.939 --> 00:02:04.480
+we've provided some resources that
+can help you get up to speed.
+
+00:02:04.480 --> 00:02:08.009
+You can use these resources to
+familiarize yourself with core C++
+
+00:02:08.008 --> 00:02:11.529
+concepts so
+that you can pass these challenges.
+
+00:02:11.530 --> 00:02:14.500
+The good news is that the C++
+you'll use in this module
+
+00:02:14.500 --> 00:02:16.560
+will look quite a bit like Python.
+
+00:02:16.560 --> 00:02:21.020
+You should be fine with just the basics
+of control flow, functions, classes, and
+
+00:02:21.020 --> 00:02:22.340
+references.
+
+00:02:22.340 --> 00:02:24.590
+&gt;&gt; After that you'll be
+working with Andre and
+
+00:02:24.590 --> 00:02:26.990
+Dominic for the next two lessons.
+
+00:02:26.990 --> 00:02:30.180
+&gt;&gt; Lidar and
+radar produce very different data.
+
+00:02:30.180 --> 00:02:35.129
+I'll help you implement a Kalman filter
+in C++ to fuse together data from both
+
+00:02:35.129 --> 00:02:36.650
+of these sensors.
+
+00:02:36.650 --> 00:02:41.140
+&gt;&gt; In my lesson, you'll perform sensor
+fusion with an unscented Kalman filter.
+
+00:02:41.139 --> 00:02:44.589
+This is a different technique for object
+tracking that provides another tool for
+
+00:02:44.590 --> 00:02:48.740
+handling non linear motion,
+such as a turning car or a bicycle.
+
+00:02:48.740 --> 00:02:51.090
+&gt;&gt; Okay, this is going to be fun.
+
+00:02:51.090 --> 00:02:52.120
+Let's get started.
+
+00:02:52.120 --> 00:02:55.270
+Michael, are you ready to show
+off your self driving car?
+
+00:02:55.270 --> 00:02:55.760
+&gt;&gt; Definitely.
+

@@ -1,0 +1,52 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.220 --> 00:00:03.130
+Thanks for the walk-through,
+that is a pretty cool car.
+
+00:00:04.710 --> 00:00:05.839
+&gt;&gt; You're welcome.
+
+00:00:05.839 --> 00:00:09.810
+We're proud of Chewbacca, but
+hardware is changing all the time.
+
+00:00:09.810 --> 00:00:14.429
+Finding the best sensor solution
+is an open and ongoing problem.
+
+00:00:14.429 --> 00:00:17.339
+We'll be updating Chewbacca
+as hardware improves.
+
+00:00:17.339 --> 00:00:21.079
+Sensor fusion is only as
+useful as the hardware itself.
+
+00:00:21.079 --> 00:00:25.619
+More data means less uncertainty
+in the position of nearby objects.
+
+00:00:25.620 --> 00:00:27.289
+As hardware gets cheaper,
+
+00:00:27.289 --> 00:00:31.379
+we'll improve our ability to
+model the world with more data.
+
+00:00:31.379 --> 00:00:34.640
+&gt;&gt; Coming up next, you'll build
+common filters with Sebastian.
+
+00:00:34.640 --> 00:00:36.189
+If you've taken Sebastian's AI for
+
+00:00:36.189 --> 00:00:40.199
+Robotics class recently, feel free
+to skip ahead to the C++ checkpoint.
+
+00:00:40.200 --> 00:00:41.170
+Otherwise, have fun.
+

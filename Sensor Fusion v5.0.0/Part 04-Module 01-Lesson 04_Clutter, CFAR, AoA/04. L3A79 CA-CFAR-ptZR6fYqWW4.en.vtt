@@ -1,0 +1,112 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:02.940
+CA, a sell averaging C4,
+
+00:00:02.940 --> 00:00:05.835
+is the most commonly used C4 detection technique.
+
+00:00:05.835 --> 00:00:07.544
+As seen in the previous lesson,
+
+00:00:07.544 --> 00:00:09.900
+the 50 blocks are generated on implementing
+
+00:00:09.900 --> 00:00:12.509
+range and Doppler FFTs across a number of charts.
+
+00:00:12.509 --> 00:00:15.105
+A C4 per sales includes,
+
+00:00:15.105 --> 00:00:18.554
+a sliding of a window across the cells in these FFT block.
+
+00:00:18.554 --> 00:00:20.789
+The process looks across the cells,
+
+00:00:20.789 --> 00:00:24.600
+and decides the presence of targets based on the noise estimate.
+
+00:00:24.600 --> 00:00:28.980
+The sliding window consist of the following cells: First,
+
+00:00:28.980 --> 00:00:30.690
+is the cell under test.
+
+00:00:30.690 --> 00:00:34.469
+This is the cell that is tested to detect the presence of the target,
+
+00:00:34.469 --> 00:00:39.164
+by comparing the signal level against the noise estimate, that is the threshold.
+
+00:00:39.164 --> 00:00:41.909
+Next are the training cells.
+
+00:00:41.909 --> 00:00:44.929
+The level of noise is measured over training cells.
+
+00:00:44.929 --> 00:00:47.299
+They can be divided into two regions,
+
+00:00:47.299 --> 00:00:52.069
+the cells lagging the cell under test called lagging training cells,
+
+00:00:52.070 --> 00:00:56.380
+and the cells leading the training cells called leading training cells.
+
+00:00:56.380 --> 00:00:58.289
+As you see in the equation,
+
+00:00:58.289 --> 00:01:02.914
+noise is estimated by averaging the noise level within the training cells.
+
+00:01:02.914 --> 00:01:07.450
+In some cases, either leading or lagging cell average is taken.
+
+00:01:07.450 --> 00:01:11.820
+In others, the leading and lagging cell average is combined,
+
+00:01:11.819 --> 00:01:14.944
+and higher average is taken as a noise level.
+
+00:01:14.944 --> 00:01:18.664
+The number of training cells should be decided based on the environment.
+
+00:01:18.665 --> 00:01:20.645
+In a dense traffic scenario,
+
+00:01:20.644 --> 00:01:23.089
+fewer training cells should be used as
+
+00:01:23.090 --> 00:01:26.445
+closely spaced targets can impact the noise estimate.
+
+00:01:26.444 --> 00:01:28.669
+Last, the guard cells.
+
+00:01:28.670 --> 00:01:32.765
+The cells just next to the cell in the test are assigned as guard cells.
+
+00:01:32.765 --> 00:01:34.700
+The purpose of the guard cells is to avoid
+
+00:01:34.700 --> 00:01:37.790
+the target signal from leaking into the training cells,
+
+00:01:37.790 --> 00:01:40.115
+which can adversely affect the noise estimate.
+
+00:01:40.114 --> 00:01:42.559
+The number of guards cells should be decided based on
+
+00:01:42.560 --> 00:01:45.829
+the leakage of the target signal out of the cell and the test.
+
+00:01:45.829 --> 00:01:48.620
+If the cell target size is large,
+
+00:01:48.620 --> 00:01:51.960
+they often get into surrounding bins.
+

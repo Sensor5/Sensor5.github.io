@@ -1,0 +1,85 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:04.695
+So this is where we define the road scenario.
+
+00:00:04.695 --> 00:00:08.415
+This comes from the driving toolbox and here,
+
+00:00:08.414 --> 00:00:10.079
+we define the different actors.
+
+00:00:10.080 --> 00:00:13.589
+When I say actors, that means the different vehicles on the road.
+
+00:00:13.589 --> 00:00:18.045
+You can generate this output in the driving toolbox.
+
+00:00:18.045 --> 00:00:22.665
+After that, we define the configuration for sensors.
+
+00:00:22.664 --> 00:00:25.320
+In this case we are using six sensors on
+
+00:00:25.320 --> 00:00:32.460
+the legal vehicle and each of them has the parameters defined in the driving toolbox.
+
+00:00:32.460 --> 00:00:34.634
+So you can go into the driving toolbox,
+
+00:00:34.634 --> 00:00:37.605
+you can pick different configuration for each sensor,
+
+00:00:37.604 --> 00:00:40.329
+and you can mount it on the car.
+
+00:00:40.969 --> 00:00:45.350
+This is where the main loop begins.
+
+00:00:45.350 --> 00:00:52.310
+So here you can see the tracker takes a detections from their radar sensors
+
+00:00:52.310 --> 00:00:56.030
+and it run it through the tracker function as well as
+
+00:00:56.030 --> 00:01:00.995
+the clustering function to generate the confirm tracks.
+
+00:01:00.994 --> 00:01:03.949
+The clustering function is the same function that we looked
+
+00:01:03.950 --> 00:01:07.355
+through and it is defined over here.
+
+00:01:07.355 --> 00:01:14.650
+This is where you define the common filter based on your motion model.
+
+00:01:14.920 --> 00:01:18.859
+A common filter after being defined goes into
+
+00:01:18.859 --> 00:01:25.629
+this multi-object tracker and this is where the tracker is generated.
+
+00:01:25.730 --> 00:01:29.439
+Using all this once we run the code,
+
+00:01:29.719 --> 00:01:33.459
+we get the output in this format.
+
+00:01:33.799 --> 00:01:38.560
+So as you can see, the car in blue is a legal vehicle.
+
+00:01:38.560 --> 00:01:42.984
+It has six sensors around it, the radar sensors.
+
+00:01:42.984 --> 00:01:46.924
+Now you can see on the yellow car as it passes by,
+
+00:01:46.924 --> 00:01:50.379
+it's detecting multiple points.
+
+00:01:50.379 --> 00:01:56.109
+The one in the black square in the circle is the tracker.
+

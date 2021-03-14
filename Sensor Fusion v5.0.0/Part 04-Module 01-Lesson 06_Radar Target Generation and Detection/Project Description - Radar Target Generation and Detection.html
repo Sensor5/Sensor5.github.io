@@ -1,0 +1,254 @@
+<!-- udacimak v1.4.4 -->
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <meta content="ie=edge" http-equiv="X-UA-Compatible"/>
+  <title>
+   Radar Target Generation and Detection
+  </title>
+  <link href="../assets/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="../assets/css/plyr.css" rel="stylesheet"/>
+  <link href="../assets/css/katex.min.css" rel="stylesheet"/>
+  <link href="../assets/css/jquery.mCustomScrollbar.min.css" rel="stylesheet"/>
+  <link href="../assets/css/styles.css" rel="stylesheet"/>
+  <link href="../assets/img/udacimak.png" rel="shortcut icon" type="image/png">
+  </link>
+ </head>
+ <body>
+  <div class="wrapper">
+   <nav id="sidebar">
+    <div class="sidebar-header">
+     <h3>
+      Radar Target Generation and Detection
+     </h3>
+    </div>
+    <ul class="sidebar-list list-unstyled CTAs">
+     <li>
+      <a class="article" href="../index.html">
+       Back to Home
+      </a>
+     </li>
+    </ul>
+    <ul class="sidebar-list list-unstyled components">
+     <li class="">
+      <a href="01. Project Overview.html">
+       01. Project Overview
+      </a>
+     </li>
+     <li class="">
+      <a href="02. Target Generation and Detection.html">
+       02. Target Generation and Detection
+      </a>
+     </li>
+     <li class="">
+      <a href="03. FFT Operation.html">
+       03. FFT Operation
+      </a>
+     </li>
+     <li class="">
+      <a href="04. 2D CFAR.html">
+       04. 2D CFAR
+      </a>
+     </li>
+     <li class="">
+      <a href="Project Description - Radar Target Generation and Detection.html">
+       Project Description - Radar Target Generation and Detection
+      </a>
+     </li>
+     <li class="">
+      <a href="Project Rubric - Radar Target Generation and Detection.html">
+       Project Rubric - Radar Target Generation and Detection
+      </a>
+     </li>
+    </ul>
+    <ul class="sidebar-list list-unstyled CTAs">
+     <li>
+      <a class="article" href="../index.html">
+       Back to Home
+      </a>
+     </li>
+    </ul>
+   </nav>
+   <div id="content">
+    <header class="container-fluild header">
+     <div class="container">
+      <div class="row">
+       <div class="col-12">
+        <div class="align-items-middle">
+         <button class="btn btn-toggle-sidebar" id="sidebarCollapse" type="button">
+          <div>
+          </div>
+          <div>
+          </div>
+          <div>
+          </div>
+         </button>
+         <h1 style="display: inline-block">
+          Radar Target Generation and Detection
+         </h1>
+        </div>
+       </div>
+      </div>
+     </div>
+    </header>
+    <main class="container">
+     <div class="row">
+      <div class="col-12">
+       <p>
+        To complete this project, you can download the
+        <code>
+         Radar_Target_Generation_and_Detection.m
+        </code>
+        starter file from the
+        <strong>
+         Supporting Materials
+        </strong>
+        section below.
+       </p>
+       <ul>
+        <li>
+         Follow the steps in the previous concepts to complete your code.
+        </li>
+        <li>
+         Write a README outlining the following:
+         <ul>
+          <li>
+           Implementation steps for the 2D CFAR process.
+          </li>
+          <li>
+           Selection of Training, Guard cells and offset.
+          </li>
+          <li>
+           Steps taken to suppress the non-thresholded cells at the edges.
+          </li>
+         </ul>
+        </li>
+        <li>
+         Check the
+         <a href="https://review.udacity.com/#!/rubrics/2548/view" rel="noopener noreferrer" target="_blank">
+          project rubric
+         </a>
+         to ensure that all criteria are met.
+        </li>
+       </ul>
+       <p>
+        When you are finished, you can zip your code and README and submit, or submit using a Github repo.
+       </p>
+       <h2 id="matlab-download">
+        Matlab Download
+       </h2>
+       <p>
+        To complete the project, you will need to download MATLAB on your computer, if you haven't already. To get started, you can follow these steps:
+       </p>
+       <ol>
+        <li>
+         If you do not already have a MathWorks account, create one
+         <a href="https://www.mathworks.com/mwaccount/register" rel="noopener noreferrer" target="_blank">
+          here
+         </a>
+         . Be sure to verify your email (check your Junk/Spam folders) before moving on to step 2.
+        </li>
+        <li>
+         Download the installer
+         <a href="https://www.mathworks.com/licensecenter/classroom/udacity_sf_radar/" rel="noopener noreferrer" target="_blank">
+          here
+         </a>
+         .
+        </li>
+        <li>
+         Run the installer – it will guide you through the steps for your OS.
+        </li>
+       </ol>
+      </div>
+      <div class="col-12">
+       <p class="text-right">
+       </p>
+      </div>
+     </div>
+    </main>
+    <footer class="footer">
+     <div class="container">
+      <div class="row">
+       <div class="col-12">
+        <p class="text-center">
+         udacity2.0 If you need the newest courses Plase add me wechat: udacity6
+        </p>
+       </div>
+      </div>
+     </div>
+    </footer>
+   </div>
+  </div>
+  <script src="../assets/js/jquery-3.3.1.min.js">
+  </script>
+  <script src="../assets/js/plyr.polyfilled.min.js">
+  </script>
+  <script src="../assets/js/bootstrap.min.js">
+  </script>
+  <script src="../assets/js/jquery.mCustomScrollbar.concat.min.js">
+  </script>
+  <script src="../assets/js/katex.min.js">
+  </script>
+  <script>
+   // Initialize Plyr video players
+    const players = Array.from(document.querySelectorAll('video')).map(p => new Plyr(p));
+
+    // render math equations
+    let elMath = document.getElementsByClassName('mathquill');
+    for (let i = 0, len = elMath.length; i < len; i += 1) {
+      const el = elMath[i];
+
+      katex.render(el.textContent, el, {
+        throwOnError: false
+      });
+    }
+
+    // this hack will make sure Bootstrap tabs work when using Handlebars
+    if ($('#question-tabs').length && $('#user-answer-tabs').length) {
+      $("#question-tabs a.nav-link").on('click', function () {
+        $("#question-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+      $("#user-answer-tabs a.nav-link").on('click', function () {
+        $("#user-answer-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    } else {
+      $("a.nav-link").on('click', function () {
+        $(".tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    }
+
+    // side bar events
+    $(document).ready(function () {
+      $("#sidebar").mCustomScrollbar({
+        theme: "minimal"
+      });
+
+      $('#sidebarCollapse').on('click', function () {
+        $('#sidebar, #content').toggleClass('active');
+        $('.collapse.in').toggleClass('in');
+        $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+      });
+
+      // scroll to first video on page loading
+      if ($('video').length) {
+        $('html,body').animate({ scrollTop: $('div.plyr').prev().offset().top});
+      }
+
+      // auto play first video: this may not work with chrome/safari due to autoplay policy
+      if (players && players.length > 0) {
+        players[0].play();
+      }
+
+      // scroll sidebar to current concept
+      const currentInSideBar = $( "ul.sidebar-list.components li a:contains('Radar Target Generation and Detection')" )
+      currentInSideBar.css( "text-decoration", "underline" );
+      $("#sidebar").mCustomScrollbar('scrollTo', currentInSideBar);
+    });
+  </script>
+ </body>
+</html>

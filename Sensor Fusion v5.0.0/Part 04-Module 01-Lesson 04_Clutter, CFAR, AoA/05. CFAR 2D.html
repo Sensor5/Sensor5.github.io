@@ -1,0 +1,394 @@
+<!-- udacimak v1.4.4 -->
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <meta content="ie=edge" http-equiv="X-UA-Compatible"/>
+  <title>
+   CFAR 2D
+  </title>
+  <link href="../assets/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="../assets/css/plyr.css" rel="stylesheet"/>
+  <link href="../assets/css/katex.min.css" rel="stylesheet"/>
+  <link href="../assets/css/jquery.mCustomScrollbar.min.css" rel="stylesheet"/>
+  <link href="../assets/css/styles.css" rel="stylesheet"/>
+  <link href="../assets/img/udacimak.png" rel="shortcut icon" type="image/png">
+  </link>
+ </head>
+ <body>
+  <div class="wrapper">
+   <nav id="sidebar">
+    <div class="sidebar-header">
+     <h3>
+      Clutter, CFAR, AoA
+     </h3>
+    </div>
+    <ul class="sidebar-list list-unstyled CTAs">
+     <li>
+      <a class="article" href="../index.html">
+       Back to Home
+      </a>
+     </li>
+    </ul>
+    <ul class="sidebar-list list-unstyled components">
+     <li class="">
+      <a href="01. Clutter, CFAR, AoA.html">
+       01. Clutter, CFAR, AoA
+      </a>
+     </li>
+     <li class="">
+      <a href="02. Clutter.html">
+       02. Clutter
+      </a>
+     </li>
+     <li class="">
+      <a href="03. CFAR.html">
+       03. CFAR
+      </a>
+     </li>
+     <li class="">
+      <a href="04. CA-CFAR.html">
+       04. CA-CFAR
+      </a>
+     </li>
+     <li class="">
+      <a href="05. CFAR 2D.html">
+       05. CFAR 2D
+      </a>
+     </li>
+     <li class="">
+      <a href="06. Angle of Arrival Introduction.html">
+       06. Angle of Arrival Introduction
+      </a>
+     </li>
+    </ul>
+    <ul class="sidebar-list list-unstyled CTAs">
+     <li>
+      <a class="article" href="../index.html">
+       Back to Home
+      </a>
+     </li>
+    </ul>
+   </nav>
+   <div id="content">
+    <header class="container-fluild header">
+     <div class="container">
+      <div class="row">
+       <div class="col-12">
+        <div class="align-items-middle">
+         <button class="btn btn-toggle-sidebar" id="sidebarCollapse" type="button">
+          <div>
+          </div>
+          <div>
+          </div>
+          <div>
+          </div>
+         </button>
+         <h1 style="display: inline-block">
+          05. CFAR 2D
+         </h1>
+        </div>
+       </div>
+      </div>
+     </div>
+    </header>
+    <main class="container">
+     <div class="row">
+      <div class="col-12">
+       <div class="ud-atom">
+        <h3>
+         <p>
+          CFAR 2D Heading
+         </p>
+        </h3>
+        <div>
+         <p>
+          The 2D CFAR is similar to 1D CFAR, but is implemented in both dimensions of the range doppler block. The 2D CA-CFAR implementation involves the training cells occupying the cells surrounding the cell under test with a guard grid in between to prevent the impact of a target signal on the noise estimate.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+         <p>
+          L3A49 CFAR 2D
+         </p>
+        </h3>
+        <video controls="">
+         <source src="05. L3A49 CFAR 2D-XelOh4zX3bQ.mp4" type="video/mp4"/>
+         <track default="true" kind="subtitles" label="en" src="05. L3A49 CFAR 2D-XelOh4zX3bQ.en.vtt" srclang="en"/>
+        </video>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+         <p>
+          CFAR 2D Graphic
+         </p>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="2D CFAR 
+
+source : electronicproducts.com" class="img img-fluid" src="img/image8.png"/>
+          <figcaption class="figure-caption">
+           <p>
+            2D CFAR
+           </p>
+           <p>
+            source : electronicproducts.com
+           </p>
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h2 id="2d-cfar-steps">
+          2D CFAR Steps
+         </h2>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+         <p>
+          2D CFAR Implementation
+         </p>
+        </h3>
+        <div>
+         <p>
+          You won't need to implement a 2D-CFAR yet, but you will implement a 2D CFAR on the range doppler output for your final project! The following steps can be used to implement 2D-CFAR in MATLAB:
+         </p>
+         <ol>
+          <li>
+           Determine the number of Training cells for each dimension Tr and Td. Similarly, pick the number of guard cells Gr and Gd.
+          </li>
+          <li>
+           Slide the Cell Under Test (CUT) across the complete cell matrix
+          </li>
+          <li>
+           Select the grid that includes the training, guard and test cells. Grid Size = (2Tr+2Gr+1)(2Td+2Gd+1).
+          </li>
+          <li>
+           The total number of cells in the guard region and cell under test. (2Gr+1)(2Gd+1).
+          </li>
+          <li>
+           This gives the Training Cells  : (2Tr+2Gr+1)(2Td+2Gd+1) - (2Gr+1)(2Gd+1)
+          </li>
+          <li>
+           Measure and average the noise across all the training cells. This gives the threshold
+          </li>
+          <li>
+           Add the offset (if in signal strength in dB) to the threshold to keep the false alarm to the minimum.
+          </li>
+          <li>
+           Determine the signal level at the Cell Under Test.
+          </li>
+          <li>
+           If the CUT signal level is greater than the Threshold,  assign a value of 1, else equate it to zero.
+          </li>
+          <li>
+           Since the cell under test are not located at the edges, due to the training cells occupying the edges, we suppress the edges to zero. Any cell value that is neither 1 nor a 0, assign it a zero.
+          </li>
+         </ol>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h2 id="2d-cfar-quiz">
+          2D CFAR Quiz
+         </h2>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <div>
+          <p>
+           <strong>
+            QUESTION:
+           </strong>
+           <p>
+            Determine the total number of training cells for 2D CFAR process given the following:
+           </p>
+           <ul>
+            <li>
+             <p>
+              Size of training band in range dimension = 8
+             </p>
+            </li>
+            <li>
+             <p>
+              Size of guard band in range dimension = 4
+             </p>
+            </li>
+            <li>
+             <p>
+              Size of training band in doppler dimension = 4
+             </p>
+            </li>
+            <li>
+             <p>
+              Size of guard band in the doppler dimension = 2
+             </p>
+            </li>
+           </ul>
+          </p>
+          <div class="" form-group"="">
+           <label for="answer">
+            <strong>
+             ANSWER:
+            </strong>
+           </label>
+           <textarea class="form-control" id="answer"></textarea>
+          </div>
+         </div>
+         <details>
+          <summary>
+           <strong>
+            SOLUTION:
+           </strong>
+          </summary>
+          <p>
+           <i>
+            NOTE: The solutions are expressed in RegEx pattern. Udacity uses these patterns to check the given answer
+           </i>
+          </p>
+         </details>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h2 id="further-research">
+          Further Research
+         </h2>
+         <p>
+          You can find out more about this [here](
+          <a href="http://www.radartutorial.eu/01.basics/False%20Alarm%20Rate.en.html" rel="noopener noreferrer" target="_blank">
+           http://www.radartutorial.eu/01.basics/False%20Alarm%20Rate.en.html
+          </a>
+          <br/>
+          ) and
+          <a href="https://arxiv.org/pdf/1709.09786.pdf" rel="noopener noreferrer" target="_blank">
+           here
+          </a>
+          .
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+      </div>
+      <div class="col-12">
+       <p class="text-right">
+        <a class="btn btn-outline-primary mt-4" href="06. Angle of Arrival Introduction.html" role="button">
+         Next Concept
+        </a>
+       </p>
+      </div>
+     </div>
+    </main>
+    <footer class="footer">
+     <div class="container">
+      <div class="row">
+       <div class="col-12">
+        <p class="text-center">
+         udacity2.0 If you need the newest courses Plase add me wechat: udacity6
+        </p>
+       </div>
+      </div>
+     </div>
+    </footer>
+   </div>
+  </div>
+  <script src="../assets/js/jquery-3.3.1.min.js">
+  </script>
+  <script src="../assets/js/plyr.polyfilled.min.js">
+  </script>
+  <script src="../assets/js/bootstrap.min.js">
+  </script>
+  <script src="../assets/js/jquery.mCustomScrollbar.concat.min.js">
+  </script>
+  <script src="../assets/js/katex.min.js">
+  </script>
+  <script>
+   // Initialize Plyr video players
+    const players = Array.from(document.querySelectorAll('video')).map(p => new Plyr(p));
+
+    // render math equations
+    let elMath = document.getElementsByClassName('mathquill');
+    for (let i = 0, len = elMath.length; i < len; i += 1) {
+      const el = elMath[i];
+
+      katex.render(el.textContent, el, {
+        throwOnError: false
+      });
+    }
+
+    // this hack will make sure Bootstrap tabs work when using Handlebars
+    if ($('#question-tabs').length && $('#user-answer-tabs').length) {
+      $("#question-tabs a.nav-link").on('click', function () {
+        $("#question-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+      $("#user-answer-tabs a.nav-link").on('click', function () {
+        $("#user-answer-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    } else {
+      $("a.nav-link").on('click', function () {
+        $(".tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    }
+
+    // side bar events
+    $(document).ready(function () {
+      $("#sidebar").mCustomScrollbar({
+        theme: "minimal"
+      });
+
+      $('#sidebarCollapse').on('click', function () {
+        $('#sidebar, #content').toggleClass('active');
+        $('.collapse.in').toggleClass('in');
+        $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+      });
+
+      // scroll to first video on page loading
+      if ($('video').length) {
+        $('html,body').animate({ scrollTop: $('div.plyr').prev().offset().top});
+      }
+
+      // auto play first video: this may not work with chrome/safari due to autoplay policy
+      if (players && players.length > 0) {
+        players[0].play();
+      }
+
+      // scroll sidebar to current concept
+      const currentInSideBar = $( "ul.sidebar-list.components li a:contains('05. CFAR 2D')" )
+      currentInSideBar.css( "text-decoration", "underline" );
+      $("#sidebar").mCustomScrollbar('scrollTo', currentInSideBar);
+    });
+  </script>
+ </body>
+</html>

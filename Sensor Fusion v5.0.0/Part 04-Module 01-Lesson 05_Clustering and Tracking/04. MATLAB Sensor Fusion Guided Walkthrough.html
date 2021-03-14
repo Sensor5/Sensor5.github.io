@@ -1,0 +1,581 @@
+<!-- udacimak v1.4.4 -->
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <meta content="ie=edge" http-equiv="X-UA-Compatible"/>
+  <title>
+   MATLAB Sensor Fusion Guided Walkthrough
+  </title>
+  <link href="../assets/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="../assets/css/plyr.css" rel="stylesheet"/>
+  <link href="../assets/css/katex.min.css" rel="stylesheet"/>
+  <link href="../assets/css/jquery.mCustomScrollbar.min.css" rel="stylesheet"/>
+  <link href="../assets/css/styles.css" rel="stylesheet"/>
+  <link href="../assets/img/udacimak.png" rel="shortcut icon" type="image/png">
+  </link>
+ </head>
+ <body>
+  <div class="wrapper">
+   <nav id="sidebar">
+    <div class="sidebar-header">
+     <h3>
+      Clustering and Tracking
+     </h3>
+    </div>
+    <ul class="sidebar-list list-unstyled CTAs">
+     <li>
+      <a class="article" href="../index.html">
+       Back to Home
+      </a>
+     </li>
+    </ul>
+    <ul class="sidebar-list list-unstyled components">
+     <li class="">
+      <a href="01. Clustering and Tracking.html">
+       01. Clustering and Tracking
+      </a>
+     </li>
+     <li class="">
+      <a href="02. Clustering.html">
+       02. Clustering
+      </a>
+     </li>
+     <li class="">
+      <a href="03. Kalman Tracking.html">
+       03. Kalman Tracking
+      </a>
+     </li>
+     <li class="">
+      <a href="04. MATLAB Sensor Fusion Guided Walkthrough.html">
+       04. MATLAB Sensor Fusion Guided Walkthrough
+      </a>
+     </li>
+    </ul>
+    <ul class="sidebar-list list-unstyled CTAs">
+     <li>
+      <a class="article" href="../index.html">
+       Back to Home
+      </a>
+     </li>
+    </ul>
+   </nav>
+   <div id="content">
+    <header class="container-fluild header">
+     <div class="container">
+      <div class="row">
+       <div class="col-12">
+        <div class="align-items-middle">
+         <button class="btn btn-toggle-sidebar" id="sidebarCollapse" type="button">
+          <div>
+          </div>
+          <div>
+          </div>
+          <div>
+          </div>
+         </button>
+         <h1 style="display: inline-block">
+          04. MATLAB Sensor Fusion Guided Walkthrough
+         </h1>
+        </div>
+       </div>
+      </div>
+     </div>
+    </header>
+    <main class="container">
+     <div class="row">
+      <div class="col-12">
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h1 id="matlab-sensor-fusion-guided-walkthrough">
+          MATLAB Sensor Fusion Guided Walkthrough
+         </h1>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <p>
+          The following steps will take you on a guided walkthrough of performing Kalman Filtering in a simulated environment using MATLAB. You can download the starter code file
+          <code>
+           Sensor_Fusion_with_Radar.m
+          </code>
+          for this walkthrough in the
+          <strong>
+           Resources
+          </strong>
+          section for this lesson.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+         <p>
+          L4A45 Kalman Tracking+ Walkthru
+         </p>
+        </h3>
+        <video controls="">
+         <source src="04. L4A45 Kalman Tracking+ Walkthru-ngcuSwsOgE8.mp4" type="video/mp4"/>
+         <track default="true" kind="subtitles" label="en" src="04. L4A45 Kalman Tracking+ Walkthru-ngcuSwsOgE8.en.vtt" srclang="en"/>
+        </video>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+         <p>
+          Project Outline
+         </p>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="Radar Sensor Fusion Mini-Project" class="img img-fluid" src="img/image6.png"/>
+          <figcaption class="figure-caption">
+           <p>
+            Radar Sensor Fusion Mini-Project
+           </p>
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+         <p>
+          Project Introduction
+         </p>
+        </h3>
+        <div>
+         <p>
+          Sensor fusion and control algorithms for automated driving systems require rigorous testing. Vehicle-based testing is not only time consuming to set up, but also difficult to reproduce. Automated Driving System Toolbox provides functionality to define road networks, actors, vehicles, and traffic scenarios, as well as statistical models for simulating synthetic radar and camera sensor detection. This example shows how to generate a scenario, simulate sensor detections, and use sensor fusion to track simulated vehicles. The main benefit of using scenario generation and sensor simulation over sensor recording is the ability to create rare and potentially dangerous events and test the vehicle algorithms with them. This example covers the entire synthetic data workflow.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+         <p>
+          Generate the Scenario
+         </p>
+        </h3>
+        <div>
+         <h2 id="generate-the-scenario">
+          Generate the Scenario
+         </h2>
+         <p>
+          Scenario generation comprises generating a road network, defining vehicles that move on the roads, and moving the vehicles.In this example, you test the ability of the sensor fusion to track a vehicle that is passing on the left of the ego vehicle. The scenario simulates a highway setting, and additional vehicles are in front of and behind the ego vehicle. Find more on how to generate these scenarios here :
+          <a href="https://www.mathworks.com/videos/driving-scenario-designer-1529302116471.html" rel="noopener noreferrer" target="_blank">
+           Automated Driving Toolbox
+          </a>
+         </p>
+         <pre><code class="matlab language-matlab">% Define an empty scenario
+
+scenario = drivingScenario;
+scenario.SampleTime = 0.01;
+
+% Add a stretch of 500 meters of typical highway road with two lanes. 
+% The road is defined using a set of points, where each point defines the center of the 
+% road in 3-D space, and a road width.
+
+roadCenters = [0 0; 50 0; 100 0; 250 20; 500 40];
+roadWidth = 7.2; % Two lanes, each 3.6 meters
+road(scenario, roadCenters, roadWidth);
+
+% Create the ego vehicle and three cars around it: one that overtakes the ego vehicle 
+% and passes it on the left, one that drives right in front of the ego vehicle and 
+% one that drives right behind the ego vehicle. 
+% All the cars follow the path defined by the road waypoints by using the path driving 
+% policy. The passing car will start on the right lane, move to the left lane to pass, 
+% and return to the right lane.
+
+% Create the ego vehicle that travels at 25 m/s along the road.
+egoCar = vehicle(scenario, 'ClassID', 1);
+path(egoCar, roadCenters(2:end,:) - [0 1.8], 25); % On right lane
+
+
+% Add a car in front of the ego vehicle.
+leadCar = vehicle(scenario, 'ClassID', 1);
+path(leadCar, [70 0; roadCenters(3:end,:)] - [0 1.8], 25); % On right lane
+
+% Add a car that travels at 35 m/s along the road and passes the ego vehicle.
+passingCar = vehicle(scenario, 'ClassID', 1);
+waypoints = [0 -1.8; 50 1.8; 100 1.8; 250 21.8; 400 32.2; 500 38.2];
+path(passingCar, waypoints, 35);
+
+% Add a car behind the ego vehicle
+chaseCar = vehicle(scenario, 'ClassID', 1);
+path(chaseCar, [25 0; roadCenters(2:end,:)] - [0 1.8], 25); % On right lane</code></pre>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+         <p>
+          Define Radar Sensor
+         </p>
+        </h3>
+        <div>
+         <h2 id="define-radar">
+          Define Radar
+         </h2>
+         <p>
+          In this example, you simulate an ego vehicle that has 6 radar sensors covering the 360 degrees field of view. The sensors have some overlap and some coverage gap. The ego vehicle is equipped with a long-range radar sensor on both the front and the back of the vehicle. Each side of the vehicle has two short-range radar sensors, each covering 90 degrees. One sensor on each side covers from the middle of the vehicle to the back. The other sensor on each side covers from the middle of the vehicle forward. The figure in the next section shows the coverage.
+         </p>
+         <pre><code class="matlab language-matlab">sensors = cell(6,1);
+
+% Front-facing long-range radar sensor at the center of the front bumper of the car.
+sensors{1} = radarDetectionGenerator('SensorIndex', 1, 'Height', 0.2, 'MaxRange', 174, ...
+ 'SensorLocation', [egoCar.Wheelbase + egoCar.FrontOverhang, 0], 'FieldOfView', [20, 5]);</code></pre>
+         <p>
+          The rest of the radar sensors are defined in the project code.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+         <p>
+          Create a Tracker
+         </p>
+        </h3>
+        <div>
+         <h2 id="create-a-multiobjecttracker">
+          Create a multiObjectTracker
+         </h2>
+         <p>
+          Create a
+          <code>
+           multiObjectTracker
+          </code>
+          to track the vehicles that are close to the ego vehicle. The tracker uses the
+          <br/>
+          <code>
+           initSimDemoFilter
+          </code>
+          supporting function to initialize a constant velocity linear Kalman filter that works with position and velocity. Tracking is done in 2-D. Although the sensors return measurements in 3-D, the motion itself is confined to the horizontal plane, so there is no need to track the height.
+         </p>
+         <pre><code class="matlab language-matlab">tracker = multiObjectTracker('FilterInitializationFcn', @initSimDemoFilter, ...
+ 'AssignmentThreshold', 30, 'ConfirmationParameters', [4 5]);
+
+positionSelector = [1 0 0 0; 0 0 1 0]; % Position selector
+velocitySelector = [0 1 0 0; 0 0 0 1]; % Velocity selector</code></pre>
+         <p>
+          MultiObjectTracker Function has several parameters that can be tuned for different driving scenarios. It controls the track creation and deletion One can learn more about these
+          <a href="https://www.mathworks.com/help/driving/ref/multiobjecttracker-system-object.html" rel="noopener noreferrer" target="_blank">
+           here
+          </a>
+          .
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="" class="img img-fluid" src="img/image4.png"/>
+          <figcaption class="figure-caption">
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="" class="img img-fluid" src="img/image10.png"/>
+          <figcaption class="figure-caption">
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+         <p>
+          Simulate the Scenario
+         </p>
+        </h3>
+        <div>
+         <h2 id="simulate-the-scenario">
+          Simulate the Scenario
+         </h2>
+         <p>
+          The following loop moves the vehicles, calls the sensor simulation, and performs the tracking. Note that the scenario generation and sensor simulation can have different time steps. Specifying different time steps for the scenario and the sensors enables you to decouple the scenario simulation from the sensor simulation. This is useful for modeling actor motion with high accuracy independently from the sensor’s measurement rate.
+         </p>
+         <p>
+          Another example is when the sensors have different update rates. Suppose one sensor provides updates every 20 milliseconds and another sensor provides updates every 50 milliseconds. You can specify the scenario with an update rate of 10 milliseconds and the sensors will provide their updates at the correct time. In this example, the scenario generation has a time step of 0.01 second, while the sensors detect every 0.1 second.
+         </p>
+         <p>
+          The sensors return a logical flag,
+          <code>
+           isValidTime
+          </code>
+          , that is true if the sensors generated detections. This flag is used to call the tracker only when there are detections. Another important note is that the sensors can simulate multiple detections per target, in particular when the targets are very close to the radar sensors. Because the tracker assumes a single detection per target from each sensor, you must cluster the detections before the tracker processes them. This is done by implementing clustering algorithm, the way we discussed above.
+         </p>
+         <pre><code class="matlab language-matlab">toSnap = true;
+while advance(scenario) &amp;&amp; ishghandle(BEP.Parent)    
+    % Get the scenario time
+    time = scenario.SimulationTime;
+
+    % Get the position of the other vehicle in ego vehicle coordinates
+    ta = targetPoses(egoCar);
+
+    % Simulate the sensors
+    detections = {};
+    isValidTime = false(1,6);
+    for i = 1:6
+        [sensorDets,numValidDets,isValidTime(i)] = sensors{i}(ta, time);
+        if numValidDets
+            detections = [detections; sensorDets]; %#ok&lt;AGROW&gt;
+        end
+    end
+
+    % Update the tracker if there are new detections
+    if any(isValidTime)
+        vehicleLength = sensors{1}.ActorProfiles.Length;
+        detectionClusters = clusterDetections(detections, vehicleLength);
+        confirmedTracks = updateTracks(tracker, detectionClusters, time);
+
+        % Update bird's-eye plot
+        updateBEP(BEP, egoCar, detections, confirmedTracks, positionSelector, velocitySelector);
+    end
+
+    % Snap a figure for the document when the car passes the ego vehicle
+    if ta(1).Position(1) &gt; 0 &amp;&amp; toSnap
+        toSnap = false;
+        snapnow
+    end
+end</code></pre>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+         <p>
+          Kalman Filter
+         </p>
+        </h3>
+        <div>
+         <h2 id="define-the-kalman-filter">
+          Define the Kalman Filter
+         </h2>
+         <p>
+          Define the Kalman Filter here to be used with
+          <code>
+           multiObjectTracker
+          </code>
+          .
+         </p>
+         <p>
+          In MATLAB a
+          <code>
+           trackingKF
+          </code>
+          function can be used to initiate Kalman Filter for any type of Motion Models. This includes the 1D,  2D or 3D constant velocity or even constant acceleration. You can read more about this
+          <a href="https://www.mathworks.com/help/driving/ref/trackingkf-class.html" rel="noopener noreferrer" target="_blank">
+           here
+          </a>
+          .
+         </p>
+         <p>
+          initSimDemoFilter
+          <br/>
+          This function initializes a constant velocity filter based on a detection.
+         </p>
+         <pre><code class="matlab language-matlab">function filter = initSimDemoFilter(detection)
+
+% Use a 2-D constant velocity model to initialize a trackingKF filter.
+% The state vector is [x;vx;y;vy]
+% The detection measurement vector is [x;y;vx;vy]
+% As a result, the measurement model is H = [1 0 0 0; 0 0 1 0; 0 1 0 0; 0 0 0 1]
+
+H = [1 0 0 0; 0 0 1 0; 0 1 0 0; 0 0 0 1];
+filter = trackingKF('MotionModel', '2D Constant Velocity', ...
+ 'State', H' * detection.Measurement, ...
+ 'MeasurementModel', H, ...
+ 'StateCovariance', H’ * detection.MeasurementNoise * H, ...
+ 'MeasurementNoise', detection.MeasurementNoise);
+end</code></pre>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+         <p>
+          Clustering
+         </p>
+        </h3>
+        <div>
+         <h2 id="cluster-detections">
+          Cluster Detections
+         </h2>
+         <p>
+          This function merges multiple detections suspected to be of the same vehicle to a single detection. The function looks for detections that are closer than the size of a vehicle. Detections that fit this criterion are  considered a cluster and are merged to a single detection at the centroid of the cluster. The measurement noises are modified to represent the possibility that each detection can be anywhere on the vehicle. Therefore, the noise should have the same size as the vehicle size. In addition, this function removes the third dimension of the measurement (the height) and reduces the measurement vector to
+          <code>
+           [x;y;vx;vy]
+          </code>
+          .
+         </p>
+         <p>
+          We already went through its implementation in the clustering concept of this lesson.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+         <p>
+          Project
+         </p>
+        </h3>
+        <div>
+         <h2 id="run-your-code">
+          Run Your Code
+         </h2>
+         <p>
+          Now, It’s time to run the code and see the output!
+         </p>
+         <p>
+          It is highly recommended to spend some time on this sensor fusion code. It’s a good place to start learning and implementing sensor fusion techniques.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h2 id="solution">
+          Solution
+         </h2>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+         <p>
+          Workspace Lesson 5
+         </p>
+        </h3>
+        <video controls="">
+         <source src="04. Workspace Lesson 5-9SZuZcOoba8.mp4" type="video/mp4"/>
+         <track default="true" kind="subtitles" label="en" src="04. Workspace Lesson 5-9SZuZcOoba8.en.vtt" srclang="en"/>
+        </video>
+       </div>
+       <div class="divider">
+       </div>
+      </div>
+      <div class="col-12">
+       <p class="text-right">
+       </p>
+      </div>
+     </div>
+    </main>
+    <footer class="footer">
+     <div class="container">
+      <div class="row">
+       <div class="col-12">
+        <p class="text-center">
+         udacity2.0 If you need the newest courses Plase add me wechat: udacity6
+        </p>
+       </div>
+      </div>
+     </div>
+    </footer>
+   </div>
+  </div>
+  <script src="../assets/js/jquery-3.3.1.min.js">
+  </script>
+  <script src="../assets/js/plyr.polyfilled.min.js">
+  </script>
+  <script src="../assets/js/bootstrap.min.js">
+  </script>
+  <script src="../assets/js/jquery.mCustomScrollbar.concat.min.js">
+  </script>
+  <script src="../assets/js/katex.min.js">
+  </script>
+  <script>
+   // Initialize Plyr video players
+    const players = Array.from(document.querySelectorAll('video')).map(p => new Plyr(p));
+
+    // render math equations
+    let elMath = document.getElementsByClassName('mathquill');
+    for (let i = 0, len = elMath.length; i < len; i += 1) {
+      const el = elMath[i];
+
+      katex.render(el.textContent, el, {
+        throwOnError: false
+      });
+    }
+
+    // this hack will make sure Bootstrap tabs work when using Handlebars
+    if ($('#question-tabs').length && $('#user-answer-tabs').length) {
+      $("#question-tabs a.nav-link").on('click', function () {
+        $("#question-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+      $("#user-answer-tabs a.nav-link").on('click', function () {
+        $("#user-answer-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    } else {
+      $("a.nav-link").on('click', function () {
+        $(".tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    }
+
+    // side bar events
+    $(document).ready(function () {
+      $("#sidebar").mCustomScrollbar({
+        theme: "minimal"
+      });
+
+      $('#sidebarCollapse').on('click', function () {
+        $('#sidebar, #content').toggleClass('active');
+        $('.collapse.in').toggleClass('in');
+        $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+      });
+
+      // scroll to first video on page loading
+      if ($('video').length) {
+        $('html,body').animate({ scrollTop: $('div.plyr').prev().offset().top});
+      }
+
+      // auto play first video: this may not work with chrome/safari due to autoplay policy
+      if (players && players.length > 0) {
+        players[0].play();
+      }
+
+      // scroll sidebar to current concept
+      const currentInSideBar = $( "ul.sidebar-list.components li a:contains('04. MATLAB Sensor Fusion Guided Walkthrough')" )
+      currentInSideBar.css( "text-decoration", "underline" );
+      $("#sidebar").mCustomScrollbar('scrollTo', currentInSideBar);
+    });
+  </script>
+ </body>
+</html>

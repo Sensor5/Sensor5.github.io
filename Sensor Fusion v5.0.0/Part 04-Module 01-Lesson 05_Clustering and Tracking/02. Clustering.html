@@ -1,0 +1,542 @@
+<!-- udacimak v1.4.4 -->
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <meta content="ie=edge" http-equiv="X-UA-Compatible"/>
+  <title>
+   Clustering
+  </title>
+  <link href="../assets/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="../assets/css/plyr.css" rel="stylesheet"/>
+  <link href="../assets/css/katex.min.css" rel="stylesheet"/>
+  <link href="../assets/css/jquery.mCustomScrollbar.min.css" rel="stylesheet"/>
+  <link href="../assets/css/styles.css" rel="stylesheet"/>
+  <link href="../assets/img/udacimak.png" rel="shortcut icon" type="image/png">
+  </link>
+ </head>
+ <body>
+  <div class="wrapper">
+   <nav id="sidebar">
+    <div class="sidebar-header">
+     <h3>
+      Clustering and Tracking
+     </h3>
+    </div>
+    <ul class="sidebar-list list-unstyled CTAs">
+     <li>
+      <a class="article" href="../index.html">
+       Back to Home
+      </a>
+     </li>
+    </ul>
+    <ul class="sidebar-list list-unstyled components">
+     <li class="">
+      <a href="01. Clustering and Tracking.html">
+       01. Clustering and Tracking
+      </a>
+     </li>
+     <li class="">
+      <a href="02. Clustering.html">
+       02. Clustering
+      </a>
+     </li>
+     <li class="">
+      <a href="03. Kalman Tracking.html">
+       03. Kalman Tracking
+      </a>
+     </li>
+     <li class="">
+      <a href="04. MATLAB Sensor Fusion Guided Walkthrough.html">
+       04. MATLAB Sensor Fusion Guided Walkthrough
+      </a>
+     </li>
+    </ul>
+    <ul class="sidebar-list list-unstyled CTAs">
+     <li>
+      <a class="article" href="../index.html">
+       Back to Home
+      </a>
+     </li>
+    </ul>
+   </nav>
+   <div id="content">
+    <header class="container-fluild header">
+     <div class="container">
+      <div class="row">
+       <div class="col-12">
+        <div class="align-items-middle">
+         <button class="btn btn-toggle-sidebar" id="sidebarCollapse" type="button">
+          <div>
+          </div>
+          <div>
+          </div>
+          <div>
+          </div>
+         </button>
+         <h1 style="display: inline-block">
+          02. Clustering
+         </h1>
+        </div>
+       </div>
+      </div>
+     </div>
+    </header>
+    <main class="container">
+     <div class="row">
+      <div class="col-12">
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h1 id="clustering">
+          Clustering
+         </h1>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+         <p>
+          Graphic
+         </p>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="Clustering of a car and bicycle
+
+source : https://ieeexplore.ieee.org/document/7226315" class="img img-fluid" src="img/image7.png"/>
+          <figcaption class="figure-caption">
+           <p>
+            Clustering of a car and bicycle
+           </p>
+           <p>
+            source :
+            <a href="https://ieeexplore.ieee.org/document/7226315" rel="noopener noreferrer" target="_blank">
+             https://ieeexplore.ieee.org/document/7226315
+            </a>
+           </p>
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+         <p>
+          Project Overview
+         </p>
+        </h3>
+        <div>
+         <p>
+          For enhanced perception in autonomous driving, there is a need to track multiple targets separately. The object tracking is computationally expensive and tracking multiple targets simultaneously requires lots of processing power and memory.
+         </p>
+         <p>
+          Due to the advancements in radar technology and increasing sensing resolutions, a radar can generate detections from plentitude of scattering points on the target. If a tracker is assigned to every detection from the same target, then it can overburden the processing unit. Hence, it is important to cluster the detections from every target and assign a single track for each.
+         </p>
+         <p>
+          This is where the clustering algorithm becomes important for successful object tracking.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+         <p>
+          L4A21 Clustering - Concept V2
+         </p>
+        </h3>
+        <video controls="">
+         <source src="02. L4A21 Clustering - Concept V2-SDNwQyh5N3M.mp4" type="video/mp4"/>
+         <track default="true" kind="subtitles" label="en" src="02. L4A21 Clustering - Concept V2-SDNwQyh5N3M.en.vtt" srclang="en"/>
+        </video>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+         <p>
+          System Requirements
+         </p>
+        </h3>
+        <div>
+         <p>
+          Here we will discuss the basic clustering algorithm based on the euclidean distance. The algorithm here groups the detection points based on their proximity measured by the euclidean distance between those points.
+         </p>
+         <p>
+          All the detection points that are within the size of the target are considered as one cluster, merged into a centroid position. Each cluster is now assigned a new range and velocity, which is the mean of measured range and velocity of all the detection points that form the cluster.
+         </p>
+         <p>
+          This allows valid tracking for each target.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+         <p>
+          Clustering
+         </p>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="" class="img img-fluid" src="img/image2.png"/>
+          <figcaption class="figure-caption">
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+         <p>
+          Clustering
+         </p>
+        </h3>
+        <div>
+         <p>
+          Above is an illustration of the clustering scenario. In the image the blue car is an ego vehicle (vehicle with sensor) and the detections are generated from the orange and yellow vehicles. Using clustering algorithm all the detections associated with the single target are merged into one point. This helps in the detection and assigning the tracks to a target.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h2 id="matlab-implementation-of-clustering">
+          Matlab Implementation of Clustering
+         </h2>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+         <p>
+          L4A27 - Example
+         </p>
+        </h3>
+        <video controls="">
+         <source src="02. L4A27 - Example-D3p78EEzjyU.mp4" type="video/mp4"/>
+         <track default="true" kind="subtitles" label="en" src="02. L4A27 - Example-D3p78EEzjyU.en.vtt" srclang="en"/>
+        </video>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+         <p>
+          MATLAB implementation of Clustering Algorithm
+         </p>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="" class="img img-fluid" src="img/image5.png"/>
+          <figcaption class="figure-caption">
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt="" class="img img-fluid" src="img/image9.png"/>
+          <figcaption class="figure-caption">
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+         <p>
+          Signal Propagation and Moving Target Scenario
+         </p>
+        </h3>
+        <div>
+         <p>
+          The clustering implementation above uses the following steps:
+         </p>
+         <ol>
+          <li>
+           If the detections are from same sensor, then loop through every single detection point and measure the euclidean distance between all of them.
+          </li>
+          <li>
+           Keep running the loop until the detection list is empty
+          </li>
+         </ol>
+         <p>
+          Implement the following within the while loop:
+         </p>
+         <ol start="3">
+          <li>
+           <p>
+            Pick the first detection in the check list and check for its clustering neighbors.
+           </p>
+          </li>
+          <li>
+           <p>
+            If the distance between the first pick and remaining detections is less than the vehicle size, then group those detections and their respective radar sensor measurements, including range and velocity.
+           </p>
+          </li>
+          <li>
+           <p>
+            For the group, take the mean of the range and velocity measurements.
+           </p>
+           <p>
+            <strong>
+             Note:
+            </strong>
+            the radar measurement vector has 6 values - where range and velocity for x and y coordinates reside at indices 1,2, 4, and 5:
+            <code>
+             [x, y, - , Vx, Vy, -]
+            </code>
+           </p>
+          </li>
+          <li>
+           <p>
+            Create a new Cluster ID. Then, assign all the group detections to the same ID.
+           </p>
+          </li>
+          <li>
+           <p>
+            Further, assign cluster, the mean range and velocity.
+           </p>
+          </li>
+          <li>
+           <p>
+            In the end, delete from the list the detections which have already been assigned to a cluster.
+           </p>
+          </li>
+          <li>
+           <p>
+            Keep repeating the process until the detection list is empty.
+           </p>
+          </li>
+         </ol>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <p>
+          <strong>
+           QUIZ QUESTION:
+          </strong>
+          :
+          <p>
+           Match the responses with the scenarios described below.
+          </p>
+         </p>
+         <p>
+          <strong>
+           ANSWER CHOICES:
+          </strong>
+         </p>
+         <button class="btn btn-primary">
+          <p>
+           Euclidean distance used for grouping the detection points is much smaller than the target’s length
+          </p>
+         </button>
+         <button class="btn btn-primary">
+          <p>
+           Euclidean distance used for grouping the detection points is greater than the target’s length
+          </p>
+         </button>
+         <br/>
+         <br/>
+         <table class="table">
+          <tr class="thead-dark table-hover">
+           <th>
+            <p>
+             Grouping Distance vs. Target Length
+            </p>
+           </th>
+           <th>
+            <p>
+             Tracks vs. Target
+            </p>
+           </th>
+          </tr>
+          <tr>
+           <td>
+            <p>
+             Single track will get assigned to two or more closely located targets
+            </p>
+           </td>
+           <td>
+           </td>
+          </tr>
+          <tr>
+           <td>
+            <p>
+             Multiple Tracks will be assigned to a single target
+            </p>
+           </td>
+           <td>
+           </td>
+          </tr>
+         </table>
+         <details>
+          <summary>
+           <strong>
+            SOLUTION:
+           </strong>
+          </summary>
+          <table class="table">
+           <tr class="thead-dark table-hover">
+            <th>
+             <p>
+              Grouping Distance vs. Target Length
+             </p>
+            </th>
+            <th>
+             <p>
+              Tracks vs. Target
+             </p>
+            </th>
+           </tr>
+           <tr>
+            <td>
+             <p>
+              Single track will get assigned to two or more closely located targets
+             </p>
+            </td>
+            <td>
+             <button class="btn btn-primary">
+              <p>
+               Euclidean distance used for grouping the detection points is greater than the target’s length
+              </p>
+             </button>
+            </td>
+           </tr>
+           <tr>
+            <td>
+             <p>
+              Multiple Tracks will be assigned to a single target
+             </p>
+            </td>
+            <td>
+             <button class="btn btn-primary">
+              <p>
+               Euclidean distance used for grouping the detection points is much smaller than the target’s length
+              </p>
+             </button>
+            </td>
+           </tr>
+          </table>
+         </details>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+      </div>
+      <div class="col-12">
+       <p class="text-right">
+        <a class="btn btn-outline-primary mt-4" href="03. Kalman Tracking.html" role="button">
+         Next Concept
+        </a>
+       </p>
+      </div>
+     </div>
+    </main>
+    <footer class="footer">
+     <div class="container">
+      <div class="row">
+       <div class="col-12">
+        <p class="text-center">
+         udacity2.0 If you need the newest courses Plase add me wechat: udacity6
+        </p>
+       </div>
+      </div>
+     </div>
+    </footer>
+   </div>
+  </div>
+  <script src="../assets/js/jquery-3.3.1.min.js">
+  </script>
+  <script src="../assets/js/plyr.polyfilled.min.js">
+  </script>
+  <script src="../assets/js/bootstrap.min.js">
+  </script>
+  <script src="../assets/js/jquery.mCustomScrollbar.concat.min.js">
+  </script>
+  <script src="../assets/js/katex.min.js">
+  </script>
+  <script>
+   // Initialize Plyr video players
+    const players = Array.from(document.querySelectorAll('video')).map(p => new Plyr(p));
+
+    // render math equations
+    let elMath = document.getElementsByClassName('mathquill');
+    for (let i = 0, len = elMath.length; i < len; i += 1) {
+      const el = elMath[i];
+
+      katex.render(el.textContent, el, {
+        throwOnError: false
+      });
+    }
+
+    // this hack will make sure Bootstrap tabs work when using Handlebars
+    if ($('#question-tabs').length && $('#user-answer-tabs').length) {
+      $("#question-tabs a.nav-link").on('click', function () {
+        $("#question-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+      $("#user-answer-tabs a.nav-link").on('click', function () {
+        $("#user-answer-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    } else {
+      $("a.nav-link").on('click', function () {
+        $(".tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    }
+
+    // side bar events
+    $(document).ready(function () {
+      $("#sidebar").mCustomScrollbar({
+        theme: "minimal"
+      });
+
+      $('#sidebarCollapse').on('click', function () {
+        $('#sidebar, #content').toggleClass('active');
+        $('.collapse.in').toggleClass('in');
+        $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+      });
+
+      // scroll to first video on page loading
+      if ($('video').length) {
+        $('html,body').animate({ scrollTop: $('div.plyr').prev().offset().top});
+      }
+
+      // auto play first video: this may not work with chrome/safari due to autoplay policy
+      if (players && players.length > 0) {
+        players[0].play();
+      }
+
+      // scroll sidebar to current concept
+      const currentInSideBar = $( "ul.sidebar-list.components li a:contains('02. Clustering')" )
+      currentInSideBar.css( "text-decoration", "underline" );
+      $("#sidebar").mCustomScrollbar('scrollTo', currentInSideBar);
+    });
+  </script>
+ </body>
+</html>

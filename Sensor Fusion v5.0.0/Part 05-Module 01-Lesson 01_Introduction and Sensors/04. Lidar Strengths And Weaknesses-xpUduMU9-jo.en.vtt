@@ -1,0 +1,90 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.370 --> 00:00:04.812
+LIDAR stands for Light Detection and
+Ranging, just as RADAR stands for
+
+00:00:04.812 --> 00:00:06.748
+RAdio Detection And Ranging.
+
+00:00:06.748 --> 00:00:11.657
+Unlike RADAR, which uses radio waves,
+LIDAR uses an infrared laser
+
+00:00:11.657 --> 00:00:16.759
+beam to determine the distance between
+the sensor and a nearby object.
+
+00:00:16.760 --> 00:00:21.710
+Most current LIDARs use light in the 900
+nanometer wavelength range, although
+
+00:00:21.710 --> 00:00:26.820
+some LIDARs use longer wavelengths,
+which perform better in rain and fog.
+
+00:00:26.820 --> 00:00:28.559
+In current LIDARs,
+
+00:00:28.559 --> 00:00:32.989
+a rotating swivel scans the laser
+beam across the field of view.
+
+00:00:32.990 --> 00:00:36.920
+The lasers are pulsed, and
+the pulses are reflected by objects.
+
+00:00:37.950 --> 00:00:42.880
+These reflections return a point
+cloud that represents these objects.
+
+00:00:42.880 --> 00:00:46.410
+LIDAR has a much higher
+spatial resolution than RADAR
+
+00:00:46.409 --> 00:00:50.739
+because of the more focused laser beam,
+the larger number of scan layers in
+
+00:00:50.740 --> 00:00:55.469
+the vertical direction, and the high
+density of LIDAR points per layer.
+
+00:00:55.469 --> 00:00:59.350
+The current generation of LIDARs
+cannot measure the velocity of objects
+
+00:00:59.350 --> 00:01:00.500
+directly.
+
+00:01:00.500 --> 00:01:05.200
+And have to rely on the differing
+position between two or more scans.
+
+00:01:05.200 --> 00:01:08.310
+LIDARs are also more affected
+by weather conditions and
+
+00:01:08.310 --> 00:01:12.219
+by dirt on the sensor,
+which requires keeping them clean.
+
+00:01:12.219 --> 00:01:15.390
+They are also much bulkier than
+other sensors and therefore,
+
+00:01:15.390 --> 00:01:20.019
+more difficult to integrate unless
+one just wants to mount a big scanner
+
+00:01:20.019 --> 00:01:21.609
+on the roof of the vehicle.
+
+00:01:21.609 --> 00:01:24.123
+So how do we apply LIDAR and RADAR?
+
+00:01:24.123 --> 00:01:25.000
+Let me show you.
+

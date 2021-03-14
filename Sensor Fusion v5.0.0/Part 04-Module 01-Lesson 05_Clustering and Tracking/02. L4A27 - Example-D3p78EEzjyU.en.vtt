@@ -1,0 +1,73 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:02.415
+Let's see how to implement a clustering algorithm.
+
+00:00:02.415 --> 00:00:07.169
+We'll walk through a clustering function part of Matlab's object tracking simulator.
+
+00:00:07.169 --> 00:00:11.280
+For this, we need the list of radar detections and vehicle size.
+
+00:00:11.279 --> 00:00:14.699
+If the detections are from the same sensor and loop through
+
+00:00:14.699 --> 00:00:19.844
+every single detection point and measure the Euclidean distance between all of them,
+
+00:00:19.844 --> 00:00:24.210
+then initialize a vector to hold the detection clusters.
+
+00:00:24.210 --> 00:00:27.539
+Keep running the loop until the detection list is empty.
+
+00:00:27.539 --> 00:00:30.765
+Now, implement the falling within the while loop,
+
+00:00:30.765 --> 00:00:34.844
+pick the first detection in the checklist and put it under consideration.
+
+00:00:34.844 --> 00:00:37.320
+If the distance between the first pick and
+
+00:00:37.320 --> 00:00:40.230
+remaining detections is less than the vehicle size,
+
+00:00:40.229 --> 00:00:44.299
+then group those detections and their respective radar sensor measurements,
+
+00:00:44.299 --> 00:00:47.134
+including creating range and velocity.
+
+00:00:47.134 --> 00:00:50.824
+For the group, take the mean of the range and velocity measurements.
+
+00:00:50.825 --> 00:00:53.440
+The radar measurement vector has six values.
+
+00:00:53.439 --> 00:00:56.960
+Where range and velocity for X and Y coud It's reside at 1,
+
+00:00:56.960 --> 00:00:59.255
+2, and 4,5 respectively.
+
+00:00:59.255 --> 00:01:04.295
+Create a new cluster id then assign all the group detections to the same id.
+
+00:01:04.295 --> 00:01:07.370
+Further, assign cluster the mean range
+
+00:01:07.370 --> 00:01:10.070
+and velocity that were calculated in the previous step.
+
+00:01:10.069 --> 00:01:11.539
+In the end, delete from
+
+00:01:11.540 --> 00:01:15.275
+the list detections which have already been assigned to a cluster.
+
+00:01:15.275 --> 00:01:19.520
+Keep repeating the process until the detection list is empty.
+

@@ -1,0 +1,316 @@
+{
+  "data": {
+    "lesson": {
+      "id": 168614,
+      "key": "6ff21566-90b5-4cd7-b13d-95c1a6d46c87",
+      "title": "Introduction and Sensors",
+      "semantic_type": "Lesson",
+      "is_public": true,
+      "version": "1.0.0",
+      "locale": "en-us",
+      "summary": "Meet the team at Mercedes who will help you track objects in real-time with Sensor Fusion.",
+      "lesson_type": "Classroom",
+      "display_workspace_project_only": null,
+      "resources": {
+        "files": [
+          {
+            "name": "Videos Zip File",
+            "uri": "https://zips.udacity-data.com/6ff21566-90b5-4cd7-b13d-95c1a6d46c87/168614/1538928669570/Introduction+and+Sensors+Videos.zip"
+          },
+          {
+            "name": "Transcripts Zip File",
+            "uri": "https://zips.udacity-data.com/6ff21566-90b5-4cd7-b13d-95c1a6d46c87/168614/1538928666883/Introduction+and+Sensors+Subtitles.zip"
+          }
+        ],
+        "google_plus_link": null,
+        "career_resource_center_link": null,
+        "coaching_appointments_link": null,
+        "office_hours_link": null,
+        "aws_provisioning_link": null
+      },
+      "project": null,
+      "lab": null,
+      "concepts": [
+        {
+          "id": 663238,
+          "key": "bcb321e1-f6fd-49ab-9d2a-b8f2f8d84e1d",
+          "title": "The Benefits of Sensors",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "bcb321e1-f6fd-49ab-9d2a-b8f2f8d84e1d",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 663239,
+              "key": "7234b0c6-13ce-4fd0-a945-500ec6ae5a4e",
+              "title": "04 Sensor Fusion A01 The Benefits Of Sensors",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "zHe-uogin5U",
+                "china_cdn_id": "zHe-uogin5U.mp4"
+              }
+            }
+          ]
+        },
+        {
+          "id": 268273,
+          "key": "e83c8b9c-a8b9-4bdb-9366-e333aa20dfab",
+          "title": "Introduction",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "e83c8b9c-a8b9-4bdb-9366-e333aa20dfab",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 269182,
+              "key": "5c051e4e-de8f-4ff5-b876-108d17793fda",
+              "title": "Introduction",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "4E6RtK_Ml1I",
+                "china_cdn_id": "4E6RtK_Ml1I.mp4"
+              }
+            }
+          ]
+        },
+        {
+          "id": 268275,
+          "key": "bca7ac4e-2beb-416b-b677-ade8dc5664df",
+          "title": "Radar Strengths and Weaknesses",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "bca7ac4e-2beb-416b-b677-ade8dc5664df",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 269225,
+              "key": "eb22d5da-483e-4ecb-8abb-6c9c3994f9ec",
+              "title": "Radar Strengths And Weaknesses",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "m7kpRg3bEI8",
+                "china_cdn_id": "m7kpRg3bEI8.mp4"
+              }
+            }
+          ]
+        },
+        {
+          "id": 268277,
+          "key": "4fc84d42-3563-4ba4-93b3-a563833ce252",
+          "title": "Lidar Strengths and Weaknesses",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "4fc84d42-3563-4ba4-93b3-a563833ce252",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 269187,
+              "key": "60bd104e-18e7-4c65-89b0-b8b0f8fab1e5",
+              "title": "Lidar Strengths And Weaknesses",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "xpUduMU9-jo",
+                "china_cdn_id": "xpUduMU9-jo.mp4"
+              }
+            },
+            {
+              "id": 269195,
+              "key": "e309a109-bf27-47fe-bad0-0404db3c9603",
+              "title": null,
+              "semantic_type": "TextAtom",
+              "is_public": true,
+              "text": "### _Footnote on Lidar_\n\nThere are other possibilities to scan the laser beams. Instead of rotating the lasers or having a rotating mirror, we can scan the lidar with a vibrating micromirror. Those lidars are in development but none are commercially available now (as of March 2017).\n\nInstead of mechanically moving the laser beam, a similar principle to phased array radar can be employed. Dividing a single laser beam into multiple waveguides, the phase relationship between the waveguides can be altered and thereby the direction of the laser beam shifted. A company named [Quanergy](http://quanergy.com/) is working on systems like that. The advantage is that the form factor can be much smaller and that there are no moving parts.\n\nAnother possibility is to use the laser as a gigantic flash like with a camera and then measuring the arrival times for all the objects with one big imaging photodiode array. This is in effect a 3D camera. The components are currently very expensive and currently this is used more in space and in terrain mapping applications. ",
+              "instructor_notes": ""
+            }
+          ]
+        },
+        {
+          "id": 268279,
+          "key": "3c89640f-da15-4d87-aa6d-95835a33168c",
+          "title": "Live Data Walkthrough",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "3c89640f-da15-4d87-aa6d-95835a33168c",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 268280,
+              "key": "17704e0a-ac68-4644-abd0-39cd3edddaf9",
+              "title": "Live Data Walkthrough",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "zXu6y0aNfjk",
+                "china_cdn_id": "zXu6y0aNfjk.mp4"
+              }
+            },
+            {
+              "id": 269207,
+              "key": "75c47a7f-327e-490f-a0ca-b967e697bdb8",
+              "title": "",
+              "semantic_type": "MatchingQuizAtom",
+              "is_public": true,
+              "instructor_notes": null,
+              "user_state": {
+                "node_key": "75c47a7f-327e-490f-a0ca-b967e697bdb8",
+                "completed_at": null,
+                "last_viewed_at": null,
+                "unstructured": null
+              },
+              "question": {
+                "complex_prompt": {
+                  "text": "Here are a few properties of lidar and radar sensors. Drag and drop the sensor labels to the properties that they describe."
+                },
+                "concepts_label": "Properties",
+                "answers_label": "Lidar or Radar?",
+                "concepts": [
+                  {
+                    "text": "Wavelength in mm",
+                    "correct_answer": {
+                      "id": "a1488400494528",
+                      "text": "Radar"
+                    }
+                  },
+                  {
+                    "text": "Wavelength in infrared",
+                    "correct_answer": {
+                      "id": "a1488400579902",
+                      "text": "Lidar"
+                    }
+                  },
+                  {
+                    "text": "Can sense non-line of sight objects",
+                    "correct_answer": {
+                      "id": "a1488400591353",
+                      "text": "Radar"
+                    }
+                  },
+                  {
+                    "text": "Most affected by dirt and small debris",
+                    "correct_answer": {
+                      "id": "a1488400594067",
+                      "text": "Lidar"
+                    }
+                  },
+                  {
+                    "text": "Creates a point cloud",
+                    "correct_answer": {
+                      "id": "a1488400596569",
+                      "text": "Lidar"
+                    }
+                  },
+                  {
+                    "text": "Can currently directly measure velocity",
+                    "correct_answer": {
+                      "id": "a1488400597245",
+                      "text": "Radar"
+                    }
+                  },
+                  {
+                    "text": "Higher Resolution",
+                    "correct_answer": {
+                      "id": "a1488400597917",
+                      "text": "Lidar"
+                    }
+                  }
+                ],
+                "answers": [
+                  {
+                    "id": "a1488400597245",
+                    "text": "Radar"
+                  },
+                  {
+                    "id": "a1488400594067",
+                    "text": "Lidar"
+                  },
+                  {
+                    "id": "a1488400591353",
+                    "text": "Radar"
+                  },
+                  {
+                    "id": "a1488400597917",
+                    "text": "Lidar"
+                  },
+                  {
+                    "id": "a1488400494528",
+                    "text": "Radar"
+                  },
+                  {
+                    "id": "a1488400579902",
+                    "text": "Lidar"
+                  },
+                  {
+                    "id": "a1488400596569",
+                    "text": "Lidar"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "id": 269214,
+          "key": "d7d3e00f-92bd-4e03-9bc8-d912b309ef07",
+          "title": "Outro",
+          "semantic_type": "Concept",
+          "is_public": true,
+          "user_state": {
+            "node_key": "d7d3e00f-92bd-4e03-9bc8-d912b309ef07",
+            "completed_at": null,
+            "last_viewed_at": null,
+            "unstructured": null
+          },
+          "resources": null,
+          "atoms": [
+            {
+              "id": 269224,
+              "key": "be62a318-497f-49dc-bdbb-8cb8fdabbf1b",
+              "title": "Wrap Up",
+              "semantic_type": "VideoAtom",
+              "is_public": true,
+              "instructor_notes": "",
+              "video": {
+                "youtube_id": "Pe70LsgCa28",
+                "china_cdn_id": "Pe70LsgCa28.mp4"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,46 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:04.334
+Since we already looked into the main implementation for this workspace,
+
+00:00:04.334 --> 00:00:06.794
+let's walk through the complete code.
+
+00:00:06.794 --> 00:00:10.195
+The first part of the code is imported from the Matlab striving
+
+00:00:10.195 --> 00:00:14.745
+toolbox where you can define and generate your own driving and targets scenarios.
+
+00:00:14.744 --> 00:00:16.329
+Using the same toolbox,
+
+00:00:16.329 --> 00:00:18.799
+we can generate radar sensor profiles.
+
+00:00:18.800 --> 00:00:22.370
+Once the road scenarios and sensor profiles are integrated,
+
+00:00:22.370 --> 00:00:25.400
+then the implement object tracking on degenerate scenario.
+
+00:00:25.399 --> 00:00:27.619
+The object tracking here will utilize
+
+00:00:27.620 --> 00:00:32.734
+that clustering algorithm and common tracking that we reviewed in the previous videos.
+
+00:00:32.734 --> 00:00:35.554
+Now it's time to run the code and see the output.
+
+00:00:35.554 --> 00:00:37.368
+But before we do that,
+
+00:00:37.368 --> 00:00:40.865
+I would definitely recommend spending some time on the sense efficient code.
+
+00:00:40.865 --> 00:00:45.390
+It's a good place to start learning and implementing sensor fusion techniques.
+

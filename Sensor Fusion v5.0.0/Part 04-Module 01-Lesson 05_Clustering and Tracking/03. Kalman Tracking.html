@@ -1,0 +1,539 @@
+<!-- udacimak v1.4.4 -->
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <meta content="ie=edge" http-equiv="X-UA-Compatible"/>
+  <title>
+   Kalman Tracking
+  </title>
+  <link href="../assets/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="../assets/css/plyr.css" rel="stylesheet"/>
+  <link href="../assets/css/katex.min.css" rel="stylesheet"/>
+  <link href="../assets/css/jquery.mCustomScrollbar.min.css" rel="stylesheet"/>
+  <link href="../assets/css/styles.css" rel="stylesheet"/>
+  <link href="../assets/img/udacimak.png" rel="shortcut icon" type="image/png">
+  </link>
+ </head>
+ <body>
+  <div class="wrapper">
+   <nav id="sidebar">
+    <div class="sidebar-header">
+     <h3>
+      Clustering and Tracking
+     </h3>
+    </div>
+    <ul class="sidebar-list list-unstyled CTAs">
+     <li>
+      <a class="article" href="../index.html">
+       Back to Home
+      </a>
+     </li>
+    </ul>
+    <ul class="sidebar-list list-unstyled components">
+     <li class="">
+      <a href="01. Clustering and Tracking.html">
+       01. Clustering and Tracking
+      </a>
+     </li>
+     <li class="">
+      <a href="02. Clustering.html">
+       02. Clustering
+      </a>
+     </li>
+     <li class="">
+      <a href="03. Kalman Tracking.html">
+       03. Kalman Tracking
+      </a>
+     </li>
+     <li class="">
+      <a href="04. MATLAB Sensor Fusion Guided Walkthrough.html">
+       04. MATLAB Sensor Fusion Guided Walkthrough
+      </a>
+     </li>
+    </ul>
+    <ul class="sidebar-list list-unstyled CTAs">
+     <li>
+      <a class="article" href="../index.html">
+       Back to Home
+      </a>
+     </li>
+    </ul>
+   </nav>
+   <div id="content">
+    <header class="container-fluild header">
+     <div class="container">
+      <div class="row">
+       <div class="col-12">
+        <div class="align-items-middle">
+         <button class="btn btn-toggle-sidebar" id="sidebarCollapse" type="button">
+          <div>
+          </div>
+          <div>
+          </div>
+          <div>
+          </div>
+         </button>
+         <h1 style="display: inline-block">
+          03. Kalman Tracking
+         </h1>
+        </div>
+       </div>
+      </div>
+     </div>
+    </header>
+    <main class="container">
+     <div class="row">
+      <div class="col-12">
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h1 id="kalman-tracking">
+          Kalman Tracking
+         </h1>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+         <p>
+          L4A34 Kalman Tracking FIX 2
+         </p>
+        </h3>
+        <video controls="">
+         <source src="03. L4A34 Kalman Tracking FIX 2-lWadqGc2UdU.mp4" type="video/mp4"/>
+        </video>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+         <p>
+          Kalman Tracker
+         </p>
+        </h3>
+        <div>
+         <figure class="figure">
+          <img alt='&lt;span class="mathquill"&gt;\hat{x}_k&lt;/span&gt;, the state of the vehicle at the &lt;span class="mathquill"&gt;k&lt;/span&gt;th step.
+
+&lt;span class="mathquill"&gt;A&lt;/span&gt;, the state-transition model
+
+&lt;span class="mathquill"&gt;P_k&lt;/span&gt;,  the state covariance matrix - state estimation covariance error
+
+&lt;span class="mathquill"&gt;B&lt;/span&gt;,  control matrix - external influence
+
+&lt;span class="mathquill"&gt;C&lt;/span&gt;, the observation/measurement model
+
+&lt;span class="mathquill"&gt;Q&lt;/span&gt;, the covariance of the process noise
+
+&lt;span class="mathquill"&gt;R&lt;/span&gt;, the covariance of the observation noise' class="img img-fluid" src="img/kalman.jpg"/>
+          <figcaption class="figure-caption">
+           <p>
+            <span class="mathquill ud-math">
+             \hat{x}_k
+            </span>
+            , the state of the vehicle at the
+            <span class="mathquill ud-math">
+             k
+            </span>
+            th step.
+           </p>
+           <p>
+            <span class="mathquill ud-math">
+             A
+            </span>
+            , the state-transition model
+           </p>
+           <p>
+            <span class="mathquill ud-math">
+             P_k
+            </span>
+            ,  the state covariance matrix - state estimation covariance error
+           </p>
+           <p>
+            <span class="mathquill ud-math">
+             B
+            </span>
+            ,  control matrix - external influence
+           </p>
+           <p>
+            <span class="mathquill ud-math">
+             C
+            </span>
+            , the observation/measurement model
+           </p>
+           <p>
+            <span class="mathquill ud-math">
+             Q
+            </span>
+            , the covariance of the process noise
+           </p>
+           <p>
+            <span class="mathquill ud-math">
+             R
+            </span>
+            , the covariance of the observation noise
+           </p>
+          </figcaption>
+         </figure>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+         <p>
+          Implementation of 2D CFAR
+         </p>
+        </h3>
+        <div>
+         <p>
+          The purpose of the Kalman filter is to estimate the
+          <em>
+           state
+          </em>
+          of a tracked vehicle. Here, "state" could include the position, velocity, acceleration or other properties of the vehicle being tracked. The Kalman filter uses measurements that are observed over time that contain noise or random variations and other inaccuracies, and produces values that tend to be closer to the true values of the measurements and their associated calculated values. It is the central algorithm to the majority of all modern radar tracking systems.
+         </p>
+         <p>
+          Here, we will be keeping the Kalman Filter limited to a basic introduction. You will be covering Kalman filters in detail in the fourth course of this Nanodegree program.
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+         <p>
+          Kalman Filter Implementation
+         </p>
+        </h3>
+        <div>
+         <p>
+          The Kalman filter process has two steps: prediction and update.
+         </p>
+         <ol>
+          <li>
+           <p>
+            <strong>
+             Prediction Step
+            </strong>
+           </p>
+           <p>
+            Using the target vehicle's motion model, the next state of the target vehicle is predicted by using the current state. Since we know the current position and velocity of the target from the previous timestamp, we can predict the position of the target for next timestamp.
+           </p>
+           <p>
+            For example, using a constant velocity model, the new position of the target vehicle can be computed as:
+           </p>
+          </li>
+         </ol>
+         <div class="mathquill">
+          x_{new} = x_{prev} + v * t
+         </div>
+         <ol start="2">
+          <li>
+           <p>
+            <strong>
+             Update Step
+            </strong>
+            :
+           </p>
+           <p>
+            Here, the Kalman filter uses noisy measurement data from sensors, and combines the data with the prediction from the previous step to produce a best-possible estimate of the state.
+           </p>
+          </li>
+         </ol>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+         <p>
+          ND313 Andrei Intv 25 Why Are Kalman Filters Useful For Working With Radar
+         </p>
+        </h3>
+        <video controls="">
+         <source src="03. ND313 Andrei Intv 25 Why Are Kalman Filters Useful For Working With Radar-lw-pjoyf6gk.mp4" type="video/mp4"/>
+         <track default="true" kind="subtitles" label="en" src="03. ND313 Andrei Intv 25 Why Are Kalman Filters Useful For Working With Radar-lw-pjoyf6gk.en.vtt" srclang="en"/>
+        </video>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h2 id="kalman-tracking-and-matlab">
+          Kalman Tracking and MATLAB
+         </h2>
+         <p>
+          The trackingKF class creates a discrete-time linear Kalman filter used for tracking positions and velocities of objects which can be encountered in an automated driving scenario, such as automobiles, pedestrians, bicycles, and stationary structures or obstacles.
+         </p>
+         <p>
+          You can learn more about different parameters for the filter
+          <a href="https://www.mathworks.com/help/driving/ref/trackingkf-class.html" rel="noopener noreferrer" target="_blank">
+           here
+          </a>
+          , and you can learn more about the theory behind Kalman filters
+          <a href="https://www.mathworks.com/help/driving/ug/linear-kalman-filters.html" rel="noopener noreferrer" target="_blank">
+           here
+          </a>
+          .
+         </p>
+         <h3 id="implementation-in-matlab">
+          Implementation in MATLAB
+         </h3>
+         <p>
+          The following guidelines can be used to implement a basic Kalman filter for the next project.
+         </p>
+         <ul>
+          <li>
+           You will define the Kalman filter using the
+           <code>
+            trackingKF
+           </code>
+           function. The function signature is as follows:
+          </li>
+         </ul>
+         <pre><code class="matlab language-matlab">       filter = trackingKF('MotionModel', model, 'State', state, 'MeasurementModel', measurementModel, 'StateCovariance', stateCovrariance, 'MeasurementNoise', measurementNoise)</code></pre>
+         <p>
+          In this function signature, each property (e.g.
+          <code>
+           'MotionModel
+          </code>
+          ) is followed by the value for that property (e.g.
+          <code>
+           model
+          </code>
+          ).
+         </p>
+         <ul>
+          <li>
+           For the
+           <code>
+            model
+           </code>
+           variable, you can pass the string
+           <code>
+            '2D Constant Velocity'
+           </code>
+           , which will provides the 2D constant velocity motion model.
+          </li>
+          <li>
+           For the 2D constant velocity model the state vector (x) can be defined as:
+          </li>
+         </ul>
+         <pre><code class="matlab language-matlab">[x;vx;y;vy]</code></pre>
+         <p>
+          Here,
+          <code>
+           x
+          </code>
+          and
+          <code>
+           y
+          </code>
+          are 2D position coordinates. The variables
+          <code>
+           vx
+          </code>
+          and
+          <code>
+           vy
+          </code>
+          provide the velocity in 2D.
+         </p>
+         <ul>
+          <li>
+           <p>
+            A
+            <code>
+             RadarDetectionGenerator
+            </code>
+            function is used to generate detection points based on the returns after reflection. Every Radar detection generates a
+            <strong>
+             detection measurement
+            </strong>
+            and
+            <strong>
+             measurement noise
+            </strong>
+            matrix:
+            <br/>
+            <code>
+             detection.Measurement
+            </code>
+            and
+            <code>
+             detection.MeasurementNoise
+            </code>
+            .The detection
+            <strong>
+             measurement vector (z)
+            </strong>
+            has the format
+            <code>
+             [x;y;vx;vy]
+            </code>
+            .
+           </p>
+           <p>
+            <strong>
+             Measurement Models
+            </strong>
+           </p>
+           <p>
+            Measurements are what you observe about your system. Measurements depend on the state vector but are not always the same as the state vector.The measurement model assumes that the actual measurement at any time is related to the current state by
+           </p>
+          </li>
+         </ul>
+         <pre><code class="matlab language-matlab">z  = H*x</code></pre>
+         <p>
+          As a result, for the case above the
+          <strong>
+           measurement model
+          </strong>
+          is
+          <code>
+           H = [1 0 0 0; 0 0 1 0; 0 1 0 0; 0 0 0 1]
+          </code>
+         </p>
+         <p>
+          Using this measurement model, the state can derived from the measurements.
+         </p>
+         <pre><code class="matlab language-matlab"> x = H'*z
+state = H'*detection.Measurement</code></pre>
+         <p>
+          Further, using the generated measurement noise and measurement model define the state covariance matrix:
+         </p>
+         <pre><code class="matlab language-matlab">stateCovariance =H'*detection.MeasurementNoise*H</code></pre>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+        </h3>
+        <div>
+         <h2 id="further-research">
+          Further Research
+         </h2>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+       <div class="ud-atom">
+        <h3>
+         <p>
+          Further Research
+         </p>
+        </h3>
+        <div>
+         <p>
+          For further explanation of Kalman Filters with MATLAB, you can refer to
+          <a href="https://www.youtube.com/watch?v=mwn8xhgNpFY&amp;list=PLn8PRpmsu08pzi6EMiYnR-076Mh-q3tWr" rel="noopener noreferrer" target="_blank">
+           this video series
+          </a>
+          .
+         </p>
+        </div>
+       </div>
+       <div class="divider">
+       </div>
+      </div>
+      <div class="col-12">
+       <p class="text-right">
+        <a class="btn btn-outline-primary mt-4" href="04. MATLAB Sensor Fusion Guided Walkthrough.html" role="button">
+         Next Concept
+        </a>
+       </p>
+      </div>
+     </div>
+    </main>
+    <footer class="footer">
+     <div class="container">
+      <div class="row">
+       <div class="col-12">
+        <p class="text-center">
+         udacity2.0 If you need the newest courses Plase add me wechat: udacity6
+        </p>
+       </div>
+      </div>
+     </div>
+    </footer>
+   </div>
+  </div>
+  <script src="../assets/js/jquery-3.3.1.min.js">
+  </script>
+  <script src="../assets/js/plyr.polyfilled.min.js">
+  </script>
+  <script src="../assets/js/bootstrap.min.js">
+  </script>
+  <script src="../assets/js/jquery.mCustomScrollbar.concat.min.js">
+  </script>
+  <script src="../assets/js/katex.min.js">
+  </script>
+  <script>
+   // Initialize Plyr video players
+    const players = Array.from(document.querySelectorAll('video')).map(p => new Plyr(p));
+
+    // render math equations
+    let elMath = document.getElementsByClassName('mathquill');
+    for (let i = 0, len = elMath.length; i < len; i += 1) {
+      const el = elMath[i];
+
+      katex.render(el.textContent, el, {
+        throwOnError: false
+      });
+    }
+
+    // this hack will make sure Bootstrap tabs work when using Handlebars
+    if ($('#question-tabs').length && $('#user-answer-tabs').length) {
+      $("#question-tabs a.nav-link").on('click', function () {
+        $("#question-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+      $("#user-answer-tabs a.nav-link").on('click', function () {
+        $("#user-answer-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    } else {
+      $("a.nav-link").on('click', function () {
+        $(".tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    }
+
+    // side bar events
+    $(document).ready(function () {
+      $("#sidebar").mCustomScrollbar({
+        theme: "minimal"
+      });
+
+      $('#sidebarCollapse').on('click', function () {
+        $('#sidebar, #content').toggleClass('active');
+        $('.collapse.in').toggleClass('in');
+        $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+      });
+
+      // scroll to first video on page loading
+      if ($('video').length) {
+        $('html,body').animate({ scrollTop: $('div.plyr').prev().offset().top});
+      }
+
+      // auto play first video: this may not work with chrome/safari due to autoplay policy
+      if (players && players.length > 0) {
+        players[0].play();
+      }
+
+      // scroll sidebar to current concept
+      const currentInSideBar = $( "ul.sidebar-list.components li a:contains('03. Kalman Tracking')" )
+      currentInSideBar.css( "text-decoration", "underline" );
+      $("#sidebar").mCustomScrollbar('scrollTo', currentInSideBar);
+    });
+  </script>
+ </body>
+</html>

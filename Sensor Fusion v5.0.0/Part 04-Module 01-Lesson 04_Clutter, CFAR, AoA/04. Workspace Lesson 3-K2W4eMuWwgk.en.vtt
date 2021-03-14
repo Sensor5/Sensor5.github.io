@@ -1,0 +1,157 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.080 --> 00:00:03.390
+So here we are implementing the 1D_CFAR using
+
+00:00:03.390 --> 00:00:07.570
+the lagging cells on the given noise and target scenario.
+
+00:00:07.660 --> 00:00:12.794
+First, we pick the number of samples on which we want to run the CFAR.
+
+00:00:12.794 --> 00:00:16.079
+Then, we generate the noise using
+
+00:00:16.079 --> 00:00:20.954
+the same number of samples and take the absolute value of it.
+
+00:00:20.954 --> 00:00:23.849
+Now, what you want to do is,
+
+00:00:23.850 --> 00:00:27.885
+you want to use the random amplitudes an the same noise
+
+00:00:27.885 --> 00:00:33.045
+samples to create the mock targets.
+
+00:00:33.045 --> 00:00:36.765
+So here, I'm putting a noise,
+
+00:00:36.765 --> 00:00:40.509
+putting a random amplitude at noise being 100,
+
+00:00:40.509 --> 00:00:44.344
+200, 350, and 700,
+
+00:00:44.344 --> 00:00:49.939
+and the value of those amplitudes are 8, 15, 7, 13.
+
+00:00:49.939 --> 00:00:52.114
+You can use any number you want.
+
+00:00:52.115 --> 00:00:55.635
+If you want, you can plot the output of this.
+
+00:00:55.634 --> 00:00:58.489
+So let's put a break point and see how does
+
+00:00:58.490 --> 00:01:03.300
+the signal look like at this point. There you go.
+
+00:01:03.299 --> 00:01:06.509
+So as you can see, we have the noise at the bottom,
+
+00:01:06.510 --> 00:01:12.035
+and then we have these high amplitude signals which we gave at 100th pin,
+
+00:01:12.034 --> 00:01:16.890
+200th pin, 350th pin, and 700th pin.
+
+00:01:19.519 --> 00:01:22.140
+Now, it's time for some fun.
+
+00:01:22.140 --> 00:01:27.560
+We want to apply the CFAR on the same signal. How do we start?
+
+00:01:27.560 --> 00:01:32.159
+First, we pick the number of training cells and guard cells.
+
+00:01:32.750 --> 00:01:35.939
+Try using any number.
+
+00:01:35.939 --> 00:01:39.329
+Then, we use the offset.
+
+00:01:39.329 --> 00:01:41.944
+Here, since you are working with the linear values,
+
+00:01:41.944 --> 00:01:44.454
+you multiply the offset to the threshold.
+
+00:01:44.454 --> 00:01:46.260
+Before you start the loop,
+
+00:01:46.260 --> 00:01:51.575
+create a vector to hold the threshold values as well as the thresholding signal values.
+
+00:01:51.575 --> 00:01:54.240
+So it's easier to plot at the end.
+
+00:01:54.530 --> 00:01:56.855
+Now, we run the loop.
+
+00:01:56.855 --> 00:02:02.359
+So we run the first training cells starting from the first pin,
+
+00:02:02.359 --> 00:02:06.590
+and we keep stepping it through till the end of the vector.
+
+00:02:06.590 --> 00:02:13.525
+But make sure that you give the room for last set of guard and training cells,
+
+00:02:13.525 --> 00:02:16.069
+along with the cell in the test.
+
+00:02:16.069 --> 00:02:20.889
+In the next step, combine all the noise across all the training cells,
+
+00:02:20.889 --> 00:02:26.839
+then take that summation of the noise and divide by the number of training cells.
+
+00:02:26.840 --> 00:02:30.710
+This gives you the average noise level in each training cell.
+
+00:02:30.710 --> 00:02:35.790
+Multiply that value by the offset to get the threshold.
+
+00:02:35.789 --> 00:02:39.215
+This is our CFAR threshold.
+
+00:02:39.215 --> 00:02:45.125
+Now, measure the signal level at cell under test.
+
+00:02:45.125 --> 00:02:48.860
+This cell will be located at training plus
+
+00:02:48.860 --> 00:02:52.865
+guard cells away from where the first string cell is.
+
+00:02:52.865 --> 00:02:57.590
+If the signal under the cell and the test is less than the threshold,
+
+00:02:57.590 --> 00:03:01.240
+then assign the signal a value of zero.
+
+00:03:01.240 --> 00:03:07.645
+Here, we plot the threshold noise signal and thresholded signal.
+
+00:03:07.645 --> 00:03:10.590
+So if you run the complete code,
+
+00:03:10.590 --> 00:03:14.104
+this is how we get the signal output.
+
+00:03:14.104 --> 00:03:18.619
+So the red threshold here is the CFAR threshold.
+
+00:03:18.620 --> 00:03:23.355
+As you can see, it aligns well with
+
+00:03:23.354 --> 00:03:29.669
+all the targets and effectively suppresses all the noise.
+
+00:03:29.669 --> 00:03:34.769
+This is how our target response looks like.
+
